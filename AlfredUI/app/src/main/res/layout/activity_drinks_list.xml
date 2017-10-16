@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.lazybots.alfredui.Activity_DrinksList">
+
+    <GridView
+        android:id="@+id/drinksGrid"
+        android:layout_width="366dp"
+        android:layout_height="354dp"
+        android:layout_marginTop="150dp"
+        android:gravity="bottom|left"
+        android:numColumns="auto_fit"
+        android:paddingTop="75dp"
+        tools:layout_editor_absoluteX="9dp"
+        tools:layout_editor_absoluteY="122dp" />
+
+    <NumberPicker
+        android:id="@+id/tableNum"
+        android:layout_width="50dp"
+        android:layout_height="75dp"
+        android:backgroundTint="@android:color/darker_gray"
+        android:theme="@android:style/Widget.Material.NumberPicker"
+        tools:layout_editor_absoluteX="317dp"
+        tools:layout_editor_absoluteY="31dp" />
+
+</android.support.constraint.ConstraintLayout>
