@@ -67,7 +67,7 @@ HTTP.createServer(function(req, res) {
 					}
 				});
 			});
-		} else if (url.pathname.toLowerCase().replace(/\//, '') === 'checkToken') {
+		} else if (url.pathname.toLowerCase().replace(/\//, '') === 'checktoken') {
 			var auth = HELPER.caseInsensitiveKey(req.headers, 'authorization');
 			var resp_auth = {
 				valid: true
