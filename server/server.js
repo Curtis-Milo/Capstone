@@ -67,6 +67,37 @@ HTTP.createServer(function(req, res) {
 					}
 				});
 			});
+		} else if (url.pathname.toLowerCase().replace(/\//, '') === 'checktoken') {
+			var auth = HELPER.caseInsensitiveKey(req.headers, 'authorization');
+			var resp_auth = {
+				valid: true
+			};
+
+			if (! auth) {
+				res.writeHead(200, {'Content-Type': 'application/json'});
+				resp_auth.valid = false;
+				res.write(JSON.stringify(resp_auth));
+				res.end();
+				return;
+			}
+
+			var token = auth.trim().split(' ')[1];
+
+			tokenGen.checkToken(token, function(tokenErr, passed) {
+				if (tokenErr) {
+					res.writeHead(500, tokenErr, {'Content-Type': 'text/html'});
+					res.end();
+					return;
+				}
+
+				if (! passed) {
+					resp_auth.valid = false;
+				}
+
+				res.writeHead(200, {'Content-Type': 'application/json'});
+				res.write(JSON.stringify(resp_auth));
+				res.end();
+			});
 		} else {
 			res.writeHead(404, 'No such method', {'Content-Type': 'text/html'});
 			res.end();
