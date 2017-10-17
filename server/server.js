@@ -91,11 +91,7 @@ HTTP.createServer(function(req, res) {
 				}
 
 				if (! passed) {
-					res.writeHead(200, {'Content-Type': 'application/json'});
 					resp_auth.valid = false;
-					res.write(JSON.stringify(resp_auth));
-					res.end();
-					return;
 				}
 
 				res.writeHead(200, {'Content-Type': 'application/json'});
