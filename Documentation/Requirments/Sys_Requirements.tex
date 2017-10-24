@@ -1,0 +1,950 @@
+% Document uses 12 pt font
+% 1 in margins
+% Contains a relative path for images
+
+\documentclass [11pt]{article}
+
+% page geometry 
+\usepackage[margin=1in]{geometry}
+
+
+% ----------  PACKAGES START ------------ %
+
+% Table cell color
+\usepackage[table]{xcolor}
+
+
+% VIC title package
+\usepackage{cabin}
+\usepackage[T1]{fontenc}
+
+% default font package
+%\usepackage{times}
+\usepackage{helvet}
+%\renewcommand{\familydefault}{\sfdefault}
+
+% ---------- End Font Packages -------------- %
+
+% Title Packages
+\usepackage{titlesec}
+\usepackage{titletoc}
+
+% Image Package
+\usepackage{graphicx}
+
+% Table Packages
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{array}
+\renewcommand{\arraystretch}{1.2}% Spread rows out evenly in table
+
+% Color Packages
+\usepackage{color}   
+\definecolor{sectionC}{rgb}{0.95,0.52,.0}
+\definecolor{subsectionC}{rgb}{1.0,.64,.26}
+\definecolor{subsubsectionC}{rgb}{1.0,.87,.68}
+\definecolor{tableCell}{rgb}{.98,.81,.69}
+
+
+% List package
+\usepackage{enumitem}
+\setenumerate{itemsep=0pt, itemindent=0in,leftmargin=0.5in}
+
+% Paragraph parameter
+
+\setlength{\parindent}{0pt}
+
+
+% ------------- Creates a linked Table of Contents  Start --------------- %
+\usepackage{hyperref}
+\hypersetup{
+colorlinks=true, %set true if you want colored links
+linktoc=all,     %set to all if you want both sections and subsections linked
+linkcolor=black,}  %choose some color if you want links to stand out
+
+% ------------- Creates a click-able Table of Contents  End--------------- %
+
+% ---------- PACKAGES END ------------ %
+
+
+
+% ------------------- START HEADER AND FOOTER ---------------------------%
+\usepackage{fancyhdr}
+
+% Helps with the n of total n pages
+\usepackage{lastpage}
+
+\pagestyle{fancy}
+
+% Header
+\lhead{System Requirements }
+\rhead{Revision: 1}
+\fancyhead[LE,CO]{Group 9: LazyBots}
+
+% Removes line under the header 
+\renewcommand{\headrulewidth}{0pt}
+\setlength{\headsep}{.2in}
+
+% Footer 
+
+% Set the right side of the footer to be the page number
+\fancyfoot[R]{Page \textbf{\thepage}\ of \textbf{\pageref{LastPage}}}
+\fancyfoot[C]{}
+
+% ------------------- END HEADER AND FOOTER ---------------------------%
+
+
+% -------- SECTION AND SUBSECTION FORMATING START -------- % 
+% starts the 
+%\setcounter{section}{1}
+
+
+\titleformat{\section} % Section
+{\normalfont \fontsize{14}{14} \bfseries}{}{0em}{\colorsection}
+
+% Makes a background color
+\newcommand{\colorsection}[1]{%
+  \colorbox{sectionC}{\parbox{\dimexpr\textwidth-1\fboxsep}{\color{black}\Large\thesection\ \hspace{1mm} #1}}}
+
+% Makes a background color
+\titleformat{\subsection} % Subsection
+{\normalfont \fontsize{12}{12}  \bfseries}{}{0em}{\colorsubsection }
+
+\newcommand{\colorsubsection}[1]{%
+  \colorbox{subsectionC}{\parbox{\dimexpr \textwidth -1\fboxsep}{\large\thesubsection\ #1}}}
+
+
+% Makes a background color
+\titleformat{\subsubsection} % Subsubsection
+{\normalfont \fontsize{12}{12} \bfseries}{}{0em}{\colorsubsubsection}
+
+\newcommand{\colorsubsubsection}[1]{%
+  \colorbox{subsubsectionC}{\parbox{\dimexpr\textwidth-1\fboxsep}{\thesubsubsection\ #1}}}
+
+% -------- SECTION AND SUBSECTION FORMATING END -------- % 
+\usepackage{lipsum}
+
+
+% -----  IMAGE PATH START -----%
+% Relative Image Path
+\graphicspath {figures/}
+% -----  IMAGE PATH END -----%
+
+% ------ PARAGRAPH FORMAT START ----%
+%\setlength{\parskip}{.2em}% Sets the space between new paragraph items 
+\setlength{\parindent}{0em} % paragraph indent
+% ------ PARAGRAPH FORMAT END ----%
+
+
+
+
+%------------------------------TOC FORMAT START --------------------------------%
+\usepackage{tocloft}
+
+% Section indentations
+\cftsetindents{section}{0em}{1.5em}
+\cftsetindents{subsection}{1em}{2em}
+\cftsetindents{subsubsection}{2em}{3em}
+
+% Toc title size
+\renewcommand\cfttoctitlefont{\Large\bfseries}
+
+% Removes bold headings from toc
+%\renewcommand{\cftsecfont}{\normalfont}
+
+% Removes bold heading page numbers from toc
+\renewcommand{\cftsecpagefont}{\normalfont}
+
+% add dots after headings
+%\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}} 
+
+
+% number of section headings we want to see in toc
+\setcounter{tocdepth}{2}
+
+% Spaceing before headings in toc
+\setlength{\cftbeforesecskip}{6pt}
+
+% ------------------------------TOC FORMAT END --------------------------------%
+
+
+% -------------- DOCUMENT START ---------------%
+\begin{document}
+
+% --------- TITLE PAGE START ------- %
+\begin {center} 
+
+\thispagestyle{empty}
+\vspace*{4.5cm}
+
+% Logo Insertion
+%\begin {figure}[h!]
+%\centering
+%\hspace{-10mm}\includegraphics [scale = .3, trim={.4cm 0 .8cm 0},clip] {figures/alfred.png}
+%\end {figure}
+
+{\fontfamily{\cabinfamily}\selectfont
+\Huge{LazyBots} }
+
+\vspace{1 cm}
+{\Large \textbf{\textsc{McMaster University}}\\}  \vspace {1cm}
+{\Large System Requirements\\ \vspace {0.4 cm} SE 4G06 \& TRON 4TB6}  \vspace {1cm}
+
+{\large \textsc{Group 9} \\} \vspace{1cm}
+
+
+\begin{tabular}{ l c  l}
+Karim Guirguis & & 001307668 \\
+David Hemms & & 001309228 \\
+Marko Laban & & 001300989 \\
+Curtis Milo & & 001305877 \\
+Keyur Patel & & 001311559 \\
+Alexandra Rahman & & 001305735
+\end{tabular}
+
+
+
+
+
+
+
+
+\end{center}
+
+% --------- TITLE PAGE END------- %
+
+\pagebreak
+
+% Inserting table of contents and table of figures 
+
+\tableofcontents
+\listoftables
+\listoffigures
+
+
+
+\pagebreak
+
+% --------------------------------------------------------- REVISION HISTORY ---------------------------------------------------------
+
+\section{Revisions}
+\begin{longtable}{| p{.2\textwidth } | p{.21\textwidth } | p{.21\textwidth } | p{.27\textwidth } |}\caption{LazyBots Revision Table} \\\hline 
+
+% ------------------------- Header line -------------------------
+\centering \textbf{Date} & 
+\multicolumn{1}{c|}{\textbf {Revision Number}} &
+\multicolumn{1}{c|}{\textbf {Authors}} & 
+\multicolumn{1}{c|}{\textbf {Comments}} \\ \hline
+
+
+
+%\multicolumn{1}{|c|}{\multirow{1}{*}{\centering March 8, 2017}}  & 
+%\multicolumn{1}{c|}{\multirow{1}{*}{Revision 1}} &
+%\begin{minipage}{.21\columnwidth}
+%    Alex Jackson \newline
+%    Jean Lucas Ferreira \newline
+%    Justin Kapinski\newline
+%    Mathew Hobers\newline
+%    Radhika Sharma\newline
+%    Zachary Bazen     
+%\end{minipage}&
+%\begin{minipage} {.27 \columnwidth}
+%    \begin{enumerate}[label = - , leftmargin=0.15in]
+%        \itemsep -.5em
+%        \item Updated scope of the project
+%        \item Created new and revised likelihood of change table
+%        \item Improved privacy requirements
+%        \item Removed unused system constants section
+%        \item Updated additional nonfunctional requirements\vspace{1mm}
+%    \end{enumerate}
+%\end{minipage}\\ \hline 
+%
+%
+%\multicolumn{1}{|c|}{\multirow{1}{*}{\centering March 3, 2017}}  & 
+%\multicolumn{1}{c|}{\multirow{1}{*}{Revision 1}} &
+%\begin{minipage}{.21\columnwidth}
+%    Alex Jackson \newline
+%    Jean Lucas Ferreira \newline
+%    Justin Kapinski\newline
+%    Mathew Hobers\newline
+%    Radhika Sharma\newline
+%    Zachary Bazen     
+%\end{minipage}&
+%\begin{minipage} {.27 \columnwidth}
+%    \begin{enumerate}[label = - , leftmargin=0.15in]
+%        \itemsep -.5em
+%        \item Update system\\ requirements
+%        \item Added requirement\\ rationale
+%        \item Updated system\\ assumptions
+%        \item Removed monitored and controlled variables \vspace{1mm}
+%    \end{enumerate}
+%\end{minipage}\\ \hline 
+%
+%% Botttom Row
+%\multicolumn{1}{|c|}{\multirow{1}{*}{November 29,2016}} &
+%\multicolumn{1}{c|}{\multirow{1}{*}{Revision 1}}& 
+%\multirow{1}{*}{Zachary Bazen} &
+%\begin{minipage} {.27 \columnwidth}
+%    \begin{enumerate}[label = - , leftmargin=0.15in]
+%        \itemsep -.5em
+%        \item Updated  monitored  and controlled variables
+%        \item Updated naming  conventions \vspace{1mm}
+%    \end{enumerate}
+%\end{minipage}\\ \hline 
+%
+%
+\multirow{5}{*}{\centering October 6\textsuperscript{th}, 2017}  & 
+\multicolumn{1}{c|}{\multirow{5}{*}{Revision 0}}& 
+{Karim Guirguis \newline
+David Hemms \newline
+Marko Laban \newline
+Curtis Milo \newline
+Keyur Patel \newline
+Alexandra Rahman}
+&
+ \multicolumn{1}{c|}{\multirow{5}{*}{N/A}} \\ 
+\hline 
+
+\end{longtable}
+
+\pagebreak
+
+% ----------------------------------------------------- REVISION HISTORY END -----------------------------------------------------
+
+
+% --------------------------------------------------------- PROJECT DRIVERS ---------------------------------------------------------
+\section {\textbf{Project Drivers}}
+
+% -------------------------------------------------------- Purpose of the Project --------------------------------------------------------
+\subsection{The Purpose of the Project} 
+Include the Purpose of the Project
+%The purpose of this project will be create a system that allows autonomous cars to navigate through  intersections. Currently, when multiple autonomous cars arrive at an intersection simultaneously,the vehicles have no way of determining in which order to proceed. This is due to the lack of a decision making protocol. VIC will strive to solve these problems.  \newline
+%
+%
+%Vehicle Intersection Control (also known as VIC) will allow autonomous vehicles to make navigation decisions at intersections. VIC will accomplish this by receiving signals from vehicles, using a scheduling algorithm to determine the proceed order, and then communicating the order back to the corresponding vehicle. To ensure safety, VIC will only signal a vehicle to proceed after it determines that the intersection is clear. \newline
+%
+%The following document will outline the functional and nonfunctional requirements of VIC.  Other topics that will be covered pertaining to VIC will include: Scope, Project Drivers, Project Constraints, Likely Changes and Project Issues.
+
+% ------------------------------------------------------------------ Scope ------------------------------------------------------------------
+\subsection{Scope}
+Include the Scope of the Project
+%To meet the time and budget constraints, VIC will be implemented in a lab setting. The system will assume ideal weather, track, and lighting conditions. To further constraint the project, various real world conditions will be ignored. Some real world conditions that will be ignored include non-autonomous vehicles and vehicles turning at the intersection. 
+
+% -------------------------------------------- Client, Customer and Other Stakeholders --------------------------------------------
+\subsection{The Client, the Customer, and Other Stakeholders}
+
+\subsubsection{Client and Customer}
+Include Client and Customers
+%	The client for this project is Shaun Marshall who is the engineering group manager at General Motors. 
+
+\subsubsection{Stakeholders}
+ Include Stakeholders
+% 	The stakeholders consists of:
+% 		\begin{itemize}
+%
+% 		\item The developers and system designers of VIC
+% 		\item Dr. Alan Wassyng, the project supervisor
+% 		\item The teaching assistants of the course
+% 		\end{itemize} 
+
+% --------------------------------------------------------- Users of the Product ---------------------------------------------------------
+\subsection{Users of the Product} 
+Include the Users of the Product
+%This product is expected to be used by researchers in the field of autonomous vehicle control.  VIC will act as a prototype to solve the problem of intersection control for autonomous vehicles.  It is expected that VIC will be used to create a larger system that will accomplish what VIC does, as well as accounting for a real world environment.  VIC is not expected to be used by autonomous cars in a real world environment. 
+
+% ------------------------------------------------------ PROJECT DRIVERS END ------------------------------------------------------
+
+
+% ----------------------------------------------------- PROJECT CONSTRAINTS -----------------------------------------------------
+\section{\textbf{Project Constraints}}
+
+% --------------------------------------------------------- Mandated Constraints ---------------------------------------------------------
+\subsection{Mandated Constraints}
+%Vehicle intersection control has several mandated constraints tabled below. 
+Text, Text, Text
+
+\begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
+\rowcolor{tableCell}\textbf{MC1} & \textbf{The cost of the project must not exceed \$750 dollars.} \\ \hline
+\textbf{Rationale} & The project must be economically feasible and cannot be an off-the-shelf solution.\\ \hline 
+\end{longtable}
+
+\begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
+\rowcolor{tableCell}\textbf{MC2}& \textbf{Constraint 2}\\ \hline 
+\textbf{Rationale} & Text\\ \hline 
+\end{longtable}
+
+\begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
+\rowcolor{tableCell}\textbf{MC3} & \textbf{Constraint 3} \\ \hline
+\textbf{Rationale} & Text\\ \hline
+\end{longtable}
+
+\begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
+\rowcolor{tableCell}\textbf{MC4} & \textbf{Constraint} \\ \hline
+\textbf{Rationale} & Text \\ \hline
+\end{longtable}
+
+% ----------------------------------------------- Naming Conventions and Definitions -----------------------------------------------
+\subsection{Naming Conventions and Definitions}
+
+% ---------------------------- Naming Conventions ----------------------------%
+\subsubsection{Naming Conventions}
+Note: The following naming conventions apply to this document specifically. 
+%\begin{longtable}{ |p{.24\textwidth }  p{.72\textwidth }|}  \hline
+%
+%\textbf{T\#} &  Track requirement identification  and number \\ 
+%
+%\cellcolor{tableCell}\textbf{V\#}  & \cellcolor{tableCell}Remote control vehicle requirement identification  and number \\ 
+%
+%\textbf{IC\#} & Intersection control requirement identification  and number \\ 
+%
+%\cellcolor{tableCell}\textbf{MC\#} &  \cellcolor{tableCell}Mandated project constraints identification and number \\ 
+%
+%
+%\textbf{A\#} & Project assumptions identification and number \\ \hline
+%
+%\end{longtable}
+
+% --------------------------------- Definitions ---------------------------------%
+\subsubsection{Definitions}
+%\begin{enumerate}
+%	\itemsep0pt
+%	\item \textbf{VIC} - The name given to the overall intersection control system
+%	\item \textbf{IC} - Intersection Controller; the portion of the system that will control the intersection and make scheduling decisions. 
+%	\item \textbf{VC} - Vehicle Controller, The portion of the system that will facilitate navigation of the track by the car. 
+%\end{enumerate}
+
+% ------------------------------------------------- Relevant Facts and Assumptions -------------------------------------------------
+\subsection{Relevant Facts and Assumptions} 
+
+% --------------------------------- Relevant Facts ---------------------------------%
+\subsubsection{Relevant Facts}
+\begin{itemize}
+	\item N/A
+\end{itemize}
+
+% ---------------------------------- Assumptions ----------------------------------%
+\subsubsection{Assumptions}
+VIC assumptions tabled below. 
+\begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
+\rowcolor{tableCell}\textbf{A1} & Assumption 1 \\ \hline
+\textbf{Rationale} & Text \\ \hline 
+\end{longtable}
+
+\begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
+\rowcolor{tableCell}\textbf{A2} & Assumption 2 \\ \hline
+\textbf{Rationale} &  Text\\ \hline
+\end{longtable}
+
+\begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
+\rowcolor{tableCell}\textbf{A3} & Assumption 3 \\ \hline
+\textbf{Rationale} &  Text \\ \hline
+\end{longtable}
+
+\begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
+\rowcolor{tableCell}\textbf{A4} &Assumption 4 \\ \hline
+\textbf{Rationale} &  Text\\ \hline
+\end{longtable}
+
+% ------------------------------------------------- PROJECT CONSTRAINTS END -------------------------------------------------
+
+
+% -------------------------------------------------------- CONTEXT DIAGRAMS --------------------------------------------------------
+\section{Context Diagrams}
+\textbf{Insert images of context diagrams}
+%\begin{figure} [h!]
+%	\centering
+%	\includegraphics [scale = 0.8] {figures/IC_ContextDiagram.pdf}
+%	\caption{Intersection Controller Context Diagram}
+%\end{figure}
+%\break
+%\begin{figure} [h!]
+%	\centering
+%	\includegraphics [scale =0.8] {figures/CarCtrl_ContextDiag.pdf}
+%	\caption{Car Controller Context Diagram}
+%\end{figure}
+
+% ---------------------------------------------------- CONTEXT DIAGRAMS END ----------------------------------------------------
+
+
+% ------------------------------------------------- FUNCTIONAL REQUIREMENTS -------------------------------------------------
+\section {Functional Requirements} 
+Intro sentence
+%The requirements for this project are separated into the three main components of the system: the track, vehicle, and intersection controller.
+
+
+
+% Track Requirements
+
+% if one requirements gets deleted it will be shown in the requirement likelihood of change as ??
+% with all the other labels numbers updated
+
+ % ------ NOTE ------% 
+% CAN ONLY ADD REQUIREMENTS TO END OF LIST WITH OWN UNIQUE LABEL
+% Which would then have to be put at the end of the requirement group in likelihood of change section
+% If we add requirements in the middle, the likelihood of change will get messed up
+
+% ---------------------------------------------- Alfred Functional Requirements ---------------------------------------------
+\subsection{Alfred Functional Requirements}
+
+\begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
+\rowcolor{tableCell}\textbf{?1} & Alfred shall be able to determine the desired drinks for a table within the restaurant \\ \hline
+\textbf{Rationale} & It is essential for Alfred to be able receive the order of the drinks to be able to pour drinks for the customers\\ \hline 
+\end{longtable}
+
+\begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
+\rowcolor{tableCell}\textbf{?2} & Alfred shall be able to identify the table that a specific drink order belongs to.\\ \hline
+\textbf{Rationale} &  This is so that Alfred will be able to able to pour the drinks to the correct tables\\ \hline 
+
+\end{longtable}
+
+\begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
+\rowcolor{tableCell}\textbf{?3} &  Alfred shall be able to navigate to the table that corresponds to a specific drink order. \\ \hline
+\textbf{Rationale} & This allows Alfred to be able to move without the help from any person. \\ \hline 
+%Maybee use discrete math to show this?
+\end{longtable}
+
+\begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
+\rowcolor{tableCell}\textbf{?4} & Alfred shall be able to pour the correct drinks corresponding to the specific tables order.\\ \hline
+\textbf{Rationale} &  This is that Alfred will be able to pour the drinks for the customers without the need for any human interference. \\ \hline 
+\end{longtable}
+
+\begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
+	\rowcolor{tableCell}\textbf{?5} & Alfred shall be able to pour the correct amount for the drink based on the size of the cup.\\ \hline
+	\textbf{Rationale} &  This is that Alfred will be able to pour correct amount of liquid for the user so it will not be under or over filled. \\ \hline 
+	%Specify the cup size
+\end{longtable}
+
+\begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
+	\rowcolor{tableCell}\textbf{?6} & Alfred shall be able to determine when liquids within Alfred's Storage are not cold enough.\\ \hline
+	\textbf{Rationale} &  In order to ensure that the drinks that will be served will meet FDA food regulations. \\ \hline 
+	%Quanitify this with a number?
+\end{longtable}
+
+\begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
+	\rowcolor{tableCell}\textbf{?7} & Alfred shall be able to notify the staff that that the liquids within Alfred's Storage are not cold enough\\ \hline
+	\textbf{Rationale} &  So that the staff will be able to make the appropriate action to cool the drinks down.\\ \hline 
+\end{longtable}
+
+\begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
+	\rowcolor{tableCell}\textbf{?8} & Alfred shall be able to determine that any of the liquids within Alfred's Storage are not at sufficient level to be able to pour a cup of the specific beverage. \\ \hline
+	\textbf{Rationale} &  This is so that Alfred will be able to know when it will need to be refilled.\\ \hline 
+\end{longtable}
+
+\begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
+	\rowcolor{tableCell}\textbf{?9} & Alfred shall be able to notify the staff that that any of the liquids within Alfred's Storage are not at sufficient level to be able to pour a cup of the specific beverage. \\ \hline
+	\textbf{Rationale} &  This is so that Alfred will be able to receive aid from the staff so that it can continue to fulfill drink orders.\\ \hline 
+\end{longtable}
+
+\begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
+	\rowcolor{tableCell}\textbf{?10} & Alfred shall be able to stop for when an obstacle is in the way of Alfred \\ \hline
+	\textbf{Rationale} &  This is so that Alfred will be able to ensure that the customers will remain safe when around them and that Alfred will not cause property damage.\\ \hline 
+	%Specify the distance
+\end{longtable}
+
+
+\begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
+	\rowcolor{tableCell}\textbf{?11} & Alfred Shall be able to determine when an aspect will no longer be functional due to low power. \\ \hline
+	\textbf{Rationale} &  This is so that Alfred will be able to take the appropriate actions so that way if we can ensure that Alfred will return to base before it needs to shut down.\\ \hline 
+	%Specify using function table
+\end{longtable}
+
+\begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
+	\rowcolor{tableCell}\textbf{?12} & Alfred Shall be able to navigate back to its home base at any given point in time. \\ \hline
+	\textbf{Rationale} &  This is so that it will be able to return if there is any issues with temperature, power and drink levels. It is also so that at the end of the day the staff can request for Alfred to return back to home base\\ \hline 
+\end{longtable}
+
+\begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
+	\rowcolor{tableCell}\textbf{?13} & Alfred Shall be able to Indicate to the user when the drinks is ready for the user. \\ \hline
+	\textbf{Rationale} &  This is so that the user will know when the drink is finished and is ready.\\ \hline 
+\end{longtable}
+
+\begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
+	\rowcolor{tableCell}\textbf{?14} & Alfred Shall be complete orders in the order that they were received in. \\ \hline
+	\textbf{Rationale} &  This is so that fairness is consistent for the user.\\ \hline 
+\end{longtable}
+
+% ---------------------------------------------- Table Ordering Application ---------------------------------------------
+\subsection{Table Ordering Application Functional Requirements}
+
+\begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
+	\rowcolor{tableCell}\textbf{?15} & The ordering application shall allow the user to be able to place an order for Alfred. \\ \hline
+	\textbf{Rationale} &  This is so that Alfred will be able to bring the beverages of the table.\\ \hline 
+\end{longtable}
+
+
+\begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
+	\rowcolor{tableCell}\textbf{?16} & The ordering application shall be able to transfer the order to the list of Alfred's drink orders. \\ \hline
+	\textbf{Rationale} &  This is so that Alfred will be able to receive the specific order from the application.\\ \hline 
+\end{longtable}
+
+% ---------------------------------------------- Administrator Application ---------------------------------------------
+\subsection{Administrator Application Functional Requirements}
+
+\begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
+	\rowcolor{tableCell}\textbf{?17} & The Administrator Application shall allow the user to create a map of the restaurant for Alfred. \\ \hline
+	\textbf{Rationale} &  This is so that Alfred will be successfully be able navigate to the location of specific tables.\\ \hline 
+\end{longtable}
+
+\begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
+	\rowcolor{tableCell}\textbf{?18} & The Administrator Application shall allow the user to insert tables, obstacles and paths to travel. \\ \hline
+	\textbf{Rationale} &  This is so that Alfred will be successfully be able navigate to the location of specific tables.\\ \hline 
+\end{longtable}
+
+\begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
+	\rowcolor{tableCell}\textbf{?19} & The Administrator Application shall allow the user to view all of the orders that were created by the ordering application. \\ \hline
+	\textbf{Rationale} &  This is so that the restaurant shall be able to make bills based on this information\\ \hline 
+\end{longtable}
+
+\begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
+	\rowcolor{tableCell}\textbf{?20} & The Administrator Application shall be able to view the status of Alfred. \\ \hline
+	\textbf{Rationale} &  This is so that the restaurant staff shall be able to ensure that Alfred will remain functional\\ \hline 
+\end{longtable}
+
+
+
+% ---------------------------------------------- FUNCTIONAL REQUIREMENTS END ---------------------------------------------
+
+
+% ---------------------------------------- FUNCTIONAL DECOMPOSITION DIAGRAMS ----------------------------------------
+\section{Functional Decomposition Diagrams}
+\textbf{Insert Functional Decomposition Diagrams!}
+%\begin{figure} [h!]
+%	\caption{Functional Intersection Controller Decomposition}\bigskip
+%	\centering
+%	\includegraphics [scale =.8] {figures/function_decomp_IC.pdf}
+%	
+%\end{figure}
+%
+%\pagebreak
+%
+%\begin{figure} [h!]
+%	\caption{Functional Track Navigation Decomposition}\bigskip
+%	\centering
+%	\includegraphics [scale =.8] {figures/function_decomp_track_n.pdf}
+%	
+%\end{figure}
+
+% ------------------------------------- FUNCTIONAL DECOMPOSITION DIAGRAMS END ------------------------------------
+
+
+% ------------------------------ FUNCTIONAL REQUIREMENTS LIKELIHOOD OF CHANGE ------------------------------
+\section{Functional Requirements Likelihood of Change} 
+
+% --------------------------------------------------------------- Subsection 1 ---------------------------------------------------------------
+\subsection{Subsection 1}
+
+\begin{longtable}{| p{.15\textwidth } | p{.14\textwidth } |  p{.3\textwidth } | p{.30\textwidth } |}\hline 
+\multicolumn{1}{|c|}{\textbf {Requirement}} & 
+\begin{minipage}{.14 \columnwidth}\begin{center}\vspace{1.5mm}\textbf{Likelihood of Change}   \vspace{1.5mm} \end{center}\end{minipage}& 
+\multicolumn{1}{c|}{\textbf {Rationale}} & \multicolumn{1}{c|}{\textbf {Ways to Change}} \\ \hline
+
+\rowcolor{tableCell} \multicolumn{1}{|c|}{?1}& 
+\multicolumn{1}{|c|}{Likelihood} & Rationale & Change \\ \hline
+
+\multicolumn{1}{|c|}{?2}& 
+\multicolumn{1}{|c|}{Likelihood} & Rationale & Change \\ \hline
+
+\rowcolor{tableCell} \multicolumn{1}{|c|}{?3}& 
+\multicolumn{1}{|c|}{Likelihood} & Rationale & Change \\ \hline
+
+\multicolumn{1}{|c|}{?4}& 
+\multicolumn{1}{|c|}{Likelihood} & Rationale & Change \\ \hline
+\end{longtable}
+
+% --------------------------------------------------------------- Subsection 2 ---------------------------------------------------------------
+\subsection{Subsection 2}
+
+\begin{longtable}{| p{.15\textwidth } | p{.14\textwidth } |  p{.3\textwidth } | p{.30\textwidth } |}\hline 
+\multicolumn{1}{|c|}{\textbf {Requirement}} & 
+\begin{minipage}{.14 \columnwidth}\begin{center}\vspace{1.5mm}\textbf{Likelihood of Change}   \vspace{1.5mm} \end{center}\end{minipage}& 
+\multicolumn{1}{c|}{\textbf {Rationale}} & \multicolumn{1}{c|}{\textbf {Ways to Change}} \\ \hline
+
+\rowcolor{tableCell} \multicolumn{1}{|c|}{??1}& 
+\multicolumn{1}{|c|}{Likelihood} & Rationale & Change \\ \hline
+
+\multicolumn{1}{|c|}{??2}& 
+\multicolumn{1}{|c|}{Likelihood} & Rationale & Change \\ \hline
+
+\rowcolor{tableCell} \multicolumn{1}{|c|}{??3}& 
+\multicolumn{1}{|c|}{Likelihood} & Rationale & Change \\ \hline
+
+\multicolumn{1}{|c|}{??4}& 
+\multicolumn{1}{|c|}{Likelihood} & Rationale & Change \\ \hline
+\end{longtable}
+
+% --------------------------------------------------------------- Subsection 3 ---------------------------------------------------------------
+\subsection{Subsection 3}
+
+\begin{longtable}{| p{.15\textwidth } | p{.14\textwidth } |  p{.3\textwidth } | p{.30\textwidth } |}\hline 
+\multicolumn{1}{|c|}{\textbf {Requirement}} & 
+\begin{minipage}{.14 \columnwidth}\begin{center}\vspace{1.5mm}\textbf{Likelihood of Change}   \vspace{1.5mm} \end{center}\end{minipage}& 
+\multicolumn{1}{c|}{\textbf {Rationale}} & \multicolumn{1}{c|}{\textbf {Ways to Change}} \\ \hline
+
+\rowcolor{tableCell} \multicolumn{1}{|c|}{??1}& 
+\multicolumn{1}{|c|}{Likelihood} & Rationale & Change \\ \hline
+
+\multicolumn{1}{|c|}{??2}& 
+\multicolumn{1}{|c|}{Likelihood} & Rationale & Change \\ \hline
+
+\rowcolor{tableCell} \multicolumn{1}{|c|}{??3}& 
+\multicolumn{1}{|c|}{Likelihood} & Rationale & Change \\ \hline
+
+\multicolumn{1}{|c|}{??4}& 
+\multicolumn{1}{|c|}{Likelihood} & Rationale & Change \\ \hline
+\end{longtable}
+
+% --------------------------- FUNCTIONAL REQUIREMENTS LIKELIHOOD OF CHANGE END ---------------------------
+
+
+% --------------------------------------------- NONFUNCTIONAL REQUIREMENTS  ---------------------------------------------
+\section {Nonfunctional Requirements} 
+
+% --------------------------------------------------- Look and Feel Requirements ---------------------------------------------------
+\subsection {Look and Feel Requirements}
+
+% ---------------------------- Appearance Requirements ----------------------------%
+\subsubsection{Appearance Requirements}
+	\begin{enumerate}[label=\textbf{(\roman*)}]
+		\item  Text
+	\end{enumerate}
+
+% ------------------------------- Style Requirements -------------------------------%
+\subsubsection{Style Requirements}
+	\begin{enumerate}[label=\textbf{(\roman*)}]
+		\item Text
+	\end{enumerate}
+
+% ---------------------------------------------- Usability and Humanity Requirements ----------------------------------------------
+\subsection{Usability and Humanity Requirements} 
+
+% ---------------------------- Ease of Use Requirements ----------------------------%
+\subsubsection{Ease of Use Requirements}
+	\begin{enumerate}[label=\textbf{(\roman*)}]
+		\item Text
+	\end{enumerate}
+
+% -------------- Personalization and Internalization Requirements -------------%
+\subsubsection{Personalization and Internationalization Requirements}
+	\begin{enumerate}[label=\textbf{(\roman*)}]
+		\item Text
+	\end{enumerate}
+
+% ------------------------------ Learning Requirements ------------------------------%
+\subsubsection{Learning Requirements }
+	\begin{enumerate}[label=\textbf{(\roman*)}]
+		\item Text
+	\end{enumerate}
+
+% -------------- Understandability and Politeness Requirements --------------%
+\subsubsection{Understandability and Politeness Requirements}
+	\begin{enumerate}[label=\textbf{(\roman*)}]
+		\item Text
+	\end{enumerate}
+
+% ---------------------------- Acessibility Requirements ----------------------------%		
+\subsubsection{Accessibility Requirements }
+	\begin{enumerate}[label=\textbf{(\roman*)}]
+		\item Text
+	\end{enumerate}
+ 
+ % ---------------------------------------------------- Performance Requirements ----------------------------------------------------
+\subsection{Performance Requirements}
+
+% ------------------------------- Speed Requirements -------------------------------%		
+\subsubsection{Speed Requirements }
+	\begin{enumerate}[label=\textbf{(\roman*)}]
+		\item Text
+	\end{enumerate}
+
+% -------------------------- Safety-Critical Requirements --------------------------%		
+\subsubsection{Safety-Critical Requirements }
+	\begin{enumerate}[label=\textbf{(\roman*)}]
+		\item Text
+	\end{enumerate}	
+
+% ---------------------------- Precision Requirements -----------------------------%		
+\subsubsection{Precision Requirements}
+	\begin{enumerate}[label=\textbf{(\roman*)}]
+		\item Text
+	\end{enumerate}
+
+% -------------------- Reliability or Availability Requirements ------------------%		
+\subsubsection{Reliability or Availability Requirements}
+	\begin{enumerate}[label=\textbf{(\roman*)}]
+		\item Text
+	\end{enumerate}
+
+% --------------- Robustness or Fault-Tolerance Requirements -------------%		
+\subsubsection{Robustness or Fault-Tolerance Requirements }
+	\begin{enumerate}[label=\textbf{(\roman*)}]
+		\item Text
+	\end{enumerate}
+
+% ----------------------------- Capacity Requirements ---------------------------%			
+\subsubsection{Capacity Requirements }
+	\begin{enumerate}[label=\textbf{(\roman*)}]
+		\item Text
+	\end{enumerate}
+
+% ------------------ Scalability or Extensibility Requirements ----------------%		
+\subsubsection{Scalability or Extensibility Requirements }
+	\begin{enumerate}[label=\textbf{(\roman*)}]
+		\item Text
+	\end{enumerate}
+
+% ---------------------------- Longevity Requirements --------------------------%	
+\subsubsection{Longevity Requirements }
+	\begin{enumerate}[label=\textbf{(\roman*)}]
+		\item Text
+	\end{enumerate}
+
+ % ---------------------------------------- Operational and Environmental Requirements ----------------------------------------
+\subsection{Operational and Environmental Requirements}
+
+% ---------------------- Expected Physical Requirements --------------------%	
+\subsubsection{Expected Physical Environment }
+	\begin{enumerate}[label=\textbf{(\roman*)}]
+		\item Text
+	\end{enumerate}
+
+% --------- Requirements for Interacting with Adjacent Systems --------%	
+\subsubsection{Requirements for Interacting with Adjacent Systems}
+	\begin{enumerate}[label=\textbf{(\roman*)}]
+		\item Text
+	\end{enumerate}
+
+ % ------------------------------------------- Maintainability and Support Requirements -------------------------------------------
+\subsection{Maintainability and Support Requirements }
+
+% ------------------------- Maintenance Requirements -----------------------%	
+\subsubsection{Maintenance Requirements }
+	\begin{enumerate}[label=\textbf{(\roman*)}]
+		\item Text
+	\end{enumerate}
+
+% ------------------------ Supportability Requirements ----------------------%	
+\subsubsection{Supportability Requirements }
+	\begin{enumerate}[label=\textbf{(\roman*)}]
+		\item Text
+	\end{enumerate}
+
+% ------------------------ Adaptability Requirements ------------------------%	
+\subsubsection{Adaptability Requirements}
+	\begin{enumerate}[label=\textbf{(\roman*)}]
+		\item Text
+	\end{enumerate}
+
+ % -------------------------------------------------------  Security Requirements -------------------------------------------------------
+\subsection{Security Requirements }
+
+% --------------------------- Access Requirements -------------------------%	
+\subsubsection{Access Requirements }
+	\begin{enumerate}[label=\textbf{(\roman*)}]
+		\item Text
+	\end{enumerate}
+
+% --------------------------- Integrity Requirements ------------------------%	
+\subsubsection{Integrity Requirements }
+	\begin{enumerate}[label=\textbf{(\roman*)}]
+		\item Text
+	\end{enumerate}
+
+% --------------------------- Privacy Requirements -------------------------%	
+\subsubsection{Privacy Requirements }
+	\begin{enumerate}[label=\textbf{(\roman*)}]
+		\item Text
+	\end{enumerate}
+
+% ---------------------------- Audit Requirements --------------------------%
+\subsubsection{Audit  Requirements }
+	\begin{enumerate}[label=\textbf{(\roman*)}]
+		\item Text
+	\end{enumerate} 
+
+% ------------------------- Immunity Requirements -----------------------%	
+\subsubsection{Immunity Requirements  }
+	\begin{enumerate}[label=\textbf{(\roman*)}]
+		\item Text
+	\end{enumerate}
+
+ % -----------------------------------------------  Cultural and Political Requirements -----------------------------------------------
+\subsection{Cultural and Political Requirements } 
+
+% -------------------------- Cultural Requirements ------------------------%	
+\subsubsection{Cultural Requirements }
+	\begin{enumerate}[label=\textbf{(\roman*)}]
+		\item Text
+	\end{enumerate}
+
+% ------------------------- Political Requirements -----------------------%	
+\subsubsection{Political Requirements }
+	\begin{enumerate}[label=\textbf{(\roman*)}]
+		\item Text
+	\end{enumerate}
+
+ % ---------------------------------------------------------  Legal Requirements ---------------------------------------------------------
+\subsection{Legal Requirements}
+
+% ---------------------- Compliance Requirements --------------------%
+\subsubsection{Compliance Requirements }
+	\begin{enumerate}[label=\textbf{(\roman*)}]
+		\item Text
+	\end{enumerate}
+
+% ---------------------- Standards Requirements ---------------------%	
+\subsubsection{Standards Requirements }
+	\begin{enumerate}[label=\textbf{(\roman*)}]
+		\item Text
+	\end{enumerate}
+
+% ------------------------------------------ NONFUNCTIONAL REQUIREMENTS  END ------------------------------------------
+
+% ---------------------------------------------------------- PROJECT ISSUES ----------------------------------------------------------
+\section {Project Issues} 
+
+ % -------------------------------------------------------------- Open Issues --------------------------------------------------------------
+\subsection{Open Issues}
+	\begin{enumerate}[label=\textbf{(\roman*)}]
+		\item Text
+	\end{enumerate}
+
+ % ------------------------------------------------------- Off-the-Shelf Solutions -------------------------------------------------------
+\subsection{Off-the-Shelf Solutions}
+
+% ---------------------- Ready-Made Products ---------------------%	
+\subsubsection{Ready-Made Products}
+	\begin{enumerate}[label=\textbf{(\roman*)}]
+		\item Text
+	\end{enumerate}
+
+ % ------------------------------------------------------------------- Risks -------------------------------------------------------------------
+\subsection{Risks}
+	\begin{enumerate}[label=\textbf{(\roman*)}]
+		\item Text
+	\end{enumerate}
+
+ % ------------------------------------------------------------------- Costs -------------------------------------------------------------------
+\subsection{Costs}	
+The general budget for the major components are as follow:
+\textbf{Make a long table for this...}
+%		\begin{enumerate}[label=\textbf{\Alph*}:]
+%			\item 1/10th model car (x2) \$240.00 each
+%			\item Cameras and sensors \$50.00
+%			\item Vehicle Battery (x2) and Charger \$90.00
+%			\item Raspberry Pi (x2) \$150.00
+%		\end{enumerate}
+%		
+%		Total Cost : \$530.00
+
+
+ % ------------------------------------------------------------- Waiting Room -------------------------------------------------------------
+\subsection{Waiting Room}
+	\begin{enumerate}[label=\textbf{(\roman*)}]
+		\item Text
+	    \end{enumerate} 
+
+% ------------------------------------------------------ PROJECT ISSUES END ------------------------------------------------------
+
+\end{document}
