@@ -1,12 +1,15 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.9.30)  1 NOV 2017 00:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  1 NOV 2017 11:42
 entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
 **Sys_Requirements.tex
-(Sys_Requirements.tex
-LaTeX2e <2014/05/01>
-Babel <3.9l> and hyphenation patterns for 68 languages loaded.
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\article.cls"
+(./Sys_Requirements.tex
+LaTeX2e <2015/01/01>
+Babel <3.9l> and hyphenation patterns for 79 languages loaded.
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\size11.clo"
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/size11.clo
 File: size11.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
@@ -21,22 +24,22 @@ File: size11.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.sty"
+(/usr/local/texlive/2015/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2010/09/12 v5.6 Page Geometry
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
+(/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks14
 )
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.sty"
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/ifpdf.sty
 Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
 Package ifpdf Info: pdfTeX in PDF mode is detected.
 )
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifvtex.sty"
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/ifvtex.sty
 Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
 Package ifvtex Info: VTeX not detected.
 )
-("C:\Program Files\MiKTeX 2.9\tex\generic\ifxetex\ifxetex.sty"
+(/usr/local/texlive/2015/texmf-dist/tex/generic/ifxetex/ifxetex.sty
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
 \Gm@cnth=\count87
@@ -51,31 +54,30 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 \Gm@layouthoffset=\dimen109
 \Gm@layoutvoffset=\dimen110
 \Gm@dimlist=\toks15
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.cfg"))
-("C:\Program Files\MiKTeX 2.9\tex\latex\xcolor\xcolor.sty"
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\color.cfg"
+(/usr/local/texlive/2015/texmf-dist/tex/latex/latexconfig/color.cfg
 File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
 Package xcolor Info: Driver file: pdftex.def on input line 225.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
+(/usr/local/texlive/2015/texmf-dist/tex/latex/pdftex-def/pdftex.def
 File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/infwarerr.sty
 Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
 )
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
 Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 )
 \Gread@gobject=\count90
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\colortbl\colortbl.sty"
+(/usr/local/texlive/2015/texmf-dist/tex/latex/colortbl/colortbl.sty
 Package: colortbl 2012/02/13 v1.0a Color table columns (DPC)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\tools\array.sty"
+(/usr/local/texlive/2015/texmf-dist/tex/latex/tools/array.sty
 Package: array 2014/10/28 v2.4c Tabular extension package (FMi)
 \col@sep=\dimen111
 \extrarowheight=\dimen112
@@ -97,26 +99,26 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\cabin\cabin.sty"
+(/usr/local/texlive/2015/texmf-dist/tex/latex/cabin/cabin.sty
 Package: cabin 2013/07/20 (Bob Tennent) Supports Cabin fonts for all LaTeX engi
 nes.
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifluatex.sty"
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/ifluatex.sty
 Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
 Package ifluatex Info: LuaTeX not detected.
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\xkeyval\xkeyval.sty"
+(/usr/local/texlive/2015/texmf-dist/tex/latex/xkeyval/xkeyval.sty
 Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\xkeyval\xkeyval.tex"
-("C:\Program Files\MiKTeX 2.9\tex\generic\xkeyval\xkvutils.tex"
+(/usr/local/texlive/2015/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/local/texlive/2015/texmf-dist/tex/generic/xkeyval/xkvutils.tex
 \XKV@toks=\toks18
 \XKV@tempa@toks=\toks19
 )
 \XKV@depth=\count92
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 ))
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\textcomp.sty"
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/textcomp.sty
 Package: textcomp 2005/09/27 v1.99g Standard LaTeX package
 Package textcomp Info: Sub-encoding information:
 (textcomp)               5 = only ISO-Adobe without \textcurrency
@@ -129,85 +131,86 @@ Package textcomp Info: Sub-encoding information:
 (textcomp)             only a restricted character set as indicated.
 (textcomp)             Family '?' is the default used for unknown fonts.
 (textcomp)             See the documentation for details.
-Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 71.
+Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 79.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\ts1enc.def"
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/ts1enc.def
 File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
 )
-LaTeX Info: Redefining \oldstylenums on input line 266.
-Package textcomp Info: Setting cmr sub-encoding to TS1/0 on input line 281.
-Package textcomp Info: Setting cmss sub-encoding to TS1/0 on input line 282.
-Package textcomp Info: Setting cmtt sub-encoding to TS1/0 on input line 283.
-Package textcomp Info: Setting cmvtt sub-encoding to TS1/0 on input line 284.
-Package textcomp Info: Setting cmbr sub-encoding to TS1/0 on input line 285.
-Package textcomp Info: Setting cmtl sub-encoding to TS1/0 on input line 286.
-Package textcomp Info: Setting ccr sub-encoding to TS1/0 on input line 287.
-Package textcomp Info: Setting ptm sub-encoding to TS1/4 on input line 288.
-Package textcomp Info: Setting pcr sub-encoding to TS1/4 on input line 289.
-Package textcomp Info: Setting phv sub-encoding to TS1/4 on input line 290.
-Package textcomp Info: Setting ppl sub-encoding to TS1/3 on input line 291.
-Package textcomp Info: Setting pag sub-encoding to TS1/4 on input line 292.
-Package textcomp Info: Setting pbk sub-encoding to TS1/4 on input line 293.
-Package textcomp Info: Setting pnc sub-encoding to TS1/4 on input line 294.
-Package textcomp Info: Setting pzc sub-encoding to TS1/4 on input line 295.
-Package textcomp Info: Setting bch sub-encoding to TS1/4 on input line 296.
-Package textcomp Info: Setting put sub-encoding to TS1/5 on input line 297.
-Package textcomp Info: Setting uag sub-encoding to TS1/5 on input line 298.
-Package textcomp Info: Setting ugq sub-encoding to TS1/5 on input line 299.
-Package textcomp Info: Setting ul8 sub-encoding to TS1/4 on input line 300.
-Package textcomp Info: Setting ul9 sub-encoding to TS1/4 on input line 301.
-Package textcomp Info: Setting augie sub-encoding to TS1/5 on input line 302.
-Package textcomp Info: Setting dayrom sub-encoding to TS1/3 on input line 303.
-Package textcomp Info: Setting dayroms sub-encoding to TS1/3 on input line 304.
+LaTeX Info: Redefining \oldstylenums on input line 334.
+Package textcomp Info: Setting cmr sub-encoding to TS1/0 on input line 349.
+Package textcomp Info: Setting cmss sub-encoding to TS1/0 on input line 350.
+Package textcomp Info: Setting cmtt sub-encoding to TS1/0 on input line 351.
+Package textcomp Info: Setting cmvtt sub-encoding to TS1/0 on input line 352.
+Package textcomp Info: Setting cmbr sub-encoding to TS1/0 on input line 353.
+Package textcomp Info: Setting cmtl sub-encoding to TS1/0 on input line 354.
+Package textcomp Info: Setting ccr sub-encoding to TS1/0 on input line 355.
+Package textcomp Info: Setting ptm sub-encoding to TS1/4 on input line 356.
+Package textcomp Info: Setting pcr sub-encoding to TS1/4 on input line 357.
+Package textcomp Info: Setting phv sub-encoding to TS1/4 on input line 358.
+Package textcomp Info: Setting ppl sub-encoding to TS1/3 on input line 359.
+Package textcomp Info: Setting pag sub-encoding to TS1/4 on input line 360.
+Package textcomp Info: Setting pbk sub-encoding to TS1/4 on input line 361.
+Package textcomp Info: Setting pnc sub-encoding to TS1/4 on input line 362.
+Package textcomp Info: Setting pzc sub-encoding to TS1/4 on input line 363.
+Package textcomp Info: Setting bch sub-encoding to TS1/4 on input line 364.
+Package textcomp Info: Setting put sub-encoding to TS1/5 on input line 365.
+Package textcomp Info: Setting uag sub-encoding to TS1/5 on input line 366.
+Package textcomp Info: Setting ugq sub-encoding to TS1/5 on input line 367.
+Package textcomp Info: Setting ul8 sub-encoding to TS1/4 on input line 368.
+Package textcomp Info: Setting ul9 sub-encoding to TS1/4 on input line 369.
+Package textcomp Info: Setting augie sub-encoding to TS1/5 on input line 370.
+Package textcomp Info: Setting dayrom sub-encoding to TS1/3 on input line 371.
+Package textcomp Info: Setting dayroms sub-encoding to TS1/3 on input line 372.
 
-Package textcomp Info: Setting pxr sub-encoding to TS1/0 on input line 305.
-Package textcomp Info: Setting pxss sub-encoding to TS1/0 on input line 306.
-Package textcomp Info: Setting pxtt sub-encoding to TS1/0 on input line 307.
-Package textcomp Info: Setting txr sub-encoding to TS1/0 on input line 308.
-Package textcomp Info: Setting txss sub-encoding to TS1/0 on input line 309.
-Package textcomp Info: Setting txtt sub-encoding to TS1/0 on input line 310.
-Package textcomp Info: Setting lmr sub-encoding to TS1/0 on input line 311.
-Package textcomp Info: Setting lmdh sub-encoding to TS1/0 on input line 312.
-Package textcomp Info: Setting lmss sub-encoding to TS1/0 on input line 313.
-Package textcomp Info: Setting lmssq sub-encoding to TS1/0 on input line 314.
-Package textcomp Info: Setting lmvtt sub-encoding to TS1/0 on input line 315.
-Package textcomp Info: Setting qhv sub-encoding to TS1/0 on input line 316.
-Package textcomp Info: Setting qag sub-encoding to TS1/0 on input line 317.
-Package textcomp Info: Setting qbk sub-encoding to TS1/0 on input line 318.
-Package textcomp Info: Setting qcr sub-encoding to TS1/0 on input line 319.
-Package textcomp Info: Setting qcs sub-encoding to TS1/0 on input line 320.
-Package textcomp Info: Setting qpl sub-encoding to TS1/0 on input line 321.
-Package textcomp Info: Setting qtm sub-encoding to TS1/0 on input line 322.
-Package textcomp Info: Setting qzc sub-encoding to TS1/0 on input line 323.
-Package textcomp Info: Setting qhvc sub-encoding to TS1/0 on input line 324.
-Package textcomp Info: Setting futs sub-encoding to TS1/4 on input line 325.
-Package textcomp Info: Setting futx sub-encoding to TS1/4 on input line 326.
-Package textcomp Info: Setting futj sub-encoding to TS1/4 on input line 327.
-Package textcomp Info: Setting hlh sub-encoding to TS1/3 on input line 328.
-Package textcomp Info: Setting hls sub-encoding to TS1/3 on input line 329.
-Package textcomp Info: Setting hlst sub-encoding to TS1/3 on input line 330.
-Package textcomp Info: Setting hlct sub-encoding to TS1/5 on input line 331.
-Package textcomp Info: Setting hlx sub-encoding to TS1/5 on input line 332.
-Package textcomp Info: Setting hlce sub-encoding to TS1/5 on input line 333.
-Package textcomp Info: Setting hlcn sub-encoding to TS1/5 on input line 334.
-Package textcomp Info: Setting hlcw sub-encoding to TS1/5 on input line 335.
-Package textcomp Info: Setting hlcf sub-encoding to TS1/5 on input line 336.
-Package textcomp Info: Setting pplx sub-encoding to TS1/3 on input line 337.
-Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 338.
-Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 339.
-Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 340.
+Package textcomp Info: Setting pxr sub-encoding to TS1/0 on input line 373.
+Package textcomp Info: Setting pxss sub-encoding to TS1/0 on input line 374.
+Package textcomp Info: Setting pxtt sub-encoding to TS1/0 on input line 375.
+Package textcomp Info: Setting txr sub-encoding to TS1/0 on input line 376.
+Package textcomp Info: Setting txss sub-encoding to TS1/0 on input line 377.
+Package textcomp Info: Setting txtt sub-encoding to TS1/0 on input line 378.
+Package textcomp Info: Setting lmr sub-encoding to TS1/0 on input line 379.
+Package textcomp Info: Setting lmdh sub-encoding to TS1/0 on input line 380.
+Package textcomp Info: Setting lmss sub-encoding to TS1/0 on input line 381.
+Package textcomp Info: Setting lmssq sub-encoding to TS1/0 on input line 382.
+Package textcomp Info: Setting lmvtt sub-encoding to TS1/0 on input line 383.
+Package textcomp Info: Setting lmtt sub-encoding to TS1/0 on input line 384.
+Package textcomp Info: Setting qhv sub-encoding to TS1/0 on input line 385.
+Package textcomp Info: Setting qag sub-encoding to TS1/0 on input line 386.
+Package textcomp Info: Setting qbk sub-encoding to TS1/0 on input line 387.
+Package textcomp Info: Setting qcr sub-encoding to TS1/0 on input line 388.
+Package textcomp Info: Setting qcs sub-encoding to TS1/0 on input line 389.
+Package textcomp Info: Setting qpl sub-encoding to TS1/0 on input line 390.
+Package textcomp Info: Setting qtm sub-encoding to TS1/0 on input line 391.
+Package textcomp Info: Setting qzc sub-encoding to TS1/0 on input line 392.
+Package textcomp Info: Setting qhvc sub-encoding to TS1/0 on input line 393.
+Package textcomp Info: Setting futs sub-encoding to TS1/4 on input line 394.
+Package textcomp Info: Setting futx sub-encoding to TS1/4 on input line 395.
+Package textcomp Info: Setting futj sub-encoding to TS1/4 on input line 396.
+Package textcomp Info: Setting hlh sub-encoding to TS1/3 on input line 397.
+Package textcomp Info: Setting hls sub-encoding to TS1/3 on input line 398.
+Package textcomp Info: Setting hlst sub-encoding to TS1/3 on input line 399.
+Package textcomp Info: Setting hlct sub-encoding to TS1/5 on input line 400.
+Package textcomp Info: Setting hlx sub-encoding to TS1/5 on input line 401.
+Package textcomp Info: Setting hlce sub-encoding to TS1/5 on input line 402.
+Package textcomp Info: Setting hlcn sub-encoding to TS1/5 on input line 403.
+Package textcomp Info: Setting hlcw sub-encoding to TS1/5 on input line 404.
+Package textcomp Info: Setting hlcf sub-encoding to TS1/5 on input line 405.
+Package textcomp Info: Setting pplx sub-encoding to TS1/3 on input line 406.
+Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 407.
+Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 408.
+Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 409.
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\fontenc.sty"
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\fontaxes\fontaxes.sty"
+(/usr/local/texlive/2015/texmf-dist/tex/latex/fontaxes/fontaxes.sty
 Package: fontaxes 2014/03/23 v1.0d Font selection axes
 LaTeX Info: Redefining \upshape on input line 29.
 LaTeX Info: Redefining \itshape on input line 31.
 LaTeX Info: Redefining \slshape on input line 33.
 LaTeX Info: Redefining \scshape on input line 37.
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\mweights\mweights.sty"
+(/usr/local/texlive/2015/texmf-dist/tex/latex/mweights/mweights.sty
 Package: mweights 2013/07/21 (Bob Tennent) Support package for multiple-weight 
 font packages. 
 LaTeX Info: Redefining \bfseries on input line 22.
@@ -216,17 +219,17 @@ LaTeX Info: Redefining \rmfamily on input line 36.
 LaTeX Info: Redefining \sffamily on input line 53.
 LaTeX Info: Redefining \ttfamily on input line 70.
 ))
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\fontenc.sty"
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\t1enc.def"
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/t1enc.def
 File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
-LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
+LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
 ))
-("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\helvet.sty"
+(/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/helvet.sty
 Package: helvet 2005/04/12 PSNFSS-v9.2a (WaS) 
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\titlesec\titlesec.sty"
+(/usr/local/texlive/2015/texmf-dist/tex/latex/titlesec/titlesec.sty
 Package: titlesec 2011/12/15 v2.10.0 Sectioning titles
 \ttl@box=\box26
 \beforetitleunit=\skip46
@@ -238,28 +241,28 @@ Package: titlesec 2011/12/15 v2.10.0 Sectioning titles
 \titlewidthlast=\dimen116
 \titlewidthfirst=\dimen117
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\titlesec\titletoc.sty"
+(/usr/local/texlive/2015/texmf-dist/tex/latex/titlesec/titletoc.sty
 Package: titletoc 2011/12/15 v1.6 TOC entries
 \ttl@leftsep=\dimen118
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+(/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
+(/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2014/10/28 v1.0p Standard LaTeX Graphics (DPC,SPQR)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+(/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
-File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
+(/usr/local/texlive/2015/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
 )
-Package graphics Info: Driver file: pdftex.def on input line 91.
+Package graphics Info: Driver file: pdftex.def on input line 94.
 )
 \Gin@req@height=\dimen119
 \Gin@req@width=\dimen120
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\tools\longtable.sty"
+(/usr/local/texlive/2015/texmf-dist/tex/latex/tools/longtable.sty
 Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)
 \LTleft=\skip48
 \LTright=\skip49
@@ -277,11 +280,11 @@ Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)
 \c@LT@chunks=\count97
 \LT@p@ftn=\toks21
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\multirow\multirow.sty"
+(/usr/local/texlive/2015/texmf-dist/tex/latex/multirow/multirow.sty
 \bigstrutjot=\dimen122
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\tools\multicol.sty"
-Package: multicol 2014/10/28 v1.8i multicolumn formatting (FMi)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/tools/multicol.sty
+Package: multicol 2015/03/31 v1.8m multicolumn formatting (FMi)
 \c@tracingmulticols=\count98
 \mult@box=\box31
 \multicol@leftmargin=\dimen123
@@ -329,7 +332,7 @@ Package: multicol 2014/10/28 v1.8i multicolumn formatting (FMi)
 \colbreak@box=\box56
 \mc@col@check@num=\count106
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\enumitem\enumitem.sty"
+(/usr/local/texlive/2015/texmf-dist/tex/latex/enumitem/enumitem.sty
 Package: enumitem 2011/09/28 v3.5.2 Customized lists
 \labelindent=\skip54
 \enit@outerparindent=\dimen132
@@ -337,16 +340,16 @@ Package: enumitem 2011/09/28 v3.5.2 Customized lists
 \enit@inbox=\box57
 \enitdp@description=\count107
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\hyperref.sty"
+(/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2012/11/06 v6.83m Hypertext links for LaTeX
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\hobsub-hyperref.sty"
-Package: hobsub-hyperref 2012/04/25 v1.12 Bundle oberdiek, subset hyperref (HO)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
+Package: hobsub-hyperref 2012/05/28 v1.13 Bundle oberdiek, subset hyperref (HO)
 
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\hobsub-generic.sty"
-Package: hobsub-generic 2012/04/25 v1.12 Bundle oberdiek, subset generic (HO)
-Package: hobsub 2012/04/25 v1.12 Construct package bundles (HO)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty
+Package: hobsub-generic 2012/05/28 v1.13 Bundle oberdiek, subset generic (HO)
+Package: hobsub 2012/05/28 v1.13 Construct package bundles (HO)
 Package hobsub Info: Skipping package `infwarerr' (already loaded).
 Package hobsub Info: Skipping package `ltxcmds' (already loaded).
 Package hobsub Info: Skipping package `ifluatex' (already loaded).
@@ -374,7 +377,7 @@ Package: uniquecounter 2011/01/30 v1.2 Provide unlimited unique counter (HO)
 )
 Package hobsub Info: Skipping package `hobsub' (already loaded).
 Package: letltxmacro 2010/09/02 v1.4 Let assignment for LaTeX macros (HO)
-Package: hopatch 2011/06/24 v1.1 Wrapper for package hooks (HO)
+Package: hopatch 2012/05/28 v1.2 Wrapper for package hooks (HO)
 Package: xcolor-patch 2011/01/30 xcolor patch
 Package: atveryend 2011/06/30 v1.8 Hooks at the very end of document (HO)
 Package atveryend Info: \enddocument detected (standard20110627).
@@ -382,22 +385,22 @@ Package: atbegshi 2011/10/05 v1.16 At begin shipout hook (HO)
 Package: refcount 2011/10/16 v3.4 Data extraction from label references (HO)
 Package: hycolor 2011/01/30 v1.7 Color options for hyperref/bookmark (HO)
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\auxhook.sty"
+(/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/auxhook.sty
 Package: auxhook 2011/03/04 v1.3 Hooks for auxiliary files (HO)
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\kvoptions.sty"
+(/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/kvoptions.sty
 Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
 )
 \@linkdim=\dimen133
 \Hy@linkcounter=\count108
 \Hy@pagecounter=\count109
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\pd1enc.def"
+(/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2012/11/06 v6.83m Hyperref: PDFDocEncoding definition (HO)
 )
 \Hy@SavedSpaceFactor=\count110
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\hyperref.cfg"
+(/usr/local/texlive/2015/texmf-dist/tex/latex/latexconfig/hyperref.cfg
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
 )
 Package hyperref Info: Hyper figures OFF on input line 4443.
@@ -409,7 +412,7 @@ Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4688.
 \c@Hy@tempcnt=\count111
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\url\url.sty"
+(/usr/local/texlive/2015/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip10
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
@@ -434,12 +437,12 @@ LaTeX Info: Redefining \pageref on input line 6369.
 
 Package hyperref Message: Driver (autodetected): hpdftex.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\hpdftex.def"
+(/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/hpdftex.def
 File: hpdftex.def 2012/11/06 v6.83m Hyperref driver for pdfTeX
 \Fld@listcount=\count116
 \c@bookmark@seq@number=\count117
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\rerunfilecheck.sty"
+(/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
 Package: rerunfilecheck 2011/04/15 v1.7 Rerun checks for auxiliary files (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 82.
@@ -448,7 +451,7 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 Package hyperref Info: Option `colorlinks' set `true' on input line 65.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\fancyhdr\fancyhdr.sty"
+(/usr/local/texlive/2015/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 \fancy@headwidth=\skip56
 \f@ncyO@elh=\skip57
 \f@ncyO@erh=\skip58
@@ -459,18 +462,18 @@ Package hyperref Info: Option `colorlinks' set `true' on input line 65.
 \f@ncyO@olf=\skip63
 \f@ncyO@orf=\skip64
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\lastpage\lastpage.sty"
-Package: lastpage 2013/01/28 v1.2l Refers to last page's name (HMM; JPG)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/lastpage/lastpage.sty
+Package: lastpage 2015/03/29 v1.2m Refers to last page's name (HMM; JPG)
 )
 
 Package Fancyhdr Warning: \fancyhead's `E' option without twoside option is use
 less on input line 84.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\lipsum\lipsum.sty"
+(/usr/local/texlive/2015/texmf-dist/tex/latex/lipsum/lipsum.sty
 Package: lipsum 2014/07/27 v1.3 150 paragraphs of Lorem Ipsum dummy text
 \c@lips@count=\count118
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\tocloft\tocloft.sty"
+(/usr/local/texlive/2015/texmf-dist/tex/latex/tocloft/tocloft.sty
 Package: tocloft 2013/05/02 v2.3f parameterised ToC, etc., typesetting
 Package tocloft Info: The document has section divisions on input line 44.
 \cftparskip=\skip65
@@ -507,7 +510,9 @@ Package tocloft Info: The document has section divisions on input line 44.
 \cfttabindent=\skip94
 \cfttabnumwidth=\skip95
 )
-(Sys_Requirements.aux)
+(./Sys_Requirements.aux)
+\openout1 = `Sys_Requirements.aux'.
+
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 174.
 LaTeX Font Info:    ... okay on input line 174.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 174.
@@ -523,12 +528,14 @@ LaTeX Font Info:    ... okay on input line 174.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 174.
 LaTeX Font Info:    Try loading font information for TS1+cmr on input line 174.
 
- ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ts1cmr.fd"
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 174.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 174.
 LaTeX Font Info:    ... okay on input line 174.
+
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -563,7 +570,7 @@ LaTeX Font Info:    ... okay on input line 174.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+(/usr/local/texlive/2015/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count121
 \scratchdimen=\dimen137
@@ -579,12 +586,28 @@ LaTeX Font Info:    ... okay on input line 174.
 )
 \c@mv@tabular=\count127
 \c@mv@boldtabular=\count128
+ (/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
+)
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 452.
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
 \AtBeginShipoutBox=\box59
 Package hyperref Info: Link coloring ON on input line 174.
- ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count129
@@ -593,19 +616,17 @@ LaTeX Info: Redefining \ref on input line 174.
 LaTeX Info: Redefining \pageref on input line 174.
 LaTeX Info: Redefining \nameref on input line 174.
 
-(Sys_Requirements.out) (Sys_Requirements.out)
+(./Sys_Requirements.out) (./Sys_Requirements.out)
 \@outlinefile=\write3
+\openout3 = `Sys_Requirements.out'.
+
 Package lastpage Info: Please have a look at the pageslts package at
-(lastpage)             http://www.ctan.org/tex-archive/ 
-(lastpage)             macros/latex/contrib/pageslts/ 
-(lastpage)             or
-(lastpage)             http://www.ctan.org/tex-archive/ 
-(lastpage)             install/macros/latex/contrib/pageslts.tds.zip
+(lastpage)             https://www.ctan.org/pkg/pageslts
 (lastpage)             ! on input line 174.
 LaTeX Font Info:    Try loading font information for T1+Cabin-TLF on input line
  188.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\cabin\t1cabin-tlf.fd"
+(/usr/local/texlive/2015/texmf-dist/tex/latex/cabin/T1Cabin-TLF.fd
 File: T1Cabin-TLF.fd 2012/11/17 (autoinst) Font definitions for T1/Cabin-TLF.
 )
 LaTeX Font Info:    Font shape `T1/Cabin-TLF/m/n' will be
@@ -620,14 +641,21 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 198.
  [1
 
-{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}] (Sys_Requirements.toc)
+{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+(./Sys_Requirements.toc)
 \tf@toc=\write4
+\openout4 = `Sys_Requirements.toc'.
 
-(Sys_Requirements.lot)
+ (./Sys_Requirements.lot)
 \tf@lot=\write5
- (Sys_Requirements.lof)
+\openout5 = `Sys_Requirements.lot'.
+
+ (./Sys_Requirements.lof)
 \tf@lof=\write6
- [2]
+\openout6 = `Sys_Requirements.lof'.
+
+
+[2]
 LaTeX Font Info:    Calculating math sizes for size <14> on input line 232.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <14> on input line 232.
@@ -765,149 +793,153 @@ Overfull \hbox (3.0pt too wide) in paragraph at lines 430--430
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 436--436
+Overfull \hbox (3.0pt too wide) in paragraph at lines 438--438
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (1.71077pt too wide) in alignment at lines 438--441
+Overfull \hbox (1.71077pt too wide) in alignment at lines 440--443
  [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 441
- []
-
-
-Overfull \hbox (1.71077pt too wide) in alignment at lines 443--446
- [] [] 
- []
-
-
-Underfull \vbox (badness 10000) detected at line 446
- []
-
-
-Overfull \hbox (1.71077pt too wide) in alignment at lines 448--451
- [] [] 
+Underfull \vbox (badness 10000) detected at line 443
  []
 
 [5]
-Underfull \vbox (badness 10000) detected at line 451
- []
-
-
-Overfull \hbox (1.71077pt too wide) in alignment at lines 453--456
+Overfull \hbox (1.71077pt too wide) in alignment at lines 445--448
  [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 456
+Underfull \vbox (badness 10000) detected at line 448
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 462--462
+Overfull \hbox (1.71077pt too wide) in alignment at lines 450--453
+ [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 453
+ []
+
+
+Overfull \hbox (1.71077pt too wide) in alignment at lines 455--458
+ [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 458
+ []
+
+
+Overfull \hbox (1.71077pt too wide) in alignment at lines 460--463
+ [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 463
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 469--469
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 480--480
+Overfull \hbox (3.0pt too wide) in paragraph at lines 487--487
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 497--497
+Overfull \hbox (3.0pt too wide) in paragraph at lines 504--504
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (1.71077pt too wide) in alignment at lines 499--502
+Overfull \hbox (1.71077pt too wide) in alignment at lines 506--509
  [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 502
+Underfull \vbox (badness 10000) detected at line 509
  []
 
 
-Overfull \hbox (1.71077pt too wide) in alignment at lines 504--508
+Overfull \hbox (1.71077pt too wide) in alignment at lines 511--515
  [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 508
+Underfull \vbox (badness 10000) detected at line 515
  []
 
 
-Overfull \hbox (1.71077pt too wide) in alignment at lines 510--514
+Overfull \hbox (1.71077pt too wide) in alignment at lines 517--521
  [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 514
+Underfull \vbox (badness 10000) detected at line 521
  []
 
 
-Overfull \hbox (1.71077pt too wide) in alignment at lines 516--519
- [] [] 
- []
+Overfull \vbox (3.40565pt too high) has occurred while \output is active []
 
-
-Underfull \vbox (badness 10000) detected at line 519
- []
-
-
-Overfull \hbox (1.71077pt too wide) in alignment at lines 521--525
- [] [] 
- []
-
-
-Underfull \vbox (badness 10000) detected at line 525
- []
-
-
-Overfull \hbox (1.71077pt too wide) in alignment at lines 527--531
- [] [] 
- []
-
-
-Underfull \vbox (badness 10000) detected at line 531
- []
 
 [6]
-Overfull \hbox (1.71077pt too wide) in alignment at lines 533--536
+Overfull \hbox (1.71077pt too wide) in alignment at lines 523--526
  [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 536
+Underfull \vbox (badness 10000) detected at line 526
  []
 
 
-Overfull \hbox (1.71077pt too wide) in alignment at lines 538--541
+Overfull \hbox (1.71077pt too wide) in alignment at lines 528--532
  [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 541
+Underfull \vbox (badness 10000) detected at line 532
  []
 
 
-Overfull \hbox (1.71077pt too wide) in alignment at lines 543--546
+Overfull \hbox (1.71077pt too wide) in alignment at lines 534--538
  [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 546
+Underfull \vbox (badness 10000) detected at line 538
  []
 
 
-Overfull \hbox (1.71077pt too wide) in alignment at lines 548--552
+Overfull \hbox (1.71077pt too wide) in alignment at lines 540--543
  [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 552
+Underfull \vbox (badness 10000) detected at line 543
+ []
+
+
+Overfull \hbox (1.71077pt too wide) in alignment at lines 545--548
+ [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 548
+ []
+
+
+Overfull \hbox (1.71077pt too wide) in alignment at lines 550--553
+ [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 553
  []
 
 
@@ -920,150 +952,154 @@ Underfull \vbox (badness 10000) detected at line 559
  []
 
 
-Overfull \hbox (1.71077pt too wide) in alignment at lines 561--564
+Overfull \hbox (1.71077pt too wide) in alignment at lines 562--566
  [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 564
+Underfull \vbox (badness 10000) detected at line 566
  []
 
 
-Overfull \hbox (1.71077pt too wide) in alignment at lines 566--569
+Overfull \hbox (1.71077pt too wide) in alignment at lines 568--571
  [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 569
- []
-
-
-Overfull \hbox (1.71077pt too wide) in alignment at lines 571--574
- [] [] 
- []
-
-
-Underfull \vbox (badness 10000) detected at line 574
+Underfull \vbox (badness 10000) detected at line 571
  []
 
 [7]
-Overfull \hbox (3.0pt too wide) in paragraph at lines 577--577
+Overfull \hbox (1.71077pt too wide) in alignment at lines 573--576
+ [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 576
+ []
+
+
+Overfull \hbox (1.71077pt too wide) in alignment at lines 578--581
+ [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 581
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 584--584
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (1.71077pt too wide) in alignment at lines 579--582
+Overfull \hbox (1.71077pt too wide) in alignment at lines 586--589
  [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 582
+Underfull \vbox (badness 10000) detected at line 589
  []
 
 
-Overfull \hbox (1.71077pt too wide) in alignment at lines 585--588
+Overfull \hbox (1.71077pt too wide) in alignment at lines 592--595
  [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 588
+Underfull \vbox (badness 10000) detected at line 595
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 591--591
+Overfull \hbox (3.0pt too wide) in paragraph at lines 598--598
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (1.71077pt too wide) in alignment at lines 593--596
+Overfull \hbox (1.71077pt too wide) in alignment at lines 600--603
  [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 596
+Underfull \vbox (badness 10000) detected at line 603
  []
 
 
-Overfull \hbox (1.71077pt too wide) in alignment at lines 598--601
+Overfull \hbox (1.71077pt too wide) in alignment at lines 605--608
  [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 601
+Underfull \vbox (badness 10000) detected at line 608
  []
 
 
-Overfull \hbox (1.71077pt too wide) in alignment at lines 603--606
+Overfull \hbox (1.71077pt too wide) in alignment at lines 610--613
  [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 606
- []
-
-
-Overfull \hbox (1.71077pt too wide) in alignment at lines 608--611
- [] [] 
- []
-
-
-Underfull \vbox (badness 10000) detected at line 611
- []
-
-
-Overfull \hbox (3.0pt too wide) in paragraph at lines 619--619
-|[][][][][][][]| 
- []
-
-
-Overfull \hbox (3.0pt too wide) in paragraph at lines 641--641
-|[][][][][][][]| 
- []
-
-
-Overfull \hbox (3.0pt too wide) in paragraph at lines 644--644
-|[][][][][][][]| 
+Underfull \vbox (badness 10000) detected at line 613
  []
 
 [8]
-Underfull \vbox (badness 10000) detected at line 662
+Overfull \hbox (1.71077pt too wide) in alignment at lines 615--618
+ [] [] 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 665--665
+Underfull \vbox (badness 10000) detected at line 618
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 626--626
 |[][][][][][][]| 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 683
- []
-
-
-Overfull \hbox (3.0pt too wide) in paragraph at lines 686--686
+Overfull \hbox (3.0pt too wide) in paragraph at lines 648--648
 |[][][][][][][]| 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 704
- []
-
-
-Overfull \hbox (3.0pt too wide) in paragraph at lines 710--710
+Overfull \hbox (3.0pt too wide) in paragraph at lines 651--651
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 713--713
+Underfull \vbox (badness 10000) detected at line 669
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 672--672
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 716--716
+Underfull \vbox (badness 10000) detected at line 690
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 693--693
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 724--724
+Underfull \vbox (badness 10000) detected at line 711
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 717--717
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 720--720
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 723--723
 |[][][][][][][]| 
  []
 
@@ -1073,7 +1109,7 @@ Overfull \hbox (3.0pt too wide) in paragraph at lines 731--731
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 734--734
+Overfull \hbox (3.0pt too wide) in paragraph at lines 738--738
 |[][][][][][][]| 
  []
 
@@ -1083,92 +1119,92 @@ Overfull \hbox (3.0pt too wide) in paragraph at lines 741--741
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 747--747
+Overfull \hbox (3.0pt too wide) in paragraph at lines 748--748
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 753--753
+Overfull \hbox (3.0pt too wide) in paragraph at lines 754--754
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 759--759
+Overfull \hbox (3.0pt too wide) in paragraph at lines 760--760
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 765--765
+Overfull \hbox (3.0pt too wide) in paragraph at lines 766--766
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 771--771
+Overfull \hbox (3.0pt too wide) in paragraph at lines 772--772
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 780--780
-|[][][][][][][]| 
- []
-
-
-Overfull \hbox (3.0pt too wide) in paragraph at lines 789--789
+Overfull \hbox (3.0pt too wide) in paragraph at lines 778--778
 |[][][][][][][]| 
  []
 
 [10]
-Overfull \hbox (3.0pt too wide) in paragraph at lines 797--797
+Overfull \hbox (3.0pt too wide) in paragraph at lines 787--787
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 803--803
+Overfull \hbox (3.0pt too wide) in paragraph at lines 796--796
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 809--809
+Overfull \hbox (3.0pt too wide) in paragraph at lines 804--804
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 815--815
+Overfull \hbox (3.0pt too wide) in paragraph at lines 810--810
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 821--821
+Overfull \hbox (3.0pt too wide) in paragraph at lines 816--816
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 827--827
+Overfull \hbox (3.0pt too wide) in paragraph at lines 822--822
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 830--830
+Overfull \hbox (3.0pt too wide) in paragraph at lines 828--828
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 836--836
+Overfull \hbox (3.0pt too wide) in paragraph at lines 834--834
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 842--842
+Overfull \hbox (3.0pt too wide) in paragraph at lines 837--837
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 845--845
+Overfull \hbox (3.0pt too wide) in paragraph at lines 843--843
+|[][][][][][][]| 
+ []
+
+[11]
+Overfull \hbox (3.0pt too wide) in paragraph at lines 849--849
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 853--853
+Overfull \hbox (3.0pt too wide) in paragraph at lines 852--852
 |[][][][][][][]| 
  []
 
@@ -1177,13 +1213,13 @@ Overfull \hbox (3.0pt too wide) in paragraph at lines 860--860
 |[][][][][][][]| 
  []
 
-[11]
-Overfull \hbox (3.0pt too wide) in paragraph at lines 866--866
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 867--867
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 869--869
+Overfull \hbox (3.0pt too wide) in paragraph at lines 873--873
 |[][][][][][][]| 
  []
 
@@ -1193,7 +1229,7 @@ Overfull \hbox (3.0pt too wide) in paragraph at lines 876--876
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 882--882
+Overfull \hbox (3.0pt too wide) in paragraph at lines 883--883
 |[][][][][][][]| 
  []
 
@@ -1203,109 +1239,137 @@ Overfull \hbox (3.0pt too wide) in paragraph at lines 889--889
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 895--895
+Overfull \hbox (3.0pt too wide) in paragraph at lines 896--896
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 901--901
+Overfull \hbox (3.0pt too wide) in paragraph at lines 902--902
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 904--904
+Overfull \hbox (3.0pt too wide) in paragraph at lines 908--908
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 910--910
+Overfull \hbox (3.0pt too wide) in paragraph at lines 911--911
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 916--916
-|[][][][][][][]| 
- []
-
-
-Overfull \hbox (3.0pt too wide) in paragraph at lines 919--919
-|[][][][][][][]| 
- []
-
-
-Overfull \hbox (3.0pt too wide) in paragraph at lines 927--927
-|[][][][][][][]| 
- []
-
-
-Overfull \hbox (3.0pt too wide) in paragraph at lines 935--935
-|[][][][][][][]| 
- []
-
-
-Overfull \hbox (3.0pt too wide) in paragraph at lines 938--938
+Overfull \hbox (3.0pt too wide) in paragraph at lines 917--917
 |[][][][][][][]| 
  []
 
 [12]
-Overfull \hbox (3.0pt too wide) in paragraph at lines 944--944
+Overfull \hbox (3.0pt too wide) in paragraph at lines 923--923
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 947--947
+Overfull \hbox (3.0pt too wide) in paragraph at lines 926--926
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 953--953
+Overfull \hbox (3.0pt too wide) in paragraph at lines 934--934
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 959--959
+Overfull \hbox (3.0pt too wide) in paragraph at lines 942--942
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 980--980
+Overfull \hbox (3.0pt too wide) in paragraph at lines 945--945
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 951--951
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 954--954
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 961--961
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 967--967
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 973--973
+|[][][][][][][]| 
+ []
+
+[13]
+Overfull \hbox (3.0pt too wide) in paragraph at lines 986--986
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1007--1007
 |[][][][][][][]| 
  []
 
 
 AED: lastpage setting LastPage
-[13]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 988.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 988.
- (Sys_Requirements.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 988.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 988.
-Package rerunfilecheck Info: File `Sys_Requirements.out' has not changed.
-(rerunfilecheck)             Checksum: 6313D59C8081C01A24B773F1393E105C;2497.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 988.
+[14]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1015.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1015.
+ (./Sys_Requirements.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1015.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1015.
+
+
+
+Package rerunfilecheck Warning: File `Sys_Requirements.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `Sys_Requirements.out':
+(rerunfilecheck)             Before: 6313D59C8081C01A24B773F1393E105C;2497
+(rerunfilecheck)             After:  BE547D12CF6B31723110D13A13FB4CC2;2462.
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1015.
  ) 
 Here is how much of TeX's memory you used:
- 8768 strings out of 493698
- 127271 string characters out of 3144415
- 335596 words of memory out of 3000000
- 11795 multiletter control sequences out of 15000+200000
- 36487 words of font info for 42 fonts, out of 3000000 for 9000
- 1025 hyphenation exceptions out of 8191
- 41i,12n,43p,462b,484s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{C:/Pr
-ogram Files/MiKTeX 2.9/fonts/enc/dvips/cm-super/cm-super-t1.enc}{C:/Program Fil
-es/MiKTeX 2.9/fonts/enc/dvips/cabin/cbn_aojlca.enc}<C:/Program Files/MiKTeX 2.9
-/fonts/type1/impallari/cabin/Cabin-Regular.pfb><C:/Program Files/MiKTeX 2.9/fon
-ts/type1/public/cm-super/sfbx1095.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
-public/cm-super/sfbx1200.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/cm
--super/sfbx1440.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/cm-super/sf
-cc1200.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/cm-super/sfrm0800.pf
-b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/cm-super/sfrm1095.pfb><C:/Pro
-gram Files/MiKTeX 2.9/fonts/type1/public/cm-super/sfrm1440.pfb><C:/Program File
-s/MiKTeX 2.9/fonts/type1/public/cm-super/sfxc1440.pfb>
-Output written on Sys_Requirements.pdf (13 pages, 224467 bytes).
+ 8900 strings out of 493089
+ 130540 string characters out of 6134842
+ 340876 words of memory out of 5000000
+ 12063 multiletter control sequences out of 15000+600000
+ 36487 words of font info for 42 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 41i,12n,43p,461b,486s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
+}{/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{
+/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/cabin/cbn_aojlca.enc}</usr/l
+ocal/texlive/2015/texmf-dist/fonts/type1/impallari/cabin/Cabin-Regular.pfb></us
+r/local/texlive/2015/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/
+local/texlive/2015/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/lo
+cal/texlive/2015/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/loca
+l/texlive/2015/texmf-dist/fonts/type1/public/cm-super/sfcc1200.pfb></usr/local/
+texlive/2015/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/te
+xlive/2015/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texl
+ive/2015/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/local/texliv
+e/2015/texmf-dist/fonts/type1/public/cm-super/sfxc1440.pfb>
+Output written on Sys_Requirements.pdf (14 pages, 182309 bytes).
 PDF statistics:
- 481 PDF objects out of 1000 (max. 8388607)
- 169 named destinations out of 1000 (max. 500000)
+ 508 PDF objects out of 1000 (max. 8388607)
+ 478 compressed objects within 5 object streams
+ 183 named destinations out of 1000 (max. 500000)
  281 words of extra memory for PDF output out of 10000 (max. 10000000)
 
