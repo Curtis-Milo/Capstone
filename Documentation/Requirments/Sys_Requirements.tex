@@ -319,7 +319,11 @@ Alexandra Rahman}
 
 % -------------------------------------------------------- Purpose of the Project --------------------------------------------------------
 \subsection{The Purpose of the Project} 
-Include the Purpose of the Project
+The purpose of this project will be to create an autonomous robot that will navigate to and serve the requested drink to the user who requests a drink. Currently in an office setting, workers must leave their offices to get their own drinks. Also, in restaurants, drinks are served by waiters and waitresses, which hinders them from doing other work at that time. Alfred will be designed to make the serving drinks autonomous. \newline
+
+Alfred will allow users to request drinks. These requests will form a queue which Alfred will serve in order using a FIFO protocol. Alfred will go to the table of each user and pour the drinks ordered from that table. Alfred will also have an administrator user which will be able to call Alfred back and override any action that is being taken at the time.\newline
+
+The following document will outline the functional and nonfunctional requirements of Alfred.  Other topics that will be covered pertaining to Alfred will include: Scope, Project Constraints, Likely Changes and Project Issues.
 %The purpose of this project will be create a system that allows autonomous cars to navigate through  intersections. Currently, when multiple autonomous cars arrive at an intersection simultaneously,the vehicles have no way of determining in which order to proceed. This is due to the lack of a decision making protocol. VIC will strive to solve these problems.  \newline
 %
 %
@@ -367,7 +371,7 @@ This product will be used in a restaurant setting, and the users can be divided 
 % --------------------------------------------------------- Mandated Constraints ---------------------------------------------------------
 \subsection{Mandated Constraints}
 %Vehicle intersection control has several mandated constraints tabled below. 
-Text, Text, Text
+The following is a list of constraints that will be followed during the design of this system.
 
 \begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
 \rowcolor{tableCell}\textbf{MC1} & \textbf{The cost of the project must not exceed \$750 dollars.} \\ \hline
@@ -375,18 +379,18 @@ Text, Text, Text
 \end{longtable}
 
 \begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
-\rowcolor{tableCell}\textbf{MC2}& \textbf{Constraint 2}\\ \hline 
-\textbf{Rationale} & Text\\ \hline 
+\rowcolor{tableCell}\textbf{MC2}& \textbf{Weight must not exceed what could the motor would be able to move, given torque limitations of motor.}\\ \hline 
+\textbf{Rationale} & Robot must be able to move with all drink containers filled.\\ \hline 
 \end{longtable}
 
 \begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
-\rowcolor{tableCell}\textbf{MC3} & \textbf{Constraint 3} \\ \hline
-\textbf{Rationale} & Text\\ \hline
+\rowcolor{tableCell}\textbf{MC3} & \textbf{Project must be finished within the course of the academic year.} \\ \hline
+\textbf{Rationale} & Must submit finished project by end of academic year as per project requirements.\\ \hline
 \end{longtable}
 
 \begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
-\rowcolor{tableCell}\textbf{MC4} & \textbf{Constraint} \\ \hline
-\textbf{Rationale} & Text \\ \hline
+\rowcolor{tableCell}\textbf{MC4} & \textbf{Workload must be achievable by 6 people (size of group) in given alloted time.} \\ \hline
+\textbf{Rationale} & Must be physically possible given alloted manpower and time.\\ \hline
 \end{longtable}
 
 % ----------------------------------------------- Naming Conventions and Definitions -----------------------------------------------
