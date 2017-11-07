@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  1 NOV 2017 15:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  6 NOV 2017 19:51
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -623,6 +623,12 @@ LaTeX Info: Redefining \nameref on input line 174.
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
 (lastpage)             ! on input line 174.
+
+<Figures/alfred.png, id=144, 501.875pt x 501.875pt>
+File: Figures/alfred.png Graphic file (type png)
+ <use Figures/alfred.png>
+Package pdftex.def Info: Figures/alfred.png used on input line 185.
+(pdftex.def)             Requested size: 140.32062pt x 150.56366pt.
 LaTeX Font Info:    Try loading font information for T1+Cabin-TLF on input line
  188.
 
@@ -641,8 +647,8 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 198.
  [1
 
-{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-(./Sys_Requirements.toc)
+{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./Figur
+es/alfred.png>] (./Sys_Requirements.toc)
 \tf@toc=\write4
 \openout4 = `Sys_Requirements.toc'.
 
@@ -650,23 +656,11 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 \tf@lot=\write5
 \openout5 = `Sys_Requirements.lot'.
 
- (./Sys_Requirements.lof)
+
+(./Sys_Requirements.lof [2])
 \tf@lof=\write6
 \openout6 = `Sys_Requirements.lof'.
 
-
-[2]
-LaTeX Font Info:    Calculating math sizes for size <14> on input line 232.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14> on input line 232.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9.79996> on input line 232.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 232.
-
-Overfull \hbox (3.0pt too wide) in paragraph at lines 232--232
-|[][][][][][][]| 
- []
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -675,158 +669,246 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [3]
-Overfull \hbox (3.0pt too wide) in paragraph at lines 318--318
-|[][][][][][][]| 
- []
-
+LaTeX Font Info:    Calculating math sizes for size <14> on input line 225.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 321.
+(Font)              <14> on input line 225.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <9.79996> on input line 225.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 225.
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 321--321
-|[][][][][][][]| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 322--323
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 324--325
-
- []
-
-
-Overfull \hbox (3.0pt too wide) in paragraph at lines 329--329
-|[][][][][][][]| 
- []
-
-
-Overfull \hbox (3.0pt too wide) in paragraph at lines 333--333
-|[][][][][][][]| 
- []
-
-
-Overfull \hbox (3.0pt too wide) in paragraph at lines 335--335
-|[][][][][][][]| 
- []
-
-
-Overfull \hbox (3.0pt too wide) in paragraph at lines 344--344
-|[][][][][][][]| 
- []
-
-
-Overfull \hbox (3.0pt too wide) in paragraph at lines 354--354
+Overfull \hbox (3.0pt too wide) in paragraph at lines 225--225
 |[][][][][][][]| 
  []
 
 [4]
-Overfull \hbox (3.0pt too wide) in paragraph at lines 361--361
+Overfull \hbox (3.0pt too wide) in paragraph at lines 254--254
+|[][][][][][][]| 
+ []
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 257.
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 257--257
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 364--364
+Underfull \hbox (badness 10000) in paragraph at lines 258--259
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 260--261
+
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 265--265
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (1.71077pt too wide) in alignment at lines 368--371
- [] [] 
- []
-
-
-Underfull \vbox (badness 10000) detected at line 371
- []
-
-
-Overfull \hbox (1.71077pt too wide) in alignment at lines 373--376
- [] [] 
- []
-
-
-Underfull \vbox (badness 10000) detected at line 376
- []
-
-
-Overfull \hbox (1.71077pt too wide) in alignment at lines 378--381
- [] [] 
- []
-
-
-Underfull \vbox (badness 10000) detected at line 381
- []
-
-
-Overfull \hbox (1.71077pt too wide) in alignment at lines 383--386
- [] [] 
- []
-
-
-Underfull \vbox (badness 10000) detected at line 386
- []
-
-
-Overfull \hbox (3.0pt too wide) in paragraph at lines 389--389
+Overfull \hbox (3.0pt too wide) in paragraph at lines 269--269
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 392--392
+Overfull \hbox (3.0pt too wide) in paragraph at lines 271--271
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (6.01292pt too wide) in alignment at lines 394--411
- [] [] 
+Overfull \hbox (3.0pt too wide) in paragraph at lines 280--280
+|[][][][][][][]| 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 411
- []
-
-
-Overfull \hbox (3.0pt too wide) in paragraph at lines 414--414
+Overfull \hbox (3.0pt too wide) in paragraph at lines 290--290
 |[][][][][][][]| 
  []
 
 [5]
-Overfull \hbox (3.0pt too wide) in paragraph at lines 422--422
+Overfull \hbox (3.0pt too wide) in paragraph at lines 297--297
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 443--443
+Overfull \hbox (3.0pt too wide) in paragraph at lines 300--300
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 446--446
-|[][][][][][][]| 
- []
-
-
-Overfull \hbox (3.0pt too wide) in paragraph at lines 454--454
-|[][][][][][][]| 
- []
-
-
-Overfull \hbox (1.71077pt too wide) in alignment at lines 456--459
+Overfull \hbox (1.71077pt too wide) in alignment at lines 304--307
  [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 459
+Underfull \vbox (badness 10000) detected at line 307
  []
 
 
-Overfull \hbox (1.71077pt too wide) in alignment at lines 461--464
+Overfull \hbox (1.71077pt too wide) in alignment at lines 309--312
  [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 464
+Underfull \vbox (badness 10000) detected at line 312
+ []
+
+
+Overfull \hbox (1.71077pt too wide) in alignment at lines 314--317
+ [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 317
+ []
+
+
+Overfull \hbox (1.71077pt too wide) in alignment at lines 319--322
+ [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 322
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 325--325
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 328--328
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (6.01292pt too wide) in alignment at lines 330--347
+ [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 347
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 350--350
+|[][][][][][][]| 
+ []
+
+[6]
+Overfull \hbox (3.0pt too wide) in paragraph at lines 358--358
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 379--379
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 382--382
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 390--390
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (1.71077pt too wide) in alignment at lines 392--395
+ [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 395
+ []
+
+
+Overfull \hbox (1.71077pt too wide) in alignment at lines 397--400
+ [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 400
+ []
+
+
+Overfull \hbox (1.71077pt too wide) in alignment at lines 402--405
+ [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 405
+ []
+
+[7]
+Overfull \hbox (1.71077pt too wide) in alignment at lines 407--410
+ [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 410
+ []
+
+
+Overfull \hbox (1.71077pt too wide) in alignment at lines 412--415
+ [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 415
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 421--421
+|[][][][][][][]| 
+ []
+
+<Figures/ContextDiagram.png, id=299, 763.85374pt x 573.14125pt>
+File: Figures/ContextDiagram.png Graphic file (type png)
+
+<use Figures/ContextDiagram.png>
+Package pdftex.def Info: Figures/ContextDiagram.png used on input line 425.
+(pdftex.def)             Requested size: 458.31578pt x 343.8874pt.
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 434--434
+|[][][][][][][]| 
+ []
+
+[8 <./Figures/ContextDiagram.png>]
+Overfull \hbox (3.0pt too wide) in paragraph at lines 444--444
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (1.71077pt too wide) in alignment at lines 447--450
+ [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 450
+ []
+
+
+Overfull \hbox (1.71077pt too wide) in alignment at lines 453--456
+ [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 456
+ []
+
+
+Overfull \hbox (1.71077pt too wide) in alignment at lines 460--463
+ [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 463
  []
 
 
@@ -838,64 +920,99 @@ Overfull \hbox (1.71077pt too wide) in alignment at lines 466--469
 Underfull \vbox (badness 10000) detected at line 469
  []
 
-[6]
-Overfull \hbox (1.71077pt too wide) in alignment at lines 471--474
+
+Overfull \hbox (1.71077pt too wide) in alignment at lines 473--476
  [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 474
+Underfull \vbox (badness 10000) detected at line 476
  []
 
 
-Overfull \hbox (1.71077pt too wide) in alignment at lines 476--479
+Overfull \hbox (1.71077pt too wide) in alignment at lines 480--483
  [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 479
+Underfull \vbox (badness 10000) detected at line 483
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 485--485
+Overfull \hbox (1.71077pt too wide) in alignment at lines 486--489
+ [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 489
+ []
+
+
+Overfull \hbox (1.71077pt too wide) in alignment at lines 492--495
+ [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 495
+ []
+
+[9]
+Overfull \hbox (1.71077pt too wide) in alignment at lines 498--501
+ [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 501
+ []
+
+
+Overfull \hbox (1.71077pt too wide) in alignment at lines 505--508
+ [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 508
+ []
+
+
+Overfull \hbox (1.71077pt too wide) in alignment at lines 512--515
+ [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 515
+ []
+
+
+Overfull \hbox (1.71077pt too wide) in alignment at lines 518--521
+ [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 521
+ []
+
+
+Overfull \hbox (1.71077pt too wide) in alignment at lines 524--527
+ [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 527
+ []
+
+
+Overfull \hbox (1.71077pt too wide) in alignment at lines 530--533
+ [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 533
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 536--536
 |[][][][][][][]| 
- []
-
-
-Overfull \hbox (3.0pt too wide) in paragraph at lines 503--503
-|[][][][][][][]| 
- []
-
-
-Overfull \hbox (3.0pt too wide) in paragraph at lines 520--520
-|[][][][][][][]| 
- []
-
-
-Overfull \hbox (1.71077pt too wide) in alignment at lines 522--525
- [] [] 
- []
-
-
-Underfull \vbox (badness 10000) detected at line 525
- []
-
-
-Overfull \hbox (1.71077pt too wide) in alignment at lines 527--531
- [] [] 
- []
-
-
-Underfull \vbox (badness 10000) detected at line 531
- []
-
-
-Overfull \hbox (1.71077pt too wide) in alignment at lines 533--537
- [] [] 
- []
-
-
-Underfull \vbox (badness 10000) detected at line 537
  []
 
 
@@ -907,8 +1024,8 @@ Overfull \hbox (1.71077pt too wide) in alignment at lines 539--542
 Underfull \vbox (badness 10000) detected at line 542
  []
 
-
-Overfull \hbox (1.71077pt too wide) in alignment at lines 544--548
+[10]
+Overfull \hbox (1.71077pt too wide) in alignment at lines 545--548
  [] [] 
  []
 
@@ -916,31 +1033,27 @@ Overfull \hbox (1.71077pt too wide) in alignment at lines 544--548
 Underfull \vbox (badness 10000) detected at line 548
  []
 
-[7]
-Overfull \hbox (1.71077pt too wide) in alignment at lines 550--554
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 551--551
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (1.71077pt too wide) in alignment at lines 554--557
  [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 554
+Underfull \vbox (badness 10000) detected at line 557
  []
 
 
-Overfull \hbox (1.71077pt too wide) in alignment at lines 556--559
+Overfull \hbox (1.71077pt too wide) in alignment at lines 560--563
  [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 559
- []
-
-
-Overfull \hbox (1.71077pt too wide) in alignment at lines 561--564
- [] [] 
- []
-
-
-Underfull \vbox (badness 10000) detected at line 564
+Underfull \vbox (badness 10000) detected at line 563
  []
 
 
@@ -953,7 +1066,7 @@ Underfull \vbox (badness 10000) detected at line 569
  []
 
 
-Overfull \hbox (1.71077pt too wide) in alignment at lines 571--575
+Overfull \hbox (1.71077pt too wide) in alignment at lines 572--575
  [] [] 
  []
 
@@ -961,67 +1074,39 @@ Overfull \hbox (1.71077pt too wide) in alignment at lines 571--575
 Underfull \vbox (badness 10000) detected at line 575
  []
 
-
-Overfull \hbox (1.71077pt too wide) in alignment at lines 578--582
- [] [] 
- []
-
-
-Underfull \vbox (badness 10000) detected at line 582
- []
-
-
-Overfull \hbox (1.71077pt too wide) in alignment at lines 584--587
- [] [] 
- []
-
-
-Underfull \vbox (badness 10000) detected at line 587
- []
-
-
-Overfull \vbox (2.88884pt too high) has occurred while \output is active []
-
-
-[8]
-Overfull \hbox (1.71077pt too wide) in alignment at lines 589--592
- [] [] 
- []
-
-
-Underfull \vbox (badness 10000) detected at line 592
- []
-
-
-Overfull \hbox (1.71077pt too wide) in alignment at lines 594--597
- [] [] 
- []
-
-
-Underfull \vbox (badness 10000) detected at line 597
- []
-
-
-Overfull \hbox (3.0pt too wide) in paragraph at lines 600--600
+[11]
+Overfull \hbox (3.0pt too wide) in paragraph at lines 584--584
 |[][][][][][][]| 
  []
 
+<Figures/Legend1.png, id=343, 458.71375pt x 432.61626pt>
+File: Figures/Legend1.png Graphic file (type png)
 
-Overfull \hbox (1.71077pt too wide) in alignment at lines 602--605
- [] [] 
+<use Figures/Legend1.png>
+Package pdftex.def Info: Figures/Legend1.png used on input line 589.
+(pdftex.def)             Requested size: 229.35631pt x 216.3076pt.
+
+<Figures/UserDiagram.png, id=344, 1081.03876pt x 673.51625pt>
+File: Figures/UserDiagram.png Graphic file (type png)
+
+<use Figures/UserDiagram.png>
+Package pdftex.def Info: Figures/UserDiagram.png used on input line 595.
+(pdftex.def)             Requested size: 459.44363pt x 286.24576pt.
+ [12 <./Figures/Legend1.png> <./Figures/UserDiagram.png>] <Figures/DataFlowDiag
+ram.png, id=352, 771.88374pt x 894.34125pt>
+File: Figures/DataFlowDiagram.png Graphic file (type png)
+
+<use Figures/DataFlowDiagram.png>
+Package pdftex.def Info: Figures/DataFlowDiagram.png used on input line 602.
+(pdftex.def)             Requested size: 482.42615pt x 558.96191pt.
+
+Overfull \hbox (12.67113pt too wide) in paragraph at lines 602--603
+ [][] 
  []
 
-
-Underfull \vbox (badness 10000) detected at line 605
- []
-
-
-Overfull \hbox (1.71077pt too wide) in alignment at lines 608--611
- [] [] 
- []
-
-
-Underfull \vbox (badness 10000) detected at line 611
+[13 <./Figures/DataFlowDiagram.png>]
+Overfull \hbox (3.0pt too wide) in paragraph at lines 611--611
+|[][][][][][][]| 
  []
 
 
@@ -1030,67 +1115,95 @@ Overfull \hbox (3.0pt too wide) in paragraph at lines 614--614
  []
 
 
-Overfull \hbox (1.71077pt too wide) in alignment at lines 616--619
- [] [] 
+Underfull \hbox (badness 1635) in paragraph at lines 634--634
+[]|\T1/cmr/m/n/10.95 Subject to scope def-i-ni-tion
  []
 
 
-Underfull \vbox (badness 10000) detected at line 619
+Underfull \hbox (badness 1845) in paragraph at lines 640--640
+[]|\T1/cmr/m/n/10.95 Ensures Food Safety Stan-
  []
 
 
-Overfull \hbox (1.71077pt too wide) in alignment at lines 621--624
- [] [] 
+Underfull \hbox (badness 3919) in paragraph at lines 655--655
+[]|\T1/cmr/m/n/10.95 Administrator can over-ride
  []
 
 
-Underfull \vbox (badness 10000) detected at line 624
+Underfull \hbox (badness 6691) in paragraph at lines 655--655
+[]|\T1/cmr/m/n/10.95 Restrictions on when the
  []
 
 
-Overfull \hbox (1.71077pt too wide) in alignment at lines 626--629
- [] [] 
+Underfull \hbox (badness 1960) in paragraph at lines 655--655
+\T1/cmr/m/n/10.95 home base may be im-ple-
  []
 
 
-Underfull \vbox (badness 10000) detected at line 629
+Underfull \hbox (badness 1635) in paragraph at lines 661--661
+[]|\T1/cmr/m/n/10.95 Subject to scope def-i-ni-tion
  []
 
 
-Overfull \hbox (1.71077pt too wide) in alignment at lines 631--634
- [] [] 
+Underfull \hbox (badness 10000) in paragraph at lines 661--661
+[]|\T1/cmr/m/n/10.95 Orders might be ful-filled
  []
 
 
-Underfull \vbox (badness 10000) detected at line 634
+Underfull \vbox (badness 10000) detected at line 662
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 642--642
-|[][][][][][][]| 
- []
-
-[9]
-Overfull \hbox (3.0pt too wide) in paragraph at lines 664--664
-|[][][][][][][]| 
- []
-
-
-Overfull \hbox (3.0pt too wide) in paragraph at lines 667--667
+Overfull \hbox (3.0pt too wide) in paragraph at lines 665--665
 |[][][][][][][]| 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 685
+Underfull \vbox (badness 10000) detected at line 677
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 688--688
+Overfull \hbox (3.0pt too wide) in paragraph at lines 680--680
 |[][][][][][][]| 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 706
+Underfull \hbox (badness 1635) in paragraph at lines 688--688
+[]|\T1/cmr/m/n/10.95 Subject to scope def-i-ni-tion
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 688--688
+[]|\T1/cmr/m/n/10.95 Requirement may be re-
+ []
+
+
+Underfull \hbox (badness 1635) in paragraph at lines 691--691
+[]|\T1/cmr/m/n/10.95 Subject to scope def-i-ni-tion
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 691--691
+[]|\T1/cmr/m/n/10.95 Requirement may be re-
+ []
+
+
+Underfull \hbox (badness 1635) in paragraph at lines 694--694
+[]|\T1/cmr/m/n/10.95 Subject to scope def-i-ni-tion
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 694--694
+[]|\T1/cmr/m/n/10.95 Requirement may be re-
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 698
+ []
+
+[14]
+Overfull \hbox (3.0pt too wide) in paragraph at lines 706--706
+|[][][][][][][]| 
  []
 
 
@@ -1099,26 +1212,54 @@ Overfull \hbox (3.0pt too wide) in paragraph at lines 709--709
  []
 
 
-Underfull \vbox (badness 10000) detected at line 727
- []
-
-
-Overfull \hbox (3.0pt too wide) in paragraph at lines 733--733
+Overfull \hbox (3.0pt too wide) in paragraph at lines 712--712
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 736--736
+Overfull \hbox (1.71077pt too wide) in alignment at lines 714--721
+ [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 721
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 724--724
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 739--739
+Overfull \hbox (1.71077pt too wide) in alignment at lines 726--731
+ [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 731
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 735--735
 |[][][][][][][]| 
  []
 
-[10]
-Overfull \hbox (3.0pt too wide) in paragraph at lines 747--747
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 738--738
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (1.71077pt too wide) in alignment at lines 739--744
+ [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 744
+ []
+
+[15]
+Overfull \hbox (3.0pt too wide) in paragraph at lines 748--748
 |[][][][][][][]| 
  []
 
@@ -1128,243 +1269,229 @@ Overfull \hbox (3.0pt too wide) in paragraph at lines 754--754
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 757--757
-|[][][][][][][]| 
- []
-
-
-Overfull \hbox (1.71077pt too wide) in alignment at lines 758--761
+Overfull \hbox (1.71077pt too wide) in alignment at lines 756--759
  [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 761
+Underfull \vbox (badness 10000) detected at line 759
  []
 
 
-Overfull \hbox (1.71077pt too wide) in alignment at lines 763--766
+Overfull \hbox (3.0pt too wide) in paragraph at lines 762--762
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (1.71077pt too wide) in alignment at lines 764--767
  [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 766
+Underfull \vbox (badness 10000) detected at line 767
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 770--770
+Overfull \hbox (3.0pt too wide) in paragraph at lines 769--769
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 776--776
-|[][][][][][][]| 
- []
-
-
-Overfull \hbox (1.71077pt too wide) in alignment at lines 778--781
+Overfull \hbox (1.71077pt too wide) in alignment at lines 771--774
  [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 781
+Underfull \vbox (badness 10000) detected at line 774
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 784--784
+Overfull \hbox (3.0pt too wide) in paragraph at lines 778--778
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (1.71077pt too wide) in alignment at lines 786--789
+Overfull \hbox (1.71077pt too wide) in alignment at lines 780--783
  [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 789
+Underfull \vbox (badness 10000) detected at line 783
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 791--791
+Overfull \hbox (3.0pt too wide) in paragraph at lines 786--786
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 797--797
-|[][][][][][][]| 
- []
-
-
-Overfull \hbox (1.71077pt too wide) in alignment at lines 798--801
+Overfull \hbox (1.71077pt too wide) in alignment at lines 788--797
  [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 801
+Underfull \vbox (badness 10000) detected at line 797
  []
 
-
-Overfull \vbox (4.84322pt too high) has occurred while \output is active []
-
-
-[11]
-Overfull \hbox (3.0pt too wide) in paragraph at lines 803--803
+[16]
+Overfull \hbox (3.0pt too wide) in paragraph at lines 801--801
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (1.71077pt too wide) in alignment at lines 805--814
+Overfull \hbox (1.71077pt too wide) in alignment at lines 803--810
  [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 814
+Underfull \vbox (badness 10000) detected at line 810
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 818--818
+Overfull \hbox (3.0pt too wide) in paragraph at lines 813--813
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (1.71077pt too wide) in alignment at lines 820--827
+Overfull \hbox (1.71077pt too wide) in alignment at lines 815--822
  [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 827
+Underfull \vbox (badness 10000) detected at line 822
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 830--830
+Overfull \hbox (3.0pt too wide) in paragraph at lines 825--825
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (1.71077pt too wide) in alignment at lines 832--839
+Overfull \hbox (1.71077pt too wide) in alignment at lines 827--830
  [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 839
+Underfull \vbox (badness 10000) detected at line 830
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 841--841
+Overfull \hbox (3.0pt too wide) in paragraph at lines 833--833
+|[][][][][][][]| 
+ []
+
+[17]
+Overfull \hbox (3.0pt too wide) in paragraph at lines 840--840
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (1.71077pt too wide) in alignment at lines 843--846
+Overfull \hbox (1.71077pt too wide) in alignment at lines 842--845
  [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 846
+Underfull \vbox (badness 10000) detected at line 845
  []
 
-[12]
+
 Overfull \hbox (3.0pt too wide) in paragraph at lines 848--848
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 854--854
-|[][][][][][][]| 
- []
-
-
-Overfull \hbox (1.71077pt too wide) in alignment at lines 856--859
+Overfull \hbox (1.71077pt too wide) in alignment at lines 850--853
  [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 859
+Underfull \vbox (badness 10000) detected at line 853
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 861--861
+Overfull \hbox (3.0pt too wide) in paragraph at lines 855--855
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (1.71077pt too wide) in alignment at lines 863--866
+Overfull \hbox (1.71077pt too wide) in alignment at lines 857--860
  [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 866
+Underfull \vbox (badness 10000) detected at line 860
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 868--868
+Overfull \hbox (3.0pt too wide) in paragraph at lines 862--862
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (1.71077pt too wide) in alignment at lines 870--873
+Overfull \hbox (3.0pt too wide) in paragraph at lines 865--865
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 872--872
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 879--879
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 882--882
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (1.71077pt too wide) in alignment at lines 884--890
  [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 873
+Underfull \vbox (badness 10000) detected at line 890
  []
 
-
-Overfull \hbox (3.0pt too wide) in paragraph at lines 875--875
+[18]
+Overfull \hbox (3.0pt too wide) in paragraph at lines 894--894
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 878--878
-|[][][][][][][]| 
- []
-
-
-Overfull \hbox (3.0pt too wide) in paragraph at lines 884--884
-|[][][][][][][]| 
- []
-
-
-Overfull \hbox (3.0pt too wide) in paragraph at lines 890--890
-|[][][][][][][]| 
- []
-
-
-Overfull \hbox (3.0pt too wide) in paragraph at lines 893--893
-|[][][][][][][]| 
- []
-
-
-Overfull \hbox (1.71077pt too wide) in alignment at lines 895--902
+Overfull \hbox (1.71077pt too wide) in alignment at lines 896--901
  [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 902
+Underfull \vbox (badness 10000) detected at line 901
  []
 
-[13]
+
 Overfull \hbox (3.0pt too wide) in paragraph at lines 904--904
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (1.71077pt too wide) in alignment at lines 906--911
+Overfull \hbox (3.0pt too wide) in paragraph at lines 911--911
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 914--914
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (1.71077pt too wide) in alignment at lines 916--919
  [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 911
- []
-
-
-Overfull \hbox (3.0pt too wide) in paragraph at lines 913--913
-|[][][][][][][]| 
- []
-
-
-Overfull \hbox (3.0pt too wide) in paragraph at lines 919--919
-|[][][][][][][]| 
+Underfull \vbox (badness 10000) detected at line 919
  []
 
 
@@ -1382,98 +1509,84 @@ Underfull \vbox (badness 10000) detected at line 927
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 929--929
+Overfull \hbox (3.0pt too wide) in paragraph at lines 930--930
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (1.71077pt too wide) in alignment at lines 931--934
+Overfull \hbox (1.71077pt too wide) in alignment at lines 932--937
  [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 934
+Underfull \vbox (badness 10000) detected at line 937
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 936--936
+Overfull \hbox (3.0pt too wide) in paragraph at lines 940--940
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (1.71077pt too wide) in alignment at lines 938--943
+Overfull \hbox (3.0pt too wide) in paragraph at lines 947--947
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (1.71077pt too wide) in alignment at lines 949--952
  [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 943
+Underfull \vbox (badness 10000) detected at line 952
  []
 
-
-Overfull \hbox (3.0pt too wide) in paragraph at lines 945--945
+[19]
+Overfull \hbox (3.0pt too wide) in paragraph at lines 956--956
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 951--951
+Overfull \hbox (3.0pt too wide) in paragraph at lines 959--959
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (1.71077pt too wide) in alignment at lines 953--956
- [] [] 
- []
-
-[14]
-Underfull \vbox (badness 10000) detected at line 956
- []
-
-
-Overfull \hbox (3.0pt too wide) in paragraph at lines 958--958
+Overfull \hbox (3.0pt too wide) in paragraph at lines 965--965
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 961--961
+Overfull \hbox (3.0pt too wide) in paragraph at lines 971--971
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 967--967
+Overfull \hbox (3.0pt too wide) in paragraph at lines 974--974
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 973--973
-|[][][][][][][]| 
- []
-
-
-Overfull \hbox (3.0pt too wide) in paragraph at lines 976--976
-|[][][][][][][]| 
- []
-
-
-Overfull \hbox (1.71077pt too wide) in alignment at lines 978--985
+Overfull \hbox (1.71077pt too wide) in alignment at lines 976--983
  [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 985
+Underfull \vbox (badness 10000) detected at line 983
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 987--987
+Overfull \hbox (3.0pt too wide) in paragraph at lines 986--986
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (1.71077pt too wide) in alignment at lines 989--992
+Overfull \hbox (1.71077pt too wide) in alignment at lines 988--991
  [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 992
+Underfull \vbox (badness 10000) detected at line 991
  []
 
 
@@ -1486,66 +1599,52 @@ Overfull \hbox (3.0pt too wide) in paragraph at lines 999--999
 |[][][][][][][]| 
  []
 
-[15]
-Overfull \hbox (3.0pt too wide) in paragraph at lines 1010--1010
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1009--1009
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 1013--1013
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1012--1012
+|[][][][][][][]| 
+ []
+
+[20]
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1031--1031
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 1020--1020
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1044--1044
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 1026--1026
-|[][][][][][][]| 
- []
-
-
-Overfull \hbox (3.0pt too wide) in paragraph at lines 1032--1032
-|[][][][][][][]| 
- []
-
-
-Overfull \hbox (3.0pt too wide) in paragraph at lines 1045--1045
-|[][][][][][][]| 
- []
-
-[16]
-Overfull \hbox (3.0pt too wide) in paragraph at lines 1068--1068
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1066--1066
 |[][][][][][][]| 
  []
 
 
 AED: lastpage setting LastPage
-[17]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1076.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1076.
+[21]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1074.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1074.
  (./Sys_Requirements.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1076.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1076.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1074.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1074.
 
 Package rerunfilecheck Info: File `Sys_Requirements.out' has not changed.
-(rerunfilecheck)             Checksum: BE547D12CF6B31723110D13A13FB4CC2;2462.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1076.
+(rerunfilecheck)             Checksum: E590A87513D66477D2AAEC6BC3852B51;2556.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1074.
  ) 
 Here is how much of TeX's memory you used:
- 8932 strings out of 493089
- 130798 string characters out of 6134842
- 338911 words of memory out of 5000000
- 12084 multiletter control sequences out of 15000+600000
+ 8941 strings out of 493089
+ 131287 string characters out of 6134842
+ 346717 words of memory out of 5000000
+ 12107 multiletter control sequences out of 15000+600000
  36487 words of font info for 42 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,12n,43p,458b,484s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,12n,43p,458b,486s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
 }{/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{
 /usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/cabin/cbn_aojlca.enc}</usr/l
@@ -1558,10 +1657,10 @@ texlive/2015/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/te
 xlive/2015/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texl
 ive/2015/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/local/texliv
 e/2015/texmf-dist/fonts/type1/public/cm-super/sfxc1440.pfb>
-Output written on Sys_Requirements.pdf (17 pages, 195856 bytes).
+Output written on Sys_Requirements.pdf (21 pages, 342663 bytes).
 PDF statistics:
- 533 PDF objects out of 1000 (max. 8388607)
- 500 compressed objects within 5 object streams
- 194 named destinations out of 1000 (max. 500000)
- 281 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 545 PDF objects out of 1000 (max. 8388607)
+ 497 compressed objects within 5 object streams
+ 173 named destinations out of 1000 (max. 500000)
+ 312 words of extra memory for PDF output out of 10000 (max. 10000000)
 

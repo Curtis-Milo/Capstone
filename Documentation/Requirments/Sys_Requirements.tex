@@ -180,10 +180,10 @@ linkcolor=black,}  %choose some color if you want links to stand out
 \vspace*{4.5cm}
 
 % Logo Insertion
-%\begin {figure}[h!]
-%\centering
-%\hspace{-10mm}\includegraphics [scale = .3, trim={.4cm 0 .8cm 0},clip] {figures/alfred.png}
-%\end {figure}
+\begin {figure}[h!]
+\centering
+\hspace{-10mm}\includegraphics [scale = .3, trim={.4cm 0 .8cm 0},clip] {Figures/alfred.png}
+\end {figure}
 
 {\fontfamily{\cabinfamily}\selectfont
 \Huge{LazyBots} }
@@ -203,13 +203,6 @@ Curtis Milo & & 001305877 \\
 Keyur Patel & & 001311559 \\
 Alexandra Rahman & & 001305735
 \end{tabular}
-
-
-
-
-
-
-
 
 \end{center}
 
@@ -238,64 +231,7 @@ Alexandra Rahman & & 001305735
 \multicolumn{1}{c|}{\textbf {Authors}} & 
 \multicolumn{1}{c|}{\textbf {Comments}} \\ \hline
 
-
-
-%\multicolumn{1}{|c|}{\multirow{1}{*}{\centering March 8, 2017}}  & 
-%\multicolumn{1}{c|}{\multirow{1}{*}{Revision 1}} &
-%\begin{minipage}{.21\columnwidth}
-%    Alex Jackson \newline
-%    Jean Lucas Ferreira \newline
-%    Justin Kapinski\newline
-%    Mathew Hobers\newline
-%    Radhika Sharma\newline
-%    Zachary Bazen     
-%\end{minipage}&
-%\begin{minipage} {.27 \columnwidth}
-%    \begin{enumerate}[label = - , leftmargin=0.15in]
-%        \itemsep -.5em
-%        \item Updated scope of the project
-%        \item Created new and revised likelihood of change table
-%        \item Improved privacy requirements
-%        \item Removed unused system constants section
-%        \item Updated additional nonfunctional requirements\vspace{1mm}
-%    \end{enumerate}
-%\end{minipage}\\ \hline 
-%
-%
-%\multicolumn{1}{|c|}{\multirow{1}{*}{\centering March 3, 2017}}  & 
-%\multicolumn{1}{c|}{\multirow{1}{*}{Revision 1}} &
-%\begin{minipage}{.21\columnwidth}
-%    Alex Jackson \newline
-%    Jean Lucas Ferreira \newline
-%    Justin Kapinski\newline
-%    Mathew Hobers\newline
-%    Radhika Sharma\newline
-%    Zachary Bazen     
-%\end{minipage}&
-%\begin{minipage} {.27 \columnwidth}
-%    \begin{enumerate}[label = - , leftmargin=0.15in]
-%        \itemsep -.5em
-%        \item Update system\\ requirements
-%        \item Added requirement\\ rationale
-%        \item Updated system\\ assumptions
-%        \item Removed monitored and controlled variables \vspace{1mm}
-%    \end{enumerate}
-%\end{minipage}\\ \hline 
-%
-%% Botttom Row
-%\multicolumn{1}{|c|}{\multirow{1}{*}{November 29,2016}} &
-%\multicolumn{1}{c|}{\multirow{1}{*}{Revision 1}}& 
-%\multirow{1}{*}{Zachary Bazen} &
-%\begin{minipage} {.27 \columnwidth}
-%    \begin{enumerate}[label = - , leftmargin=0.15in]
-%        \itemsep -.5em
-%        \item Updated  monitored  and controlled variables
-%        \item Updated naming  conventions \vspace{1mm}
-%    \end{enumerate}
-%\end{minipage}\\ \hline 
-%
-%
-\multirow{5}{*}{\centering October 6\textsuperscript{th}, 2017}  & 
+\multirow{5}{*}{\centering November 6\textsuperscript{th}, 2017}  & 
 \multicolumn{1}{c|}{\multirow{5}{*}{Revision 0}}& 
 {Karim Guirguis \newline
 David Hemms \newline
@@ -395,7 +331,7 @@ Note: The following naming conventions apply to this document specifically.
 
 \textbf{R\#} &  Robot Name\\ 
 
-\cellcolor{tableCell}\textbf{Alfred\#} &  \cellcolor{tableCell} The name of the robot that will deliver drinks \\
+\cellcolor{tableCell}\textbf{Alfred\#} &  \cellcolor{tableCell}The name of the robot that will deliver drinks \\
 
 
 \textbf{T\#} &  Table Order Identification Number\\ 
@@ -404,9 +340,9 @@ Note: The following naming conventions apply to this document specifically.
 
 \textbf{G\#} & Graphing notation \\ 
 
-\cellcolor{tableCell}\textbf{N\#}  & \cellcolor{tableCell} a node within a graph representing a table or any other point of interest. \\ 
+\cellcolor{tableCell}\textbf{N\#}  & \cellcolor{tableCell}A node within a graph representing a table or any other point of interest. \\ 
 
-\cellcolor{tableCell}\textbf{G\#}  & \cellcolor{tableCell} a graph representing the tables as well as the distance from the current table. \\ 
+\textbf{G\#}  &A graph representing the tables as well as the distance from the current table. \\ \hline
 
 \end{longtable}
 
@@ -425,7 +361,7 @@ The following is a list of variables that will be monitored.
 
 \begin{itemize}
 	\item Speed of the wheels (rad/s)
-	\item Weight of the storage device (Kg)
+	\item Weight of the storage device (kg)
 	\item If the cup has been taken (boolean)
 	\item Distance of any obstacles (m)
 	\item Voltage levels of batteries (V)
@@ -433,11 +369,11 @@ The following is a list of variables that will be monitored.
 
 The following is a list of variables that will be controlled
 \begin{itemize}
-	\item Speed of the motor. (rad/s)
+	\item Speed of the motor (rad/s)
 	\item Voltage going to the liquid pumps. (V)
 	\item Signal of drink that it is ready to be picked up (boolean)
 	\item Error codes sent (unsigned byte)
-\end{itemize}1
+\end{itemize}
 
 % ------------------------------------------------- Relevant Facts and Assumptions -------------------------------------------------
 \subsection{Relevant Facts and Assumptions} 
@@ -445,14 +381,14 @@ The following is a list of variables that will be controlled
 % --------------------------------- Relevant Facts ---------------------------------%
 \subsubsection{Relevant Facts}
 \begin{itemize}
-	\item A standard cup size contains 12 ounces of fluid. 
-	\item All food or drink should not be served below the height of a table.
-	\item Food Safety and Industry standards state that drinks should be kept at a temperature below 4 degrees Celsius.
+	\item A standard cup size contains 12 ounces of fluid
+	\item All food or drink should not be served below the height of a table
+	\item Food Safety and Industry standards state that drinks should be kept at a temperature below 4 degrees Celsius
 \end{itemize}
 
 % ---------------------------------- Assumptions ----------------------------------%
 \subsubsection{Assumptions}
-Alfred assumptions is tables below. 
+Alfred's assumption are represented in the tables below. 
 \begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
 \rowcolor{tableCell}\textbf{A1} & The environment will only be comprised of a one story building with no steps. \\ \hline
 \textbf{Rationale} & Different environment elevations are beyond the scope of the project. \\ \hline 
@@ -465,12 +401,12 @@ Alfred assumptions is tables below.
 
 \begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
 \rowcolor{tableCell}\textbf{A3} & Orders will be placed via an Android or iOS application. \\ \hline
-\textbf{Rationale} &  Eliminate the need for human interactions, making Alfred completely autonomous. \\ \hline
+\textbf{Rationale} &  Eliminates the need for human interactions, making Alfred completely autonomous. \\ \hline
 \end{longtable}
 
 \begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
 \rowcolor{tableCell}\textbf{A4} & The height of a table will not exceed 30". \\ \hline
-\textbf{Rationale} &  This will help simplify the scope of the project and reduce the amount of drink waste. (accidents)\\ \hline
+\textbf{Rationale} &  This will help simplify the scope of the project and reduce the amount of drink waste.\\ \hline
 \end{longtable}
 
 \begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
@@ -483,33 +419,21 @@ Alfred assumptions is tables below.
 
 % ------------------------------------------------------- CONTEXT DIAGRAMS --------------------------------------------------------
 \section{Context Diagrams}
-\textbf{Insert images of context diagrams}
-%\begin{figure} [h!]
-%	\centering
-%	\includegraphics [scale = 0.8] {figures/IC_ContextDiagram.pdf}
-%	\caption{Intersection Controller Context Diagram}
-%\end{figure}
-%\break
-%\begin{figure} [h!]
-%	\centering
-%	\includegraphics [scale =0.8] {figures/CarCtrl_ContextDiag.pdf}
-%	\caption{Car Controller Context Diagram}
-%\end{figure}
+The following is a context diagram of the drink serving robot, Alfred.
+\begin{figure} [h!]
+	\centering
+	\includegraphics [scale = 0.6] {Figures/ContextDiagram.png}
+	\caption{Drink Serving Robot Context Diagram}
+\end{figure}
+
 
 % --------------------------------------------------- CONTEXT DIAGRAMS END ----------------------------------------------------
 
 
 % ------------------------------------------------- FUNCTIONAL REQUIREMENTS -------------------------------------------------
 \section {Functional Requirements} 
-Intro sentence
+The following are the functional requirements of the project. They are separated into \# main components: drink serving robot (Alfred), ordering and administration.
 %The requirements for this project are separated into the three main components of the system: the track, vehicle, and intersection controller.
-
-
-
-% Track Requirements
-
-% if one requirements gets deleted it will be shown in the requirement likelihood of change as ??
-% with all the other labels numbers updated
 
  % ------ NOTE ------% 
 % CAN ONLY ADD REQUIREMENTS TO END OF LIST WITH OWN UNIQUE LABEL
@@ -519,401 +443,469 @@ Intro sentence
 % ---------------------------------------------- Alfred Functional Requirements ---------------------------------------------
 \subsection{Alfred Functional Requirements}
 
+% ----- 1 ----- %
 \begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
-\rowcolor{tableCell}\textbf{?1} & Alfred shall be able to determine the desired drinks for a table within the restaurant \\ \hline
-\textbf{Rationale} & It is essential for Alfred to be able receive the order of the drinks to be able to pour drinks for the customers\\ \hline 
+\rowcolor{tableCell}\textbf{AF1} & Alfred shall be able to differentiate between the different drink types and dispense the correct drink.\\ \hline
+\textbf{Rationale} & Alfred should be able to dispense the correct drinks for the customers.\\ \hline 
 \end{longtable}
 
+% ----- 2 ----- %
 \begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
-\rowcolor{tableCell}\textbf{?2} & Alfred shall be able to identify the table that a specific drink order belongs to.\\ \hline
-\textbf{Rationale} &  This is so that Alfred will be able to able to pour the drinks to the correct tables\\ \hline 
-
+\rowcolor{tableCell}\textbf{AF2} & Alfred shall be able to identify to correlate a drink order to the requesting table.\\ \hline
+\textbf{Rationale} &  Alfred will be able to able to dispense the desired drinks to the correct table.\\ \hline 
 \end{longtable}
 
+% ----- 3 ----- %
+%Maybe use discrete math to show this?
 \begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
-\rowcolor{tableCell}\textbf{?3} &  Alfred shall be able to navigate to the table that corresponds to a specific drink order. \\ \hline
-\textbf{Rationale} & This allows Alfred to be able to move without the help from any person. \\ \hline 
-%Maybee use discrete math to show this?
+\rowcolor{tableCell}\textbf{AF3} &  Alfred shall be able to navigate to a table that corresponds to a specific drink order. \\ \hline
+\textbf{Rationale} & Alfred should be able to move autonomously. \\ \hline 
 \end{longtable}
 
+% ----- 4 ----- %
 \begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
-\rowcolor{tableCell}\textbf{?4} & Alfred shall be able to pour the correct drinks corresponding to the specific tables order.\\ \hline
+\rowcolor{tableCell}\textbf{AF4} & Alfred shall be able to pour the correct drinks corresponding to the specific tables order.\\ \hline
 \textbf{Rationale} &  This is that Alfred will be able to pour the drinks for the customers without the need for any human interference. \\ \hline 
 \end{longtable}
 
+% ----- 5 ----- %
+% Specify the cup size!!!!
 \begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
-	\rowcolor{tableCell}\textbf{?5} & Alfred shall be able to pour the correct amount for the drink based on the size of the cup.\\ \hline
-	\textbf{Rationale} &  This is that Alfred will be able to pour correct amount of liquid for the user so it will not be under or over filled. \\ \hline 
-	%Specify the cup size
+\rowcolor{tableCell}\textbf{AF5} & Alfred shall be able to dispense the correct amount for the drink based on the size of the cup specified.\\ \hline
+\textbf{Rationale} &  Alfred will be able to dispense the correct amount of liquid for the user so it will not be under or over filled. \\ \hline 
 \end{longtable}
 
+% ----- 6 ----- %
+% Quantify this with a number
 \begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
-	\rowcolor{tableCell}\textbf{?6} & Alfred shall be able to determine when liquids within Alfred's Storage are not cold enough.\\ \hline
-	\textbf{Rationale} &  In order to ensure that the drinks that will be served will meet FDA food regulations. \\ \hline 
-	%Quanitify this with a number?
+\rowcolor{tableCell}\textbf{AF6} & Alfred shall be able to determine when liquids within storage containers are not within the desired temperature range.\\ \hline
+\textbf{Rationale} &  In order to ensure that the drinks served meet FDA food regulation standards. \\ \hline 
 \end{longtable}
 
+% ----- 7 ----- %
 \begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
-	\rowcolor{tableCell}\textbf{?7} & Alfred shall be able to notify the staff that that the liquids within Alfred's Storage are not cold enough\\ \hline
-	\textbf{Rationale} &  So that the staff will be able to make the appropriate action to cool the drinks down.\\ \hline 
+\rowcolor{tableCell}\textbf{AF7} & Alfred shall be able to notify the staff when the liquids within the storage containers are not within the desired temperature range.\\ \hline
+\textbf{Rationale} &  So that the staff will be able to make the appropriate action to cool the drinks down.\\ \hline 
 \end{longtable}
 
+% ----- 8 ----- %
 \begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
-	\rowcolor{tableCell}\textbf{?8} & Alfred shall be able to determine that any of the liquids within Alfred's Storage are not at sufficient level to be able to pour a cup of the specific beverage. \\ \hline
-	\textbf{Rationale} &  This is so that Alfred will be able to know when it will need to be refilled.\\ \hline 
+\rowcolor{tableCell}\textbf{AF8} & Alfred shall be able to determine if any of the liquids within the storage containers are below the desired supply levels. \\ \hline
+\textbf{Rationale} &  Alfred should be able to know when it will need to be refilled and should not dispense any drink with insufficient supply levels.\\ \hline 
 \end{longtable}
 
+% ----- 9 ----- %
 \begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
-	\rowcolor{tableCell}\textbf{?9} & Alfred shall be able to notify the staff that that any of the liquids within Alfred's Storage are not at sufficient level to be able to pour a cup of the specific beverage. \\ \hline
-	\textbf{Rationale} &  This is so that Alfred will be able to receive aid from the staff so that it can continue to fulfill drink orders.\\ \hline 
+\rowcolor{tableCell}\textbf{AF9} & Alfred shall be able to notify the staff when any of the liquids within the storage containers are below the desired supply levels. \\ \hline 
+\textbf{Rationale} &  Staff should be able to replenish liquid supplies when they run low so that Alfred can continue serving customers. \\ \hline
 \end{longtable}
 
+% ----- 10 ----- %
+% Specify a stopping distance
 \begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
-	\rowcolor{tableCell}\textbf{?10} & Alfred shall be able to stop for when an obstacle is in the way of Alfred \\ \hline
-	\textbf{Rationale} &  This is so that Alfred will be able to ensure that the customers will remain safe when around them and that Alfred will not cause property damage.\\ \hline 
-	%Specify the distance
+\rowcolor{tableCell}\textbf{AF10} & Alfred shall be able to determine if an obstacle is in its path and come to a timely stop. \\ \hline
+\textbf{Rationale} &  To ensure the safety of the users and prevent destruction of property. \\ \hline 
 \end{longtable}
 
-
+% ----- 11 ----- %
+% Specify using function table
 \begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
-	\rowcolor{tableCell}\textbf{?11} & Alfred Shall be able to determine when an aspect will no longer be functional due to low power. \\ \hline
-	\textbf{Rationale} &  This is so that Alfred will be able to take the appropriate actions so that way if we can ensure that Alfred will return to base before it needs to shut down.\\ \hline 
-	%Specify using function table
+\rowcolor{tableCell}\textbf{AF11} & Alfred shall be able to determine when a component will no longer be operational due to insufficient power levels. \\ \hline
+\textbf{Rationale} &  To ensure that no internal components get abused or destroyed proper safety measures are in place; Alfred returns to home base before shutting down. \\ \hline
 \end{longtable}
 
+% ----- 12 ----- %
 \begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
-	\rowcolor{tableCell}\textbf{?12} & Alfred Shall be able to navigate back to its home base at any given point in time. \\ \hline
-	\textbf{Rationale} &  This is so that it will be able to return if there is any issues with temperature, power and drink levels. It is also so that at the end of the day the staff can request for Alfred to return back to home base\\ \hline 
+\rowcolor{tableCell}\textbf{AF12} & Alfred shall be able to navigate back to the designated home base at any given point in time. \\ \hline
+\textbf{Rationale} &  To ensure safety of the customers and the robot, Alfred shall return to a designated home base when any issue pertaining to supply temperature, supply levels or power levels. This is also in place so that the staff an request Alfred to return to home base at the end of the business day. \\ \hline
 \end{longtable}
 
+% ----- 13 ----- %
 \begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
-	\rowcolor{tableCell}\textbf{?13} & Alfred Shall be able to Indicate to the user when the drinks is ready for the user. \\ \hline
-	\textbf{Rationale} &  This is so that the user will know when the drink is finished and is ready.\\ \hline 
+\rowcolor{tableCell}\textbf{AF13} & Alfred shall be able to indicate to the user when the drink has finished dispensing. \\ \hline
+\textbf{Rationale} &  To prevent drink waste and confusion among users, Alfred should notify the user when a drink is complete.\\ \hline 
 \end{longtable}
 
+% ----- 14 ----- %
 \begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
-	\rowcolor{tableCell}\textbf{?14} & Alfred Shall be complete orders in the order that they were received in. \\ \hline
-	\textbf{Rationale} &  This is so that fairness is consistent for the user.\\ \hline 
+\rowcolor{tableCell}\textbf{AF14} & Alfred shall be able to complete drink orders in the order that they were received.\\ \hline
+\textbf{Rationale} &  To ensure that all customers are served and fairness is preserved.\\ \hline 
 \end{longtable}
 
 % ---------------------------------------------- Table Ordering Application ---------------------------------------------
 \subsection{Table Ordering Application Functional Requirements}
 
+% ----- 1 ----- %
 \begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
-	\rowcolor{tableCell}\textbf{?15} & The ordering application shall allow the user to be able to place an order for Alfred. \\ \hline
-	\textbf{Rationale} &  This is so that Alfred will be able to bring the beverages of the table.\\ \hline 
+\rowcolor{tableCell}\textbf{TO1} & The ordering application shall allow the user to be able to place an order to Alfred. \\ \hline
+\textbf{Rationale} &  This is so that Alfred will be able to bring the beverages of the table.\\ \hline 
 \end{longtable}
 
-
+% ----- 2 ----- %
 \begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
-	\rowcolor{tableCell}\textbf{?16} & The ordering application shall be able to transfer the order to the list of Alfred's drink orders. \\ \hline
-	\textbf{Rationale} &  This is so that Alfred will be able to receive the specific order from the application.\\ \hline 
+\rowcolor{tableCell}\textbf{TO2} & The ordering application shall be able to add the incoming order to Alfred's  the serving queue. \\ \hline
+\textbf{Rationale} &  This is so that Alfred will be able to receive the specific order from the application.\\ \hline 
 \end{longtable}
 
 % ---------------------------------------------- Administrator Application ---------------------------------------------
 \subsection{Administrator Application Functional Requirements}
 
+% ----- 1 ----- %
 \begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
-	\rowcolor{tableCell}\textbf{?17} & The Administrator Application shall allow the user to create a map of the restaurant for Alfred. \\ \hline
-	\textbf{Rationale} &  This is so that Alfred will be successfully be able navigate to the location of specific tables.\\ \hline 
+\rowcolor{tableCell}\textbf{AD1} & The Administrator Application shall allow the user to create a map of the restaurant for Alfred. \\ \hline
+\textbf{Rationale} &  To ensure that Alfred successfully navigates the layout and abides the users' table ordering convention.\\ \hline 
 \end{longtable}
 
+% ----- 2 ----- %
 \begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
-	\rowcolor{tableCell}\textbf{?18} & The Administrator Application shall allow the user to insert tables, obstacles and paths to travel. \\ \hline
-	\textbf{Rationale} &  This is so that Alfred will be successfully be able navigate to the location of specific tables.\\ \hline 
+\rowcolor{tableCell}\textbf{AD2} & The Administrator Application shall allow the user to modify the map by adding or removing tables, obstacles and walkways.\\ \hline
+\textbf{Rationale} &  To ensure that Alfred map is up to date and prevent damage of property.\\ \hline 
 \end{longtable}
 
+% ----- 3 ----- %
 \begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
-	\rowcolor{tableCell}\textbf{?19} & The Administrator Application shall allow the user to view all of the orders that were created by the ordering application. \\ \hline
-	\textbf{Rationale} &  This is so that the restaurant shall be able to make bills based on this information\\ \hline 
+\rowcolor{tableCell}\textbf{AD3} & The Administrator Application shall allow the user to view a log of the orders that were created by the ordering application. \\ \hline
+\textbf{Rationale} &  This is so that the restaurant shall be able to make bills based on this information.\\ \hline 
 \end{longtable}
 
+% ----- 4 ----- %
 \begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
-	\rowcolor{tableCell}\textbf{?20} & The Administrator Application shall be able to view the status of Alfred. \\ \hline
-	\textbf{Rationale} &  This is so that the restaurant staff shall be able to ensure that Alfred will remain functional\\ \hline 
+\rowcolor{tableCell}\textbf{AD4} & The Administrator Application shall be able to view Alfred's status at any given point in time. \\ \hline
+\textbf{Rationale} &  To ensure that staff are well informed of Alfred's conditions and are certain that Alfred will remain operational. \\ \hline
 \end{longtable}
 
 
 
-% ---------------------------------------------- FUNCTIONAL REQUIREMENTS END ---------------------------------------------
+% --------------------------------------------- FUNCTIONAL REQUIREMENTS END ---------------------------------------------
 
 
-% ---------------------------------------- FUNCTIONAL DECOMPOSITION DIAGRAMS ----------------------------------------
+% --------------------------------------- FUNCTIONAL DECOMPOSITION DIAGRAMS ----------------------------------------
+\pagebreak
 \section{Functional Decomposition Diagrams}
-\textbf{Insert Functional Decomposition Diagrams!}
-%\begin{figure} [h!]
-%	\caption{Functional Intersection Controller Decomposition}\bigskip
-%	\centering
-%	\includegraphics [scale =.8] {figures/function_decomp_IC.pdf}
-%	
-%\end{figure}
-%
-%\pagebreak
-%
-%\begin{figure} [h!]
-%	\caption{Functional Track Navigation Decomposition}\bigskip
-%	\centering
-%	\includegraphics [scale =.8] {figures/function_decomp_track_n.pdf}
-%	
-%\end{figure}
+The following is a data flow diagram of the drink serving robot, Alfred.
 
-% ------------------------------------- FUNCTIONAL DECOMPOSITION DIAGRAMS END ------------------------------------
+\begin{figure} [h!]
+	\centering
+	\includegraphics [scale = 0.5] {Figures/Legend1.png}
+	\caption{Legend for the User Diagram and the Data Flow Diagram}
+\end{figure}
+
+\begin{figure} [h!]
+	\centering
+	\includegraphics [scale = 0.425] {Figures/UserDiagram.png}
+	\caption{Drink Serving Robot User Diagram}
+\end{figure}
+
+\pagebreak
+\begin{figure} [h!]
+	\centering
+	\includegraphics [scale = 0.625] {Figures/DataFlowDiagram.png}
+	\caption{Drink Serving Robot Data Flow Diagram}
+\end{figure}
+
+% ------------------------------------ FUNCTIONAL DECOMPOSITION DIAGRAMS END ------------------------------------
 
 
 % ------------------------------ FUNCTIONAL REQUIREMENTS LIKELIHOOD OF CHANGE ------------------------------
-\section{Functional Requirements Likelihood of Change}  %%TODO in meeting
+\pagebreak
+\section{Functional Requirements Likelihood of Change}
 
-% --------------------------------------------------------------- Subsection 1 ---------------------------------------------------------------
-\subsection{Subsection 1}
-
-\begin{longtable}{| p{.15\textwidth } | p{.14\textwidth } |  p{.3\textwidth } | p{.30\textwidth } |}\hline 
-\multicolumn{1}{|c|}{\textbf {Requirement}} & 
-\begin{minipage}{.14 \columnwidth}\begin{center}\vspace{1.5mm}\textbf{Likelihood of Change}   \vspace{1.5mm} \end{center}\end{minipage}& 
-\multicolumn{1}{c|}{\textbf {Rationale}} & \multicolumn{1}{c|}{\textbf {Ways to Change}} \\ \hline
-
-\rowcolor{tableCell} \multicolumn{1}{|c|}{?1}& 
-\multicolumn{1}{|c|}{Likelihood} & Rationale & Change \\ \hline
-
-\multicolumn{1}{|c|}{?2}& 
-\multicolumn{1}{|c|}{Likelihood} & Rationale & Change \\ \hline
-
-\rowcolor{tableCell} \multicolumn{1}{|c|}{?3}& 
-\multicolumn{1}{|c|}{Likelihood} & Rationale & Change \\ \hline
-
-\multicolumn{1}{|c|}{?4}& 
-\multicolumn{1}{|c|}{Likelihood} & Rationale & Change \\ \hline
-\end{longtable}
-
-% --------------------------------------------------------------- Subsection 2 ---------------------------------------------------------------
-\subsection{Subsection 2} 
+% ------------------------------------------------ Alfred Functional Requirements --------------------------------------------------
+\subsection{Alfred Functional Requirements}
 
 \begin{longtable}{| p{.15\textwidth } | p{.14\textwidth } |  p{.3\textwidth } | p{.30\textwidth } |}\hline 
 \multicolumn{1}{|c|}{\textbf {Requirement}} & 
 \begin{minipage}{.14 \columnwidth}\begin{center}\vspace{1.5mm}\textbf{Likelihood of Change}   \vspace{1.5mm} \end{center}\end{minipage}& 
 \multicolumn{1}{c|}{\textbf {Rationale}} & \multicolumn{1}{c|}{\textbf {Ways to Change}} \\ \hline
 
-\rowcolor{tableCell} \multicolumn{1}{|c|}{??1}& 
-\multicolumn{1}{|c|}{Likelihood} & Rationale & Change \\ \hline
+\rowcolor{tableCell} \multicolumn{1}{|c|}{AF1}& 
+\multicolumn{1}{|c|}{Very Unlikely} & Key implementation aspect & N/A \\ \hline
 
-\multicolumn{1}{|c|}{??2}& 
-\multicolumn{1}{|c|}{Likelihood} & Rationale & Change \\ \hline
+\multicolumn{1}{|c|}{AF2}& 
+\multicolumn{1}{|c|}{Ver Unlikely} & Key implementation aspect & N/A \\ \hline
 
-\rowcolor{tableCell} \multicolumn{1}{|c|}{??3}& 
-\multicolumn{1}{|c|}{Likelihood} & Rationale & Change \\ \hline
+\rowcolor{tableCell} \multicolumn{1}{|c|}{AF3}& 
+\multicolumn{1}{|c|}{Very Unlikely} & Key implementation aspect & N/A \\ \hline
 
-\multicolumn{1}{|c|}{??4}& 
-\multicolumn{1}{|c|}{Likelihood} & Rationale & Change \\ \hline
+\multicolumn{1}{|c|}{AF4}& 
+\multicolumn{1}{|c|}{Very Unlikely} & Key implementation aspect & N/A \\ \hline
+
+\rowcolor{tableCell} \multicolumn{1}{|c|}{AF5}& 
+\multicolumn{1}{|c|}{Unlikely} & Subject to scope definition and time constraints. & Cup size might be restricted to a single size. \\ \hline
+
+\multicolumn{1}{|c|}{AF6}& 
+\multicolumn{1}{|c|}{Very Unlikely} & Key implementation aspect & N/A \\ \hline
+
+\rowcolor{tableCell} \multicolumn{1}{|c|}{AF7}& 
+\multicolumn{1}{|c|}{Very Unlikely} & Ensures Food Safety Standards are met & N/A \\ \hline
+
+\multicolumn{1}{|c|}{AF8}& 
+\multicolumn{1}{|c|}{Very Unlikely} & Key implementation Aspect & N/A \\ \hline
+
+\rowcolor{tableCell} \multicolumn{1}{|c|}{AF9}& 
+\multicolumn{1}{|c|}{Very unlikely} & Key implementation aspect & N/A \\ \hline
+
+\multicolumn{1}{|c|}{AF10}& 
+\multicolumn{1}{|c|}{Very Unlikely} & Ensures safety of users & N/A \\ \hline
+
+\rowcolor{tableCell} \multicolumn{1}{|c|}{AF11}& 
+\multicolumn{1}{|c|}{Very Unlikely} & Ensures robot safety & N/A \\ \hline
+
+\multicolumn{1}{|c|}{AF12}& 
+\multicolumn{1}{|c|}{Unlikely} & Administrator can override the system & Restrictions on when the robot can be called back to home base may be implemented. \\ \hline
+
+\rowcolor{tableCell} \multicolumn{1}{|c|}{AF13}& 
+\multicolumn{1}{|c|}{Unlikely} & Key implementation aspect & N/A \\ \hline
+
+\multicolumn{1}{|c|}{AF14}& 
+\multicolumn{1}{|c|}{Unlikely} & Subject to scope definition and time constraints. & Orders might be fulfilled based on resource availability. \\ \hline
 \end{longtable}
 
-% --------------------------------------------------------------- Subsection 3 ---------------------------------------------------------------
-\subsection{Subsection 3}
+% ---------------------------------- Table Ordering Application Functional Requirements --------------------------------------
+\subsection{Table Ordering Application Functional Requirements} 
 
 \begin{longtable}{| p{.15\textwidth } | p{.14\textwidth } |  p{.3\textwidth } | p{.30\textwidth } |}\hline 
 \multicolumn{1}{|c|}{\textbf {Requirement}} & 
 \begin{minipage}{.14 \columnwidth}\begin{center}\vspace{1.5mm}\textbf{Likelihood of Change}   \vspace{1.5mm} \end{center}\end{minipage}& 
 \multicolumn{1}{c|}{\textbf {Rationale}} & \multicolumn{1}{c|}{\textbf {Ways to Change}} \\ \hline
 
-\rowcolor{tableCell} \multicolumn{1}{|c|}{??1}& 
-\multicolumn{1}{|c|}{Likelihood} & Rationale & Change \\ \hline
+\rowcolor{tableCell} \multicolumn{1}{|c|}{TO1}& 
+\multicolumn{1}{|c|}{Very Unlikely} & Key implementation aspect & N/A \\ \hline
 
-\multicolumn{1}{|c|}{??2}& 
-\multicolumn{1}{|c|}{Likelihood} & Rationale & Change \\ \hline
-
-\rowcolor{tableCell} \multicolumn{1}{|c|}{??3}& 
-\multicolumn{1}{|c|}{Likelihood} & Rationale & Change \\ \hline
-
-\multicolumn{1}{|c|}{??4}& 
-\multicolumn{1}{|c|}{Likelihood} & Rationale & Change \\ \hline
+\multicolumn{1}{|c|}{TO2}& 
+\multicolumn{1}{|c|}{Very Unlikely} & Key implementation & N/A \\ \hline
 \end{longtable}
 
-% --------------------------- FUNCTIONAL REQUIREMENTS LIKELIHOOD OF CHANGE END ---------------------------
+% -------------------------------------- Administrator Application Functional Requirements -------------------------------------
+\subsection{Administrator Application Functional Requirements}
+
+\begin{longtable}{| p{.15\textwidth } | p{.14\textwidth } |  p{.3\textwidth } | p{.30\textwidth } |}\hline 
+\multicolumn{1}{|c|}{\textbf {Requirement}} & 
+\begin{minipage}{.14 \columnwidth}\begin{center}\vspace{1.5mm}\textbf{Likelihood of Change}   \vspace{1.5mm} \end{center}\end{minipage}& 
+\multicolumn{1}{c|}{\textbf {Rationale}} & \multicolumn{1}{c|}{\textbf {Ways to Change}} \\ \hline
+
+\rowcolor{tableCell} \multicolumn{1}{|c|}{AD1}& 
+\multicolumn{1}{|c|}{Likely} & Subject to scope definition and time constraints, a predetermined map may be supplied & Requirement may be removed. \\ \hline
+
+\multicolumn{1}{|c|}{AD2}& 
+\multicolumn{1}{|c|}{Likely} & Subject to scope definition and time constraints, the requirement has a lower priority compared to other requirement & Requirement may be removed. \\ \hline
+
+\rowcolor{tableCell} \multicolumn{1}{|c|}{AD3}& 
+\multicolumn{1}{|c|}{Likely} & Subject to scope definition and time constraints & Requirement may be removed. \\ \hline
+
+\multicolumn{1}{|c|}{AD4}& 
+\multicolumn{1}{|c|}{Very Unlikely} & Key implementation aspect & N/A \\ \hline
+\end{longtable}
+
+
+
+% -------------------------- FUNCTIONAL REQUIREMENTS LIKELIHOOD OF CHANGE END ---------------------------
 
 
 % --------------------------------------------- NONFUNCTIONAL REQUIREMENTS  ---------------------------------------------
-\section {Nonfunctional Requirements} 
+\section {Non-Functional Requirements} 
 
 % --------------------------------------------------- Look and Feel Requirements ---------------------------------------------------
 \subsection {Look and Feel Requirements}
 
 % ---------------------------- Appearance Requirements ----------------------------%
 \subsubsection{Appearance Requirements}
-	\begin{enumerate}[label=\textbf{(\roman*)}]
-		\item Alfred shall have any functional equipment hidden within its containment unit unless the user needs to interact with it.
-		\item Alfred shall not have any exposed electronic wiring. 
-		\item Alfred shall be at the appropriate table height.
-	\end{enumerate}
+	
+\begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
+\rowcolor{tableCell}\textbf{NFR1} & Alfred shall have any functional equipment hidden within its containment unit unless the user needs to interact with it. \\ \hline
+\textbf{Rationale} & Users should not have easy access to electrical or mechanical components for safety issues.\\ \hline 
+\rowcolor{tableCell}\textbf{NFR2} & Alfred shall not have any exposed electronic wiring. \\ \hline
+\textbf{Rationale} & To ensure user safety.\\ \hline 
+\rowcolor{tableCell}\textbf{NFR3} & Alfred shall be at the appropriate table height. \\ \hline
+\textbf{Rationale} & To ensure user safety when the robot is moving and to allow ease of use.\\ \hline 
+\end{longtable}
 
 % ------------------------------- Style Requirements -------------------------------%
 \subsubsection{Style Requirements}
-	\begin{enumerate}[label=\textbf{(\roman*)}]
-		\item  Alfred shall be painted friendly colours
-		\item The drink ordering application shall not be visually cluttered.
-	\end{enumerate}
 
-% ---------------------------------------------- Usability and Humanity Requirements ----------------------------------------------
+\begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
+\rowcolor{tableCell}\textbf{NFR4} & Alfred shall be painted non-offensive and appealing colours. \\ \hline
+\textbf{Rationale} & To ensure that no group of users is offended the choice of colours. \\ \hline  
+\rowcolor{tableCell}\textbf{NFR5} & The drink ordering application shall not be visually cluttered. \\ \hline
+\textbf{Rationale} & To ensure ease of use and prevent overwhelming the user with information.\\ \hline 
+\end{longtable}
+
+
+% --------------------------------------------- Usability and Humanity Requirements ----------------------------------------------
 \subsection{Usability and Humanity Requirements} 
 
 % ---------------------------- Ease of Use Requirements ----------------------------%
 \subsubsection{Ease of Use Requirements}
 \begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
-	\rowcolor{tableCell}\textbf{?1} & Alfred shall make it user to grab the users drink within 10 seconds. \\ \hline
-	\textbf{Rationale} &  This is about the amount of time to determine that the cup is ready to grab it.\\ \hline 
-\end{longtable}
-
-\begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
-	\rowcolor{tableCell}\textbf{?2} & Alfred shall make it so the user to be able to tell when a drink is done within one second. \\ \hline
-	\textbf{Rationale} & This is so that the user will not have to wait a large amount of time.\\ \hline 
+\rowcolor{tableCell}\textbf{NFR6} & Alfred shall make the drinks easy to grab and should only take the user 10 seconds to recognize the drink is ready and grab it. \\ \hline
+\textbf{Rationale} & This is about the amount of time to determine that the cup is ready to grab it.\\ \hline 
+\rowcolor{tableCell}\textbf{NFR7} & Alfred shall make it so the user to be able to tell when a drink is done within one second. \\ \hline
+\textbf{Rationale} & This is so that the user will not have to wait a large amount of time.\\ \hline 
 \end{longtable}
 
 
 % -------------- Personalization and Internalization Requirements -------------%
 \subsubsection{Personalization and Internationalization Requirements}
-	\begin{enumerate}[label=\textbf{(\roman*)}]
-		\item Text
-	\end{enumerate}
+	\begin{itemize}
+		\item N/A
+	\end{itemize}
 
 % ------------------------------ Learning Requirements ------------------------------%
 \subsubsection{Learning Requirements }
 
 \begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
-	\rowcolor{tableCell}\textbf{?1} & The ordering application shall make it that the user can learn to order a drink within 2 minutes of use. \\ \hline
-	\textbf{Rationale} & This is about the amount of time the user would take to explain there order to the restaurant staff.\\ \hline 
+\rowcolor{tableCell}\textbf{NFR8} & The ordering application shall make it so that the user can learn to order a drink within 2 minutes of use. \\ \hline
+\textbf{Rationale} & This is the estimated amount of time the user would take to place their order with a wait staff.\\ \hline 
 \end{longtable}
 
 % -------------- Understandability and Politeness Requirements --------------%
 \subsubsection{Understandability and Politeness Requirements}
 
 \begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
-	\rowcolor{tableCell}\textbf{?1} & Alfred shall not say anything to offend the user . \\ \hline
-	\textbf{Rationale} & To ensure that the user will not be offended.\\ \hline 
+\rowcolor{tableCell}\textbf{NFR9} & Alfred shall not say or portray anything that will offend a user of call out a specific group of users. \\ \hline
+\textbf{Rationale} & To ensure that the user is not offended.\\ \hline 
 \end{longtable}
-% ---------------------------- Acessibility Requirements ----------------------------%		
+% ---------------------------- Accessibility Requirements ----------------------------%		
 \subsubsection{Accessibility Requirements }
-	\begin{enumerate}[label=\textbf{(\roman*)}]
-		\item Text
-	\end{enumerate}
- 
+
+\begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
+\rowcolor{tableCell}\textbf{NF10} & Auditory and visual queues will be used to notify the user when a drink is complete. \\ \hline
+\textbf{Rationale} & To ensure that users with impaired vision are able to use the application.\\ \hline 
+\end{longtable}
+
+
  % ---------------------------------------------------- Performance Requirements ----------------------------------------------------
 \subsection{Performance Requirements}
+
 \begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
-	\rowcolor{tableCell}\textbf{?1} & Alfred shall be able to determine the shortest path within 30 seconds. \\ \hline
-	\textbf{Rationale} & The approximate amount of time to determine the shortest amount of time to a table, so that the user will not have to wait a long time.\\ \hline 
+\rowcolor{tableCell}\textbf{NFR11} & Alfred shall be able to determine the shortest path within 30 seconds. \\ \hline
+\textbf{Rationale} & The estimated amount of time that the user will not feel neglected.\\ \hline 
 \end{longtable}
+
 % ------------------------------- Speed Requirements -------------------------------%		
 \subsubsection{Speed Requirements }
 
-	\begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
-			\rowcolor{tableCell}\textbf{?1} & Alfred shall be able to pour a drink within 30 seconds. \\ \hline
-			\textbf{Rationale} & Approximate time for a person to pour a drink\\ \hline 
-			\rowcolor{tableCell}\textbf{?2} & Alfred shall be able to move at human speeds. \\ \hline
-			\textbf{Rationale} & So the user will not be waiting longer then the normal system, as well as ensuring that the robot will not be moving to fast for a restaurant environment.\\ \hline 
-			\rowcolor{tableCell}\textbf{?3} &  Alfred shall be able to receive an order within 30 seconds. \\ \hline
-			\textbf{Rationale} & So that the speed of communication will not limit when the user will receive there drink.\\ \hline
-			\rowcolor{tableCell}\textbf{?4} &  The ordering application be able to send an order to the administrative program within 30 seconds. \\ \hline
-			\textbf{Rationale} & So that the speed of communication will not limit when the user will receive there drink.\\ \hline
-	\end{longtable}
+\begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
+\rowcolor{tableCell}\textbf{NF12} & Alfred shall be able to pour a drink within 30 seconds. \\ \hline
+\textbf{Rationale} & Approximate time for a person to dispense a drink. \\ \hline 
+\rowcolor{tableCell}\textbf{NFR13} & Alfred shall be able to move at the walking speed of a human. \\ \hline
+\textbf{Rationale} & The user will not be waiting any longer than the current system, ensures that the robot speed is not significant enough to cause harm or damage. \\ \hline 
+\rowcolor{tableCell}\textbf{NFR14} &  Alfred shall be able to receive an order within 30 seconds. \\ \hline
+\textbf{Rationale} & Ensures that the speed of communication is not a limiting factor when considering user satisfaction.\\ \hline
+\rowcolor{tableCell}\textbf{NFR15} &  The ordering application be able to send an order to the administrative program within 30 seconds. \\ \hline
+\textbf{Rationale} & Ensures that the speed of communication will not cause significant harm or damage.\\ \hline
+\end{longtable}
 	
 
 % -------------------------- Safety-Critical Requirements --------------------------%		
 \subsubsection{Safety-Critical Requirements }
 
 \begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
-	\rowcolor{tableCell}\textbf{?1} &  Alfred shall be able to determine when an obstacle is one meter in front of it in order to stop it. \\ \hline
-	\textbf{Rationale} & The approximate amount of room to be able to decelerate properly\\ \hline 
-	\rowcolor{tableCell}\textbf{?2} & Alfred shall not pour a drink for the user if it is not at a safe temperature. \\ \hline
-	\textbf{Rationale} & To ensure that the user will not drink any liquid that is not safe to drink\\ \hline 
-	\rowcolor{tableCell}\textbf{?3} & Alfred shall not cause property damage from movement. \\ \hline
-	\textbf{Rationale} & To ensure that no damage will be done to the restaurant\\ \hline 
+\rowcolor{tableCell}\textbf{NFR16} &  Alfred shall be able to determine when an obstacle is three feet in front of it in order to stop. \\ \hline
+\textbf{Rationale} & The estimated distance required to be able to decelerate properly.\\ \hline 
+\rowcolor{tableCell}\textbf{NFR17} & Alfred shall not dispense a drink if supplies are not within the desired temperature range. \\ \hline
+\textbf{Rationale} & To abide by FDA standards and to ensure user safety.\\ \hline 
+\rowcolor{tableCell}\textbf{NFR18} & Alfred shall not exceed human walking speed.\\ \hline
+\textbf{Rationale} & To ensure that there is no property damage or harm to users.\\ \hline 
 \end{longtable}
 
 % ---------------------------- Precision Requirements -----------------------------%		
 \subsubsection{Precision Requirements}
 
 \begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
-	\rowcolor{tableCell}\textbf{?1} & Alfred shall be able to fill the cup from 75-85 percent full. \\ \hline
-	\textbf{Rationale} & The approximate amount so that the user will not be upset receiving too little as well as not overflowing the cup.\\ \hline 
-	\rowcolor{tableCell}\textbf{?2} & Alfred shall be able to get within 1 foot of any programmed node. \\ \hline
-	\textbf{Rationale} & To allow the robot to get close enough for the guest to grab the drink\\ \hline 
-	\rowcolor{tableCell}\textbf{?3} & The system shall not distort the users order at any point if the drink order will not be able to be translated back. \\ \hline
-	\textbf{Rationale} & To ensure that the user will get the drink they ordered\\ \hline	
+\rowcolor{tableCell}\textbf{NFR19} & Alfred shall be able to fill a cup within 75 to 85 percent of maximum capacity.\\ \hline
+\textbf{Rationale} & The estimated amount so that the user will be satisfied as well as not overflowing the cup.\\ \hline 
+\rowcolor{tableCell}\textbf{NFR20} & Alfred shall be able to get within one foot of any programmed node. \\ \hline
+\textbf{Rationale} & To ensure ease of use with the user; they do not have to over reach for their drink. \\ \hline
+\rowcolor{tableCell}\textbf{NFR21} & The system shall not distort the users order at any point if the drink order will not be able to be translated back. \\ \hline
+\textbf{Rationale} & To ensure that the user will get the drink they ordered.\\ \hline	
 \end{longtable}
+
 % -------------------- Reliability or Availability Requirements ------------------%		
 \subsubsection{Reliability or Availability Requirements}
 
 \begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
-	\rowcolor{tableCell}\textbf{?1} &  Alfred shall not allow drinks to leak. \\ \hline
-	\textbf{Rationale} & So that if the robot is tipped over, it will not affect any electronics within the robot\\ \hline 
+\rowcolor{tableCell}\textbf{NFR22} &  Alfred shall not allow liquid containers to leak. \\ \hline
+\textbf{Rationale} & In the case that the robot is tipped over, no electrical components shall be affected.\\ \hline 
 \end{longtable}
+
 % --------------- Robustness or Fault-Tolerance Requirements -------------%		
 \subsubsection{Robustness or Fault-Tolerance Requirements }
-	\begin{enumerate}[label=\textbf{(\roman*)}]
-		\item Text
-	\end{enumerate}
+	\begin{itemize}
+		\item N/A
+	\end{itemize}
 
 % ----------------------------- Capacity Requirements ---------------------------%			
+\pagebreak
 \subsubsection{Capacity Requirements }
 
 \begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
-	\rowcolor{tableCell}\textbf{?1} &  Alfred shall be able to store 2 Litres of any non perishable drink. \\ \hline
-	\textbf{Rationale} & So that the robot will not have to constantly return back to base, but will be able to be mobile\\ \hline 
+\rowcolor{tableCell}\textbf{NFR23} &  Alfred shall be able to store 2 Litres of any liquid. \\ \hline
+\textbf{Rationale} & To ensure that Alfred has enough supply levels to fill multiple orders, and not too much liquid that the drive train cannot support the weight. \\ \hline
 \end{longtable}
+
 % ------------------ Scalability or Extensibility Requirements ----------------%		
 \subsubsection{Scalability or Extensibility Requirements }
 
 \begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
-	\rowcolor{tableCell}\textbf{?1} &  This system shall only require one work week to implement within any establishment. \\ \hline
-	\textbf{Rationale} & So that the system will be able to be introduced into a restaurant without disturbing workflow for a long period of time\\ \hline 
+\rowcolor{tableCell}\textbf{NFR24} &  The system shall only require one work week to implement within any establishment. \\ \hline
+\textbf{Rationale} & So that the system will be able to be introduced into a restaurant without disturbing workflow for extended periods of time.\\ \hline 
 \end{longtable}
 % ---------------------------- Longevity Requirements --------------------------%	
 \subsubsection{Longevity Requirements }
 
 \begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
-	\rowcolor{tableCell}\textbf{?1} &  Alfred shall be able to keep drinks cold for a typical 8 hour work shift. \\ \hline
-	\textbf{Rationale} & This is so that the robot will not have to return back to the kitchen too much for warm drinks\\ \hline 
+\rowcolor{tableCell}\textbf{NFR24} &  Alfred shall be able to keep drinks cold for 8 hours. \\ \hline
+\textbf{Rationale} & To ensure that the robot does not return to home base frequently. This time period also correlates with a typical work shift.\\ \hline 
 \end{longtable}
  % ---------------------------------------- Operational and Environmental Requirements ----------------------------------------
 \subsection{Operational and Environmental Requirements}
 
 % ---------------------- Expected Physical Requirements --------------------%	
 \subsubsection{Expected Physical Environment }
-	\begin{enumerate}[label=\textbf{(\roman*)}]
-		\item Text
-	\end{enumerate}
+	
+	\begin{itemize}
+		\item N/A
+	\end{itemize}
 
 % --------- Requirements for Interacting with Adjacent Systems --------%	
 \subsubsection{Requirements for Interacting with Adjacent Systems}
-	\begin{enumerate}[label=\textbf{(\roman*)}]
-		\item Text
-	\end{enumerate}
+	
+	\begin{itemize}
+		\item N/A
+	\end{itemize}
 
- % ------------------------------------------- Maintainability and Support Requirements -------------------------------------------
+ % ------------------------------------------ Maintainability and Support Requirements -------------------------------------------
 \subsection{Maintainability and Support Requirements }
 
 % ------------------------- Maintenance Requirements -----------------------%	
 \subsubsection{Maintenance Requirements }
 
 \begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
-	\rowcolor{tableCell}\textbf{?1} & Alfred shall be able to determine if it will not be able to function. \\ \hline
-	\textbf{Rationale} & So that it will be able to report any errors properly\\ \hline 
-	\rowcolor{tableCell}\textbf{?2} & Alfred shall be able to determine why it will not be able to function \\ \hline
-	\textbf{Rationale} & So that it will be able to report any errors properly\\ \hline 
-	\rowcolor{tableCell}\textbf{?3} &  Alfred shall have it so its easy for components for be removed \\ \hline
-	\textbf{Rationale} & So that components will be able to be easily swapped out if they are not functional.\\ \hline 
+\rowcolor{tableCell}\textbf{NFR25} & Alfred shall be able to determine if certain functions cannot be completed. \\ \hline
+\textbf{Rationale} & To ensure that error reports are clear and concise. \\ \hline
+\rowcolor{tableCell}\textbf{NFR26} & Alfred shall be able to determine the cause of a malfunction.\\ \hline
+\textbf{Rationale} & To ensure that error reports are clear and concise. \\ \hline
+\rowcolor{tableCell}\textbf{NFR27} &  Alfred shall be built so that components can be easily removed.\\ \hline \textbf{Rationale} & To ensure that components can be easily replaced if they malfunction.\\ \hline 
 \end{longtable}
+
 % ------------------------ Supportability Requirements ----------------------%	
+\pagebreak
 \subsubsection{Supportability Requirements }
 
 \begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
-	\rowcolor{tableCell}\textbf{?1} & The administrator system shall have help documentation for the user. \\ \hline
-	\textbf{Rationale} &  So that the user will be able to read about how to use the system if they choose to.\\ \hline 
-	\rowcolor{tableCell}\textbf{?2} & The order system shall have help documentation for the user. \\ \hline
-	\textbf{Rationale} & So that the user will be able to read about how to use the system if they choose to.\\ \hline 
+\rowcolor{tableCell}\textbf{NFR28} & The Administrator Application shall have help documentation available to the user. \\ \hline
+\textbf{Rationale} &  To ensure that the user is able to get additional information if needed.\\ \hline
+\rowcolor{tableCell}\textbf{NFR29} & The Table Ordering Application shall have help documentation available to the user. \\ \hline
+\textbf{Rationale} & To ensure that the user is able to get additional information if needed.\\ \hline
 \end{longtable}
+
 % ------------------------ Adaptability Requirements ------------------------%	
 \subsubsection{Adaptability Requirements}
-	\begin{enumerate}[label=\textbf{(\roman*)}]
-		\item Text
-	\end{enumerate}
+	
+	\begin{itemize}
+		\item N/A
+	\end{itemize}
 
  % -------------------------------------------------------  Security Requirements -------------------------------------------------------
 \subsection{Security Requirements }
@@ -922,75 +914,83 @@ Intro sentence
 \subsubsection{Access Requirements }
 
 \begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
-	\rowcolor{tableCell}\textbf{?1} & The ordering system shall allow the user to see what they have ordered. \\ \hline
-	\textbf{Rationale} &  So that the user can verify that the order is correct\\ \hline 
+\rowcolor{tableCell}\textbf{NFR30} & The Table Ordering Application shall allow the user to see what they have ordered. \\ \hline
+\textbf{Rationale} &  To allow the user to verify their drink order before sending it to Alfred.\\ \hline
 \end{longtable}
+
 % --------------------------- Integrity Requirements ------------------------%	
 \subsubsection{Integrity Requirements }
 
 \begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
-	\rowcolor{tableCell}\textbf{?1} & The system shall use encryption that will not loss information. \\ \hline
-	\textbf{Rationale} &  So that no drink order or any information is lost during communication\\ \hline 
+\rowcolor{tableCell}\textbf{NFR31} & The system shall encrypt all information.\\ \hline
+\textbf{Rationale} &  To ensure information security and prevent information loss during communication.\\ \hline
 \end{longtable}
+
 % --------------------------- Privacy Requirements -------------------------%	
 \subsubsection{Privacy Requirements }
 
 \begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
-	\rowcolor{tableCell}\textbf{?1} & The ordering system shall not be able to show any information about other peoples drink orders. \\ \hline
-	\textbf{Rationale} &  So that information is kept private\\ \hline 
-	\rowcolor{tableCell}\textbf{?2} & The system shall use secure protocols for any communication. \\ \hline
-	\textbf{Rationale} &  So that information is kept private\\ \hline 
+\rowcolor{tableCell}\textbf{NFR32} & The ordering system shall not display any information about other tables' drink orders.\\ \hline
+\textbf{Rationale} &  To ensure information is kept private.\\ \hline 
+\rowcolor{tableCell}\textbf{NFR33} & The system shall use secure protocols for any communication. \\ \hline
+\textbf{Rationale} &  To ensure information is kept private.\\ \hline 
 \end{longtable}
+
 % ---------------------------- Audit Requirements --------------------------%
-\subsubsection{Audit  Requirements }
-	\begin{enumerate}[label=\textbf{(\roman*)}]
-		\item Text
-	\end{enumerate} 
+\subsubsection{Audit  Requirements}
+	
+	\begin{itemize}
+		\item N/A
+	\end{itemize} 
 
 % ------------------------- Immunity Requirements -----------------------%	
-\subsubsection{Immunity Requirements  }
+\subsubsection{Immunity Requirements}
 
 \begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
-	\rowcolor{tableCell}\textbf{?1} & Alfred shall have a chamber to prevent drinks from warming up. \\ \hline
-	\textbf{Rationale} & So that the robot will have to go to the kitchen less times within a night.\\ \hline 
+\rowcolor{tableCell}\textbf{NFR34} & Alfred shall have a cooling chamber to prevent drinks large increases in temperature. \\ \hline
+\textbf{Rationale} & To ensure that Alfred abides by the FDA standards and to reduce the amount of trips to home base.\\ \hline 
 \end{longtable}
- % -----------------------------------------------  Cultural and Political Requirements -----------------------------------------------
+
+
+ % ----------------------------------------------  Cultural and Political Requirements -----------------------------------------------
 \subsection{Cultural and Political Requirements } 
 
 % -------------------------- Cultural Requirements ------------------------%	
 \subsubsection{Cultural Requirements }
-	\begin{enumerate}[label=\textbf{(\roman*)}]
-		\item Text
-	\end{enumerate}
+	\begin{itemize}
+		\item N/A
+	\end{itemize}
 
 % ------------------------- Political Requirements -----------------------%	
 \subsubsection{Political Requirements }
-	\begin{enumerate}[label=\textbf{(\roman*)}]
-		\item Text
-	\end{enumerate}
+	\begin{itemize}
+		\item N/A
+	\end{itemize}
 
- % ---------------------------------------------------------  Legal Requirements ---------------------------------------------------------
+ % --------------------------------------------------------  Legal Requirements ---------------------------------------------------------
 \subsection{Legal Requirements}
 
 % ---------------------- Compliance Requirements --------------------%
 \subsubsection{Compliance Requirements }
 
 \begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
-	\rowcolor{tableCell}\textbf{?1} & Alfred Shall follow food regulations. \\ \hline
-	\textbf{Rationale} & So that the restaurant will ensure public health will not be in danger by using this system.\\ \hline 
-	\rowcolor{tableCell}\textbf{?2} & Alfred shall not preform any discriminatory actions to the user. \\ \hline
-	\textbf{Rationale} & To ensure that everyone will feel welcome to use Alfred\\ \hline 
-	\rowcolor{tableCell}\textbf{?3} & Alfred shall not server any alcoholic beverages or prohibited substances. \\ \hline
-	\textbf{Rationale} & To ensure that all ages can be served by Alfred.\\ \hline 
+\rowcolor{tableCell}\textbf{NFR35} & Alfred Shall follow food and safety regulations. \\ \hline
+\textbf{Rationale} & To ensure that the restaurant is not at risk of failing public health inspections.\\ \hline
+\rowcolor{tableCell}\textbf{NFR36} & Alfred shall not preform any actions that can be perceived as discriminatory to the user. \\ \hline
+\textbf{Rationale} & To ensure that all users are comfortable using Alfred.\\ \hline 
+\rowcolor{tableCell}\textbf{NFR37} & Alfred shall not server any alcoholic beverages or prohibited substances. \\ \hline
+\textbf{Rationale} & To ensure Alfred abides by Canadian Laws and that users under the drinking age can be served.\\ \hline 
 \end{longtable}
+
 % ---------------------- Standards Requirements ---------------------%	
 \subsubsection{Standards Requirements }
 
 \begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
-	\rowcolor{tableCell}\textbf{?1} & Alfred shall follow the law of robotics. \\ \hline
-	\textbf{Rationale} & To ensure that users are safe when using Alfred.\\ \hline 
+\rowcolor{tableCell}\textbf{NFR38} & Alfred shall follow the law of robotics. \\ \hline
+\textbf{Rationale} & To ensure that users are safe when using Alfred.\\ \hline 
 \end{longtable}
-% ------------------------------------------ NONFUNCTIONAL REQUIREMENTS  END ------------------------------------------
+
+% ---------------------------------------- NON-FUNCTIONAL REQUIREMENTS  END ------------------------------------------
 
 % ---------------------------------------------------------- PROJECT ISSUES ----------------------------------------------------------
 \section {Project Issues} 
@@ -999,11 +999,10 @@ Intro sentence
 \subsection{Open Issues}
 	\begin{enumerate}[label=\textbf{(\roman*)}]
 		\item Weight of the containers requires a lot of torque to get the robot to move at the desired speed.
-		\item Rotation of the robot causes the liquids to sway inside the containers causing momentum opposite to the desired direction of motion.
-		\item Smooth acceleration and deceleration to avoid liquid spills due to rapid speed increase or decrease.
-		\item Pumping mechanism running using an Arduino while drive-train is a raspberry pi. Low Latency communication between the two boards is vital.
-		\item Reporting to server in the case of sensor/board failure
-		
+		\item Rotation of the robot causes the liquids to sway inside their storage containers causing momentum opposing that of the desired direction of motion.
+		\item Smooth acceleration and deceleration to prevent liquid spills and undesired momentum.
+		\item Pumping mechanism runs using an Arduino while drive-train uses a raspberry pi therefor low latency communication between the two boards is vital.
+		\item Robust communication to server in the case of sensor or board failure.	
 	\end{enumerate}
 
  % ------------------------------------------------------- Off-the-Shelf Solutions -------------------------------------------------------
@@ -1017,58 +1016,57 @@ Intro sentence
 	\end{enumerate}
 	
 % ---------------------- Reusable Components ---------------------%	
-\subsubsection{Reusable Components}
-	\begin{enumerate}[label=\textbf{(\roman*)}]
-		\item Text
-	\end{enumerate}
-
+%\subsubsection{Reusable Components}
+%	\begin{itemize}
+%		\item N/A
+%	\end{itemize}
+%
 % ---------------------- Products that can be Copied ---------------------%	
-\subsubsection{Products that can be Copied}
-	\begin{enumerate}[label=\textbf{(\roman*)}]
-		\item Text
-	\end{enumerate}
+%\subsubsection{Products that can be Copied}
+%	\begin{itemize}
+%		\item N/A
+%	\end{itemize}
 
  % ------------------------------------------------------------------- Risks -------------------------------------------------------------------
 \subsection{Risks}
 	\begin{enumerate}[label=\textbf{(\roman*)}]
-		\item Components break over time and due to accidents
-		\item Alfred gets stuck behind an obstacle (if someone places chair in front as opposed to someone walking by)
-		\item Alfred spills drinks or has drinks spilled on it
-		\item User error during interaction with Alfred
-		\item User error during interaction with the client side application
-		\item Alfred harms someone
-		\item Alfred is not cleaned properly
-		\item There is a major roadblock in development/construction
+		\item Components break over time and due to accidents.
+		\item Alfred gets stuck behind an obstacle (if someone places chair in front as opposed to someone walking by).
+		\item Alfred spills drinks or has drinks spilled on it.
+		\item User error during interaction with Alfred.
+		\item User error during interaction with the client side application.
+		\item Alfred harms someone.
+		\item Alfred is not cleaned properly.
+		\item There is a major roadblock in development or construction.
 	\end{enumerate}
 
- % ------------------------------------------------------------------- Costs -------------------------------------------------------------------
+ % ------------------------------------------------------------------ Costs -------------------------------------------------------------------
 \subsection{Costs}	
 The budget for the all components of the robot must not exceed \$750. A breakdown of the individual part costs is as follows:
-\textbf{Make a long table for this...}
-		\begin{enumerate}[label=\textbf{\Alph*}:]
-			\item Raspberry Pi: \$50
-			\item Arduino: \$10
-			\item Mosfets: \$10
-			\item Storage Containers: \$25
-			\item Piping: \$20
-			\item Pumps: \$30
-			\item Motors: \$60
-			\item Wheels: \$40
-			\item LEDs: \$5
-			\item Wires: \$10
-			\item Structural Materials (wood, metal ect): \$100
-			\item Motor Drivers: \$40
-			\item Battery Power: \$50
-			\end{enumerate}
-		
-		Total Cost : \$450.00
 
+\begin{center}
+\begin{tabular}{ | p{8.5cm} | p{1.5cm} | } \hline
+ \textbf{Product} & \textbf{Price}  \\ \hline
+ Raspberry Pi & \$50  \\ \hline
+ Arduino & \$10 \\ \hline
+ Storage Containers & \$25 \\ \hline
+ Piping & \$20 \\ \hline
+ Pumps & \$30 \\ \hline
+ Motors & \$60 \\ \hline
+ Wheels & \$40 \\ \hline
+ Structural Materials (wood, metal etc.) & \$100 \\ \hline
+ Electrical Components (zener diodes, mosfets, etc.) & \$30 \\ \hline
+ Motor Drivers & \$40 \\ \hline
+ Battery Power & \$50 \\ \hline
+ \textbf{Total} & \textbf{\$460} \\ \hline
+\end{tabular}
+\end{center}
 
  % ------------------------------------------------------------- Waiting Room -------------------------------------------------------------
 \subsection{Waiting Room}
 	\begin{enumerate}[label=\textbf{(\roman*)}]
-		\item Having Alfred being able to recognize objects using image recognition
-		\item Developing a more robust advanced administrative application to include billing and table availability
+		\item Having Alfred being able to recognize objects using image recognition.
+		\item Developing a more robust advanced administrative application to include billing and table availability.
 	    \end{enumerate} 
 
 % ------------------------------------------------------ PROJECT ISSUES END ------------------------------------------------------
