@@ -1,0 +1,323 @@
+% Document uses 12 pt font
+% 1 in margins
+% Contains a relative path for images
+
+\documentclass [10pt]{article}
+
+% page geometry 
+\usepackage[margin=1in]{geometry}
+\usepackage{changepage}
+
+
+% ----------  PACKAGES START ------------ %
+
+% Table cell color package and highlighting
+\usepackage[table]{xcolor}
+\usepackage{color,soul}
+\usepackage{colortbl}
+
+% VIC title package
+\usepackage{cabin}
+\usepackage[T1]{fontenc}
+
+% default font package
+%\usepackage{times}
+\usepackage{helvet}
+%\renewcommand{\familydefault}{\sfdefault}
+
+% ---------- End Font Packages -------------- %
+
+% Title Packages
+\usepackage{titlesec}
+\usepackage{titletoc}
+
+% Image Package
+\usepackage{graphicx}
+
+% Table Packages
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{tabularx}
+\renewcommand{\arraystretch}{1.2}% Spread rows out evenly in table
+\setlength{\LTpre}{0.5pt} % Reduces white space around tables (top)
+%\setlength{\LTpost}{0pt} % Reduces white space around tables (bottom)
+
+
+
+% Color Packages
+\usepackage{color}   
+\definecolor{sectionC}{rgb}{0.016,0.227,.365}
+\definecolor{subsectionC}{rgb}{.87,0.87,.87}
+\definecolor{subsubsectionC}{rgb}{.94,.93,.90}
+\definecolor{tableCell}{rgb}{.96,.95,.90}
+
+
+% List package
+\usepackage{enumitem}
+\setenumerate{nosep=0pt, itemindent=0in,leftmargin=.1in, topsep= 2pt,  label = -}
+
+
+% Paragraph parameter
+
+\setlength{\parindent}{0pt}
+
+
+% ------------- Creates a linked Table of Contents  Start --------------- %
+
+\usepackage{hyperref}
+\hypersetup{
+linktoc=all,}     %set to all if you want both sections and subsections linked
+
+% ------------- Creates a click-able Table of Contents  End--------------- %
+
+% ---------- PACKAGES END ------------ %
+
+
+
+% ------------------- START HEADER AND FOOTER ---------------------------%
+\usepackage{fancyhdr}
+
+% Helps with the n of total n pages
+\usepackage{lastpage}
+
+\pagestyle{fancy}
+
+% Header
+\lhead{Project Goals }
+\rhead{Revision: 0}
+\fancyhead[LE,CO]{Group 9: LazyBots}
+
+% Removes line under the header 
+\renewcommand{\headrulewidth}{0pt}
+\setlength{\headsep}{.2in}
+
+% Footer 
+
+% Set the right side of the footer to be the page number
+\fancyfoot[R]{Page \textbf{\thepage}\ of \textbf{\pageref{LastPage}}}
+\fancyfoot[C]{}
+
+
+
+% ------------------- END HEADER AND FOOTER ---------------------------%
+
+% ------------------- START ROTATE FOOTER ---------------------------%
+\usepackage{everypage}
+
+
+\newcommand{\Lpagenumber}{\ifdim\textwidth=\linewidth\else\bgroup
+  \dimendef\margin=0
+  \ifodd\value{page}\margin=\oddsidemargin
+  \else\margin=\evensidemargin
+  \fi
+  \raisebox{\dimexpr -\topmargin-\headheight-\headsep-.8\linewidth}[0pt][0pt]{%
+    \rlap{\hspace{\dimexpr \margin+\textheight}%
+    \llap{\rotatebox{0}{Page \textbf{\thepage}\ of \textbf{\pageref{LastPage}}}}}}%
+\egroup\fi}
+\AddEverypageHook{\Lpagenumber}%
+
+% ------------------- END ROTATE FOOTER ---------------------------%
+
+
+
+% -------- SECTION AND SUBSECTION FORMATING START -------- % 
+
+
+% -------- SECTION AND SUBSECTION FORMATING END -------- % 
+\usepackage{lipsum}
+
+
+% -----  IMAGE PATH START -----%
+% Relative Image Path
+\graphicspath {figures/}
+% -----  IMAGE PATH END -----%
+
+% ------ PARAGRAPH FORMAT START ----%
+%\setlength{\parskip}{.2em}% Sets the space between new paragraph items 
+\setlength{\parindent}{0em} % paragraph indent
+% ------ PARAGRAPH FORMAT END ----%
+
+
+% ------------ BEGIN LANDSCAPE MODE ----------------%
+\usepackage{pdflscape}
+% ------------ END LANDSCAPE MODE ----------------%
+
+
+%------------------------------TOC FORMAT START --------------------------------%
+\usepackage{tocloft}
+
+
+
+% Section indentations
+\cftsetindents{section}{0em}{1.5em}
+\cftsetindents{subsection}{1em}{2em}
+\cftsetindents{subsubsection}{2em}{3em}
+
+% Toc title size
+\renewcommand\cfttoctitlefont{\Large\bfseries}
+\renewcommand*\contentsname{Table of Contents}
+
+% Removes bold headings from toc
+%\renewcommand{\cftsecfont}{\normalfont}
+
+% Removes bold heading page numbers from toc
+\renewcommand{\cftsecpagefont}{\normalfont}
+
+% add dots after headings
+%\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}} 
+
+
+% number of section headings we want to see in toc
+\setcounter{tocdepth}{2}
+
+% Spaceing before headings in toc
+\setlength{\cftbeforesecskip}{6pt}
+
+% ------------------------------TOC FORMAT END --------------------------------%
+
+
+
+
+
+
+
+
+% -------------- DOCUMENT START ---------------%
+\begin{document}
+% --------- TITLE PAGE START ------- %
+\begin {center} 
+
+\thispagestyle{empty}
+\vspace*{5cm}
+
+% Logo Insertion
+\begin {figure}[h!]
+\centering
+\hspace{-10mm}\includegraphics [scale = .3, trim={.4cm 0 .8cm 0},clip] {figures/alfred.png}
+\end {figure}
+
+{\fontfamily{\cabinfamily}\selectfont
+\Huge{LazyBots} }
+
+\vspace{1 cm}
+{\Large\textbf{\textsc{McMaster University}}\\}  \vspace {1cm}
+{\Large Project Goals\\ \vspace {0.4 cm} SE 4GA6 \& TRON 4TB6}  \vspace {1cm}
+
+{\large \textsc{Group 9}} \\} \vspace{1cm}
+
+\begin{tabular}{ l c  l}
+Karim Guirguis & & 001307668 \\
+David Hemms & & 001309228 \\
+Marko Laban & & 001300989 \\
+Curtis Milo & & 001305877 \\
+Keyur Patel & & 001311559 \\
+Alexandra Rahman & & 001305735
+\end{tabular}
+
+\end{center}
+
+% ------------------------------------------------------- TITLE PAGE END -------------------------------------------------------- 
+
+\pagebreak
+
+% ------------------------------------------------------- Contents Guide -------------------------------------------------------
+
+\tableofcontents
+\listoftables
+
+\pagebreak
+
+% ------------------------------------------------------- Revision History -------------------------------------------------------
+
+\section{Revisions}
+\begin{longtable}{| p{.23\textwidth } | p{.23\textwidth } | p{.23\textwidth } | p{.21\textwidth } |}\caption{Table of Revisions}  \\
+
+% ------------------------------------------------------- Date -------------------------------------------------------
+\hline 
+\centering \textbf{Date} & 
+\multicolumn{1}{c}{\textbf {Revision Number}} &
+\multicolumn{1}{|c}{\textbf {Authors}} & 
+\multicolumn{1}{|c|}{\textbf {Comments}} \\ \hline
+
+% ------------------------------------------------------- Revision Number -------------------------------------------------------
+\multirow{4}{*}{\centering October 5\textsuperscript{th}, 2017}  & 
+\multirow{4}{*}{Revision 0}& 
+		{Karim Guirguis \newline
+		David Hemms \newline
+		Marko Laban \newline
+		Curtis Milo \newline
+		Keyur Patel \newline
+		Alexandra Rahman}
+ &
+ 
+% ------------------------------------------------------- Comments -------------------------------------------------------
+\multirow{4}{*}{-} \\ 
+\hline 
+
+\end{longtable}
+
+
+
+\pagebreak
+
+% ------------------------------------------------------ Problem Statement -----------------------------------------------------
+
+\section{Problem Statement}
+
+\indent\indent Many restaurants experience a rush of customers which can overwhelm serving staff as they juggle multiple tasks. Simple tasks such as getting drinks and refilling them can be costly, time wise, for a server and are often one of the first tasks overlooked. Thus leaving the customers unattended or with a feeling of neglect. Alfred is a serving assist that aims to remedy this problem by serving drinks to customers table-side. Alfred will arrive at the customer's table once an order has been placed and received, then will dispense the drink without the need to involve the server. 
+
+% ------------------------------------------------------ Product Purpose -----------------------------------------------------
+
+\section{Product Purpose}
+
+\indent\indent Alfred will allow customers to order drinks through an application, in which he will then navigate his way to their table to dispense the drinks ordered. Furthermore, Alfred will be able to identify objects in his path or tripping hazards and handle each scenario with the appropriate reaction. To ensure safety measures are met, the robot will return to home base when the temperature of the liquids exceeds industry standard, the liquid supply levels are below a set amount or if the power supply is running low.
+
+% -------------------------------------------------- Goals that Constitute Success -------------------------------------------------
+
+\section{Project Goals that Constitute Success }
+The minimum requirements for success of this project are as follows:\\
+
+\begin{enumerate}[label=G\arabic*:, ref =\arabic*, leftmargin=0.5in]
+
+	\item Alfred will be able to receive drink orders from an android application.
+	\item Alfred will follow a predetermined path from a map.
+	\item Alfred will be able to arrive at the table who has placed an order.
+	\item Alfred will dispense drinks autonomously.
+	\item Alfred will notify the user that a drink is ready.
+	
+\end{enumerate}
+
+
+% ------------------------------------------------------ Project Goals -----------------------------------------------------
+
+\section{Project Goals}
+The goals that constitute success are as follows: \\
+
+\begin{enumerate}[label=G\arabic*:, ref =\arabic*, leftmargin=0.5in]
+	
+	\item The robot will stay within the walkways.
+	\item The robot will abide to the food safety standards. 
+	\item The system will ensure that the robot returns to home base, when power supply and supply levels are low as well as when food safety standards are not met.
+	\item The system will avoid obstacles and tripping hazards along walkways.
+	\item The system will reduce product waste and over-pouring.
+	\item The system will reduce the tasks a server must complete.
+	
+\end{enumerate}
+
+
+% ------------------------------------------------------ Extended Goals -----------------------------------------------------
+\section{Extended Project Goals}
+The goals that will exceed the definition of success are as follows: \\
+
+\begin{enumerate}[label=G\arabic*:, ref =\arabic*, leftmargin=0.5in]	
+
+	\item The system will be modular to allow integration of existing POS (point-of-sale) systems.
+	\item The system will be able to dispense correct amounts of liquid for different cup sizes.
+	\item The system will allow the users to create and modify restaurant layouts through an interface.
+
+\end{enumerate}
+
+\end{document}
