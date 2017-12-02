@@ -17,7 +17,8 @@ typedef enum{
 typedef enum {
 	NoErrors = 0x0000,
 	NoResponseServer = 0x0001,
-	EmptyTank = 0x0010
+	EmptyTank = 0x0010,
+  DrinkOverTemp = 0x0100
 }DrinkErrors;
 
 typedef struct{
@@ -26,6 +27,19 @@ typedef struct{
 	float totalFillTime_sec;
 	int pin;
 }DrinkCals;
+
+
+typedef struct{
+  float maxTemp;
+  int pinA;
+  int pinB;
+}TempCals;
+
+typedef struct{
+  float minWeight;
+  int pinA;
+  int pinB;
+}WeightCals;
 
 typedef enum {
 	Water=0,
