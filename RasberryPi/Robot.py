@@ -1,10 +1,12 @@
 from Graph import *
 from DriveTrain import *
 import serial
+import Math
 class Robot():
     def __init__(self):
         self.drivetrain = DriveTrain();
         GetMap();
+        self.currAngle = 0
         self.toOrder = "Base"
         self.currNode ="Base"
         self.Mode = "Get Order"
@@ -23,7 +25,7 @@ class Robot():
         for i in range(len(lines)):
             chars = lines[i].split(',')
             if (i == 0):
-                height = len(chars)
+                width = len(chars)
 
             for j in range(len(chars)):
                 graph.add_node((j,i))
@@ -50,13 +52,13 @@ class Robot():
 
 		#creating the edges and adding them to the graphs
                 if (0 < j): 
-                    prev = (j-1,i)
+                    prev = (j-1, i)
                     self.map.add_edge(cur_Node, prev, cost)
                 if (j < len(chars) - 1):
                     nextN =(j + 1, i)
                     self.map.add_edge(cur_Node, nextN, cost)
                 if (0 < i):
-                    prev = (j,i-1)
+                    prev = (j, i-1)
                     self.map.add_edge(cur_Node, prev, cost)
                 if (i < lines.size() - 1):
                     nextN =(j + 1, i)
@@ -71,13 +73,26 @@ class Robot():
         visited, path = self.map.dijsktra(self.currNode)
         node = toNode
         nodesToTravel = []
+
         while (node != self.currNode):
             nodesToTravel.insert(0,path[node]);
             node= path[node]
 
         prev =self.currNode
         for nextNode in nodesToTravel:
-            this.drivetrain.turn(self.map.angles[(prev, nextNode)])
+            x1 = prev[0]
+            x2 = nextNode[0]
+            y1= prev[1]
+            y2 = nextNode[1]
+
+            NewAngle = Math.atan2(y2-y1,x2-x1)  
+
+            turnAngle = (NewAngle-self.currAngle)
+
+            if  turnAngle < 0:
+                turnAngle = turnAngle+360    
+            this.drivetrain.turn()
+            self.currAngle  = NewAngle
             this.drivetrain.drive(self.map.distances[(prev, nextNode)])
             prev = nextNode
             
