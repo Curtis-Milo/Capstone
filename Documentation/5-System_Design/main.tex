@@ -388,7 +388,17 @@ The following is a list of system constants
 
 
 \section{Behaviour Overview}
-The system is composed of four major parts; the robot, the server, the client application as well as the administrator application. The system will behave in a manner such that the administrator will initially have the capacity to map out the area where the robot will be delivering the drinks. This is done through a graphical interface. Once the administrator creates the map, it will be sent and stored on the server. The administrator will also have the ability to specify the drinks available – which also will be stored on the server. Once the robot is started, it will pull the map from the server to be able to navigate around the area. The client will be able to "order" a drink through the application. This will send the order to the server and will be put in a queue. The robot will be pulling the orders from that queue following a FIFO protocol. As the robot pulls each "order", it will navigate to the table associated with it, and will pour the drinks for that order. The administrator will have the capacity to override the robot at any point, to force its return to "home". Once the drink levels are low in the robot, it will send an "error code" to the server, which will alert the administrator as well.
+\begin{enumerate}
+	\item \textbf{Ordering System Module} - Provided the order information, this module will communicate with the server to "order a drink".
+	\item \textbf{Manager Login Page} - Given the login credentials, will authenticate administrator of the system with the server.
+	\item \textbf{Manager Station Map Software Page} - Will allow administrator to create/modify the map of the area where Alfred will deliver drinks. This map will then be sent and stored on the server.
+	\item \textbf{Manager Station Request Software Page} - Will allow administrator to execute commands for Alfred, as well as view incoming error codes from Alfred. Said commands, will be sent to the server, which will then communicate with Alfred.
+	\item \textbf{Back End Web Service Module} - Will route communication to different components of the system. Also will be responsible for authentication and management of queue. 
+	\item \textbf{Alfred Manager Module} - Endpoint for communication with Alfred. Will manage communication with server, as well as send any errors that Alfred is experiencing.
+	\item \textbf{Alfred Drive Train Module} - Responsible for driving and managing the motors based on desired route. Also, will be send errors preventing movement to Alfred Manager Module.
+	\item \textbf{Alfred Pumping Module} - Will control pumping system in regards of when to pour, how long, rate of dispensing, etc. Also, will be send errors of pump/container to Alfred Manager Module.
+	\item \textbf{Image Processing Module} - Will detect any obstacles in the way as well as locate incoming nodes. Will communicate with Alfred Drive Train Module, to determine any required action based on results.
+\end{enumerate}
 
 \section{Component Overview}
 \subsection{Ordering System Module}
