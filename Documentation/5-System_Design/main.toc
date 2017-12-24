@@ -38,32 +38,39 @@
 \contentsline {subsubsection}{\numberline {5.6.2}Description}{10}{subsubsection.5.6.2}
 \contentsline {subsubsection}{\numberline {5.6.3}Timing Constraints}{10}{subsubsection.5.6.3}
 \contentsline {subsubsection}{\numberline {5.6.4}Initialization}{10}{subsubsection.5.6.4}
-\contentsline {subsubsection}{\numberline {5.6.5}Raspberry PI Specifications}{10}{subsubsection.5.6.5}
-\contentsline {subsection}{\numberline {5.7}Alfred Drive-train Module}{10}{subsection.5.7}
-\contentsline {subsubsection}{\numberline {5.7.1}Inputs and Outputs}{10}{subsubsection.5.7.1}
+\contentsline {subsubsection}{\numberline {5.6.5}Alfred Communication Circuit Diagram}{10}{subsubsection.5.6.5}
+\contentsline {subsubsection}{\numberline {5.6.6}Raspberry PI Specifications}{10}{subsubsection.5.6.6}
+\contentsline {subsection}{\numberline {5.7}Alfred Drive-train Module}{11}{subsection.5.7}
+\contentsline {subsubsection}{\numberline {5.7.1}Inputs and Outputs}{11}{subsubsection.5.7.1}
 \contentsline {subsubsection}{\numberline {5.7.2}Description}{11}{subsubsection.5.7.2}
 \contentsline {subsubsection}{\numberline {5.7.3}Timing Constraints}{11}{subsubsection.5.7.3}
 \contentsline {subsubsection}{\numberline {5.7.4}Initialization}{11}{subsubsection.5.7.4}
-\contentsline {subsubsection}{\numberline {5.7.5}DC Motor Specifications}{11}{subsubsection.5.7.5}
-\contentsline {subsubsection}{\numberline {5.7.6}H-bridge Specifications}{11}{subsubsection.5.7.6}
-\contentsline {subsubsection}{\numberline {5.7.7}Encoder Specifications}{11}{subsubsection.5.7.7}
-\contentsline {subsubsection}{\numberline {5.7.8}Battery Specifications}{11}{subsubsection.5.7.8}
-\contentsline {subsection}{\numberline {5.8}Alfred Pumping System Module}{11}{subsection.5.8}
-\contentsline {subsubsection}{\numberline {5.8.1}Inputs and Outputs}{11}{subsubsection.5.8.1}
-\contentsline {subsubsection}{\numberline {5.8.2}Description}{12}{subsubsection.5.8.2}
-\contentsline {subsubsection}{\numberline {5.8.3}Timing Constraints}{12}{subsubsection.5.8.3}
-\contentsline {subsubsection}{\numberline {5.8.4}Initialization}{12}{subsubsection.5.8.4}
-\contentsline {subsubsection}{\numberline {5.8.5}DC Pump Specifications}{12}{subsubsection.5.8.5}
-\contentsline {subsubsection}{\numberline {5.8.6}Arduino Mega Specifications}{12}{subsubsection.5.8.6}
-\contentsline {subsubsection}{\numberline {5.8.7}Container Specifications}{13}{subsubsection.5.8.7}
-\contentsline {subsubsection}{\numberline {5.8.8}Tubing Specifications}{13}{subsubsection.5.8.8}
-\contentsline {subsection}{\numberline {5.9}Alfred Image Processing Module Module}{13}{subsection.5.9}
-\contentsline {subsubsection}{\numberline {5.9.1}Inputs and Outputs}{13}{subsubsection.5.9.1}
-\contentsline {subsubsection}{\numberline {5.9.2}Description}{13}{subsubsection.5.9.2}
-\contentsline {subsubsection}{\numberline {5.9.3}Timing Constraints}{13}{subsubsection.5.9.3}
-\contentsline {subsubsection}{\numberline {5.9.4}Initialization}{13}{subsubsection.5.9.4}
-\contentsline {subsubsection}{\numberline {5.9.5}Raspberry PI Camera Specifications}{13}{subsubsection.5.9.5}
-\contentsline {section}{\numberline {6}Normal Operation}{13}{section.6}
-\contentsline {section}{\numberline {7}Undesired Event Handling}{14}{section.7}
-\contentsline {section}{\numberline {8}References}{14}{section.8}
+\contentsline {subsubsection}{\numberline {5.7.5}Diagram of Simulink Control System}{11}{subsubsection.5.7.5}
+\contentsline {subsubsection}{\numberline {5.7.6}DC Motors Circuit Diagram}{11}{subsubsection.5.7.6}
+\contentsline {subsubsection}{\numberline {5.7.7}DC Motor Specifications}{13}{subsubsection.5.7.7}
+\contentsline {subsubsection}{\numberline {5.7.8}H-bridge Specifications}{13}{subsubsection.5.7.8}
+\contentsline {subsubsection}{\numberline {5.7.9}Encoder Specifications}{13}{subsubsection.5.7.9}
+\contentsline {subsubsection}{\numberline {5.7.10}Battery Specifications}{13}{subsubsection.5.7.10}
+\contentsline {subsection}{\numberline {5.8}Alfred Pumping System Module}{13}{subsection.5.8}
+\contentsline {subsubsection}{\numberline {5.8.1}Inputs and Outputs}{13}{subsubsection.5.8.1}
+\contentsline {subsubsection}{\numberline {5.8.2}Description}{13}{subsubsection.5.8.2}
+\contentsline {subsubsection}{\numberline {5.8.3}Timing Constraints}{13}{subsubsection.5.8.3}
+\contentsline {subsubsection}{\numberline {5.8.4}Initialization}{13}{subsubsection.5.8.4}
+\contentsline {subsubsection}{\numberline {5.8.5}Diagram of DC Pump Control System}{13}{subsubsection.5.8.5}
+\contentsline {subsubsection}{\numberline {5.8.6}DC Pump Circuit Diagram}{13}{subsubsection.5.8.6}
+\contentsline {subsubsection}{\numberline {5.8.7}Liquid Temperature Circuit Diagram}{14}{subsubsection.5.8.7}
+\contentsline {subsubsection}{\numberline {5.8.8}Weight Detection Circuit Diagram}{14}{subsubsection.5.8.8}
+\contentsline {subsubsection}{\numberline {5.8.9}DC Pump Specifications}{14}{subsubsection.5.8.9}
+\contentsline {subsubsection}{\numberline {5.8.10}Arduino Mega Specifications}{16}{subsubsection.5.8.10}
+\contentsline {subsubsection}{\numberline {5.8.11}Container Specifications}{16}{subsubsection.5.8.11}
+\contentsline {subsubsection}{\numberline {5.8.12}Tubing Specifications}{16}{subsubsection.5.8.12}
+\contentsline {subsection}{\numberline {5.9}Alfred Image Processing Module Module}{16}{subsection.5.9}
+\contentsline {subsubsection}{\numberline {5.9.1}Inputs and Outputs}{16}{subsubsection.5.9.1}
+\contentsline {subsubsection}{\numberline {5.9.2}Description}{16}{subsubsection.5.9.2}
+\contentsline {subsubsection}{\numberline {5.9.3}Timing Constraints}{16}{subsubsection.5.9.3}
+\contentsline {subsubsection}{\numberline {5.9.4}Initialization}{16}{subsubsection.5.9.4}
+\contentsline {subsubsection}{\numberline {5.9.5}Raspberry PI Camera Specifications}{17}{subsubsection.5.9.5}
+\contentsline {section}{\numberline {6}Normal Operation}{17}{section.6}
+\contentsline {section}{\numberline {7}Undesired Event Handling}{17}{section.7}
+\contentsline {section}{\numberline {8}References}{17}{section.8}
 \contentsfinish 

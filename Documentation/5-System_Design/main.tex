@@ -608,10 +608,18 @@ Given optimal networking conditions, the system must receive a response within  
 \subsubsection{Initialization}
 This will assume that there is no requests at startup. It will request from the server asking for the next drink order. If there is no map previously defined within a text file then it will request this as well.
 
+\subsubsection{Alfred Communication Circuit Diagram}
+The following is a circuit diagram showing the communication between the Raspberry Pi and the pumping system.
+\begin{figure} [h!]
+	\centering
+	\includegraphics [scale = 0.6] {Figures/UART.png}
+	\caption{Alfred Communication Circuit Diagram}
+\end{figure}
+
 \subsubsection{Raspberry PI Specifications}
 Manufacturer: Raspberry PI \\
 Processor: Broadcom BCM2387 chipset. \\
-Memory: 1GB LPDDR2\\
+Memory: 1GB \\
 Power:Micro USB socket 5V1, 2.5A\\
 GPIO: 17 pins as well as +3.3 V, +5 V and GND supply lines\\
 Camera Connector: 15-pin MIPI Camera Serial Interface (CSI-2)\\
@@ -655,6 +663,23 @@ This module will have to deliver speed requirements that of walking speed so tha
 \subsubsection{Initialization}
 This module will not be started until manager starts the process and initializes the proper information.
 
+
+\subsubsection{Diagram of Simulink Control System}
+The following is a diagram that shows the top level of the dc motor control system. 
+\begin{figure} [h!]
+	\centering
+	\includegraphics [scale = 0.6] {Figures/Simulink.png}
+	\caption{Top level of the dc motor control system}
+\end{figure}
+
+\subsubsection{DC Motors Circuit Diagram}
+The following is a circuit diagram for showing the DC motor drive-train.
+\begin{figure} [h!]
+	\centering
+	\includegraphics [scale = 0.6] {Figures/H_Bridge.png}
+	\caption{Weight Detection Circuit Diagram}
+\end{figure}
+
 \subsubsection{DC Motor Specifications}
 
 \subsubsection{H-bridge Specifications}
@@ -691,6 +716,41 @@ This module will have to dispense the drink within $ t_{maxpump} $
 
 \subsubsection{Initialization}
 This module start by waiting for the manager to send the drink information for the system to pour. All errors within the system will start as false until they have been triggered.
+
+\subsubsection{Diagram of DC Pump Control System}
+The following is a diagram that shows the top level of the dc pump control system. 
+\begin{figure} [h!]
+	\centering
+	\includegraphics [scale = 0.6] {Figures/DC_PumpSim.png}
+	\caption{Top level of the dc motor control system}
+\end{figure}
+
+\subsubsection{DC Pump Circuit Diagram}
+The following is a diagram that shows the DC Pump Circuit.
+\begin{figure} [h!]
+	\centering
+	\includegraphics [scale = 0.6] {Figures/Pump.png}
+	\caption{DC Pump Circuit Diagram}
+\end{figure}
+
+
+\subsubsection{Liquid Temperature Circuit Diagram}
+The following is a circuit diagram for sensing the temperature of the liquid.
+\begin{figure} [h!]
+	\centering
+	\includegraphics [scale = 0.6] {Figures/TempSensor.png}
+	\caption{Top level of the dc motor control system}
+\end{figure}
+
+
+\subsubsection{Weight Detection Circuit Diagram}
+The following is a circuit diagram for sensing the weight of the storage containers.
+\begin{figure} [h!]
+	\centering
+	\includegraphics [scale = 0.6] {Figures/WeightSensors.png}
+	\caption{Weight Detection Circuit Diagram}
+\end{figure}
+
 
 \subsubsection{DC Pump Specifications}
 Manufacture : Yosoo \\

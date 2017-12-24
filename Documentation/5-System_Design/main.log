@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.9.26)  23 DEC 2017 18:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.9.26)  23 DEC 2017 19:31
 entering extended mode
 **./main.tex
 (main.tex
@@ -685,7 +685,7 @@ Overfull \hbox (3.0pt too wide) in paragraph at lines 330--330
 |[][][][][][][]| 
  []
 
-<Figures/ContextDiagram.png, id=170, 763.85374pt x 573.14125pt>
+<Figures/ContextDiagram.png, id=188, 763.85374pt x 573.14125pt>
 File: Figures/ContextDiagram.png Graphic file (type png)
 
 <use Figures/ContextDiagram.png>
@@ -700,7 +700,7 @@ Overfull \hbox (3.0pt too wide) in paragraph at lines 338--338
 |[][][][][][][]| 
  []
 
-<Figures/SystemComponents.png, id=171, 801.99625pt x 663.47874pt>
+<Figures/SystemComponents.png, id=189, 801.99625pt x 663.47874pt>
 File: Figures/SystemComponents.png Graphic file (type png)
 
 <use Figures/SystemComponents.png>
@@ -997,51 +997,50 @@ Overfull \hbox (3.0pt too wide) in paragraph at lines 611--611
 |[][][][][][][]| 
  []
 
+<Figures/UART.png, id=273, 555.57562pt x 481.8pt>
+File: Figures/UART.png Graphic file (type png)
+ <use Figures/UART.png>
+Package pdftex.def Info: Figures/UART.png used on input line 615.
+(pdftex.def)             Requested size: 333.34793pt x 289.08221pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 612--619
 
- []
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 620--620
+Overfull \hbox (3.0pt too wide) in paragraph at lines 619--619
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 622--622
+Underfull \hbox (badness 10000) in paragraph at lines 620--627
+
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 628--628
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (64.42581pt too wide) in alignment at lines 627--638
+Overfull \hbox (3.0pt too wide) in paragraph at lines 630--630
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (64.42581pt too wide) in alignment at lines 635--646
  [] [] [] [] [] 
  []
 
-
-Underfull \vbox (badness 10000) detected at line 638
- []
-
 [10]
-Underfull \vbox (badness 10000) detected at line 647
+Underfull \vbox (badness 10000) detected at line 646
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 649--649
-|[][][][][][][]| 
+Underfull \vbox (badness 10000) detected at line 655
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 652--652
-|[][][][][][][]| 
- []
-
-
-Overfull \hbox (3.0pt too wide) in paragraph at lines 655--655
-|[][][][][][][]| 
- []
-
-
-Overfull \hbox (3.0pt too wide) in paragraph at lines 658--658
+Overfull \hbox (3.0pt too wide) in paragraph at lines 657--657
 |[][][][][][][]| 
  []
 
@@ -1051,35 +1050,56 @@ Overfull \hbox (3.0pt too wide) in paragraph at lines 660--660
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 662--662
+Overfull \hbox (3.0pt too wide) in paragraph at lines 663--663
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 664--664
+Overfull \hbox (3.0pt too wide) in paragraph at lines 667--667
+|[][][][][][][]| 
+ []
+
+<Figures/Simulink.png, id=287, 1185.67969pt x 455.45157pt>
+File: Figures/Simulink.png Graphic file (type png)
+
+<use Figures/Simulink.png>
+Package pdftex.def Info: Figures/Simulink.png used on input line 671.
+(pdftex.def)             Requested size: 711.41331pt x 273.27304pt.
+
+Overfull \hbox (241.6583pt too wide) in paragraph at lines 671--672
+ [][] 
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 675--675
+|[][][][][][][]| 
+ []
+
+<Figures/H_Bridge.png, id=288, 737.00343pt x 412.54124pt>
+File: Figures/H_Bridge.png Graphic file (type png)
+
+<use Figures/H_Bridge.png>
+Package pdftex.def Info: Figures/H_Bridge.png used on input line 679.
+(pdftex.def)             Requested size: 442.20547pt x 247.52666pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 683--683
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 666--666
+Overfull \hbox (3.0pt too wide) in paragraph at lines 685--685
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 668--668
-|[][][][][][][]| 
- []
-
-
-Underfull \vbox (badness 10000) detected at line 678
- []
-
-[11]
-Underfull \vbox (badness 10000) detected at line 685
- []
-
-
-Overfull \hbox (3.0pt too wide) in paragraph at lines 686--686
+Overfull \hbox (3.0pt too wide) in paragraph at lines 687--687
 |[][][][][][][]| 
  []
 
@@ -1089,128 +1109,220 @@ Overfull \hbox (3.0pt too wide) in paragraph at lines 689--689
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 692--692
+Overfull \hbox (3.0pt too wide) in paragraph at lines 691--691
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 695--695
+Overfull \hbox (3.0pt too wide) in paragraph at lines 693--693
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 703--703
+Overfull \vbox (284.41559pt too high) has occurred while \output is active []
+
+
+[11 <./Figures/UART.png>] [12 <./Figures/Simulink.png> <./Figures/H_Bridge.png>
+]
+Underfull \vbox (badness 10000) detected at line 703
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 710
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 711--711
 |[][][][][][][]| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 704--712
-
- []
-
-
-Overfull \hbox (3.0pt too wide) in paragraph at lines 713--713
+Overfull \hbox (3.0pt too wide) in paragraph at lines 714--714
 |[][][][][][][]| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 715--718
-
- []
-
-[12]
-Overfull \hbox (3.0pt too wide) in paragraph at lines 718--718
+Overfull \hbox (3.0pt too wide) in paragraph at lines 717--717
 |[][][][][][][]| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 719--721
-
+Overfull \hbox (3.0pt too wide) in paragraph at lines 720--720
+|[][][][][][][]| 
  []
 
+<Figures/DC_PumpSim.png, id=308, 729.47531pt x 242.40562pt>
+File: Figures/DC_PumpSim.png Graphic file (type png)
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 722--722
+<use Figures/DC_PumpSim.png>
+Package pdftex.def Info: Figures/DC_PumpSim.png used on input line 724.
+(pdftex.def)             Requested size: 437.68855pt x 145.44447pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 728--728
+|[][][][][][][]| 
+ []
+
+<Figures/Pump.png, id=309, 653.44125pt x 427.5975pt>
+File: Figures/Pump.png Graphic file (type png)
+ <use Figures/Pump.png>
+Package pdftex.def Info: Figures/Pump.png used on input line 732.
+(pdftex.def)             Requested size: 392.06776pt x 256.56047pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 737--737
+|[][][][][][][]| 
+ []
+
+<Figures/TempSensor.png, id=310, 516.42938pt x 430.60875pt>
+File: Figures/TempSensor.png Graphic file (type png)
+
+<use Figures/TempSensor.png>
+Package pdftex.def Info: Figures/TempSensor.png used on input line 741.
+(pdftex.def)             Requested size: 309.86002pt x 258.36723pt.
+ [13]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 746--746
+|[][][][][][][]| 
+ []
+
+<Figures/WeightSensors.png, id=328, 474.27188pt x 428.35031pt>
+File: Figures/WeightSensors.png Graphic file (type png)
+
+<use Figures/WeightSensors.png>
+Package pdftex.def Info: Figures/WeightSensors.png used on input line 750.
+(pdftex.def)             Requested size: 284.56532pt x 257.01216pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 755--755
+|[][][][][][][]| 
+ []
+
+[14 <./Figures/DC_PumpSim.png> <./Figures/Pump.png>]
+Overfull \hbox (3.0pt too wide) in paragraph at lines 763--763
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 724--724
+Underfull \hbox (badness 10000) in paragraph at lines 764--772
+
+ []
+
+[15 <./Figures/TempSensor.png> <./Figures/WeightSensors.png>]
+Overfull \hbox (3.0pt too wide) in paragraph at lines 773--773
 |[][][][][][][]| 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 731
+Underfull \hbox (badness 10000) in paragraph at lines 775--778
+
  []
 
 
-Underfull \vbox (badness 10000) detected at line 740
- []
-
-
-Overfull \hbox (3.0pt too wide) in paragraph at lines 742--742
+Overfull \hbox (3.0pt too wide) in paragraph at lines 778--778
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 745--745
+Underfull \hbox (badness 10000) in paragraph at lines 779--781
+
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 782--782
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 748--748
+Overfull \hbox (3.0pt too wide) in paragraph at lines 784--784
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 751--751
+Underfull \vbox (badness 10000) detected at line 791
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 800
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 802--802
 |[][][][][][][]| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 752--755
-
- []
-
-
-Overfull \hbox (3.0pt too wide) in paragraph at lines 756--756
-|[][][][][][][]| 
- []
-
-[13]
-Overfull \hbox (3.0pt too wide) in paragraph at lines 761--761
+Overfull \hbox (3.0pt too wide) in paragraph at lines 805--805
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 764--764
+Overfull \hbox (3.0pt too wide) in paragraph at lines 808--808
 |[][][][][][][]| 
  []
 
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 768.
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 811--811
+|[][][][][][][]| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 812--815
+
+ []
+
+[16]
+Overfull \hbox (3.0pt too wide) in paragraph at lines 816--816
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 821--821
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 824--824
+|[][][][][][][]| 
+ []
+
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 828.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\t1cmtt.fd"
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-Overfull \hbox (359.54247pt too wide) in paragraph at lines 770--770
+Overfull \hbox (359.54247pt too wide) in paragraph at lines 830--830
 []\T1/cmtt/m/n/10 [1]"Exploring Raspberry Pi", 2017. [Online]. Available: http:
 //docs-europe.electrocomponents.com/webdocs/14ba/0900766b814ba5fd.pdf. [Accesse
 d: 23- Dec- 2017].[] 
  []
 
 
-Overfull \hbox (44.61937pt too wide) in paragraph at lines 780--780
+Overfull \hbox (44.61937pt too wide) in paragraph at lines 840--840
 []\T1/cmtt/m/n/10 [3] "3-6V Mini Micro Submersible Pumps DC Motor Pump Water Pu
 mp - 80-120L/H". [Online]. Available:[] 
  []
 
 
-Overfull \hbox (133.84758pt too wide) in paragraph at lines 780--780
+Overfull \hbox (133.84758pt too wide) in paragraph at lines 840--840
 []\T1/cmtt/m/n/10 https://www.amazon.ca/gp/product/B01LWQCXEL/ref=oh_aui_detail
 page_o02_s00?ie=UTF8&psc=1. [Accessed: 23- Dec- 2017].[] 
  []
 
 
-Overfull \hbox (496.00914pt too wide) in paragraph at lines 784--784
+Overfull \hbox (496.00914pt too wide) in paragraph at lines 844--844
 []\T1/cmtt/m/n/10 [4] "Rubbermaid 1856059 Modular Cereal Keeper". [Online]. Ava
 ilable: https://www.amazon.ca/gp/product/B00BEUDXRW/ref=oh_aui_detailpage_o09_s
 00?ie=UTF8&psc=1. [Accessed: 23- Dec- 2017].[] 
@@ -1218,24 +1330,24 @@ ilable: https://www.amazon.ca/gp/product/B00BEUDXRW/ref=oh_aui_detailpage_o09_s
 
 
 AED: lastpage setting LastPage
-[14]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 792.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 792.
+[17]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 851.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 851.
  (main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 792.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 792.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 851.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 851.
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: F16E1A63AFC18C1F2720B7BBC8675357;1462.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 792.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 851.
  ) 
 Here is how much of TeX's memory you used:
- 10515 strings out of 493323
- 151896 string characters out of 3139066
- 385777 words of memory out of 3000000
- 13775 multiletter control sequences out of 15000+200000
+ 10567 strings out of 493323
+ 152892 string characters out of 3139066
+ 384777 words of memory out of 3000000
+ 13803 multiletter control sequences out of 15000+200000
  16481 words of font info for 43 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,12n,58p,812b,420s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 41i,12n,58p,812b,418s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\curtm\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\
 ectt1000.pk> <C:\Users\curtm\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\
 ec\dpi600\ecbx1200.pk> <C:\Users\curtm\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour
@@ -1252,9 +1364,9 @@ pk> <C:\Users\curtm\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600
 5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:
 /Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program 
 Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb>
-Output written on main.pdf (14 pages, 342245 bytes).
+Output written on main.pdf (17 pages, 517220 bytes).
 PDF statistics:
- 737 PDF objects out of 1000 (max. 8388607)
- 117 named destinations out of 1000 (max. 500000)
- 198 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 790 PDF objects out of 1000 (max. 8388607)
+ 134 named destinations out of 1000 (max. 500000)
+ 233 words of extra memory for PDF output out of 10000 (max. 10000000)
 
