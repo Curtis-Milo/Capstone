@@ -31,9 +31,9 @@
 \usepackage{listings}
 
 
-\definecolor{dkgreen}{rgb}{0,0.6,0}
-\definecolor{gray}{rgb}{0.5,0.5,0.5}
-\definecolor{mauve}{rgb}{0.58,0,0.82}
+%\definecolor{dkgreen}{rgb}{0,0.6,0}
+%\definecolor{gray}{rgb}{0.5,0.5,0.5}
+%\definecolor{mauve}{rgb}{0.58,0,0.82}
 
 \lstset{frame=tb,
   language=C++,
@@ -196,7 +196,7 @@ linkcolor=black,}  %choose some color if you want links to stand out
 \pagestyle{fancy}
 
 % Header
-\lhead{Draft Component Design }
+\lhead{Draft Component Design}
 \rhead{Revision: 0}
 \fancyhead[LE,CO]{Group 9: LazyBots}
 
@@ -237,7 +237,7 @@ linkcolor=black,}  %choose some color if you want links to stand out
 
 \vspace{1 cm}
 {\Large\textbf{\textsc{McMaster University}}\\}  \vspace {1cm}
-{\Large Development Process and Implementation\\ \vspace {0.4 cm} SE 4GA6 \& TRON 4TB6}  \vspace {1cm}
+{\Large Draft System Design\\ \vspace {0.4 cm} SE 4GA6 \& TRON 4TB6}  \vspace {1cm}
 
 {\large \textsc{Group 9} \\} \vspace{1cm}
 
@@ -275,7 +275,7 @@ Alexandra Rahman & & 001305735
 %\section*{Revisions}
 \thispagestyle{empty}
 \section{Revisions}
-\begin{longtable}{| p{.2\textwidth } | p{.23\textwidth } | p{.23\textwidth } | p{.23\textwidth } |} \caption{VIC Table of Revisions}  \\
+\begin{longtable}{| p{.2\textwidth } | p{.23\textwidth } | p{.23\textwidth } | p{.23\textwidth } |} \caption{LazyBots Table of Revisions}  \\
 
 % ------------------------------------------------------- Date ------------------------------------------------------- %
 \hline 
@@ -285,7 +285,7 @@ Alexandra Rahman & & 001305735
 \multicolumn{1}{|c|}{\textbf {Comments}} \\ \hline
 
 % ------------------------------------------------------- Revision Number -------------------------------------------------------
-\multirow{4}{*}{\centering November 24\textsuperscript{th}, 2017}  & 
+\multirow{4}{*}{\centering December 24\textsuperscript{th}, 2017}  & 
 \multirow{4}{*}{Revision 0}& 
 		{Karim Guirguis \newline
 		David Hemms \newline
@@ -310,30 +310,36 @@ Alexandra Rahman & & 001305735
 
 % -------------- START INTRODUCTION ---------------- %
 
-
+% ------------------------------------------------------- PURPOSE ------------------------------------------------------- %
 \section {Purpose}
 
 The purpose of this project will be to create an autonomous robot that will navigate to and serve
-the requested drink to the user who requests a drink. Currently in an office setting, workers must
-leave their offices to get their own drinks. Also, in restaurants, drinks are served by waiters and
+the requested drink to the user who request a drink. Currently in an office setting, workers must
+leave their offices to get their own drinks. In restaurants, drinks are served by waiters and
 waitresses, which hinders them from doing other work at that time. Alfred will be designed to make the serving drinks autonomous.\newline
 
 Alfred will allow users to request drinks. These requests will form a queue which Alfred will serve in order using a FIFO protocol. Alfred will go to the table of each user and pour the drinks ordered from that table. Alfred will also have an administrator user which will be able to call Alfred back and override any action that is being taken at the time.\newline
 
 The following document will outline the overall system components, as well as the overall system behaviour, operation and undesired error handling.
 
+% ------------------------------------------------------- Scope ------------------------------------------------------- %
+
 \subsection{Scope}
 
-The system implemented is one that is meant to automate the dispensing of beverages to customers within a restaurant at the respected customers' table. The customer will be able to order a drink from their table which will be followed by Alfred arriving at their table and dispensing the requested drinks. The staff will be able to request Alfred to come back for charging and refilling when desired.
+The system implemented is one that is meant to automate the dispensing of beverages to customers within a restaurant at the respective customers' table. The customer will be able to order a drink from their table which will be relayed to Alfred, where he will arrive at their table and dispense the requested drinks. The staff will be able to request Alfred to come back for charging and refilling when desired.
 
+
+% ------------------------------------------------------- Context Diagram ------------------------------------------------------- %
 
 \subsection{Context Diagram}
 The following is a context diagram of the drink serving robot, Alfred.
 \begin{figure} [h!]
 	\centering
-	\includegraphics [scale = 0.6] {Figures/ContextDiagram.png}
+	\includegraphics [scale = 0.5] {Figures/ContextDiagram.png}
 	\caption{Drink Serving Robot Context Diagram}
 \end{figure}
+
+% ----------------------------------------------------- Diagram of Components ----------------------------------------------------- %
 
 \subsection{Diagram of Components}
 The following is a diagram that shows the interaction of components of the drink serving robot system.
@@ -342,279 +348,347 @@ The following is a diagram that shows the interaction of components of the drink
 	\includegraphics [scale = 0.6] {Figures/SystemComponents.png}
 	\caption{Drink Serving Robot System Component Diagram}
 \end{figure}
+
+
+% ------------------------------------------------------- SYSTEM VARIABLES ------------------------------------------------------- %
+
 \section{System Variables}
 
+% ---------------------------------------------- Monitored and Controlled Variables ----------------------------------------------- %
+
 \subsection{Monitored and Controlled Variables}
-The following is a list of variables that will be monitored.
+The following is a list of variables that will be monitored. \\
 
 \begin{longtable}{|l|l|l|l|l|}\hline 
-	\rowcolor{tableCell}Monitor Name & Monitor Type & Range & Units & Comment(s) \\ \hline
+	\rowcolor{tableCell}\textbf{Monitor Name} & \textbf{Monitor Type} & \textbf{Range} & \textbf{Units} & \textbf{Comment(s)} \\ \hline
 	$ w_{wheel_{left}} $ & Speed & [0, $ 100 $]& rad/s &  Left Wheel Speed\\ \hline
-	$ w_{wheel_{right}} $ & Speed & [0, $ 100 $]& rad/s & Right Wheel Speed \\ \hline
+	\rowcolor{tableCell}$ w_{wheel_{right}} $ & Speed & [0, $ 100 $]& rad/s & Right Wheel Speed \\ \hline
 	$ m_{container} $ & Mass & [0, 1.0]& Kg &  Weight of the storage device  \\ \hline
-	$ m_{drink} $    & Mass & [0, 1.0] & Kg &  Weight of the drink  \\ \hline
+	\rowcolor{tableCell}$ m_{drink} $    & Mass & [0, 1.0] & Kg &  Weight of the drink  \\ \hline
 	$ b_{cuptaken } $ & Boolean & [0,1] & N/A & If the cup has been taken \\ \hline
-	$  d_{objects} $ & Distance[] & [0, 10.0]& m & Set of distances to closest obstacle \\ \hline
+	\rowcolor{tableCell}$  d_{objects} $ & Distance[] & [0, 10.0]& m & Set of distances to closest obstacle \\ \hline
 	$  V_{batt} $ & Voltage & [0, 20.0]& m &  Voltage levels of batteries \\ \hline
 \end{longtable}
 
 
-The following is a list of variables that will be controlled
+The following is a list of variables that will be controlled. \\
 
 \begin{longtable}{|l|l|l|l|l|}\hline 
-	\rowcolor{tableCell}Controlled Name & Controlled Type & Range & Units & Comment(s) \\ \hline
+	\rowcolor{tableCell}\textbf{Controlled Name} & \textbf{Controlled Type} & \textbf{Range} & \textbf{Units} & \textbf{Comment(s)} \\ \hline
     $w_{motor}$ & Speed & [0, $ 100 $]& rad/s &  Motor Speed\\ \hline
-    	$ percent_{dutycycle_{left}} $ & Percent & [0,1.0] & \% & The duty cycle of the left side of the drive-train \\ \hline
+    	\rowcolor{tableCell}$ percent_{dutycycle_{left}} $ & Percent & [0,1.0] & \% & The duty cycle of the left side of the drive-train \\ \hline
     $ percent_{dutycycle_{right}} $ & Percent & [0, 1.0]& \% & The duty cycle of the right side of the drive-train\\ \hline
-    $  V_{pump} $ & Voltage & [0, 5.0]& m &  Voltage going to the liquid pump \\ \hline
+   \rowcolor{tableCell} $  V_{pump} $ & Voltage & [0, 5.0]& m &  Voltage going to the liquid pump \\ \hline
 	$ errors_{drivetrain} $ & Unsigned Byte & [0, $2^{8}$]& N/A & Errors from drive-train \\ \hline
-	$  errors_{pump} $ & Unsigned Byte & [0, $2^{8}$]& N/A & Errors from pumping system module \\ \hline
+	\rowcolor{tableCell}$  errors_{pump} $ & Unsigned Byte & [0, $2^{8}$]& N/A & Errors from pumping system module \\ \hline
 	$  errors_{Alfred} $ & Unsigned Byte & [0, $2^{8}$]& N/A & Errors from Alfred \\ \hline
-	$LED_{drinksignal}$ & Boolean & [0, 1]& N/A & Signal of drink that it is ready to be picked up \\ \hline
+	\rowcolor{tableCell}$LED_{drinksignal}$ & Boolean & [0, 1]& N/A & Signal of drink that it is ready to be picked up \\ \hline
 	$Q_{pump}$ & Flow Rate & [0, $ 100 $]& ($m^3/s$) &  Flow rate of the pump\\ \hline
 \end{longtable}
 
 
-
-\begin{longtable}{|l|l|l|l|l|}\hline 
-
-
-\end{longtable}
+% ------------------------------------------------------- Constants ------------------------------------------------------- %
 
 \subsection{Constants}
 
-The following is a list of system constants
+The following is a list of system constants. \\
 
-\begin{longtable}{|l|l|l|l|l|}\hline 
-	\rowcolor{tableCell}Constant Name & Constant Type & Value & Units & Comment(s) \\ \hline
+\begin{longtable}{| p{0.2\textwidth} | p{0.15\textwidth} | p{0.05\textwidth} | p{0.08\textwidth} | p{.45\textwidth} |}\hline 
+	\rowcolor{tableCell}\textbf{Constant Name} & \textbf{Constant Type} & \textbf{Value} & \textbf{Units} & \textbf{Comment(s)} \\ \hline
  	$ V_{battMin} $ & Voltage & 9.0& m &  The minimum voltage necessary for drive-train movement \\ \hline
-	$ m_{DrinkMin} $ & Mass & 0.35 & Kg &  The minimum weight of the drink to be considered as ready for the customer.  \\ \hline
+	\rowcolor{tableCell}$ m_{DrinkMin} $ & Mass & 0.35 & Kg &  The minimum weight of the drink to be considered as ready for the customer.  \\ \hline
 	$ t_{timeout} $ & Time & 30 & s & The maximum time Alfred or the ordering application will wait for a message from the server before timing out.  \\ \hline
-	$ t_{pumptimeout} $ & Time & 5 & s & The maximum time Alfred will try to pump without noticing a change in the weight of the tank.  \\ \hline
+	\rowcolor{tableCell}$ t_{pumptimeout} $ & Time & 5 & s & The maximum time Alfred will try to pump without noticing a change in the weight of the tank.  \\ \hline
 	$ t_{maxpump} $ & Time & 10 & s & The maximum time Alfred will try to dispense a drink within. \\ \hline
-	$Q_{pump}$ & Flow Rate & TBD & ($m^3/s$) &  Flow rate of the pump\\ \hline
+	\rowcolor{tableCell}$Q_{pump}$ & Flow Rate & TBD & ($m^3/s$) &  Flow rate of the pump\\ \hline
 	$ freq_{bauderate} $ & Frequency & 9600 & (Herts) &  The  rate at which UART communication will be performed at.\\ \hline
-	$ obstruction_{timeout} $ & Time & 10 & s & The amount of time that Alfred will stop movement due to an object in its path before ruling that there is an obstruction and throwing an error. \\ \hline
+	\rowcolor{tableCell}$ obstruction_{timeout} $ & Time & 10 & s & The amount of time that Alfred will stop movement due to an object in its path before ruling that there is an obstruction and throwing an error. \\ \hline
 \end{longtable}
 
 
+% ----------------------------------------------------- BEHAVIOUR OVERVIEW ---------------------------------------------------- %
 
 \section{Behaviour Overview}
 \begin{enumerate}
-	\item \textbf{Ordering System Module} - Provided the order information, this module will communicate with the server to "order a drink".
-	\item \textbf{Manager Login Page} - Given the login credentials, will authenticate administrator of the system with the server.
-	\item \textbf{Manager Station Map Software Page} - Will allow administrator to create/modify the map of the area where Alfred will deliver drinks. This map will then be sent and stored on the server.
-	\item \textbf{Manager Station Request Software Page} - Will allow administrator to execute commands for Alfred, as well as view incoming error codes from Alfred. Said commands, will be sent to the server, which will then communicate with Alfred.
-	\item \textbf{Back End Web Service Module} - Will route communication to different components of the system. Also will be responsible for authentication and management of queue. 
-	\item \textbf{Alfred Manager Module} - Endpoint for communication with Alfred. Will manage communication with server, as well as send any errors that Alfred is experiencing.
-	\item \textbf{Alfred Drive Train Module} - Responsible for driving and managing the motors based on desired route. Also, will be send errors preventing movement to Alfred Manager Module.
-	\item \textbf{Alfred Pumping Module} - Will control pumping system in regards of when to pour, how long, rate of dispensing, etc. Also, will be send errors of pump/container to Alfred Manager Module.
-	\item \textbf{Image Processing Module} - Will detect any obstacles in the way as well as locate incoming nodes. Will communicate with Alfred Drive Train Module, to determine any required action based on results.
+	\item \textbf{Ordering System Module}: Provided the order information, this module will communicate with the server to "order a drink".
+	\item \textbf{Manager Login Page}: Given the login credentials, will authenticate administrator of the system with the server.
+	\item \textbf{Manager Station Map Software Page}: Will allow administrator to create or modify the map of the area where Alfred will deliver drinks. This map will then be sent and stored on the server.
+	\item \textbf{Manager Station Request Software Page}: Will allow administrator to execute commands for Alfred, as well as view incoming error codes from Alfred. Said commands, will be sent to the server, which will then communicate with Alfred.
+	\item \textbf{Back End Web Service Module}: Will route communication to different components of the system. Will also be responsible for authentication and management of queue. 
+	\item \textbf{Alfred Manager Module}: Endpoint for communication with Alfred. Will manage communication with server, as well as send any errors that Alfred is experiencing.
+	\item \textbf{Alfred Drive Train Module}: Responsible for driving and managing the motors based on desired route. Will also be sending errors preventing movement to Alfred Manager Module.
+	\item \textbf{Alfred Pumping Module}: Will control pumping system in regards of when to pour, how long, rate of dispensing, etc. Will also be sending errors pertaining to the pump or container to Alfred Manager Module.
+	\item \textbf{Image Processing Module}: Will detect any obstacles in the way as well as locate incoming nodes. Will communicate with Alfred Drive Train Module, to determine wether any required action based on results.
 \end{enumerate}
 
+% --------------------------------------------------- COMPONENT OVERVIEW ---------------------------------------------------- %
+
 \section{Component Overview}
+
+% ----------------------------------------------------- Ordering System Module ---------------------------------------------------- %
 \subsection{Ordering System Module}
 
+% ----------------------------------------------------- Inputs and Outputs ---------------------------------------------------- %
 \subsubsection{Inputs and Outputs}
 
-\textbf{Inputs: }  User input defining:
+\textbf{Inputs:}  User input defining:\\
 
 \begin{longtable}{|l|l|l|l|l|}\hline 
-	\rowcolor{tableCell}Input Name & Input Type & Range & Units & Comment(s) \\ \hline
+	\rowcolor{tableCell}\textbf{Input Name} & \textbf{Input Type} & \textbf{Range} & \textbf{Units} & \textbf{Comment(s)} \\ \hline
 	$Order_{Num} $ & Unsigned Integer User Input & [0,5] & count &  Number of Orders \\ \hline
-	$Order_{Drinks} $ &  User Input & N/A & N/A &  List of Ordered Drinks \\ \hline
+	\rowcolor{tableCell}$Order_{Drinks} $ &  User Input & N/A & N/A &  List of Ordered Drinks \\ \hline
 \end{longtable}
 
 
-\textbf{Outputs: } Packaged Information within HTTP Request for:
+\textbf{Outputs:} Packaged Information within HTTP Request for: \\
 \begin{longtable}{|l|l|l|l|l|}\hline 
-	\rowcolor{tableCell}Output Name & Output Type & Range & Units & Comment(s) \\ \hline
+	\rowcolor{tableCell}\textbf{Output Name} & \textbf{Output Type} & \textbf{Range} & \textbf{Units} & \textbf{Comment(s)} \\ \hline
 	$Order_{Num} $ & Unsigned Integer User Input & [0,5] & count &  Number of Orders \\ \hline
-	$Order_{Drinks} $ &  User Input & N/A & N/A &  List of Ordered Drinks \\ \hline
+	\rowcolor{tableCell}$Order_{Drinks} $ &  User Input & N/A & N/A &  List of Ordered Drinks \\ \hline
 	$Order_{TableNum} $ & Unsigned Integer User Input & [0,$2^{16}$] & N/A &  Table Number \\ \hline
-	$Order_{Rid} $ & Unsigned Integer User Input & [0,$2^{16}$] & N/A & Identification of the restaurant \\ \hline
+	\rowcolor{tableCell}$Order_{Rid} $ & Unsigned Integer User Input & [0,$2^{16}$] & N/A & Identification of the restaurant \\ \hline
 \end{longtable}
+
+% ----------------------------------------------------- Description ---------------------------------------------------- %
+
 \subsubsection{Description}
-This module will be used as the user input to take orders of the client. This user input will be taken in by the mobile application based on different button inputs/ radio button selections. These orders are then packaged by the module to be sent to the server based on an HTTP request.
+This module will be used for user input by taking the orders of the client. This user input will be taken in by the mobile application based on different button inputs/ radio button selections. These orders are then packaged by the module to be sent to the server based on an HTTP request.
+
+% ----------------------------------------------------- Timing Constrints ---------------------------------------------------- %
 
 \subsubsection{Timing Constraints}
 Timing Constraints are based on the server sending a success signal within $ t_{timeout} $ seconds.
 
+% ----------------------------------------------------- Initialization ---------------------------------------------------- %
+
 \subsubsection{Initialization}
 At startup/new order of the application, it will start a blank order page where the user will be able to add drink orders and use radio buttons to select the desired drink.
 
+% --------------------------------------------------- Manager Login Page Module -------------------------------------------------- %
+
 \subsection{Manager Login Page Module}
+
+% ----------------------------------------------------- Inputs and Outputs ---------------------------------------------------- %
 
 \subsubsection{Inputs and Outputs}
 
-
-
-\textbf{Inputs: } 
+\textbf{Inputs: } \newline
 
 \begin{longtable}{|l|l|l|l|l|}\hline 
-	\rowcolor{tableCell}Input Name & Input Type & Range & Units & Comment(s) \\ \hline
-	$  UserName $ & String User Input & 10 chars & N/A & \\ \hline
-	$  Password $ & String User Input & 20 chars  & N/A & \\ \hline
-	$  GotoMapPage $ & Button User Input & [0,1]  & N/A & \\ \hline
-	$  GotoAlfredInfo $ & Button User Input & [0,1]  & N/A & \\ \hline
+	\rowcolor{tableCell}\textbf{Input Name} & \textbf{Input Type} & \textbf{Range} & \textbf{Units} & \textbf{Comment(s)} \\ \hline
+	$  UserName $ & String User Input & 10 chars & N/A & N/A\\ \hline
+	\rowcolor{tableCell}$  Password $ & String User Input & 20 chars  & N/A & N/A\\ \hline
+	$  GotoMapPage $ & Button User Input & [0,1]  & N/A & N/A\\ \hline
+	\rowcolor{tableCell}$  GotoAlfredInfo $ & Button User Input & [0,1]  & N/A & N/A\\ \hline
 \end{longtable}
 
 
-\textbf{Outputs: } To be displayed to the user
+\textbf{Outputs: } To be displayed to the user.\newline
 \begin{longtable}{|l|l|l|l|l|}\hline 
-	\rowcolor{tableCell}Output Name & Output Type & Range & Units & Comment(s) \\ \hline
+	\rowcolor{tableCell}\textbf{Output Name} & \textbf{Output Type} & \textbf{Range} & \textbf{Units} & \textbf{Comment(s)} \\ \hline
 	$  FailureMessage $ & String & 10 chars & N/A & Failure message if there is an incorrect information  \\ \hline
-	$  GotoPage $ & Action & N/A  & N/A & navigating to the correct page if it was a success. \\ \hline
+	\rowcolor{tableCell}$  GotoPage $ & Action & N/A  & N/A & navigating to the correct page if it was a success. \\ \hline
 \end{longtable}
+
+% ----------------------------------------------------- Description ---------------------------------------------------- %
 
 \subsubsection{Description}
 This module is a web based application for the managers to be able to log into the management systems.
+
+% ----------------------------------------------------- Timing Constraints ---------------------------------------------------- %
+
 \subsubsection{Timing Constraints}
 Given optimal networking conditions, the server must respond with $ t_{timeout} $ seconds.
+
+% ----------------------------------------------------- Initialization ---------------------------------------------------- %
 
 \subsubsection{Initialization}
 This will default to a HTML page with no information.
 
+% ------------------------------------------- Manager Station Map Software Module ------------------------------------------ %
 
 \subsection{Manager Station Map Software Module}
 
+% ----------------------------------------------------- Inputs and Outputs ---------------------------------------------------- %
+
 \subsubsection{Inputs and Outputs}
 
-\textbf{Inputs: } User input defining:
+\textbf{Inputs:} User input defining:\\
 
 \begin{longtable}{|l|l|l|l|l|}\hline 
-	\rowcolor{tableCell}Input Name & Input Type & Range & Units & Comment(s) \\ \hline
-	$ Resturant_{Width} $ & Integer User input &  [0,20] & m &  \\ \hline
-	$ Resturant_{Length} $ & Integer User input &  [0,20] & m &  \\ \hline
+	\rowcolor{tableCell}\textbf{Input Name} & \textbf{Input Type} & \textbf{Range} & \textbf{Units} & \textbf{Comment(s)} \\ \hline
+	$ Resturant_{Width} $ & Integer User input &  [0,20] & m &  N/A\\ \hline
+	\rowcolor{tableCell}$ Resturant_{Length} $ & Integer User input &  [0,20] & m &  N/A\\ \hline
 	$ Resturant_{CanTravel[][]} $ & Button[][] User input &  N/A & N/A & A set of areas in which Alfred can travel to \\ \hline
-	$ Resturant_{Tables[][]} $ & Button[][] User input &  N/A & N/A & A set of areas in which contains tables \\ \hline
+	\rowcolor{tableCell}$ Resturant_{Tables[][]} $ & Button[][] User input &  N/A & N/A & A set of areas in which contains tables \\ \hline
 	$ Resturant_{CannotTravel[][]} $ & Button[][] User input &  N/A & N/A & A set of areas in which Alfred cannot travel to \\ \hline
-	$ Resturant_{Home} $ & Button User input &  N/A & N/A & An area that defines Alfred's home location \\ \hline
+	\rowcolor{tableCell}$ Resturant_{Home} $ & Button User input &  N/A & N/A & An area that defines Alfred's home location \\ \hline
 \end{longtable}
 
 
-\textbf{Outputs: }A text file that contains the following information
+\textbf{Outputs: }A text file that contains the following information. \\
 \begin{longtable}{|l|l|l|l|l|}\hline 
-	\rowcolor{tableCell}Input Name & Input Type & Range & Units & Comment(s) \\ \hline
-	$ Resturant_{Width} $ & Integer &  [0,20] & m &  \\ \hline
-	$ Resturant_{Length} $ & Integer  &  [0,20] & m &  \\ \hline
-	$ Resturant_Data $& Char  &  [H,X,0,T] & N/a & Table Information \\ \hline
+	\rowcolor{tableCell}\textbf{Input Name} & \textbf{Input Type} & \textbf{Range} & \textbf{Units} & \textbf{Comment(s)} \\ \hline
+	$ Resturant_{Width} $ & Integer &  [0,20] & m &  N/A\\ \hline
+	\rowcolor{tableCell}$ Resturant_{Length} $ & Integer  &  [0,20] & m &  N/A\\ \hline
+	$ Resturant_Data $& Char  &  [H,X,0,T] & N/A & Table Information \\ \hline
 \end{longtable}
 
+% ----------------------------------------------------- Description ---------------------------------------------------- %
 
 \subsubsection{Description}
 This module will be used as the user input to create a map where the manager of the restaurant will be able to define the details about the restaurant that will help Alfred with it's navigation to different tables.
 
+% ----------------------------------------------------- Timing Constraints ---------------------------------------------------- %
+
 \subsubsection{Timing Constraints}
 Timing Constraints are based on the server sending a success signal within  $ t_{timeout} $ seconds.
+
+% ----------------------------------------------------- Initialization ---------------------------------------------------- %
 
 \subsubsection{Initialization}
 At startup/new order of the application, it will load in the users map that is associated with their profile. If this is the first time using the application then it will default to a 1x1 map.
 
+% ----------------------------------------- Manager Station Request Software Module ----------------------------------------- %
+
 \subsection{Manager Station Request Software Module}
+
+% ----------------------------------------------------- Inputs and Outputs ---------------------------------------------------- %
 
 \subsubsection{Inputs and Outputs}
 
-\textbf{Inputs: } 
+\textbf{Inputs: } \\
 
 \begin{longtable}{|l|l|l|l|l|}\hline 
-	\rowcolor{tableCell}Input Name & Input Type & Range & Units & Comment(s) \\ \hline
+	\rowcolor{tableCell}\textbf{Input Name} & \textbf{Input Type} & \textbf{Range} & \textbf{Units} & \textbf{Comment(s)} \\ \hline
 	$ req_{Home} $ & Boolean User input &  [0,1] & N/A & Calling back Alfred \\ \hline
-	$  errors_{Alfred} $ & Unsigned Byte & [0, $2^{8}$]& N/A & Errors from Alfred \\ \hline
+	\rowcolor{tableCell}$  errors_{Alfred} $ & Unsigned Byte & [0, $2^{8}$]& N/A & Errors from Alfred \\ \hline
 \end{longtable}
 
 
-\textbf{Outputs: } To be displayed to the User
+\textbf{Outputs: } To be displayed to the user.\\
 \begin{longtable}{|l|l|l|l|l|}\hline 
-	\rowcolor{tableCell}Output Name & Output Type & Range & Units & Comment(s) \\ \hline
+	\rowcolor{tableCell}\textbf{Output Name} & \textbf{Output Type} & \textbf{Range} & \textbf{Units} & \textbf{Comment(s)} \\ \hline
 	$  warn_{LowLiquid} $ & Boolean & [0, 1]& N/A & Low liquid levels \\ \hline
-	$  error_{LiquidLeak} $ & Boolean & [0, 1]& N/A & Leaking of liquid error \\ \hline
+	\rowcolor{tableCell}$  error_{LiquidLeak} $ & Boolean & [0, 1]& N/A & Leaking of liquid error \\ \hline
 	$  error_{NotPumping} $ & Boolean & [0, 1]& N/A & Not pumping error \\ \hline
-	$  error_{NoMovement} $ & Boolean & [0, 1]& N/A & Not able to move error \\ \hline
+	\rowcolor{tableCell}$  error_{NoMovement} $ & Boolean & [0, 1]& N/A & Not able to move error \\ \hline
 	$  error_{LowBatt} $ & Boolean & [0, 1]& N/A & Low battery Error \\ \hline
 \end{longtable}
+
+% ----------------------------------------------------- Description ---------------------------------------------------- %
+
 \subsubsection{Description}
 This module is used for the manager to determine the state of Alfred from an office as well as being able to override the robot to come back to the home base. 
 \subsubsection{Timing Constraints}
 One timing constraints are based on the server sending a success signal within  $ t_{timeout} $ seconds. Another constraint is that Alfred will return within the time of $ w_{wheel} $*distance.
 
+% ----------------------------------------------------- Initialization ---------------------------------------------------- %
+
 \subsubsection{Initialization}
 At startup this interface should pull the last status of the robot and display it to the user. If no previous data is found then it will return that there are currently no errors.
 
+% ------------------------------------------------- Back End Web Service Module ------------------------------------------------ %
+
 \subsection{Back End Web Service Module}
+
+% ----------------------------------------------------- Inputs and Outputs ---------------------------------------------------- %
 
 \subsubsection{Inputs and Outputs}
 
-\textbf{Inputs: } 
+\textbf{Inputs: } \\
 
-\begin{longtable}{|l|l|l|l|l|}\hline 
-	\rowcolor{tableCell}Input Name & Input Type & Range & Units & Comment(s) \\ \hline
+\begin{longtable}{| p{.15\textwidth} | p{.15\textwidth} | p{.08\textwidth} | p{.06\textwidth} | p{.45\textwidth} |}\hline 
+	\rowcolor{tableCell}\textbf{Input Name} & \textbf{Input Type} & \textbf{Range} & \textbf{Units} & \textbf{Comment(s)} \\ \hline
 	$ HttpReq_{Orders} $ & HTTP Request & N/A & N/A & HTTP request package with the information for drink orders. \\ \hline
-	$ Map_{textfile} $ & Text File & N/A & N/A & A text file with a map \\ of the restaurant \\ \hline
+	\rowcolor{tableCell}$ Map_{textfile} $ & Text File & N/A & N/A & A text file with a map of the restaurant \\ \hline
 	$  errors_{Alfred} $ & Unsigned Byte & [0, $2^{8}$]& N/A & Errors from Alfred \\ \hline
-	$  UserName $ & String & 10 chars & N/A & \\ \hline
+	\rowcolor{tableCell}$  UserName $ & String & 10 chars & N/A & N/A\\ \hline
 	$  Password $ & HashCode & N/A & N/A &  Success result for authenticated results. \\ \hline
 \end{longtable}
 
 
-\textbf{Outputs: } 
-\begin{longtable}{|l|l|l|l|l|}\hline 
-	\rowcolor{tableCell}Output Name & Output Type & Range & Units & Comment(s) \\ \hline
+\textbf{Outputs: } \\
+
+\begin{longtable}{| p{.15\textwidth} | p{.15\textwidth} | p{.08\textwidth} | p{.06\textwidth} | p{.45\textwidth} |}\hline 
+	\rowcolor{tableCell}\textbf{Output Name} & \textbf{Output Type} & \textbf{Range} & \textbf{Units} & \textbf{Comment(s)} \\ \hline
 	$ HttpReq_{Orders} $ & HTTP Request & N/A & N/A & HTTP request package with the information for drink orders. \\ \hline
-	$ Map_{textfile} $ & Text File & N/A & N/A & A text file with a map \\ of the restaurant \\ \hline
+	\rowcolor{tableCell}$ Map_{textfile} $ & Text File & N/A & N/A & A text file with a map of the restaurant \\ \hline
 	$  errors_{Alfred} $ & Unsigned Byte & [0, $2^{8}$]& N/A & Errors from Alfred \\ \hline
-	$  Login_{Status} $ & String & 10 chars & N/A & Login Success or Fail \\ \hline
-	$  Http_{Result} $ & String & 10 chars & N/A & \\ \hline
+	\rowcolor{tableCell}$  Login_{Status} $ & String & 10 chars & N/A & Login Success or Fail \\ \hline
+	$  Http_{Result} $ & String & 10 chars & N/A & N/A\\ \hline
 \end{longtable}
 
+% ----------------------------------------------------- Description ---------------------------------------------------- %
+
 \subsubsection{Description}
-This module is a server component that will hold account information for different restaurants. This will perform authorize different users to be able to accept different drink requests from the ordering system. It will return the next drink order for the restaurants Alfred robot.
+This module is a server component that will hold account information for different restaurants. This will  authorize different users to be able to accept different drink requests from the ordering system. It will return the next drink order for the restaurants Alfred robot.
+
+% ----------------------------------------------------- TIming Constraints ---------------------------------------------------- %
+
 \subsubsection{Timing Constraints}
 Given optimal networking conditions, the server must respond with  $ t_{timeout} $ seconds.
 
+% ----------------------------------------------------- Initialization ---------------------------------------------------- %
+
 \subsubsection{Initialization}
-This server will be initialized by a database with one restaurant which will be used for the purposes of testing the system
+This server will be initialized by a database with one restaurant which will be used for the purposes of testing the system.
+
+% ----------------------------------------------------- Alfred Manager Module ---------------------------------------------------- %
 
 \subsection{Alfred Manager Module}
+
+% ----------------------------------------------------- Inputs and Outputs ---------------------------------------------------- %
 
 \subsubsection{Inputs and Outputs}
 
 
-\textbf{Inputs: } 
+\textbf{Inputs: } \\
 
 \begin{longtable}{|l|l|l|l|l|}\hline 
-	\rowcolor{tableCell}Input Name & Input Type & Range & Units & Comment(s) \\ \hline
-	$ Map $ & Graph & N/A & N/A & Graph of the text file with a map \\ of the restaurant \\ \hline
-	$ Orders_{drinks} $ & Order[] & N/A & N/A & A list of drink orders ordered by table. \\ \hline
+	\rowcolor{tableCell}\textbf{Input Name} & \textbf{Input Type} & \textbf{Range} & \textbf{Units} & \textbf{Comment(s)} \\ \hline
+	$ Map $ & Graph & N/A & N/A & Graph of the text file with a map of the restaurant \\ \hline
+	\rowcolor{tableCell}$ Orders_{drinks} $ & Order[] & N/A & N/A & A list of drink orders ordered by table. \\ \hline
 	$ b_{requestHome} $ & Boolean & [0, 1]& N/A &  A request to come back to the base\\ \hline
-	$ errors_{drivetrain} $ & Unsigned Byte & [0, $2^{8}$]& N/A & Errors from drive-train \\ \hline
+	\rowcolor{tableCell}$ errors_{drivetrain} $ & Unsigned Byte & [0, $2^{8}$]& N/A & Errors from drive-train \\ \hline
 	$  errors_{pump} $ & Unsigned Byte & [0, $2^{8}$]& N/A & Errors from pumping system module \\ \hline
 \end{longtable}
 
 
-\textbf{Outputs: } 
+\textbf{Outputs: } \\
 \begin{longtable}{|l|l|l|l|l|}\hline 
-	\rowcolor{tableCell}Output Name & Output Type & Range & Units & Comment(s) \\ \hline
-	$ NextOrder $ & Order & N/A & N/A & Next Drink Order. \\ \hline
-	$ NextNode $ & Node & [(0,0), (length($Map)$,width($Map$)] & N/A & The next node to travel to. \\ \hline
+	\rowcolor{tableCell}\textbf{Output Name} & \textbf{Output Type} & \textbf{Range} & \textbf{Units} & \textbf{Comment(s)} \\ \hline
+	$ NextOrder $ & Order & N/A & N/A & Next Drink Order \\ \hline
+	\rowcolor{tableCell}$ NextNode $ & Node & [(0,0), (length($Map)$, width($Map$)] & N/A & The next node to travel to \\ \hline
 	$  errors_{Alfred} $ & Unsigned Byte & [0, $2^{8}$]& N/A & Errors from Alfred \\ \hline
 \end{longtable}
 
+% ----------------------------------------------------- Description ---------------------------------------------------- %
+
 \subsubsection{Description}
 This module acts as the manager to the different components of Alfred. It will run on a raspberry pi to command the drive-train to move to different nodes of the map. The manager will also communicate through UART to the different on board micro-controller for commanding the next drink to the pumping system.
+
+% ----------------------------------------------------- TIming Constraints ---------------------------------------------------- %
+
 \subsubsection{Timing Constraints}
 Given optimal networking conditions, the system must receive a response within  $ t_{timeout} $ seconds. The communication with the pumping system must be done at the specified $freq_{bauderate}$.
 
+% ----------------------------------------------------- Initialization ---------------------------------------------------- %
+
 \subsubsection{Initialization}
 This will assume that there is no requests at startup. It will request from the server asking for the next drink order. If there is no map previously defined within a text file then it will request this as well.
+
+% --------------------------------------------- Alfred Communication Circuit Diagram -------------------------------------------- %
 
 \subsubsection{Alfred Communication Circuit Diagram}
 The following is a circuit diagram showing the communication between the Raspberry Pi and the pumping system.
 \begin{figure} [h!]
 	\centering
-	\includegraphics [scale = 0.6] {Figures/UART.png}
+	\includegraphics [scale = 0.4] {Figures/UART.png}
 	\caption{Alfred Communication Circuit Diagram}
 \end{figure}
+
+% --------------------------------------------- Raspberry Pi Specifications -------------------------------------------- %
 
 \subsubsection{Raspberry PI Specifications}
 Manufacturer: Raspberry PI \\
@@ -625,103 +699,137 @@ GPIO: 17 pins as well as +3.3 V, +5 V and GND supply lines\\
 Camera Connector: 15-pin MIPI Camera Serial Interface (CSI-2)\\
 Memory Card Slot: Push/pull Micro SDIO\\
 
-\subsection{Alfred Drive-train Module}
+% --------------------------------------------- Alfred Drive-Train Module -------------------------------------------- %
+
+\subsection{Alfred Drive-Train Module}
+
+% --------------------------------------------- Inputs and Outputs -------------------------------------------- %
 
 \subsubsection{Inputs and Outputs}
 
-\textbf{Inputs: } 
+\textbf{Inputs: } \\
 
-
-\begin{longtable}{|l|l|l|l|l|}\hline 
-	\rowcolor{tableCell}Input Name & Input Type & Range & Units & Comment(s) \\ \hline
-	$ Map $ & Graph & N/A & N/A & Graph of the text file with a map \\ of the restaurant \\ \hline
-	$ NextNode $ & Node & [(0,0), (length($Map)$,width($Map$)] & N/A & The next node to travel to. \\ \hline
+\begin{longtable}{| p{.15\textwidth} | p{.15\textwidth} | p{.15\textwidth} | p{.06\textwidth} | p{.45\textwidth} |}\hline 
+	\rowcolor{tableCell}\textbf{Input Name} & \textbf{Input Type} & \textbf{Range} & \textbf{Units} & \textbf{Comment(s)} \\ \hline
+	$ Map $ & Graph & N/A & N/A & Graph of the text file with a map of the restaurant \\ \hline
+	\rowcolor{tableCell}$ NextNode $ & Node & [(0,0), (length($Map)$, width($Map$)] & N/A & The next node to travel to \\ \hline
 	$ w_{wheel_{left}} $ & Float & [0, $ 100 $]& rad/s &  Left Encoder Input\\ \hline
-	$ w_{wheel_{right}} $ & Float & [0, $ 100 $]& rad/s & Right Encoder Input  \\ \hline
-	$  d_{objects} $ & Float[] & [0, 10.0]& m &  \\ \hline
-	$ Marker_{PosX} $ & Unsigned Integer & [0,$2^{16}$] & Pixels &  \\ \hline
-	$ Marker_{PosY} $ & Unsigned Integer & [0,$2^{16}$] & Pixels & \\ \hline
-	$ b_{NextMarkerFound} $ & Boolean & [0,1] & N/A & \\ \hline
-	$  V_{batt} $ & Float & [0, 20.0]& m &  \\ \hline
+	\rowcolor{tableCell}$ w_{wheel_{right}} $ & Float & [0, $ 100 $]& rad/s & Right Encoder Input \\ \hline
+	$  d_{objects} $ & Float[] & [0, 10.0]& m &  N/A\\ \hline
+	\rowcolor{tableCell}$ Marker_{PosX} $ & Unsigned Integer & [0,$2^{16}$] & Pixels &  N/A\\ \hline
+	$ Marker_{PosY} $ & Unsigned Integer & [0,$2^{16}$] & Pixels & N/A\\ \hline
+	\rowcolor{tableCell}$ b_{NextMarkerFound} $ & Boolean & [0,1] & N/A & \\ \hline
+	$  V_{batt} $ & Float & [0, 20.0]& m &  N/A\\ \hline
 \end{longtable}
 
 
-\textbf{Outputs: } 
+\textbf{Outputs: } \\
 \begin{longtable}{|l|l|l|l|l|}\hline 
-	\rowcolor{tableCell}Output Name & Output Type & Range & Units & Comment(s) \\ \hline
-	$ percent_{dutycycle_{left}} $ & Float & [0,1.0] & \% &  \\ \hline
-	$ percent_{dutycycle_{right}} $ & Float & [0, 1.0]& \% & \\ \hline
-	$ errors_{drivetrain} $ & Unsigned Byte & [0, $2^{8}$]& N/A & \\ \hline
+	\rowcolor{tableCell}\textbf{Output Name} & \textbf{Output Type} & \textbf{Range} & \textbf{Units} & \textbf{Comment(s)} \\ \hline
+	$ percent_{dutycycle_{left}} $ & Float & [0,1.0] & \% &  N/A\\ \hline
+	\rowcolor{tableCell}$ percent_{dutycycle_{right}} $ & Float & [0, 1.0]& \% & N/A\\ \hline
+	$ errors_{drivetrain} $ & Unsigned Byte & [0, $2^{8}$]& N/A & N/A\\ \hline
 \end{longtable}
+
+% --------------------------------------------- Description -------------------------------------------- %
 
 \subsubsection{Description}
 This module will provide power to the drive-train of Alfred. It will use the feedback of the left and right encoders and take the error to perform PI control on them. This PI control output will then be translated into a duty cycle for each side to be able to power the DC motors with pulse width modulation. This module will communicate to the image recognition software to receive the position of the next next marker and use this information of where it currently is on its path. This module will use ultrasonic sensors to get a set of distances ($ d_{object} $) to the nearest object to determine if it is safe to continue moving.
 
+% --------------------------------------------- Timing Constraints -------------------------------------------- %
+
 \subsubsection{Timing Constraints}
 This module will have to deliver speed requirements that of walking speed so that it will be able to serve tables at a timely manner.
+
+% --------------------------------------------- Initialization -------------------------------------------- %
 
 \subsubsection{Initialization}
 This module will not be started until manager starts the process and initializes the proper information.
 
+% --------------------------------------------- Diagram of Simulink System -------------------------------------------- %
 
 \subsubsection{Diagram of Simulink Control System}
 The following is a diagram that shows the top level of the dc motor control system. 
 \begin{figure} [h!]
 	\centering
-	\includegraphics [scale = 0.6] {Figures/Simulink.png}
+	\includegraphics [scale = 0.4] {Figures/Simulink.png}
 	\caption{Top level of the dc motor control system}
 \end{figure}
+
+% --------------------------------------------- Diagram of Simulink System -------------------------------------------- %
 
 \subsubsection{DC Motors Circuit Diagram}
 The following is a circuit diagram for showing the DC motor drive-train.
 \begin{figure} [h!]
 	\centering
-	\includegraphics [scale = 0.6] {Figures/H_Bridge.png}
+	\includegraphics [scale = 0.4] {Figures/H_Bridge.png}
 	\caption{Weight Detection Circuit Diagram}
 \end{figure}
+
+% --------------------------------------------- DC Motor Specifications -------------------------------------------- %
 
 \subsubsection{DC Motor Specifications}
 Manufactured Part Number: 393111-01\\
 Rated Voltage: 18V\\
 Current: 3A-5A\\
 
+% --------------------------------------------- H-Bridge Specifications -------------------------------------------- %
+
 \subsubsection{H-bridge Specifications}
 Manufactured Part Number:  IRF3205\\
 Rated Voltage: 3~36V \\
 Rated Current: 10A continuous, Peak 30A \\
 
+% --------------------------------------------- Encoder Specifications -------------------------------------------- %
+
 \subsubsection{Encoder Specifications}
 Shaft Diameter 6mm\\
 Working Range: 3-5V DC\\
 
+% --------------------------------------------- Alfred Pumping System Module -------------------------------------------- %
+
 \subsection{Alfred Pumping System Module}
+
+% --------------------------------------------- Inputs and Outputs -------------------------------------------- %
 
 \subsubsection{Inputs and Outputs}
 
-\textbf{Inputs: } 
+\textbf{Inputs: } \\
 
 \begin{longtable}{|l|l|l|l|l|}\hline 
-		\rowcolor{tableCell}Input Name & Input Type & Range & Units & Comment(s) \\ \hline
-		$ b_{cuptaken } $ & Boolean & [0,1] & N/A &  \\ \hline
-		$ m_{container} $ & float & [0, 1.0]& Kg & \\ \hline
-		$ m_{drink} $    & float & [0, 1.0] & Kg &  \\ \hline
-		$ Order_{drinks} $ & Order[] & N/A  & N/A & List of Drinks  \\ \hline
+		\rowcolor{tableCell}\textbf{Input Name} & \textbf{Input Type} & \textbf{Range} & \textbf{Units} & \textbf{Comment(s)} \\ \hline
+		$ b_{cuptaken } $ & Boolean & [0,1] & N/A &  N/A\\ \hline
+		\rowcolor{tableCell}$ m_{container} $ & float & [0, 1.0]& Kg & N/A\\ \hline
+		$ m_{drink} $    & float & [0, 1.0] & Kg &  N/A\\ \hline
+		\rowcolor{tableCell}$ Order_{drinks} $ & Order[] & N/A  & N/A & List of Drinks  \\ \hline
 \end{longtable}
-\textbf{Outputs: } 
+
+\textbf{Outputs: } \\
+
 \begin{longtable}{|l|l|l|l|l|}\hline 
-	\rowcolor{tableCell}Output Name & Output Type & Range & Units & Comment(s) \\ \hline
-	$ LED_{drinksignal} $ & Boolean & [0,1] & N/A &  \\ \hline
-	$ V_{pump } $ & float & [0, 5.0]& V & \\ \hline
-	$  errors_{pump} $ & Unsigned Byte & [0, $2^{8}$]& N/A & \\ \hline
+	\rowcolor{tableCell}\textbf{Output Name} & \textbf{Output Type} & \textbf{Range} & \textbf{Units} & \textbf{Comment(s)} \\ \hline
+	$ LED_{drinksignal} $ & Boolean & [0,1] & N/A &  N/A\\ \hline
+	\rowcolor{tableCell}$ V_{pump } $ & float & [0, 5.0]& V & N/A\\ \hline
+	$  errors_{pump} $ & Unsigned Byte & [0, $2^{8}$]& N/A & N/A\\ \hline
 \end{longtable}
+
+% --------------------------------------------- Description -------------------------------------------- %
+
 \subsubsection{Description}
 This module consists of an Arduino Mega which will receive information from the Alfred manager module through UART to receive the next drink order. This will then begin to dispense the specific drink until it has reached $ m_{containerMin} $. It will then show the customer that the drink has been completed by turning on: $ LED_{drinksignal} $. It will then read $ b_{cuptaken} $ from a light sensor to determine if the cup has been taken at which point it will then wait for the next drink cup to get in place and begin pouring. If it is not able to pump liquid, or it is losing fluid when not dispensing, then it will send the appropriate errors through UART back to the manager.
+
+% --------------------------------------------- TIming Constraints -------------------------------------------- %
 
 \subsubsection{Timing Constraints}
 This module will have to dispense the drink within $ t_{maxpump} $
 
+% --------------------------------------------- Initialization -------------------------------------------- %
+
 \subsubsection{Initialization}
 This module start by waiting for the manager to send the drink information for the system to pour. All errors within the system will start as false until they have been triggered.
+
+
+% --------------------------------------------- Diagram of DC Pump Control System -------------------------------------------- %
 
 \subsubsection{Diagram of DC Pump Control System}
 The following is a diagram that shows the top level of the dc pump control system. 
@@ -731,6 +839,8 @@ The following is a diagram that shows the top level of the dc pump control syste
 	\caption{Top level of the dc motor control system}
 \end{figure}
 
+% --------------------------------------------- DC Pump Circuit Diagram -------------------------------------------- %
+
 \subsubsection{DC Pump Circuit Diagram}
 The following is a diagram that shows the DC Pump Circuit.
 \begin{figure} [h!]
@@ -739,6 +849,7 @@ The following is a diagram that shows the DC Pump Circuit.
 	\caption{DC Pump Circuit Diagram}
 \end{figure}
 
+% --------------------------------------------- Liquid Temperature Circuit Diagram -------------------------------------------- %
 
 \subsubsection{Liquid Temperature Circuit Diagram}
 The following is a circuit diagram for sensing the temperature of the liquid.
@@ -748,15 +859,17 @@ The following is a circuit diagram for sensing the temperature of the liquid.
 	\caption{Top level of the dc motor control system}
 \end{figure}
 
+% --------------------------------------------- Weight Detection Circuit Diagram -------------------------------------------- %
 
 \subsubsection{Weight Detection Circuit Diagram}
 The following is a circuit diagram for sensing the weight of the storage containers.
 \begin{figure} [h!]
 	\centering
-	\includegraphics [scale = 0.6] {Figures/WeightSensors.png}
+	\includegraphics [scale = 0.5] {Figures/WeightSensors.png}
 	\caption{Weight Detection Circuit Diagram}
 \end{figure}
 
+% --------------------------------------------- DC Pump Specifications -------------------------------------------- %
 
 \subsubsection{DC Pump Specifications}
 Manufacture : Yosoo \\
@@ -765,6 +878,8 @@ Flow rate: 80-120L/H\\
 Material: engineering plastic\\
 Diameter: 24.5mm by 46mm \\
 Outside diameter:  0.3" 
+
+% --------------------------------------------- Arduino Mega Specifications -------------------------------------------- %
 
 \subsubsection{Arduino Mega Specifications} 
 Microcontroller:	ATmega1280\\
@@ -776,77 +891,109 @@ DC Current for 3.3V Pin: 50 mA\\
 Flash Memory: 128 KB\\
 Clock Speed: 16MHz\\
 
+% --------------------------------------------- Container Specifications -------------------------------------------- %
+
 \subsubsection{Container Specifications} 
 
 Manufacture : Rubbermaid \\
 Dimensions: 10 1/2" x 9" x 4" 
 Capacity: 18 Cups/4.2 L\\
+
+% --------------------------------------------- Tubing Specifications -------------------------------------------- %
+
 \subsubsection{Tubing Specifications}
 Manufacture : Plumb Craft \\
 Diameter: 1/4"ID Food Grade Tubing will be used.\\
 
-\subsection{Alfred Image Processing Module Module}
+
+% --------------------------------------------- Alfred Image Processing Module -------------------------------------------- %
+
+\subsection{Alfred Image Processing Module }
+
+% --------------------------------------------- Inputs and Outputs -------------------------------------------- %
 
 \subsubsection{Inputs and Outputs}
 
-\textbf{Inputs: } 
+\textbf{Inputs: } \\
 
 \begin{longtable}{|l|l|l|l|l|}\hline 
-	\rowcolor{tableCell}Input Name & Input Type & Range & Units & Comment(s) \\ \hline
+	\rowcolor{tableCell}\textbf{Input Name} & \textbf{Input Type} & \textbf{Range} & \textbf{Units} & \textbf{Comment(s)} \\ \hline
 	 & Bitmap &  N/A & N/A & Image of the ceiling  \\ \hline
 \end{longtable}
 
-\textbf{Outputs: } 
+\textbf{Outputs: } \\
 
 \begin{longtable}{|l|l|l|l|l|}\hline 
-	\rowcolor{tableCell}Output Name & Output Type & Range & Units & Comment(s) \\ \hline
-	$ Marker_{PosX} $ & Unsigned Integer & [0,$2^{16}$] & Pixels &  \\ \hline
-	$ Marker_{PosY} $ & Unsigned Integer & [0,$2^{16}$] & Pixels & \\ \hline
-	$ b_{NextMarkerFound} $ & Boolean & [0,1] & N/A & \\ \hline
+	\rowcolor{tableCell}\textbf{Output Name} & \textbf{Output Type} & \textbf{Range} & \textbf{Units} & \textbf{Comment(s)} \\ \hline
+	$ Marker_{PosX} $ & Unsigned Integer & [0,$2^{16}$] & Pixels &  N/A\\ \hline
+	\rowcolor{tableCell}$ Marker_{PosY} $ & Unsigned Integer & [0,$2^{16}$] & Pixels & N/A\\ \hline
+	$ b_{NextMarkerFound} $ & Boolean & [0,1] & N/A & N/A\\ \hline
 \end{longtable}
+
+% --------------------------------------------- Description -------------------------------------------- %
 
 \subsubsection{Description}
 This module will receive information from a camera while the drive-train is in motion. This camera will be looking at the ceiling looking for positions of circles that will denote one meter distances set up within a grid around the ceiling of the restaurant. This module will determine if there is a new maker within the image and if so where is the X and Y position of that marker to provide to the drive-train.
 
+% --------------------------------------------- Timing Constraints -------------------------------------------- %
+
 \subsubsection{Timing Constraints}
 This information must process in time for the drive train to be able to navigate based off of it.
 
+% --------------------------------------------- Initialization -------------------------------------------- %
+
 \subsubsection{Initialization}
 This module start by the drive-train application.
+
+% --------------------------------------------- Raspberry Pi Specifications -------------------------------------------- %
 
 \subsubsection{Raspberry PI Camera Specifications}
 Manufacturer: Raspberry PI \\
 Resolution: 1080p30, 720p60 and 640 × 480p60/90\\
 Field of View (FOV): 62.2 degrees by 48.8 degrees\\
 
+% --------------------------------------------- Normal Operation -------------------------------------------- %
+
 \section{Normal Operation}
 Alfred is a mostly autonomous robot, only requiring human intervention in the event of an error or warning. Alfred will be able to navigate the restaurant by itself, and will serve drinks to tables. Customers will be able to place orders via a mobile application, which will be sent to a server. Orders to serve will be sent to Alfred using a FIFO protocol. Once Alfred has finished with an order, it will be able to request for a new order to serve. Management will be able to recall Alfred to the kitchen at any point using the admin console. In the event of a recall, Alfred will finish the current job and will return to the kitchen afterwards. Management will also be able to create a map of the restaurant and upload it to Alfred, which will give Alfred the means to navigate the restaurant.
 
 
+% --------------------------------------------- Undesired Event Handling -------------------------------------------- %
 
 \section{Undesired Event Handling}
 Alfred will be able to detect undesired behaviours and conditions such as low liquid levels below threshold $ m_{containerMin} $, any issues with pumping liquid, low battery level, leaking liquids, and any blockages in the current path once Alfred has been blocked for a time greater than $ obstruction_{timeout} $. In the event of any error condition, Alfred will send an error code to the kitchen, to alert the staff of the issue. Wherever possible, Alfred will return to the kitchen in an error condition to request a fix. Otherwise, if movement is not possible, the kitchen staff will have to pick Alfred up from the dining room. Along with alerting management of any current errors, Alfred will also be able to indicate whether it is returning to the kitchen or requires pickup.
+
+% --------------------------------------------- References -------------------------------------------- %
 
 \section{References}
 
 
 \textbf{Raspberry pi data sheet}
 \begin{verbatim}
-[1]"Exploring Raspberry Pi", 2017. [Online]. Available: http://docs-europe.electrocomponents.com/webdocs/14ba/0900766b814ba5fd.pdf. [Accessed: 23- Dec- 2017].
+[1]"Exploring Raspberry Pi", 2017. [Online]. 
+Available: http://docs-europe.electrocomponents.com/webdocs/14ba/0900766b814ba5fd.pdf. 
+[Accessed: 23- Dec- 2017].
 \end{verbatim}
+
 \textbf{Arduino Mega Information}
 \begin{verbatim}
 [2] "Arduino Mega". [Online]. Available:
 https://www.arduino.cc/en/Main/ArduinoBoardMega. [Accessed: 23- Dec- 2017].
 \end{verbatim}
+
 \textbf{DC Pump Information}
 \begin{verbatim}
-[3] "3-6V Mini Micro Submersible Pumps DC Motor Pump Water Pump - 80-120L/H". [Online]. Available:
-https://www.amazon.ca/gp/product/B01LWQCXEL/ref=oh_aui_detailpage_o02_s00?ie=UTF8&psc=1. [Accessed: 23- Dec- 2017].
+[3] "3-6V Mini Micro Submersible Pumps DC Motor Pump Water Pump - 80-120L/H". [Online]. 
+Available: 
+https://www.amazon.ca/gp/product/B01LWQCXEL/ref=oh_aui_detailpage_o02_s00?ie=UTF8&psc=1.
+[Accessed: 23- Dec- 2017].
 \end{verbatim}
 \textbf{Pump Container Information}
 \begin{verbatim}
-[4] "Rubbermaid 1856059 Modular Cereal Keeper". [Online]. Available: https://www.amazon.ca/gp/product/B00BEUDXRW/ref=oh_aui_detailpage_o09_s00?ie=UTF8&psc=1. [Accessed: 23- Dec- 2017].
+[4] "Rubbermaid 1856059 Modular Cereal Keeper". [Online]. 
+Available: 
+https://www.amazon.ca/gp/product/B00BEUDXRW/ref=oh_aui_detailpage_o09_s00?ie=UTF8&psc=1. 
+[Accessed: 23- Dec- 2017].
 \end{verbatim}
 
 \textbf{Raspberry camera pi data sheet}
