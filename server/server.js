@@ -276,6 +276,41 @@ HTTP.createServer(function(req, res) {
 				res.writeHead(200, 'Logged in', {'Content-Type': 'text/html'});
 				res.end();
 			});
+		} else if (url.pathname.toLowerCase().replace(/\//, '') === 'errors') {
+			var auth = HELPER.caseInsensitiveKey(req.headers, 'authorization');
+
+			if (! auth) {
+				res.writeHead(401, 'Unauthorized', {'Content-Type': 'application/json'});
+				res.end();
+				return;
+			}
+
+			var token = auth.trim().split(' ')[1];
+
+			tokenGen.checkToken(token, function(tokenErr, passed) {
+				if (tokenErr) {
+					res.writeHead(500, tokenErr, {'Content-Type': 'text/html'});
+					res.end();
+					return;
+				}
+
+				if (! passed) {
+					res.writeHead(401, 'Unauthorized', {'Content-Type': 'application/json'});
+					res.end();
+				}
+
+				var body = '';
+				req.on('data', function(data) {
+					body += data;
+				});
+
+				req.on('end', function() {
+					// TODO: Handle POST body
+
+					res.writeHead(200, {'Content-Type': 'application/json'});
+					res.end();
+				});
+			});
 		} else {
 			res.writeHead(404, 'No such method', {'Content-Type': 'text/html'});
 			res.end();
