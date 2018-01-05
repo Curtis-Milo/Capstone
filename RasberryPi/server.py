@@ -30,4 +30,3 @@ def startServer(port=80, address=''):
     t.start()
 
     reqServerToken()
-    
