@@ -163,7 +163,7 @@ HTTP.createServer(function(req, res) {
 						return;
 					}
 
-					VERIF.checkData(body, order, function(err, newData) {
+					VERIF.checkData(body, order, table_id, function(err, newData) {
 						if (err) {
 							res.writeHead(500, err, {'Content-Type': 'text/html'});
 							res.end();

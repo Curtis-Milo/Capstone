@@ -14,8 +14,7 @@ var _jsonVals = function(obj) {
 };
 
 module.exports = {
-	checkData: function(data, orderObj, cb) {
-		// var table_id = HELPER.caseInsensitiveKey(data, 'table_id');
+	checkData: function(data, orderObj, table_id, cb) {
 		var order = HELPER.caseInsensitiveKey(data, 'order');
 
 		if (! order) {
