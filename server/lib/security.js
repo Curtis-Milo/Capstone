@@ -15,7 +15,6 @@ TokenGen.prototype.refresh = function(cb) {
 	var that = this;
 	mutex.timedLock(10000, function(err) {
 		if (err) {
-			mutex.unlock();
 			cb(err);
 		}
 		that._token = TOKEN_GEN.generate(32);
@@ -28,7 +27,6 @@ TokenGen.prototype.checkToken = function(token, cb) {
 	var that = this;
 	mutex.timedLock(10000, function(err) {
 		if (err) {
-			mutex.unlock();
 			return cb(err);
 		}
 		var passed = token === that._token;
@@ -72,7 +70,6 @@ BasicAuthManager.prototype.checkAuth = function(uName, pw, cb) {
 	var that = this;
 	mutex_auth.timedLock(10000, function(err) {
 		if (err) {
-			mutex_auth.unlock();
 			return cb(err);
 		}
 
@@ -87,7 +84,6 @@ BasicAuthManager.prototype.update = function(uName, pw, cb) {
 	var that = this;
 	mutex_auth.timedLock(10000, function(err) {
 		if (err) {
-			mutex_auth.unlock();
 			return cb(err);
 		}
 

@@ -27,7 +27,6 @@ TableManager.prototype.addTable = function(tableId, cb) {
 
 	mutexes[tableId].timedLock(10000, function(lockErr) {
 		if (lockErr) {
-			mutexes[tableId].unlock();
 			if (newMutex) {
 				delete mutexes[tableId];
 			}
@@ -44,9 +43,7 @@ TableManager.prototype.addTable = function(tableId, cb) {
 		FS.writeFile(path, hash, function(err) {
 			if (err) {
 				mutexes[tableId].unlock();
-				if (newMutex) {
-					delete mutexes[tableId];
-				}
+				delete mutexes[tableId];
 				return cb(err);
 			}
 
@@ -63,7 +60,6 @@ TableManager.prototype.checkToken = function(tableId, token, cb) {
 
 	mutexes[tableId].timedLock(10000, function(lockErr) {
 		if (lockErr) {
-			mutexes[tableId].unlock();
 			return cb(lockErr);
 		}
 		var path = DIR + '/' + tableId.toString();
@@ -97,7 +93,6 @@ TableManager.prototype.deleteTable = function(tableId, cb) {
 
 	mutexes[tableId].timedLock(10000, function(err) {
 		if (err) {
-			mutexes[tableId].unlock();
 			return cb(err);
 		}
 
@@ -108,6 +103,7 @@ TableManager.prototype.deleteTable = function(tableId, cb) {
 		}
 		
 		mutexes[tableId].unlock();
+		delete mutexes[tableId];
 		cb();
 	});
 };
