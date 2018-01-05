@@ -5,6 +5,7 @@
 #define MOSFET_ON 1
 #define MOSFET_OFF 0
 #define DRINK_BUFF 20
+
 //Internal Struct
 typedef struct
 {
@@ -19,6 +20,8 @@ typedef struct
 static DrinkCals WATER_CALS;
 static DrinkCals COKE_CALS;
 static DrinkCals DIET_COKE_CALS;
+static TempCals TEMP_CALS;
+static WeightCals WEIGHT_CALS;
 
 //static variables for internal use
 Drink_Private tableStat;
@@ -27,11 +30,54 @@ static bool isDrinkTaken() {
   return true;
 }
 
+
+float getTempature(int pin)
+{
+  //https://learn.sparkfun.com/tutorials/sik-experiment-guide-for-arduino---v32/experiment-7-reading-a-temperature-sensor
+  float voltage=  (analogRead(pin) * 0.004882814);
+  return (voltage - 0.5) * 100.0;
+}
+
+
+
+float getWeight(int pin)
+{
+  //TODO: Actually convert voltage to kg
+  return (analogRead(pin)); 
+}
 static void getTableData() {
-  //HARDCODED
-  tableStat.drinksList[0] = Water;
-  tableStat.drinksList[1] = Water;
-  tableStat.totalDrinks = 1;
+    DrinkErrors errors= 0;
+    int i =0;
+    char c='a';
+    if (TEMP_CALS.maxTemp < getTempature(TEMP_CALS.pinA) ||
+          TEMP_CALS.maxTemp < getTempature(TEMP_CALS.pinB)){
+       errors |= DrinkOverTemp;         
+    }
+
+    if (getTempature(WEIGHT_CALS.pinA) < WEIGHT_CALS.minWeight||
+          getTempature(WEIGHT_CALS.pinB)< WEIGHT_CALS.minWeight){
+       errors |= EmptyTank;         
+    }
+
+    
+    boolean drinkNext = false;
+    while (c != 'x'){
+      if (Serial.available() > 0) {
+        c  = Serial.read();
+        if (drinkNext){
+            tableStat.drinksList[i] = c;
+            i++;
+            drinkNext = false;
+        }else if (c == 'd'){
+          drinkNext = true;
+        }else if(c == 'x'){
+          tableStat.totalDrinks = i;
+        }
+      }  
+    
+  } 
+  Serial.print(errors);
+  
 }
 
 static DrinkCals * getDrinkCals() {
@@ -70,20 +116,23 @@ static void determineState(Drink * pDrink) {
       }
       break;
     case Drink_Done:
-      if (tableStat.currentDrink >= tableStat.totalDrinks) {
-        pDrink->state = Table_Done;
-      } else if (isDrinkTaken()) {
+     if (isDrinkTaken()) {
         //wait 10 seconds for the person to get out of the way
         delay(1000.0*10);
         //reset parameters and move to the next drink
         tableStat.currentOnTime = 0.0f;
         tableStat.currentDrink++;
-        tableStat.drinkFilled = false;
-        pDrink->state = Pouring_On;
+         if (tableStat.currentDrink >= tableStat.totalDrinks) {
+            pDrink->state = Table_Done;
+            tableStat.totalDrinks =0;
+          }else{
+            tableStat.drinkFilled = false;
+            pDrink->state = Pouring_On;
+          }
       }
       break;
     case Table_Done:
-      pDrink->state = Table_Done;
+      pDrink->state = Getting_Table;
       break;
   }
 }
@@ -106,23 +155,19 @@ static void processState(Drink * pDrink) {
       //if the drink on time is -1 then pour to completion, else we need to use on time;
       
       if (pDrinkData->onTime_sec < 0.0f) {
-        Serial.println("Pouring On Water\n");
         delay(1000.0*pDrinkData->totalFillTime_sec);
         tableStat.currentOnTime = pDrinkData->totalFillTime_sec;
       } else {
-        Serial.print("Pouring On Pop\n");
         delay(1000.0*pDrinkData->onTime_sec);
         tableStat.currentOnTime += pDrinkData->onTime_sec;
       }
       //check for if its complete
       if (pDrinkData->totalFillTime_sec <= tableStat.currentOnTime) {
         tableStat.drinkFilled = true;
-        Serial.println("Done");
       }
       break;
 
     case Pouring_Off:
-      Serial.print("Action Pouring Off\n");
       //Setup pointer to the calibrations
       pDrinkData = getDrinkCals();
       //Turn on the pump
@@ -131,7 +176,6 @@ static void processState(Drink * pDrink) {
       delay(1000.0*pDrinkData->offTime_sec);
       break;
     case Drink_Done:
-      Serial.print("Drink Done\n");
       break;
     case Table_Done:
 
@@ -145,7 +189,7 @@ void initDrink(Drink * pDrink) {
   //Cals
   WATER_CALS.onTime_sec = -1.0f;
   WATER_CALS.offTime_sec =  0.0f;
-  WATER_CALS.totalFillTime_sec = 15.0f;
+  WATER_CALS.totalFillTime_sec = 27.5f;
   WATER_CALS.pin = 7;
 
   COKE_CALS.onTime_sec = -1.0f;
@@ -157,10 +201,19 @@ void initDrink(Drink * pDrink) {
   DIET_COKE_CALS.offTime_sec =  0.0f;
   DIET_COKE_CALS.totalFillTime_sec = 15.0f;
   DIET_COKE_CALS.pin = 9;
-  
+
+  TEMP_CALS.maxTemp =15.0f;
+  TEMP_CALS.pinA =0;
+  TEMP_CALS.pinB =1;
+
+  WEIGHT_CALS.minWeight = 0.375;
+  WEIGHT_CALS.pinA = 2;
+  WEIGHT_CALS.pinB = 3;
   pinMode(WATER_CALS.pin, OUTPUT);
   pinMode(COKE_CALS.pin, OUTPUT);
   pinMode(DIET_COKE_CALS.pin, OUTPUT);
+
+  pinMode(10, INPUT);//Button
   digitalWrite(WATER_CALS.pin, MOSFET_OFF);
   digitalWrite(COKE_CALS.pin, MOSFET_OFF);
   digitalWrite(DIET_COKE_CALS.pin, MOSFET_OFF);
@@ -171,6 +224,7 @@ void initDrink(Drink * pDrink) {
   tableStat.currentOnTime = 0.0f;
   pDrink->state = Getting_Table;
   pDrink->errors = NoErrors;
+
 
 
 

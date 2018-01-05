@@ -1,0 +1,398 @@
+% Document uses 12 pt font
+% 1 in margins
+% Contains a relative path for images
+
+\documentclass [10pt]{article}
+
+% page geometry 
+\usepackage[margin=1in]{geometry}
+\usepackage{changepage}
+
+
+% ----------  PACKAGES START ------------ %
+
+% Table cell color package and highlighting
+\usepackage[table]{xcolor}
+\usepackage{color,soul}
+\usepackage{colortbl}
+
+% VIC title package
+\usepackage{cabin}
+\usepackage[T1]{fontenc}
+
+% default font package
+%\usepackage{times}
+\usepackage{helvet}
+%\renewcommand{\familydefault}{\sfdefault}
+
+% ---------- End Font Packages -------------- %
+
+% Title Packages
+\usepackage{titlesec}
+\usepackage{titletoc}
+
+% Image Package
+\usepackage{graphicx}
+
+% Table Packages
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{tabularx}
+\renewcommand{\arraystretch}{1.2}% Spread rows out evenly in table
+\setlength{\LTpre}{0.5pt} % Reduces white space around tables (top)
+%\setlength{\LTpost}{0pt} % Reduces white space around tables (bottom)
+
+
+
+% Color Packages
+\usepackage{color}   
+\definecolor{sectionC}{rgb}{0.95,0.52,.0}
+\definecolor{subsectionC}{rgb}{1.0,.64,.26}
+\definecolor{subsubsectionC}{rgb}{1.0,.87,.68}
+\definecolor{tableCell}{rgb}{.98,.81,.69}
+
+
+% List package
+\usepackage{enumitem}
+%\setenumerate{nosep=0pt, itemindent=0,15in,leftmargin=.1in, topsep= 2pt}
+
+
+% Paragraph parameter
+
+\setlength{\parindent}{0pt}
+
+
+% ------------- Creates a linked Table of Contents  Start --------------- %
+
+\usepackage{hyperref}
+\hypersetup{
+colorlinks=true, %set true if you want colored links
+linktoc=all,     %set to all if you want both sections and subsections linked
+linkcolor=black,}  %choose some color if you want links to stand out
+
+% ------------- Creates a click-able Table of Contents  End--------------- %
+
+% ---------- PACKAGES END ------------ %
+
+
+
+% ------------------- START HEADER AND FOOTER ---------------------------%
+\usepackage{fancyhdr}
+
+% Helps with the n of total n pages
+\usepackage{lastpage}
+
+\pagestyle{fancy}
+
+% Header
+\lhead{Project Goals }
+\rhead{Revision: 0}
+\fancyhead[LE,CO]{Group 9: LazyBots}
+
+% Removes line under the header 
+\renewcommand{\headrulewidth}{0pt}
+\setlength{\headsep}{.2in}
+
+% Footer 
+
+% Set the right side of the footer to be the page number
+\fancyfoot[R]{Page \textbf{\thepage}\ of \textbf{\pageref{LastPage}}}
+\fancyfoot[C]{}
+
+
+
+% ------------------- END HEADER AND FOOTER ---------------------------%
+
+
+% -------- SECTION AND SUBSECTION FORMATING START -------- % 
+
+
+\titleformat{\section} % Section
+{\normalfont \fontsize{14}{14} \bfseries}{}{0em}{\colorsection}
+
+% Makes a background color
+\newcommand{\colorsection}[1]{%
+  \colorbox{sectionC}{\parbox{\dimexpr\textwidth-1\fboxsep}{\color{black}\Large\thesection\ \hspace{1mm} #1}}}
+
+% Makes a background color
+\titleformat{\subsection} % Subsection
+{\normalfont \fontsize{12}{12}  \bfseries}{}{0em}{\colorsubsection }
+
+\newcommand{\colorsubsection}[1]{%
+  \colorbox{subsectionC}{\parbox{\dimexpr \textwidth -1\fboxsep}{\large\thesubsection\ #1}}}
+
+
+% Makes a background color
+\titleformat{\subsubsection} % Subsubsection
+{\normalfont \fontsize{12}{12} \bfseries}{}{0em}{\colorsubsubsection}
+
+\newcommand{\colorsubsubsection}[1]{%
+  \colorbox{subsubsectionC}{\parbox{\dimexpr\textwidth-1\fboxsep}{\thesubsubsection\ #1}}}
+
+
+
+% -------- SECTION AND SUBSECTION FORMATING END -------- % 
+\usepackage{lipsum}
+
+
+% -----  IMAGE PATH START -----%
+% Relative Image Path
+\graphicspath {figures/}
+% -----  IMAGE PATH END -----%
+
+% ------ PARAGRAPH FORMAT START ----%
+%\setlength{\parskip}{.2em}% Sets the space between new paragraph items 
+\setlength{\parindent}{0em} % paragraph indent
+% ------ PARAGRAPH FORMAT END ----%
+
+
+% ------------ BEGIN LANDSCAPE MODE ----------------%
+\usepackage{pdflscape}
+% ------------ END LANDSCAPE MODE ----------------%
+
+
+%------------------------------TOC FORMAT START --------------------------------%
+\usepackage{tocloft}
+
+
+
+% Section indentations
+\cftsetindents{section}{0em}{1.5em}
+\cftsetindents{subsection}{1em}{2em}
+\cftsetindents{subsubsection}{2em}{3em}
+
+% Toc title size
+\renewcommand\cfttoctitlefont{\Large\bfseries}
+\renewcommand*\contentsname{Table of Contents}
+
+% Removes bold headings from toc
+%\renewcommand{\cftsecfont}{\normalfont}
+
+% Removes bold heading page numbers from toc
+\renewcommand{\cftsecpagefont}{\normalfont}
+
+% add dots after headings
+%\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}} 
+
+
+% number of section headings we want to see in toc
+\setcounter{tocdepth}{2}
+
+% Spaceing before headings in toc
+\setlength{\cftbeforesecskip}{6pt}
+
+% ------------------------------TOC FORMAT END --------------------------------%
+
+
+
+
+
+
+
+
+% -------------- DOCUMENT START ---------------%
+\begin{document}
+% --------- TITLE PAGE START ------- %
+\begin {center} 
+
+\thispagestyle{empty}
+\vspace*{5cm}
+
+% Logo Insertion
+\begin {figure}[h!]
+\centering
+\hspace{-10mm}\includegraphics [scale = .3, trim={.4cm 0 .8cm 0},clip] {figures/alfred.png}
+\end {figure}
+
+{\fontfamily{\cabinfamily}\selectfont
+\Huge{LazyBots} }
+
+\vspace{1 cm}
+{\Large\textbf{\textsc{McMaster University}}\\}  \vspace {1cm}
+{\Large Development Process and Implementation\\ \vspace {0.4 cm} SE 4GA6 \& TRON 4TB6}  \vspace {1cm}
+
+{\large \textsc{Group 9} \\} \vspace{1cm}
+
+
+
+\begin{tabular}{ l c  l}
+Karim Guirguis & & 001307668 \\
+David Hemms & & 001309228 \\
+Marko Laban & & 001300989 \\
+Curtis Milo & & 001305877 \\
+Keyur Patel & & 001311559 \\
+Alexandra Rahman & & 001305735
+\end{tabular}
+
+\end{center}
+
+% ------------------------------------------------------- TITLE PAGE END -------------------------------------------------------- %
+
+\pagebreak
+
+% ------------------------------------------------------- Contents Guide -------------------------------------------------------&
+
+\tableofcontents
+\listoftables
+
+\pagebreak
+
+% ------------------------------------------------------- Revision History ------------------------------------------------------- %
+
+\section{Revisions}
+\begin{longtable}{| p{.23\textwidth } | p{.23\textwidth } | p{.23\textwidth } | p{.21\textwidth } |}\caption{Table of Revisions}  \\
+
+% ------------------------------------------------------- Date ------------------------------------------------------- %
+\hline 
+\centering \textbf{Date} & 
+\multicolumn{1}{c}{\textbf {Revision Number}} &
+\multicolumn{1}{|c}{\textbf {Authors}} & 
+\multicolumn{1}{|c|}{\textbf {Comments}} \\ \hline
+
+% ------------------------------------------------------- Revision Number -------------------------------------------------------
+\multirow{4}{*}{\centering November 24\textsuperscript{th}, 2017}  & 
+\multirow{4}{*}{Revision 0}& 
+		{Karim Guirguis \newline
+		David Hemms \newline
+		Marko Laban \newline
+		Curtis Milo \newline
+		Keyur Patel \newline
+		Alexandra Rahman}
+ &
+ 
+% ------------------------------------------------------- Comments -------------------------------------------------------
+\multirow{4}{*}{-} \\ 
+\hline 
+
+\end{longtable}
+
+
+
+\pagebreak
+
+% ------------------------------------------------------ Version Control -----------------------------------------------------
+
+\section{Version Control}
+
+\indent\indent Teammates are expected to use the private Github repository. Teammates will also be required to create new branches when developing different aspects of software and then merge them to the master branch when their functionality is stable. Multiple commits, including changes, are encouraged after any amount of changes greater then 1 module, or 50 lines of code by the entire team on different branches to allow the ability to revert back on changes.
+
+% ------------------------------------------------------ Roles and Responsibilities -----------------------------------------------------
+
+\section{Roles and Responsibilities}
+
+\subsection{Karim Guirguis}
+	
+	\begin{itemize}
+		\item Working on the server based aspect of Alfred.
+		\item Ensuring a proper logging system is in place.
+		\item Assisting with the displacement software and the communication system for Alfred.
+	\end{itemize}
+
+\subsection{David Hemms}
+
+	\begin{itemize}
+		\item Responsible for the server based aspect of the design.
+		\item Ensuring a proper logging system is in place.
+		\item Assisting with the navigation software.
+	\end{itemize}
+	
+\subsection{Marko Laban}
+
+	\begin{itemize}
+		\item Responsible for the design of the mechanical and electrical components of Alfred.
+		\item Ensuring that all software components, such as navigation, displacement and ultrasonic sensors, are in place.
+	\end{itemize}
+
+\subsection{Curtis Milo}
+
+\begin{itemize}
+		\item Responsible for the design of the mechanical and electrical components of Alfred.
+		\item Ensuring that all software components, such as navigation, displacement and ultrasonic sensors, are in place.
+	\end{itemize}
+
+\subsection{Keyur Patel}
+
+	\begin{itemize}
+		\item Responsible for the mobile application and communication between said application and Alfred.
+		\item Assisting with the administrative restaurant application.
+	\end{itemize} 
+
+\subsection{Alexandra Rahman}
+
+	\begin{itemize}
+		\item Responsible for all computer aided design models.
+		\item Responsible for the administrative application between the restaurant staff and Alfred.
+		\item Ensuring a proper error handler is in place for the sensor system.
+	\end{itemize}
+
+% -------------------------------------------------- Process Workflow -------------------------------------------------
+
+\section{Process Workflow}
+The following is a general outline of the workflow: 
+
+	\begin{enumerate}
+		\item Pull any new changes from the master branch.
+		\item Create a new branch to develop on.
+		\item Create a detailed plan of the structure of the software. As well as create stub or driver methods/files for the new changes.
+		\item Implement the modules/functions that will not require the dependency of other modules.
+		\item Perform unit testing on the modules and functions.
+		\item Push any changes to the created branch.
+		\item Repeat steps 4 through 6with modules/functions that will depend on the previously created branch.
+		\item Merge new functionality with the Master branch after approval from another team member.
+	\end{enumerate}
+
+
+% --------------------------------------------------- Details on Steps to be Taken -----------------------------------------------------
+
+\section{Details on Steps to be Taken}
+The following are steps to be taken:
+
+	\begin{enumerate}
+		\item Create models for CAD designs, using Inventor or SolidWorks.
+		\item Create mathematical models for the mechanical aspects of the robot.
+		\item Build base of robot including electrical components.
+		\item Build pumping system for robot and relevant electrical components.
+		\item Develop displacement system software with the Python IDE.
+		\item Develop the pumping system software with the Arduino environment.
+		\item Write REST API in server to allow communication, using Node developed in Visual Studio Code.
+		\item Write client application, including communication to server, using Java in Android Studio.
+		\item Implement navigation software for Alfred using Python on Python IDE.
+		\item Write administrator appication, including appropriate communication to server, using Javascript, in Visual Studio Code.
+		\item Create the error handling software for sensors using mixed development on Arduino environment and Python.
+		\item Implement communication between server and robot using REST API.
+	\end{enumerate}
+
+
+% ------------------------------------------------------ Development Tools -----------------------------------------------------
+\section{Development Tools}
+The following environments shall be used for the development and the debugging of the system:
+	\begin{itemize}
+		\item Visual Studio: Will be used for server and web based development.
+		\item Chrome Expectation: Will be used for testing the communication of the server API.
+		\item Python IDE: Will be used for the development of Alfred Navigation system. Debugging will be done by assessing internal variable variables and stepping through the logic of the code.
+		\item Arduino IDE: Will be used for the development of the drink pumping system, debugging will be done using the built debugger, as well as stepping through the code.
+		\item Android Studio: Will be used for development and debugging for the client facing application.
+		\item Autodesk Inventor: Will be used when creating models for the mechanical aspects of the robot and to perform stress tests.
+		\item SolidWorks: Will be used when creating models for the mechanical aspects of the robot.
+		\item SimuLink: Will be used for simulation of the mathematical models of Alfred.
+		\item Github: Will be used for version control and tracking issues within the code.
+	\end{itemize}
+
+
+% -------------------------------------------- Details on how changes will be handled: ---------------------------------------------
+\section{Handling Changes}
+
+	\begin{enumerate}
+		\item Create an issue within the Github interface.
+		\item Create a new branch, if necessary, with the name of the change.
+		\item Change the software in question.
+		\item Perform unit testing to ensure the issue is still prevalent.
+		\item Perform regression testing to ensure that there are not any new issues that have appeared.
+		\item Merge to the Master branch.
+		\item Close the issue.
+	\end{enumerate}
+
+\end{document}

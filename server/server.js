@@ -148,7 +148,7 @@ HTTP.createServer(function(req, res) {
 					return;
 				}
 
-				tokenGen.sendToken();
+				tokenGen.sendToken(process.env.BOT_HOST);
 
 				res.writeHead(200);
 				res.end();
@@ -245,6 +245,71 @@ HTTP.createServer(function(req, res) {
 				// TODO: implement return to base function...
 				res.writeHead(400, 'Not implemented yet...', {'Content-Type': 'text/html'});
 				res.end();
+			});
+		} else if (url.pathname.toLowerCase().replace(/\//, '') === 'login') {
+			var auth = HELPER.caseInsensitiveKey(req.headers, 'authorization');
+
+			if (! auth) {
+				res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
+				res.end();
+				return;
+			}
+
+			var token = auth.trim().split(' ')[1];
+
+			var buf = new Buffer(token, 'base64');
+			var plainAuth = buf.toString().split(':');
+
+			authManager.checkAuth(plainAuth[0], plainAuth[1], function(err, passed) {
+				if (err) {
+					res.writeHead(500, tokenErr, {'Content-Type': 'text/html'});
+					res.end();
+					return;
+				}
+
+				if (! passed) {
+					res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
+					res.end();
+					return;
+				}
+
+				res.writeHead(200, 'Logged in', {'Content-Type': 'text/html'});
+				res.end();
+			});
+		} else if (url.pathname.toLowerCase().replace(/\//, '') === 'errors') {
+			var auth = HELPER.caseInsensitiveKey(req.headers, 'authorization');
+
+			if (! auth) {
+				res.writeHead(401, 'Unauthorized', {'Content-Type': 'application/json'});
+				res.end();
+				return;
+			}
+
+			var token = auth.trim().split(' ')[1];
+
+			tokenGen.checkToken(token, function(tokenErr, passed) {
+				if (tokenErr) {
+					res.writeHead(500, tokenErr, {'Content-Type': 'text/html'});
+					res.end();
+					return;
+				}
+
+				if (! passed) {
+					res.writeHead(401, 'Unauthorized', {'Content-Type': 'application/json'});
+					res.end();
+				}
+
+				var body = '';
+				req.on('data', function(data) {
+					body += data;
+				});
+
+				req.on('end', function() {
+					// TODO: Handle POST body
+
+					res.writeHead(200, {'Content-Type': 'application/json'});
+					res.end();
+				});
 			});
 		} else {
 			res.writeHead(404, 'No such method', {'Content-Type': 'text/html'});
