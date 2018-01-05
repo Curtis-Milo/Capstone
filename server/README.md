@@ -1,6 +1,5 @@
 # Running server
 - Set environment variable "BOT_HOST" with IP address of robot.
-- Set environment variable "BOT_PORT" with port which the robot REST server is running on.
 - Run 'npm install'.
 - Run 'node server.js'
 
