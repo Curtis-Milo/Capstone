@@ -1,8 +1,15 @@
+# Running server
+- Set environment variable "BOT_HOST" with IP address of robot.
+- Set environment variable "BOT_PORT" with port which the robot REST server is running on.
+- Run 'npm install'.
+- Run 'node server.js'
+
+
 # API Reference
 ## GET
 ##### Request position in line for table.
 
-*${HOST}/placeInLine?table_id=${table_id}*
+*${HOST}/placeInLine?table_id=${table_id}&order_id=${order_id}*
 
 AUTHORIZATION: Bearer token auth, using token generated for table_id.
 
@@ -20,7 +27,17 @@ AUTHORIZATION: Bearer token auth, using token generated and passed to robot.
 
 RETURNS:
 ```javascript
-
+{
+	"table_id": "int",
+	"order_id": "int",
+	"order": [
+		{
+			"type": "string",
+			"size": "char",
+			"quantity": "int"
+		}
+	]
+}
 ```
 
 
@@ -30,13 +47,20 @@ RETURNS:
 
 AUTHORIZATION: Bearer token auth, using token generated and passed to robot.
 
+RETURNS:
+```javascript
+{
+	"valid": "boolean"
+}
+```
+
 
 ## POST
-##### Request next order in queue.
+##### Place an order in queue.
 
 *${HOST}/placeOrder?table_id=${table_id}*
 
-AUTHORIZATION: Bearer token auth, using token generated for table_id
+AUTHORIZATION: Bearer token auth, using token generated for table_id.
 
 BODY: 
 ```javascript
@@ -49,4 +73,155 @@ BODY:
 		}
 	]
 }
+```
+
+RETURNS:
+```javascript
+{
+	"placeInLine": "int",
+	"orderData": {
+		"table_id": "int",
+		"order_id": "int",
+		"order": [
+			{
+				"type": "string",
+				"size": "char",
+				"quantity": "int"
+			}
+		]
+	}
+}
+```
+
+
+##### Generate and send a token to robot.
+
+*${HOST}/genToken*
+
+AUTHORIZATION: N/A.
+
+BODY:
+```javascript
+N/A
+```
+
+RETURNS:
+```javascript
+N/A
+```
+
+
+##### Change administrator credentials
+
+*${HOST}/updateCreds*
+
+AUTHORIZATION: Basic authorization using original administrator credentials.
+
+BODY:
+```javascript
+{
+	"userName": "string",	// New username
+	"password": "string"	// New password
+}
+```
+
+RETURNS:
+```javascript
+N/A
+```
+
+
+##### Call robot back to base (not yet implemented).
+
+*${HOST}/returnToBase*
+
+AUTHORIZATION: Basic authorization using original administrator credentials.
+
+BODY:
+```javascript
+N/A
+```
+
+RETURNS:
+```javascript
+N/A
+```
+
+
+##### Verify administrator credentials.
+
+*${HOST}/login*
+
+AUTHORIZATION: Basic authorization using original administrator credentials.
+
+BODY:
+```javascript
+N/A
+```
+
+RETURNS:
+```javascript
+N/A
+```
+
+
+##### Receive error codes from robot.
+
+*${HOST}/errors*
+
+AUTHORIZATION: Bearer token auth, using token generated and passed to robot.
+
+BODY:
+```javascript
+int // Unsigned integer which in its binary representation, conveys occurring errors
+```
+
+RETURNS:
+```javascript
+N/A
+```
+
+
+##### Create a token for said table to authenticate it in the future.
+
+*${HOST}/table?table_id=${table_id}*
+
+AUTHORIZATION: Basic authorization using original administrator credentials.
+
+BODY:
+```javascript
+N/A
+```
+
+RETURNS:
+```javascript
+{
+	"token": "string",
+	"token_type": "string"
+}
+```
+
+
+## DELETE
+##### Cancel an order.
+
+*${HOST}/cancelOrder?table_id=${table_id}&order_id=${order_id}*
+
+AUTHORIZATION: Bearer token auth, using token generated for table_id.
+
+RETURNS:
+```javascript
+N/A
+```
+
+
+##### Cancel an order.
+
+*${HOST}/cancelOrder?table_id=${table_id}&order_id=${order_id}*
+
+AUTHORIZATION: Bearer token auth, using token generated for table_id.
+
+RETURNS:
+```javascript
+N/A
 ```
