@@ -20,7 +20,17 @@ AUTHORIZATION: Bearer token auth, using token generated and passed to robot.
 
 RETURNS:
 ```javascript
-
+{
+	"table_id": "int",
+	"order_id": "int",
+	"order": [
+		{
+			"type": "string",
+			"size": "char",
+			"quantity": "int"
+		}
+	]
+}
 ```
 
 
@@ -29,6 +39,13 @@ RETURNS:
 *${HOST}/checkToken*
 
 AUTHORIZATION: Bearer token auth, using token generated and passed to robot.
+
+RETURNS:
+```javascript
+{
+	"valid": "boolean"
+}
+```
 
 
 ## POST
@@ -49,4 +66,39 @@ BODY:
 		}
 	]
 }
+```
+
+RETURNS:
+```javascript
+{
+	"placeInLine": "int",
+	"orderData": {
+		"table_id": "int",
+		"order_id": "int",
+		"order": [
+			{
+				"type": "string",
+				"size": "char",
+				"quantity": "int"
+			}
+		]
+	}
+}
+```
+
+
+##### Generate and send a token to robot.
+
+*${HOST}/genToken*
+
+AUTHORIZATION: N/A.
+
+BODY:
+```javascript
+N/A
+```
+
+RETURNS:
+```javascript
+N/A
 ```
