@@ -308,7 +308,7 @@ HTTP.createServer(function(req, res) {
 
 			authManager.checkAuth(plainAuth[0], plainAuth[1], function(err, passed) {
 				if (err) {
-					res.writeHead(500, tokenErr, {'Content-Type': 'text/html'});
+					res.writeHead(500, err, {'Content-Type': 'text/html'});
 					res.end();
 					return;
 				}
@@ -354,6 +354,55 @@ HTTP.createServer(function(req, res) {
 					// TODO: Handle POST body
 
 					res.writeHead(200, {'Content-Type': 'application/json'});
+					res.end();
+				});
+			});
+		} else if (url.pathname.toLowerCase().replace(/\//, '') === 'table') {
+			var auth = HELPER.caseInsensitiveKey(req.headers, 'authorization');
+			var table_id = HELPER.caseInsensitiveKey(url.query, 'table_id');
+
+			if (! auth) {
+				res.writeHead(401, 'Unauthorized', {'Content-Type': 'application/json'});
+				res.end();
+				return;
+			}
+
+			if (! table_id) {
+				res.writeHead(400, 'Missing table_id', {'Content-Type': 'application/json'});
+				res.end();
+				return;
+			}
+
+			var token = auth.trim().split(' ')[1];
+
+			var buf = new Buffer(token, 'base64');
+			var plainAuth = buf.toString().split(':');
+
+			authManager.checkAuth(plainAuth[0], plainAuth[1], function(err, passed) {
+				if (err) {
+					res.writeHead(500, err, {'Content-Type': 'text/html'});
+					res.end();
+					return;
+				}
+
+				if (! passed) {
+					res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
+					res.end();
+					return;
+				}
+
+				tableManager.addTable(table_id, function(addErr, token) {
+					if (addErr) {
+						res.writeHead(500, addErr, {'Content-Type': 'text/html'});
+						res.end();
+						return;
+					}
+
+					res.writeHead(200, {'Content-Type': 'application/json'});
+					res.write(JSON.stringify({
+						token: token,
+						token_type: 'bearer'
+					}));
 					res.end();
 				});
 			});

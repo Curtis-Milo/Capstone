@@ -1,6 +1,6 @@
 import os 
 import requests # set up requests on system
-from lib.auth import AuthHandler
+from auth import AuthHandler
 
 authManager = AuthHandler()
 
@@ -15,3 +15,10 @@ def sendErrorCode(code):
 	}
 
 	return requests.post(host, headers=headers, data=code)
+
+def reqServerToken():
+	host = 'http://' + os.environ['SERVER_IP'] + ':' + os.environ['SERVER_PORT'] + '/gentoken'
+
+	r = requests.post(host)
+
+	return r.status_code in range(200, 300)
