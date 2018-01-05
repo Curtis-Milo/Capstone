@@ -1,6 +1,8 @@
 from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
 import json
+import threading
 from lib.auth import AuthHandler
+from lib.lib import reqServerToken
 
 authManager = AuthHandler()
 
@@ -19,7 +21,12 @@ class Handler(BaseHTTPRequestHandler):
         else:
             self._set_headers(code=401)
         
-PORT = 80
-server_address = ('', PORT)
-httpd = HTTPServer(server_address, Handler)
-httpd.serve_forever()
+
+def startServer(port=80, address=''):
+    server_address = (address, port)
+    httpd = HTTPServer(server_address, Handler)
+    
+    t = threading.Thread(target=httpd.serve_forever)
+    t.start()
+
+    reqServerToken()

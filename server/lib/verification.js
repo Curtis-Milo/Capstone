@@ -15,10 +15,10 @@ var _jsonVals = function(obj) {
 
 module.exports = {
 	checkData: function(data, orderObj, cb) {
-		var table_id = HELPER.caseInsensitiveKey(data, 'table_id');
+		// var table_id = HELPER.caseInsensitiveKey(data, 'table_id');
 		var order = HELPER.caseInsensitiveKey(data, 'order');
 
-		if (! table_id || ! order) {
+		if (! order) {
 			return cb('Missing args');
 		}
 

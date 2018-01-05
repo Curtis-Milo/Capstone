@@ -28,7 +28,7 @@ class AuthHandler(object):
 			"Authorization": token_type + " " + token
 		}
 
-		resp = requests.post(host, headers=headers)
+		resp = requests.get(host, headers=headers)
 
 		if resp.status_code not in range(200, 300):
 			return False
