@@ -7,10 +7,12 @@ const CRYPTO = require('crypto');
 
 var mutex = LOCKS.createMutex();
 
+//generate a new token
 function TokenGen() {
 	this._token = TOKEN_GEN.generate(32);
 };
 
+//re-generate token
 TokenGen.prototype.refresh = function(cb) {
 	var that = this;
 	mutex.timedLock(10000, function(err) {
@@ -23,6 +25,7 @@ TokenGen.prototype.refresh = function(cb) {
 	});
 };
 
+//verify that a given token matches generated token
 TokenGen.prototype.checkToken = function(token, cb) {
 	var that = this;
 	mutex.timedLock(10000, function(err) {
@@ -35,6 +38,7 @@ TokenGen.prototype.checkToken = function(token, cb) {
 	});
 };
 
+//send generated token to robot
 TokenGen.prototype.sendToken = function(host) {
 	var data = {
 		token_type: 'bearer',
@@ -53,6 +57,7 @@ module.exports.TokenGen = TokenGen;
 const CREDS_PATH = './creds';
 var mutex_auth = LOCKS.createMutex();
 
+//create encrypted admin username/password pair and write it to filesystem
 function BasicAuthManager() {
 	if (FS.existsSync(CREDS_PATH)) {
 		this._hashedCreds = FS.readFileSync(CREDS_PATH, 'utf8');
@@ -66,6 +71,7 @@ function BasicAuthManager() {
 	}
 };
 
+//verify that username/password combination matches stored values
 BasicAuthManager.prototype.checkAuth = function(uName, pw, cb) {
 	var that = this;
 	mutex_auth.timedLock(10000, function(err) {
@@ -80,6 +86,7 @@ BasicAuthManager.prototype.checkAuth = function(uName, pw, cb) {
 	});
 };
 
+//update username/password combination in filesystem
 BasicAuthManager.prototype.update = function(uName, pw, cb) {
 	var that = this;
 	mutex_auth.timedLock(10000, function(err) {

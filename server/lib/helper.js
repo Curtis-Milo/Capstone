@@ -1,4 +1,6 @@
 module.exports = {
+	//binary search method to be used by queue
+	//search and delete operations
 	binSearch: function(list, element) {
 		var lower = 0;
 		var upper = list.length - 1;
@@ -20,6 +22,7 @@ module.exports = {
 
 		return -1;
 	},
+	//case insensitive matching between two strings
 	caseInsensitiveKey: function(obj, key) {
 		for (let i of Object.keys(obj)) {
 			if (i.toLowerCase() === key.toLowerCase()) {

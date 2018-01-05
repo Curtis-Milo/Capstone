@@ -6,6 +6,7 @@ const CRYPTO = require('crypto');
 var mutexes = {};
 const DIR = './tables';
 
+//load all currently registerd tables from filesystem into JSON object
 function TableManager() {
 	if (! FS.existsSync(DIR)){
 		FS.mkdirSync(DIR);
@@ -18,6 +19,9 @@ function TableManager() {
 	}
 };
 
+//add a new table to filesystem and generate an
+//authentication token specific to that table for
+//communication with the server
 TableManager.prototype.addTable = function(tableId, cb) {
 	var newMutex = false;
 	if (! (tableId in mutexes)) {
@@ -53,6 +57,7 @@ TableManager.prototype.addTable = function(tableId, cb) {
 	});
 };
 
+//verify that a given token for a specific table is correct
 TableManager.prototype.checkToken = function(tableId, token, cb) {
 	if (! (tableId in mutexes)) {
 		return cb(new Error('Invalid tableId'));
@@ -76,6 +81,7 @@ TableManager.prototype.checkToken = function(tableId, token, cb) {
 	});
 };
 
+//find all available tables
 TableManager.prototype.availableTables = function(cb) {
 	FS.readdir(DIR, function(err, files) {
 		if (err) {
@@ -86,6 +92,7 @@ TableManager.prototype.availableTables = function(cb) {
 	});
 };
 
+//remove a table from the filesystem
 TableManager.prototype.deleteTable = function(tableId, cb) {
 	if (! (tableId in mutexes)) {
 		return cb(new Error('Invalid tableId'));
