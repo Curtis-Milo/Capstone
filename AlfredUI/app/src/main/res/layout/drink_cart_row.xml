@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="5dp"
+    android:weightSum="1">
+
+    <TextView
+        android:id="@+id/drinkCart_name"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.03"
+        android:clickable="false"
+        android:paddingLeft="5dp"
+        android:paddingTop="10dp"
+        android:text="drink name"
+        android:textIsSelectable="false" />
+
+    <TextView
+        android:id="@+id/drinkCart_size"
+        android:layout_width="87dp"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:paddingLeft="5dp"
+        android:paddingTop="10dp"
+        android:text="drink Size"
+        android:textIsSelectable="false" />
+
+    <TextView
+        android:id="@+id/drinkCart_amt"
+        android:layout_width="87dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.03"
+        android:clickable="false"
+        android:paddingLeft="5dp"
+        android:paddingTop="10dp"
+        android:text="drink amt"
+        android:textIsSelectable="false" />
+
+    <TextView
+        android:id="@+id/drinkCart_price"
+        android:layout_width="87dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.03"
+        android:clickable="false"
+        android:paddingLeft="5dp"
+        android:paddingTop="10dp"
+        android:text="drink amt"
+        android:textIsSelectable="false" />
+
+</LinearLayout>

@@ -18,6 +18,8 @@
         </activity>
         <activity android:name=".Activity_DrinkOptions">
         </activity>
+        <activity android:name=".Activity_OrderCart">
+        </activity>
     </application>
 
 </manifest>

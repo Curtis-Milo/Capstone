@@ -8,27 +8,31 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.view.View;
 import android.widget.NumberPicker;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 
 
 public class Activity_DrinksList extends AppCompatActivity {
+    // codes for determining what activity returned to this page
     private final int GET_ORDER_FOR_SELECTED_DRINK = 0;
+    private final int GO_TO_CART = 1;
 
     private int tableNum ;
-    private ArrayList<DrinkItem> drinkItemList;
     private HashMap<String,DrinkItem> drinkLink;
+    private HashMap<String,Drink> drinkReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drinks_list);
 
-        drinkItemList = new ArrayList<DrinkItem>();
         drinkLink = new HashMap<String,DrinkItem>();
+        drinkReference = new HashMap<String,Drink>();
 
         GridView gv = (GridView) findViewById(R.id.drinksGrid);
 
@@ -53,6 +57,11 @@ public class Activity_DrinksList extends AppCompatActivity {
         drinks.add(new Drink ("black",new int[]{58,225,450},R.drawable.image1,new double[]{2.99,3.99,4.99}));
         drinks.add(new Drink ("pink",new int[]{69,666,1234},R.drawable.image1,new double[]{2.99,3.99,4.99}));
 
+        for (Iterator<Drink> i = drinks.iterator(); i.hasNext();) {
+            Drink d = i.next();
+            String name = d.getName();
+            drinkReference.put(name,d);
+        }
 
         // Set the view adapter for the gridview to the custom adapter created for our purpose
         DrinksViewAdapter customAdapter = new DrinksViewAdapter (Activity_DrinksList.this, drinks);
@@ -80,6 +89,17 @@ public class Activity_DrinksList extends AppCompatActivity {
 
     }
 
+    public void onClickViewCart (View v) {
+        Intent myIntent = new Intent(v.getContext(), Activity_OrderCart.class);
+
+        myIntent.putExtra("CurrentCartList", this.drinkLink);
+        myIntent.putExtra("DrinksInfo", this.drinkReference);
+
+        startActivityForResult(myIntent,GO_TO_CART);
+        Log.d("ONCLICKEOLIDWHEOWI","ON VIEW CART CLICKED !!!!!!!!\n ON VIEW CART CLICKED !!!!!!!!\n ON VIEW CART CLICKED !!!!!!!!\n ON VIEW CART CLICKED !!!!!!!!\n ON VIEW CART CLICKED !!!!!!!!\n ON VIEW CART CLICKED !!!!!!!!\n");
+        Toast.makeText(Activity_DrinksList.this, "Go To cart clicked",Toast.LENGTH_SHORT);
+
+    }
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode == GET_ORDER_FOR_SELECTED_DRINK) {

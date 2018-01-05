@@ -6,24 +6,42 @@
     android:layout_height="match_parent"
     tools:context="com.lazybots.alfredui.Activity_DrinksList">
 
+    <Button
+        android:id="@+id/viewCart"
+        style="@android:style/Widget.DeviceDefault.Button"
+        android:layout_width="380dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:onClick="onClickViewCart"
+        android:text="Go To Cart"
+        app:layout_constraintTop_toTopOf="@+id/guideline2"
+        tools:onClick="onClickViewCart"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <android.support.constraint.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/guideline2"
+        app:layout_constraintGuide_begin="447dp"
+        android:orientation="horizontal" />
+
     <GridView
         android:id="@+id/drinksGrid"
-        android:layout_width="366dp"
-        android:layout_height="354dp"
-        android:layout_marginTop="150dp"
+        android:layout_width="372dp"
+        android:layout_height="266dp"
         android:gravity="bottom|left"
         android:numColumns="auto_fit"
         android:paddingTop="75dp"
-        tools:layout_editor_absoluteX="9dp"
-        tools:layout_editor_absoluteY="122dp" />
-
-    <NumberPicker
-        android:id="@+id/tableNum"
-        android:layout_width="50dp"
-        android:layout_height="75dp"
-        android:backgroundTint="@android:color/darker_gray"
-        android:theme="@android:style/Widget.Material.NumberPicker"
-        tools:layout_editor_absoluteX="317dp"
-        tools:layout_editor_absoluteY="31dp" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/viewCart"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
