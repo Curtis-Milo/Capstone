@@ -233,12 +233,18 @@ RETURNS:
 ```
 
 
-## DELETE
-##### Cancel an order.
+##### Add a type to the types of drinks.
 
-*${HOST}/cancelOrder?table_id=${table_id}&order_id=${order_id}*
+*${HOST}/drinks*
 
-AUTHORIZATION: Bearer token auth, using token generated for table_id.
+AUTHORIZATION: Basic authorization using original administrator credentials.
+
+BODY:
+```javascript
+{
+	"type_common_name": "type_server_constant"
+}
+```
 
 RETURNS:
 ```javascript
@@ -246,11 +252,36 @@ N/A
 ```
 
 
+## DELETE
 ##### Cancel an order.
 
 *${HOST}/cancelOrder?table_id=${table_id}&order_id=${order_id}*
 
 AUTHORIZATION: Bearer token auth, using token generated for table_id.
+
+BODY:
+```javascript
+N/A
+```
+
+RETURNS:
+```javascript
+N/A
+```
+
+
+##### Delete a drink type
+
+*${HOST}/drinks*
+
+AUTHORIZATION: Basic authorization using original administrator credentials.
+
+BODY:
+```javascript
+{
+	"name": "type_common_name"
+}
+```
 
 RETURNS:
 ```javascript

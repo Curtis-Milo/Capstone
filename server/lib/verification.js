@@ -1,9 +1,12 @@
 const LOCKS = require('locks');
-const SIZES = require('./sizes');
-const TYPES = require('./types');
 const HELPER = require('./helper');
 
 var mutex = LOCKS.createMutex();
+
+function _cleanRequire(module){
+    delete require.cache[require.resolve(module)]
+    return require(module)
+}
 
 var _jsonVals = function(obj) {
 	var ret = [];
@@ -17,6 +20,9 @@ var _jsonVals = function(obj) {
 //information amd is in the proper format
 module.exports = {
 	checkData: function(data, orderObj, table_id, cb) {
+		var SIZES = _cleanRequire('./sizes');
+		var TYPES = _cleanRequire('./types');
+
 		var order = HELPER.caseInsensitiveKey(data, 'order');
 
 		if (! order) {
