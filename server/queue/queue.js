@@ -13,7 +13,6 @@ Queue.prototype.push = function(data, cb) {
 	var that = this;
 	mutex.timedLock(10000, function(err) {
 		if (err) {
-			mutex.unlock();
 			return cb(err);
 		}
 		that.queue = [data].concat(that.queue);
@@ -27,7 +26,6 @@ Queue.prototype.pop = function(cb) {
 	var that = this;
 	mutex.timedLock(10000, function(err) {
 		if (err) {
-			mutex.unlock();
 			return cb(err);
 		}
 		var element = that.queue.pop();
@@ -57,7 +55,6 @@ Queue.prototype.delete = function(order_id, cb) {
 	var that = this;
 	mutex.timedLock(10000, function(err) {
 		if (err) {
-			mutex.unlock();
 			return cb(err);
 		}
 
