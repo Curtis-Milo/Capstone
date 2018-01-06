@@ -5,12 +5,18 @@ const VERIF = require('./lib/verification');
 const SECURITY = require('./lib/security');
 const HELPER = require('./lib/helper');
 const TABLE_MANAGER = require('./lib/table_mgmt');
+const FS = require('fs');
+
+var DRINKS = require('./lib/types');
+const SIZES = require('./lib/sizes');
 
 var queue = new QUEUE();
 var order = new VERIF.Order();
 var tokenGen = new SECURITY.TokenGen();
 var authManager = new SECURITY.BasicAuthManager();
 var tableManager = new TABLE_MANAGER.TableManager();
+
+const MAX_NUM_TYPES = 3;
 
 tokenGen.sendToken(process.env.BOT_HOST); // Define bot IP in environment
 
@@ -122,6 +128,14 @@ HTTP.createServer(function(req, res) {
 				res.write(JSON.stringify(resp_auth));
 				res.end();
 			});
+		} else if (url.pathname.toLowerCase().replace(/\//, '') === 'drinks') {
+			res.writeHead(200, {'Content-Type': 'application/json'});
+			res.write(JSON.stringify(DRINKS));
+			res.end();
+		} else if (url.pathname.toLowerCase().replace(/\//, '') === 'sizes') {
+			res.writeHead(200, {'Content-Type': 'application/json'});
+			res.write(JSON.stringify(SIZES));
+			res.end();
 		} else {
 			res.writeHead(404, 'No such method', {'Content-Type': 'text/html'});
 			res.end();
@@ -406,6 +420,46 @@ HTTP.createServer(function(req, res) {
 					res.end();
 				});
 			});
+		} else if (url.pathname.toLowerCase().replace(/\//, '') === 'drinks') {
+			if (Object.keys(DRINKS).length >= MAX_NUM_TYPES) {
+				res.writeHead(400, 'Max number of types of drinks already set.', {'Content-Type': 'text/html'});
+				res.end();
+				return;
+			}
+
+			var body = '';
+			req.on('data', function(data) {
+				body += data;
+			});
+
+			req.on('end', function() {
+				try {
+					jsonBody = JSON.parse(body);
+				} catch (e) {
+					res.writeHead(500, e, {'Content-Type': 'application/json'});
+					res.end();
+					return;
+				}
+
+				if (Object.keys(jsonBody).length != 1) {
+					res.writeHead(400, 'Can only add one type at a time', {'Content-Type': 'application/json'});
+					res.end();
+					return;
+				}
+
+				DRINKS[Object.keys(jsonBody)[0]] = jsonBody[Object.keys(jsonBody)[0]];
+
+				// TODO: Lock to avoid async problems.
+				FS.writeFile('./lib/types.json', JSON.stringify(DRINKS), function(err) {
+					if (err) {
+						res.writeHead(500, err, {'Content-Type': 'application/json'});
+						res.end();
+						return;
+					}
+					res.writeHead(200, {'Content-Type': 'application/json'});
+					res.end();
+				});
+			});			
 		} else {
 			res.writeHead(404, 'No such method', {'Content-Type': 'text/html'});
 			res.end();

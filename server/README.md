@@ -54,6 +54,38 @@ RETURNS:
 ```
 
 
+##### Return available types of drinks.
+
+*${HOST}/drinks*
+
+AUTHORIZATION: N/A.
+
+RETURNS:
+```javascript
+// common_name: server_constant
+{
+	"type_0": "type_0",
+	"type_1": "type_1"
+}
+```
+
+
+##### Return available sizes of drinks.
+
+*${HOST}/sizes*
+
+AUTHORIZATION: N/A.
+
+RETURNS:
+```javascript
+// common_name: server_constant
+{
+	"size_1": "size_0",
+	"size_1": "size_1"
+}
+```
+
+
 ## POST
 ##### Place an order in queue.
 
