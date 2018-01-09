@@ -139,6 +139,10 @@ HTTP.createServer(function(req, res) {
 			res.writeHead(200, {'Content-Type': 'application/json'});
 			res.write(JSON.stringify(SIZES));
 			res.end();
+		} else if (url.pathname.toLowerCase().replace(/\//, '') === 'numoftanks') {
+			res.writeHead(200, {'Content-Type': 'application/json'});
+			res.write(MAX_NUM_TYPES.toString());
+			res.end();
 		} else {
 			res.writeHead(404, 'No such method', {'Content-Type': 'text/html'});
 			res.end();
@@ -476,6 +480,14 @@ HTTP.createServer(function(req, res) {
 						return;
 					}
 
+					var tank_num = praseInt(jsonBody[Object.keys(jsonBody)[0]]);
+
+					if (! tank_num || tank_num > MAX_NUM_TYPES || tank_num <= 0) {
+						res.writeHead(400, `Tank number must be integer between 0 and ${MAX_NUM_TYPES}`, {'Content-Type': 'application/json'});
+						res.end();
+						return;
+					}
+
 					mutex.timedLock(10000, function(lockErr) {
 						if (lockErr) {
 							res.writeHead(500, lockErr, {'Content-Type': 'application/json'});
@@ -483,7 +495,7 @@ HTTP.createServer(function(req, res) {
 							return;
 						}
 
-						DRINKS[Object.keys(jsonBody)[0].toUpperCase()] = jsonBody[Object.keys(jsonBody)[0]];
+						DRINKS[Object.keys(jsonBody)[0].toUpperCase()] = tank_num;
 
 						FS.writeFile('./lib/types.json', JSON.stringify(DRINKS), function(writeErr) {
 							mutex.unlock();

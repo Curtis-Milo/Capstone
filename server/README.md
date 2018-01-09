@@ -62,7 +62,6 @@ AUTHORIZATION: N/A.
 
 RETURNS:
 ```javascript
-// common_name: server_constant
 {
 	"type_0": "tank_num_0",
 	"type_1": "tank_num_1"
@@ -83,6 +82,18 @@ RETURNS:
 	"size_1": "size_0",
 	"size_1": "size_1"
 }
+```
+
+
+##### Return number of available tanks.
+
+*${HOST}/numOfTanks*
+
+AUTHORIZATION: N/A.
+
+RETURNS:
+```javascript
+int
 ```
 
 
