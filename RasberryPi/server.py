@@ -3,6 +3,7 @@ import json
 import threading
 from lib.auth import AuthHandler
 from lib.lib import reqServerToken
+from urlparse import urlparse
 
 authManager = AuthHandler()
 
@@ -13,20 +14,38 @@ class Handler(BaseHTTPRequestHandler):
         self.end_headers()
         
     def do_POST(self):
-        content_length = int(self.headers['Content-Length'])
-        post_data = self.rfile.read(content_length)
-        postJson = json.loads(post_data)
-        if authManager.setToken(postJson):
-            self._set_headers()
+        if urlparse(self.path).path.lower() == '/token':
+            content_length = int(self.headers['Content-Length'])
+            post_data = self.rfile.read(content_length)
+            postJson = json.loads(post_data)
+            if authManager.setToken(postJson):
+                self._set_headers()
+            else:
+                self._set_headers(code=401)
+        elif urlparse(self.path).path.lower() == '/return':
+            self._set_headers(code=400)
+            # TODO: implement return to base function
         else:
-            self._set_headers(code=401)
+            self._set_headers(code=404)
+
+
+class Server(object):
+    """Server on robot side"""
+    def __init__(self, port=80, address=''):
+        super(Server, self).__init__()
+        self.server_address = (address, port)
+        self.server = HTTPServer(self.server_address, Handler)
+        self.running = False
         
+    def startServer(self):
+        if not self.running:
+            self.running = True
+            t = threading.Thread(target=self.server.serve_forever)
+            t.start()
 
-def startServer(port=80, address=''):
-    server_address = (address, port)
-    httpd = HTTPServer(server_address, Handler)
-    
-    t = threading.Thread(target=httpd.serve_forever)
-    t.start()
+            reqServerToken()
 
-    reqServerToken()
+    def stopServer(self):
+        if self.running:
+            self.running = False
+            self.server.shutdown()
