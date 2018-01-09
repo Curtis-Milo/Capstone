@@ -17,7 +17,7 @@ var queue = new QUEUE();
 var order = new VERIF.Order();
 var tokenGen = new SECURITY.TokenGen();
 var authManager = new SECURITY.BasicAuthManager();
-var tableManager = new TableManager();
+var tableManager = new TABLE_MANAGER();
 
 const MAX_NUM_TYPES = 3;
 
