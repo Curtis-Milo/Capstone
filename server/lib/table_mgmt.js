@@ -111,3 +111,5 @@ TableManager.prototype.deleteTable = function(tableId, cb) {
 		cb();
 	});
 };
+
+module.exports = TableManager;
