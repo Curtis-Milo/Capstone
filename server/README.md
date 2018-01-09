@@ -54,6 +54,49 @@ RETURNS:
 ```
 
 
+##### Return available types of drinks.
+
+*${HOST}/drinks*
+
+AUTHORIZATION: N/A.
+
+RETURNS:
+```javascript
+{
+	"type_0": "tank_num_0",
+	"type_1": "tank_num_1"
+}
+```
+
+
+##### Return available sizes of drinks.
+
+*${HOST}/sizes*
+
+AUTHORIZATION: N/A.
+
+RETURNS:
+```javascript
+// common_name: server_constant
+{
+	"size_1": "size_0",
+	"size_1": "size_1"
+}
+```
+
+
+##### Return number of available tanks.
+
+*${HOST}/numOfTanks*
+
+AUTHORIZATION: N/A.
+
+RETURNS:
+```javascript
+int
+```
+
+
 ## POST
 ##### Place an order in queue.
 
@@ -201,12 +244,18 @@ RETURNS:
 ```
 
 
-## DELETE
-##### Cancel an order.
+##### Add a type to the types of drinks.
 
-*${HOST}/cancelOrder?table_id=${table_id}&order_id=${order_id}*
+*${HOST}/drinks*
 
-AUTHORIZATION: Bearer token auth, using token generated for table_id.
+AUTHORIZATION: Basic authorization using original administrator credentials.
+
+BODY:
+```javascript
+{
+	"drink_name": "nozzle_number"
+}
+```
 
 RETURNS:
 ```javascript
@@ -214,11 +263,36 @@ N/A
 ```
 
 
+## DELETE
 ##### Cancel an order.
 
 *${HOST}/cancelOrder?table_id=${table_id}&order_id=${order_id}*
 
 AUTHORIZATION: Bearer token auth, using token generated for table_id.
+
+BODY:
+```javascript
+N/A
+```
+
+RETURNS:
+```javascript
+N/A
+```
+
+
+##### Delete a drink type
+
+*${HOST}/drinks*
+
+AUTHORIZATION: Basic authorization using original administrator credentials.
+
+BODY:
+```javascript
+{
+	"name": "drink_name"
+}
+```
 
 RETURNS:
 ```javascript

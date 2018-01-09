@@ -40,9 +40,6 @@ TableManager.prototype.addTable = function(tableId, cb) {
 		var path = DIR + '/' + tableId.toString();
 		var token = TOKEN_GEN.generate(32);
 		var hash = CRYPTO.createHash('md5').update(token).digest("hex");
-		if (FS.existsSync(path)) {
-			FS.unlinkSync(path);
-		}
 
 		FS.writeFile(path, hash, function(err) {
 			if (err) {
