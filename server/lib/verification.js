@@ -43,7 +43,7 @@ module.exports = {
 			var quantity = HELPER.caseInsensitiveKey(i, 'quantity');
 
 			//ensure type of drinks given and is valid or skip that part of the order
-			if (type &&  _jsonVals(TYPES).indexOf(type.toUpperCase()) >= 0) {
+			if (type &&  Object.keys(TYPES).indexOf(type.toUpperCase()) >= 0) {
 				temp.type = type.toUpperCase();
 			} else continue;
 

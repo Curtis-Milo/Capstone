@@ -64,8 +64,8 @@ RETURNS:
 ```javascript
 // common_name: server_constant
 {
-	"type_0": "type_0",
-	"type_1": "type_1"
+	"type_0": "tank_num_0",
+	"type_1": "tank_num_1"
 }
 ```
 
@@ -242,7 +242,7 @@ AUTHORIZATION: Basic authorization using original administrator credentials.
 BODY:
 ```javascript
 {
-	"type_common_name": "type_server_constant"
+	"drink_name": "nozzle_number"
 }
 ```
 
@@ -279,7 +279,7 @@ AUTHORIZATION: Basic authorization using original administrator credentials.
 BODY:
 ```javascript
 {
-	"name": "type_common_name"
+	"name": "drink_name"
 }
 ```
 

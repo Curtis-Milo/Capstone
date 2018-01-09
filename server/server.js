@@ -483,7 +483,7 @@ HTTP.createServer(function(req, res) {
 							return;
 						}
 
-						DRINKS[Object.keys(jsonBody)[0]] = jsonBody[Object.keys(jsonBody)[0]];
+						DRINKS[Object.keys(jsonBody)[0].toUpperCase()] = jsonBody[Object.keys(jsonBody)[0]];
 
 						FS.writeFile('./lib/types.json', JSON.stringify(DRINKS), function(writeErr) {
 							mutex.unlock();
@@ -585,12 +585,12 @@ HTTP.createServer(function(req, res) {
 						}
 
 						if (! jsonBody.name) {
-							res.writeHead(400, 'Missing common name of drink type', {'Content-Type': 'application/json'});
+							res.writeHead(400, 'Missing name of drink type', {'Content-Type': 'application/json'});
 							res.end();
 							return;
 						}
 
-						delete DRINKS[jsonBody.name];
+						delete DRINKS[jsonBody.name.toUpperCase()];
 
 						FS.writeFile('./lib/types.json', JSON.stringify(DRINKS), function(writeErr) {
 							mutex.unlock();
