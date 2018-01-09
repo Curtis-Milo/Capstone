@@ -480,7 +480,7 @@ HTTP.createServer(function(req, res) {
 						return;
 					}
 
-					var tank_num = praseInt(jsonBody[Object.keys(jsonBody)[0]]);
+					var tank_num = parseInt(jsonBody[Object.keys(jsonBody)[0]]);
 
 					if (! tank_num || tank_num > MAX_NUM_TYPES || tank_num <= 0) {
 						res.writeHead(400, `Tank number must be integer between 0 and ${MAX_NUM_TYPES}`, {'Content-Type': 'application/json'});
