@@ -37,8 +37,8 @@ TokenGen.prototype.checkToken = function(token, cb) {
 
 //send generated token to robot
 TokenGen.prototype.sendToken = function(host) {
-	if (! host.startsWith('http')) {
-		host = 'http' + host;
+	if (! host.startsWith('http://')) {
+		host = 'http://' + host;
 	}
 	var data = {
 		token_type: 'bearer',
