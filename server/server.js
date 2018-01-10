@@ -2,9 +2,11 @@ const HTTP = require('http');
 const URL = require('url');
 const QUEUE = require('./queue/queue');
 const VERIF = require('./lib/verification');
-const SECURITY = require('./lib/security');
+const TOKEN_GEN = require('./lib/robot_auth');
+const BASIC_AUTH = require('./lib/basic_auth');
 const HELPER = require('./lib/helper');
 const TABLE_MANAGER = require('./lib/table_mgmt');
+const ORDER = require('./lib/order');
 const FS = require('fs');
 const LOCKS = require('locks');
 
@@ -14,9 +16,9 @@ var DRINKS = require('./lib/types');
 const SIZES = require('./lib/sizes');
 
 var queue = new QUEUE();
-var order = new VERIF.Order();
-var tokenGen = new SECURITY.TokenGen();
-var authManager = new SECURITY.BasicAuthManager();
+var order = new ORDER();
+var tokenGen = new TOKEN_GEN();
+var authManager = new BASIC_AUTH();
 var tableManager = new TABLE_MANAGER();
 
 const MAX_NUM_TYPES = 3;
