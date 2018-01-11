@@ -1,38 +1,30 @@
 package com.lazybots.alfredui;
 
-import android.graphics.Bitmap;
-
 import java.io.Serializable;
-import java.util.HashMap;
 
 /**
  * Created by Keyur on 2017-10-13.
  */
 
 public class Drink implements Serializable {
-    static HashMap<String,Integer> DRINK_SIZES = new HashMap<String, Integer>();
-    static {
-        DRINK_SIZES.put("SMALL",0);
-        DRINK_SIZES.put("MEDIUM",1);
-        DRINK_SIZES.put("LARGE",2);
-    }
 
     private String name;
-    private int[] calories = new int[3];
-    private double[] prices = new double[3];
+    private int calories;
+    private double price;
     private int image;
+    private int amount;
 
     /**
      *
      * @param name: the name of the drink
-     * @param calories: an int array of the calories depending on dirnk size.
+     * @param calories: an int array of the calories depending on drink size.
      *                  format as such calories = {SMALL,MEDIUM,LARGE}
      */
-    public Drink(String name, int[] calories, int image, double[] prices) {
+    public Drink(String name, int calories, int image, double price) {
         setName(name);
         setCalories(calories);
         setImage(image);
-        setPrices(prices);
+        setPrice(price);
     }
 
     public void setName(String name) {
@@ -43,11 +35,11 @@ public class Drink implements Serializable {
         return this.name;
     }
 
-    public void setCalories(int[] calories) {
+    public void setCalories(int calories) {
         this.calories = calories;
     }
 
-    public int[] getCalories() {
+    public int getCalories() {
         return this.calories;
     }
 
@@ -59,27 +51,19 @@ public class Drink implements Serializable {
         return this.image;
     }
 
-    public void setCaloriesForSize(String size, int calories) {
-        this.calories[DRINK_SIZES.get(size)] = calories;
+    public void setPrice(double price) {
+        this.price = price;
     }
 
-    public int getCaloriesForSize(String size){
-        return this.calories[DRINK_SIZES.get(size)];
+    public double getPrice() {
+        return this.price;
     }
 
-    public void setPrices(double[] prices) {
-        this.prices = prices;
-    }
+    public int getAmount() { return this.amount; }
 
-    public double[] getPrices() {
-        return this.prices;
-    }
+    public void setAmount(int amount) { this.amount=amount;}
 
-    public void setPriceForSize(String size, double price) {
-        this.prices[DRINK_SIZES.get(size)] = price;
-    }
-
-    public double getPriceForSize(String size) {
-        return this.prices[DRINK_SIZES.get(size)];
+    public double getPriceForAmount() {
+       return getAmount() * getPrice() ;
     }
 }
