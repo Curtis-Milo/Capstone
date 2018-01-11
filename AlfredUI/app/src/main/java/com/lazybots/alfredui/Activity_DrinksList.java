@@ -4,58 +4,52 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.AdapterView;
 import android.widget.GridView;
 import android.view.View;
-import android.widget.NumberPicker;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 
 
 public class Activity_DrinksList extends AppCompatActivity {
-    // codes for determining what activity returned to this page
-    private final int GET_ORDER_FOR_SELECTED_DRINK = 0;
-    private final int GO_TO_CART = 1;
 
     private int tableNum ;
     private HashMap<String,DrinkItem> drinkLink;
     private HashMap<String,Drink> drinkReference;
+    private GridView gv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drinks_list);
 
-        drinkLink = new HashMap<String,DrinkItem>();
-        drinkReference = new HashMap<String,Drink>();
+        drinkLink = new HashMap<>();
+        drinkReference = new HashMap<>();
 
-        GridView gv = (GridView) findViewById(R.id.drinksGrid);
+        gv = (GridView) findViewById(R.id.drinksGrid);
 
-        NumberPicker np = (NumberPicker)findViewById(R.id.tableNum);
-        np.setMaxValue(9);
-        np.setMinValue(1);
-        np.setValue(1);
-        np.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
-            @Override
-            public void onValueChange(NumberPicker numberPicker, int i, int i2) {
-                tableNum = i2;
-            }
-        });
+        //NumberPicker np = (NumberPicker)findViewById(R.id.tableNum);
+        //np.setMaxValue(9);
+        //np.setMinValue(1);
+        //np.setValue(1);
+        //np.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+           // @Override
+           // public void onValueChange(NumberPicker numberPicker, int i, int i2) {
+           //     tableNum = i2;
+           // }
+        //});
 
 
         //TEST DATA SETUP
-        ArrayList<Drink> drinks = new ArrayList<Drink>();
-        drinks.add(new Drink ("blue",new int[]{123,234,345},R.drawable.image1,new double[]{2.99,3.99,4.99}));
-        drinks.add(new Drink ("yellow",new int[]{222,333,444},R.drawable.image1,new double[]{2.99,3.99,4.99}));
-        drinks.add(new Drink ("green",new int[]{543,654,765},R.drawable.image1,new double[]{2.99,3.99,4.99}));
-        drinks.add(new Drink ("red",new int[]{100,200,300},R.drawable.image1,new double[]{2.99,3.99,4.99}));
-        drinks.add(new Drink ("black",new int[]{58,225,450},R.drawable.image1,new double[]{2.99,3.99,4.99}));
-        drinks.add(new Drink ("pink",new int[]{69,666,1234},R.drawable.image1,new double[]{2.99,3.99,4.99}));
+        ArrayList<Drink> drinks = new ArrayList<>();
+        drinks.add(new Drink ("blue",234,R.drawable.image1,2.99));
+        drinks.add(new Drink ("yellow",333,R.drawable.image1,3.99));
+        drinks.add(new Drink ("green",654,R.drawable.image1,3.99));
+        drinks.add(new Drink ("red",200,R.drawable.image1,2.99));
+        drinks.add(new Drink ("black",225,R.drawable.image1,2.99));
+        drinks.add(new Drink ("pink",69,R.drawable.image1,2.99));
 
         for (Iterator<Drink> i = drinks.iterator(); i.hasNext();) {
             Drink d = i.next();
@@ -66,8 +60,9 @@ public class Activity_DrinksList extends AppCompatActivity {
         // Set the view adapter for the gridview to the custom adapter created for our purpose
         DrinksViewAdapter customAdapter = new DrinksViewAdapter (Activity_DrinksList.this, drinks);
         gv.setAdapter(customAdapter);
-
+/*
         try {
+
             gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -84,7 +79,7 @@ public class Activity_DrinksList extends AppCompatActivity {
         } catch(Exception e) {
             Log.d("ERROR",e.getStackTrace().toString());
         }
-
+*/
 
 
     }
@@ -94,14 +89,22 @@ public class Activity_DrinksList extends AppCompatActivity {
 
         myIntent.putExtra("CurrentCartList", this.drinkLink);
         myIntent.putExtra("DrinksInfo", this.drinkReference);
+        myIntent.putExtra("drinks",setUpCurrentCart());
 
-        startActivityForResult(myIntent,GO_TO_CART);
+        int GO_TO_CART = 1;
+        startActivityForResult(myIntent, GO_TO_CART);
         Log.d("ONCLICKEOLIDWHEOWI","ON VIEW CART CLICKED !!!!!!!!\n ON VIEW CART CLICKED !!!!!!!!\n ON VIEW CART CLICKED !!!!!!!!\n ON VIEW CART CLICKED !!!!!!!!\n ON VIEW CART CLICKED !!!!!!!!\n ON VIEW CART CLICKED !!!!!!!!\n");
         Toast.makeText(Activity_DrinksList.this, "Go To cart clicked",Toast.LENGTH_SHORT);
 
     }
+
+    private ArrayList<Drink> setUpCurrentCart() {
+        return ((DrinksViewAdapter)gv.getAdapter()).getAllItems();
+    }
+
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        int GET_ORDER_FOR_SELECTED_DRINK = 0;
         if(requestCode == GET_ORDER_FOR_SELECTED_DRINK) {
             if (resultCode == RESULT_OK && data!=null) {
                 DrinkItem temp = (DrinkItem)data.getSerializableExtra(("SelectedDrinkOrder"));
