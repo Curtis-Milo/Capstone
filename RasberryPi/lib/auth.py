@@ -19,9 +19,13 @@ class AuthHandler(object):
 		self.token_type = None
 
 	def setToken(self, auth):
-		host = 'http://' + os.environ['SERVER_IP'] + ':' + os.environ['SERVER_PORT'] + '/checkToken'
+		host = os.environ['SERVER_IP']
+		if not host.startswith('http'):
+			host = 'http://' + host
 
-		token = auth['token']
+		host = host + ':' + os.environ['SERVER_PORT'] + '/checkToken'
+
+		token = auth['access_token']
 		token_type = auth['token_type']
 
 		headers = {
@@ -39,7 +43,7 @@ class AuthHandler(object):
 
 	def getToken(self):
 		return {
-			"token": self.token,
+			"access_token": self.token,
 			"token_type": self.token_type
 			}
 

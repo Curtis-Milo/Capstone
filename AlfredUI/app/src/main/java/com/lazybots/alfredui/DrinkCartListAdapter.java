@@ -8,7 +8,6 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 /**
  * Created by Keyur on 2017-12-27.
@@ -46,14 +45,12 @@ public class DrinkCartListAdapter extends BaseAdapter {
         View vi = convertView;
         if (vi==null) vi = inflater.inflate(R.layout.drink_cart_row,null);
         TextView name = (TextView) vi.findViewById(R.id.drinkCart_name);
-        TextView size = (TextView) vi.findViewById(R.id.drinkCart_size);
         TextView amt = (TextView) vi.findViewById(R.id.drinkCart_amt);
         TextView price = (TextView) vi.findViewById(R.id.drinkCart_price);
 
         name.setText(currentCart.get(position)[0]);
-        size.setText(currentCart.get(position)[1]);
-        amt.setText(currentCart.get(position)[2]);
-        price.setText(currentCart.get(position)[3]);
+        amt.setText(currentCart.get(position)[1]);
+        price.setText(currentCart.get(position)[2]);
 
         return vi;
     }
