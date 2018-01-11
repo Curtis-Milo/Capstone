@@ -2,37 +2,59 @@ package com.lazybots.alfredui;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Base64;
+import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.TextView;
 
+import com.google.gson.Gson;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
 
 /**
  * Created by Keyur on 2017-11-08.
  */
 
 public class Activity_OrderCart extends AppCompatActivity{
-    HashMap<String,DrinkItem> currentCart;
+    ArrayList<Drink> currentCart;
     HashMap<String,Drink> drinkReference;
     ArrayList<String[]> rawCartData;
+    double totalCurrentCartPrice;
     ListView lv ;
+    String token;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drinks_cart);
 
-        currentCart = (HashMap) getIntent().getSerializableExtra("CurrentCartList");
+        currentCart = (ArrayList<Drink>) getIntent().getSerializableExtra("drinks");
         drinkReference = (HashMap) getIntent().getSerializableExtra("DrinksInfo");
-        rawCartData = new ArrayList<String[]>();
+        rawCartData = new ArrayList<>();
+        try {
+            token = getTableToken();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+            Log.d("ERROROROROROR",e.getStackTrace().toString());
+        }
 
         setUpRawCartData();
+        TextView totalPrice = (TextView) findViewById(R.id.currentCartTotal);
+        totalPrice.setText("$"+Double.toString(totalCurrentCartPrice));
         lv = (ListView) findViewById(R.id.drinkCartListView);
         lv.setAdapter(new DrinkCartListAdapter(this,rawCartData));
 
@@ -40,36 +62,60 @@ public class Activity_OrderCart extends AppCompatActivity{
     }
 
     private void setUpRawCartData() {
-        Iterator it = currentCart.entrySet().iterator();
-        while (it.hasNext()) {
-            Map.Entry pair = (Map.Entry) it.next();
-
-            DrinkItem x = (DrinkItem) pair.getValue();
-            String key = (String) pair.getKey();
-            Drink y = drinkReference.get(key);
-
-            int[] amts = x.getOrderAmounts();
-            if (amts[0] > 0) {
-                rawCartData.add(new String[]{key, "Small", Integer.toString(amts[0]), "$ " + Double.toString(y.getPriceForSize("SMALL") * amts[0])});
+        for(Drink x : currentCart) {
+            if (x.getAmount()>0) {
+                rawCartData.add(new String[]{x.getName(), Integer.toString(x.getAmount()), Double.toString(x.getPriceForAmount())});
+                totalCurrentCartPrice+=x.getPriceForAmount();
             }
-            if (amts[1] > 0) {
-                rawCartData.add(new String[]{key, "Medium", Integer.toString(amts[1]), "$ " + Double.toString(y.getPriceForSize("MEDIUM") * amts[1])});
-            }
-            if (amts[2] > 0) {
-                rawCartData.add(new String[]{key, "Large", Integer.toString(amts[2]), "$ " + Double.toString(y.getPriceForSize("LARGE") * amts[2])});
-            }
-
-            it.remove();
         }
-
     }
 
-    public void onClickSendOrder(View v){
-        /*URL url = new URL("https://www.example.com/login");
+    /**
+     *
+     * @param v
+     * @throws IOException
+     * @throws JSONException
+     */
+    public void onClickSendOrder(View v) throws IOException, JSONException {
+
+        URL url = new URL("http://www.cps1.cas.mcmaster.ca:8080/table?table_id=5");
         URLConnection con = url.openConnection();
         HttpURLConnection http = (HttpURLConnection)con;
         http.setRequestMethod("POST"); // PUT is another valid option
-        http.setDoOutput(true);
 
-*/    }
+        Gson gson = new Gson();
+        DrinkItem x = new DrinkItem();
+        x.setUpOrder(rawCartData);
+        String json = gson.toJson(x);
+
+        http.setRequestProperty("Authorization","bearer"+token);
+        http.setRequestProperty("Content-Type","application/json");
+        OutputStream os = http.getOutputStream();
+
+        os.write(json.getBytes("UTF-8"));
+        http.setDoOutput(true);
+        String response = http.getInputStream().toString();
+        JSONObject orderResp = new JSONObject(response);
+        int y;
+    }
+
+    /**
+     *
+     * @return
+     * @throws IOException
+     * @throws JSONException
+     */
+    private String getTableToken() throws IOException, JSONException {
+        URL url = new URL("http://www.cps1.cas.mcmaster.ca:8080/table?table_id=5");
+        URLConnection con = url.openConnection();
+        HttpURLConnection http = (HttpURLConnection)con;
+        http.setRequestMethod("POST"); // PUT is another valid option
+        String encoding = Base64.encodeToString(("admin:admin").getBytes("UTF-8"),0);
+        http.setRequestProperty("Authorization","Basic"+encoding);
+
+        //http.setDoOutput(true);
+        String response = http.getInputStream().toString();
+        JSONObject jsonobj = new JSONObject(response);
+        return jsonobj.getString("token");
+    }
 }
