@@ -66,7 +66,7 @@ TableManager.prototype.checkToken = function(tableId, token, cb) {
 		}
 		var path = DIR + '/' + tableId.toString();
 
-		FS.readFile(path, function(err, hash) {
+		FS.readFile(path, 'utf8', function(err, hash) {
 			if (err) {
 				mutexes[tableId].unlock();
 				return cb(err);
