@@ -40,6 +40,12 @@ HTTP.createServer(function(req, res) {
 
 			var token = auth.trim().split(' ')[1];
 
+			if (! token) {
+				res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
+				res.end();
+				return;
+			}
+
 			tableManager.checkToken(table_id, token, function(authErr, passed) {
 				if (authErr) {
 					res.writeHead(500, authErr, {'Content-Type': 'text/html'});
@@ -72,6 +78,12 @@ HTTP.createServer(function(req, res) {
 			}
 
 			var token = auth.trim().split(' ')[1];
+
+			if (! token) {
+				res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
+				res.end();
+				return;
+			}
 
 			tokenGen.checkToken(token, function(tokenErr, passed) {
 				if (tokenErr) {
@@ -118,6 +130,12 @@ HTTP.createServer(function(req, res) {
 
 			var token = auth.trim().split(' ')[1];
 
+			if (! token) {
+				res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
+				res.end();
+				return;
+			}
+
 			tokenGen.checkToken(token, function(tokenErr, passed) {
 				if (tokenErr) {
 					res.writeHead(500, tokenErr, {'Content-Type': 'text/html'});
@@ -161,6 +179,12 @@ HTTP.createServer(function(req, res) {
 			}
 
 			var token = auth.trim().split(' ')[1];
+
+			if (! token) {
+				res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
+				res.end();
+				return;
+			}
 
 			tableManager.checkToken(table_id, token, function(authErr, passed) {
 				if (authErr) {
@@ -233,6 +257,12 @@ HTTP.createServer(function(req, res) {
 
 			var token = auth.trim().split(' ')[1];
 
+			if (! token) {
+				res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
+				res.end();
+				return;
+			}
+
 			var buf = new Buffer(token, 'base64');
 			var plainAuth = buf.toString().split(':');
 
@@ -295,6 +325,12 @@ HTTP.createServer(function(req, res) {
 
 			var token = auth.trim().split(' ')[1];
 
+			if (! token) {
+				res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
+				res.end();
+				return;
+			}
+
 			var buf = new Buffer(token, 'base64');
 			var plainAuth = buf.toString().split(':');
 
@@ -326,6 +362,12 @@ HTTP.createServer(function(req, res) {
 
 			var token = auth.trim().split(' ')[1];
 
+			if (! token) {
+				res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
+				res.end();
+				return;
+			}
+
 			var buf = new Buffer(token, 'base64');
 			var plainAuth = buf.toString().split(':');
 
@@ -355,6 +397,12 @@ HTTP.createServer(function(req, res) {
 			}
 
 			var token = auth.trim().split(' ')[1];
+
+			if (! token) {
+				res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
+				res.end();
+				return;
+			}
 
 			tokenGen.checkToken(token, function(tokenErr, passed) {
 				if (tokenErr) {
@@ -398,6 +446,12 @@ HTTP.createServer(function(req, res) {
 
 			var token = auth.trim().split(' ')[1];
 
+			if (! token) {
+				res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
+				res.end();
+				return;
+			}
+
 			var buf = new Buffer(token, 'base64');
 			var plainAuth = buf.toString().split(':');
 
@@ -439,6 +493,12 @@ HTTP.createServer(function(req, res) {
 			}
 
 			var token = auth.trim().split(' ')[1];
+
+			if (! token) {
+				res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
+				res.end();
+				return;
+			}
 
 			var buf = new Buffer(token, 'base64');
 			var plainAuth = buf.toString().split(':');
@@ -529,6 +589,12 @@ HTTP.createServer(function(req, res) {
 
 			var token = auth.trim().split(' ')[1];
 
+			if (! token) {
+				res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
+				res.end();
+				return;
+			}
+
 			tableManager.checkToken(table_id, token, function(authErr, passed) {
 				if (authErr) {
 					res.writeHead(500, authErr, {'Content-Type': 'text/html'});
@@ -560,6 +626,12 @@ HTTP.createServer(function(req, res) {
 			}
 
 			var token = auth.trim().split(' ')[1];
+
+			if (! token) {
+				res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
+				res.end();
+				return;
+			}
 
 			var buf = new Buffer(token, 'base64');
 			var plainAuth = buf.toString().split(':');
