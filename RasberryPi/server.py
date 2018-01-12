@@ -49,3 +49,6 @@ class Server(object):
         if self.running:
             self.running = False
             self.server.shutdown()
+
+if __name__ == '__main__':
+    startServer(port=8000)
