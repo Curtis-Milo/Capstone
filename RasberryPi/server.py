@@ -30,3 +30,6 @@ def startServer(port=80, address=''):
     t.start()
 
     reqServerToken()
+
+if __name__ == '__main__':
+    startServer(port=8080)
