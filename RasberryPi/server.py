@@ -32,4 +32,4 @@ def startServer(port=80, address=''):
     reqServerToken()
 
 if __name__ == '__main__':
-    startServer(port=8080)
+    startServer(port=8000)
