@@ -1,5 +1,6 @@
 package com.lazybots.alfredui;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Base64;
@@ -13,9 +14,15 @@ import com.google.gson.Gson;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
@@ -32,6 +39,7 @@ public class Activity_OrderCart extends AppCompatActivity{
     double totalCurrentCartPrice;
     ListView lv ;
     String token;
+    boolean orderDelivered;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,16 +49,8 @@ public class Activity_OrderCart extends AppCompatActivity{
         currentCart = (ArrayList<Drink>) getIntent().getSerializableExtra("drinks");
         drinkReference = (HashMap) getIntent().getSerializableExtra("DrinksInfo");
         rawCartData = new ArrayList<>();
-        try {
-            token = getTableToken();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (JSONException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-            Log.d("ERROROROROROR",e.getStackTrace().toString());
-        }
+
+        new NetworkCalls("table_token").execute();
 
         setUpRawCartData();
         TextView totalPrice = (TextView) findViewById(R.id.currentCartTotal);
@@ -77,45 +77,98 @@ public class Activity_OrderCart extends AppCompatActivity{
      * @throws JSONException
      */
     public void onClickSendOrder(View v) throws IOException, JSONException {
-
-        URL url = new URL("http://www.cps1.cas.mcmaster.ca:8080/table?table_id=5");
-        URLConnection con = url.openConnection();
-        HttpURLConnection http = (HttpURLConnection)con;
-        http.setRequestMethod("POST"); // PUT is another valid option
-
-        Gson gson = new Gson();
-        DrinkItem x = new DrinkItem();
-        x.setUpOrder(rawCartData);
-        String json = gson.toJson(x);
-
-        http.setRequestProperty("Authorization","bearer"+token);
-        http.setRequestProperty("Content-Type","application/json");
-        OutputStream os = http.getOutputStream();
-
-        os.write(json.getBytes("UTF-8"));
-        http.setDoOutput(true);
-        String response = http.getInputStream().toString();
-        JSONObject orderResp = new JSONObject(response);
-        int y;
+        new NetworkCalls("sendOrder").execute();
     }
 
-    /**
-     *
-     * @return
-     * @throws IOException
-     * @throws JSONException
-     */
-    private String getTableToken() throws IOException, JSONException {
-        URL url = new URL("http://www.cps1.cas.mcmaster.ca:8080/table?table_id=5");
-        URLConnection con = url.openConnection();
-        HttpURLConnection http = (HttpURLConnection)con;
-        http.setRequestMethod("POST"); // PUT is another valid option
-        String encoding = Base64.encodeToString(("admin:admin").getBytes("UTF-8"),0);
-        http.setRequestProperty("Authorization","Basic"+encoding);
+    private class NetworkCalls extends AsyncTask<String,Integer,Object> {
+        String api_key;
+        public NetworkCalls(String x) {
+            api_key=x;
+        }
+        @Override
+        protected Object doInBackground(String... strings) {
+            URL url;
+            URLConnection con;
+            Object ret = null;
+            HttpURLConnection http;
 
-        //http.setDoOutput(true);
-        String response = http.getInputStream().toString();
-        JSONObject jsonobj = new JSONObject(response);
-        return jsonobj.getString("token");
+            try {
+                if (api_key.equals("table_token")) {
+                    url = new URL("http://130.113.68.87:8080/table?table_id=5");
+                    con = url.openConnection();
+
+                    http = (HttpURLConnection) con;
+                    http.setRequestMethod("POST"); // PUT is another valid option
+
+                    String encoding;
+                    encoding = Base64.encodeToString(("admin:admin").getBytes("UTF-8"), 0);
+
+                    http.setRequestProperty("Authorization", "Basic " + encoding);
+                    http.setRequestProperty("Content-Type", "application/json");
+
+                    http.setDoOutput(true);
+                    int x = http.getResponseCode();
+                    if (x < 400) {
+                        BufferedReader br = new BufferedReader(new InputStreamReader(http.getInputStream()));
+                        StringBuilder sb = new StringBuilder();
+                        String line;
+                        while ((line = br.readLine()) != null) {
+                            sb.append(line + "\n");
+                        }
+                        br.close();
+
+                        String resStr = sb.toString();
+                        table_tokenResponse resJSON = new Gson().fromJson(resStr, table_tokenResponse.class);
+                        ret = resJSON.token;
+                    }
+                }
+                else if (api_key.equals("sendOrder")) {
+                    url = new URL("http://130.113.68.87:8080/placeOrder?table_id=5");
+                    con = url.openConnection();
+                    http = (HttpURLConnection)con;
+                    http.setRequestMethod("POST"); // PUT is another valid option
+
+                    Gson gson = new Gson();
+                    DrinkItem x = new DrinkItem();
+                    x.setUpOrder(rawCartData);
+                    String json = gson.toJson(x);
+
+
+                    http.setRequestProperty("Authorization","bearer "+token);
+                    http.setRequestProperty("Content-Type","application/json");
+
+
+
+                    http.setDoOutput(true);
+                    OutputStream os = http.getOutputStream();
+                    os.write(json.getBytes("UTF-8"));
+                    os.flush();
+                    os.close();
+
+                    if (http.getResponseCode()==200){ ret = true;}
+                    else{ ret = false;}
+                }
+            }catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return ret;
+        }
+
+        @Override
+        protected void onPostExecute(Object result) {
+            if (api_key.equals("table_token")) token = (String)result;
+            else if (api_key.equals("sendOrder")) orderDelivered = (boolean)result;
+        }
     }
+
+    private class table_tokenResponse {
+        private String token_type;
+        private String token;
+    }
+
+
 }

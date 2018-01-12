@@ -20,6 +20,7 @@ public class DrinkItem implements Serializable{
         order = new item[x.size()];
         int i=0;
         for (String[] y:x) {
+            order[i] = new item();
             order[i].type = y[0];
             order[i].quantity = Integer.parseInt(y[1]);
             i++;
