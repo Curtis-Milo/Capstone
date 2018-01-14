@@ -17,8 +17,7 @@
 \usepackage[table]{xcolor}
 \usepackage{color,soul}
 
-% VIC title package
-\usepackage{cabin}
+% VIC title package\
 \usepackage[T1]{fontenc}
 
 % default font package
@@ -232,8 +231,7 @@ linkcolor=black,}  %choose some color if you want links to stand out
 \hspace{-10mm}\includegraphics [scale = .3, trim={.4cm 0 .8cm 0},clip] {figures/alfred.png}
 \end {figure}
 
-{\fontfamily{\cabinfamily}\selectfont
-\Huge{LazyBots} }
+\Huge{LazyBots}
 
 \vspace{1 cm}
 {\Large\textbf{\textsc{McMaster University}}\\}  \vspace {1cm}
@@ -311,10 +309,709 @@ Alexandra Rahman & & 001305735
 % -------------- START INTRODUCTION ---------------- %
 
 
-\section {Section}
+\section {Manager System}
 
-\subsection{Subsection}
 
-\subsubsection{Subsubsection}
+\subsection{Purpose}
+The following will describe the component software design associated with Manager System. This will be carried out within web based tools to allow managment to access there information Anywhere
 
+\subsection{Scope}
+
+The scope of this section is associated with any front end user interfaces that the managment staff will use. This includes the MIS/MID and uses relation in regards to the Map Making Page, the Error Viewing page and the Login System. 
+
+\subsection{Module Decomposition}
+
+\textbf{Manager Login Page}: Given the login credentials, will authenticate administrator of the system with the server. Secrets include how it goes about verifying with the server if the credentials are valid.
+\textbf{Manager Station Map Software Page}: Will allow administrator to create or modify the map of the area where Alfred will deliver drinks. This map will then be sent and stored on the server. The secrets of this module includes how the mapping system will translate user input into the map file
+\textbf{Manager Station Request Software Page}: Will allow administrator to execute commands for Alfred, as well as view incoming error codes from Alfred. Secrets include how the errors are decoded from the server.
+
+\subsection{Uses Relation}
+\begin{figure} [h!]
+	\centering
+	\includegraphics [scale = 0.4] {figures/Manager_UsesDiagram.png}
+	\caption{Alfred Uses Relation Diagram}
+\end{figure}
+
+\subsection{MIS}
+
+\subsubsection{Login Page}
+\textbf{Uses}
+\begin{itemize}
+	\item MapMaking (WebPage)
+	\item ErrorViewer (WebPage)
+\end{itemize}
+
+
+
+\textbf{Public Functions}
+
+\textbf{gotoErrorsPage(): void}
+Navigates to the page associated with showing the Managers page for Errors with Alfred.
+\textbf{gotoMapMakingPage(): void}
+Navigates to the page associated with showing the Managers page for creating a resturant Map.
+\textbf{verifyUser(): void}
+Determines if the information that the user put into the form on the webpage is correct.
+
+
+\subsubsection{MapMaking Page}
+\textbf{Uses}
+None
+
+\textbf{Public Functions}
+
+\textbf{ Map(length:Int, width:Int): void}
+Constructor to object for page load
+\textbf{onLengthChange(int Length)}
+Sets the length of the map when the user changes it in the form.
+\textbf{onWidthChange(int Width)}
+Sets the width of the map when the user changes it in the form.
+\textbf{setSquare(X:Int, Y:Int, value:Int): void}
+Sets the value of the square based on its X,Y position when there is an on click event
+
+\subsubsection{ErrorViewer Page}
+\textbf{Uses}
+None
+
+\textbf{Public Functions}
+
+\textbf{ showErrors(): void}
+Shows the Errors Associated to Alfred.
+\textbf{onClickReturnHome()}
+Signals the Robot to return home.
+
+\subsection{MID}
+
+\subsubsection{Login Page}
+\textbf{Uses}
+\begin{itemize}
+	\item MapMaking (WebPage)
+	\item ErrorViewer (WebPage)
+\end{itemize}
+
+
+\textbf{Internal Variables}
+
+\textbf{token: String} – Token for a session with the server.
+
+
+\textbf{Functions}
+
+\textbf{public gotoErrorsPage(): void}
+Navigates to the page associated with showing the Managers page for Errors with Alfred.
+\textbf{public gotoMapMakingPage(): void}
+Navigates to the page associated with showing the Managers page for creating a resturant Map.
+\textbf{public verifyUser(): void}
+Determines if the information that the user put into the form on the webpage is correct.
+
+
+\subsubsection{MapMaking Page}
+\textbf{Uses}
+None
+
+\textbf{Internal Variables}
+\textbf{length: Integer} - Length of the Map
+\textbf{width: Integer} - Width of the Map
+\textbf{MapData: String[][]}- Storage of the map values
+
+\textbf{Public Functions}
+
+\textbf{public Map(length:Int, width:Int): void}
+Constructor to object for page load
+\textbf{public onLengthChange(int Length)}
+Sets the length of the map when the user changes it in the form.
+\textbf{public onWidthChange(int Width)}
+Sets the width of the map when the user changes it in the form.
+\textbf{setSquare(X:Int, Y:Int, value:Int): void}
+Sets the value of the square based on its X,Y position when there is an on click event. The Values corresponds to:  
+\begin{itemize}
+	\item 0: Free to move
+	\item 1: Path is blocked
+	\item 2: Table
+	\item 3: Base
+\end{itemize}
+\subsubsection{ErrorViewer Page}
+\textbf{Uses}
+None
+
+\textbf{Public Functions}
+
+\textbf{ showErrors(): void}
+Shows the Errors Associated to Alfred. where the Errors are in the following format
+\begin{itemize}
+	\item LowLiquid: 0x00000001
+	\item LeakingTank: 0x00000010
+	\item LowBattery: 0x00000100
+	\item NoMovement: 0x00001000
+\end{itemize}
+
+\textbf{onClickReturnHome()}
+Signals the Robot to return home.
+
+\section {Alfred System}
+
+
+\subsection{Purpose}
+The following will describe the component software, mechanical and electrical design associated with Alfred's Manager System, Alfred's Drivetrain and Alfred's Image Processing system. These three systems will be ran on the Raspberry Pi. 
+
+\subsection{Scope}
+
+The scope of this section is associated with Alfred's Manager System, Alfred's Drivetrain and Alfred's Image Processing system. The software documentation will provide the MIS and MID, uses relations to describe how the system will be designed to preform its function of being able to drive to a specific location. The mechanical and electrical design will focus on the aspects to provide motion and navigation.
+
+
+\subsection{Module Decomposition}
+
+\textbf{Alfred Manager Module}: Endpoint for communication with Alfred. Will manage communication with server, as well as send any errors that Alfred is experiencing. Secrets include Parsing of messages from the server and the pumping system. 
+\textbf{Alfred Drive Train Module}: Responsible for driving and managing the motors based on desired route. Will also be sending errors preventing movement to Alfred Manager Module. Secrets include how the robot will preform navigation based on the map, how the robot will control and drive the robot and the inputs from the image processing module.
+\textbf{Image Processing Module}: Will detect any obstacles in the way as well as locate incoming nodes. Will communicate with Alfred Drive Train Module, to determine whether any required action based on results. Secretes include how the image processing will be carried out
+
+\subsection{Uses Relation}
+\begin{figure} [h!]
+	\centering
+	\includegraphics [scale = 0.4] {figures/Alfred_UsesDiagram.png}
+	\caption{Alfred Uses Relation Diagram}
+\end{figure}
+
+
+\subsection{MIS}
+
+\subsubsection{Alfred Manager Class}
+
+\textbf{Uses}
+\begin{itemize}
+	\item Communication (Static Class)
+	\item State (Enum)
+	\item Drivetrain (Class)
+	\item Order (Class)
+\end{itemize}
+
+
+
+\textbf{Public Functions}
+
+\textbf{determineState(): void}
+Determines the overall state of Alfred based on the inputs to Alfred.
+\textbf{performAction(): void}
+Will preform the desired state based on the state of Alfred.
+
+\subsubsection{Order Class}
+\textbf{Uses}
+\begin{itemize}
+	\item Drink (Enum)
+\end{itemize}
+
+
+\textbf{Public Functions}
+
+\textbf{getDrinks()}: Drink[] – Returns the list of drinks
+\textbf{getTableNumber}: Integer – Returns the table number reference
+\textbf{getTableCoords}: Integer[] – Returns the coordinates to the table
+
+\subsubsection{Drivetrain Class}
+\textbf{Uses}
+\begin{itemize}
+	\item Order (Class)
+	\item ImageProcessing (Class)
+	\item Drive\_State (Enum)
+	\item ErrorCodes (Enum)
+	\item Circle (Class)
+	\item Graph (Class)
+	\item Node (Class)
+	\item PI (Class)
+\end{itemize}
+
+\textbf{Public Functions}
+\textbf{driveToTable(Order): Integer}
+This function will preform the driving operation in order to navigate towards the specific table.
+
+\subsubsection{Communication Static Class}
+\textbf{Uses}
+None 
+\textbf{Public Functions}
+\textbf{getResturantMap(): String}
+Retrieves and stores the map to be used for navigation. Returns the path of the map 
+\textbf{getTableOrder(): Order}
+Retrieves and returns the Table’s Order.
+\textbf{sendErrors(errors: Integer)}
+Sends an integer with the described set of integers. 
+\textbf{transferPump(Order): Integer}
+Preforms communication with the pumping system. Sends the Order data and receives the errors from the pumping system and if it complete.
+
+\subsubsection{Graph Class}
+\textbf{Uses}
+\begin{itemize}
+	\item Node (Class)
+\end{itemize}
+
+\textbf{Public Functions}
+\textbf{Graph(String Filename)}
+Constructor to create a graph object. Builds the graph based on the path to the map
+\textbf{getShortestPath(): Node[]}
+Returns a list of nodes that describes the shortest way to get to the destination. 
+
+
+\subsubsection{Node Class}
+\textbf{Uses}
+None 
+
+\textbf{Public Functions}
+\textbf{Node(Int X, Int Y)}
+Constructor to the node class, takes in the position of the point along the X Y plane.
+\textbf{getX(): integer}
+Returns the x coordinate of the node
+\textbf{getY(): integer}
+Returns the y coordinate of the node
+
+\subsubsection{PI Class}
+\textbf{Uses}
+None 
+
+\textbf{Public Functions}
+
+\textbf{PI(Ki: Float, Kp: Float)}
+Constructor for the PI controller object taking in the Ki and Kp terms
+\textbf{regulate(Int ref, Int feedback)}
+Based on the reference to control to and the feedback, will determine the value to set the outputs too.
+
+\subsubsection{Imaging Processing Static Class}
+\textbf{Uses}
+\begin{itemize}
+	\item Circle (Class)
+\end{itemize}
+
+\textbf{Public Functions}
+
+\textbf{getCirclePositions(): Circle[]}
+Gives a list of circles that were within the view of the camera
+
+\subsubsection{Circle Class}
+
+\textbf{Uses}
+None
+
+\textbf{Public Functions}
+
+\textbf{Circle(radius, x, y)}
+Constructor of the circle class, takes in initial radius, x and y values
+\textbf{getX(): Float}
+Gives the X position of the circle relative to the image
+\textbf{getY(): Float}
+Gives the Y position of the circle relative to the image
+\textbf{getRadius(): Float}
+Gives the radius of the circle
+\textbf{setX(X:Float)}
+Sets the X position of the circle.
+\textbf{setY(Y:Float)}
+Sets the Y position of the circle.
+\textbf{setRadius(rad : Float)}
+Sets the radius of the circle.
+
+\subsection{MID}
+
+\subsubsection{Alfred Manager Class}
+
+\textbf{Uses}
+\begin{itemize}
+	\item Communication (Static Class)
+	\item State (Enum)
+	\item Drivetrain (Class)
+	\item Order (Class)
+\end{itemize}
+
+
+\textbf{Internal Variables}
+
+\textbf{mapPath: String} – The absolute path to the map directory
+\textbf{drivetrain: DriveTrain} – An object encapsulates information in regards to the drivetrain
+\textbf{currentState: State} – Holds the information in regards to which action will be preformed by Alfred
+
+
+\textbf{Functions}
+
+\textbf{public determineState(): void}
+Determines the overall state of Alfred based on the inputs to Alfred based on the following tabular expression:
+\begin{figure} [h!]
+	\centering
+	\includegraphics [scale = 0.4] {figures/AlfredSystem_DetermineState.png}
+\end{figure}
+
+
+\textbf{public performAction(): void}
+Will preform the desired state based on the state of Alfred based on the following table:
+\begin{figure} [h!]
+	\centering
+	\includegraphics [scale = 0.4] {figures/AlfredSystem_PerformAction.png}
+\end{figure}
+\subsubsection{Order Class}
+\textbf{Uses}
+\begin{itemize}
+	\item Drink (Enum)
+\end{itemize}
+
+
+\textbf{Internal Variables}
+\textbf{tableNum: Integer} - the reference to the table
+\textbf{drinks: Drink[]} – List of drinks for the user’s table
+\textbf{tableMap: Hashmap<Int>} -  Map that takes in a table reference number and returns its X,Y Coord
+\textbf{tablePath: String} – gives the path of the table for the hashmap 
+
+\textbf{Functions}
+\textbf{public getDrinks(): Drink[]}
+Returns the list of drinks
+\textbf{public getTableNumber: Integer}
+Returns the table number reference
+\textbf{public getTableCoords: Integer[]}
+Returns the coordinates to the table from the Hashmap of table numbers
+
+\subsubsection{Drivetrain Class}
+\textbf{Uses}
+\begin{itemize}
+	\item Order (Class)
+	\item ImageProcessing (Class)
+	\item Drive\_State (Enum)
+	\item ErrorCodes (Enum)
+	\item Circle (Class)
+	\item Graph (Class)
+	\item Node (Class)
+	\item PI (Class)
+\end{itemize}
+
+
+\textbf{Internal Variables}
+\textbf{mapPath: String} – The absolute path to the map directory
+\textbf{tableorder: Order} – The order from the next table.
+\textbf{ultraSonicPins: Int[]} – The pins dedicated for the ultrasonic sensors
+\textbf{hBridgePins: Int[]} – The pins dedicated for the H-bridge
+\textbf{graph: Graph} – Object to the graph object to find the shortest path
+\textbf{piControllerLeft: PI} – Object used for PI control for the left side of the drivetrain
+\textbf{piControllerRight: PI} – Object used for PI control for the left side of the drivetrain
+
+\textbf{Functions}
+
+\textbf{public driveToTable(Order): Integer}
+This function will preform the driving operation in order to navigate towards the specific table.
+\textbf{private turn(degree: Integer): void}
+This function will turn relative to its current position the amount desired within the argument. The robot will use the references of the circles to help with alignment by knowing that every node is 90 degrees from one another.
+\textbf{private driveForward(void): void}
+This function will control the robot to move forward provided: $ \forall front ultrasonic sensors: d_{ultrasonic} > d_{min} $. This motion will use the PI regulators to provide motion at human speed and will continue until a the next circle is within the middle of the camera.
+
+\textbf{private pathwayClear (void): boolean}
+This function will determine if robot to move forward provided: $ \forall front ultrasonic sensors: d_{ultrasonic} > d_{min} $. 
+
+\subsubsection{Communication Static Class}
+\textbf{Uses}
+None 
+\textbf{Internal Variables}
+None 
+\textbf{Functions}
+\textbf{getResturantMap(): String}
+Retrieves the map file based off of an FTP protocol and stores the map to be used for navigation. Returns the path of the map 
+\textbf{getTableOrder(): Order}
+Retrieves and returns the Table’s Order.
+\textbf{sendErrors(errors: Integer)}
+ Sends an integer with the described set of integers. 
+\textbf{transferPump(Order): Integer}
+ Performs communication with the pumping system using UART communication. The first 32 bits are the error code of the pumping system and the last bit is the status of the pumping system. Sends the Order data and receives the errors from the pumping system.
+
+\subsubsection{Graph Class}
+\textbf{Uses}
+\begin{itemize}
+	\item Node (Class)
+\end{itemize}
+
+\textbf{Internal Variables}
+None 
+
+\textbf{Functions}
+\textbf{Graph(String Filename)}
+Constructor to create a graph object. Builds the graph based on the path to the map
+\textbf{getShortestPath(): Node[]}
+Returns a list of nodes that describes the shortest way to get to the destination.  The shortest path will be preformed using the map and Dijkstra’s algorithm.
+
+
+\subsubsection{Node Class}
+\textbf{Uses}
+None 
+
+\textbf{Public Functions}
+\textbf{Node(Int X, Int Y)}
+Constructor to the node class, takes in the position of the point along the X Y plane.
+\textbf{getX(): integer}
+Returns the x coordinate of the node
+\textbf{getY(): integer}
+Returns the y coordinate of the node
+
+\textbf{Internal Variables}
+\textbf{x: Integer} – The x coordinate of the node
+\textbf{y: Integer} – The y coordinate of the node.
+
+\textbf{Functions}
+\textbf{public Node(Int X, Int Y)}
+Constructor to the node class, takes in the position of the point along the X Y plane.
+\textbf{public getX(): integer}
+Returns the x coordinate of the node
+\textbf{public getY(): integer}
+Returns the y coordinate of the node
+
+
+\subsubsection{PI Class}
+\textbf{Uses}
+None 
+\textbf{Internal Variables}
+\textbf{Ki: Float} – Integral temp for the PI controller
+\textbf{Kp: Float} – The y coordinate of the node.
+
+\textbf{Functions}
+\textbf{public PI(Ki: Float, Kp: Float)}
+Constructor for the PI controller object taking in the Ki and Kp terms
+\textbf{public regulate(Int ref, Int feedback)}
+Based on the reference to control to and the feedback, will determine the value to set the outputs too. Determines the output based along the following formula: $ out = Kp*error+Ki*\int_{0}^{t}(error)dt$. Note that the derivative term is not used due to the error associated with derivatives within computing systems.
+
+
+\subsubsection{Imaging Processing Static Class}
+\textbf{Uses}
+\begin{itemize}
+	\item Circle (Class)
+	\item Open CV (External Library)
+\end{itemize}
+
+
+\textbf{Internal Variables}
+None
+
+\textbf{Functions}
+
+\textbf{Public getCirclePositions(): Circle[]}
+
+Gives a list of circles that were within the view of the camera. Open CV returns a list of objects which can then be checked to see if they are black circles.
+
+\subsubsection{Circle Class}
+
+\textbf{Uses}
+None
+\textbf{Internal Variables}
+
+\textbf{rad: Float} – The radius of the circle
+\textbf{x: Integer} – The X position of the circle relative to the image
+\textbf{y: Integer} - The Y position of the circle relative to the image 
+
+\textbf{Functions}
+
+\textbf{Circle(radius, x, y)}
+Constructor of the circle class, takes in initial radius, x and y values
+\textbf{getX(): Float}
+Gives the X position of the circle relative to the image
+\textbf{getY(): Float}
+Gives the Y position of the circle relative to the image
+\textbf{getRadius(): Float}
+Gives the radius of the circle
+\textbf{setX(X:Float)}
+Sets the X position of the circle.
+\textbf{setY(Y:Float)}
+Sets the Y position of the circle.
+\textbf{setRadius(rad : Float)}
+Sets the radius of the circle.
+
+
+\section {Pumping System}
+
+\subsection{Purpose}
+The following will describe the component software, mechanical and electrical design associated with Alfred's Pumping System, Alfred's Drivetrain and Alfred's Image Processing system. This system will be ran on the Arduino Mega.
+\subsection{Scope}
+
+The scope of this section is associated with Alfred's Pumping System. The software documentation will provide the MIS and MID, uses relations to describe how the system will be designed to preform its function of being able to communicate to the raspberry pi and pump drinks. The mechanical and electrical design will focus on the different pumps/sensors that will be associated with the pumping system.
+
+
+\subsection{Module Decomposition}
+
+\textbf{Alfred Pumping Module}: Will control pumping system in regards of when to pour, how long and rate of dispensing. Will communicate to the raspberry pi errors pertaining to the pump or container to Alfred Manager Module. secrets include how the system preforms the dispensing of drinks and determination of errors.
+
+\subsection{Uses Relation}
+\begin{figure} [h!]
+	\centering
+	\includegraphics [scale = 0.4] {figures/Pumping_UsesDiagram.png}
+	\caption{Uses Relation Diagram for the pumping system}
+\end{figure}
+
+
+\subsection{MIS}
+
+\subsubsection{Main Class}
+
+\textbf{Uses}
+\begin{itemize}
+	\item Order (Class)
+	\item Drink (Enum)
+	\item Pump (Class)
+	\item Pump\_State (Enum)
+	\item Communication (Class)
+\end{itemize}
+
+\textbf{Internal Variables}
+None
+
+\textbf{Functions}
+
+\textbf{public setup(): void}
+Setup function for Arduino that initializes the pins that will be used 
+
+\textbf{publicloop(): void}
+Main loop that will preform the main logic of the pumping system
+
+\textbf{public determineState(): void}
+Based on the previous state of the pumping machine will look at factors such as weight of the liquid, need for communication and errors to determine the next state.
+
+\textbf{public performAction(): void}
+Based on the state of the device it will:
+\begin{itemize}
+	
+	\item Pumping\_On: Turn on the voltage for the pump
+	\item Pumping\_Off: Turn off the voltage for the pump
+	
+	\item Wait\_Request: Will Sleep for a specific amount of time before checking again
+	\item Transfer: Preform transferring via UART
+	\item Pumping\_Error: Perform No Action, and ensure all pumping devices are off
+\end{itemize}
+
+\subsubsection{Class Pump}
+
+\textbf{Uses}
+
+\begin{itemize}
+	\item DrinkCals
+\end{itemize}
+
+
+\textbf{public Functions}
+\textbf{Pump():void}
+Initializes the values of the pumping module
+\textbf{pumpLiquid(Drink): Integer}
+Turns on the pump for the specific drink type.
+\textbf{stopPump(Drink): Integer}
+Turns off the pump for the specific drink type.
+\textbf{isComplete(): Boolean}
+Determines if the drink has been completely filled or not based.
+\textbf{isLeaking(): Boolean}
+Determines if the containers are losing fluid when there is no pumping.
+\textbf{isSafeTempature()}
+Determines if the containers are still storing the liquids are at a safe temperature.
+
+\subsubsection{Communication Class}
+
+\textbf{Uses}
+
+\begin{itemize}
+	\item DrinkCals
+\end{itemize}
+
+\textbf{Internal Values}
+None
+
+\textbf{Functions}
+
+\textbf{transferData(Integer): Order}
+
+Communication performed used  where Orders are received and errors are transferred with the Manager system.
+
+
+\subsection{MID}
+
+\subsubsection{Main Class}
+
+\textbf{Uses}
+\begin{itemize}
+	\item Order (Class)
+	\item Drink (Enum)
+	\item Pump (Class)
+	\item Pump\_State (Enum)
+	\item Communication (Class)
+\end{itemize}
+
+\textbf{Internal Variables}
+ None
+
+\textbf{Functions}
+
+\textbf{public setup(): void}
+Setup function for Arduino that initializes the pins that will be used 
+
+\textbf{public loop(): void}
+Main loop that will preform the main logic of the pumping system
+
+\textbf{public determineState(): void}
+Based on the previous state of the pumping machine will look at factors such as weight of the liquid, need for communication and errors to determine the next state. Which state is summarized in the following table:
+\begin{figure} [h!]
+	\centering
+	\includegraphics [scale = 0.4] {figures/Pumping_DetermineState.png}
+\end{figure}
+
+\textbf{public performAction(): void}
+Based on the state of the the pumping system, will preform the following actions:
+\begin{figure} [h!]
+	\centering
+	\includegraphics [scale = 0.4] {figures/Pumping_PerformActions.png}
+\end{figure}
+
+
+\subsubsection{Class Pump}
+
+\textbf{Uses}
+
+\begin{itemize}
+	\item DrinkCals
+\end{itemize}
+
+\textbf{Internal Values}
+\textbf{DrinkCals coke}: Structure holding the calibrations related to Coke products
+\textbf{DrinkCals water}: Structure holding the calibrations related to Water.
+
+\textbf{Functions}
+\textbf{public Pump():void}
+Initializes the values of the pumping module
+\textbf{public pumpLiquid(Drink): Integer}
+Turns on the pump for the specific drink type.
+\textbf{public stopPump(Drink): Integer}
+Turns off the pump for the specific drink type.
+\textbf{public isComplete(): Boolean}
+Determines if the drink has been completely filled or not based on the following equation:
+$Filled := M_min < M_cup$
+\textbf{public isLeaking(): Boolean}
+Determines if the containers are losing fluid when there is no pumping based on the following equation:
+$Leaking := [M_minleak < (M_container1 - M_container_prev1) \wedge Pin7 ==0] \vee [M_minleak < (M_container2 - M_container_prev2) \wedge Pin8 ==0] $
+
+
+\textbf{public isSafeTempature()}
+Determines if the containers are still storing the liquids at a temperature greater then the minimum temperature for the liquids based off of the following equations.
+$OverTempature := (T_container1 < T_min) \vee (T_container2 < T_min)$ 
+
+
+\subsubsection{Communication Class}
+
+\textbf{Uses}
+
+\begin{itemize}
+	\item DrinkCals
+\end{itemize}
+
+\textbf{Internal Values}
+ None
+
+\textbf{Functions}
+
+\textbf{transferData(Integer): Order}
+
+Communication performed used using UART where Orders are received and errors are transferred. The first 32 bits will be the errors associated with the pumping system and the last bit will be if the robot is done.
+
+
+\section {Scheduling}
+%https://cloud.smartdraw.com/editor.aspx?depoId=7769871&credID=-20955169&pubDocShare=B3F518EBB56471C779CFA8CA72F6C1F065E
+\begin{figure} [h!]
+	\centering
+	\includegraphics [scale = 0.4] {figures/Alfred_SequenceDiagram.png}
+	\caption{Alfred Sequence Diagram}
+\end{figure}
+\section {Design Notes}
+
+\section {Data Dictionary}
+
+\section {References}
 \end{document}
