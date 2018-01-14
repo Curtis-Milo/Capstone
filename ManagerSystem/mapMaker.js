@@ -28,18 +28,19 @@ function updateMap(){
 
 	for (var i = 0; i < length; i++) {	
 			for (var j = 0; j < width; j++) {
-			 var button = "";
+			 var button = "<p";
+			 var insideStuff= "";
 			 if (map[i][j] == "0"){
-
+			 	insideStuff = "onclick = \"onClickChange("+i+","+j+")\" id = \"clear\""; 
 			 }else if(map[i][j] == "1"){
-
+				insideStuff = "onclick = \"onClickChange("+i+","+j+")\" id = \"blocked\""; 	
 			 }else if(map[i][j] == "2"){
-
+				insideStuff = "onclick = \"onClickChange("+i+","+j+")\" id = \"table\""; 
 			 }else if(map[i][j] == "3"){
-
+				insideStuff = "onclick = \"onClickChange("+i+","+j+")\" id = \"base\"";
 			 }
 
-			 button = button+ "";
+			 button = insideStuff + "/>";
 			 mapString = mapString + button;
 			}
 		}
