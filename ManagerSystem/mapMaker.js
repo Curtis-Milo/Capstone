@@ -23,9 +23,21 @@ function parseFiles(){
 	}
 }
 
+function save(){
+
+
+}
+
+function onClickChange(i,j){
+	map[i][j] = (map[i][j]+1)%4;
+	updateMap();
+}
+
 function updateMap(){
 	var mapString = "";
-
+	table_coords = [];
+	table_refs = [];
+	count_tblRef = 0;
 	for (var i = 0; i < length; i++) {	
 			for (var j = 0; j < width; j++) {
 			 var button = "<p";
@@ -35,7 +47,11 @@ function updateMap(){
 			 }else if(map[i][j] == "1"){
 				insideStuff = "onclick = \"onClickChange("+i+","+j+")\" id = \"blocked\""; 	
 			 }else if(map[i][j] == "2"){
-				insideStuff = "onclick = \"onClickChange("+i+","+j+")\" id = \"table\""; 
+				insideStuff = "onclick = \"onClickChange("+i+","+j+")\" id = \"table\"";
+				//update table refereces
+				table_refs.push(count_tblRef);
+				table_coords.push([i,j]); 
+				count_tblRef = count_tblRef+1;
 			 }else if(map[i][j] == "3"){
 				insideStuff = "onclick = \"onClickChange("+i+","+j+")\" id = \"base\"";
 			 }
@@ -44,10 +60,12 @@ function updateMap(){
 			 mapString = mapString + button;
 			}
 		}
-
+		document.getElementById("demo").innerHTML =mapString;
 
 }
 
 function load() {
+	
+	parseFiles();
 	updateMap();
 }
