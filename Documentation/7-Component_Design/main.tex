@@ -1176,6 +1176,474 @@ $OverTempature := (T_container1 < T_min) \vee (T_container2 < T_min)$
 Communication performed used using UART where Orders are received and errors are transferred. The first 32 bits will be the errors associated with the pumping system and the last bit will be if the robot is done.
 
 
+
+\section {Server}
+\subsection{Purpose}
+The following will describe the component software design associated with the server. This system will be run on an external RHEL server.
+
+\subsection{Scope}
+The scope of this section is associated with the REST API server that will be responsible for the communication within the system. The software documentation will provide the MIS and MID, uses relations to describe how the system will be designed to perform its function of being able to route communication between difference modules in the system.
+
+\subsection{Module Decomposition}
+\textbf{Serer Module}: Will have different REST API endpoints available to be able to "perform actions" in different parts of the system, as well as route data.
+
+\subsection{Uses Relation}
+\begin{figure} [h!]
+	\centering
+	\includegraphics [scale = 0.4] {figures/server_class_diagram.PNG}
+	\caption{Alfred Uses Relation Diagram}
+\end{figure}
+
+\subsection{MIS}
+\subsubsection{server}
+\textbf{Uses}
+\begin{itemize}
+	\item order (Class)
+	\item types (Enum)
+	\item verification (Class)
+	\item helper (Class)
+	\item queue (Class)
+	\item robot\_auth (Class)
+	\item basic\_auth (Class)
+	\item table\_mgmt (Class)
+	\item http (External Class)
+	\item url (External Class)
+	\item fs (External Class)
+	\item locks (External Class)
+\end{itemize}
+
+\textbf{Public Functions}
+\textbf{main(): void}
+Running the server, intercepting REST API requests and taking required action.
+
+
+\subsubsection{queue}
+\textbf{Uses}
+\begin{itemize}
+	\item locks (External Class)
+	\item helper (Class)
+\end{itemize}
+
+\textbf{Public Functions}
+\textbf{Queue(): void}
+Constructor function that creates a new empty queue.
+
+\textbf{push(data, cb): void}
+Push new order information into the queue and callback function with the place in line.
+
+\textbf{pop(cb): void}
+Pops the first element from the queue.
+
+\textbf{size(): int}
+calls the callback function with the current size of the queue.
+
+\textbf{search(order\_id, cb): void}
+Searches the queue and calls callback function with the place in line for the order specified by the order\_id.
+
+\textbf{delete(order\_id, cb): void}
+Searches the queue for order identified by given order\_id and removes it from the queue.
+
+\subsubsection{helper}
+\textbf{Uses}
+None
+
+\textbf{Public Functions}
+\textbf{binSearch(list, element): int}
+Binary search algorithm to find an element and return its position. If element not found, returns -1.
+
+\textbf{caseInsensitiveKey(obj, key): obj[i]}
+Extracts information from a JSON object for a given key. Comparison between the key and the JSON object's keys are case insensitive.
+
+\subsubsection{basic\_auth}
+\textbf{Uses}
+\begin{itemize}
+	\item fs (External Class)
+	\item locks (External Class)
+	\item util (External Class)
+	\item crypto (External Class)
+\end{itemize}
+
+\textbf{Public Functions}
+\textbf{BasicAuthManager(): void}
+Constructor function to create the object.
+
+\textbf{checkAuth(uName, pw, cb): void}
+Will check the validity of the username and password given as parameters, and will call the callback function with a boolean of whether username/password combination is valid.
+
+\textbf{update(uName, pw, cb): void}
+Will update the stored username and password combination, with the given ones.
+
+\subsubsection{robot\_auth}
+\textbf{Uses}
+\begin{itemize}
+	\item locks (External Class)
+	\item rand-token (External Class)
+	\item unirest (External Class)
+\end{itemize}
+
+\textbf{Public Functions}
+\textbf{TokenGen(): void}
+Constructor function to create the object with new token.
+
+\textbf{refresh(cb): void}
+Updates current token.
+
+\textbf{checkToken(token, cb): void}
+Check that the given token in the parameters matches the token stored in the object, and calls the callback function with boolean result.
+
+\textbf{sendToken(host): void}
+Will send current token to the 'host' given in the parameters.
+
+\subsubsection{verification}
+\textbf{Uses}
+\begin{itemize}
+	\item helper (Class)
+	\item types (Enum)
+\end{itemize}
+
+\textbf{Public Functions}
+\textbf{checkData(data, orderObj, table\_id, cb): void}
+Verify that the order information in the HTTP request has all necessary information and is in the correct format. Information required includes drink types, sizes, and quantities. Then calls callback function with error, if one exists.
+
+\subsubsection{table\_mgmt}
+\textbf{Uses}
+\begin{itemize}
+	\item locks (External Class)
+	\item rand-token (External Class)
+	\item fs (External Class)
+	\item crypto (External Class)
+\end{itemize}
+
+\textbf{Public Functions}
+\textbf{TableManager(): void}
+Constructor function that reads all currently listed tables from the tables filesystem and creates a mutex for each.
+
+\textbf{addTable(tableId, cb): void}
+Register a new table with the filesystem and generate an authentication token for that table to be used with server communication, then calls the callback function with the token.
+
+\textbf{checkToken(tableId, token, cb): void}
+Verify that an inputted token is correct for the table, and calls callback function with boolean result.
+
+\textbf{availableTables(cb): void}
+Search the filesystem to find all tables currently registered, and call callback function with list of all tables.
+
+\textbf{deleteTable(tableId, cb): void}
+Remove a table from the filesystem.
+
+\subsubsection{order}
+\textbf{Uses}
+\begin{itemize}
+	\item locks (External Class)
+\end{itemize}
+
+\textbf{Public Functions}
+\textbf{Order(): void}
+Constructor function that creates a new Order object, with order\_id == 0.
+
+\textbf{getOrderNum(cb): void}
+Call the callback function with the next order\_id and increment the counter.
+
+\subsection{MID}
+\subsubsection{server}
+\textbf{Uses}
+\begin{itemize}
+	\item order (Class)
+	\item types (Enum)
+	\item verification (Class)
+	\item helper (Class)
+	\item queue (Class)
+	\item robot\_auth (Class)
+	\item basic\_auth (Class)
+	\item table\_mgmt (Class)
+	\item http (External Class)
+	\item url (External Class)
+	\item fs (External Class)
+	\item locks (External Class)
+\end{itemize}
+
+\textbf{Internal Values}
+\begin{itemize}
+	\item Mutex mutex: Mutex to synchronize requests updating value of 'types.json' in the filesystem.
+	\item Queue queue: A FIFO queue where orders are stored.
+	\item Order order: Object to keep track of order ID's.
+	\item TokenGen tokenGen: A token generator and manager for the robot token for authentication.
+	\item BasicAuthManager authManager: Object responsible for authenticating administrator.
+	\item TableManager tableManager: Object responsible for authenticating each table.
+	\item final int MAX\_NUM\_TYPES: Variable storing maximum number of types of drinks that the robot can hold.
+\end{itemize}
+
+\textbf{Functions}
+\textbf{main(): void}
+Running the server, intercepting REST API requests and taking required action.
+
+
+\subsubsection{queue}
+\textbf{Uses}
+\begin{itemize}
+	\item locks (External Class)
+	\item helper (Class)
+\end{itemize}
+
+\textbf{Internal Values}
+\begin{itemize}
+	\item Mutex mutex: Mutex used to lock the resource to prevent from problems arising from asynchronicity.
+	\item Array queue: An array to store elements in queue.
+\end{itemize}
+
+\textbf{Functions}
+\textbf{Queue(): void}
+This.queue = []
+
+\textbf{push(data, cb): void}
+Lock queue
+Add data to the queue
+Unlock queue
+cb(null, length of queue)
+
+\textbf{pop(cb): void}
+Lock queue
+element = queue.pop()
+Unlock queue
+cb(null, element)
+
+\textbf{size(): int}
+Return queue.length
+
+\textbf{search(order\_id, cb): void}
+index = helper.binSearch(queue, order\_id)
+if (index >= 0) {
+	cb(null, (that.queue.length - index));
+} else {
+cb('order\_id not in queue');
+}
+
+\textbf{delete(order\_id, cb): void}
+Lock queue
+index = helper.binSearch(queue, order\_id)
+Remove element from queue at index if it exists
+cb()
+
+\subsubsection{helper}
+\textbf{Uses}
+None
+
+\textbf{Internal Values}
+None
+
+\textbf{Functions}
+\textbf{binSearch(list, element): int}
+Binary search algorithm based on element being the order\_id.
+Return index if found or -1 if not found
+
+\textbf{caseInsensitiveKey(obj, key): obj[i]}
+For k in keys of obj
+	If k.toLowerCase() == key.toLowerCase()
+		Return obj[k]
+Return null
+
+\subsubsection{basic\_auth}
+\textbf{Uses}
+\begin{itemize}
+	\item fs (External Class)
+	\item locks (External Class)
+	\item util (External Class)
+	\item crypto (External Class)
+\end{itemize}
+
+\textbf{Internal Values}
+\begin{itemize}
+	\item Mutex mutex\_auth: Mutex to synchronize token from asynchronicity.
+	\item final String CREDS\_PATH: Path to store hashed credentials in.
+	\item String \_hashCreds: Hashed value of current user credentials.
+\end{itemize}
+
+\textbf{Functions}
+\textbf{BasicAuthManager(): void}
+If CREDS\_PATH exists
+	\_hashCreds = readFile(CREDS\_PATH)
+Else
+	\_hashCreds = hash(‘admin:admin’)
+	writeToFile(CREDS\_PATH, \_hashCreds)
+
+\textbf{checkAuth(uName, pw, cb): void}
+mutex\_auth.lock()
+passed = \_hashCreds == hash(uName + ‘:’ + pw)
+mutex\_auth.unlock()
+cb(null, passed)
+
+\textbf{update(uName, pw, cb): void}
+mutex\_auth.lock()
+\_hashedCreds =  hash(uName + ‘:’ + pw)
+writeToFile(CREDS\_PATH, \_hashedCreds)
+mutex\_auth.unlock()
+cb()
+
+\subsubsection{robot\_auth}
+\textbf{Uses}
+\begin{itemize}
+	\item locks (External Class)
+	\item rand-token (External Class)
+	\item unirest (External Class)
+\end{itemize}
+
+\textbf{Internal Values}
+\begin{itemize}
+	\item Mutex mutex: Mutex to synchronize token from asynchronicity.
+	\item String \_token: Value of current token to authenticate robot.
+\end{itemize}
+
+\textbf{Functions}
+\textbf{TokenGen(): void}
+\_token = rand-token.generate(32)
+
+\textbf{refresh(cb): void}
+mutex.lock()
+\_token = rand-token.generate(32)
+mutex.unlock()
+cb()
+
+\textbf{checkToken(token, cb): void}
+mutex.lock()
+passed = token == \_token
+mutex.unlock()
+cb(null, passed)
+
+\textbf{sendToken(host): void}
+data = {
+	token\_type: ‘bearer’,
+	access\_token : \_token
+}
+unirest.post(host, data)
+
+\subsubsection{verification}
+\textbf{Uses}
+\begin{itemize}
+	\item helper (Class)
+	\item types (Enum)
+\end{itemize}
+
+\textbf{Internal Values}
+None
+
+\textbf{Functions}
+\textbf{checkData(data, orderObj, table\_id, cb): void}
+order = helper.caseInsensitiveKey(data, ‘order’)
+If order missing values or in wrong format
+	cb(error)
+
+orders = []
+
+For i of order
+	temp = {}
+	type = helper.caseInsensitiveKey(i, ‘type’)
+	size = helper.caseInsensitiveKey(i, ‘size’)
+	quantity =  helper.caseInsensitiveKey(i, ‘quantity’)
+	If type is valid
+		temp.type = type
+	Else
+		Continue
+	
+	If size valid
+		temp.size = size
+	Else 
+		Temp.size = M
+	If quantity valid
+		temp.quantity  = quantity 
+	Else 
+		temp.quantity  = 1
+	
+	orders.push(temp)
+
+If no orders
+	Return cb(‘no valid orders’)
+
+orderObj.getOrderNum(function(err, order\_id) {
+	if (err) {
+		return cb(err);
+	}
+	//return order information
+	cb(null, {
+		table\_id: table\_id,
+		order\_id: order\_id,
+		orders: orders
+	});
+});
+
+\textbf{\_cleanRequire(module): Module}
+Delete cached data for module
+Return require(module)
+
+\textbf{\_jsonVals(obj): Array}
+ret = []
+For i of Object.keys(obj)
+	ret.push(obj[i])
+Return ret
+
+\subsubsection{table\_mgmt}
+\textbf{Uses}
+\begin{itemize}
+	\item locks (External Class)
+	\item rand-token (External Class)
+	\item fs (External Class)
+	\item crypto (External Class)
+\end{itemize}
+
+\textbf{Internal Values}
+\begin{itemize}
+	\item final String DIR: Directory to store hashed tokens for tables
+	\item Json mutexes: A mutex for each table, to synchronize tokens from asynchronous calls.
+\end{itemize}
+
+\textbf{Functions}
+\textbf{TableManager(): void}
+Create DIR filesystem if not already created
+Read all files from filesystem, create a mutex for each, and load the filename/mutex pairs into a JSON object
+
+\textbf{addTable(tableId, cb): void}
+Create new mutex for new table and add to JSON object
+Lock mutex for new table
+Create new file in tables filesystem
+Generate authentication token for table
+Write hashed token to corresponding file in tables filesystem
+Unlock mutex for table
+cb(null, token)
+
+\textbf{checkToken(tableId, token, cb): void}
+Verify that an inputted token is correct for the table, and calls callback function with boolean result.
+
+\textbf{availableTables(cb): void}
+Read all files from filesystem
+cb(null, files)
+
+\textbf{deleteTable(tableId, cb): void}
+Lock mutexes JSON object
+Unlink table’s path from filesystem
+Delete mutexes[tableId]
+Unlock JSON object
+cb()
+
+\subsubsection{order}
+\textbf{Uses}
+\begin{itemize}
+	\item locks (External Class)
+\end{itemize}
+
+\textbf{Internal Values}
+\begin{itemize}
+	\item int order\_id: Current order number.
+\end{itemize}
+
+\textbf{Public Functions}
+\textbf{Order(): void}
+This.order\_id = 0
+
+\textbf{getOrderNum(cb): void}
+Lock counter
+Add one to counter
+Unlock counter
+cb(null, new order\_id)
+
+
 \section {Scheduling}
 %https://cloud.smartdraw.com/editor.aspx?depoId=7769871&credID=-20955169&pubDocShare=B3F518EBB56471C779CFA8CA72F6C1F065E
 \begin{figure} [h!]

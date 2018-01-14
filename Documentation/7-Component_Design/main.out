@@ -20,7 +20,14 @@
 \BOOKMARK [2][-]{subsection.4.4}{Uses Relation}{section.4}% 20
 \BOOKMARK [2][-]{subsection.4.5}{MIS}{section.4}% 21
 \BOOKMARK [2][-]{subsection.4.6}{MID}{section.4}% 22
-\BOOKMARK [1][-]{section.5}{Scheduling}{}% 23
-\BOOKMARK [1][-]{section.6}{Design Notes}{}% 24
-\BOOKMARK [1][-]{section.7}{Data Dictionary}{}% 25
-\BOOKMARK [1][-]{section.8}{References}{}% 26
+\BOOKMARK [1][-]{section.5}{Server}{}% 23
+\BOOKMARK [2][-]{subsection.5.1}{Purpose}{section.5}% 24
+\BOOKMARK [2][-]{subsection.5.2}{Scope}{section.5}% 25
+\BOOKMARK [2][-]{subsection.5.3}{Module Decomposition}{section.5}% 26
+\BOOKMARK [2][-]{subsection.5.4}{Uses Relation}{section.5}% 27
+\BOOKMARK [2][-]{subsection.5.5}{MIS}{section.5}% 28
+\BOOKMARK [2][-]{subsection.5.6}{MID}{section.5}% 29
+\BOOKMARK [1][-]{section.6}{Scheduling}{}% 30
+\BOOKMARK [1][-]{section.7}{Design Notes}{}% 31
+\BOOKMARK [1][-]{section.8}{Data Dictionary}{}% 32
+\BOOKMARK [1][-]{section.9}{References}{}% 33
