@@ -1393,7 +1393,6 @@ Call the callback function with the next order\_id and increment the counter.
 \textbf{Placeinline}
 Call checkToken for table authentication
 If passed, search queue for order\_id
-res.writeHead(200, {'Content-Type': 'text/html'});
 res.write(placeInLine.toString());
 \textbf{Placeorder}
 Call checkToken for table authentication
@@ -1406,14 +1405,12 @@ If passed, delete order from queue for specific order\_id
 \textbf{Nextorder}
 Call checkToken for robot authentication
 If passed, call queue’s pop function
-res.writeHead(200, {'Content-Type': 'text/html'});
 res.write(placeInLine.toString());
 \textbf{Gentoken}
 Call token refresh function
 Send token to robot host
 \textbf{Checktoken}
 Call checkToken for robot authentication
-res.writeHead(200, {'Content-Type': 'application/json'});
 res.write(JSON.stringify(resp\_auth));
 \textbf{Updatecreds}
 Call checkAuth for admin authentication
