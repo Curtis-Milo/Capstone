@@ -347,8 +347,10 @@ The scope of this section is associated with any front end user interfaces that 
 
 \textbf{gotoErrorsPage(): void}
 Navigates to the page associated with showing the Managers page for Errors with Alfred.
+
 \textbf{gotoMapMakingPage(): void}
 Navigates to the page associated with showing the Managers page for creating a resturant Map.
+
 \textbf{verifyUser(): void}
 Determines if the information that the user put into the form on the webpage is correct.
 
@@ -361,12 +363,15 @@ None
 
 \textbf{ Map(length:Int, width:Int): void}
 Constructor to object for page load
+
 \textbf{onLengthChange(int Length)}
 Sets the length of the map when the user changes it in the form.
+
 \textbf{onWidthChange(int Width)}
 Sets the width of the map when the user changes it in the form.
+
 \textbf{setSquare(X:Int, Y:Int, value:Int): void}
-Sets the value of the square based on its X,Y position when there is an on click event
+Sets the value of the square based on its X,Y position when there is an on click event.
 
 \subsubsection{ErrorViewer Page}
 \textbf{Uses}
@@ -391,15 +396,17 @@ Signals the Robot to return home.
 
 \textbf{Internal Variables}
 
-\textbf{token: String} – Token for a session with the server.
+\textbf{token: String} - Token for a session with the server.
 
 
 \textbf{Functions}
 
 \textbf{public gotoErrorsPage(): void}
 Navigates to the page associated with showing the Managers page for Errors with Alfred.
+
 \textbf{public gotoMapMakingPage(): void}
 Navigates to the page associated with showing the Managers page for creating a resturant Map.
+
 \textbf{public verifyUser(): void}
 Determines if the information that the user put into the form on the webpage is correct.
 
@@ -409,26 +416,38 @@ Determines if the information that the user put into the form on the webpage is 
 None
 
 \textbf{Internal Variables}
+
 \textbf{length: Integer} - Length of the Map
+
 \textbf{width: Integer} - Width of the Map
+
 \textbf{MapData: String[][]}- Storage of the map values
 
 \textbf{Public Functions}
 
 \textbf{public Map(length:Int, width:Int): void}
+
 Constructor to object for page load
+
 \textbf{public onLengthChange(int Length)}
+
 Sets the length of the map when the user changes it in the form.
+
 \textbf{public onWidthChange(int Width)}
+
 Sets the width of the map when the user changes it in the form.
+
 \textbf{setSquare(X:Int, Y:Int, value:Int): void}
-Sets the value of the square based on its X,Y position when there is an on click event. The Values corresponds to:  
+
+Sets the value of the square based on its X,Y position when there is an on click event. The Values corresponds to: 
+ 
 \begin{itemize}
 	\item 0: Free to move
 	\item 1: Path is blocked
 	\item 2: Table
 	\item 3: Base
 \end{itemize}
+
 \subsubsection{ErrorViewer Page}
 \textbf{Uses}
 None
@@ -489,8 +508,11 @@ The scope of this section is associated with Alfred's Manager System, Alfred's D
 \textbf{Public Functions}
 
 \textbf{determineState(): void}
+
 Determines the overall state of Alfred based on the inputs to Alfred.
+
 \textbf{performAction(): void}
+
 Will preform the desired state based on the state of Alfred.
 
 \subsubsection{Order Class}
@@ -502,9 +524,17 @@ Will preform the desired state based on the state of Alfred.
 
 \textbf{Public Functions}
 
-\textbf{getDrinks()}: Drink[] – Returns the list of drinks
-\textbf{getTableNumber}: Integer – Returns the table number reference
-\textbf{getTableCoords}: Integer[] – Returns the coordinates to the table
+\textbf{getDrinks()}
+
+Drink[] - Returns the list of drinks
+
+\textbf{getTableNumber}
+
+ Integer - Returns the table number reference
+
+\textbf{getTableCoords}
+
+ Integer[] - Returns the coordinates to the table
 
 \subsubsection{Drivetrain Class}
 \textbf{Uses}
@@ -525,15 +555,25 @@ This function will preform the driving operation in order to navigate towards th
 
 \subsubsection{Communication Static Class}
 \textbf{Uses}
+
 None 
+
 \textbf{Public Functions}
+
 \textbf{getResturantMap(): String}
+
 Retrieves and stores the map to be used for navigation. Returns the path of the map 
+
 \textbf{getTableOrder(): Order}
-Retrieves and returns the Table’s Order.
+
+Retrieves and returns the Table's Order.
+
 \textbf{sendErrors(errors: Integer)}
+
 Sends an integer with the described set of integers. 
+
 \textbf{transferPump(Order): Integer}
+
 Preforms communication with the pumping system. Sends the Order data and receives the errors from the pumping system and if it complete.
 
 \subsubsection{Graph Class}
@@ -543,9 +583,13 @@ Preforms communication with the pumping system. Sends the Order data and receive
 \end{itemize}
 
 \textbf{Public Functions}
+
 \textbf{Graph(String Filename)}
+
 Constructor to create a graph object. Builds the graph based on the path to the map
+
 \textbf{getShortestPath(): Node[]}
+
 Returns a list of nodes that describes the shortest way to get to the destination. 
 
 
@@ -554,11 +598,18 @@ Returns a list of nodes that describes the shortest way to get to the destinatio
 None 
 
 \textbf{Public Functions}
+
 \textbf{Node(Int X, Int Y)}
+
 Constructor to the node class, takes in the position of the point along the X Y plane.
+
 \textbf{getX(): integer}
+
+
 Returns the x coordinate of the node
+
 \textbf{getY(): integer}
+
 Returns the y coordinate of the node
 
 \subsubsection{PI Class}
@@ -568,8 +619,11 @@ None
 \textbf{Public Functions}
 
 \textbf{PI(Ki: Float, Kp: Float)}
+
 Constructor for the PI controller object taking in the Ki and Kp terms
+
 \textbf{regulate(Int ref, Int feedback)}
+
 Based on the reference to control to and the feedback, will determine the value to set the outputs too.
 
 \subsubsection{Imaging Processing Static Class}
@@ -581,6 +635,7 @@ Based on the reference to control to and the feedback, will determine the value 
 \textbf{Public Functions}
 
 \textbf{getCirclePositions(): Circle[]}
+
 Gives a list of circles that were within the view of the camera
 
 \subsubsection{Circle Class}
@@ -591,19 +646,32 @@ None
 \textbf{Public Functions}
 
 \textbf{Circle(radius, x, y)}
+
 Constructor of the circle class, takes in initial radius, x and y values
+
 \textbf{getX(): Float}
+
 Gives the X position of the circle relative to the image
+
 \textbf{getY(): Float}
+
 Gives the Y position of the circle relative to the image
+
 \textbf{getRadius(): Float}
+
 Gives the radius of the circle
+
 \textbf{setX(X:Float)}
+
 Sets the X position of the circle.
+
 \textbf{setY(Y:Float)}
+
 Sets the Y position of the circle.
+
 \textbf{setRadius(rad : Float)}
-Sets the radius of the circle.
+
+Sets the radius of the circle
 
 \subsection{MID}
 
@@ -620,14 +688,17 @@ Sets the radius of the circle.
 
 \textbf{Internal Variables}
 
-\textbf{mapPath: String} – The absolute path to the map directory
-\textbf{drivetrain: DriveTrain} – An object encapsulates information in regards to the drivetrain
-\textbf{currentState: State} – Holds the information in regards to which action will be preformed by Alfred
+\textbf{mapPath: String} - The absolute path to the map directory
+
+\textbf{drivetrain: DriveTrain} - An object encapsulates information in regards to the drivetrain
+
+\textbf{currentState: State} - Holds the information in regards to which action will be preformed by Alfred
 
 
 \textbf{Functions}
 
 \textbf{public determineState(): void}
+
 Determines the overall state of Alfred based on the inputs to Alfred based on the following tabular expression:
 \begin{figure} [h!]
 	\centering
@@ -636,6 +707,7 @@ Determines the overall state of Alfred based on the inputs to Alfred based on th
 
 
 \textbf{public performAction(): void}
+
 Will preform the desired state based on the state of Alfred based on the following table:
 \begin{figure} [h!]
 	\centering
@@ -649,17 +721,27 @@ Will preform the desired state based on the state of Alfred based on the followi
 
 
 \textbf{Internal Variables}
+
 \textbf{tableNum: Integer} - the reference to the table
-\textbf{drinks: Drink[]} – List of drinks for the user’s table
+
+\textbf{drinks: Drink[]} - List of drinks for the user's table
+
 \textbf{tableMap: Hashmap<Int>} -  Map that takes in a table reference number and returns its X,Y Coord
-\textbf{tablePath: String} – gives the path of the table for the hashmap 
+
+\textbf{tablePath: String} - gives the path of the table for the hashmap 
 
 \textbf{Functions}
+
 \textbf{public getDrinks(): Drink[]}
+
 Returns the list of drinks
+
 \textbf{public getTableNumber: Integer}
+
 Returns the table number reference
+
 \textbf{public getTableCoords: Integer[]}
+
 Returns the coordinates to the table from the Hashmap of table numbers
 
 \subsubsection{Drivetrain Class}
@@ -677,39 +759,61 @@ Returns the coordinates to the table from the Hashmap of table numbers
 
 
 \textbf{Internal Variables}
-\textbf{mapPath: String} – The absolute path to the map directory
-\textbf{tableorder: Order} – The order from the next table.
-\textbf{ultraSonicPins: Int[]} – The pins dedicated for the ultrasonic sensors
-\textbf{hBridgePins: Int[]} – The pins dedicated for the H-bridge
-\textbf{graph: Graph} – Object to the graph object to find the shortest path
-\textbf{piControllerLeft: PI} – Object used for PI control for the left side of the drivetrain
-\textbf{piControllerRight: PI} – Object used for PI control for the left side of the drivetrain
+\textbf{mapPath: String} - The absolute path to the map directory
+
+\textbf{tableorder: Order} - The order from the next table.
+
+\textbf{ultraSonicPins: Int[]} - The pins dedicated for the ultrasonic sensors
+
+\textbf{hBridgePins: Int[]} - The pins dedicated for the H-bridge
+
+\textbf{graph: Graph} - Object to the graph object to find the shortest path
+
+\textbf{piControllerLeft: PI} - Object used for PI control for the left side of the drivetrain
+
+\textbf{piControllerRight: PI} - Object used for PI control for the left side of the drivetrain
 
 \textbf{Functions}
 
 \textbf{public driveToTable(Order): Integer}
+
 This function will preform the driving operation in order to navigate towards the specific table.
+
 \textbf{private turn(degree: Integer): void}
+
 This function will turn relative to its current position the amount desired within the argument. The robot will use the references of the circles to help with alignment by knowing that every node is 90 degrees from one another.
+
 \textbf{private driveForward(void): void}
+
 This function will control the robot to move forward provided: $ \forall front ultrasonic sensors: d_{ultrasonic} > d_{min} $. This motion will use the PI regulators to provide motion at human speed and will continue until a the next circle is within the middle of the camera.
 
 \textbf{private pathwayClear (void): boolean}
+
 This function will determine if robot to move forward provided: $ \forall front ultrasonic sensors: d_{ultrasonic} > d_{min} $. 
 
 \subsubsection{Communication Static Class}
 \textbf{Uses}
 None 
 \textbf{Internal Variables}
+
 None 
+
 \textbf{Functions}
+
 \textbf{getResturantMap(): String}
-Retrieves the map file based off of an FTP protocol and stores the map to be used for navigation. Returns the path of the map 
+
+Retrieves the map file based off of an FTP protocol and stores the map to be used for navigation. Returns the path of the map.
+
 \textbf{getTableOrder(): Order}
-Retrieves and returns the Table’s Order.
+
+Retrieves and returns the Table's Order.
+
 \textbf{sendErrors(errors: Integer)}
+
  Sends an integer with the described set of integers. 
+ 
 \textbf{transferPump(Order): Integer}
+
  Performs communication with the pumping system using UART communication. The first 32 bits are the error code of the pumping system and the last bit is the status of the pumping system. Sends the Order data and receives the errors from the pumping system.
 
 \subsubsection{Graph Class}
@@ -722,10 +826,14 @@ Retrieves and returns the Table’s Order.
 None 
 
 \textbf{Functions}
+
 \textbf{Graph(String Filename)}
+
 Constructor to create a graph object. Builds the graph based on the path to the map
+
 \textbf{getShortestPath(): Node[]}
-Returns a list of nodes that describes the shortest way to get to the destination.  The shortest path will be preformed using the map and Dijkstra’s algorithm.
+
+Returns a list of nodes that describes the shortest way to get to the destination.  The shortest path will be preformed using the map and Dijkstra's algorithm.
 
 
 \subsubsection{Node Class}
@@ -733,23 +841,37 @@ Returns a list of nodes that describes the shortest way to get to the destinatio
 None 
 
 \textbf{Public Functions}
+
 \textbf{Node(Int X, Int Y)}
+
 Constructor to the node class, takes in the position of the point along the X Y plane.
+
 \textbf{getX(): integer}
-Returns the x coordinate of the node
+
+Returns the x coordinate of the node.
+
 \textbf{getY(): integer}
-Returns the y coordinate of the node
+
+Returns the y coordinate of the node.
 
 \textbf{Internal Variables}
-\textbf{x: Integer} – The x coordinate of the node
-\textbf{y: Integer} – The y coordinate of the node.
+
+\textbf{x: Integer} - The x coordinate of the node
+
+\textbf{y: Integer} - The y coordinate of the node
 
 \textbf{Functions}
+
 \textbf{public Node(Int X, Int Y)}
+
 Constructor to the node class, takes in the position of the point along the X Y plane.
+
 \textbf{public getX(): integer}
+
 Returns the x coordinate of the node
+
 \textbf{public getY(): integer}
+
 Returns the y coordinate of the node
 
 
@@ -757,13 +879,17 @@ Returns the y coordinate of the node
 \textbf{Uses}
 None 
 \textbf{Internal Variables}
-\textbf{Ki: Float} – Integral temp for the PI controller
-\textbf{Kp: Float} – The y coordinate of the node.
+\textbf{Ki: Float} - Integral temp for the PI controller
+\textbf{Kp: Float} - The y coordinate of the node.
 
 \textbf{Functions}
+
 \textbf{public PI(Ki: Float, Kp: Float)}
+
 Constructor for the PI controller object taking in the Ki and Kp terms
+
 \textbf{public regulate(Int ref, Int feedback)}
+
 Based on the reference to control to and the feedback, will determine the value to set the outputs too. Determines the output based along the following formula: $ out = Kp*error+Ki*\int_{0}^{t}(error)dt$. Note that the derivative term is not used due to the error associated with derivatives within computing systems.
 
 
@@ -790,25 +916,40 @@ Gives a list of circles that were within the view of the camera. Open CV returns
 None
 \textbf{Internal Variables}
 
-\textbf{rad: Float} – The radius of the circle
-\textbf{x: Integer} – The X position of the circle relative to the image
+\textbf{rad: Float} - The radius of the circle
+
+\textbf{x: Integer} - The X position of the circle relative to the image
+
 \textbf{y: Integer} - The Y position of the circle relative to the image 
 
 \textbf{Functions}
 
 \textbf{Circle(radius, x, y)}
+
 Constructor of the circle class, takes in initial radius, x and y values
+
 \textbf{getX(): Float}
+
 Gives the X position of the circle relative to the image
+
 \textbf{getY(): Float}
+
 Gives the Y position of the circle relative to the image
+
 \textbf{getRadius(): Float}
+
 Gives the radius of the circle
+
 \textbf{setX(X:Float)}
+
 Sets the X position of the circle.
+
 \textbf{setY(Y:Float)}
+
 Sets the Y position of the circle.
+
 \textbf{setRadius(rad : Float)}
+
 Sets the radius of the circle.
 
 
@@ -852,15 +993,19 @@ None
 \textbf{Functions}
 
 \textbf{public setup(): void}
+
 Setup function for Arduino that initializes the pins that will be used 
 
 \textbf{publicloop(): void}
+
 Main loop that will preform the main logic of the pumping system
 
 \textbf{public determineState(): void}
+
 Based on the previous state of the pumping machine will look at factors such as weight of the liquid, need for communication and errors to determine the next state.
 
 \textbf{public performAction(): void}
+
 Based on the state of the device it will:
 \begin{itemize}
 	
@@ -882,17 +1027,29 @@ Based on the state of the device it will:
 
 
 \textbf{public Functions}
+
 \textbf{Pump():void}
-Initializes the values of the pumping module
+
+Initializes the values of the pumping module.
+
 \textbf{pumpLiquid(Drink): Integer}
+
 Turns on the pump for the specific drink type.
+
 \textbf{stopPump(Drink): Integer}
+
 Turns off the pump for the specific drink type.
+
 \textbf{isComplete(): Boolean}
+
 Determines if the drink has been completely filled or not based.
+
 \textbf{isLeaking(): Boolean}
+
 Determines if the containers are losing fluid when there is no pumping.
+
 \textbf{isSafeTempature()}
+
 Determines if the containers are still storing the liquids are at a safe temperature.
 
 \subsubsection{Communication Class}
@@ -927,17 +1084,21 @@ Communication performed used  where Orders are received and errors are transferr
 \end{itemize}
 
 \textbf{Internal Variables}
+
  None
 
 \textbf{Functions}
 
 \textbf{public setup(): void}
+
 Setup function for Arduino that initializes the pins that will be used 
 
 \textbf{public loop(): void}
+
 Main loop that will preform the main logic of the pumping system
 
 \textbf{public determineState(): void}
+
 Based on the previous state of the pumping machine will look at factors such as weight of the liquid, need for communication and errors to determine the next state. Which state is summarized in the following table:
 \begin{figure} [h!]
 	\centering
@@ -945,6 +1106,7 @@ Based on the previous state of the pumping machine will look at factors such as 
 \end{figure}
 
 \textbf{public performAction(): void}
+
 Based on the state of the the pumping system, will preform the following actions:
 \begin{figure} [h!]
 	\centering
@@ -961,25 +1123,37 @@ Based on the state of the the pumping system, will preform the following actions
 \end{itemize}
 
 \textbf{Internal Values}
+
 \textbf{DrinkCals coke}: Structure holding the calibrations related to Coke products
-\textbf{DrinkCals water}: Structure holding the calibrations related to Water.
+
+\textbf{DrinkCals water}: Structure holding the calibrations related to Water
 
 \textbf{Functions}
+
 \textbf{public Pump():void}
-Initializes the values of the pumping module
+
+Initializes the values of the pumping module.
+
 \textbf{public pumpLiquid(Drink): Integer}
+
 Turns on the pump for the specific drink type.
+
 \textbf{public stopPump(Drink): Integer}
+
 Turns off the pump for the specific drink type.
+
 \textbf{public isComplete(): Boolean}
+
 Determines if the drink has been completely filled or not based on the following equation:
 $Filled := M_min < M_cup$
+
 \textbf{public isLeaking(): Boolean}
+
 Determines if the containers are losing fluid when there is no pumping based on the following equation:
 $Leaking := [M_minleak < (M_container1 - M_container_prev1) \wedge Pin7 ==0] \vee [M_minleak < (M_container2 - M_container_prev2) \wedge Pin8 ==0] $
 
-
 \textbf{public isSafeTempature()}
+
 Determines if the containers are still storing the liquids at a temperature greater then the minimum temperature for the liquids based off of the following equations.
 $OverTempature := (T_container1 < T_min) \vee (T_container2 < T_min)$ 
 
