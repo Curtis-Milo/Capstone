@@ -6,18 +6,26 @@ authManager = AuthHandler()
 
 # TODO: Set up env variables
 def sendErrorCode(code):
-	host = 'http://' + os.environ['SERVER_IP'] + ':' + os.environ['SERVER_PORT'] + '/errors'
+	host = os.environ['SERVER_IP']
+	if not host.startswith('http'):
+		host = 'http://' + host
+
+	host = host + ':' + os.environ['SERVER_PORT'] + '/errors'
 
 	auth = authManager.getToken()
 
 	headers = {
-		"Authorization": auth['token_type'] + " " + auth['token']
+		"Authorization": auth['token_type'] + " " + auth['access_token']
 	}
 
 	return requests.post(host, headers=headers, data=code)
 
 def reqServerToken():
-	host = 'http://' + os.environ['SERVER_IP'] + ':' + os.environ['SERVER_PORT'] + '/gentoken'
+	host = os.environ['SERVER_IP']
+	if not host.startswith('http'):
+		host = 'http://' + host
+
+	host = host + ':' + os.environ['SERVER_PORT'] + '/gentoken'
 
 	r = requests.post(host)
 
