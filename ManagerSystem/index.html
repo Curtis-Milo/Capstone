@@ -1,0 +1,31 @@
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+	function Login() {
+    var sucess = false;
+    var LoginForm = document.getElementById('LoginForm');
+
+    //call to server
+    sucess = true;
+    if (sucess){
+    	window.location.href="selection.html";
+    }else{
+    	alert("Failure To Log In");
+
+    }
+	}
+
+
+</script>
+<h1 style="text-align: center;">Alfred Managment System</h1>
+
+<form id = "LoginForm">
+  Username:<br>
+  <input type="text" name="username"><br>
+  Password:<br>
+  <input type="password" name="password">
+
+  <input type="button" value = "Login" onclick="Login()"/>
+</form>
+
+</html>

@@ -1,0 +1,38 @@
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+  window.onload = function() {
+    getErrors();
+  };
+
+	function getErrors() {
+    var errors = 0x00001111;
+    var StringErrors = "";
+
+    if ((errors && 0x00000001)==0x00000001){
+        StringErrors = StringErrors + "LowLiquid <br>";
+    }
+    if((errors && 0x00000010)==0x00000010){
+        StringErrors = StringErrors + "LeakingTank <br>";
+    }
+    if ((errors && 0x00000100)==0x00000100){
+        StringErrors = StringErrors + "LowBattery <br>";
+    }
+    if ((errors && 0x00001000)==0x00001000){
+        StringErrors = StringErrors + "NoMovement <br>";
+    }
+    document.getElementById("errors").innerHTML = StringErrors;
+  }
+
+  function ReturnHome() {
+    
+  }
+</script>
+<h1 style="text-align: center;">Alfred Managment System</h1>
+
+<form id = "LoginForm">
+  <p id = "errors"></p>
+  <input type="button" value = "Return Home" onclick="ReturnHome()"/>
+</form>
+
+</html>
