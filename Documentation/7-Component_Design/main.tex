@@ -1903,7 +1903,7 @@ index = helper.binSearch(queue, order\_id)
 if (index >= 0) {
 	cb(null, (that.queue.length - index));
 } else {
-cb('order\_id not in queue');
+	cb('order\_id not in queue');
 }
 
 \textbf{delete(order\_id, cb): void}
