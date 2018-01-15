@@ -34,22 +34,22 @@
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
 \definecolor{mauve}{rgb}{0.58,0,0.82}
 
-\lstset{frame=tb,
-  language=C++,
-  aboveskip=3mm,
-  belowskip=3mm,
-  showstringspaces=false,
-  columns=flexible,
-  basicstyle={\small\ttfamily},
-  numbers=none,
-  numberstyle=\tiny\color{gray},
-  keywordstyle=\color{blue},
-  commentstyle=\color{dkgreen},
-  stringstyle=\color{mauve},
-  breaklines=true,
-  breakatwhitespace=true,
-  tabsize=3
-}
+%\lstset{frame=tb,
+%  language=C++,
+% aboveskip=3mm,
+%  belowskip=3mm,
+%  showstringspaces=false,
+%  columns=flexible,
+%  basicstyle={\small\ttfamily},
+%  numbers=none,
+%  numberstyle=\tiny\color{gray},
+%  keywordstyle=\color{blue},
+%  commentstyle=\color{dkgreen},
+%  stringstyle=\color{mauve},
+%  breaklines=true,
+%  breakatwhitespace=true,
+%  tabsize=3
+%}
 
 % Title Packages
 \usepackage{titlesec}
@@ -1366,6 +1366,46 @@ Sets the Y position of the circle.
 
 Sets the radius of the circle.
 
+
+\subsubsection{Raspberry Pi Pin Information}
+	\begin{table}[]
+		\centering
+		\caption{Raspberry pi cable system}
+		\label{my-label}
+		\begin{tabular}{|l|l|l|l|l|}
+			\hline
+			From                      & PIN \# (physical) & GPIO \# (BCM) & To                                     & Comments                                                                                                                                                                         \\ \hline
+			Raspberry Pi GND GPIO     & 6                 & -             & H-Bridge GND                           & Ground for Motor controller                                                                                                                                                      \\ \hline
+			Raspberry Pi 5V GPIO      & 4                 & -             & H-Bridge PWR                           & \begin{tabular}[c]{@{}l@{}}5V supply to H-bridge\\   ***can utilize the 5v pin of the ultrasonic sensors instead of a new pin\end{tabular}                                       \\ \hline
+			Raspberry Pi GPIO         & 12                & 18            & H-Bridge DIR 1                         & Direction of motor 1                                                                                                                                                             \\ \hline
+			Raspberry Pi GPIO         & 16                & 23            & H-Bridge PWM 1                         & PWM of motor 1                                                                                                                                                                   \\ \hline
+			Raspberry Pi GPIO         & 18                & 24            & H-Bridge DIR 2                         & Direction of motor 2                                                                                                                                                             \\ \hline
+			Raspberry Pi GPIO         & 22                & 25            & H-Bridge PWM 2                         & PWM of motor 2                                                                                                                                                                   \\ \hline
+			Raspberry Pi GND GPIO     & 14                & -             & Ultra sonic sensors GND                & \begin{tabular}[c]{@{}l@{}}Ground for all ultra sonic sensors\\   ***can utilize GND from H-Bridge GND pin\end{tabular}                                                          \\ \hline
+			Raspberry Pi 5V GPIO      & 2                 & -             & Ultra sonic sensors VCC                & \begin{tabular}[c]{@{}l@{}}5V supply for all ultrasonic sensors, connected parallel\\   ***can utilize the 5v pin of the H-bridge supply instead of using a new pin\end{tabular} \\ \hline
+			Raspberry Pi GPIO         & 24                & 8             & Ultra sonic sensor \#1 TRIG            & Send trigger signal                                                                                                                                                              \\ \hline
+			Raspberry Pi GPIO         & 26                & 7             & Ultra sonic sensor \#1 ECHO            &                                                                                                                                                                                  \\ \hline
+			Raspberry Pi GPIO         & 3                 & 2             & Ultra sonic sensor \#2 TRIG            & Send trigger signal                                                                                                                                                              \\ \hline
+			Raspberry Pi GPIO         & 5                 & 3             & Ultra sonic sensor \#2 ECHO            &                                                                                                                                                                                  \\ \hline
+			Raspberry Pi GPIO         & 7                 & 4             & Ultra sonic sensor \#3 TRIG            & Send trigger signal                                                                                                                                                              \\ \hline
+			Raspberry Pi GPIO         & 11                & 17            & Ultra sonic sensor \#3 ECHO            &                                                                                                                                                                                  \\ \hline
+			Raspberry Pi GND GPIO     & 20                & -             & Encoders GND                           & \begin{tabular}[c]{@{}l@{}}Shared between encoders \\   ***can utilize ultra sonic sensors’ GND or H-Bridge GND instead of taking new\\   pin\end{tabular}                       \\ \hline
+			Raspberry Pi 3.3V GPIO    & 1                 & -             & Encoders VCC                           & \begin{tabular}[c]{@{}l@{}}Shared between encoders in parallel\\   ***can utilize 5V from either H-Bridge pin or ultra sonic sensors’ pin\\   instead of 3.3v\end{tabular}       \\ \hline
+			Raspberry Pi GPIO         & 13                & 27            & Encoder \#1 DT                         &                                                                                                                                                                                  \\ \hline
+			Raspberry Pi GPIO         & 15                & 22            & Encoder \#1 CLK                        &                                                                                                                                                                                  \\ \hline
+			Raspberry Pi GPIO         & 19                & 10            & Encoder \#2 DT                         &                                                                                                                                                                                  \\ \hline
+			Raspberry Pi GPIO         & 21                & 9             & Encoder \#2 CLK                        &                                                                                                                                                                                  \\ \hline
+			Raspberry Pi GPIO         & 8                 & 14            & Arduino                                & Communication between Arduino and Pi                                                                                                                                             \\ \hline
+			Raspberry Pi GPIO         & 10                & 15            & Arduino                                & Communication between Arduino and Pi                                                                                                                                             \\ \hline
+			36V Positive terminal     & -                 & -             & H-Bridge power                         & Power supply to motors                                                                                                                                                           \\ \hline
+			36V Negative terminal     & -                 & -             & H-Bridge ground                        & Motor ground                                                                                                                                                                     \\ \hline
+			Motor 1 positive terminal & -                 & -             & H-Bridge Motor 1 +                     & Positive connection to controller                                                                                                                                                \\ \hline
+			Motor 1 negative terminal & -                 & -             & H-Bridge Motor 1 -                     & Negative connection to controller                                                                                                                                                \\ \hline
+			Motor 2 positive terminal & -                 & -             & H-Bridge Motor 2 +                     & Positive connection to controller                                                                                                                                                \\ \hline
+			Motor 2 negative terminal & -                 & -             & H-Bridge Motor 2 -                     & Negative connection to controller                                                                                                                                                \\ \hline
+			Pi Camera bus terminals   & -                 & -             & Raspberry Pi camera bus terminal input & Communication between the pi camera and the raspberry pi                                                                                                                         \\ \hline
+		\end{tabular}
+	\end{table}
 
 \section {Pumping System}
 
