@@ -3,8 +3,10 @@ var table_coords;
 var table_refs;
 var length;
 var width;
+var square_size = 200;
 function parseFiles(){
 	var file = false;
+	map = [];
 	if(file){
 		//parse from text file
 	}else{
@@ -29,6 +31,7 @@ function save(){
 }
 
 function onClickChange(i,j){
+	console.log("merp i = "+i+", j = "+j)
 	map[i][j] = (map[i][j]+1)%4;
 	updateMap();
 }
@@ -38,29 +41,33 @@ function updateMap(){
 	table_coords = [];
 	table_refs = [];
 	count_tblRef = 0;
+	var top = 100;
 	for (var i = 0; i < length; i++) {	
+			var left = 0;
 			for (var j = 0; j < width; j++) {
-			 var button = "<p";
+			 var button = "<div style =  \"position:fixed; left:"+left+"px; top:"+top+"px; \"";
 			 var insideStuff= "";
 			 if (map[i][j] == "0"){
-			 	insideStuff = "onclick = \"onClickChange("+i+","+j+")\" id = \"clear\""; 
+			 	insideStuff = " onclick = \"onClickChange("+i+","+j+")\" id = \"clear\""; 
 			 }else if(map[i][j] == "1"){
-				insideStuff = "onclick = \"onClickChange("+i+","+j+")\" id = \"blocked\""; 	
+				insideStuff = " onclick = \"onClickChange("+i+","+j+")\" id = \"blocked\""; 	
 			 }else if(map[i][j] == "2"){
-				insideStuff = "onclick = \"onClickChange("+i+","+j+")\" id = \"table\"";
+				insideStuff = " onclick = \"onClickChange("+i+","+j+")\" id = \"table\"";
 				//update table refereces
 				table_refs.push(count_tblRef);
 				table_coords.push([i,j]); 
 				count_tblRef = count_tblRef+1;
 			 }else if(map[i][j] == "3"){
-				insideStuff = "onclick = \"onClickChange("+i+","+j+")\" id = \"base\"";
+				insideStuff = " onclick = \"onClickChange("+i+","+j+")\" id = \"base\"";
 			 }
 
-			 button = insideStuff + "/>";
+			 button = button+ insideStuff + "></div";
 			 mapString = mapString + button;
+			 left= left+square_size;
 			}
+			top= top+square_size;
 		}
-		document.getElementById("demo").innerHTML =mapString;
+		document.getElementById("board").innerHTML =mapString;
 
 }
 

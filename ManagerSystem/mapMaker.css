@@ -1,15 +1,29 @@
 #clear {
-    color: white;
+    background-color: white;
+    width:200px;
+    height:200px;
 }
 
 #blocked {
-    color: black;
+    background-color: black;
+    width:200px;
+    height:200px;
 }
 
 #table {
-    color: blue;
+    background-color: blue;
+    width:200px;
+    height:200px;
 }
 
 #base {
-    color: blue;
+    background-color: red;
+    width:200px;
+    height:200px;
+}
+
+#board{
+	background-color: #5800fc;
+
+
 }
