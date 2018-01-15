@@ -51,4 +51,5 @@ class Server(object):
             self.server.shutdown()
 
 if __name__ == '__main__':
-    startServer(port=8000)
+    server = Server(port=8000)
+    server.startServer()
