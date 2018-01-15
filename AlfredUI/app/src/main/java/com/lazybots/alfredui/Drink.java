@@ -27,7 +27,7 @@ public class Drink implements Serializable {
         setPrice(price);
     }
 
-    public void setName(String name) {
+    private void setName(String name) {
         this.name = name;
     }
 
@@ -35,7 +35,7 @@ public class Drink implements Serializable {
         return this.name;
     }
 
-    public void setCalories(int calories) {
+    private void setCalories(int calories) {
         this.calories = calories;
     }
 
@@ -43,7 +43,7 @@ public class Drink implements Serializable {
         return this.calories;
     }
 
-    public void setImage(int image) {
+    private void setImage(int image) {
         this.image = image;
     }
 
@@ -51,7 +51,7 @@ public class Drink implements Serializable {
         return this.image;
     }
 
-    public void setPrice(double price) {
+    private void setPrice(double price) {
         this.price = price;
     }
 

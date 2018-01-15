@@ -11,12 +11,7 @@ public class DrinkItem implements Serializable{
 
     public item[] order;
 
-    public DrinkItem(){}
     public DrinkItem(ArrayList<String[]> x) {
-        setUpOrder(x);
-    }
-
-    public void setUpOrder(ArrayList<String[]> x) {
         order = new item[x.size()];
         int i=0;
         for (String[] y:x) {
@@ -27,7 +22,7 @@ public class DrinkItem implements Serializable{
         }
     }
 
-    public class item {
+    private class item {
         String type;
         int quantity;
     }

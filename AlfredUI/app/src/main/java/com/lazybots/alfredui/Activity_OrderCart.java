@@ -129,8 +129,7 @@ public class Activity_OrderCart extends AppCompatActivity{
                     http.setRequestMethod("POST"); // PUT is another valid option
 
                     Gson gson = new Gson();
-                    DrinkItem x = new DrinkItem();
-                    x.setUpOrder(rawCartData);
+                    DrinkItem x = new DrinkItem(rawCartData);
                     String json = gson.toJson(x);
 
 
