@@ -27,7 +27,7 @@
 
 % ---------- End Font Packages -------------- %
 
-\usepackage{listings}
+%\usepackage{listings}
 
 
 \definecolor{dkgreen}{rgb}{0,0.6,0}
@@ -1630,7 +1630,6 @@ The scope of this section is associated with the REST API server that will be re
 \textbf{main(): void}
 Running the server, intercepting REST API requests and taking required action.
 
-
 \subsubsection{queue}
 \textbf{Uses}
 \begin{itemize}
@@ -1788,7 +1787,83 @@ Call the callback function with the next order\_id and increment the counter.
 
 \textbf{Functions}
 \textbf{main(): void}
-Running the server, intercepting REST API requests and taking required action.
+
+\begin{center}
+	\begin{tabular}{ |c|c|c| } 
+		\hline
+		GET & POST & DELETE \\ 
+		placeinline & placeorder & cancelorder \\ 
+		nextorder & gentoken & drinks \\ 
+		checktoken & updatecreds & tables \\ 
+		drinks & returntobase &  \\ 
+		sizes & login &  \\ 
+		numoftanks & errors &  \\ 
+		& drinks &  \\ 
+		& tables &  \\ 
+		\hline
+	\end{tabular}
+\end{center}
+
+\textbf{Placeinline}
+Call checkToken for table authentication
+If passed, search queue for order\_id
+res.write(placeInLine.toString());
+\textbf{Placeorder}
+Call checkToken for table authentication
+If passed, parse the body of the request
+Verify that all data is correct
+If correct, push order to queue
+\textbf{cancelOrder}
+Call checkToken for robot authentication
+If passed, delete order from queue for specific order\_id
+\textbf{Nextorder}
+Call checkToken for robot authentication
+If passed, call queue’s pop function
+res.write(placeInLine.toString());
+\textbf{Gentoken}
+Call token refresh function
+Send token to robot host
+\textbf{Checktoken}
+Call checkToken for robot authentication
+res.write(JSON.stringify(resp\_auth));
+\textbf{Updatecreds}
+Call checkAuth for admin authentication
+If passed, parse body of request
+Call authManager update function to update new user/password combination
+\textbf{Login}
+Call checkAuth for admin authentication
+res.writeHead(200, 'Logged in', {'Content-Type': 'text/html'}); if credentials were authenticated
+\textbf{Returntobase}
+Call checkAuth for admin authentication
+Call returnToBase function to have robot return to the kitchen
+\textbf{Sizes}
+Print out list of drinks that are available
+\textbf{Numoftanks}
+Print out maximum number of tanks that the robot can hold
+\textbf{Errors}
+Call checkToken for robot authentication
+If passed, list all error messages thrown by the robot
+\textbf{Drinks (GET)}
+Print out list of drinks that are available
+\textbf{Drinks (POST)}
+Call checkAuth for admin authentication
+Check that the total number of drink types is not already at the maximum
+Parse the body of the request
+Lock mutex
+Store new drink type and tank number into drinks object and write them to file
+Unlock mutex
+\textbf{Drinks (DELETE)}
+Call checkAuth for admin authentication
+If passed, parse body of the request. Lock the mutex
+Delete specified drink type from DRINKS object. Write drink type list to file
+Unlock the mutex
+\textbf{Tables (POST)}
+Call checkAuth for admin authentication
+If passed, call addTable function
+res.write(JSON.stringify({token: token, token\_type: 'bearer'}));
+\textbf{Tables (DELETE)}
+Call checkAuth for admin authentication
+If passed, call deleteTable function
 
 
 \subsubsection{queue}
