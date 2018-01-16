@@ -45,11 +45,11 @@ TokenGen.prototype.sendToken = function(host) {
 		token_type: 'bearer',
 		access_token: this._token
 	};
-	UNIREST.post(host + '/') // TODO: figure out proper endpoint for bot
+	UNIREST.post(host + '/token') // TODO: figure out proper endpoint for bot
 	.headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
 	.send(data)
 	.end(function(res) {
-		console.log(UTIL.inspect(res, false, null));
+		// console.log(UTIL.inspect(res, false, null));
 	});
 };
 
