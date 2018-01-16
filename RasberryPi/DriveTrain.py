@@ -11,7 +11,7 @@ class DriveTrain():
         self.currNode ="Base"
         self.EncoderA = Encoder(7,8,9)
         self.EncoderB = Encoder(10,11,12)
-	    self.circleChecker = ImageRec()
+	self.circleChecker = ImageRec()
         self.UltraSonic = UltraSonic()
         #Motor H brige GPIO pins
         self.Motor1A = 02 # set GPIO-02 as Input 1 of the controller IC
@@ -61,7 +61,9 @@ class DriveTrain():
         
     def turn(self, angle_deg):
         time_prev= time()
-        circlefound = False;
+        self.circleChecker.captureImage()
+        circles = self.circleChecker.checkForCircle()
+
         GPIO.output(Motor1A,GPIO.HIGH)
         GPIO.output(Motor1B,GPIO.HIGH)
         TotalCount =0;
@@ -105,7 +107,19 @@ class DriveTrain():
                     pwm.ChangeDutyCycle(0)
 
                 self.circleChecker.captureImage()
-                self.circleChecker.checkForCircle()
+                circles = self.circleChecker.checkForCircle()
+
+                if circles is not None:
+                # convert the (x, y) coordinates and radius of the circles to integers
+                circles = np.round(circles[0, :]).astype("int")
+         
+                # loop over the (x, y) coordinates and radius of the circles
+                for (x, y, r) in circles:
+                    dist = ((self.mid_x -x)**2 + (self.mid_y -y)**2)**0.5
+                    if  dist < self.hist:
+                        circlefound =  True
+                        
+         
         pwm.stop()
                 
 
