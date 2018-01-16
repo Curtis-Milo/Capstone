@@ -1,5 +1,4 @@
 const LOCKS = require('locks');
-const UTIL = require('util');
 const FS = require('fs');
 const CRYPTO = require('crypto');
 
