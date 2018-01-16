@@ -5,10 +5,19 @@ var length;
 var width;
 var square_size = 200;
 function parseFiles(){
-	var file = false;
+	var prevFile = false;
 	map = [];
-	if(file){
-		//parse from text file
+	if(prevFile){
+		var mapfile;
+		parse = mapfile.split('\n').split(",")
+		length= parse[0][0];
+		width = parse[0][1];
+		for (var i = 1; i < length+1; i++) {
+			map.push([]);
+			for (var j = 0; j < width; j++) {
+			 map[i].push(parse[i][j]);
+			}
+		}
 	}else{
 		//default information when there is no 
 		length = 10;
@@ -26,7 +35,22 @@ function parseFiles(){
 }
 
 function save(){
-
+	var mapfile;
+	mapText = length+","+width +"\n";
+	for (var i = 0; i < length; i++) {
+		map.push([]);
+		for (var j = 0; j < width; j++) {
+			if(j == width-1){
+				mapText = mapText +map[i][j];
+			}else{
+				mapText = mapText +map[i][j] +",";
+			}
+			
+		}
+		if(i != length-1){
+				mapText = mapText +"\n";
+		}
+	}
 
 }
 

@@ -8,6 +8,7 @@ import Math
 class DriveTrain():
     def __init__(self):
         #encoder pins (TODO set pins)
+        self.currNode ="Base"
         self.EncoderA = Encoder(7,8,9)
         self.EncoderB = Encoder(10,11,12)
 	    self.circleChecker = ImageRec()
@@ -28,7 +29,35 @@ class DriveTrain():
         self.PiA = PI_Controller(1,1)
         self.PiB = PI_Controller(1,1)
     
+       def driveToLocation(self,toNode):
+        visited, path = self.map.dijsktra(self.currNode)
+        node = toNode
+        nodesToTravel = []
 
+        while (node != self.currNode):
+            nodesToTravel.insert(0,path[node]);
+            node= path[node]
+
+        prev =self.currNode
+        for nextNode in nodesToTravel:
+            x1 = prev[0]
+            x2 = nextNode[0]
+            y1= prev[1]
+            y2 = nextNode[1]
+
+            NewAngle = Math.atan2(y2-y1,x2-x1)  
+
+            turnAngle = (NewAngle-self.currAngle)
+
+            if  turnAngle < 0:
+                turnAngle = turnAngle+360    
+            this.drivetrain.turn()
+            self.currAngle  = NewAngle
+            this.drivetrain.drive(self.map.distances[(prev, nextNode)])
+            prev = nextNode
+            
+        self.currNode = toNode
+            
         
     def turn(self, angle_deg):
         time_prev= time()
