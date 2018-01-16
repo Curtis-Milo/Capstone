@@ -618,6 +618,7 @@ HTTP.createServer(function(req, res) {
 			});
 		} else if (url.pathname.toLowerCase().replace(/\//, '') === 'drinks') {
 			var auth = HELPER.caseInsensitiveKey(req.headers, 'authorization');
+			var name = HELPER.caseInsensitiveKey(url.query, 'name');
 
 			if (! auth) {
 				res.writeHead(401, 'Unauthorized', {'Content-Type': 'application/json'});
@@ -649,45 +650,30 @@ HTTP.createServer(function(req, res) {
 					return;
 				}
 
-				var body = '';
-				req.on('data', function(data) {
-					body += data;
-				});
+				if (! name) {
+					res.writeHead(400, 'Missing name of drink type', {'Content-Type': 'text/html'});
+					res.end();
+					return;
+				}
 
-				req.on('end', function() {
-					try {
-						jsonBody = JSON.parse(body);
-					} catch (e) {
-						res.writeHead(500, e, {'Content-Type': 'application/json'});
+				mutex.timedLock(10000, function(lockErr) {
+					if (lockErr) {
+						res.writeHead(500, lockErr, {'Content-Type': 'application/json'});
 						res.end();
 						return;
 					}
 
-					mutex.timedLock(10000, function(lockErr) {
-						if (lockErr) {
-							res.writeHead(500, lockErr, {'Content-Type': 'application/json'});
+					delete DRINKS[name.toUpperCase()];
+
+					FS.writeFile('./lib/types.json', JSON.stringify(DRINKS), function(writeErr) {
+						mutex.unlock();
+						if (writeErr) {
+							res.writeHead(500, writeErr, {'Content-Type': 'application/json'});
 							res.end();
 							return;
 						}
-
-						if (! jsonBody.name) {
-							res.writeHead(400, 'Missing name of drink type', {'Content-Type': 'application/json'});
-							res.end();
-							return;
-						}
-
-						delete DRINKS[jsonBody.name.toUpperCase()];
-
-						FS.writeFile('./lib/types.json', JSON.stringify(DRINKS), function(writeErr) {
-							mutex.unlock();
-							if (writeErr) {
-								res.writeHead(500, writeErr, {'Content-Type': 'application/json'});
-								res.end();
-								return;
-							}
-							res.writeHead(200, {'Content-Type': 'application/json'});
-							res.end();
-						});
+						res.writeHead(200, {'Content-Type': 'application/json'});
+						res.end();
 					});
 				});
 			});

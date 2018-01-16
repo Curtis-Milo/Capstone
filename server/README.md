@@ -270,11 +270,6 @@ N/A
 
 AUTHORIZATION: Bearer token auth, using token generated for table_id.
 
-BODY:
-```javascript
-N/A
-```
-
 RETURNS:
 ```javascript
 N/A
@@ -283,16 +278,9 @@ N/A
 
 ##### Delete a drink type
 
-*${HOST}/drinks*
+*${HOST}/drinks?name=${drink_name}*
 
 AUTHORIZATION: Basic authorization using original administrator credentials.
-
-BODY:
-```javascript
-{
-	"name": "drink_name"
-}
-```
 
 RETURNS:
 ```javascript
