@@ -97,6 +97,18 @@ int
 ```
 
 
+##### Return map.
+
+*${HOST}/map*
+
+AUTHORIZATION: Basic authorization using original administrator credentials OR Bearer token auth, using token generated and passed to robot.
+
+RETURNS:
+```javascript
+file
+```
+
+
 ## POST
 ##### Place an order in queue.
 
@@ -255,6 +267,23 @@ BODY:
 {
 	"drink_name": "nozzle_number"
 }
+```
+
+RETURNS:
+```javascript
+N/A
+```
+
+
+##### Set map.
+
+*${HOST}/map*
+
+AUTHORIZATION: Basic authorization using original administrator credentials OR Bearer token auth, using token generated and passed to robot.
+
+BODY:
+```javascript
+file
 ```
 
 RETURNS:
