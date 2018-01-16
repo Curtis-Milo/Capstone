@@ -2,15 +2,90 @@ from Graph import *
 from DriveTrain import *
 import serial
 import Math
+import time
 class Robot():
     def __init__(self):
         self.drivetrain = DriveTrain();
         GetMap();
         self.currAngle = 0
         self.toOrder = "Base"
-        self.currNode ="Base"
-        self.Mode = "Get Order"
+        self.order = None
+        self.errors = 0
+        self.time = 0
+        self.timeoutCal = 1000
+
+        self.tablesList ={};
         
+        self.statesEnum= {"WaitingForRequest":0,
+                          "RecevingMap":1,
+                          "TimeoutError":2,
+                          "Driving":3,
+                          "Pumping":4}
+
+        self.state= "WaitingForRequest"
+
+    def main():
+          try:
+            while 1:
+                determineState()
+                perfomAction()
+        except KeyboardInterrupt:
+            print "cancelled"
+
+            
+    def determineState():
+        if (self.statesEnum[self.state] ==0):
+            if self.order == None and self.time < self.timeoutCal:
+                self.state = "WaitingForRequest"
+            elif  self.order == None:
+                self.state = "TimeoutError"
+                self.time = 0
+            else:
+                self.state = "RecevingMap"
+                self.time = 0
+                
+        elif(self.statesEnum[self.state] ==1):
+            if self.map == None and self.time < self.timeoutCal:
+                self.state = "RecevingMap"
+            elif  self.map == None:
+                self.state = "TimeoutError"
+                self.time = 0
+            else:
+                self.state = "RecevingMap"
+        elif self.statesEnum[self.state] ==2:
+            if self.timeoutCal < self.time:
+                self.state = "WaitingForRequest"
+                self.time = 0
+            else:
+                self.state = "TimeoutError"
+                
+        elif(self.statesEnum[self.state] ==3):
+            if self.errors == 0:
+                self.state = "Pumping"
+            else:
+                self.state = "WaitingForRequest"
+                self.time = 0
+                
+        elif(self.statesEnum[self.state] ==4):
+            if self.errors == 0:
+                self.state = "WaitingForRequest"
+            else:
+                self.state = "WaitingForRequest"
+                self.time = 0
+                
+    def perfomAction():
+        if self.statesEnum[self.state] ==0:
+            self.getOrder()
+        elif self.statesEnum[self.state] ==1:
+            self.getMap()
+        elif self.statesEnum[self.state] ==2:
+            time.sleep(100)
+            self.sleepTime += 100
+        elif self.statesEnum[self.state] ==3:
+            self.errors = self.errors| self.drivetrain.driveToLocation(self.toOrder)
+        elif self.statesEnum[self.state] ==4:
+            self.communicateToArduino()
+            
     def getMap(self):
         home_num = 0
         table_num = 0
@@ -43,7 +118,7 @@ class Robot():
                     source = (j,i)
                     home_num = home_num +1
                 elif (chars[j] == "T" or chars[j] == "T\r"):
-                    goal = (j,i)
+                    self.tablesList[table_num] = (j,i)
                     table_num = table_num+1
 
                 elif (chars[j] == "X" or chars[j] == "X\r"):
@@ -65,66 +140,32 @@ class Robot():
                     self.map.add_edge(cur_Node, nextN, cost)
 
 
+        
     def getOrder(self):
         print "TODO get order"
         
 
-    def driveToLocation(self,toNode):
-        visited, path = self.map.dijsktra(self.currNode)
-        node = toNode
-        nodesToTravel = []
-
-        while (node != self.currNode):
-            nodesToTravel.insert(0,path[node]);
-            node= path[node]
-
-        prev =self.currNode
-        for nextNode in nodesToTravel:
-            x1 = prev[0]
-            x2 = nextNode[0]
-            y1= prev[1]
-            y2 = nextNode[1]
-
-            NewAngle = Math.atan2(y2-y1,x2-x1)  
-
-            turnAngle = (NewAngle-self.currAngle)
-
-            if  turnAngle < 0:
-                turnAngle = turnAngle+360    
-            this.drivetrain.turn()
-            self.currAngle  = NewAngle
-            this.drivetrain.drive(self.map.distances[(prev, nextNode)])
-            prev = nextNode
-            
-        self.currNode = toNode
-            
+ 
         
     def communicateToArduino(self):
         #https://oscarliang.com/raspberry-pi-and-arduino-connected-serial-gpio/
         ser = serial.Serial('/dev/ttyAMA0', 9600, timeout=1)
         ser.open()
-
-        ser.write("d0x")
+        bitdone = 0
         try:
-            while 1:
+            while !bitdone or self.errors:
+                ser.write(self.order.toString())
                 response = ser.readline()
-                print response
+                bitdone = response&0x00000001
+                self.errors = self.errors| response>>2
         except KeyboardInterrupt:
             ser.close()
 
-    def preformAction(self):
-
-        if self.Mode == "Get Order":
-            getOrder(self)
-        elif self.Mode == "Drive":
-            driveToLocation(self,self.toNode)
-        elif self.Mode == "Pour":
-            communicateToArduino(self)
+ 
 
 
-##MAIN 
+ 
 robot = Robot()
-while 1:
-    robot.preformAction()
+robot.main()
 		
 			

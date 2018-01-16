@@ -29,16 +29,5 @@ class ImageRec():
         # detect circles in the image
         circles = cv2.HoughCircles(gray, cv2.cv.CV_HOUGH_GRADIENT, 1.2, 100)
          
-        # ensure at least some circles were found
-        if circles is not None:
-                # convert the (x, y) coordinates and radius of the circles to integers
-                circles = np.round(circles[0, :]).astype("int")
-         
-                # loop over the (x, y) coordinates and radius of the circles
-                for (x, y, r) in circles:
-                    dist = ((self.mid_x -x)**2 + (self.mid_y -y)**2)**0.5
-                    if  dist < self.hist:
-                        return True
-                        
-         
-        return False
+    
+        return circles

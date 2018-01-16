@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.9.25)  15 JAN 2018 20:23
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.9.25)  15 JAN 2018 21:05
 entering extended mode
 **./main.tex
 (main.tex
@@ -597,7 +597,7 @@ LaTeX Info: Redefining \nameref on input line 220.
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
 (lastpage)             ! on input line 220.
- <figures/alfred.png, id=163, 501.875pt x 501.875pt>
+ <figures/alfred.png, id=167, 501.875pt x 501.875pt>
 File: figures/alfred.png Graphic file (type png)
 
 <use figures/alfred.png>
@@ -662,7 +662,7 @@ Overfull \hbox (3.0pt too wide) in paragraph at lines 334--334
 |[][][][][][][]| 
  []
 
-<figures/Client_UsesDiagram.png, id=298, 984.67876pt x 928.46875pt>
+<figures/Client_UsesDiagram.png, id=307, 984.67876pt x 928.46875pt>
 File: figures/Client_UsesDiagram.png Graphic file (type png)
 
 <use figures/Client_UsesDiagram.png>
@@ -823,7 +823,7 @@ Overfull \hbox (3.0pt too wide) in paragraph at lines 750--750
 |[][][][][][][]| 
  []
 
-<figures/Manager_UsesDiagram.png, id=352, 512.91624pt x 395.4775pt>
+<figures/Manager_UsesDiagram.png, id=360, 512.91624pt x 395.4775pt>
 File: figures/Manager_UsesDiagram.png Graphic file (type png)
 
 <use figures/Manager_UsesDiagram.png>
@@ -895,7 +895,7 @@ Overfull \hbox (3.0pt too wide) in paragraph at lines 909--909
 |[][][][][][][]| 
  []
 
-<figures/Alfred_UsesDiagram.png, id=370, 1285.80376pt x 651.43375pt>
+<figures/Alfred_UsesDiagram.png, id=378, 1285.80376pt x 651.43375pt>
 File: figures/Alfred_UsesDiagram.png Graphic file (type png)
 
 <use figures/Alfred_UsesDiagram.png>
@@ -970,7 +970,7 @@ Overfull \hbox (3.0pt too wide) in paragraph at lines 1101--1101
 |[][][][][][][]| 
  []
 
-<figures/AlfredSystem_DetermineState.png, id=395, 1090.0725pt x 374.14781pt>
+<figures/AlfredSystem_DetermineState.png, id=403, 1090.0725pt x 374.14781pt>
 File: figures/AlfredSystem_DetermineState.png Graphic file (type png)
 
 <use figures/AlfredSystem_DetermineState.png>
@@ -981,7 +981,7 @@ line 1128.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<figures/AlfredSystem_PerformAction.png, id=396, 956.07187pt x 203.25937pt>
+<figures/AlfredSystem_PerformAction.png, id=404, 956.07187pt x 203.25937pt>
 File: figures/AlfredSystem_PerformAction.png Graphic file (type png)
 
 <use figures/AlfredSystem_PerformAction.png>
@@ -1063,7 +1063,7 @@ Overfull \hbox (3.0pt too wide) in paragraph at lines 1429--1429
 |[][][][][][][]| 
  []
 
-<figures/Pumping_UsesDiagram.png, id=440, 741.77126pt x 481.8pt>
+<figures/Pumping_UsesDiagram.png, id=448, 741.77126pt x 481.8pt>
 File: figures/Pumping_UsesDiagram.png Graphic file (type png)
 
 <use figures/Pumping_UsesDiagram.png>
@@ -1100,7 +1100,7 @@ Overfull \hbox (3.0pt too wide) in paragraph at lines 1535--1535
 |[][][][][][][]| 
  []
 
-[23] <figures/Pumping_DetermineState.png, id=456, 971.12813pt x 466.74374pt>
+[23] <figures/Pumping_DetermineState.png, id=464, 971.12813pt x 466.74374pt>
 File: figures/Pumping_DetermineState.png Graphic file (type png)
 
 <use figures/Pumping_DetermineState.png>
@@ -1108,7 +1108,7 @@ Package pdftex.def Info: figures/Pumping_DetermineState.png used on input line
 1565.
 (pdftex.def)             Requested size: 388.44437pt x 186.69418pt.
 
-<figures/Pumping_PerformActions.png, id=457, 553.31718pt x 380.92313pt>
+<figures/Pumping_PerformActions.png, id=465, 553.31718pt x 380.92313pt>
 File: figures/Pumping_PerformActions.png Graphic file (type png)
 
 <use figures/Pumping_PerformActions.png>
@@ -1151,7 +1151,7 @@ Overfull \hbox (3.0pt too wide) in paragraph at lines 1650--1650
 |[][][][][][][]| 
  []
 
-<figures/server_class_diagram.PNG, id=464, 573.64313pt x 415.5525pt>
+<figures/server_class_diagram.PNG, id=472, 573.64313pt x 415.5525pt>
 File: figures/server_class_diagram.PNG Graphic file (type png)
 
 <use figures/server_class_diagram.PNG>
@@ -1288,7 +1288,7 @@ Overfull \hbox (3.0pt too wide) in paragraph at lines 2182--2182
 |[][][][][][][]| 
  []
 
-<figures/Alfred_SequenceDiagram.png, id=519, 545.03625pt x 400.49625pt>
+<figures/Alfred_SequenceDiagram.png, id=527, 545.03625pt x 400.49625pt>
 File: figures/Alfred_SequenceDiagram.png Graphic file (type png)
 
 <use figures/Alfred_SequenceDiagram.png>
@@ -1319,22 +1319,15 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 2194.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2194.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2194.
 
-
-
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: 3931405233C2F8F7D032D0204DB7CD4E;2259
-(rerunfilecheck)             After:  C26EED486974D234CAB834F6FA59A1D7;2323.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: C26EED486974D234CAB834F6FA59A1D7;2323.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2194.
  ) 
 Here is how much of TeX's memory you used:
- 9358 strings out of 493323
- 135280 string characters out of 3139066
+ 9359 strings out of 493323
+ 135296 string characters out of 3139066
  360556 words of memory out of 3000000
- 12600 multiletter control sequences out of 15000+200000
+ 12601 multiletter control sequences out of 15000+200000
  19895 words of font info for 55 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,15n,43p,425b,430s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1354,9 +1347,9 @@ pk> <C:\Users\curtm\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600
 Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiK
 TeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fo
 nts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on main.pdf (32 pages, 641947 bytes).
+Output written on main.pdf (32 pages, 642988 bytes).
 PDF statistics:
- 942 PDF objects out of 1000 (max. 8388607)
+ 949 PDF objects out of 1000 (max. 8388607)
  146 named destinations out of 1000 (max. 500000)
- 382 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 390 words of extra memory for PDF output out of 10000 (max. 10000000)
 
