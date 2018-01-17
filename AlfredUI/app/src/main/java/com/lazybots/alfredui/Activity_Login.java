@@ -1,47 +1,47 @@
 package com.lazybots.alfredui;
 
-import android.os.AsyncTask;
+import android.content.Intent;
 import android.os.Bundle;
-
 import android.support.v7.app.AppCompatActivity;
 import android.util.Base64;
 import android.view.View;
-import android.widget.NumberPicker;
+import android.widget.TextView;
+import android.widget.Toast;
 
-import com.google.gson.Gson;
+import java.io.UnsupportedEncodingException;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLConnection;
-
-public class Activity_Login extends AppCompatActivity {
-    NumberPicker np;
+public class Activity_Login extends AppCompatActivity implements AsyncResponse {
+    NetworkCalls server = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        server = new NetworkCalls();
+        server.delegate = this;
+        server.api_key = "login";
+    }
 
-        /*
-        np = (NumberPicker)findViewById(R.id.tableNumberPicker);
+    public void onClickButtonLogin(View v) throws UnsupportedEncodingException {
+        String username = ((TextView) findViewById(R.id.username)).getText().toString();
+        String password = ((TextView) findViewById(R.id.password)).getText().toString();
+        String auth = Base64.encodeToString((username + ":" + password).getBytes("UTF-8"), 0);
 
-        np.setMinValue(1);
-        np.setMaxValue(9);
-
-        np.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
-            @Override
-            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
-                tableNum = newVal;
-            }
-        });
-        */
+        server = new NetworkCalls();
+        server.delegate = this;
+        server.api_key = "login";
+        server.execute(auth);
 
     }
 
-    public void onClickButtonLogin(View v) {
+    @Override
+    public void processFinish(int responseCode, Object x) {
+        if (responseCode == 200) {
+            Intent i = new Intent(Activity_Login.this, Activity_Settings.class);
+            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(i);
+        } else {
+            Toast.makeText(Activity_Login.this, "Invalid credentials", Toast.LENGTH_LONG).show();
+
+        }
     }
 }

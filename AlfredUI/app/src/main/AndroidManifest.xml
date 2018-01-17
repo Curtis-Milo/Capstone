@@ -17,18 +17,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activity_DrinksList">
+        <activity
+            android:name=".Activity_Login"
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activity_OrderCart" />
+
         <activity
-            android:name=".Activity_Login"
-            android:label="@string/title_activity__login"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:name=".Activity_Settings"
+            android:noHistory="true" />
+
+        <activity android:name=".Activity_DrinksList" />
+        <activity android:name=".Activity_OrderCart" />
+
     </application>
 
 </manifest>

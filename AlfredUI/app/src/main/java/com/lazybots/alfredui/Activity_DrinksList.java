@@ -1,11 +1,10 @@
 package com.lazybots.alfredui;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.GridView;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.GridView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -13,7 +12,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 
 
-public class Activity_DrinksList extends AppCompatActivity {
+public class Activity_DrinksList extends AppCompatActivity implements AsyncResponse {
 
     private int tableNum ;
     private HashMap<String,Drink> drinkReference;
@@ -51,13 +50,15 @@ public class Activity_DrinksList extends AppCompatActivity {
     public void onClickViewCart (View v) {
         Intent myIntent = new Intent(v.getContext(), Activity_OrderCart.class);
 
+        myIntent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+
         myIntent.putExtra("DrinksInfo", this.drinkReference);
         myIntent.putExtra("drinks",setUpCurrentCart());
+        myIntent.putExtra("tableToken", (String) getIntent().getSerializableExtra("tableToken"));
 
         int GO_TO_CART = 1;
         startActivityForResult(myIntent, GO_TO_CART);
-        Log.d("ONCLICKEOLIDWHEOWI","ON VIEW CART CLICKED !!!!!!!!\n ON VIEW CART CLICKED !!!!!!!!\n ON VIEW CART CLICKED !!!!!!!!\n ON VIEW CART CLICKED !!!!!!!!\n ON VIEW CART CLICKED !!!!!!!!\n ON VIEW CART CLICKED !!!!!!!!\n");
-        Toast.makeText(Activity_DrinksList.this, "Go To cart clicked",Toast.LENGTH_SHORT);
+        Toast.makeText(Activity_DrinksList.this, "Go To cart clicked", Toast.LENGTH_SHORT).show();
 
     }
 
@@ -74,4 +75,8 @@ public class Activity_DrinksList extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void processFinish(int responseCode, Object x) {
+
+    }
 }
