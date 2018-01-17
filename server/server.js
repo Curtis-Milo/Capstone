@@ -9,6 +9,7 @@ const TABLE_MANAGER = require('./lib/table_mgmt');
 const ORDER = require('./lib/order');
 const FS = require('fs');
 const LOCKS = require('locks');
+const MAP_MANAGER = require('./lib/map_manager')
 
 var mutex = LOCKS.createMutex();
 
@@ -20,6 +21,7 @@ var order = new ORDER();
 var tokenGen = new TOKEN_GEN();
 var authManager = new BASIC_AUTH();
 var tableManager = new TABLE_MANAGER();
+var mapManager = new MAP_MANAGER();
 
 const MAX_NUM_TYPES = 3;
 
@@ -163,6 +165,61 @@ HTTP.createServer(function(req, res) {
 			res.writeHead(200, {'Content-Type': 'application/json'});
 			res.write(MAX_NUM_TYPES.toString());
 			res.end();
+		} else if (url.pathname.toLowerCase().replace(/\//, '') === 'map') {
+			var auth = HELPER.caseInsensitiveKey(req.headers, 'authorization');
+
+			if (! auth) {
+				res.writeHead(401, 'Unauthorized', {'Content-Type': 'application/json'});
+				res.end();
+				return;
+			}
+
+			var token = auth.trim().split(' ')[1];
+			var auth_type = auth.trim().split(' ')[0];
+
+			if (! token) {
+				res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
+				res.end();
+				return;
+			}
+
+			if (auth_type.toUpperCase() == 'BASIC') {
+				var buf = new Buffer(token, 'base64');
+				var plainAuth = buf.toString().split(':');
+
+				authManager.checkAuth(plainAuth[0], plainAuth[1], function(err, passed) {
+					if (err) {
+						res.writeHead(500, err, {'Content-Type': 'text/html'});
+						res.end();
+						return;
+					}
+
+					if (! passed) {
+						res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
+						res.end();
+						return;
+					}
+
+					mapManager.getMap(function(mapErr, stream, unlock) {
+						res.writeHead(200, {'Content-Type': 'text/plain'});
+						stream.pipe(res);
+					});
+				});
+			} else {
+				tokenGen.checkToken(token, function(tokenErr, passed) {
+					if (tokenErr) {
+						res.writeHead(500, tokenErr, {'Content-Type': 'text/html'});
+						res.end();
+						return;
+					}
+
+					if (! passed) {
+						res.writeHead(401, 'Unauthorized', {'Content-Type': 'application/json'});
+						res.end();
+						return;
+					}
+				});
+			}
 		} else {
 			res.writeHead(404, 'No such method', {'Content-Type': 'text/html'});
 			res.end();
@@ -414,6 +471,7 @@ HTTP.createServer(function(req, res) {
 				if (! passed) {
 					res.writeHead(401, 'Unauthorized', {'Content-Type': 'application/json'});
 					res.end();
+					return;
 				}
 
 				var body = '';
@@ -572,6 +630,50 @@ HTTP.createServer(function(req, res) {
 					});
 				});
 			});
+		} else if (url.pathname.toLowerCase().replace(/\//, '') === 'map') {
+			var auth = HELPER.caseInsensitiveKey(req.headers, 'authorization');
+
+			if (! auth) {
+				res.writeHead(401, 'Unauthorized', {'Content-Type': 'application/json'});
+				res.end();
+				return;
+			}
+
+			var token = auth.trim().split(' ')[1];
+
+			if (! token) {
+				res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
+				res.end();
+				return;
+			}
+
+			var buf = new Buffer(token, 'base64');
+			var plainAuth = buf.toString().split(':');
+
+			authManager.checkAuth(plainAuth[0], plainAuth[1], function(err, passed) {
+				if (err) {
+					res.writeHead(500, err, {'Content-Type': 'text/html'});
+					res.end();
+					return;
+				}
+
+				if (! passed) {
+					res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
+					res.end();
+					return;
+				}
+
+				mapManager.setMap(req, function(mapErr) {
+					if (mapErr) {
+						res.writeHead(500, mapErr, {'Content-Type': 'text/html'});
+						res.end();
+						return;
+					}
+
+					res.writeHead(200, 'Map uploaded!', {'Content-Type': 'text/html'});
+					res.end();
+				});
+			});
 		} else {
 			res.writeHead(404, 'No such method', {'Content-Type': 'text/html'});
 			res.end();
@@ -618,6 +720,7 @@ HTTP.createServer(function(req, res) {
 			});
 		} else if (url.pathname.toLowerCase().replace(/\//, '') === 'drinks') {
 			var auth = HELPER.caseInsensitiveKey(req.headers, 'authorization');
+			var name = HELPER.caseInsensitiveKey(url.query, 'name');
 
 			if (! auth) {
 				res.writeHead(401, 'Unauthorized', {'Content-Type': 'application/json'});
@@ -649,45 +752,30 @@ HTTP.createServer(function(req, res) {
 					return;
 				}
 
-				var body = '';
-				req.on('data', function(data) {
-					body += data;
-				});
+				if (! name) {
+					res.writeHead(400, 'Missing name of drink type', {'Content-Type': 'text/html'});
+					res.end();
+					return;
+				}
 
-				req.on('end', function() {
-					try {
-						jsonBody = JSON.parse(body);
-					} catch (e) {
-						res.writeHead(500, e, {'Content-Type': 'application/json'});
+				mutex.timedLock(10000, function(lockErr) {
+					if (lockErr) {
+						res.writeHead(500, lockErr, {'Content-Type': 'application/json'});
 						res.end();
 						return;
 					}
 
-					mutex.timedLock(10000, function(lockErr) {
-						if (lockErr) {
-							res.writeHead(500, lockErr, {'Content-Type': 'application/json'});
+					delete DRINKS[name.toUpperCase()];
+
+					FS.writeFile('./lib/types.json', JSON.stringify(DRINKS), function(writeErr) {
+						mutex.unlock();
+						if (writeErr) {
+							res.writeHead(500, writeErr, {'Content-Type': 'application/json'});
 							res.end();
 							return;
 						}
-
-						if (! jsonBody.name) {
-							res.writeHead(400, 'Missing name of drink type', {'Content-Type': 'application/json'});
-							res.end();
-							return;
-						}
-
-						delete DRINKS[jsonBody.name.toUpperCase()];
-
-						FS.writeFile('./lib/types.json', JSON.stringify(DRINKS), function(writeErr) {
-							mutex.unlock();
-							if (writeErr) {
-								res.writeHead(500, writeErr, {'Content-Type': 'application/json'});
-								res.end();
-								return;
-							}
-							res.writeHead(200, {'Content-Type': 'application/json'});
-							res.end();
-						});
+						res.writeHead(200, {'Content-Type': 'application/json'});
+						res.end();
 					});
 				});
 			});

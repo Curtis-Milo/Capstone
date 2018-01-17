@@ -97,6 +97,18 @@ int
 ```
 
 
+##### Return map.
+
+*${HOST}/map*
+
+AUTHORIZATION: Basic authorization using original administrator credentials OR Bearer token auth, using token generated and passed to robot.
+
+RETURNS:
+```javascript
+file
+```
+
+
 ## POST
 ##### Place an order in queue.
 
@@ -263,17 +275,29 @@ N/A
 ```
 
 
+##### Set map.
+
+*${HOST}/map*
+
+AUTHORIZATION: Basic authorization using original administrator credentials OR Bearer token auth, using token generated and passed to robot.
+
+BODY:
+```javascript
+file
+```
+
+RETURNS:
+```javascript
+N/A
+```
+
+
 ## DELETE
 ##### Cancel an order.
 
 *${HOST}/cancelOrder?table_id=${table_id}&order_id=${order_id}*
 
 AUTHORIZATION: Bearer token auth, using token generated for table_id.
-
-BODY:
-```javascript
-N/A
-```
 
 RETURNS:
 ```javascript
@@ -283,16 +307,9 @@ N/A
 
 ##### Delete a drink type
 
-*${HOST}/drinks*
+*${HOST}/drinks?name=${drink_name}*
 
 AUTHORIZATION: Basic authorization using original administrator credentials.
-
-BODY:
-```javascript
-{
-	"name": "drink_name"
-}
-```
 
 RETURNS:
 ```javascript
