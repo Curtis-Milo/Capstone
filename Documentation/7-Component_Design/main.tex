@@ -788,13 +788,13 @@ None
 Constructor to object for page load
 
 \textbf{onLengthChange(int Length)}
-Sets the length of the map when the user changes it in the form.
+Sets the length of the map when the user changes it in the form. This is based on requirement AD1.
 
 \textbf{onWidthChange(int Width)}
-Sets the width of the map when the user changes it in the form.
+Sets the width of the map when the user changes it in the form.This is based on requirement AD1.
 
 \textbf{setSquare(X:Int, Y:Int, value:Int): void}
-Sets the value of the square based on its X,Y position when there is an on click event.
+Sets the value of the square based on its X,Y position when there is an on click event. This is based on requirement AD2.
 
 \subsubsection{ErrorViewer Page}
 \textbf{Uses}
@@ -803,9 +803,9 @@ None
 \textbf{Public Functions}
 
 \textbf{ showErrors(): void}
-Shows the Errors Associated to Alfred.
+Shows the Errors Associated to Alfred. Based on requirement NFR26.
 \textbf{onClickReturnHome()}
-Signals the Robot to return home.
+Signals the Robot to return home. Based on requirement NFR11.
 
 \subsection{MID}
 
@@ -932,7 +932,7 @@ The scope of this section is associated with Alfred's Manager System, Alfred's D
 
 \textbf{determineState(): void}
 
-Determines the overall state of Alfred based on the inputs to Alfred.
+Determines the overall state of Alfred based on the inputs to Alfred. 
 
 \textbf{performAction(): void}
 
@@ -949,15 +949,15 @@ Will preform the desired state based on the state of Alfred.
 
 \textbf{getDrinks()}
 
-Drink[] - Returns the list of drinks
+Drink[] - Returns the list of drinks. Based on requirement AF1.
 
 \textbf{getTableNumber}
 
- Integer - Returns the table number reference
+ Integer - Returns the table number reference. Based on requirement AF3.
 
 \textbf{getTableCoords}
 
- Integer[] - Returns the coordinates to the table
+ Integer[] - Returns the coordinates to the table. Based on requirement AF3.
 
 \subsubsection{Drivetrain Class}
 \textbf{Uses}
@@ -974,7 +974,7 @@ Drink[] - Returns the list of drinks
 
 \textbf{Public Functions}
 \textbf{driveToTable(Order): Integer}
-This function will preform the driving operation in order to navigate towards the specific table.
+This function will preform the driving operation in order to navigate towards the specific table. Based on requirement AF3.
 
 \subsubsection{Communication Static Class}
 \textbf{Uses}
@@ -985,19 +985,19 @@ None
 
 \textbf{getResturantMap(): String}
 
-Retrieves and stores the map to be used for navigation. Returns the path of the map 
+Retrieves and stores the map to be used for navigation. Returns the path of the map. Based on requirement AF3.
 
 \textbf{getTableOrder(): Order}
 
-Retrieves and returns the Table's Order.
+Retrieves and returns the Table's Order. Based on requirement AF3.
 
 \textbf{sendErrors(errors: Integer)}
 
-Sends an integer with the described set of integers. 
+Sends an integer with the described set of integers. Based on requirement NFR26.
 
 \textbf{transferPump(Order): Integer}
 
-Preforms communication with the pumping system. Sends the Order data and receives the errors from the pumping system and if it complete.
+Preforms communication with the pumping system. Sends the Order data and receives the errors from the pumping system and if it complete. Based on requirement AF1.
 
 \subsubsection{Graph Class}
 \textbf{Uses}
@@ -1009,7 +1009,7 @@ Preforms communication with the pumping system. Sends the Order data and receive
 
 \textbf{Graph(String Filename)}
 
-Constructor to create a graph object. Builds the graph based on the path to the map
+Constructor to create a graph object. Builds the graph based on the path to the map. Based on requirement AF3.
 
 \textbf{getShortestPath(): Node[]}
 
@@ -1047,7 +1047,7 @@ Constructor for the PI controller object taking in the Ki and Kp terms
 
 \textbf{regulate(Int ref, Int feedback)}
 
-Based on the reference to control to and the feedback, will determine the value to set the outputs too.
+Based on the reference to control to and the feedback, will determine the value to set the outputs too.  Based on requirement AF3 to allow regulated movement to the location.
 
 \subsubsection{Imaging Processing Static Class}
 \textbf{Uses}
@@ -1070,7 +1070,7 @@ None
 
 \textbf{Circle(radius, x, y)}
 
-Constructor of the circle class, takes in initial radius, x and y values
+Constructor of the circle class, takes in initial radius, x and y values. Based on requirement AF3 to allow regulated movement to the location.
 
 \textbf{getX(): Float}
 
@@ -1494,23 +1494,25 @@ Initializes the values of the pumping module.
 
 \textbf{pumpLiquid(Drink): Integer}
 
-Turns on the pump for the specific drink type.
+Turns on the pump for the specific drink type. Based on requirement AF1.
 
 \textbf{stopPump(Drink): Integer}
 
-Turns off the pump for the specific drink type.
+Turns off the pump for the specific drink type. Based on requirement AF5.
 
 \textbf{isComplete(): Boolean}
 
-Determines if the drink has been completely filled or not based.
+Determines if the drink has been completely filled or not based. Based on requirement AF5.
+
 
 \textbf{isLeaking(): Boolean}
 
-Determines if the containers are losing fluid when there is no pumping.
+Determines if the containers are losing fluid when there is no pumping. Based on requirement NFR22.
 
 \textbf{isSafeTempature()}
 
-Determines if the containers are still storing the liquids are at a safe temperature.
+Determines if the containers are still storing the liquids are at a safe temperature. Based on requirement AF6.
+
 
 \subsubsection{Communication Class}
 
