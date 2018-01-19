@@ -18,6 +18,7 @@
 \usepackage{color,soul}
 
 % VIC title package\
+\usepackage{cabin}
 \usepackage[T1]{fontenc}
 
 % default font package
@@ -82,7 +83,7 @@
 
 
 % Paragraph parameter
-
+\usepackage{lscape}
 \setlength{\parindent}{0pt}
 
 
@@ -195,7 +196,7 @@ linkcolor=black,}  %choose some color if you want links to stand out
 \pagestyle{fancy}
 
 % Header
-\lhead{Component Design}
+\lhead{Draft Component Design}
 \rhead{Revision: 0}
 \fancyhead[LE,CO]{Group 9: LazyBots}
 
@@ -231,7 +232,8 @@ linkcolor=black,}  %choose some color if you want links to stand out
 \hspace{-10mm}\includegraphics [scale = .3, trim={.4cm 0 .8cm 0},clip] {figures/alfred.png}
 \end {figure}
 
-\Huge{LazyBots}
+{\fontfamily{\cabinfamily}\selectfont
+\Huge{LazyBots} }
 
 \vspace{1 cm}
 {\Large\textbf{\textsc{McMaster University}}\\}  \vspace {1cm}
@@ -252,6 +254,8 @@ Alexandra Rahman & & 001305735
 
 
 \end{center}
+
+
 
 
 % --------- TITLE PAGE END------- %
@@ -311,8 +315,10 @@ Alexandra Rahman & & 001305735
 \section {ClientApp}
 
 \subsection{Purpose}
+The following will describe the component software design associated with the Client Application. This will be carried out within android based tools to allow customers to order drinks from any table..
 
 \subsection{Scope}
+The scope of this section is associated with any front end user interfaces that the customers will use.
 
 \subsection{Module Decomposition}
 
@@ -331,7 +337,8 @@ Alexandra Rahman & & 001305735
 
 \subsection{Uses Relation}
 
-\subsection{Uses Relation}
+Please refer to Figure 1.
+
 \begin{figure} [h!]
 	\centering
 	\includegraphics [scale = 0.4] {figures/Client_UsesDiagram.png}
@@ -735,11 +742,11 @@ Returns the view for the position id passed to it. Takes the position id, curren
 
 
 \subsection{Purpose}
-The following will describe the component software design associated with Manager System. This will be carried out within web based tools to allow managment to access there information Anywhere
+The following will describe the component software design associated with Manager System. This will be carried out within web based tools to allow management to access there information anywhere.
 
 \subsection{Scope}
 
-The scope of this section is associated with any front end user interfaces that the managment staff will use. This includes the MIS/MID and uses relation in regards to the Map Making Page, the Error Viewing page and the Login System. 
+The scope of this section is associated with any front end user interfaces that the management staff will use. This includes the MIS/MID and uses relation in regards to the Map Making Page, the Error Viewing page and the Login System. 
 
 \subsection{Module Decomposition}
 
@@ -1839,16 +1846,15 @@ Call the callback function with the next order\_id and increment the counter.
 \begin{center}
 	\begin{tabular}{ |c|c|c| } 
 		\hline
-		GET & POST & DELETE \\ 
-		placeinline & placeorder & cancelorder \\ 
-		nextorder & gentoken & drinks \\ 
-		checktoken & updatecreds & tables \\ 
-		drinks & returntobase &  \\ 
-		sizes & login &  \\ 
-		numoftanks & errors &  \\ 
-		& drinks &  \\ 
-		& tables &  \\ 
-		\hline
+		\textbf{GET} & \textbf{POST} & \textbf{DELETE} \\ \hline
+		placeinline & placeorder & cancelorder \\ \hline
+		nextorder & gentoken & drinks \\ \hline
+		checktoken & updatecreds & tables \\ \hline
+		drinks & returntobase &  \\ \hline
+		sizes & login &  \\ \hline
+		numoftanks & errors &  \\ \hline
+		& drinks &  \\ \hline
+		& tables &  \\ \hline
 	\end{tabular}
 \end{center}
 
@@ -2182,13 +2188,14 @@ cb(null, new order\_id)
 
 
 \section {Scheduling}
-%https://cloud.smartdraw.com/editor.aspx?depoId=7769871&credID=-20955169&pubDocShare=B3F518EBB56471C779CFA8CA72F6C1F065E
-\begin{figure} [h!]
+
+\begin{figure}
 	\centering
-	\includegraphics [scale = 0.55] {figures/Alfred_SequenceDiagram.png}
+	\includegraphics [scale = 0.6] {figures/Alfred_SequenceDiagram.png}
 	\caption{Alfred Sequence Diagram}
 \end{figure}
 
+\newpage
 \section {Design Notes}
 
 \begin{figure}[h!]
@@ -2233,7 +2240,4 @@ cb(null, new order\_id)
 	\caption{Engineering Model - Motor Mount}
 \end{figure}
 
-\section {Data Dictionary}
-
-\section {References}
 \end{document}
