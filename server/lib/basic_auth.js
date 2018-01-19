@@ -67,8 +67,15 @@ BasicAuthManager.prototype.update = function(uName, pw, cb) {
 };
 
 BasicAuthManager.prototype.login = function(uName, pw, cb) {
-	this.sessManager.startSession(function(err, token) {
-		cb(err, token);
+	this.checkAuth(uName, pw, function(err, passed) {
+		if (err) {
+			return cb(err);
+		} else if (! passed) {
+			return cb(null, false);
+		}
+		this.sessManager.startSession(function(err, token) {
+			cb(err, token);
+		});
 	});
 };
 

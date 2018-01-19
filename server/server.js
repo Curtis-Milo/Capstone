@@ -25,6 +25,20 @@ var mapManager = new MAP_MANAGER();
 
 const MAX_NUM_TYPES = 3;
 
+function _parseCookies(cookies) {
+	if (! cookies) return null;
+
+	var ret = {};
+
+	for (let cookie of cookies.split(';')) {
+		var temp = cookie.split('=');
+
+		ret[temp[0].trim()] = temp[1].trim();
+	}
+
+	return ret;
+}
+
 tokenGen.sendToken(process.env.BOT_HOST); // Define bot IP in environment
 
 HTTP.createServer(function(req, res) {
@@ -201,8 +215,14 @@ HTTP.createServer(function(req, res) {
 					}
 
 					mapManager.getMap(function(mapErr, stream, unlock) {
+						if (mapErr) {
+							res.writeHead(500, mapErr, {'Content-Type': 'text/html'});
+							res.end();
+							return;
+						}
 						res.writeHead(200, {'Content-Type': 'text/plain'});
 						stream.pipe(res);
+						unlock();
 					});
 				});
 			} else {
@@ -218,6 +238,17 @@ HTTP.createServer(function(req, res) {
 						res.end();
 						return;
 					}
+
+					mapManager.getMap(function(mapErr, stream, unlock) {
+						if (mapErr) {
+							res.writeHead(500, mapErr, {'Content-Type': 'text/html'});
+							res.end();
+							return;
+						}
+						res.writeHead(200, {'Content-Type': 'text/plain'});
+						stream.pipe(res);
+						unlock();
+					});
 				});
 			}
 		} else {
@@ -428,20 +459,23 @@ HTTP.createServer(function(req, res) {
 			var buf = new Buffer(token, 'base64');
 			var plainAuth = buf.toString().split(':');
 
-			authManager.checkAuth(plainAuth[0], plainAuth[1], function(err, passed) {
+			authManager.login(plainAuth[0], plainAuth[1], function(err, token) {
 				if (err) {
 					res.writeHead(500, err, {'Content-Type': 'text/html'});
 					res.end();
 					return;
 				}
 
-				if (! passed) {
+				if (! token) {
 					res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
 					res.end();
 					return;
 				}
 
-				res.writeHead(200, 'Logged in', {'Content-Type': 'text/html'});
+				res.writeHead(200, {
+					'Content-Type': 'text/html',
+					'Set-Cookie': `server_sessionId=${token}`
+				});
 				res.end();
 			});
 		} else if (url.pathname.toLowerCase().replace(/\//, '') === 'errors') {
