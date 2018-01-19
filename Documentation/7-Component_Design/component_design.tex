@@ -325,15 +325,16 @@ The scope of this section is associated with any front end user interfaces that 
 \textbf{Activity\_Login}: GUI class for admin to log into client app device.
 \textbf{Activity\_Settings}: GUI class for admin to reset device cart, as well as change the table number of the client device. Secrets include parsing and storing table info coming from the server.
 
-\textbf{Activity\_DrinksList}: GUI class for users to go through available drinks and choose their order. Secrets include parsing drink info coming from the server.
-\textbf{Activity\_OrderCart}: GUI class for users to view their current cart, as well as their previous orders. Secrets include parsing and dealing with server’s response when order is sent to the server.
+\textbf{Activity\_DrinksList [T01]}: GUI class for users to go through available drinks and choose their order. Secrets include parsing drink info coming from the server.
+\textbf{Activity\_OrderCart [T01]}: GUI class for users to view their current cart, as well as their previous orders. Secrets include parsing and dealing with server’s response when order is sent to the server.
 
 \textbf{DrinksViewAdapter}: Adapter class for each visible drink in Activity\_DrinksList
 \textbf{DrinkCartListAdapter}: Adapter class for each cart item in Activity\_OrderCart
 \textbf{Drink}: Object class representing a drink item.
 
 \textbf{DrinkOrder}: Object class representing a table’s order to be sent to the server. 
-\textbf{NetworkCalls}: Asynchronous class to perform network calls for the client app. Secrets include how network requests/responses are handled.
+\textbf{NetworkCalls [T02]}: Asynchronous class to perform network calls for the client app. Secrets include how network requests/responses are handled.
+\textbf{AsyncResponse [T02]} Interface to deliver NetworkCall results to the current activity for processing.
 
 \subsection{Uses Relation}
 
@@ -395,6 +396,7 @@ Constructor for DrinkOrder class. Takes the raw cart data for the currently sele
 \begin{itemize}
 	\item DrinksViewAdapter (Class)
 	\item NetworkCalls (Class)
+	\item AsyncResponse (Interface)
 \end{itemize}
 
 \textbf{onActivityResult(int requestCode, int responseCode, Intent data):void}
@@ -411,6 +413,7 @@ Initialize this Activity(app menu) when created.
 \textbf{Uses}
 \begin{itemize}
 	\item NetworkCalls (Class)
+	\item AsyncResponse (Interface)
 \end{itemize}
 
 \textbf{Public Functions}
@@ -426,6 +429,7 @@ Initialize this Activity(app menu) when created.
 \textbf{Uses}
 \begin{itemize}
 	\item NetworkCalls (Class)
+	\item AsyncResponse (Interface)
 \end{itemize}
 
 \textbf{onClickButtonResetCart(View v):void}
@@ -443,6 +447,7 @@ Initialize this Activity(app menu) when created.
 \begin{itemize}
 	\item DrinkCartListAdapter (Class)
 	\item NetworkCalls (Class)
+	\item AsyncResponse (Interface)
 \end{itemize}
 
 \textbf{Public Functions}
@@ -457,7 +462,11 @@ Listener for the send order button. Sends the current cart to the server.
 Initialize this Activity(app menu) when created.
 
 \subsubsection{NetworkCalls}
-\textbf{Uses}:None
+\textbf{Uses}
+\begin{itemize}
+	\item AsyncResponse (Interface)
+\end{itemize}
+
 
 \textbf{Public Functions}
 
@@ -469,6 +478,14 @@ Executes the HTTP request based on the api key provided.
 
 \textbf{onPostExecute(Object result):void}
 Processes the response after doInBackground is completed.
+
+\subsubsection{Interface AsyncResponse}
+\textbf{Uses} : None
+
+\textbf{Public Functions}
+
+\textbf{processFinish(int responseCode, Object x): void}
+Processes data in calling activity after NetworkCalls is completed execution.
 
 \subsubsection{DrinksViewAdapter}
 
@@ -578,6 +595,7 @@ Constructor for DrinkOrder class. Takes the raw cart data for the currently sele
 \begin{itemize}
 	\item DrinksViewAdapter (Class)
 	\item NetworkCalls (Class)
+	\item AsyncResponse (Interface)
 \end{itemize}
 
 \textbf{Internal Variables}
@@ -606,6 +624,7 @@ Retrieves and returns the items stored in gv.
 
 \begin{itemize}
 	\item NetworkCalls (Class)
+	\item AsyncResponse (Interface)
 \end{itemize}
 
 \textbf{Internal Variables} None
@@ -623,6 +642,7 @@ Initialize this Activity(app menu) when created.
 \textbf{Uses}
 \begin{itemize}
 	\item NetworkCalls (Class)
+	\item AsyncResponse (Interface)
 \end{itemize}
 
 \textbf{Internal Variables}
@@ -643,6 +663,7 @@ Initialize this Activity(app menu) when created.
 \begin{itemize}
 	\item DrinkCartListAdapter (Class)
 	\item NetworkCalls (Class)
+	\item AsyncResponse (Interface)
 \end{itemize}
 
 \textbf{Internal Variables}
@@ -665,8 +686,10 @@ Uses the information from the currentCart to set up an ArrayList<String[]>. Each
 
 \subsubsection{NetworkCalls}
 
-\textbf{Uses}:None
-
+\textbf{Uses}
+\begin{itemize}
+	\item AsyncResponse (Interface)
+\end{itemize}
 \textbf{Internal Variables}
 
 \textbf{api\_key: String} - String representing the api being targeted. Used for conditionals.
@@ -687,6 +710,17 @@ Executes the HTTP request based on the api key provided.
 
 \textbf{public onPostExecute(Object result):void}
 Processes the response after doInBackground is completed.
+
+\subsubsection{Interface AsyncResponse}
+
+\textbf{Uses}:None
+
+\textbf{Internal Variables} : None
+
+\textbf{Functions}
+
+\textbf{public processFinish(int responseCode, Object x): void}
+Processes data in calling activity after NetworkCalls is completed execution.
 
 \subsubsection{DrinksViewAdapter}
 
