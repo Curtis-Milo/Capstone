@@ -323,18 +323,24 @@ The scope of this section is associated with any front end user interfaces that 
 \subsection{Module Decomposition}
 
 \textbf{Activity\_Login}: GUI class for admin to log into client app device.
+
 \textbf{Activity\_Settings}: GUI class for admin to reset device cart, as well as change the table number of the client device. Secrets include parsing and storing table info coming from the server.
 
-\textbf{Activity\_DrinksList [T01]}: GUI class for users to go through available drinks and choose their order. Secrets include parsing drink info coming from the server.
-\textbf{Activity\_OrderCart [T01]}: GUI class for users to view their current cart, as well as their previous orders. Secrets include parsing and dealing with server’s response when order is sent to the server.
+\textbf{Activity\_DrinksList [Requirement T01]}: GUI class for users to go through available drinks and choose their order. Secrets include parsing drink info coming from the server.
+
+\textbf{Activity\_OrderCart [Requirement T01]}: GUI class for users to view their current cart, as well as their previous orders. Secrets include parsing and dealing with server’s response when order is sent to the server.
 
 \textbf{DrinksViewAdapter}: Adapter class for each visible drink in Activity\_DrinksList
+
 \textbf{DrinkCartListAdapter}: Adapter class for each cart item in Activity\_OrderCart
+
 \textbf{Drink}: Object class representing a drink item.
 
 \textbf{DrinkOrder}: Object class representing a table’s order to be sent to the server. 
-\textbf{NetworkCalls [T02]}: Asynchronous class to perform network calls for the client app. Secrets include how network requests/responses are handled.
-\textbf{AsyncResponse [T02]} Interface to deliver NetworkCall results to the current activity for processing.
+
+\textbf{NetworkCalls [Requirement T02]}: Asynchronous class to perform network calls for the client app. Secrets include how network requests/responses are handled.
+
+\textbf{AsyncResponse [Requirement T02]} Interface to deliver NetworkCall results to the current activity for processing.
 
 \subsection{Uses Relation}
 
@@ -401,10 +407,13 @@ Constructor for DrinkOrder class. Takes the raw cart data for the currently sele
 
 \textbf{onActivityResult(int requestCode, int responseCode, Intent data):void}
 Process the results of any activities launched by this activity.
+
 \textbf{onClickViewCart(View v):void}
 Listener for the view cart button. Launches Activity\_OrderCart.
+
 \textbf{processDrinksInfoResponse(int responseCode):void}
 Processes the response of the drink info retrieval from the server.
+
 \textbf{onCreate(Bundle savedInstanceState):void}
 Initialize this Activity(app menu) when created.
 
@@ -536,8 +545,11 @@ Returns the view for the position id passed to it. Takes the position id, curren
 
 \textbf{Internal Variables}
 \textbf{name: String} - Name of the drink
+
 \textbf{calories: int} - Number of calories in a serving of this drink
+
 \textbf{image: int} - id of the image of this drink
+
 \textbf{amount: int} - the amount of this drink currently selected by the user
 
 \textbf{Functions}
@@ -580,7 +592,9 @@ Returns the total price of the amount of this drink.
 
 \subsubsection{DrinkOrder}
 \textbf{Uses} : None
+
 \textbf{Internal Variables}
+
 \textbf{order: item[]} - Array of drink items
 
 \textbf{Functions}
@@ -632,8 +646,10 @@ Retrieves and returns the items stored in gv.
 \textbf{Functions}
 \textbf{public processLoginResponse(int responseCode):void}
 Processes class specific changes based on the log in attempt. If (responseCode == 200) then launch settings page. Else show alert.
+
 \textbf{public onClickButtonLogin(View v):void}
 Listener for the login button. Attempts to log in with filled in username and password. Executes a NetworkCall task with the correct api key passed.
+
 \textbf{protected onCreate(Bundle savedInstanceState):void}
 Initialize this Activity(app menu) when created.
 
@@ -651,8 +667,10 @@ Initialize this Activity(app menu) when created.
 \textbf{Functions}
 \textbf{public onClickButtonResetCart(View v):void}
 Listener for the reset cart button. Resets the cart for the next guests. Clears all cart information.
+
 \textbf{public processTableChangeResponse(int responseCode, String token):void}
 Processes the class specific changes based on the response from the server. If (responseCode == 200) then store the token and new tableNum. Else show alert and keep tableNum the same.
+
 \textbf{onCreate(Bundle savedInstanceState):void}
 Initialize this Activity(app menu) when created.
 
@@ -668,7 +686,9 @@ Initialize this Activity(app menu) when created.
 
 \textbf{Internal Variables}
 \textbf{currentCart: ArrayList<Drink>} - ArrayList of Drink objects representing the current cart selections.
+
 \textbf{rawCartData: ArrayList<String[]>} - ArrayList of String[] representing the current cart. This is data used for the DrinkCartListAdapter.
+
 \textbf{lv: ListView} - The view which contains and displays the cart items.
 
 \textbf{Functions}
