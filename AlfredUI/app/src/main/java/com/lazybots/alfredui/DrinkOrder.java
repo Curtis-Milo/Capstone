@@ -7,11 +7,11 @@ import java.util.ArrayList;
  * Created by Keyur on 2017-10-15.
  */
 
-public class DrinkItem implements Serializable{
+public class DrinkOrder implements Serializable {
 
     public item[] order;
 
-    public DrinkItem(ArrayList<String[]> x) {
+    public DrinkOrder(ArrayList<String[]> x) {
         order = new item[x.size()];
         int i=0;
         for (String[] y:x) {
