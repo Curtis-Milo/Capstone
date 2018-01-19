@@ -76,6 +76,10 @@ public class Activity_DrinksList extends AppCompatActivity implements AsyncRespo
     }
 
     @Override
+    public void onBackPressed() {
+        //do nothing when back is pressed from this menu
+    }
+    @Override
     public void processFinish(int responseCode, Object x) {
 
     }

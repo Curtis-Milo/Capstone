@@ -14,18 +14,19 @@ import org.json.JSONException;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 /**
  * Created by Keyur on 2017-11-08.
  */
 
+/**
+ *
+ */
 public class Activity_OrderCart extends AppCompatActivity implements AsyncResponse {
     ArrayList<Drink> currentCart;
-    HashMap<String,Drink> drinkReference;
     ArrayList<String[]> rawCartData;
     double totalCurrentCartPrice;
-    ListView lv ;
+    ListView lv = null;
     NetworkCalls server = null;
     SharedPreferences appData;
 
@@ -35,10 +36,9 @@ public class Activity_OrderCart extends AppCompatActivity implements AsyncRespon
         setContentView(R.layout.activity_drinks_cart);
 
         currentCart = (ArrayList<Drink>) getIntent().getSerializableExtra("drinks");
-        drinkReference = (HashMap) getIntent().getSerializableExtra("DrinksInfo");
         rawCartData = new ArrayList<>();
 
-        server = new com.lazybots.alfredui.NetworkCalls();
+        server = new NetworkCalls();
         server.api_key = "placeOrder";
         server.delegate = this;
         appData = getSharedPreferences("prefs", 0);

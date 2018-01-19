@@ -19,7 +19,8 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".Activity_Login"
-            android:noHistory="true">
+            android:noHistory="true"
+            android:theme="@style/AlfredTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -28,10 +29,15 @@
 
         <activity
             android:name=".Activity_Settings"
-            android:noHistory="true" />
+            android:noHistory="true"
+            android:theme="@style/AlfredTheme" />
 
-        <activity android:name=".Activity_DrinksList" />
-        <activity android:name=".Activity_OrderCart" />
+        <activity
+            android:name=".Activity_DrinksList"
+            android:theme="@style/AlfredTheme" />
+        <activity
+            android:name=".Activity_OrderCart"
+            android:theme="@style/AlfredTheme" />
 
     </application>
 

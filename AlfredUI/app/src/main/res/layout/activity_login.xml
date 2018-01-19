@@ -15,6 +15,7 @@
         android:ems="10"
         android:hint="username"
         android:inputType="textPersonName"
+        android:textColor="@android:color/darker_gray"
         app:layout_constraintBottom_toTopOf="@+id/password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,6 +32,7 @@
         android:ems="10"
         android:hint="password"
         android:inputType="textPassword"
+        android:textColor="@android:color/background_light"
         app:layout_constraintBottom_toTopOf="@+id/buttonLogin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -47,4 +49,19 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.079"
+        app:srcCompat="@drawable/alfred" />
 </android.support.constraint.ConstraintLayout>

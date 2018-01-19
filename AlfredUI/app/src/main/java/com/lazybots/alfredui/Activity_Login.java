@@ -41,7 +41,6 @@ public class Activity_Login extends AppCompatActivity implements AsyncResponse {
             startActivity(i);
         } else {
             Toast.makeText(Activity_Login.this, "Invalid credentials", Toast.LENGTH_LONG).show();
-
         }
     }
 }

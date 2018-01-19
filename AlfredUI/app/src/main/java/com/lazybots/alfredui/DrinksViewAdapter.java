@@ -113,7 +113,6 @@ public class DrinksViewAdapter extends BaseAdapter {
         ImageView image;
         TextView price;
         TextView calories;
-        int amt;
         NumberPicker amount;
     }
 
