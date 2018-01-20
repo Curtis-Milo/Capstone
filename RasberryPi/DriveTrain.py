@@ -5,6 +5,7 @@ import RPi.GPIO as GPIO
 from time import *
 from Encoder import *
 import Math
+from ImageRec import *
 class DriveTrain():
     def __init__(self):
         #encoder pins (TODO set pins)
@@ -66,20 +67,40 @@ class DriveTrain():
 
         GPIO.output(Motor1A,GPIO.HIGH)
         GPIO.output(Motor1B,GPIO.HIGH)
-        TotalCount =0;
+        TargetAngle = int(angle_deg)/45
+        currentAngle = 0
         pwm.start(0)
-        while self.countPerDeg*TotalCount < angle_deg:
+        while currentAngle != TargetAngle:
             while self.EncoderA.getEncoderCount() < self.encoderCountsMin:
                 delta_t = time() = time_prev
                 time_prev = time()
                 speedFdbk_A = self.EncoderA.getEncoderCount() /delta_t
                 speedFdbk_B = self.EncoderA.getEncoderCount() /delta_t
 
-                err = self.PiA.PI_Calc(self.refSpeedTurn, speedFdbk_A)
-                err = err + self.PiB.PI_Calc(self.refSpeedTurn, speedFdbk_B)
+                if(currentAngle< TargetAngle):
+                    signA = 1.0f
+                    signB = -1.0f
+                else if (TargetAngle < currentAngle):
+                    signA = -1.0f
+                    signB = 1.0f
+                    
+                err = self.PiA.PI_Calc(signA*self.refSpeedTurn, speedFdbk_A)
+                err = err + self.PiB.PI_Calc(signB*self.refSpeedTurn, speedFdbk_B)
                 err = err/2.0
-                duty_cycle = 100*err/self.batteryMax)
+                duty_cycle = 100*(err/self.batteryMax)
                 pwm.ChangeDutyCycle(duty_cycle)
+                self.circleChecker.captureImage()
+                circles = self.circleChecker.checkForCircle()
+
+                if circles is not None:
+                    # convert the (x, y) coordinates and radius of the circles to integers
+                    circles = np.round(circles[0, :]).astype("int")
+             
+                    # loop over the (x, y) coordinates and radius of the circles
+                    for (x, y, r) in circles:
+                        dist = ((self.circleChecker.end_x -x)**2 + (self.circleChecker.end_y -y)**2)**0.5
+                        if  dist < self.hist:
+                            currentAngle =currentAngle + 1
 
         pwm.stop()
 
@@ -110,15 +131,15 @@ class DriveTrain():
                 circles = self.circleChecker.checkForCircle()
 
                 if circles is not None:
-                # convert the (x, y) coordinates and radius of the circles to integers
-                circles = np.round(circles[0, :]).astype("int")
-         
-                # loop over the (x, y) coordinates and radius of the circles
-                for (x, y, r) in circles:
-                    dist = ((self.mid_x -x)**2 + (self.mid_y -y)**2)**0.5
-                    if  dist < self.hist:
-                        circlefound =  True
-                        
+                    # convert the (x, y) coordinates and radius of the circles to integers
+                    circles = np.round(circles[0, :]).astype("int")
+             
+                    # loop over the (x, y) coordinates and radius of the circles
+                    for (x, y, r) in circles:
+                        dist = ((self.circleChecker.mid_x -x)**2 + (self.circleChecker.mid_y -y)**2)**0.5
+                        if  dist < self.hist:
+                            circlefound =  True
+                            
          
         pwm.stop()
                 
