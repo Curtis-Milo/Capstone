@@ -1,9 +1,9 @@
- Motor1A = 02 # set GPIO-02 as Input 1 of the controller IC
- Motor1B = 03 # set GPIO-03 as Input 2 of the controller IC
+ Motor1A = 18 # set GPIO-18 as Input 1 of the controller IC
+ Motor1B = 24 # set GPIO-24 as Input 2 of the controller IC
 GPIO.setup(Motor1A,GPIO.OUT)
 GPIO.setup(Motor1B,GPIO.OUT)
-pwmRight=GPIO.PWM(04,100) # configuring Enable pin means GPIO-04 for PWM
-pwmLeft =GPIO.PWM(05,100) # configuring Enable pin means GPIO-04 for PWM
+pwmRight=GPIO.PWM(23,100) # configuring Enable pin means GPIO-04 for PWM
+pwmLeft =GPIO.PWM(25,100) # configuring Enable pin means GPIO-04 for PWM
 
 
 

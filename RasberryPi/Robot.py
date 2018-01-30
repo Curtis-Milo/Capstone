@@ -3,6 +3,8 @@ from DriveTrain import *
 import serial
 import Math
 import time
+from lib/lib.py import *
+
 class Robot():
     def __init__(self):
         self.drivetrain = DriveTrain();
@@ -142,8 +144,14 @@ class Robot():
 
         
     def getOrder(self):
-        print "TODO get order"
-        
+        orderRaw =reqNextOrder()
+        if (orderRaw == None):
+            self.orderRaw = None
+        else:
+            self.order = Order(orderRaw["table_id"],orderRaw["order_id"])
+            ordersList = orderRaw["orders"]
+            for x in range(len(ordersList)):
+                self.order.addOrder(ordersList["tank_num"]):
 
  
         
