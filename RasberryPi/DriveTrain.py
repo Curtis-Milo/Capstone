@@ -19,8 +19,8 @@ class DriveTrain():
         self.Motor1B = 03 # set GPIO-03 as Input 2 of the controller IC
         GPIO.setup(Motor1A,GPIO.OUT)
         GPIO.setup(Motor1B,GPIO.OUT)
-        pwm=GPIO.PWM(04,100) # configuring Enable pin means GPIO-04 for PWM
-
+        pwmRight=GPIO.PWM(04,100) # configuring Enable pin means GPIO-04 for PWM
+        pwmLeft =GPIO.PWM(05,100) # configuring Enable pin means GPIO-04 for PWM
         #CALS
         self.encoderCountsMin =100;
         self.countPerDeg = 0.001; #Need to look up
@@ -65,11 +65,10 @@ class DriveTrain():
         self.circleChecker.captureImage()
         circles = self.circleChecker.checkForCircle()
 
-        GPIO.output(Motor1A,GPIO.HIGH)
-        GPIO.output(Motor1B,GPIO.HIGH)
         TargetAngle = int(angle_deg)/45
         currentAngle = 0
-        pwm.start(0)
+        pwmRight.start(0)
+        pwmLeft.start(0)
         while currentAngle != TargetAngle:
             while self.EncoderA.getEncoderCount() < self.encoderCountsMin:
                 delta_t = time() = time_prev
@@ -80,15 +79,23 @@ class DriveTrain():
                 if(currentAngle< TargetAngle):
                     signA = 1.0f
                     signB = -1.0f
+                    GPIO.output(Motor1A,GPIO.HIGH)
+        	    	GPIO.output(Motor1B,GPIO.LOW)
                 else if (TargetAngle < currentAngle):
                     signA = -1.0f
                     signB = 1.0f
-                    
-                err = self.PiA.PI_Calc(signA*self.refSpeedTurn, speedFdbk_A)
-                err = err + self.PiB.PI_Calc(signB*self.refSpeedTurn, speedFdbk_B)
-                err = err/2.0
-                duty_cycle = 100*(err/self.batteryMax)
-                pwm.ChangeDutyCycle(duty_cycle)
+                    GPIO.output(Motor1A,GPIO.LOW)
+        	    	GPIO.output(Motor1B,GPIO.HIGH)
+                
+                GPIO.output(Motor1A,GPIO.HIGH)
+        	    GPIO.output(Motor1B,GPIO.HIGH)
+                errRight = self.PiA.PI_Calc(signA*self.refSpeedTurn, speedFdbk_A)
+                errLeft = self.PiB.PI_Calc(signB*self.refSpeedTurn, speedFdbk_B)
+                
+                duty_cycleR = 100*(errRight/self.batteryMax)
+                duty_cycleL = 100*(errLeft/self.batteryMax)
+                pwmRight.ChangeDutyCycle(duty_cycleR)
+                pwmLeft.ChangeDutyCycle(duty_cycleL)
                 self.circleChecker.captureImage()
                 circles = self.circleChecker.checkForCircle()
 
@@ -119,13 +126,16 @@ class DriveTrain():
                 self.EncoderA.clear()
                 self.EncoderB.clear()
                 if self.UltraSonic.nothingBlocking():
-                    err = self.PiA.PI_Calc(self.refSpeedFrwd, speedFdbk_A)
-                    err = err + self.PiB.PI_Calc(self.refSpeedFrwd, speedFdbk_B)
-                    err = err/2.0
-                    duty_cycle = 100*(err/self.batteryMax)
-                    pwm.ChangeDutyCycle(duty_cycle)
+                    errRight = self.PiA.PI_Calc(signA*self.refSpeedTurn, speedFdbk_A)
+	                errLeft = self.PiB.PI_Calc(signB*self.refSpeedTurn, speedFdbk_B)
+	                
+	                duty_cycleR = 100*(errRight/self.batteryMax)
+	                duty_cycleL = 100*(errLeft/self.batteryMax)
+	                pwmRight.ChangeDutyCycle(duty_cycleR)
+	                pwmLeft.ChangeDutyCycle(duty_cycleL)
                 else:
-                    pwm.ChangeDutyCycle(0)
+                    pwmRight.ChangeDutyCycle(0)
+	                pwmLeft.ChangeDutyCycle(0)
 
                 self.circleChecker.captureImage()
                 circles = self.circleChecker.checkForCircle()
