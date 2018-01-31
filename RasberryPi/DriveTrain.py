@@ -5,6 +5,7 @@ import RPi.GPIO as GPIO
 from time import *
 from Encoder import *
 import Math
+from ImageRec import *
 class DriveTrain():
     def __init__(self):
         #encoder pins (TODO set pins)
@@ -14,12 +15,12 @@ class DriveTrain():
 	self.circleChecker = ImageRec()
         self.UltraSonic = UltraSonic()
         #Motor H brige GPIO pins
-        self.Motor1A = 02 # set GPIO-02 as Input 1 of the controller IC
-        self.Motor1B = 03 # set GPIO-03 as Input 2 of the controller IC
+        self.Motor1A = 18 # set GPIO-18 as Input 1 of the controller IC
+        self.Motor1B = 24 # set GPIO-24 as Input 2 of the controller IC
         GPIO.setup(Motor1A,GPIO.OUT)
         GPIO.setup(Motor1B,GPIO.OUT)
-        pwm=GPIO.PWM(04,100) # configuring Enable pin means GPIO-04 for PWM
-
+        pwmRight=GPIO.PWM(23,100) # configuring Enable pin means GPIO-04 for PWM
+        pwmLeft =GPIO.PWM(25,100) # configuring Enable pin means GPIO-04 for PWM
         #CALS
         self.encoderCountsMin =100;
         self.countPerDeg = 0.001; #Need to look up
@@ -64,22 +65,49 @@ class DriveTrain():
         self.circleChecker.captureImage()
         circles = self.circleChecker.checkForCircle()
 
-        GPIO.output(Motor1A,GPIO.HIGH)
-        GPIO.output(Motor1B,GPIO.HIGH)
-        TotalCount =0;
-        pwm.start(0)
-        while self.countPerDeg*TotalCount < angle_deg:
+        TargetAngle = int(angle_deg)/45
+        currentAngle = 0
+        pwmRight.start(0)
+        pwmLeft.start(0)
+        while currentAngle != TargetAngle:
             while self.EncoderA.getEncoderCount() < self.encoderCountsMin:
                 delta_t = time() = time_prev
                 time_prev = time()
                 speedFdbk_A = self.EncoderA.getEncoderCount() /delta_t
                 speedFdbk_B = self.EncoderA.getEncoderCount() /delta_t
 
-                err = self.PiA.PI_Calc(self.refSpeedTurn, speedFdbk_A)
-                err = err + self.PiB.PI_Calc(self.refSpeedTurn, speedFdbk_B)
-                err = err/2.0
-                duty_cycle = 100*err/self.batteryMax)
-                pwm.ChangeDutyCycle(duty_cycle)
+                if(currentAngle< TargetAngle):
+                    signA = 1.0f
+                    signB = -1.0f
+                    GPIO.output(Motor1A,GPIO.HIGH)
+        	    	GPIO.output(Motor1B,GPIO.LOW)
+                else if (TargetAngle < currentAngle):
+                    signA = -1.0f
+                    signB = 1.0f
+                    GPIO.output(Motor1A,GPIO.LOW)
+        	    	GPIO.output(Motor1B,GPIO.HIGH)
+                
+                GPIO.output(Motor1A,GPIO.HIGH)
+        	    GPIO.output(Motor1B,GPIO.HIGH)
+                errRight = self.PiA.PI_Calc(signA*self.refSpeedTurn, speedFdbk_A)
+                errLeft = self.PiB.PI_Calc(signB*self.refSpeedTurn, speedFdbk_B)
+                
+                duty_cycleR = 100*(errRight/self.batteryMax)
+                duty_cycleL = 100*(errLeft/self.batteryMax)
+                pwmRight.ChangeDutyCycle(duty_cycleR)
+                pwmLeft.ChangeDutyCycle(duty_cycleL)
+                self.circleChecker.captureImage()
+                circles = self.circleChecker.checkForCircle()
+
+                if circles is not None:
+                    # convert the (x, y) coordinates and radius of the circles to integers
+                    circles = np.round(circles[0, :]).astype("int")
+             
+                    # loop over the (x, y) coordinates and radius of the circles
+                    for (x, y, r) in circles:
+                        dist = ((self.circleChecker.end_x -x)**2 + (self.circleChecker.end_y -y)**2)**0.5
+                        if  dist < self.hist:
+                            currentAngle =currentAngle + 1
 
         pwm.stop()
 
@@ -98,27 +126,30 @@ class DriveTrain():
                 self.EncoderA.clear()
                 self.EncoderB.clear()
                 if self.UltraSonic.nothingBlocking():
-                    err = self.PiA.PI_Calc(self.refSpeedFrwd, speedFdbk_A)
-                    err = err + self.PiB.PI_Calc(self.refSpeedFrwd, speedFdbk_B)
-                    err = err/2.0
-                    duty_cycle = 100*(err/self.batteryMax)
-                    pwm.ChangeDutyCycle(duty_cycle)
+                    errRight = self.PiA.PI_Calc(signA*self.refSpeedTurn, speedFdbk_A)
+	                errLeft = self.PiB.PI_Calc(signB*self.refSpeedTurn, speedFdbk_B)
+	                
+	                duty_cycleR = 100*(errRight/self.batteryMax)
+	                duty_cycleL = 100*(errLeft/self.batteryMax)
+	                pwmRight.ChangeDutyCycle(duty_cycleR)
+	                pwmLeft.ChangeDutyCycle(duty_cycleL)
                 else:
-                    pwm.ChangeDutyCycle(0)
+                    pwmRight.ChangeDutyCycle(0)
+	                pwmLeft.ChangeDutyCycle(0)
 
                 self.circleChecker.captureImage()
                 circles = self.circleChecker.checkForCircle()
 
                 if circles is not None:
-                # convert the (x, y) coordinates and radius of the circles to integers
-                circles = np.round(circles[0, :]).astype("int")
-         
-                # loop over the (x, y) coordinates and radius of the circles
-                for (x, y, r) in circles:
-                    dist = ((self.mid_x -x)**2 + (self.mid_y -y)**2)**0.5
-                    if  dist < self.hist:
-                        circlefound =  True
-                        
+                    # convert the (x, y) coordinates and radius of the circles to integers
+                    circles = np.round(circles[0, :]).astype("int")
+             
+                    # loop over the (x, y) coordinates and radius of the circles
+                    for (x, y, r) in circles:
+                        dist = ((self.circleChecker.mid_x -x)**2 + (self.circleChecker.mid_y -y)**2)**0.5
+                        if  dist < self.hist:
+                            circlefound =  True
+                            
          
         pwm.stop()
                 
