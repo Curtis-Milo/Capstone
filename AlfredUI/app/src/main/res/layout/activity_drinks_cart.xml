@@ -12,6 +12,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:text="Cart"
+        android:textColor="@color/text"
         android:textSize="30sp"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -37,6 +38,7 @@
         android:layout_marginLeft="80dp"
         android:layout_marginTop="8dp"
         android:text="Current Total"
+        android:textColor="@color/text"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -52,6 +54,7 @@
         android:gravity="end"
         android:text="TextView"
         android:textAlignment="textEnd"
+        android:textColor="@color/text"
         app:layout_constraintLeft_toRightOf="@+id/textView3"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/drinkCartListView" />
@@ -64,6 +67,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:text="View All Orders"
+        android:textColor="@color/text"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/buttonCartSendOrder"
@@ -77,6 +81,7 @@
         android:layout_marginTop="8dp"
         android:onClick="onClickSendOrder"
         android:text="Send Order"
+        android:textColor="@color/text"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/currentCartTotal" />
 

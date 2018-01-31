@@ -8,14 +8,17 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="116dp"
-        android:text="Table Number"
+        android:layout_marginTop="8dp"
+        android:text="Table Number : "
+        android:textColor="@color/text"
+        app:layout_constraintBottom_toBottomOf="@+id/tableNumberPicker"
         app:layout_constraintEnd_toStartOf="@+id/tableNumberPicker"
         app:layout_constraintHorizontal_bias="0.737"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/tableNumberPicker" />
 
     <NumberPicker
         android:id="@+id/tableNumberPicker"
@@ -37,6 +40,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:text="Reset Cart"
+        android:textColor="@color/text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/buttonApplySettings"
         app:layout_constraintHorizontal_bias="0.806"
@@ -51,6 +55,7 @@
         android:layout_marginRight="76dp"
         android:onClick="onClickButtonApply"
         android:text="Apply"
+        android:textColor="@color/text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

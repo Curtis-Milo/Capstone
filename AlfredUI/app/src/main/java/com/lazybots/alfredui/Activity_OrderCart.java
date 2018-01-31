@@ -1,11 +1,9 @@
 package com.lazybots.alfredui;
 
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,6 +27,7 @@ public class Activity_OrderCart extends AppCompatActivity implements AsyncRespon
     ListView lv = null;
     NetworkCalls server = null;
     SharedPreferences appData;
+    boolean orderSent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +45,7 @@ public class Activity_OrderCart extends AppCompatActivity implements AsyncRespon
 
         setUpRawCartData();
         TextView totalPrice = (TextView) findViewById(R.id.currentCartTotal);
+
         totalPrice.setText("$"+Double.toString(totalCurrentCartPrice));
         lv = (ListView) findViewById(R.id.drinkCartListView);
         lv.setAdapter(new DrinkCartListAdapter(this,rawCartData));
@@ -62,6 +62,7 @@ public class Activity_OrderCart extends AppCompatActivity implements AsyncRespon
                 rawCartData.add(new String[]{x.getName(), Integer.toString(x.getAmount()), Double.toString(x.getPriceForAmount())});
                 totalCurrentCartPrice+=x.getPriceForAmount();
             }
+            totalCurrentCartPrice = Math.round(totalCurrentCartPrice * 100.0) / 100.0;
         }
     }
 
@@ -79,8 +80,8 @@ public class Activity_OrderCart extends AppCompatActivity implements AsyncRespon
     @Override
     public void processFinish(int responseCode, Object x) {
         if (responseCode == 200) {
-            Button bt = (Button) findViewById(R.id.buttonCartSendOrder);
-            bt.setBackgroundColor(Color.GREEN);
+            Toast.makeText(Activity_OrderCart.this, "Order has been received by Alfred", Toast.LENGTH_SHORT).show();
+            orderSent = true;
         } else {
             Toast.makeText(Activity_OrderCart.this, "Order Placement Unsuccessful", Toast.LENGTH_LONG);
         }
