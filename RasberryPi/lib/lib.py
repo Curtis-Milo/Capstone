@@ -6,13 +6,17 @@ authManager = AuthHandler()
 
 # TODO: Set up env variables
 def sendErrorCode(code):
+	auth = authManager.getToken()
+
+	if not auth['access_token'] or not auth['token_type']:
+		reqServerToken()
+		return None
+
 	host = os.environ['SERVER_IP']
 	if not host.startswith('http'):
 		host = 'http://' + host
 
 	host = host + ':' + os.environ['SERVER_PORT'] + '/errors'
-
-	auth = authManager.getToken()
 
 	headers = {
 		"Authorization": auth['token_type'] + " " + auth['access_token']
@@ -31,17 +35,18 @@ def reqServerToken():
 
 	return r.status_code in range(200, 300)
 
-
-
-
 def reqNextOrder():
+	auth = authManager.getToken()
+
+	if not auth['access_token'] or not auth['token_type']:
+		reqServerToken()
+		return None
+
 	host = os.environ['SERVER_IP']
 	if not host.startswith('http'):
 		host = 'http://' + host
 
 	host = host + ':' + os.environ['SERVER_PORT'] + '/nextOrder'
-
-	auth = authManager.getToken()
 
 	headers = {
 		"Authorization": auth['token_type'] + " " + auth['access_token']
