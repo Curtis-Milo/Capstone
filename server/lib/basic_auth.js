@@ -40,7 +40,7 @@ BasicAuthManager.prototype.checkAuth = function() {
 		});
 	} else if (arguments.length === 2) {
 		var token = arguments[0];
-		var cb = arguments[1]
+		var cb = arguments[1];
 		this.sessManager.checkToken(token, cb);
 	} else {
 		cb('Invalid number of arguments.');
@@ -94,9 +94,9 @@ function SessionManager() {
 SessionManager.prototype.startSession = function(cb) {
 	if (this._token) {
 		clearTimeout(this._timeout);
+	} else {
+		this._token = TOKEN_GEN.generate(32);
 	}
-
-	this._token = TOKEN_GEN.generate(32);
 
 	cb(null, this._token);
 
