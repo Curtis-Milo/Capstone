@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/linearLayout"
     android:layout_width="300dp"
     android:layout_height="150dp">
@@ -14,6 +13,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:textAlignment="center"
+        android:textColor="@color/text"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -47,14 +47,15 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
         android:layout_marginTop="50dp"
         android:text="Calories:"
+        android:textColor="@color/text"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/drink_calories"
         app:layout_constraintEnd_toStartOf="@+id/drink_calories"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        android:layout_marginRight="4dp" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/drink_price"
@@ -64,19 +65,20 @@
         android:layout_alignStart="@+id/drink_calories"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginLeft="180dp"
+        android:layout_marginRight="8dp"
         android:layout_marginStart="180dp"
         android:layout_marginTop="8dp"
+        android:gravity="end"
         android:text="$6.99"
         android:textAlignment="textEnd"
+        android:textColor="@color/text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/numberPicker"
         app:layout_constraintHorizontal_bias="0.54"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/drink_calories"
-        app:layout_constraintVertical_bias="0.02"
-        android:layout_marginRight="8dp"
-        android:layout_marginLeft="180dp"
-        android:gravity="end" />
+        app:layout_constraintVertical_bias="0.02" />
 
     <TextView
         android:id="@+id/drink_calories"
@@ -84,15 +86,16 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/generic"
         android:layout_marginEnd="92dp"
+        android:layout_marginRight="92dp"
         android:layout_marginTop="56dp"
         android:layout_toEndOf="@+id/generic"
         android:layout_toRightOf="@+id/generic"
+        android:gravity="end"
         android:text="cals"
         android:textAlignment="textEnd"
+        android:textColor="@color/text"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginRight="92dp"
-        android:gravity="end" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <NumberPicker
         android:id="@+id/numberPicker"
@@ -100,13 +103,13 @@
         android:layout_height="85dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
         android:layout_marginTop="50dp"
         android:clickable="false"
         android:fadingEdge="none"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.836"
-        android:layout_marginRight="12dp" />
+        app:layout_constraintVertical_bias="0.836" />
 
 </android.support.constraint.ConstraintLayout>

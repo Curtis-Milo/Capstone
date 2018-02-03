@@ -1,39 +1,34 @@
 import RPi.GPIO as GPIO
 from time import sleep
+#https://github.com/modmypi/Rotary-Encoder/blob/master/rotary_encoder.py
 class Encoder():
-    def __init__(self,RoAPin,RoBPin,RoSPin):
-        #encoder pins (TODO set pins)
-        self.RoAPin  = RoAPin
-        self.RoBPin  = RoBPin
-        self.RoSPin = RoSPin
+    def __init__(self,Clk,Dt):
+        GPIO.setmode(GPIO.BCM)
+        self.Clk  = Clk
+        self.Dt  = Dt
         
 
-        GPIO.setmode(GPIO.BOARD)       # Numbers GPIOs by physical location
-        GPIO.setup(elf.MotorA_RoAPin , GPIO.IN)    # input mode
-        GPIO.setup(elf.MotorA_RoBPin , GPIO.IN)
-        GPIO.setup(RoSPin,GPIO.IN,pull_up_down=GPIO.PUD_UP)
+        GPIO.setmode(GPIO.BCM)
+        GPIO.setup(self.Clk , GPIO.IN)    # input mode
+        GPIO.setup(self.Dt , GPIO.IN)
 
         self.encoderCount= 0
-        self.flag = 0
-        self.Last_RoB_Status = 0
-        self.Current_RoB_Status = 0
-        self.rotaryClear()
+        self.clkLastState =0
 
+    def rotaryDeal(self):
+        clkState = GPIO.input(self.Clk)
+        dtState = GPIO.input(self.Dt)
+        if clkState !=  self.clkLastState:
+            if dtState != clkState:
+                self.encoderCount += 1
+            else:
+                self.encoderCount -= 1
+        self.clkLastState = clkState
 
-    def rotaryDeal():
-        self.Last_RoB_Status = GPIO.input(RoBPin)
-        while(not GPIO.input(RoAPin)):
-            self.Current_RoB_Status = GPIO.input(RoBPin)
-            self.flag = 1
-        if self.flag == 1:
-            self.flag = 0
-            if (self.Last_RoB_Status == 0) and (self.Current_RoB_Status == 1):
-                self.encoderCount = self.encoderCount + 1
-                if (self.Last_RoB_Status == 1) and (self.Current_RoB_Status == 0):
-                    self.encoderCount = self.encoderCount - 1
-
-
-    def getEncoderCount():
+    def getEncoderCount(self):
         return self.encoderCount
-    def clear(self):
-        globalCounter = 0
+
+    def test(self):
+    	while 1:
+    		self.rotaryDeal()
+    		print  self.getEncoderCount()

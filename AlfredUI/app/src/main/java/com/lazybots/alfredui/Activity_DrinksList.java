@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.GridView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -29,12 +28,12 @@ public class Activity_DrinksList extends AppCompatActivity implements AsyncRespo
 
         //TEST DATA SETUP
         ArrayList<Drink> drinks = new ArrayList<>();
-        drinks.add(new Drink ("Sprite",234,R.drawable.image1,2.99));
-        drinks.add(new Drink ("Coke",333,R.drawable.image1,3.99));
-        drinks.add(new Drink ("Fanta",654,R.drawable.image1,3.99));
-        drinks.add(new Drink ("red",200,R.drawable.image1,2.99));
-        drinks.add(new Drink ("black",225,R.drawable.image1,2.99));
-        drinks.add(new Drink ("pink",69,R.drawable.image1,2.99));
+        drinks.add(new Drink("Sprite", 234, R.drawable.sprite, 2.99));
+        drinks.add(new Drink("Coke", 333, R.drawable.coke, 3.99));
+        drinks.add(new Drink("Fanta", 654, R.drawable.fanta, 3.99));
+        //drinks.add(new Drink ("red",200,R.drawable.alfred,2.99));
+        //drinks.add(new Drink ("black",225,R.drawable.alfred,2.99));
+        //drinks.add(new Drink ("pink",69,R.drawable.alfred,2.99));
 
         for (Iterator<Drink> i = drinks.iterator(); i.hasNext();) {
             Drink d = i.next();
@@ -58,8 +57,6 @@ public class Activity_DrinksList extends AppCompatActivity implements AsyncRespo
 
         int GO_TO_CART = 1;
         startActivityForResult(myIntent, GO_TO_CART);
-        Toast.makeText(Activity_DrinksList.this, "Go To cart clicked", Toast.LENGTH_SHORT).show();
-
     }
 
     private ArrayList<Drink> setUpCurrentCart() {
@@ -75,6 +72,10 @@ public class Activity_DrinksList extends AppCompatActivity implements AsyncRespo
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        //do nothing when back is pressed from this menu
+    }
     @Override
     public void processFinish(int responseCode, Object x) {
 

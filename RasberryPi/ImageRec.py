@@ -1,7 +1,8 @@
 import numpy as np
 import argparse
 import cv2
-import Math
+import math
+import picamera
 #https://www.raspberrypi.org/documentation/usage/camera/python/README.md
 #https://www.pyimagesearch.com/2014/07/21/detecting-circles-images-using-opencv-hough-circles/
 
@@ -11,13 +12,17 @@ class ImageRec():
         self.camera = picamera.PiCamera()
 
         #CALS
-        self.mid_x = 1920/2.0;
-        self.mid_y = 1080/2.0;
+        self.mid_x = 1920.0/2.0;
+        self.mid_y = 1080.0/2.0;
+        self.end_x = 1920*(0.8);
+        self.end_y = 1080*(0.8);
+        self.before_x = 1920*(0.2);
+        self.before_y = 1080*(0.2);
         self.hist = 100.0;
     def captureImage(self):
         self.camera.capture('ceiling.jpg')
 
-    def checkForCircle(self)
+    def checkForCircle(self):
         # construct the argument parser and parse the arguments
         ap = argparse.ArgumentParser()
         ap.add_argument("-i", "--image", required = True, help = "ceiling.jpg")

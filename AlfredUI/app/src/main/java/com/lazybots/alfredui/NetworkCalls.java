@@ -38,7 +38,7 @@ public class NetworkCalls extends AsyncTask {
     protected Object doInBackground(Object[] objects) {
         URL url;
         URLConnection con;
-        Object ret = null;
+        Object ret = new Object[]{1337, null};
         HttpURLConnection http;
 
         try {
@@ -143,7 +143,5 @@ public class NetworkCalls extends AsyncTask {
     @Override
     protected void onPostExecute(Object result) {
         delegate.processFinish((int) ((Object[]) result)[0], ((Object[]) result)[1]);
-        //if (api_key.equals("table_token")) token = (String)result;
-        //else if (api_key.equals("sendOrder")) orderDelivered = (boolean)result;
     }
 }
