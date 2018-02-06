@@ -122,5 +122,5 @@ SessionManager.prototype.checkToken = function(token, cb) {
 		}, 60000);
 	}
 
-	cb('No available session.');
+	cb(null, false);
 };
