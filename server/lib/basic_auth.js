@@ -99,11 +99,11 @@ SessionManager.prototype.startSession = function(cb) {
 		this._token = TOKEN_GEN.generate(32);
 	}
 
-	cb(null, this._token);
-
 	this._timeout = setTimeout(function() {
 		this._token = null;
 	}, 60000);
+
+	cb(null, this._token);
 };
 
 SessionManager.prototype.endSession = function() {
