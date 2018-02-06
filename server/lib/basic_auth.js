@@ -99,8 +99,10 @@ SessionManager.prototype.startSession = function(cb) {
 		this._token = TOKEN_GEN.generate(32);
 	}
 
+	var that = this;
+
 	this._timeout = setTimeout(function() {
-		this._token = null;
+		that._token = null;
 	}, 60000);
 
 	cb(null, this._token);
@@ -117,8 +119,10 @@ SessionManager.prototype.checkToken = function(token, cb) {
 
 		clearTimeout(this._timeout);
 
+		var that = this;
+
 		this._timeout = setTimeout(function() {
-			this._token = null;
+			that._token = null;
 		}, 60000);
 	}
 
