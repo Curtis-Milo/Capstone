@@ -5,8 +5,8 @@ class UltraSonic():#ONLY LOOKING AT FRONT SENSOR FOR NOW
 
     def __init__(self):
         GPIO.setmode(GPIO.BCM)
-        self.TRIG = 23 
-        self.ECHO = 24
+        self.TRIG = 8
+        self.ECHO = 7
         
         GPIO.setup(self.TRIG,GPIO.OUT)
         GPIO.setup(self.ECHO,GPIO.IN)
@@ -15,23 +15,21 @@ class UltraSonic():#ONLY LOOKING AT FRONT SENSOR FOR NOW
         self.mindist =5;
         
     def nothingBlocking(self):
-        GPIO.output(TRIG, False)
-
-        time.sleep(2)
-
-        GPIO.output(TRIG, True)
+        # set Trigger to HIGH
+        GPIO.output(self.TRIG, True)
+     
+        # set Trigger after 0.01ms to LOW
         time.sleep(0.00001)
-        GPIO.output(TRIG, False)
+        GPIO.output(self.TRIG, False)
 
-        while GPIO.input(ECHO)==0:
+        while GPIO.input(self.ECHO)==0:
             pulse_start = time.time()
 
-        while GPIO.input(ECHO)==1:
+        while GPIO.input(self.ECHO)==1:
             pulse_end = time.time()
 
         pulse_duration = pulse_end - pulse_start
-        distance = pulse_duration * 17150
-        distance = round(distance, 2)
+        distance = pulse_duration * (17150.0/100)
 
         if distance <  self.mindist:
             return False
