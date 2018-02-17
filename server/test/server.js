@@ -1,5 +1,6 @@
 var unirest = require('unirest');
 var locks = require('locks');
+var fs = require('fs');
 
 function TestRes() {
 	this._test_num = 0;
@@ -119,6 +120,33 @@ var tests = {
 						resObj.testRes('Test POST /map endpoint', 'F', 200, res.code, 'fail');
 					} else {
 						resObj.testRes('Test POST /map endpoint', 'F', 200, res.code, 'pass');
+					}
+					resolve();
+				});
+			});
+		},
+
+		getMap: function(resObj, host) {
+			return new Promise(function(resolve, reject) {
+				unirest.get(host + '/map')
+				.headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
+				.auth(this._creds.userName, this._creds.password)
+				.end(function(res) {
+					if (res.code < 200 || res.code > 299) {
+						resObj.testRes('Test GET /map endpoint', 'F', 200, res.code, 'fail');
+					} else {
+						fs.readFile('./map_test.txt', 'utf8', function(err, contents) {
+							if (err) {
+								console.log('ERROR reading file.');
+								resObj.testRes('Test GET /map endpoint', 'F', 'File contents == Map received', 'N/A', 'fail');
+							} else {
+								if (res.raw_body == contents) {
+									resObj.testRes('Test GET /map endpoint', 'F', 200, res.code, 'pass');
+								} else {
+									resObj.testRes('Test GET /map endpoint', 'F', 'File contents == Map received', 'File contents != Map received', 'fail');
+								}
+							}
+						});
 					}
 					resolve();
 				});
