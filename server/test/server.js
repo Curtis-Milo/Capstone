@@ -151,6 +151,26 @@ var tests = {
 					resolve();
 				});
 			});
+		},
+
+		deleteDrink: function(resObj, host) {
+			return new Promise(function(resolve, reject) {
+				unirest.delete(host + '/drinks?name=COKE')
+				.headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
+				.auth(this._creds.userName, this._creds.password)
+				.end(function(res) {
+					if (res.code < 200 || res.code > 299) {
+						resObj.testRes('Test DELETE /map endpoint', 'F', 200, res.code, 'fail');
+					} else {
+						resObj.testRes('Test DELETE /map endpoint', 'F', 200, res.code, 'pass');
+					}
+					resolve();
+				});
+			});
+		},
+
+		addDrink: function(resObj, host) {
+			
 		}
 	}
 }
