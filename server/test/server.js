@@ -19,15 +19,30 @@ TestRes.prototype.testRes = function(desc, req, exp, act, pass) {
 	});
 };
 
+const IP = 'http://localhost:8080';
+
 var tests = {
-	_ip: 'http://localhost:8080',
+	generalTest: {
+		getDrinks: function(resObj, host) {
+			unirest.get(host + '/drinks')
+			.headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
+			.end(function(res) {
+				if (res.code < 200 || res.code > 299) {
+					resObj.testRes('Test GET /drinks endpoint', 'F', 200, res.code, 'fail');
+				} else {
+					resObj.testRes('Test GET /drinks endpoint', 'F', 200, res.code, 'pass');
+				}
+			});
+		}
+	},
+
 	adminTest: {
 		_creds: {
 			userName: 'admin',
 			password: 'admin'
 		},
-		updateCreds: function(resObj) {
-			_test_num += 1;
+
+		updateCreds: function(resObj, host) {
 			var data = {
 				userName: 'admin_new',
 				password: 'admin_new'
@@ -39,21 +54,34 @@ var tests = {
 			.send(data)
 			.end(function (res) {
 				if (res.code < 200 || res.code > 299) {
-					resObj.testRes('Test /updateCreds endpoint', 'F', 200, res.code, 'fail');
+					resObj.testRes('Test POST /updateCreds endpoint', 'F', 200, res.code, 'fail');
 				} else {
 					unirest.post(host + '/updateCreds')
 					.headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
 					.auth(data.userName, data.password)
 					.send(this._creds)
-					.end(function (res) {
+					.end(function(res) {
 						if (res.code < 200 || res.code > 299) {
-							resObj.testRes('Test /updateCreds endpoint', 'F', 200, res.code, 'fail');
+							resObj.testRes('Test POST /updateCreds endpoint', 'F', 200, res.code, 'fail');
 						} else {
-							resObj.testRes('Test /updateCreds endpoint', 'F', 200, res.code, 'pass');
+							resObj.testRes('Test POST /updateCreds endpoint', 'F', 200, res.code, 'pass');
 						}
 					});
 				}
 			});
-		}
+		},
+
+		login: function(resObj, host) {
+			unirest.post(host + '/login')
+			.headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
+			.auth(this._creds.userName, this._creds.password)
+			.end(function(res) {
+				if (res.code < 200 || res.code > 299) {
+					resObj.testRes('Test POST /login endpoint', 'F', 200, res.code, 'fail');
+				} else {
+					resObj.testRes('Test POST /login endpoint', 'F', 200, res.code, 'pass');
+				}
+			});
+		},
 	}
 }
