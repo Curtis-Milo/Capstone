@@ -181,19 +181,19 @@ var tests = {
 				.auth(this._creds.userName, this._creds.password)
 				.end(function(res) {
 					if (res.code < 200 || res.code > 299) {
-						resObj.testRes('Test DELETE /map endpoint', 'F', 200, res.code, 'fail');
+						resObj.testRes('Test DELETE /drinks endpoint', 'F', 200, res.code, 'fail');
 						resolve();
 					} else {
 						unirest.get(host + '/drinks')
 						.headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
 						.end(function(res) {
 							if (res.code < 200 || res.code > 299) {
-								resObj.testRes('Test DELETE /map endpoint', 'F', 200, res.code, 'fail');
+								resObj.testRes('Test DELETE /drinks endpoint', 'F', 200, res.code, 'fail');
 							} else {
 								if ('COKE' in res.body) {
-									resObj.testRes('Test DELETE /map endpoint', 'F', 'Missing COKE', 'NOT missing COKE', 'fail');
+									resObj.testRes('Test DELETE /drinks endpoint', 'F', 'Missing COKE', 'NOT missing COKE', 'fail');
 								} else {
-									resObj.testRes('Test DELETE /map endpoint', 'F', 'Missing COKE', 'Missing COKE', 'pass');
+									resObj.testRes('Test DELETE /drinks endpoint', 'F', 'Missing COKE', 'Missing COKE', 'pass');
 								}
 							}
 							resolve();
@@ -204,7 +204,46 @@ var tests = {
 		},
 
 		addDrink: function(resObj, host) {
+			return new Promise(function(resolve, reject) {
+				var data = {
+					COKE: 1
+				};
 
+				unirest.post(host + '/drinks')
+				.headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
+				.auth(this._creds.userName, this._creds.password)
+				.send(data)
+				.end(function(res) {
+					if (res.code < 200 || res.code > 299) {
+						resObj.testRes('Test POST /drinks endpoint', 'F', 200, res.code, 'fail');
+						resolve();
+					} else {
+						unirest.get(host + '/drinks')
+						.headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
+						.end(function(res) {
+							if (res.code < 200 || res.code > 299) {
+								resObj.testRes('Test POST /drinks endpoint', 'F', 200, res.code, 'fail');
+							} else {
+								if ('COKE' in res.body) {
+									resObj.testRes('Test POST /drinks endpoint', 'F', 'COKE in body', 'COKE in body', 'pass');
+								} else {
+									resObj.testRes('Test POST /drinks endpoint', 'F', 'COKE in body', 'COKE NOT in body', 'fail');
+								}
+							}
+							resolve();
+						});
+					}
+				});
+			});
 		}
+	},
+
+	robotTest: {
+		_creds: {
+			userName: 'admin',
+			password: 'admin'
+		},
+
+		
 	}
-}
+};
