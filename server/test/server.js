@@ -39,6 +39,21 @@ var tests = {
 			});
 		},
 
+		sizes: function(resObj, host) {
+			return new Promise(function(resolve, reject) {
+				unirest.get(host + '/sizes')
+				.headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
+				.end(function(res) {
+					if (res.code < 200 || res.code > 299) {
+						resObj.testRes('Test GET /sizes endpoint', 'F', 200, res.code, 'fail');
+					} else {
+						resObj.testRes('Test GET /sizes endpoint', 'F', 200, res.code, 'pass');
+					}
+					resolve();
+				});
+			});
+		},
+
 		getNumOfTanks: function(resObj, host) {
 			return new Promise(function(resolve, reject) {
 				unirest.get(host + '/numOfTanks')
@@ -171,6 +186,43 @@ var tests = {
 
 		addDrink: function(resObj, host) {
 			
+		},
+
+		errors: function(resObj, host) {
+			return new Promise(function(resolve, reject) {
+				unirest.post(host + '/ta?name=COKE')
+				.headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
+				.auth(this._creds.userName, this._creds.password)
+				.end(function(res) {
+					if (res.code < 200 || res.code > 299) {
+						resObj.testRes('Test DELETE /map endpoint', 'F', 200, res.code, 'fail');
+					} else {
+						resObj.testRes('Test DELETE /map endpoint', 'F', 200, res.code, 'pass');
+					}
+					resolve();
+				});
+			});
+		},
+
+		table: function(resObj, host) {
+			return new Promise(function(resolve, reject) {
+				unirest.post(host + '/table?table_id=2')
+				.headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
+				.auth(this._creds.userName, this._creds.password)
+				.end(function(res) {
+					if (res.code < 200 || res.code > 299) {
+						resObj.testRes('Test POST /table endpoint', 'F', 200, res.code, 'fail');
+					} else {
+						resObj.testRes('Test POST /table endpoint', 'F', 200, res.code, 'pass');
+					}
+					resolve();
+				});
+			});
 		}
+	},
+
+	queueTest: {
+		//test placing an order,place in line, cancel order, next order call
+		//will need table credentials
 	}
 }
