@@ -22,6 +22,7 @@ TestRes.prototype.testRes = function(desc, req, exp, act, pass) {
 };
 
 const IP = 'http://localhost:8080';
+var resObj = TestRes();
 
 var tests = {
 	generalTest: {
@@ -82,6 +83,7 @@ var tests = {
 		},
 
 		updateCreds: function(resObj, host) {
+			var that = this;
 			return new Promise(function(resolve, reject) {
 				var data = {
 					userName: 'admin_new',
@@ -90,7 +92,7 @@ var tests = {
 
 				unirest.post(host + '/updateCreds')
 				.headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
-				.auth(this._creds.userName, this._creds.password)
+				.auth(that._creds.userName, that._creds.password)
 				.send(data)
 				.end(function (res) {
 					if (res.code < 200 || res.code > 299) {
@@ -100,7 +102,7 @@ var tests = {
 						unirest.post(host + '/updateCreds')
 						.headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
 						.auth(data.userName, data.password)
-						.send(this._creds)
+						.send(that._creds)
 						.end(function(res) {
 							if (res.code < 200 || res.code > 299) {
 								resObj.testRes('Test POST /updateCreds endpoint', 'F', 200, res.code, 'fail');
@@ -115,10 +117,11 @@ var tests = {
 		},
 
 		login: function(resObj, host) {
+			var that = this;
 			return new Promise(function(resolve, reject) {
 				unirest.post(host + '/login')
 				.headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
-				.auth(this._creds.userName, this._creds.password)
+				.auth(that._creds.userName, that._creds.password)
 				.end(function(res) {
 					if (res.code < 200 || res.code > 299) {
 						resObj.testRes('Test POST /login endpoint', 'F', 200, res.code, 'fail');
@@ -131,10 +134,11 @@ var tests = {
 		},
 
 		setMap: function(resObj, host) {
+			var that = this;
 			return new Promise(function(resolve, reject) {
 				unirest.post(host + '/map')
 				.headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
-				.auth(this._creds.userName, this._creds.password)
+				.auth(that._creds.userName, that._creds.password)
 				.attach('file', './map_test.txt')
 				.end(function(res) {
 					if (res.code < 200 || res.code > 299) {
@@ -148,10 +152,11 @@ var tests = {
 		},
 
 		getMap: function(resObj, host) {
+			var that = this;
 			return new Promise(function(resolve, reject) {
 				unirest.get(host + '/map')
 				.headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
-				.auth(this._creds.userName, this._creds.password)
+				.auth(that._creds.userName, that._creds.password)
 				.end(function(res) {
 					if (res.code < 200 || res.code > 299) {
 						resObj.testRes('Test GET /map endpoint', 'F', 200, res.code, 'fail');
@@ -175,10 +180,11 @@ var tests = {
 		},
 
 		deleteDrink: function(resObj, host) {
+			var that = this;
 			return new Promise(function(resolve, reject) {
 				unirest.delete(host + '/drinks?name=COKE')
 				.headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
-				.auth(this._creds.userName, this._creds.password)
+				.auth(that._creds.userName, that._creds.password)
 				.end(function(res) {
 					if (res.code < 200 || res.code > 299) {
 						resObj.testRes('Test DELETE /drinks endpoint', 'F', 200, res.code, 'fail');
@@ -204,6 +210,7 @@ var tests = {
 		},
 
 		addDrink: function(resObj, host) {
+			var that = this;
 			return new Promise(function(resolve, reject) {
 				var data = {
 					COKE: 1
@@ -211,7 +218,7 @@ var tests = {
 
 				unirest.post(host + '/drinks')
 				.headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
-				.auth(this._creds.userName, this._creds.password)
+				.auth(that._creds.userName, that._creds.password)
 				.send(data)
 				.end(function(res) {
 					if (res.code < 200 || res.code > 299) {
@@ -238,12 +245,69 @@ var tests = {
 		}
 	},
 
-	robotTest: {
+	clientTest: {
 		_creds: {
 			userName: 'admin',
 			password: 'admin'
 		},
 
-		
+		getToken: function(resObj, host) {
+			var that = this;
+			return new Promise(function(resolve, reject) {
+				unirest.post(host + '/table?table_id=1')
+				.headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
+				.auth(that._creds.userName, that._creds.password)
+				.end(function(res) {
+					if (res.code < 200 || res.code > 299) {
+						resObj.testRes('Test POST /table endpoint', 'F', 200, res.code, 'fail');
+					} else {
+						if (!('token' in res.body) || !('token_type' in res.body)) {
+							resObj.testRes('Test POST /table endpoint', 'F', '"token" and "token_type" in body', '"token" or "token_type" NOT in body', 'fail');
+						} else {
+							that.token = res.body.token;
+							resObj.testRes('Test POST /table endpoint', 'F', '"token" and "token_type" in body', '"token" and "token_type" in body', 'fail');
+						}
+					}
+					resolve();
+				});
+			});
+		},
+
+		placeOrder: function(resObj, host) {
+			var that = this;
+			return new Promise(function(resolve, reject) {
+				var data = {
+					order: [
+						{
+							type: 'COKE'
+						}
+					]
+				};
+
+				unirest.post(host + '/placeOrder?table_id=1')
+				.headers({'Accept': 'application/json', 'Content-Type': 'application/json', 'Authorization': `Bearer ${that.token}`})
+				.send(data)
+				.end(function(res) {
+					if (res.code < 200 || res.code > 299) {
+						resObj.testRes('Test POST /placeOrder endpoint', 'F', 200, res.code, 'fail');
+					} else {
+						resObj.testRes('Test POST /placeOrder endpoint', 'F', 200, res.code, 'pass');
+						that.order_id = res.body.orderData.order_id;
+					}
+					resolve();
+				});
+			});
+		},
+
+		placeInLine: function(resObj, host) {
+			var that = this;
+			return new Promise(function(resolve, reject) {
+				unirest.get(host + `/placeInLine?table_id=1&order_id${that.order_id}`)
+				.headers({'Accept': 'application/json', 'Content-Type': 'application/json', 'Authorization': `Bearer ${that.token}`})
+				.end(function(res) {
+
+				});
+			});
+		}
 	}
 };
