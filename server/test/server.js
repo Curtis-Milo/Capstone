@@ -305,9 +305,38 @@ var tests = {
 				unirest.get(host + `/placeInLine?table_id=1&order_id${that.order_id}`)
 				.headers({'Accept': 'application/json', 'Content-Type': 'application/json', 'Authorization': `Bearer ${that.token}`})
 				.end(function(res) {
+					if (res.code < 200 || res.code > 299) {
+						resObj.testRes('Test GET /placeInLine endpoint', 'F', 200, res.code, 'fail');
+					} else {
+						if (res.raw_body == 1) {
+							resObj.testRes('Test GET /placeInLine endpoint', 'F', 'res.raw_body == 1', 'res.raw_body == 1', 'pass');
+						} else {
+							resObj.testRes('Test GET /placeInLine endpoint', 'F', 'res.raw_body == 1', 'res.raw_body != 1', 'fail');
+						}
+					}
+					resolve();
+				});
+			});
+		},
 
+		cancelOrder: function(resObj, host) {
+			var that = this;
+			return new Promise(function(resolve, reject) {
+				unirest.delete(host + `/cancelOrder?table_id=1&order_id=${that.order_id}`)
+				.headers({'Accept': 'application/json', 'Content-Type': 'application/json', 'Authorization': `Bearer ${that.token}`})
+				.end(function(res){
+					if (res.code < 200 || res.code > 299) {
+						resObj.testRes('Test DELETE /cancelOrder endpoint', 'F', 200, res.code, 'fail');
+					} else {
+						resObj.testRes('Test DELETE /cancelOrder endpoint', 'F', 200, res.code, 'pass');
+					}
+					resolve();
 				});
 			});
 		}
+	},
+
+	robotTest: {
+		
 	}
 };
