@@ -50,6 +50,6 @@ class Server(object):
             self.running = False
             self.server.shutdown()
 
-if __name__ == '__main__':
-    server = Server(port=8000)
-    server.startServer()
+#if __name__ == '__main__':
+#    server = Server()
+#    server.startServer()
