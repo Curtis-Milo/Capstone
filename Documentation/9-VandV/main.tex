@@ -1,0 +1,334 @@
+% Document uses 12 pt font
+% 1 in margins
+% Contains a relative path for images
+
+\documentclass [10pt]{article}
+
+% page geometry 
+\usepackage[margin=1in]{geometry}
+\usepackage{changepage}
+
+
+
+
+
+% ----------  PACKAGES START ------------ %
+
+% Table cell color package and highlighting
+\usepackage[table]{xcolor}
+\usepackage{color,soul}
+\usepackage{colortbl}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage[rightcaption]{sidecap}
+\usepackage{subfigure}
+\usepackage{caption}
+% VIC title package
+\usepackage{cabin}
+\usepackage[T1]{fontenc}
+
+% default font package
+%\usepackage{times}
+\usepackage{helvet}
+%\renewcommand{\familydefault}{\sfdefault}
+
+% ---------- End Font Packages -------------- %
+
+% Title Packages
+\usepackage{titlesec}
+\usepackage{titletoc}
+
+% Image Package
+\usepackage{graphicx}
+
+% Table Packages
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{colortbl}
+\usepackage{listings}
+
+\renewcommand{\arraystretch}{1.2}% Spread rows out evenly in table
+\setlength{\LTpre}{0.5pt} % Reduces white space around tables (top)
+%\setlength{\LTpost}{0pt} % Reduces white space around tables (bottom)
+\setlength\arrayrulewidth{1pt}
+%\setlength\minrowclearance{2pt}
+
+%[.9\tabcolsep]
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+%Code listing style named "mystyle"
+\lstdefinestyle{mystyle}{
+  %backgroundcolor=\color{backcolour},  
+  commentstyle=\color{codegreen},
+  keywordstyle=\color{magenta},
+  numberstyle=\tiny\color{codegray},
+  stringstyle=\color{codepurple},
+  basicstyle=\footnotesize,
+  breakatwhitespace=false,         
+  breaklines=true,                 
+  captionpos=b,                    
+  keepspaces=true,                 
+  numbers=left,                    
+  numbersep=5pt,                  
+  showspaces=false,                
+  showstringspaces=false,
+  showtabs=false,                  
+  tabsize=2
+}
+\lstset{style=mystyle}
+
+
+% Color Packages
+\usepackage{color}   
+\definecolor{sectionC}{rgb}{0.95,0.52,.0}
+\definecolor{subsectionC}{rgb}{1.0,.64,.26}
+\definecolor{subsubsectionC}{rgb}{1.0,.87,.68}
+\definecolor{tableCell}{rgb}{.98,.81,.69}
+
+
+% List package
+\usepackage{enumitem}
+\setenumerate{itemsep=0pt, itemindent=0in,leftmargin=0.5in}
+
+
+% Paragraph parameter
+
+\setlength{\parindent}{0pt}
+
+
+% ------------- Creates a linked Table of Contents  Start --------------- %
+\usepackage{hyperref}
+\hypersetup{
+colorlinks=true, %set true if you want colored links
+linktoc=all,     %set to all if you want both sections and subsections linked
+linkcolor=black,}  %choose some color if you want links to stand out
+
+% ------------- Creates a click-able Table of Contents  End--------------- %
+
+% ---------- PACKAGES END ------------ %
+
+
+
+% ------------------- START HEADER AND FOOTER ---------------------------%
+\usepackage{fancyhdr}
+
+% Helps with the n of total n pages
+\usepackage{lastpage}
+
+\pagestyle{fancy}
+
+% Header
+\lhead{Verification and Validation} 
+\rhead{Revision: 0}
+\fancyhead[LE, CO]{Group 9: LazyBots}
+
+% Removes line under the header 
+\renewcommand{\headrulewidth}{0pt}
+\setlength{\headsep}{.2in}
+
+% Footer 
+
+% Set the right side of the footer to be the page number
+\fancyfoot[R]{Page \textbf{\thepage}\ of \textbf{\pageref{LastPage}}}
+\fancyfoot[C]{}
+
+
+
+% ------------------- END HEADER AND FOOTER ---------------------------%
+
+% ------------------- START ROTATE FOOTER ---------------------------%
+\usepackage{everypage}
+
+
+\newcommand{\Lpagenumber}{\ifdim\textwidth=\linewidth\else\bgroup
+  \dimendef\margin=0
+  \ifodd\value{page}\margin=\oddsidemargin
+  \else\margin=\evensidemargin
+  \fi
+  \raisebox{\dimexpr -\topmargin-\headheight-\headsep-.8\linewidth}[0pt][0pt]{%
+    \rlap{\hspace{\dimexpr \margin+\textheight}%
+    \llap{\rotatebox{0}{Page \textbf{\thepage}\ of \textbf{\pageref{LastPage}}}}}}%
+\egroup\fi}
+\AddEverypageHook{\Lpagenumber}%
+
+% ------------------- END ROTATE FOOTER ---------------------------%
+
+
+
+% -------- SECTION AND SUBSECTION FORMATING START -------- % 
+% starts the 
+%\setcounter{section}{1}
+
+
+\titleformat{\section} % Section
+{\normalfont \fontsize{14}{14} \bfseries}{}{0em}{\colorsection}
+
+% Makes a background color
+\newcommand{\colorsection}[1]{%
+  \colorbox{sectionC}{\parbox{\dimexpr\textwidth -1\fboxsep}{\color{white}\Large\thesection\ \hspace{1mm} #1}}}
+
+
+% Makes a background color
+\titleformat{\subsection} % Subsection
+{\normalfont \fontsize{12}{12}  \bfseries}{}{0em}{\colorsubsection }
+
+\newcommand{\colorsubsection}[1]{%
+  \colorbox{subsectionC}{\parbox{\dimexpr \textwidth -1\fboxsep}{\large\thesubsection\ #1}}}
+
+
+% Makes a background color
+\titleformat{\subsubsection} % Subsubsection
+{\normalfont \fontsize{12}{12} \bfseries}{}{0em}{\colorsubsubsection}
+
+
+
+\newcommand{\colorsubsubsection}[1]{%
+  \colorbox{subsubsectionC}{\parbox{\dimexpr \textwidth-1\fboxsep}{\thesubsubsection\ #1}}}
+
+% -------- SECTION AND SUBSECTION FORMATING END -------- % 
+\usepackage{lipsum}
+
+
+% -----  IMAGE PATH START -----%
+% Relative Image Path
+\graphicspath {figures/}
+% -----  IMAGE PATH END -----%
+
+% ------ PARAGRAPH FORMAT START ----%
+%\setlength{\parskip}{.2em}% Sets the space between new paragraph items 
+\setlength{\parindent}{0em} % paragraph indent
+% ------ PARAGRAPH FORMAT END ----%
+
+
+% ------------------------------TOC FORMAT END --------------------------------%
+
+
+
+
+
+
+
+
+% -------------- DOCUMENT START ---------------%
+\begin{document}
+
+% --------- TITLE PAGE START ------- %
+\begin {center} 
+
+\thispagestyle{empty}
+\vspace*{5cm}
+
+% Logo Insertion
+\begin {figure}[h!]
+\centering
+\hspace{-10mm}\includegraphics [scale = .3, trim={.4cm 0 .8cm 0},clip] {figures/alfred.png}
+\end {figure}
+
+{\fontfamily{\cabinfamily}\selectfont
+\Huge{LazyBots} }
+
+\vspace{1 cm}
+{\Large\textbf{\textsc{McMaster University}}\\}  \vspace {1cm}
+{\Large Draft Verification and Validation\\ \vspace {0.4 cm} SE 4GA6 \& TRON 4TB6}  \vspace {1cm}
+
+{\large \textsc{Group 9} \\} \vspace{1cm}
+
+\begin{tabular}{ l c  l}
+Karim Guirguis & & 001307668 \\
+David Hemms & & 001309228 \\
+Marko Laban & & 001300989 \\
+Curtis Milo & & 001305877 \\
+Keyur Patel & & 001311559 \\
+Alexandra Rahman & & 001305735
+\end{tabular}
+
+
+
+
+\end{center}
+
+% --------- TITLE PAGE END------- %
+
+\pagebreak
+
+% Inserting table of contents and table of figures 
+
+\tableofcontents
+\listoftables
+\listoffigures
+
+
+
+\pagebreak
+
+% -----------  REVISION HISTORY START ----------- %
+
+%\section*{Revisions}
+%\thispagestyle{empty}
+\section{Revisions}
+\begin{longtable}{| p{.2\textwidth } | p{.23\textwidth } | p{.23\textwidth } | p{.23\textwidth } |} \caption{LazyBots Table of Revisions}  \\
+
+\hline 
+\centering \textbf{Date} & 
+\multicolumn{1}{c|}{\textbf {Revision Number}} &
+\multicolumn{1}{c|}{\textbf {Authors}} & 
+\multicolumn{1}{c|}{\textbf {Comments}} \\ \hline
+
+
+\multicolumn{1}{|c|}{\multirow{1}{*}{\centering February 17\textsuperscript{th}, 2018}}  & 
+\multirow{4}{*}{Revision 0}& 
+		{Karim Guirguis \newline
+		David Hemms \newline
+		Marko Laban \newline
+		Curtis Milo \newline
+		Keyur Patel \newline
+		Alexandra Rahman}
+ &
+ 
+% ------------------------------------------------------- Comments -------------------------------------------------------
+\multirow{4}{*}{-} \\ 
+\hline 
+
+\end{longtable}
+
+
+
+\pagebreak
+% -------------- START INTRODUCTION ---------------- %
+
+
+
+
+\section {Purpose}
+
+\section {Validation}
+
+\subsection{Project Goals and Functional Validation}
+
+\section {Verification}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
