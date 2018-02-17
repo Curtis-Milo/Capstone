@@ -1,6 +1,7 @@
 var unirest = require('unirest');
 var locks = require('locks');
 var fs = require('fs');
+var drinks = require('../lib/types');
 
 function TestRes() {
 	this._test_num = 0;
@@ -32,22 +33,22 @@ var tests = {
 					if (res.code < 200 || res.code > 299) {
 						resObj.testRes('Test GET /drinks endpoint', 'F', 200, res.code, 'fail');
 					} else {
-						resObj.testRes('Test GET /drinks endpoint', 'F', 200, res.code, 'pass');
-					}
-					resolve();
-				});
-			});
-		},
+						var i = 0;
+						var pass = true;
+						var types = Object.keys(drinks);
+						for (let type in res.body) {
+							if (type != types[i] || res.body[type] != drinks[type]) {
+								pass = false;
+								break;
+							}
+							i += 1;
+						}
 
-		sizes: function(resObj, host) {
-			return new Promise(function(resolve, reject) {
-				unirest.get(host + '/sizes')
-				.headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
-				.end(function(res) {
-					if (res.code < 200 || res.code > 299) {
-						resObj.testRes('Test GET /sizes endpoint', 'F', 200, res.code, 'fail');
-					} else {
-						resObj.testRes('Test GET /sizes endpoint', 'F', 200, res.code, 'pass');
+						if (pass) {
+							resObj.testRes('Test GET /drinks endpoint', 'F', 'res.body == drinkTypes', 'res.body == drinkTypes', 'pass');
+						} else {
+							resObj.testRes('Test GET /drinks endpoint', 'F', 'res.body == drinkTypes', 'res.body != drinkTypes', 'fail');
+						}
 					}
 					resolve();
 				});
@@ -62,7 +63,11 @@ var tests = {
 					if (res.code < 200 || res.code > 299) {
 						resObj.testRes('Test GET /numOfTanks endpoint', 'F', 200, res.code, 'fail');
 					} else {
-						resObj.testRes('Test GET /numOfTanks endpoint', 'F', 200, res.code, 'pass');
+						if (res.raw_body.trim() == '3') {
+							resObj.testRes('Test GET /numOfTanks endpoint', 'F', 'res.raw_body == 3', 'res.raw_body == 3', 'pass');
+						} else {
+							resObj.testRes('Test GET /numOfTanks endpoint', 'F', 'res.raw_body == 3', 'res.raw_body != 3', 'fail');
+						}
 					}
 					resolve();
 				});
@@ -90,6 +95,7 @@ var tests = {
 				.end(function (res) {
 					if (res.code < 200 || res.code > 299) {
 						resObj.testRes('Test POST /updateCreds endpoint', 'F', 200, res.code, 'fail');
+						resolve();
 					} else {
 						unirest.post(host + '/updateCreds')
 						.headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
@@ -101,9 +107,9 @@ var tests = {
 							} else {
 								resObj.testRes('Test POST /updateCreds endpoint', 'F', 200, res.code, 'pass');
 							}
+							resolve();
 						});
 					}
-					resolve();
 				});
 			});
 		},
@@ -156,7 +162,7 @@ var tests = {
 								resObj.testRes('Test GET /map endpoint', 'F', 'File contents == Map received', 'N/A', 'fail');
 							} else {
 								if (res.raw_body == contents) {
-									resObj.testRes('Test GET /map endpoint', 'F', 200, res.code, 'pass');
+									resObj.testRes('Test GET /map endpoint', 'F', 'File contents == Map received', 'File contents == Map received', 'pass');
 								} else {
 									resObj.testRes('Test GET /map endpoint', 'F', 'File contents == Map received', 'File contents != Map received', 'fail');
 								}
@@ -176,53 +182,29 @@ var tests = {
 				.end(function(res) {
 					if (res.code < 200 || res.code > 299) {
 						resObj.testRes('Test DELETE /map endpoint', 'F', 200, res.code, 'fail');
+						resolve();
 					} else {
-						resObj.testRes('Test DELETE /map endpoint', 'F', 200, res.code, 'pass');
+						unirest.get(host + '/drinks')
+						.headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
+						.end(function(res) {
+							if (res.code < 200 || res.code > 299) {
+								resObj.testRes('Test DELETE /map endpoint', 'F', 200, res.code, 'fail');
+							} else {
+								if ('COKE' in res.body) {
+									resObj.testRes('Test DELETE /map endpoint', 'F', 'Missing COKE', 'NOT missing COKE', 'fail');
+								} else {
+									resObj.testRes('Test DELETE /map endpoint', 'F', 'Missing COKE', 'Missing COKE', 'pass');
+								}
+							}
+							resolve();
+						});
 					}
-					resolve();
 				});
 			});
 		},
 
 		addDrink: function(resObj, host) {
-			
-		},
 
-		errors: function(resObj, host) {
-			return new Promise(function(resolve, reject) {
-				unirest.post(host + '/ta?name=COKE')
-				.headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
-				.auth(this._creds.userName, this._creds.password)
-				.end(function(res) {
-					if (res.code < 200 || res.code > 299) {
-						resObj.testRes('Test DELETE /map endpoint', 'F', 200, res.code, 'fail');
-					} else {
-						resObj.testRes('Test DELETE /map endpoint', 'F', 200, res.code, 'pass');
-					}
-					resolve();
-				});
-			});
-		},
-
-		table: function(resObj, host) {
-			return new Promise(function(resolve, reject) {
-				unirest.post(host + '/table?table_id=2')
-				.headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
-				.auth(this._creds.userName, this._creds.password)
-				.end(function(res) {
-					if (res.code < 200 || res.code > 299) {
-						resObj.testRes('Test POST /table endpoint', 'F', 200, res.code, 'fail');
-					} else {
-						resObj.testRes('Test POST /table endpoint', 'F', 200, res.code, 'pass');
-					}
-					resolve();
-				});
-			});
 		}
-	},
-
-	queueTest: {
-		//test placing an order,place in line, cancel order, next order call
-		//will need table credentials
 	}
 }
