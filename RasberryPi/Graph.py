@@ -19,7 +19,6 @@ class Graph:
   def dijsktra(graph, initial):
     visited = {initial: 0}
     path = {}
-
     nodes = set(graph.nodes)
 
     while nodes: 
@@ -33,15 +32,15 @@ class Graph:
 
       if min_node is None:
         break
-
+     
       nodes.remove(min_node)
       current_weight = visited[min_node]
-
       for edge in graph.edges[min_node]:
         try:
           weight = current_weight + graph.distances[(min_node, edge)]
         except Exception as e:
           weight = float("inf")
+          
        
         
         if edge not in visited or weight < visited[edge]:

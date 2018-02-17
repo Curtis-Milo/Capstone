@@ -1,2 +1,0 @@
-1, Testing Positive Change of Encoder, F1, Pos= Pos+delta, Pos= Pos+delta,  pass
-2, Testing Negative Change of Encoder, F1, Pos= Pos-delta, Pos= Pos-delta,  pass
