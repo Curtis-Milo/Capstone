@@ -22,7 +22,7 @@ TestRes.prototype.testRes = function(desc, req, exp, act, pass) {
 };
 
 const IP = 'http://localhost:8080';
-var resObj = TestRes();
+var resObj = new TestRes();
 
 var tests = {
 	generalTest: {
