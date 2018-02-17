@@ -20,7 +20,7 @@ TestRes.prototype.testRes = function(desc, req, exp, act, pass) {
 };
 
 var tests = {
-	_ip: 'localhost:8080',
+	_ip: 'http://localhost:8080',
 	adminTest: {
 		_creds: {
 			userName: 'admin',
