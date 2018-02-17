@@ -36,7 +36,10 @@ class DriveTrain():
 		self.batteryMax = 18.0;
 		self.PiA = PI_Controller(1,1)
 		self.PiB = PI_Controller(1,1)
-	
+		self.slewRateRight = slew(0.05)
+		self.slewRateLeft = slew(0.05)
+
+
 	def driveToLocation(self,toNode):
 		visited, path = self.map.dijsktra(self.currNode)
 		node = toNode
@@ -99,8 +102,8 @@ class DriveTrain():
 				errRight = self.PiA.PI_Calc(signA*self.refSpeedTurn, speedFdbk_A)
 				errLeft = self.PiB.PI_Calc(signB*self.refSpeedTurn, speedFdbk_B)
 				
-				duty_cycleR = 100*(errRight/self.batteryMax)
-				duty_cycleL = 100*(errLeft/self.batteryMax)
+				duty_cycleR = self.slewRateRight.slewValue(max(100*(errRight/self.batteryMax),75))
+				duty_cycleL = self.slewRateLeft.slewValue(max(100*(errLeft/self.batteryMax),75))
 				pwmRight.ChangeDutyCycle(duty_cycleR)
 				pwmLeft.ChangeDutyCycle(duty_cycleL)
 				self.circleChecker.captureImage()
@@ -136,13 +139,13 @@ class DriveTrain():
 					errRight = abs(self.PiA.PI_Calc(signA*self.refSpeedTurn, speedFdbk_A))
 					errLeft = abs(self.PiB.PI_Calc(signB*self.refSpeedTurn, speedFdbk_B))
 					
-					duty_cycleR = max(100*(errRight/self.batteryMax),75)
-					duty_cycleL =  max(100*(errLeft/self.batteryMax),75)
+					duty_cycleR = self.slewRateRight.slewValue(max(100*(errRight/self.batteryMax),75))
+					duty_cycleL = self.slewRateLeft.slewValue(max(100*(errLeft/self.batteryMax),75))
 					pwmRight.ChangeDutyCycle(duty_cycleR)
 					pwmLeft.ChangeDutyCycle(duty_cycleL)
 				else:
-					pwmRight.ChangeDutyCycle(0)
-					pwmLeft.ChangeDutyCycle(0)
+					pwmRight.ChangeDutyCycle(self.slewRateRight.slewValue(0))
+					pwmLeft.ChangeDutyCycle(self.slewRateLeft.slewValue(0))
 
 				self.circleChecker.captureImage()
 				circles = self.circleChecker.checkForCircle()
