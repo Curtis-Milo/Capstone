@@ -2,6 +2,8 @@ var unirest = require('unirest');
 var locks = require('locks');
 var fs = require('fs');
 var drinks = require('../lib/types');
+var http = require('http');
+var url = require('url');
 
 function TestRes() {
 	this._test_num = 0;
@@ -250,6 +252,8 @@ var tests = {
 			userName: 'admin',
 			password: 'admin'
 		},
+		token: null,
+		order_id: null,
 
 		getToken: function(resObj, host) {
 			var that = this;
@@ -337,6 +341,120 @@ var tests = {
 	},
 
 	robotTest: {
-		
+		token: null
+
+		reqListenForToken: function(host) {
+			var that = this;
+
+			unirest.post(host + '/genToken')
+			.headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
+			.end(function(res) {
+				console.log(res);
+			});
+
+			http.createServer(function(req, res) {
+				var url = url.parse(req.url, true);
+				if (req.method.toUpperCase() === 'POST' && url.pathname.toLowerCase().replace(/\//, '') === 'token') {
+					var body = '';
+					req.on('data', function(data) {
+						body += data;
+					});
+
+					req.on('end', function() {
+						try {
+							jsonDict = JSON.stringify(data);
+						} catch (e) {
+							res.writeHead(500);
+							res.end();
+						}
+
+						that.token = jsonDict.access_token;
+						res.writeHead(200);
+						res.end();
+					});
+				} else {
+					res.writeHead(404);
+					res.end();
+				}
+			}).listen(8000, '0.0.0.0');
+		},
+
+		checkToken: function(resObj, host) {
+			var that = this;
+			return new Promise(function(resolve, reject) {
+				unirest.get(host + '/checkToken')
+				.headers({'Accept': 'application/json', 'Content-Type': 'application/json', 'Authorization': `Bearer ${that.token}`})
+				.end(function(res) {
+					if (res.code < 200 || res.code > 299) {
+						resObj.testRes('Test GET /checkToken endpoint', 'F', 200, res.code, 'fail');
+					} else {
+						if (! ('valid' in res.body)) {
+							resObj.testRes('Test GET /checkToken endpoint', 'F', 'Must return validity of token', 'Does not include validity of token', 'fail');
+						} else {
+							resObj.testRes('Test GET /checkToken endpoint', 'F', 'Must return validity of token', 'Includes validity of token', 'pass');
+						}
+					}
+					resolve();
+				});
+			});
+		},
+
+		getMap: function(resObj, host) {
+			var that = this;
+			return new Promise(function(resolve, reject) {
+				unirest.get(host + '/map')
+				.headers({'Accept': 'application/json', 'Content-Type': 'application/json', 'Authorization': `Bearer ${that.token}`})
+				.end(function(res) {
+					if (res.code < 200 || res.code > 299) {
+						resObj.testRes('Test GET /map endpoint', 'F', 200, res.code, 'fail');
+					} else {
+						fs.readFile('./map_test.txt', 'utf8', function(err, contents) {
+							if (err) {
+								console.log('ERROR reading file.');
+								resObj.testRes('Test GET /map endpoint', 'F', 'File contents == Map received', 'N/A', 'fail');
+							} else {
+								if (res.raw_body == contents) {
+									resObj.testRes('Test GET /map endpoint', 'F', 'File contents == Map received', 'File contents == Map received', 'pass');
+								} else {
+									resObj.testRes('Test GET /map endpoint', 'F', 'File contents == Map received', 'File contents != Map received', 'fail');
+								}
+							}
+						});
+					}
+					resolve();
+				});
+			});
+		},
+
+		nextOrder: function(resObj, host) {
+			var that = this;
+			return new Promise(function(resolve, reject) {
+				unirest.get('host' + '/nextOrder')
+				.headers({'Accept': 'application/json', 'Content-Type': 'application/json', 'Authorization': `Bearer ${that.token}`})
+				.end(function(res) {
+					if (res.code < 200 || res.code > 299) {
+						resObj.testRes('Test GET /nextOrder endpoint', 'F', 200, res.code, 'fail');
+					} else {
+						var i = 0;
+						var keys = ['table_id', 'order_id', 'order'];
+						var passed = true;
+
+						for (let key in res.body) {
+							if (!(key in keys)) {
+								passed = false;
+								break
+							}
+						}
+
+						if (passed) {
+							resObj.testRes('Test GET /nextOrder endpoint', 'F', 'Order should have all required keys', 'Order has all required keys', 'pass');
+						} else {
+							resObj.testRes('Test GET /nextOrder endpoint', 'F', 'Order should have all required keys', 'Order does not have all required keys', 'fail');
+						}
+					}
+					resolve();
+				});
+			});
+		}
 	}
 };
