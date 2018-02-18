@@ -361,7 +361,7 @@ var tests = {
 
 						req.on('end', function() {
 							try {
-								jsonDict = JSON.stringify(data);
+								jsonDict = JSON.parse(data);
 							} catch (e) {
 								res.writeHead(500);
 								res.end();
