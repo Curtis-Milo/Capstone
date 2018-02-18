@@ -462,8 +462,34 @@ var resObj = new TestRes();
 tests.generalTest.getDrinks(resObj, IP).then(function() {
 	return tests.generalTest.getNumOfTanks(resObj, IP);
 }).then(function() {
-	// return next test...
-}); // .then(function() { return next test} ) ...
+	return tests.adminTest.updateCreds(resObj, IP);
+}).then(function() {
+	return tests.adminTest.login(resObj, IP);
+}).then(function() {
+	return tests.adminTest.setMap(resObj, IP);
+}).then(function() {
+	return tests.adminTest.getMap(resObj, IP);
+}).then(function() {
+	return tests.adminTest.deleteDrink(resObj, IP);
+}).then(function() {
+	return tests.adminTest.addDrink(resObj, IP);
+}).then(function() {
+	return tests.clientTest.getToken(resObj, IP);
+}).then(function() {
+	return tests.clientTest.placeOrder(resObj, IP);
+}).then(function() {
+	return tests.clientTest.placeInLine(resObj, IP);
+}).then(function() {
+	return tests.clientTest.cancelOrder(resObj, IP);
+}).then(function() {
+	return tests.robotTest.reqListenForToken(resObj, IP);
+}).then(function() {
+	return tests.robotTest.checkToken(resObj, IP);
+}).then(function() {
+	return tests.robotTest.getMap(resObj, IP);
+}).then(function() {
+	return tests.robotTest.nextOrder(resObj, IP);
+});
 
 // TO RUN:
 // on the server 'export BOT_HOST='localhost:8000''
