@@ -343,37 +343,40 @@ var tests = {
 		reqListenForToken: function(host) {
 			var that = this;
 
-			unirest.post(host + '/genToken')
-			.headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
-			.end(function(res) {
-				console.log(res);
-			});
+			return new Promise(function(resolve, reject) {
+				unirest.post(host + '/genToken')
+				.headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
+				.end(function(res) {
+					console.log(res);
+				});
 
-			http.createServer(function(req, res) {
-				var url = url.parse(req.url, true);
-				if (req.method.toUpperCase() === 'POST' && url.pathname.toLowerCase().replace(/\//, '') === 'token') {
-					var body = '';
-					req.on('data', function(data) {
-						body += data;
-					});
+				http.createServer(function(req, res) {
+					var url = url.parse(req.url, true);
+					if (req.method.toUpperCase() === 'POST' && url.pathname.toLowerCase().replace(/\//, '') === 'token') {
+						var body = '';
+						req.on('data', function(data) {
+							body += data;
+						});
 
-					req.on('end', function() {
-						try {
-							jsonDict = JSON.stringify(data);
-						} catch (e) {
-							res.writeHead(500);
+						req.on('end', function() {
+							try {
+								jsonDict = JSON.stringify(data);
+							} catch (e) {
+								res.writeHead(500);
+								res.end();
+							}
+
+							that.token = jsonDict.access_token;
+							res.writeHead(200);
 							res.end();
-						}
-
-						that.token = jsonDict.access_token;
-						res.writeHead(200);
+							resolve();
+						});
+					} else {
+						res.writeHead(404);
 						res.end();
-					});
-				} else {
-					res.writeHead(404);
-					res.end();
-				}
-			}).listen(8000, '0.0.0.0');
+					}
+				}).listen(8000, '0.0.0.0');
+			});
 		},
 
 		checkToken: function(resObj, host) {
@@ -482,7 +485,7 @@ tests.generalTest.getDrinks(resObj, IP).then(function() {
 }).then(function() {
 	return tests.clientTest.cancelOrder(resObj, IP);
 }).then(function() {
-	return tests.robotTest.reqListenForToken(resObj, IP);
+	return tests.robotTest.reqListenForToken(IP);
 }).then(function() {
 	return tests.robotTest.checkToken(resObj, IP);
 }).then(function() {
