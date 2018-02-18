@@ -352,8 +352,8 @@ var tests = {
 				});
 
 				http.createServer(function(req, res) {
-					var url = url.parse(req.url, true);
-					if (req.method.toUpperCase() === 'POST' && url.pathname.toLowerCase().replace(/\//, '') === 'token') {
+					var req_url = url.parse(req.url, true);
+					if (req.method.toUpperCase() === 'POST' && req_url.pathname.toLowerCase().replace(/\//, '') === 'token') {
 						var body = '';
 						req.on('data', function(data) {
 							body += data;
