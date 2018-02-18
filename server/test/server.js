@@ -376,7 +376,7 @@ var tests = {
 				unirest.post(host + '/genToken')
 				.headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
 				.end(function(res) {
-					console.log(res);
+					console.log(res.code);
 				});
 			});
 		},
