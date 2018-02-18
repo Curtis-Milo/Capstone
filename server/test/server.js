@@ -365,6 +365,7 @@ var tests = {
 							} catch (e) {
 								res.writeHead(500);
 								res.end();
+								return;
 							}
 
 							that.token = jsonDict.access_token;
