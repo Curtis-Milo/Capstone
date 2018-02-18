@@ -136,7 +136,7 @@ var tests = {
 			var that = this;
 			return new Promise(function(resolve, reject) {
 				unirest.post(host + '/map')
-				.headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
+				.headers({'Accept': 'application/json', 'Content-Type': 'multipart/form-data'})
 				.auth(that._creds.userName, that._creds.password)
 				.attach('file', './map_test.txt')
 				.end(function(res) {
