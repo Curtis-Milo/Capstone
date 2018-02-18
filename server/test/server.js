@@ -135,10 +135,11 @@ var tests = {
 		setMap: function(resObj, host) {
 			var that = this;
 			return new Promise(function(resolve, reject) {
+				var data = fs.readFileSync('./map_test.txt', 'utf8');
 				unirest.post(host + '/map')
 				.headers({'Accept': 'application/json', 'Content-Type': 'text/plain'})
 				.auth(that._creds.userName, that._creds.password)
-				.attach('file', './map_test.txt')
+				.send(data)
 				.end(function(res) {
 					if (res.code < 200 || res.code > 299) {
 						resObj.testRes('Test POST /map endpoint', 'F', 200, res.code, 'fail');
