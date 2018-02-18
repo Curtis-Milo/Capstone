@@ -12,13 +12,13 @@ function TestRes() {
 
 TestRes.prototype.testRes = function(desc, req, exp, act, pass) {
 	var that = this;
-	mutex.timedLock(10000, function(err) {
+	this.mutex.timedLock(10000, function(err) {
 		if (err) {
 			console.log("ERROR obtaining lock.");
 		} else {
 			that._test_num += 1;
-			// body...
-			mutex.unlock();
+			fs.appendFileSync('./results.txt', `${that._test_num}, ${desc}, ${req}, ${exp}, ${act}, ${pass}`);
+			that.mutex.unlock();
 		}
 	});
 };
