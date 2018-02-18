@@ -17,7 +17,7 @@ TestRes.prototype.testRes = function(desc, req, exp, act, pass) {
 			console.log("ERROR obtaining lock.");
 		} else {
 			that._test_num += 1;
-			fs.appendFileSync('./results.txt', `${that._test_num}, ${desc}, ${req}, ${exp}, ${act}, ${pass}`);
+			fs.appendFileSync('./results.txt', `${that._test_num}, ${desc}, ${req}, ${exp}, ${act}, ${pass}\n`);
 			that.mutex.unlock();
 		}
 	});
@@ -338,7 +338,7 @@ var tests = {
 	},
 
 	robotTest: {
-		token: null
+		token: null,
 
 		reqListenForToken: function(host) {
 			var that = this;
