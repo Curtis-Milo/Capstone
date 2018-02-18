@@ -213,7 +213,7 @@ var tests = {
 			var that = this;
 			return new Promise(function(resolve, reject) {
 				var data = {
-					COKE: 1
+					COKE: 2
 				};
 
 				unirest.post(host + '/drinks')
