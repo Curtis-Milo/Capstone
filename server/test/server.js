@@ -345,12 +345,6 @@ var tests = {
 			var that = this;
 
 			return new Promise(function(resolve, reject) {
-				unirest.post(host + '/genToken')
-				.headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
-				.end(function(res) {
-					console.log(res);
-				});
-
 				http.createServer(function(req, res) {
 					var req_url = url.parse(req.url, true);
 					if (req.method.toUpperCase() === 'POST' && req_url.pathname.toLowerCase().replace(/\//, '') === 'token') {
@@ -378,6 +372,12 @@ var tests = {
 						res.end();
 					}
 				}).listen(8000, '0.0.0.0');
+
+				unirest.post(host + '/genToken')
+				.headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
+				.end(function(res) {
+					console.log(res);
+				});
 			});
 		},
 
