@@ -23,9 +23,6 @@ TestRes.prototype.testRes = function(desc, req, exp, act, pass) {
 	});
 };
 
-const IP = 'http://localhost:8080';
-var resObj = new TestRes();
-
 var tests = {
 	generalTest: {
 		getDrinks: function(resObj, host) {
@@ -458,3 +455,21 @@ var tests = {
 		}
 	}
 };
+
+const IP = 'http://localhost:8080';
+var resObj = new TestRes();
+
+tests.generalTest.getDrinks(resObj, IP).then(function() {
+	return tests.generalTest.getNumOfTanks(resObj, IP);
+}).then(function() {
+	// return next test...
+}); // .then(function() { return next test} ) ...
+
+// TO RUN:
+// on the server 'export BOT_HOST='localhost:8000''
+// start node server
+// On the server run the test script (this script)
+// Should have a results.txt with results
+
+// Can you please verify eveything passes, and debug why anything may fail (should be a problem with the test)
+// Also can you please specify which requirement each test is for (i.e. F whatever)
