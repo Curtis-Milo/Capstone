@@ -23,7 +23,7 @@ class pathFindingTest:
 		for i in range(len(lines)):	
 			chars = lines[i].strip().split(',')
 			
-			for j in range(len(chars)-1):
+			for j in range(len(chars)):
 				
 				cost = 1
 				cur_Node = (i,j)
@@ -31,7 +31,7 @@ class pathFindingTest:
 				#determining the starting and ending position
 				if (chars[j] == "H"):
 					#Setting the start position
-					source = (j,i)
+					source = (i,j)
 					home_num = home_num +1
 				elif (chars[j] == "T"):
 					#print cur_Node
@@ -46,8 +46,9 @@ class pathFindingTest:
 				#creating the edges and adding them to the graphs
 				
 ##				print chars
+				
 				if (0 < j): 
-					prev = (i,j)
+					prev = (i,j-1)
 					table,passable = self.determinePassable(lines,prev,cur_Node)
 					if passable and not table:
 						self.map.add_edge(prev,cur_Node, 1)
@@ -55,7 +56,7 @@ class pathFindingTest:
 						self.map.add_edge(prev, cur_Node,float("inf"))
 						
 				if (j < len(chars)):
-					nextN =(i,j+1)
+					nextN =(i,j)
 					table, passable = self.determinePassable(lines,cur_Node,nextN)
 					if passable and not table:
 						self.map.add_edge(cur_Node, nextN, 1)
@@ -71,7 +72,7 @@ class pathFindingTest:
 						self.map.add_edge(prev, cur_Node, float("inf"))
 						
 				if (i < len(lines)):
-					nextN =(i,j+1)
+					nextN =(i,j)
 					table, passable = self.determinePassable(lines,cur_Node,nextN)
 					if passable and not table:
 						self.map.add_edge(cur_Node, nextN, 1)
