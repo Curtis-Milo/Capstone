@@ -371,12 +371,12 @@ var tests = {
 						res.writeHead(404);
 						res.end();
 					}
-				}).listen(8000, '0.0.0.0');
-
-				unirest.post(host + '/genToken')
-				.headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
-				.end(function(res) {
-					console.log(res.code);
+				}).listen(8000, '0.0.0.0', function() {
+					unirest.post(host + '/genToken')
+					.headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
+					.end(function(res) {
+						console.log(res.code);
+					});
 				});
 			});
 		},
