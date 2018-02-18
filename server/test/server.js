@@ -377,9 +377,9 @@ var tests = {
 					.end(function(res) {
 						console.log(res.code);
 					});
-
-					while (!that.token) {}
 				});
+
+				while (!that.token) {}
 			});
 		},
 
