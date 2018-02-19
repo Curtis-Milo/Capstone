@@ -355,7 +355,7 @@ var tests = {
 
 						req.on('end', function() {
 							try {
-								jsonDict = JSON.parse(data);
+								jsonDict = JSON.parse(body);
 							} catch (e) {
 								res.writeHead(500);
 								res.end();
@@ -378,8 +378,6 @@ var tests = {
 						console.log(res.code);
 					});
 				});
-
-				while (!that.token) {}
 			});
 		},
 
