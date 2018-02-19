@@ -447,7 +447,7 @@ var tests = {
 						for (let key in keys) {
 							if (!(key in res.body)) {
 								passed = false;
-								break
+								break;
 							}
 						}
 
