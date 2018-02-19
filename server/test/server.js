@@ -443,8 +443,8 @@ var tests = {
 						var keys = ['table_id', 'order_id', 'order'];
 						var passed = true;
 
-						for (let key in res.body) {
-							if (!(key in keys)) {
+						for (let key in keys) {
+							if (!(key in res.body)) {
 								passed = false;
 								break
 							}
