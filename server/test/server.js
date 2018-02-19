@@ -32,7 +32,7 @@ var tests = {
 				.headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
 				.end(function(res) {
 					if (res.code < 200 || res.code > 299) {
-						resObj.testRes('Test GET /drinks endpoint', 'F', 200, res.code, 'fail');
+						resObj.testRes('Test GET /drinks endpoint', '', 200, res.code, 'fail');
 					} else {
 						var i = 0;
 						var pass = true;
@@ -49,9 +49,9 @@ var tests = {
 						}
 
 						if (pass) {
-							resObj.testRes('Test GET /drinks endpoint', 'F', 'res.body == drinkTypes', 'res.body == drinkTypes', 'pass');
+							resObj.testRes('Test GET /drinks endpoint', '', 'res.body == drinkTypes', 'res.body == drinkTypes', 'pass');
 						} else {
-							resObj.testRes('Test GET /drinks endpoint', 'F', 'res.body == drinkTypes', 'res.body != drinkTypes', 'fail');
+							resObj.testRes('Test GET /drinks endpoint', '', 'res.body == drinkTypes', 'res.body != drinkTypes', 'fail');
 						}
 					}
 					resolve();
@@ -65,12 +65,12 @@ var tests = {
 				.headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
 				.end(function(res) {
 					if (res.code < 200 || res.code > 299) {
-						resObj.testRes('Test GET /numOfTanks endpoint', 'F', 200, res.code, 'fail');
+						resObj.testRes('Test GET /numOfTanks endpoint', '', 200, res.code, 'fail');
 					} else {
 						if (res.raw_body.trim() == '3') {
-							resObj.testRes('Test GET /numOfTanks endpoint', 'F', 'res.raw_body == 3', 'res.raw_body == 3', 'pass');
+							resObj.testRes('Test GET /numOfTanks endpoint', '', 'res.raw_body == 3', 'res.raw_body == 3', 'pass');
 						} else {
-							resObj.testRes('Test GET /numOfTanks endpoint', 'F', 'res.raw_body == 3', 'res.raw_body != 3', 'fail');
+							resObj.testRes('Test GET /numOfTanks endpoint', '', 'res.raw_body == 3', 'res.raw_body != 3', 'fail');
 						}
 					}
 					resolve();
@@ -146,9 +146,9 @@ var tests = {
 				.send(data)
 				.end(function(res) {
 					if (res.code < 200 || res.code > 299) {
-						resObj.testRes('Test POST /map endpoint', 'AD1,AD2', 200, res.code, 'fail');
+						resObj.testRes('Test POST /map endpoint', 'AD1/AD2', 200, res.code, 'fail');
 					} else {
-						resObj.testRes('Test POST /map endpoint', 'AD1,AD2', 200, res.code, 'pass');
+						resObj.testRes('Test POST /map endpoint', 'AD1/AD2', 200, res.code, 'pass');
 					}
 					resolve();
 				});
@@ -163,7 +163,7 @@ var tests = {
 				.auth(that._creds.userName, that._creds.password)
 				.end(function(res) {
 					if (res.code < 200 || res.code > 299) {
-						resObj.testRes('Test GET /map endpoint', 'AD1,AD2', 200, res.code, 'fail');
+						resObj.testRes('Test GET /map endpoint', 'AD1/AD2', 200, res.code, 'fail');
 					} else {
 						fs.readFile('./map_test.txt', 'utf8', function(err, contents) {
 							if (err) {
@@ -171,9 +171,9 @@ var tests = {
 								resObj.testRes('Test GET /map endpoint', 'AD1,AD2', 'File contents == Map received', 'N/A', 'fail');
 							} else {
 								if (res.raw_body.trim() == contents.trim()) {
-									resObj.testRes('Test GET /map endpoint', 'AD1,AD2', 'File contents == Map received', 'File contents == Map received', 'pass');
+									resObj.testRes('Test GET /map endpoint', 'AD1/AD2', 'File contents == Map received', 'File contents == Map received', 'pass');
 								} else {
-									resObj.testRes('Test GET /map endpoint', 'AD1,AD2', 'File contents == Map received', 'File contents != Map received', 'fail');
+									resObj.testRes('Test GET /map endpoint', 'AD1/AD2', 'File contents == Map received', 'File contents != Map received', 'fail');
 								}
 							}
 						});
@@ -191,19 +191,19 @@ var tests = {
 				.auth(that._creds.userName, that._creds.password)
 				.end(function(res) {
 					if (res.code < 200 || res.code > 299) {
-						resObj.testRes('Test DELETE /drinks endpoint', 'F', 200, res.code, 'fail');
+						resObj.testRes('Test DELETE /drinks endpoint', '', 200, res.code, 'fail');
 						resolve();
 					} else {
 						unirest.get(host + '/drinks')
 						.headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
 						.end(function(res) {
 							if (res.code < 200 || res.code > 299) {
-								resObj.testRes('Test DELETE /drinks endpoint', 'F', 200, res.code, 'fail');
+								resObj.testRes('Test DELETE /drinks endpoint', '', 200, res.code, 'fail');
 							} else {
 								if ('COKE' in res.body) {
-									resObj.testRes('Test DELETE /drinks endpoint', 'F', 'Missing COKE', 'NOT missing COKE', 'fail');
+									resObj.testRes('Test DELETE /drinks endpoint', '', 'Missing COKE', 'NOT missing COKE', 'fail');
 								} else {
-									resObj.testRes('Test DELETE /drinks endpoint', 'F', 'Missing COKE', 'Missing COKE', 'pass');
+									resObj.testRes('Test DELETE /drinks endpoint', '', 'Missing COKE', 'Missing COKE', 'pass');
 								}
 							}
 							resolve();
@@ -226,19 +226,19 @@ var tests = {
 				.send(data)
 				.end(function(res) {
 					if (res.code < 200 || res.code > 299) {
-						resObj.testRes('Test POST /drinks endpoint', 'F', 200, res.code, 'fail');
+						resObj.testRes('Test POST /drinks endpoint', '', 200, res.code, 'fail');
 						resolve();
 					} else {
 						unirest.get(host + '/drinks')
 						.headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
 						.end(function(res) {
 							if (res.code < 200 || res.code > 299) {
-								resObj.testRes('Test POST /drinks endpoint', 'F', 200, res.code, 'fail');
+								resObj.testRes('Test POST /drinks endpoint', '', 200, res.code, 'fail');
 							} else {
 								if ('COKE' in res.body) {
-									resObj.testRes('Test POST /drinks endpoint', 'F', 'COKE in body', 'COKE in body', 'pass');
+									resObj.testRes('Test POST /drinks endpoint', '', 'COKE in body', 'COKE in body', 'pass');
 								} else {
-									resObj.testRes('Test POST /drinks endpoint', 'F', 'COKE in body', 'COKE NOT in body', 'fail');
+									resObj.testRes('Test POST /drinks endpoint', '', 'COKE in body', 'COKE NOT in body', 'fail');
 								}
 							}
 							resolve();
@@ -295,9 +295,9 @@ var tests = {
 				.send(data)
 				.end(function(res) {
 					if (res.code < 200 || res.code > 299) {
-						resObj.testRes('Test POST /placeOrder endpoint', 'TO1,TO2', 200, res.code, 'fail');
+						resObj.testRes('Test POST /placeOrder endpoint', 'TO1/TO2', 200, res.code, 'fail');
 					} else {
-						resObj.testRes('Test POST /placeOrder endpoint', 'TO1,TO2', 200, res.code, 'pass');
+						resObj.testRes('Test POST /placeOrder endpoint', 'TO1/TO2', 200, res.code, 'pass');
 						that.order_id = res.body.orderData.order_id;
 					}
 					resolve();
@@ -332,9 +332,9 @@ var tests = {
 				.headers({'Accept': 'application/json', 'Content-Type': 'application/json', 'Authorization': `Bearer ${that.token}`})
 				.end(function(res){
 					if (res.code < 200 || res.code > 299) {
-						resObj.testRes('Test DELETE /cancelOrder endpoint', 'F', 200, res.code, 'fail');
+						resObj.testRes('Test DELETE /cancelOrder endpoint', '', 200, res.code, 'fail');
 					} else {
-						resObj.testRes('Test DELETE /cancelOrder endpoint', 'F', 200, res.code, 'pass');
+						resObj.testRes('Test DELETE /cancelOrder endpoint', '', 200, res.code, 'pass');
 					}
 					resolve();
 				});
@@ -507,6 +507,3 @@ tests.generalTest.getDrinks(resObj, IP).then(function() {
 // start node server
 // On the server run the test script (this script)
 // Should have a results.txt with results
-
-// Can you please verify eveything passes, and debug why anything may fail (should be a problem with the test)
-// Also can you please specify which requirement each test is for (i.e. F whatever)
