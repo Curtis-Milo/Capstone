@@ -138,11 +138,10 @@ var tests = {
 		setMap: function(resObj, host) {
 			var that = this;
 			return new Promise(function(resolve, reject) {
-				// var data = fs.readFileSync('./map_test.txt', 'utf8');
 				unirest.post(host + '/map')
-				.headers({'Accept': 'application/json'})//, 'Content-Type': 'text/plain', 'Content-Length': data.length})
+				.headers({'Accept': 'application/json'})
 				.auth(that._creds.userName, that._creds.password)
-				.attach('relative file', fs.createReadStream('./map_test.txt'))
+				.attach({'relative file': fs.createReadStream('./map_test.txt')})
 				.end(function(res) {
 					if (res.code < 200 || res.code > 299) {
 						resObj.testRes('Test POST /map endpoint', 'AD1,AD2', 200, res.code, 'fail');
