@@ -36,6 +36,9 @@ var tests = {
 						var i = 0;
 						var pass = true;
 						var types = Object.keys(drinks);
+						if (types.length != Object.keys(res.body).length) {
+							pass = false;
+						}
 						for (let type in res.body) {
 							if (type != types[i] || res.body[type] != drinks[type]) {
 								pass = false;
@@ -346,41 +349,39 @@ var tests = {
 		reqListenForToken: function(host, cb) {
 			var that = this;
 
-			// return new Promise(function(resolve, reject) {
-				http.createServer(function(req, res) {
-					var req_url = url.parse(req.url, true);
-					if (req.method.toUpperCase() === 'POST' && req_url.pathname.toLowerCase().replace(/\//, '') === 'token') {
-						var body = '';
-						req.on('data', function(data) {
-							body += data;
-						});
-
-						req.on('end', function() {
-							try {
-								jsonDict = JSON.parse(body);
-							} catch (e) {
-								res.writeHead(500);
-								res.end();
-								return;
-							}
-
-							that.token = jsonDict.access_token;
-							res.writeHead(200);
-							res.end();
-							cb();
-						});
-					} else {
-						res.writeHead(404);
-						res.end();
-					}
-				}).listen(8000, '0.0.0.0', function() {
-					unirest.post(host + '/genToken')
-					.headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
-					.end(function(res) {
-						console.log(res.code);
+			http.createServer(function(req, res) {
+				var req_url = url.parse(req.url, true);
+				if (req.method.toUpperCase() === 'POST' && req_url.pathname.toLowerCase().replace(/\//, '') === 'token') {
+					var body = '';
+					req.on('data', function(data) {
+						body += data;
 					});
+
+					req.on('end', function() {
+						try {
+							jsonDict = JSON.parse(body);
+						} catch (e) {
+							res.writeHead(500);
+							res.end();
+							return;
+						}
+
+						that.token = jsonDict.access_token;
+						res.writeHead(200);
+						res.end();
+						cb();
+					});
+				} else {
+					res.writeHead(404);
+					res.end();
+				}
+			}).listen(8000, '0.0.0.0', function() {
+				unirest.post(host + '/genToken')
+				.headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
+				.end(function(res) {
+					console.log(res.code);
 				});
-			// });
+			});
 		},
 
 		checkToken: function(resObj, host) {
