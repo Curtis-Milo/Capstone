@@ -497,6 +497,8 @@ tests.generalTest.getDrinks(resObj, IP).then(function() {
 			return tests.robotTest.getMap(resObj, IP);
 		}).then(function() {
 			return tests.robotTest.nextOrder(resObj, IP);
+		}).then(function() {
+			console.log('DONE!');
 		});
 	});
 });
