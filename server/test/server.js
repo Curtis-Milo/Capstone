@@ -4,6 +4,7 @@ var fs = require('fs');
 var drinks = require('../lib/types');
 var http = require('http');
 var url = require('url');
+var request = unirest.request;
 
 function TestRes() {
 	this._test_num = 0;
@@ -138,19 +139,28 @@ var tests = {
 		setMap: function(resObj, host) {
 			var that = this;
 			return new Promise(function(resolve, reject) {
-				unirest.post(host + '/map')
-				.headers({'Accept': 'application/json'})
-				.auth(that._creds.userName, that._creds.password)
-				.attach({'relative file': fs.createReadStream('./map_test.txt')})
-				.stream()
-				.end(function(res) {
-					if (res.code < 200 || res.code > 299) {
-						resObj.testRes('Test POST /map endpoint', 'AD1,AD2', 200, res.code, 'fail');
-					} else {
-						resObj.testRes('Test POST /map endpoint', 'AD1,AD2', 200, res.code, 'pass');
-					}
-					resolve();
-				});
+				fs.createReadStream('./map_test.txt').pipe(request.post(host + '/map')
+					.on('response', function(res) {
+						if (res.statusCode < 200 || res.statusCode > 299) {
+							resObj.testRes('Test POST /map endpoint', 'AD1,AD2', 200, res.statusCode, 'fail');
+						} else {
+							resObj.testRes('Test POST /map endpoint', 'AD1,AD2', 200, res.statusCode, 'pass');
+						}
+						resolve();
+					}));
+				// unirest.post(host + '/map')
+				// .headers({'Accept': 'application/json'})
+				// .auth(that._creds.userName, that._creds.password)
+				// .attach({'relative file': fs.createReadStream('./map_test.txt')})
+				// .stream()
+				// .end(function(res) {
+				// 	if (res.code < 200 || res.code > 299) {
+				// 		resObj.testRes('Test POST /map endpoint', 'AD1,AD2', 200, res.code, 'fail');
+				// 	} else {
+				// 		resObj.testRes('Test POST /map endpoint', 'AD1,AD2', 200, res.code, 'pass');
+				// 	}
+				// 	resolve();
+				// });
 			});
 		},
 
