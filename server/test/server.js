@@ -489,8 +489,8 @@ tests.generalTest.getDrinks(resObj, IP).then(function() {
 }).then(function() {
 	return tests.clientTest.cancelOrder(resObj, IP);
 }).then(function() {
-	return tests.robotTest.reqListenForToken(IP);
-}).then(function() {
+	tests.robotTest.reqListenForToken(IP);
+	while (! tests.robotTest.token) {}
 	return tests.robotTest.checkToken(resObj, IP);
 }).then(function() {
 	return tests.robotTest.getMap(resObj, IP);
