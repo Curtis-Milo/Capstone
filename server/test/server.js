@@ -343,10 +343,10 @@ var tests = {
 	robotTest: {
 		token: null,
 
-		reqListenForToken: function(host) {
+		reqListenForToken: function(host, cb) {
 			var that = this;
 
-			return new Promise(function(resolve, reject) {
+			// return new Promise(function(resolve, reject) {
 				http.createServer(function(req, res) {
 					var req_url = url.parse(req.url, true);
 					if (req.method.toUpperCase() === 'POST' && req_url.pathname.toLowerCase().replace(/\//, '') === 'token') {
@@ -367,7 +367,7 @@ var tests = {
 							that.token = jsonDict.access_token;
 							res.writeHead(200);
 							res.end();
-							resolve();
+							cb();
 						});
 					} else {
 						res.writeHead(404);
@@ -380,7 +380,7 @@ var tests = {
 						console.log(res.code);
 					});
 				});
-			});
+			// });
 		},
 
 		checkToken: function(resObj, host) {
@@ -489,13 +489,13 @@ tests.generalTest.getDrinks(resObj, IP).then(function() {
 }).then(function() {
 	return tests.clientTest.cancelOrder(resObj, IP);
 }).then(function() {
-	return tests.robotTest.reqListenForToken(IP);
-}).then(function() {
-	return tests.robotTest.checkToken(resObj, IP);
-}).then(function() {
-	return tests.robotTest.getMap(resObj, IP);
-}).then(function() {
-	return tests.robotTest.nextOrder(resObj, IP);
+	tests.robotTest.reqListenForToken(IP, function() {
+		tests.robotTest.checkToken(resObj, IP).then(function() {
+			return tests.robotTest.getMap(resObj, IP);
+		}).then(function() {
+			return tests.robotTest.nextOrder(resObj, IP);
+		});
+	});
 });
 
 // TO RUN:
