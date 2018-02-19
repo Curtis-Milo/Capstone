@@ -166,7 +166,7 @@ var tests = {
 								console.log('ERROR reading file.');
 								resObj.testRes('Test GET /map endpoint', 'F', 'File contents == Map received', 'N/A', 'fail');
 							} else {
-								if (res.raw_body == contents) {
+								if (res.raw_body.trim() == contents.trim()) {
 									resObj.testRes('Test GET /map endpoint', 'F', 'File contents == Map received', 'File contents == Map received', 'pass');
 								} else {
 									resObj.testRes('Test GET /map endpoint', 'F', 'File contents == Map received', 'File contents != Map received', 'fail');
