@@ -490,6 +490,8 @@ tests.generalTest.getDrinks(resObj, IP).then(function() {
 }).then(function() {
 	return tests.clientTest.cancelOrder(resObj, IP);
 }).then(function() {
+	return tests.clientTest.placeOrder(resObj, IP);
+}).then(function() {
 	tests.robotTest.reqListenForToken(IP, function() {
 		tests.robotTest.checkToken(resObj, IP).then(function() {
 			return tests.robotTest.getMap(resObj, IP);
