@@ -140,7 +140,7 @@ var tests = {
 			return new Promise(function(resolve, reject) {
 				var data = fs.readFileSync('./map_test.txt', 'utf8');
 				unirest.post(host + '/map')
-				.headers({'Accept': 'application/json', 'Content-Type': 'text/plain'})
+				.headers({'Accept': 'application/json', 'Content-Type': 'text/plain', 'Content-Length': data.length})
 				.auth(that._creds.userName, that._creds.password)
 				.send(data)
 				.end(function(res) {
@@ -169,10 +169,8 @@ var tests = {
 								console.log('ERROR reading file.');
 								resObj.testRes('Test GET /map endpoint', 'AD1,AD2', 'File contents == Map received', 'N/A', 'fail');
 							} else {
-
 								if (res.raw_body.trim() == contents.trim()) {
 									resObj.testRes('Test GET /map endpoint', 'AD1,AD2', 'File contents == Map received', 'File contents == Map received', 'pass');
-
 								} else {
 									resObj.testRes('Test GET /map endpoint', 'AD1,AD2', 'File contents == Map received', 'File contents != Map received', 'fail');
 								}
