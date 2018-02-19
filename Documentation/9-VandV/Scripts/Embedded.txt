@@ -1,20 +1,20 @@
-1, Testing Positive Change of Left Encoder, AF3, 60= 60+1, 61,  pass
-2, Testing Negative Change of Left Encoder, AF3, 60= 60-1, 59,  pass
-3, Testing Positive Change of Encoder, AF3, 60= 60+1, 61,  pass
-4, Testing Negative Change of Encoder, AF3, 60= 60-1, 59,  pass
-5, Open Loop Test of Movement going forward, AF3, Both wheels spin forward, Both wheels spin forward,  pass
-6, Open Loop Test of Movement for turning, AF3, Wheels spining in different directions, Wheels spining in different directions,  pass
-7, Ultra Sonic distance test at 1.5m, AF10, Nothing blocking, Nothing blocking,  pass
-8, Ultra Sonic distance test at 0.35m, AF10, Blocked, Blocked,  pass
-9, Able to take picture, AF3, A picture, a Picture, pass
-10, Able to detect circles from an image, AF3, Image with a circle, Position of the circle, pass
-11, Speed is slewed on start, AF3, Printing showing a duty cycle increase, Printing showing a duty cycle increase, pass
-12, Closed Loop Test of Movement going forward, AF3, Both wheels spin forward at 20 encoder counts/s,Both wheels spin forward at  20 encoder counts/s,  pass
-13, Closed Loop Test of Movement going forward, AF3, Both wheels spin forward at  10 encoder counts/s, Left side failed to correctly start, fail - the software worked correctly but there was mechanical issues at slow speeds
-14, Closed Loop Test of Movement going forward with unequal resistence, AF3, Both wheels spin forward at 20 encoder counts/s,Both wheels spin forward at  20 encoder counts/s,  pass
-15, Closed Loop Test of Movement for turning, AF3, Wheels spining in different directions at 20 encoder counts/s,Wheels spining in different directions at 20 encoder counts/s, pass 
-16, Ultra Sonic Stop, AF3, Something is blocking the path while moving so alfred stops, Aflred Stopped, pass 
-17, Image processing stop with node close, AF3, Has reached the next node, so alfred stops motion, Aflred Stopped, pass 
-18, Image processing stop with node at ceiling away, AF3, Has reached the next node, so alfred stops motion, Aflred Stopped, Conditional pass- needed lighting
-19, Turn of 90deg, AF3, Alfred will turn 90deg and stop, Alfred continued to turn, fail- needs to be redegined.
-20, recieving an order, A1, Alfred recieves a drink that corresponds to tank 1 and 2, Alfred recieves a drink that corresponds to tank 1 and 2, pass
+1, Testing Positive Change of Left Encoder, movment of encoder, AF3, 60= 60+1, 61,  pass
+2, Testing Negative Change of Left Encoder, movment of encoder, AF3, 60= 60-1, 59,  pass
+3, Testing Positive Change of Encoder, AF3, movment of encoder, 60= 60+1, 61,  pass
+4, Testing Negative Change of Encoder, AF3, movment of encoder, 60= 60-1, 59,  pass
+5, Open Loop Test of Movement going forward, AF3, 10% duty cycles, Both wheels spin forward, Both wheels spin forward,  pass
+6, Open Loop Test of Movement for turning, AF3,10% duty cycles with one pin on to specfy backwards, Wheels spining in different directions, Wheels spining in different directions,  pass
+7, Ultra Sonic distance test at 1.5m, AF10, a wall 1.5m in front of robot, Nothing blocking, Nothing blocking,  pass
+8, Ultra Sonic distance test at 0.35m, AF10,a book blocking the path, Blocked, Blocked,  pass
+9, Able to take picture, AF3,software trigger to take the picture, A picture, a Picture, pass
+10, Able to detect circles from an image, AF3, Image with a circle, Position of the circle, Position of the circle, pass
+11, Speed is slewed on start, AF3, A 30% in duty cycles, Printing showing a duty cycle increase, Printing showing a duty cycle increase to 30%, pass
+12, Closed Loop Test of Movement going forward, AF3, reference of 20 encoder counts/sec, Both wheels spin forward at 20 encoder counts/s, Both wheels spin forward at  20 encoder counts/s,  pass
+13, Closed Loop Test of Movement going forward, AF3, reference of 10 encoder counts/sec, Both wheels spin forward at  10 encoder counts/s, Left side failed to correctly start, fail - the software worked correctly but there was mechanical issues at slow speeds
+14, Closed Loop Test of Movement going forward with unequal resistence, AF3, reference of 20 encoder counts/sec, Both wheels spin forward at 20 encoder counts/s,Both wheels spin forward at  20 encoder counts/s,  pass
+15, Closed Loop Test of Movement for turning, AF3, reference of 20 encoder counts/sec, Wheels spining in different directions at 20 encoder counts/s,Wheels spining in different directions at 20 encoder counts/s, pass 
+16, Ultra Sonic Stop, AF3, reference of 20 encoder counts/sec then something blocks its path, Something is blocking the path while moving so alfred stops, Aflred Stopped, pass 
+17, Image processing stop with node close, AF3, an image close up to camera while moving, Has reached the next node so Alfred stops motion, Aflred Stopped, pass 
+18, Image processing stop with node at ceiling away, AF3, An image further away at ceiling height distance, Has reached the next node so Alfred stops motion, Aflred Stopped, Conditional pass- needed lighting
+19, Turn of 90deg, AF3, A reference of 90 degrees, Alfred will turn 90deg and stop, Alfred continued to turn, fail- needs to be redegined.
+20, recieving an order, A1, An order of Coke and Diet Coke on the User Application, Alfred recieves a drink that corresponds to tank 1 and 2, Alfred recieves a drink that corresponds to tank 1 and 2, pass

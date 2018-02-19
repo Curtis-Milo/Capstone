@@ -230,7 +230,7 @@ linkcolor=black,}  %choose some color if you want links to stand out
 \hspace{-10mm}\includegraphics [scale = .3, trim={.4cm 0 .8cm 0},clip] {figures/alfred.png}
 \end {figure}
 
-{\fontfamily{\cabinfamily}\selectfont
+{
 \Huge{LazyBots} }
 
 \vspace{1 cm}
@@ -307,11 +307,124 @@ Alexandra Rahman & & 001305735
 
 \section {Purpose}
 
+
+The purpose of the document is to help support the development process of the drink dispensing autonomous robot known as Alfred. In particular, this document will describe what tests have been performed to ensure that Alfred will be able to perform the act of navigating to and pouring drinks correctly. 
+
+\section {Scope}
+This document will focus on different software systems that have been discussed within the system design document. This document will focus on performing tasks on the system as if it was a black box, meaning the important aspects are the inputs and outputs of the system rather then the internal mechanics. For smaller sub-features, depending on the implementation, the code may have been considered when creating test cases to ensure the system is robust. 
+
+\section{Background}
+
+Alfred is designed to work with various different software systems, so that it can receive the desired drinks of the user, and be able to determine based on internal knowledge of the restaurant to be able to navigate by itself to the correct table. Alfred will then have internal containment units for beverages that will allow the user to put there cup into the drink dispenser to have Alfred pour there drink for them.\\
+
+ Alfred will be able to receive the drink that the user that the user request by requesting the next drink from a designated server. This server will story any incoming drink requests form the mobile application. This mobile application is designed to be used on a tablet or mobile device, where the servers could sign in and give it a table identification number to allow Alfred know which table has sent this order.\\
+ 
+ Management staff will be able to view Alfred's status from the computers within the back. This system will give the management the ability to modify tables, view the errors that the robot has sent, and will allow the management staff to call Alfred back to the home base.
+
 \section {Validation}
 
 \subsection{Project Goals and Functional Validation}
 
+\subsection {Alfred Manager System}
+
+\begin{table}
+	\centering
+	\begin{longtable}{| p{0.1\textwidth} | p{0.225\textwidth} | p{0.135\textwidth} | p{0.1\textwidth} | p{.1\textwidth} | p{0.1\textwidth} | p{0.1\textwidth} |}\hline 
+		\rowcolor{tableCell}\textbf{Test Number} & \textbf{Description} & \textbf{Requirement Reference} & \textbf{Inputs} & \textbf{Expected Outputs} & \textbf{Actual Outputs}& \textbf{Results} \\ \hline
+
+		1 &  Testing Positive Change of Left Encoder & AF3 & movement of encoder &  60= 60+1 &  61 &   pass \\ \hline
+		2 &  Testing Negative Change of Left Encoder & AF3 & movement of encoder &  60= 60-1 &  59 &   pass
+		\\ \hline
+		3 &  Testing Positive Change of Encoder &  AF3 &  movement of encoder &  60= 60+1 &  61 &   pass
+		\\  \hline
+		4 &  Testing Negative Change of Encoder &  AF3 &  movment of encoder &  60= 60-1 &  59 &   pass
+		\\ \hline 
+		5 &  Open Loop Test of Movement going forward &  AF3 &  10\% duty cycles &  Both wheels spin forward &  Both wheels spin forward &   pass
+		\\ \hline
+		6 &  Open Loop Test of Movement for turning &  AF3 & 10\% duty cycles with one pin on to specify backward motion &  Wheels spining in different directions &  Wheels spining in different directions &   pass
+		\\ \hline
+		7 &  Ultra Sonic distance test at 1.5m &  AF10 &  a wall 1.5m in front of robot &  Nothing blocking &  Nothing blocking &   pass
+		\\ \hline
+		8 &  Ultra Sonic distance test at 0.35m &  AF10 & a book blocking the path &  Blocked &  Blocked &   pass
+		\\ \hline
+		9 &  Able to take picture &  AF3 & software trigger to take the picture &  A picture &  a Picture &  pass
+		\\ \hline
+		10 &  Able to detect circles from an image &  AF3 &  Image with a circle &  Position of the circle &  Position of the circle &  pass
+		\\ \hline
+		11 &  Speed is slewed on start &  AF3 &  A 30\% in duty cycles &  Printing showing a duty cycle increase &  Printing showing a duty cycle increase to 30\% &  pass
+		\\ \hline
+			\end{longtable}
+	\end{table}
+
+\begin{table}
+\centering
+\begin{longtable}{| p{0.1\textwidth} | p{0.225\textwidth} | p{0.135\textwidth} | p{0.1\textwidth} | p{.1\textwidth} | p{0.1\textwidth} | p{0.1\textwidth} |}\hline 
+\rowcolor{tableCell}\textbf{Test Number} & \textbf{Description} & \textbf{Requirement Reference} & \textbf{Inputs} & \textbf{Expected Outputs} & \textbf{Actual Outputs}& \textbf{Results} \\ \hline
+		12 &  Closed Loop Test of Movement going forward &  AF3 &  reference of 20 encoder counts/sec &  Both wheels spin forward at 20 encoder counts/s &  Both wheels spin forward at  20 encoder counts/s &   pass
+		\\ \hline
+		13 &  Closed Loop Test of Movement going forward &  AF3 &  reference of 10 encoder counts/sec &  Both wheels spin forward at  10 encoder counts/s &  Left side failed to correctly start &  fail - the software worked correctly but there was mechanical issues at slow speeds \\ \hline
+		14 &  Closed Loop Test of Movement going forward with unequal resistance &  AF3 &  reference of 20 encoder counts/sec &  Both wheels spin forward at 20 encoder counts/s & Both wheels spin forward at  20 encoder counts/s &   pass
+		\\ \hline
+		15 &  Closed Loop Test of Movement for turning &  AF3 &  reference of 20 encoder counts/sec &  Wheels spinning in different directions at 20 encoder counts/s & Wheels spinning in different directions at 20 encoder counts/s &  pass 
+		\\ \hline
+		16 &  Ultra Sonic Stop &  AF3 &  reference of 20 encoder counts/sec then something blocks its path &  Something is blocking the path while moving so Alfred stops &  Alfred Stopped &  pass 
+		\\ \hline
+		17 &  Image processing stop with node close &  AF3 &  an image close up to camera while moving &  Has reached the next node so Alfred stops motion &  Alfred Stopped &  pass 
+		\\ \hline
+		18 &  Image processing stop with node at ceiling away &  AF3 &  An image further away at ceiling height distance &  Has reached the next node so Alfred stops motion &  Alfred Stopped &  Conditional pass- needed lighting
+		\\ \hline
+	\end{longtable}
+\end{table}
+
+\begin{table}
+\centering
+\begin{longtable}{| p{0.1\textwidth} | p{0.225\textwidth} | p{0.135\textwidth} | p{0.1\textwidth} | p{.1\textwidth} | p{0.1\textwidth} | p{0.1\textwidth} |}\hline 
+\rowcolor{tableCell}\textbf{Test Number} & \textbf{Description} & \textbf{Requirement Reference} & \textbf{Inputs} & \textbf{Expected Outputs} & \textbf{Actual Outputs}& \textbf{Results} \\ \hline
+		19 &  Turn of 90deg &  AF3 &  A reference of 90 degrees &  Alfred will turn 90deg and stop &  Alfred continued to turn &  fail- needs to be re-designed.
+		\\ \hline
+		20 &  receiving an order &  A1 &  An order of Coke and Diet Coke on the User Application &  Alfred receives a drink that corresponds to tank 1 and 2 &  Alfred receives a drink that corresponds to tank 1 and tank 2 & Pass \\ \hline
+	\end{longtable}
+\end{table}
+
+\subsection {Alfred Pumping System}
+
+\begin{table}
+	\centering
+	\begin{longtable}{| p{0.1\textwidth} | p{0.225\textwidth} | p{0.135\textwidth} | p{0.1\textwidth} | p{.1\textwidth} | p{0.1\textwidth} | p{0.1\textwidth} |}\hline 
+		\rowcolor{tableCell}\textbf{Test Number} & \textbf{Description} & \textbf{Requirement Reference} & \textbf{Inputs} & \textbf{Expected Outputs} & \textbf{Actual Outputs}& \textbf{Results} \\ \hline
+		1 &  Testing Serial communication to Arduino by sending d1d2x sent from Computer &  AF1 &  d1d2x via serial signal &  reading d1d2x read by USB & reading d1d2x read by USB &  pass
+		\\ \hline  
+		2 &  Testing Serial communication from RPI by sending d1d2x sent from RPI &  AF1 & d1d2x via serial signal &  reading d1d2x read by USB & reading d1d2x read by USB &  pass
+		\\ \hline  
+		3 &  Testing Serial communication from RPI by recieving 11110000x sent from Arduino & AF1& 11110000x via serial signal & reading 11110000x read by RPI USB & reading 11110000x read by RPI USB &  pass
+		\\ \hline  
+		4 &  Testing recieving a value of 20C water with the tempature sensor &  AF1 & Tempature sensor in 20C water &  20 &  19.8 &  pass
+		\\ \hline  
+		5 &  Testing recieving a value of 1Kg with the load sensor &  AF1 &  1kg on load cell  & 1kg &  0kg &  Fail \\ \hline  
+		6 &  Able to recieve from the correct tank based on drink order (Tank 1) &  AF2 &  Order for tank 1 &  Tank  1 pours &  Tank 1 pours &  pass
+		\\ \hline  
+		7 &  Able to recieve from the correct tank based on drink order (Tank 2) &  AF2 &  Order for tank 2 &  Tank  2 pours &  Tank 2 pours &  pass
+		\\ \hline  
+		8 &  Able to recieve from the correct tank based on drink order (Tank 3) &  AF2 &  Order for tank 3 &  Tank  3 pours &  Tank 3 pours &  pass
+		\\ \hline  
+		9 &  Under Weight error when tank is empty &  AF2 &  No weight &  Under Weight Error &  Nothing  &  Fail need applifier for weight sensor
+		\\ \hline  
+		10 &  Over Tempature error when tank is empty &  AF2 &  a hot liquid &  Over Tempature Error &  Over Tempature Error &  Pass
+		\\ \hline  
+		11 &  Not over Tempature error when tank is empty &  AF2 &  a cold liquid &  No Over Tempature Error &  Nothing &  Pass \\ \hline  
+	\end{longtable}
+\end{table}
+
+
+
 \section {Verification}
+
+
+\section {Supporting Material}
+
+Please refer to previous design documents.
+
+\section {Appendix}
 
 \end{document}
 
