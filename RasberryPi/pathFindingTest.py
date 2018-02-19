@@ -1,11 +1,10 @@
 from Graph import *
-from unittest import *
 
 class pathFindingTest:
-	def __init__(self,LocationOfMap):
+	def __init__(self,pathToMap):
 		home_num = 0
 		table_num = 0
-		information = open(LocationOfMap, "r").read()
+		information = open(pathToMap, "r").read()
 		self.tablesList = []
 		self.map = Graph()
 	#used to determine the previous line size
@@ -42,7 +41,6 @@ class pathFindingTest:
 				elif (chars[j] == "X"):
 					continue
 				
-			
 
 				#creating the edges and adding them to the graphs
 				
@@ -87,34 +85,32 @@ class pathFindingTest:
 		node2Char = lines[node2[0]].strip().split(',')[node2[1]].strip()
 
 		
-		isT = node1Char == 'T' or node2Char == 'T'
+		isT = node2Char == 'T'
 		isX = node1Char == 'X' or node2Char == 'X'
 
 		if isX:
 			return False, False
 		elif isT:
-			return True, False
-		else:
 			return False,True
+		else:
+			return True, False
 
        
-
-##p =pathFindingTest("maps/map_1.txt")
+##
+##p =pathFindingTest("maps/map_2.txt")
 ##currNode = (0,0)
 ##visited, path = p.map.dijsktra(currNode)
 ##node = p.tablesList[0]
-##
-##nodesToTravel = []        
+##nodesToTravel = []
 ##for table in p.tablesList:
-##        nodes=[]
-##        node = table
-##        while (node != currNode):
-##                nodes.insert(0,path[node]);
-##                node= path[node]
-##        nodes.pop(0)
-##        nodesToTravel.append(nodes)
-##        currNode=nodes[len(nodes)-1]
-##print table, nodesToTravel
-##
-
-        
+##	nodes = []
+##	node = table
+##	visited, path = p.map.dijsktra(currNode)
+##	while (node != currNode):
+##			nodes.insert(0,path[node]);
+##			node= path[node]
+##	nodesToTravel.append(nodes)
+##	currNode=nodes[len(nodes)-1]
+##	if(len(nodes) >1):
+##		nodes.pop(0)
+##	print table, nodesToTravel
