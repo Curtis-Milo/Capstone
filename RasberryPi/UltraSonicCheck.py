@@ -12,7 +12,7 @@ class UltraSonic():#ONLY LOOKING AT FRONT SENSOR FOR NOW
         GPIO.setup(self.ECHO,GPIO.IN)
 
         #CALS
-        self.mindist =5;
+        self.mindist =0.5;
         
     def nothingBlocking(self):
         # set Trigger to HIGH

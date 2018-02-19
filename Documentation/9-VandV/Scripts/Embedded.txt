@@ -5,4 +5,16 @@
 5, Open Loop Test of Movement going forward, AF3, Both wheels spin forward, Both wheels spin forward,  pass
 6, Open Loop Test of Movement for turning, AF3, Wheels spining in different directions, Wheels spining in different directions,  pass
 7, Ultra Sonic distance test at 1.5m, AF10, Nothing blocking, Nothing blocking,  pass
-7, Ultra Sonic distance test at 0.35m, AF10, Blocked, Blocked,  pass
+8, Ultra Sonic distance test at 0.35m, AF10, Blocked, Blocked,  pass
+9, Able to take picture, AF3, A picture, a Picture, pass
+10, Able to detect circles from an image, AF3, Image with a circle, Position of the circle, pass
+11, Speed is slewed on start, AF3, Printing showing a duty cycle increase, Printing showing a duty cycle increase, pass
+12, Closed Loop Test of Movement going forward, AF3, Both wheels spin forward at 20 encoder counts/s,Both wheels spin forward at  20 encoder counts/s,  pass
+13, Closed Loop Test of Movement going forward, AF3, Both wheels spin forward at  10 encoder counts/s, Left side failed to correctly start, fail - the software worked correctly but there was mechanical issues at slow speeds
+14, Closed Loop Test of Movement going forward with unequal resistence, AF3, Both wheels spin forward at 20 encoder counts/s,Both wheels spin forward at  20 encoder counts/s,  pass
+15, Closed Loop Test of Movement for turning, AF3, Wheels spining in different directions at 20 encoder counts/s,Wheels spining in different directions at 20 encoder counts/s, pass 
+16, Ultra Sonic Stop, AF3, Something is blocking the path while moving so alfred stops, Aflred Stopped, pass 
+17, Image processing stop with node close, AF3, Has reached the next node, so alfred stops motion, Aflred Stopped, pass 
+18, Image processing stop with node at ceiling away, AF3, Has reached the next node, so alfred stops motion, Aflred Stopped, Conditional pass- needed lighting
+19, Turn of 90deg, AF3, Alfred will turn 90deg and stop, Alfred continued to turn, fail- needs to be redegined.
+20, recieving an order, A1, Alfred recieves a drink that corresponds to tank 1 and 2, Alfred recieves a drink that corresponds to tank 1 and 2, pass
