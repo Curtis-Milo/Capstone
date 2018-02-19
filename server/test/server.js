@@ -345,7 +345,15 @@ var tests = {
 			var that = this;
 
 			return new Promise(function(resolve, reject) {
-				http.createServer(function(req, res) {
+				var server = null;
+
+				function killServer() {
+					if (server) {
+						server.close();
+					}
+				};
+
+				server = http.createServer(function(req, res) {
 					var req_url = url.parse(req.url, true);
 					if (req.method.toUpperCase() === 'POST' && req_url.pathname.toLowerCase().replace(/\//, '') === 'token') {
 						var body = '';
@@ -366,13 +374,15 @@ var tests = {
 							res.writeHead(200);
 							res.end();
 							resolve();
-							return;
+							killServer();
 						});
 					} else {
 						res.writeHead(404);
 						res.end();
 					}
-				}).listen(8000, '0.0.0.0', function() {
+				});
+
+				server.listen(8000, '0.0.0.0', function() {
 					unirest.post(host + '/genToken')
 					.headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
 					.end(function(res) {
