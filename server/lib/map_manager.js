@@ -1,11 +1,16 @@
 const LOCKS = require('locks');
 const FS = require('fs');
 
+var mutex = LOCKS.createMutex();
+
 const DIR = './map';
 const MAP_PATH = DIR + '/map';
 
+function _unlock() {
+	mutex.unlock();
+}
+
 function MapManager() {
-	this.mutex = LOCKS.createMutex();
 	if (! FS.existsSync(DIR)){
 		FS.mkdirSync(DIR);
 		this.exists = false;
@@ -20,21 +25,20 @@ MapManager.prototype.getMap = function(cb) {
 	if (! this.exists) {
 		return cb('Map does not exist.', false, null);
 	}
-	var that = this;
-	this.mutex.timedLock(10000, function(lockErr) {
+	mutex.timedLock(10000, function(lockErr) {
 		if (lockErr) {
 			return cb(lockErr);
 		}
 
 		var fileStream = FS.createReadStream(MAP_PATH);
 
-		cb(null, fileStream, that.mutex.unlock);
+		cb(null, fileStream, _unlock);
 	});
 };
 
 MapManager.prototype.setMap = function(stream, cb) {
 	var that = this;
-	this.mutex.timedLock(10000, function(lockErr) {
+	mutex.timedLock(10000, function(lockErr) {
 		if (lockErr) {
 			return cb(lockErr);
 		}
@@ -45,7 +49,7 @@ MapManager.prototype.setMap = function(stream, cb) {
 
 		that.exists = true;
 
-		that.mutex.unlock();
+		mutex.unlock();
 		cb();
 	});
 };
