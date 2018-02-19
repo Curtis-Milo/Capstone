@@ -440,7 +440,7 @@ var tests = {
 						resObj.testRes('Test GET /nextOrder endpoint', '', 200, res.code, 'fail');
 					} else {
 						var i = 0;
-						var keys = ['table_id', 'order_id', 'order'];
+						var keys = ['table_id', 'order_id', 'orders'];
 						var passed = true;
 						var body_keys = Object.keys(res.body);
 
