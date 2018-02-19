@@ -442,9 +442,10 @@ var tests = {
 						var i = 0;
 						var keys = ['table_id', 'order_id', 'order'];
 						var passed = true;
+						var body_keys = Object.keys(res.body);
 
-						for (let key in keys) {
-							if (!(key in res.body)) {
+						for (let key of keys) {
+							if (!(key in body_keys)) {
 								passed = false;
 								break;
 							}
