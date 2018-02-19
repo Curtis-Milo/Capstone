@@ -439,13 +439,12 @@ var tests = {
 					if (res.code < 200 || res.code > 299) {
 						resObj.testRes('Test GET /nextOrder endpoint', '', 200, res.code, 'fail');
 					} else {
-						var i = 0;
 						var keys = ['table_id', 'order_id', 'orders'];
 						var passed = true;
 						var body_keys = Object.keys(res.body);
 
 						for (let key of keys) {
-							if (!(key in body_keys)) {
+							if (body_keys.indexOf(key) < 0) {
 								passed = false;
 								break;
 							}
