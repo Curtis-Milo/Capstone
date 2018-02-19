@@ -95,7 +95,7 @@ var tests = {
 				.send(data)
 				.end(function (res) {
 					if (res.code < 200 || res.code > 299) {
-						resObj.testRes('Test POST /updateCreds endpoint', 'F', 200, res.code, 'fail');
+						resObj.testRes('Test POST /updateCreds endpoint', 'NFR33', 200, res.code, 'fail');
 						resolve();
 					} else {
 						unirest.post(host + '/updateCreds')
@@ -104,9 +104,9 @@ var tests = {
 						.send(that._creds)
 						.end(function(res) {
 							if (res.code < 200 || res.code > 299) {
-								resObj.testRes('Test POST /updateCreds endpoint', 'F', 200, res.code, 'fail');
+								resObj.testRes('Test POST /updateCreds endpoint', 'NFR33', 200, res.code, 'fail');
 							} else {
-								resObj.testRes('Test POST /updateCreds endpoint', 'F', 200, res.code, 'pass');
+								resObj.testRes('Test POST /updateCreds endpoint', 'NFR33', 200, res.code, 'pass');
 							}
 							resolve();
 						});
@@ -123,9 +123,9 @@ var tests = {
 				.auth(that._creds.userName, that._creds.password)
 				.end(function(res) {
 					if (res.code < 200 || res.code > 299) {
-						resObj.testRes('Test POST /login endpoint', 'F', 200, res.code, 'fail');
+						resObj.testRes('Test POST /login endpoint', 'NFR33', 200, res.code, 'fail');
 					} else {
-						resObj.testRes('Test POST /login endpoint', 'F', 200, res.code, 'pass');
+						resObj.testRes('Test POST /login endpoint', 'NFR33', 200, res.code, 'pass');
 					}
 					resolve();
 				});
@@ -142,9 +142,9 @@ var tests = {
 				.send(data)
 				.end(function(res) {
 					if (res.code < 200 || res.code > 299) {
-						resObj.testRes('Test POST /map endpoint', 'F', 200, res.code, 'fail');
+						resObj.testRes('Test POST /map endpoint', 'AD1,AD2', 200, res.code, 'fail');
 					} else {
-						resObj.testRes('Test POST /map endpoint', 'F', 200, res.code, 'pass');
+						resObj.testRes('Test POST /map endpoint', 'AD1,AD2', 200, res.code, 'pass');
 					}
 					resolve();
 				});
@@ -159,17 +159,17 @@ var tests = {
 				.auth(that._creds.userName, that._creds.password)
 				.end(function(res) {
 					if (res.code < 200 || res.code > 299) {
-						resObj.testRes('Test GET /map endpoint', 'F', 200, res.code, 'fail');
+						resObj.testRes('Test GET /map endpoint', 'AD1,AD2', 200, res.code, 'fail');
 					} else {
 						fs.readFile('./map_test.txt', 'utf8', function(err, contents) {
 							if (err) {
 								console.log('ERROR reading file.');
-								resObj.testRes('Test GET /map endpoint', 'F', 'File contents == Map received', 'N/A', 'fail');
+								resObj.testRes('Test GET /map endpoint', 'AD1,AD2', 'File contents == Map received', 'N/A', 'fail');
 							} else {
 								if (res.raw_body == contents) {
-									resObj.testRes('Test GET /map endpoint', 'F', 'File contents == Map received', 'File contents == Map received', 'pass');
+									resObj.testRes('Test GET /map endpoint', 'AD1,AD2', 'File contents == Map received', 'File contents == Map received', 'pass');
 								} else {
-									resObj.testRes('Test GET /map endpoint', 'F', 'File contents == Map received', 'File contents != Map received', 'fail');
+									resObj.testRes('Test GET /map endpoint', 'AD1,AD2', 'File contents == Map received', 'File contents != Map received', 'fail');
 								}
 							}
 						});
@@ -261,13 +261,13 @@ var tests = {
 				.auth(that._creds.userName, that._creds.password)
 				.end(function(res) {
 					if (res.code < 200 || res.code > 299) {
-						resObj.testRes('Test POST /table endpoint', 'F', 200, res.code, 'fail');
+						resObj.testRes('Test POST /table endpoint', 'NFR33', 200, res.code, 'fail');
 					} else {
 						if (!('token' in res.body) || !('token_type' in res.body)) {
-							resObj.testRes('Test POST /table endpoint', 'F', '"token" and "token_type" in body', '"token" or "token_type" NOT in body', 'fail');
+							resObj.testRes('Test POST /table endpoint', 'NFR33', '"token" and "token_type" in body', '"token" or "token_type" NOT in body', 'fail');
 						} else {
 							that.token = res.body.token;
-							resObj.testRes('Test POST /table endpoint', 'F', '"token" and "token_type" in body', '"token" and "token_type" in body', 'fail');
+							resObj.testRes('Test POST /table endpoint', 'NFR33', '"token" and "token_type" in body', '"token" and "token_type" in body', 'fail');
 						}
 					}
 					resolve();
@@ -291,9 +291,9 @@ var tests = {
 				.send(data)
 				.end(function(res) {
 					if (res.code < 200 || res.code > 299) {
-						resObj.testRes('Test POST /placeOrder endpoint', 'F', 200, res.code, 'fail');
+						resObj.testRes('Test POST /placeOrder endpoint', 'TO1,TO2', 200, res.code, 'fail');
 					} else {
-						resObj.testRes('Test POST /placeOrder endpoint', 'F', 200, res.code, 'pass');
+						resObj.testRes('Test POST /placeOrder endpoint', 'TO1,TO2', 200, res.code, 'pass');
 						that.order_id = res.body.orderData.order_id;
 					}
 					resolve();
@@ -308,12 +308,12 @@ var tests = {
 				.headers({'Accept': 'application/json', 'Content-Type': 'application/json', 'Authorization': `Bearer ${that.token}`})
 				.end(function(res) {
 					if (res.code < 200 || res.code > 299) {
-						resObj.testRes('Test GET /placeInLine endpoint', 'F', 200, res.code, 'fail');
+						resObj.testRes('Test GET /placeInLine endpoint', 'AF14', 200, res.code, 'fail');
 					} else {
 						if (res.raw_body == 1) {
-							resObj.testRes('Test GET /placeInLine endpoint', 'F', 'res.raw_body == 1', 'res.raw_body == 1', 'pass');
+							resObj.testRes('Test GET /placeInLine endpoint', 'AF14', 'res.raw_body == 1', 'res.raw_body == 1', 'pass');
 						} else {
-							resObj.testRes('Test GET /placeInLine endpoint', 'F', 'res.raw_body == 1', 'res.raw_body != 1', 'fail');
+							resObj.testRes('Test GET /placeInLine endpoint', 'AF14', 'res.raw_body == 1', 'res.raw_body != 1', 'fail');
 						}
 					}
 					resolve();
@@ -388,12 +388,12 @@ var tests = {
 				.headers({'Accept': 'application/json', 'Content-Type': 'application/json', 'Authorization': `Bearer ${that.token}`})
 				.end(function(res) {
 					if (res.code < 200 || res.code > 299) {
-						resObj.testRes('Test GET /checkToken endpoint', 'F', 200, res.code, 'fail');
+						resObj.testRes('Test GET /checkToken endpoint', 'NFR33', 200, res.code, 'fail');
 					} else {
 						if (! ('valid' in res.body)) {
-							resObj.testRes('Test GET /checkToken endpoint', 'F', 'Must return validity of token', 'Does not include validity of token', 'fail');
+							resObj.testRes('Test GET /checkToken endpoint', 'NFR33', 'Must return validity of token', 'Does not include validity of token', 'fail');
 						} else {
-							resObj.testRes('Test GET /checkToken endpoint', 'F', 'Must return validity of token', 'Includes validity of token', 'pass');
+							resObj.testRes('Test GET /checkToken endpoint', 'NFR33', 'Must return validity of token', 'Includes validity of token', 'pass');
 						}
 					}
 					resolve();
@@ -408,17 +408,17 @@ var tests = {
 				.headers({'Accept': 'application/json', 'Content-Type': 'application/json', 'Authorization': `Bearer ${that.token}`})
 				.end(function(res) {
 					if (res.code < 200 || res.code > 299) {
-						resObj.testRes('Test GET /map endpoint', 'F', 200, res.code, 'fail');
+						resObj.testRes('Test GET /map endpoint', 'AF3', 200, res.code, 'fail');
 					} else {
 						fs.readFile('./map_test.txt', 'utf8', function(err, contents) {
 							if (err) {
 								console.log('ERROR reading file.');
-								resObj.testRes('Test GET /map endpoint', 'F', 'File contents == Map received', 'N/A', 'fail');
+								resObj.testRes('Test GET /map endpoint', 'AF3', 'File contents == Map received', 'N/A', 'fail');
 							} else {
 								if (res.raw_body == contents) {
-									resObj.testRes('Test GET /map endpoint', 'F', 'File contents == Map received', 'File contents == Map received', 'pass');
+									resObj.testRes('Test GET /map endpoint', 'AF3', 'File contents == Map received', 'File contents == Map received', 'pass');
 								} else {
-									resObj.testRes('Test GET /map endpoint', 'F', 'File contents == Map received', 'File contents != Map received', 'fail');
+									resObj.testRes('Test GET /map endpoint', 'AF3', 'File contents == Map received', 'File contents != Map received', 'fail');
 								}
 							}
 						});
@@ -435,7 +435,7 @@ var tests = {
 				.headers({'Accept': 'application/json', 'Content-Type': 'application/json', 'Authorization': `Bearer ${that.token}`})
 				.end(function(res) {
 					if (res.code < 200 || res.code > 299) {
-						resObj.testRes('Test GET /nextOrder endpoint', 'F', 200, res.code, 'fail');
+						resObj.testRes('Test GET /nextOrder endpoint', '', 200, res.code, 'fail');
 					} else {
 						var i = 0;
 						var keys = ['table_id', 'order_id', 'order'];
@@ -449,9 +449,9 @@ var tests = {
 						}
 
 						if (passed) {
-							resObj.testRes('Test GET /nextOrder endpoint', 'F', 'Order should have all required keys', 'Order has all required keys', 'pass');
+							resObj.testRes('Test GET /nextOrder endpoint', 'AF4', 'Order should have all required keys', 'Order has all required keys', 'pass');
 						} else {
-							resObj.testRes('Test GET /nextOrder endpoint', 'F', 'Order should have all required keys', 'Order does not have all required keys', 'fail');
+							resObj.testRes('Test GET /nextOrder endpoint', 'AF4', 'Order should have all required keys', 'Order does not have all required keys', 'fail');
 						}
 					}
 					resolve();
