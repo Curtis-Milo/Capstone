@@ -18,7 +18,7 @@ function MapManager() {
 
 MapManager.prototype.getMap = function(cb) {
 	if (! this.exists) {
-		return cb(null, false, null);
+		return cb('Map does not exist.', false, null);
 	}
 	var that = this;
 	this.mutex.timedLock(10000, function(lockErr) {
