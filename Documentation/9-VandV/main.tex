@@ -344,9 +344,9 @@ Testing was done over the following modules:
 
 01 &  Testing Login with server down &  NFR32 &  "admin:admin" as credentials &  "Could not connect to server" pop up &  "Could not connect to server" pop up &  pass
 \\ \hline  
-02 &  Testing Login with server running &  NFR32 &  "wrongUser:wrongPass" as credentials &  "invalid credentials" pop up &  "invalid credentials" pop up &  pass
+02 &  Testing Login with server running &  NFR32 &  "wrongUser: wrongPass" as credentials &  "invalid credentials" pop up &  "invalid credentials" pop up &  pass
 \\ \hline  
-03 &  Testing Login with server running &  NFR32 &  "admin:admin" as credentials &  settings page is launched &  settings page is launched &  pass
+03 &  Testing Login with server running &  NFR32 &  "admin: admin" as credentials &  settings page is launched &  settings page is launched &  pass
 \\ \hline  
 04 &  Testing device-table mapping change (server down) &  NFR5 &  Select different table number and click "Apply" &  "Table change unsuccessful" pop up and table number reverts to old value &  "Table change unsuccessful" pop up and table number does not revert to old value &  pass
 \\ \hline  
@@ -464,7 +464,7 @@ Testing was done over the following modules:
 	\end{longtable}
 
 
-\subsection {Alfred Image processing System}
+\subsection {Alfred Image Processing System}
 \begin{longtable}{| p{0.1\textwidth} | p{0.225\textwidth} | p{0.135\textwidth} | p{0.1\textwidth} | p{.1\textwidth} | p{0.1\textwidth} | p{0.1\textwidth} |}\hline 
 \rowcolor{tableCell}\textbf{Test Number} & \textbf{Description} & \textbf{Requirement Reference} & \textbf{Inputs} & \textbf{Expected Outputs} & \textbf{Actual Outputs}& \textbf{Results} \\ \hline
 
@@ -517,10 +517,10 @@ Testing was done over the following modules:
 \subsection {Code Walk-through and Code Reviews}
 Code reviews were performed with at least two of the software team that had not wrote the code in particular. When a new piece of code would be pushed. A review request would be made and the person who wrote the code would help explain the functionality of the software to the other group members. From there, group members would be advised to ask questions about the software and would suggest changes if needed.
 
-\subsection {static analysis}
+\subsection {Static Analysis}
 Will be performed within future revisions.
 
-\subsection { formal proofs}
+\subsection {Formal Proofs}
 Will be performed on the Motor control/Image processing within future revisions.
 
 \section {Supporting Material}
