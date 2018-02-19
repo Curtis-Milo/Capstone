@@ -267,7 +267,7 @@ var tests = {
 							resObj.testRes('Test POST /table endpoint', 'F', '"token" and "token_type" in body', '"token" or "token_type" NOT in body', 'fail');
 						} else {
 							that.token = res.body.token;
-							resObj.testRes('Test POST /table endpoint', 'F', '"token" and "token_type" in body', '"token" and "token_type" in body', 'fail');
+							resObj.testRes('Test POST /table endpoint', 'F', '"token" and "token_type" in body', '"token" and "token_type" in body', 'pass');
 						}
 					}
 					resolve();
@@ -415,7 +415,7 @@ var tests = {
 								console.log('ERROR reading file.');
 								resObj.testRes('Test GET /map endpoint', 'F', 'File contents == Map received', 'N/A', 'fail');
 							} else {
-								if (res.raw_body == contents) {
+								if (res.raw_body.trim() == contents.trim()) {
 									resObj.testRes('Test GET /map endpoint', 'F', 'File contents == Map received', 'File contents == Map received', 'pass');
 								} else {
 									resObj.testRes('Test GET /map endpoint', 'F', 'File contents == Map received', 'File contents != Map received', 'fail');
