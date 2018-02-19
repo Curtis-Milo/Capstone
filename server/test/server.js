@@ -142,6 +142,7 @@ var tests = {
 				.headers({'Accept': 'application/json'})
 				.auth(that._creds.userName, that._creds.password)
 				.attach({'relative file': fs.createReadStream('./map_test.txt')})
+				.stream()
 				.end(function(res) {
 					if (res.code < 200 || res.code > 299) {
 						resObj.testRes('Test POST /map endpoint', 'AD1,AD2', 200, res.code, 'fail');
