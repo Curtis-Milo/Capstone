@@ -366,7 +366,7 @@ var tests = {
 							res.writeHead(200);
 							res.end();
 							resolve();
-							this.close();
+							return;
 						});
 					} else {
 						res.writeHead(404);
