@@ -347,7 +347,7 @@ var tests = {
 			var that = this;
 
 			return new Promise(function(resolve, reject) {
-				var server = http.createServer(function(req, res) {
+				http.createServer(function(req, res) {
 					var req_url = url.parse(req.url, true);
 					if (req.method.toUpperCase() === 'POST' && req_url.pathname.toLowerCase().replace(/\//, '') === 'token') {
 						var body = '';
@@ -367,22 +367,19 @@ var tests = {
 							that.token = jsonDict.access_token;
 							res.writeHead(200);
 							res.end();
+							resolve();
 						});
 					} else {
 						res.writeHead(404);
 						res.end();
 					}
-				});
-
-				server.listen(8000, '0.0.0.0', function() {
+				}).listen(8000, '0.0.0.0', function() {
 					unirest.post(host + '/genToken')
 					.headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
 					.end(function(res) {
 						console.log(res.code);
 					});
 				});
-
-				resolve(server);
 			});
 		},
 
@@ -493,8 +490,7 @@ tests.generalTest.getDrinks(resObj, IP).then(function() {
 	return tests.clientTest.cancelOrder(resObj, IP);
 }).then(function() {
 	return tests.robotTest.reqListenForToken(IP);
-}).then(function(server) {
-	server.close();
+}).then(function() {
 	return tests.robotTest.checkToken(resObj, IP);
 }).then(function() {
 	return tests.robotTest.getMap(resObj, IP);
