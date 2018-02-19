@@ -1,10 +1,10 @@
 from Graph import *
 
 class pathFindingTest:
-	def __init__(self):
+	def __init__(self,pathToMap):
 		home_num = 0
 		table_num = 0
-		information = open("map.txt", "r").read()
+		information = open(pathToMap, "r").read()
 		self.tablesList = []
 		self.map = Graph()
 	#used to determine the previous line size
@@ -23,7 +23,7 @@ class pathFindingTest:
 		for i in range(len(lines)):	
 			chars = lines[i].strip().split(',')
 			
-			for j in range(len(chars)-1):
+			for j in range(len(chars)):
 				
 				cost = 1
 				cur_Node = (i,j)
@@ -31,7 +31,7 @@ class pathFindingTest:
 				#determining the starting and ending position
 				if (chars[j] == "H"):
 					#Setting the start position
-					source = (j,i)
+					source = (i,j)
 					home_num = home_num +1
 				elif (chars[j] == "T"):
 					#print cur_Node
@@ -41,13 +41,13 @@ class pathFindingTest:
 				elif (chars[j] == "X"):
 					continue
 				
-			
 
 				#creating the edges and adding them to the graphs
 				
 ##				print chars
+				
 				if (0 < j): 
-					prev = (i,j)
+					prev = (i,j-1)
 					table,passable = self.determinePassable(lines,prev,cur_Node)
 					if passable and not table:
 						self.map.add_edge(prev,cur_Node, 1)
@@ -55,7 +55,7 @@ class pathFindingTest:
 						self.map.add_edge(prev, cur_Node,float("inf"))
 						
 				if (j < len(chars)):
-					nextN =(i,j+1)
+					nextN =(i,j)
 					table, passable = self.determinePassable(lines,cur_Node,nextN)
 					if passable and not table:
 						self.map.add_edge(cur_Node, nextN, 1)
@@ -71,7 +71,7 @@ class pathFindingTest:
 						self.map.add_edge(prev, cur_Node, float("inf"))
 						
 				if (i < len(lines)):
-					nextN =(i,j+1)
+					nextN =(i,j)
 					table, passable = self.determinePassable(lines,cur_Node,nextN)
 					if passable and not table:
 						self.map.add_edge(cur_Node, nextN, 1)
@@ -85,29 +85,32 @@ class pathFindingTest:
 		node2Char = lines[node2[0]].strip().split(',')[node2[1]].strip()
 
 		
-		isT = node1Char == 'T' or node2Char == 'T'
+		isT = node2Char == 'T'
 		isX = node1Char == 'X' or node2Char == 'X'
 
 		if isX:
 			return False, False
 		elif isT:
-			return True, False
-		else:
 			return False,True
+		else:
+			return True, False
 
        
-
-p =pathFindingTest()
-currNode = (0,0)
-visited, path = p.map.dijsktra(currNode)
-node = p.tablesList[0]
-
-
-for table in p.tablesList:
-        nodesToTravel = []
-        node = table
-        while (node != currNode):
-                nodesToTravel.insert(0,path[node]);
-                node= path[node]
-
-        print table, nodesToTravel
+##
+##p =pathFindingTest("maps/map_2.txt")
+##currNode = (0,0)
+##visited, path = p.map.dijsktra(currNode)
+##node = p.tablesList[0]
+##nodesToTravel = []
+##for table in p.tablesList:
+##	nodes = []
+##	node = table
+##	visited, path = p.map.dijsktra(currNode)
+##	while (node != currNode):
+##			nodes.insert(0,path[node]);
+##			node= path[node]
+##	nodesToTravel.append(nodes)
+##	currNode=nodes[len(nodes)-1]
+##	if(len(nodes) >1):
+##		nodes.pop(0)
+##	print table, nodesToTravel

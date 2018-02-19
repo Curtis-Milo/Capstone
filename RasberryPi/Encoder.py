@@ -1,11 +1,16 @@
 import RPi.GPIO as GPIO
 from time import sleep
+import threading
 #https://github.com/modmypi/Rotary-Encoder/blob/master/rotary_encoder.py
 class Encoder():
-    def __init__(self,Clk,Dt):
+    def __init__(self,Clk,Dt,Sw):
         GPIO.setmode(GPIO.BCM)
         self.Clk  = Clk
         self.Dt  = Dt
+        if Sw:
+            self.Sw = -1.0
+        else:
+            self.Sw = 1.0
         
 
         GPIO.setmode(GPIO.BCM)
@@ -20,13 +25,24 @@ class Encoder():
         dtState = GPIO.input(self.Dt)
         if clkState !=  self.clkLastState:
             if dtState != clkState:
+               
                 self.encoderCount += 1
+               
             else:
+               
                 self.encoderCount -= 1
+               
         self.clkLastState = clkState
 
     def getEncoderCount(self):
-        return self.encoderCount
+       
+        return self.encoderCount*self.Sw
+       
+        
+    def resetEncoderCount(self):
+       
+        self.encoderCount =0
+       
 
     def test(self):
     	while 1:

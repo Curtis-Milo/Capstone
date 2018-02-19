@@ -5,12 +5,10 @@ import math
 import picamera
 #https://www.raspberrypi.org/documentation/usage/camera/python/README.md
 #https://www.pyimagesearch.com/2014/07/21/detecting-circles-images-using-opencv-hough-circles/
-
+Global_Camera = picamera.PiCamera()
 class ImageRec():
     
     def __init__(self):
-        self.camera = picamera.PiCamera()
-
         #CALS
         self.mid_x = 1920.0/2.0
         self.mid_y = 1080.0/2.0
@@ -21,7 +19,7 @@ class ImageRec():
         self.hist = 100.0
 
     def captureImage(self):
-        self.camera.capture('ceiling.jpg')
+        Global_Camera.capture('ceiling.jpg')
 
     def checkForCircle(self):
         img = cv2.imread('ceiling.jpg',0)
@@ -29,18 +27,17 @@ class ImageRec():
         circles = cv2.HoughCircles(img, cv2.cv.CV_HOUGH_GRADIENT, 1.2, 100)
         return circles
 
-
     def test(self):
-        print "Capturing Image... "
-        i = ImageRec()
-        i.captureImage()
-        circles = i.checkForCircle()
+		print "Capturing Image... "
+		i = ImageRec()
+		i.captureImage()
+		circles = i.checkForCircle()
 
-        if circles is not None:
-            # convert the (x, y) coordinates and radius of the circles to integers
-            circles = np.round(circles[0, :]).astype("int")
-                     
-            # loop over the (x, y) coordinates and radius of the circles
-            for (x, y, r) in circles:
-                print "Circle At: " + str(x) +", "+ str(y)
-                print "Radius of: " + str(r)
+		if circles is not None:
+		    # convert the (x, y) coordinates and radius of the circles to integers
+		    circles = np.round(circles[0, :]).astype("int")
+		             
+		    # loop over the (x, y) coordinates and radius of the circles
+		    for (x, y, r) in circles:
+		        print "Circle At: " + str(x) +", "+ str(y)
+		        print "Radius of: " + str(r)

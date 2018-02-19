@@ -1,0 +1,11 @@
+1, Testing Serial communication to Arduino by sending d1d2x sent from Computer, AF1, d1d2x via serial signal, reading d1d2x read by USB,reading d1d2x read by USB, pass
+2, Testing Serial communication from RPI by sending d1d2x sent from RPI, AF1,d1d2x via serial signal, reading d1d2x read by USB,reading d1d2x read by USB, pass
+3, Testing Serial communication from RPI by recieving 11110000x sent from Arduino, 11110000x via serial signal, AF1, reading 11110000x read by RPI USB,reading 11110000x read by RPI USB, pass
+4, Testing recieving a value of 20C water with the tempature sensor, AF1,Tempature sensor in 20C water, 20, 19.8, pass
+5, Testing recieving a value of 1Kg with the load sensor, AF1, 1kg on load cell ,1kg, 0kg, Fail, no applifier for weight sensor
+6, Able to recieve from the correct tank based on drink order (Tank 1), AF2, Order for tank 1, Tank  1 pours, Tank 1 pours, pass
+7, Able to recieve from the correct tank based on drink order (Tank 2), AF2, Order for tank 2, Tank  2 pours, Tank 2 pours, pass
+8, Able to recieve from the correct tank based on drink order (Tank 3), AF2, Order for tank 3, Tank  3 pours, Tank 3 pours, pass
+9, Under Weight error when tank is empty, AF2, No weight, Under Weight Error, Nothing , Fail need applifier for weight sensor
+10, Over Tempature error when tank is empty, AF2, a hot liquid, Over Tempature Error, Over Tempature Error, Pass
+11, Not over Tempature error when tank is empty, AF2, a cold liquid, No Over Tempature Error, Nothing, Pass
