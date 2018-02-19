@@ -433,7 +433,7 @@ var tests = {
 		nextOrder: function(resObj, host) {
 			var that = this;
 			return new Promise(function(resolve, reject) {
-				unirest.get('host' + '/nextOrder')
+				unirest.get(host + '/nextOrder')
 				.headers({'Accept': 'application/json', 'Content-Type': 'application/json', 'Authorization': `Bearer ${that.token}`})
 				.end(function(res) {
 					if (res.code < 200 || res.code > 299) {
