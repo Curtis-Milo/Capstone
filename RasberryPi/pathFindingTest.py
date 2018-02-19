@@ -1,10 +1,11 @@
 from Graph import *
+from unittest import *
 
 class pathFindingTest:
-	def __init__(self):
+	def __init__(self,LocationOfMap):
 		home_num = 0
 		table_num = 0
-		information = open("map.txt", "r").read()
+		information = open(LocationOfMap, "r").read()
 		self.tablesList = []
 		self.map = Graph()
 	#used to determine the previous line size
@@ -98,17 +99,22 @@ class pathFindingTest:
 
        
 
-p =pathFindingTest()
-currNode = (0,0)
-visited, path = p.map.dijsktra(currNode)
-node = p.tablesList[0]
+##p =pathFindingTest("maps/map_1.txt")
+##currNode = (0,0)
+##visited, path = p.map.dijsktra(currNode)
+##node = p.tablesList[0]
+##
+##nodesToTravel = []        
+##for table in p.tablesList:
+##        nodes=[]
+##        node = table
+##        while (node != currNode):
+##                nodes.insert(0,path[node]);
+##                node= path[node]
+##        nodes.pop(0)
+##        nodesToTravel.append(nodes)
+##        currNode=nodes[len(nodes)-1]
+##print table, nodesToTravel
+##
 
-
-for table in p.tablesList:
-        nodesToTravel = []
-        node = table
-        while (node != currNode):
-                nodesToTravel.insert(0,path[node]);
-                node= path[node]
-
-        print table, nodesToTravel
+        
