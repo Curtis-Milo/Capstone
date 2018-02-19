@@ -1,5 +1,6 @@
 package com.lazybots.alfredui;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -73,8 +74,14 @@ public class Activity_OrderCart extends AppCompatActivity implements AsyncRespon
      * @throws JSONException
      */
     public void onClickSendOrder(View v) throws IOException, JSONException {
-        server.execute(appData.getInt("tableNum", 1), getIntent().getSerializableExtra("tableToken"), rawCartData);
-        //new NetworkCalls("sendOrder").execute();
+        if (rawCartData.size() > 0) {
+            server = new NetworkCalls();
+            server.api_key = "placeOrder";
+            server.delegate = this;
+            server.execute(appData.getInt("tableNum", 1), getIntent().getSerializableExtra("tableToken"), rawCartData);
+        } else {
+            Toast.makeText(Activity_OrderCart.this, "Empty cart!", Toast.LENGTH_LONG).show();
+        }
     }
 
     @Override
@@ -82,8 +89,22 @@ public class Activity_OrderCart extends AppCompatActivity implements AsyncRespon
         if (responseCode == 200) {
             Toast.makeText(Activity_OrderCart.this, "Order has been received by Alfred", Toast.LENGTH_SHORT).show();
             orderSent = true;
+            if (x != null) {
+                TextView placeInLine = (TextView) findViewById(R.id.CartPlaceInLine);
+                placeInLine.setText("Place in line: " + (int) x);
+                placeInLine.setVisibility(View.VISIBLE);
+            }
+
         } else {
-            Toast.makeText(Activity_OrderCart.this, "Order Placement Unsuccessful", Toast.LENGTH_LONG);
+            Toast.makeText(Activity_OrderCart.this, "Order Placement Unsuccessful", Toast.LENGTH_LONG).show();
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent();
+        intent.putExtra("orderSent", orderSent);
+        setResult(RESULT_OK, intent);
+        finish();
     }
 }

@@ -13,8 +13,10 @@ import java.util.Iterator;
 
 public class Activity_DrinksList extends AppCompatActivity implements AsyncResponse {
 
+    private final int GO_TO_CART = 1;
     private int tableNum ;
     private HashMap<String,Drink> drinkReference;
+    private ArrayList<Drink> drinks;
     private GridView gv;
 
     @Override
@@ -27,7 +29,7 @@ public class Activity_DrinksList extends AppCompatActivity implements AsyncRespo
         gv = (GridView) findViewById(R.id.drinksGrid);
 
         //TEST DATA SETUP
-        ArrayList<Drink> drinks = new ArrayList<>();
+        drinks = new ArrayList<>();
         drinks.add(new Drink("Sprite", 234, R.drawable.sprite, 2.99));
         drinks.add(new Drink("Coke", 333, R.drawable.coke, 3.99));
         drinks.add(new Drink("Fanta", 654, R.drawable.fanta, 3.99));
@@ -55,8 +57,19 @@ public class Activity_DrinksList extends AppCompatActivity implements AsyncRespo
         myIntent.putExtra("drinks",setUpCurrentCart());
         myIntent.putExtra("tableToken", (String) getIntent().getSerializableExtra("tableToken"));
 
-        int GO_TO_CART = 1;
         startActivityForResult(myIntent, GO_TO_CART);
+    }
+
+    public void onClickGoSettings(View v) {
+        Intent myIntent = new Intent(v.getContext(), Activity_Login.class);
+
+        //myIntent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+
+        //myIntent.putExtra("drinks",setUpCurrentCart());
+        //myIntent.putExtra("tableToken", (String) getIntent().getSerializableExtra("tableToken"));
+
+        //int GO_TO_CART = 1;
+        startActivity(myIntent);
     }
 
     private ArrayList<Drink> setUpCurrentCart() {
@@ -65,11 +78,21 @@ public class Activity_DrinksList extends AppCompatActivity implements AsyncRespo
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        int GET_ORDER_FOR_SELECTED_DRINK = 0;
-        if(requestCode == GET_ORDER_FOR_SELECTED_DRINK) {
+        if (requestCode == GO_TO_CART) {
             if (resultCode == RESULT_OK && data!=null) {
+                if ((Boolean) data.getSerializableExtra("orderSent")) {
+                    resetCurrentSelections();
+                }
             }
         }
+    }
+
+    private void resetCurrentSelections() {
+        for (Drink x : drinks) {
+            x.setAmount(0);
+        }
+        DrinksViewAdapter customAdapter = new DrinksViewAdapter(Activity_DrinksList.this, drinks);
+        gv.setAdapter(customAdapter);
     }
 
     @Override
