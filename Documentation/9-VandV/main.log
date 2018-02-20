@@ -1,12 +1,15 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.9.26)  19 FEB 2018 17:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  19 FEB 2018 19:13
 entering extended mode
-**./main.tex
-(main.tex
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**main.tex
+(./main.tex
 LaTeX2e <2017-04-15>
-Babel <3.10> and hyphenation patterns for 75 language(s) loaded.
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\article.cls"
+Babel <3.10> and hyphenation patterns for 84 language(s) loaded.
+(/usr/local/texlive/2017/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\size10.clo"
+(/usr/local/texlive/2017/texmf-dist/tex/latex/base/size10.clo
 File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
@@ -21,21 +24,21 @@ File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.sty"
+(/usr/local/texlive/2017/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2010/09/12 v5.6 Page Geometry
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
+(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks14
 )
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.sty"
+(/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/ifpdf.sty
 Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
 )
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifvtex.sty"
+(/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/ifvtex.sty
 Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
 Package ifvtex Info: VTeX not detected.
 )
-("C:\Program Files\MiKTeX 2.9\tex\generic\ifxetex\ifxetex.sty"
+(/usr/local/texlive/2017/texmf-dist/tex/generic/ifxetex/ifxetex.sty
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
 \Gm@cnth=\count87
@@ -50,35 +53,49 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 \Gm@layouthoffset=\dimen109
 \Gm@layoutvoffset=\dimen110
 \Gm@dimlist=\toks15
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.cfg"))
-(C:\Users\curtm\AppData\Roaming\MiKTeX\2.9\tex\latex\changepage\changepage.sty
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/changepage/changepage.sty
 Package: changepage 2009/10/20 v1.0c check page and change page layout
 \c@cp@cntr=\count90
 \cp@tempcnt=\count91
-) (C:\Users\curtm\AppData\Roaming\MiKTeX\2.9\tex\latex\xcolor\xcolor.sty
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics/lscape.sty
+Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2017/04/14 v1.1b Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 99.
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2017/01/12 v0.06k Graphics/color for pdfTeX
+
+(/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count92
+)))
+(/usr/local/texlive/2017/texmf-dist/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-cfg\color.cfg"
+(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package xcolor Info: Driver file: pdftex.def on input line 225.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-def\pdftex.def"
-File: pdftex.def 2017/01/12 v0.06k Graphics/color for pdfTeX
-
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
-Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
-)
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
-Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
-)
-\Gread@gobject=\count92
-)
-(C:\Users\curtm\AppData\Roaming\MiKTeX\2.9\tex\latex\colortbl\colortbl.sty
+(/usr/local/texlive/2017/texmf-dist/tex/latex/colortbl/colortbl.sty
 Package: colortbl 2012/02/13 v1.0a Color table columns (DPC)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\tools\array.sty"
+(/usr/local/texlive/2017/texmf-dist/tex/latex/tools/array.sty
 Package: array 2016/10/06 v2.4d Tabular extension package (FMi)
 \col@sep=\dimen111
 \extrarowheight=\dimen112
@@ -100,7 +117,7 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
 )
-(C:\Users\curtm\AppData\Roaming\MiKTeX\2.9\tex\latex\soul\soul.sty
+(/usr/local/texlive/2017/texmf-dist/tex/latex/soul/soul.sty
 Package: soul 2003/11/17 v2.4 letterspacing/underlining (mf)
 \SOUL@word=\toks18
 \SOUL@lasttoken=\toks19
@@ -112,7 +129,7 @@ Package: soul 2003/11/17 v2.4 letterspacing/underlining (mf)
 \SOUL@uldp=\dimen114
 \SOUL@ulht=\dimen115
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\float\float.sty"
+(/usr/local/texlive/2017/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count94
 \float@exts=\toks23
@@ -120,7 +137,7 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks24
 \@floatcapt=\box27
 )
-(C:\Users\curtm\AppData\Roaming\MiKTeX\2.9\tex\latex\wrapfig\wrapfig.sty
+(/usr/local/texlive/2017/texmf-dist/tex/latex/wrapfig/wrapfig.sty
 \wrapoverhang=\dimen116
 \WF@size=\dimen117
 \c@WF@wrappedlines=\count95
@@ -128,10 +145,10 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \WF@everypar=\toks25
 Package: wrapfig 2003/01/31  v 3.6
 )
-(C:\Users\curtm\AppData\Roaming\MiKTeX\2.9\tex\latex\sidecap\sidecap.sty
+(/usr/local/texlive/2017/texmf-dist/tex/latex/sidecap/sidecap.sty
 Package: sidecap 2003/06/06 v1.6f SideCap Package (RN/HjG)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\ifthen.sty"
+(/usr/local/texlive/2017/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 )
 \SC@BOXWD=\dimen118
@@ -141,8 +158,8 @@ Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 \c@SC@C=\count96
 \SC@BOX=\box29
 )
-(C:\Users\curtm\AppData\Roaming\MiKTeX\2.9\tex\latex\subfigure\subfigure.sty
-Package: subfigure 2002/07/30 v2.1.4 subfigure package
+(/usr/local/texlive/2017/texmf-dist/tex/latex/subfigure/subfigure.sty
+Package: subfigure 2002/03/15 v2.1.5 subfigure package
 \subfigtopskip=\skip47
 \subfigcapskip=\skip48
 \subfigcaptopadj=\dimen122
@@ -157,14 +174,14 @@ Package: subfigure 2002/07/30 v2.1.4 subfigure package
 ****************************************
 * Local config file subfigure.cfg used *
 ****************************************
-(C:\Users\curtm\AppData\Roaming\MiKTeX\2.9\tex\latex\subfigure\subfigure.cfg)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/subfigure/subfigure.cfg)
 \subfig@top=\skip51
 \subfig@bottom=\skip52
 )
-(C:\Users\curtm\AppData\Roaming\MiKTeX\2.9\tex\latex\caption\caption.sty
+(/usr/local/texlive/2017/texmf-dist/tex/latex/caption/caption.sty
 Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
 
-(C:\Users\curtm\AppData\Roaming\MiKTeX\2.9\tex\latex\caption\caption3.sty
+(/usr/local/texlive/2017/texmf-dist/tex/latex/caption/caption3.sty
 Package: caption3 2016/05/22 v1.7-166 caption3 kernel (AR)
 Package caption3 Info: TeX engine: e-TeX on input line 67.
 \captionmargin=\dimen124
@@ -181,26 +198,26 @@ Package caption Info: sidecap package is loaded.
 Package caption Info: subfigure package is loaded.
 Package caption Info: wrapfig package is loaded.
 )
-(C:\Users\curtm\AppData\Roaming\MiKTeX\2.9\tex\latex\cabin\cabin.sty
+(/usr/local/texlive/2017/texmf-dist/tex/latex/cabin/cabin.sty
 Package: cabin 2016/02/26 (Bob Tennent) Supports Cabin fonts for all LaTeX engi
 nes.
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifluatex.sty"
+(/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/ifluatex.sty
 Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
 Package ifluatex Info: LuaTeX not detected.
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\xkeyval\xkeyval.sty"
+(/usr/local/texlive/2017/texmf-dist/tex/latex/xkeyval/xkeyval.sty
 Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\xkeyval\xkeyval.tex"
-("C:\Program Files\MiKTeX 2.9\tex\generic\xkeyval\xkvutils.tex"
+(/usr/local/texlive/2017/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/local/texlive/2017/texmf-dist/tex/generic/xkeyval/xkvutils.tex
 \XKV@toks=\toks26
 \XKV@tempa@toks=\toks27
 )
 \XKV@depth=\count102
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 ))
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\textcomp.sty"
+(/usr/local/texlive/2017/texmf-dist/tex/latex/base/textcomp.sty
 Package: textcomp 2017/04/05 v2.0i Standard LaTeX package
 Package textcomp Info: Sub-encoding information:
 (textcomp)               5 = only ISO-Adobe without \textcurrency
@@ -215,7 +232,7 @@ Package textcomp Info: Sub-encoding information:
 (textcomp)             See the documentation for details.
 Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 79.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\ts1enc.def"
+(/usr/local/texlive/2017/texmf-dist/tex/latex/base/ts1enc.def
 File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
 )
 LaTeX Info: Redefining \oldstylenums on input line 334.
@@ -282,17 +299,17 @@ Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 407.
 Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 408.
 Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 409.
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\fontenc.sty"
+(/usr/local/texlive/2017/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2017/04/05 v2.0i Standard LaTeX package
 )
-(C:\Users\curtm\AppData\Roaming\MiKTeX\2.9\tex\latex\fontaxes\fontaxes.sty
+(/usr/local/texlive/2017/texmf-dist/tex/latex/fontaxes/fontaxes.sty
 Package: fontaxes 2014/03/23 v1.0d Font selection axes
 LaTeX Info: Redefining \upshape on input line 29.
 LaTeX Info: Redefining \itshape on input line 31.
 LaTeX Info: Redefining \slshape on input line 33.
 LaTeX Info: Redefining \scshape on input line 37.
 )
-(C:\Users\curtm\AppData\Roaming\MiKTeX\2.9\tex\latex\mweights\mweights.sty
+(/usr/local/texlive/2017/texmf-dist/tex/latex/mweights/mweights.sty
 Package: mweights 2017/03/30 (Bob Tennent) Support package for multiple-weight 
 font packages. 
 LaTeX Info: Redefining \bfseries on input line 22.
@@ -301,17 +318,17 @@ LaTeX Info: Redefining \rmfamily on input line 38.
 LaTeX Info: Redefining \sffamily on input line 66.
 LaTeX Info: Redefining \ttfamily on input line 94.
 ))
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\fontenc.sty"
+(/usr/local/texlive/2017/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2017/04/05 v2.0i Standard LaTeX package
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\t1enc.def"
+(/usr/local/texlive/2017/texmf-dist/tex/latex/base/t1enc.def
 File: t1enc.def 2017/04/05 v2.0i Standard LaTeX file
 LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
 ))
-("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\helvet.sty"
+(/usr/local/texlive/2017/texmf-dist/tex/latex/psnfss/helvet.sty
 Package: helvet 2005/04/12 PSNFSS-v9.2a (WaS) 
 )
-(C:\Users\curtm\AppData\Roaming\MiKTeX\2.9\tex\latex\titlesec\titlesec.sty
+(/usr/local/texlive/2017/texmf-dist/tex/latex/titlesec/titlesec.sty
 Package: titlesec 2016/03/21 v2.10.2 Sectioning titles
 \ttl@box=\box30
 \beforetitleunit=\skip53
@@ -323,28 +340,16 @@ Package: titlesec 2016/03/21 v2.10.2 Sectioning titles
 \titlewidthlast=\dimen134
 \titlewidthfirst=\dimen135
 )
-(C:\Users\curtm\AppData\Roaming\MiKTeX\2.9\tex\latex\titlesec\titletoc.sty
+(/usr/local/texlive/2017/texmf-dist/tex/latex/titlesec/titletoc.sty
 Package: titletoc 2011/12/15 v1.6 TOC entries
 \ttl@leftsep=\dimen136
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
-Package: graphics 2017/04/14 v1.1b Standard LaTeX Graphics (DPC,SPQR)
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty"
-Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-cfg\graphics.cfg"
-File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
-)
-Package graphics Info: Driver file: pdftex.def on input line 99.
-)
 \Gin@req@height=\dimen137
 \Gin@req@width=\dimen138
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\tools\longtable.sty"
+(/usr/local/texlive/2017/texmf-dist/tex/latex/tools/longtable.sty
 Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)
 \LTleft=\skip55
 \LTright=\skip56
@@ -362,14 +367,14 @@ Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)
 \c@LT@chunks=\count107
 \LT@p@ftn=\toks29
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\multirow\multirow.sty"
+(/usr/local/texlive/2017/texmf-dist/tex/latex/multirow/multirow.sty
 Package: multirow 2016/11/25 v2.2 Span multiple rows of a table
 \multirow@colwidth=\skip59
 \multirow@cntb=\count108
 \multirow@dima=\skip60
 \bigstrutjot=\dimen140
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\tools\multicol.sty"
+(/usr/local/texlive/2017/texmf-dist/tex/latex/tools/multicol.sty
 Package: multicol 2017/04/11 v1.8q multicolumn formatting (FMi)
 \c@tracingmulticols=\count109
 \mult@box=\box35
@@ -418,7 +423,7 @@ Package: multicol 2017/04/11 v1.8q multicolumn formatting (FMi)
 \colbreak@box=\box60
 \mc@col@check@num=\count117
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\tools\tabularx.sty"
+(/usr/local/texlive/2017/texmf-dist/tex/latex/tools/tabularx.sty
 Package: tabularx 2016/02/03 v2.11 `tabularx' package (DPC)
 \TX@col@width=\dimen150
 \TX@old@table=\dimen151
@@ -428,7 +433,7 @@ Package: tabularx 2016/02/03 v2.11 `tabularx' package (DPC)
 \TX@cols=\count118
 \TX@ftn=\toks30
 )
-(C:\Users\curtm\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\listings.sty
+(/usr/local/texlive/2017/texmf-dist/tex/latex/listings/listings.sty
 \lst@mode=\count119
 \lst@gtempboxa=\box61
 \lst@token=\toks31
@@ -442,18 +447,18 @@ Package: tabularx 2016/02/03 v2.11 `tabularx' package (DPC)
 \lst@lineno=\count124
 \lst@maxwidth=\dimen158
 
-(C:\Users\curtm\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\lstmisc.sty
+(/usr/local/texlive/2017/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
 \c@lstnumber=\count125
 \lst@skipnumbers=\count126
 \lst@framebox=\box62
 )
-(C:\Users\curtm\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\listings.cfg
+(/usr/local/texlive/2017/texmf-dist/tex/latex/listings/listings.cfg
 File: listings.cfg 2015/06/04 1.6 listings configuration
 ))
 Package: listings 2015/06/04 1.6 (Carsten Heinz)
 
-(C:\Users\curtm\AppData\Roaming\MiKTeX\2.9\tex\latex\enumitem\enumitem.sty
+(/usr/local/texlive/2017/texmf-dist/tex/latex/enumitem/enumitem.sty
 Package: enumitem 2011/09/28 v3.5.2 Customized lists
 \labelindent=\skip63
 \enit@outerparindent=\dimen159
@@ -461,14 +466,14 @@ Package: enumitem 2011/09/28 v3.5.2 Customized lists
 \enit@inbox=\box63
 \enitdp@description=\count127
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\hyperref.sty"
+(/usr/local/texlive/2017/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2017/03/14 v6.85a Hypertext links for LaTeX
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\hobsub-hyperref.sty"
+(/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
 Package: hobsub-hyperref 2016/05/16 v1.14 Bundle oberdiek, subset hyperref (HO)
 
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\hobsub-generic.sty"
+(/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty
 Package: hobsub-generic 2016/05/16 v1.14 Bundle oberdiek, subset generic (HO)
 Package: hobsub 2016/05/16 v1.14 Construct package bundles (HO)
 Package hobsub Info: Skipping package `infwarerr' (already loaded).
@@ -506,22 +511,22 @@ Package: atbegshi 2016/06/09 v1.18 At begin shipout hook (HO)
 Package: refcount 2016/05/16 v3.5 Data extraction from label references (HO)
 Package: hycolor 2016/05/16 v1.8 Color options for hyperref/bookmark (HO)
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\auxhook.sty"
+(/usr/local/texlive/2017/texmf-dist/tex/latex/oberdiek/auxhook.sty
 Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\kvoptions.sty"
+(/usr/local/texlive/2017/texmf-dist/tex/latex/oberdiek/kvoptions.sty
 Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
 )
 \@linkdim=\dimen160
 \Hy@linkcounter=\count128
 \Hy@pagecounter=\count129
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\pd1enc.def"
+(/usr/local/texlive/2017/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2017/03/14 v6.85a Hyperref: PDFDocEncoding definition (HO)
 )
 \Hy@SavedSpaceFactor=\count130
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\hyperref.cfg"
+(/usr/local/texlive/2017/texmf-dist/tex/latex/latexconfig/hyperref.cfg
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
 )
 Package hyperref Info: Hyper figures OFF on input line 4498.
@@ -533,7 +538,7 @@ Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4751.
 \c@Hy@tempcnt=\count131
 
-(C:\Users\curtm\AppData\Roaming\MiKTeX\2.9\tex\latex\url\url.sty
+(/usr/local/texlive/2017/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip10
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
@@ -558,12 +563,12 @@ LaTeX Info: Redefining \pageref on input line 6432.
 
 Package hyperref Message: Driver (autodetected): hpdftex.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\hpdftex.def"
+(/usr/local/texlive/2017/texmf-dist/tex/latex/hyperref/hpdftex.def
 File: hpdftex.def 2017/03/14 v6.85a Hyperref driver for pdfTeX
 \Fld@listcount=\count136
 \c@bookmark@seq@number=\count137
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\rerunfilecheck.sty"
+(/usr/local/texlive/2017/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
 Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 82.
@@ -572,34 +577,32 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 Package hyperref Info: Option `colorlinks' set `true' on input line 110.
 
-(C:\Users\curtm\AppData\Roaming\MiKTeX\2.9\tex\latex\fancyhdr\fancyhdr.sty
-Package: fancyhdr 2017/06/30 v3.9a Extensive control of page headers and footer
-s
-\f@nch@headwidth=\skip65
-\f@nch@O@elh=\skip66
-\f@nch@O@erh=\skip67
-\f@nch@O@olh=\skip68
-\f@nch@O@orh=\skip69
-\f@nch@O@elf=\skip70
-\f@nch@O@erf=\skip71
-\f@nch@O@olf=\skip72
-\f@nch@O@orf=\skip73
+(/usr/local/texlive/2017/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+Package: fancyhdr 2016/09/06 3.8 Extensive control of page headers and footers
+\fancy@headwidth=\skip65
+\f@ncyO@elh=\skip66
+\f@ncyO@erh=\skip67
+\f@ncyO@olh=\skip68
+\f@ncyO@orh=\skip69
+\f@ncyO@elf=\skip70
+\f@ncyO@erf=\skip71
+\f@ncyO@olf=\skip72
+\f@ncyO@orf=\skip73
 )
-(C:\Users\curtm\AppData\Roaming\MiKTeX\2.9\tex\latex\lastpage\lastpage.sty
+(/usr/local/texlive/2017/texmf-dist/tex/latex/lastpage/lastpage.sty
 Package: lastpage 2015/03/29 v1.2m Refers to last page's name (HMM; JPG)
 )
 
 Package Fancyhdr Warning: \fancyhead's `E' option without twoside option is use
 less on input line 129.
 
-(C:\Users\curtm\AppData\Roaming\MiKTeX\2.9\tex\latex\everypage\everypage.sty
+(/usr/local/texlive/2017/texmf-dist/tex/latex/everypage/everypage.sty
 Package: everypage 2007/06/20 1.1 Hooks to run on every page
 )
-(C:\Users\curtm\AppData\Roaming\MiKTeX\2.9\tex\latex\lipsum\lipsum.sty
+(/usr/local/texlive/2017/texmf-dist/tex/latex/lipsum/lipsum.sty
 Package: lipsum 2014/07/27 v1.3 150 paragraphs of Lorem Ipsum dummy text
 \c@lips@count=\count138
-)
-(main.aux)
+) (./main.aux)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 219.
@@ -617,7 +620,8 @@ LaTeX Font Info:    ... okay on input line 219.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 219.
 LaTeX Font Info:    Try loading font information for TS1+cmr on input line 219.
 
- ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ts1cmr.fd"
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 219.
@@ -658,7 +662,7 @@ LaTeX Font Info:    ... okay on input line 219.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-(C:\Users\curtm\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-pdf.mkii
+(/usr/local/texlive/2017/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count139
 \scratchdimen=\dimen164
@@ -671,10 +675,10 @@ LaTeX Font Info:    ... okay on input line 219.
 \MPnumerator=\count143
 \makeMPintoPDFobject=\count144
 \everyMPtoPDFconversion=\toks34
-) ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty"
+) (/usr/local/texlive/2017/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\grfext.sty"
+(/usr/local/texlive/2017/texmf-dist/tex/latex/oberdiek/grfext.sty
 Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
 )
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -683,11 +687,15 @@ Package grfext Info: Graphics extension search list:
 (grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
-)
-(C:\Users\curtm\AppData\Roaming\MiKTeX\2.9\tex\latex\ms\ragged2e.sty
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+(/usr/local/texlive/2017/texmf-dist/tex/latex/ms/ragged2e.sty
 Package: ragged2e 2009/05/21 v2.1 ragged2e Package (MS)
 
-(C:\Users\curtm\AppData\Roaming\MiKTeX\2.9\tex\latex\ms\everysel.sty
+(/usr/local/texlive/2017/texmf-dist/tex/latex/ms/everysel.sty
 Package: everysel 2011/10/28 v1.2 EverySelectfont Package (MS)
 
 ABD: EverySelectfont initializing macros
@@ -713,7 +721,7 @@ Package caption Info: hyperref package is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: longtable package is loaded.
 
-(C:\Users\curtm\AppData\Roaming\MiKTeX\2.9\tex\latex\caption\ltcaption.sty
+(/usr/local/texlive/2017/texmf-dist/tex/latex/caption/ltcaption.sty
 Package: ltcaption 2013/06/09 v1.4-94 longtable captions (AR)
 )
 Package caption Info: End \AtBeginDocument code.
@@ -723,10 +731,10 @@ Package caption Info: End \AtBeginDocument code.
 \AtBeginShipoutBox=\box65
 Package hyperref Info: Link coloring ON on input line 219.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
+(/usr/local/texlive/2017/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
+(/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count148
@@ -735,14 +743,14 @@ LaTeX Info: Redefining \ref on input line 219.
 LaTeX Info: Redefining \pageref on input line 219.
 LaTeX Info: Redefining \nameref on input line 219.
 
-(main.out) (main.out)
+(./main.out) (./main.out)
 \@outlinefile=\write3
 \openout3 = `main.out'.
 
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
 (lastpage)             ! on input line 219.
- <figures/alfred.png, id=75, 501.875pt x 501.875pt>
+ <figures/alfred.png, id=76, 501.875pt x 501.875pt>
 File: figures/alfred.png Graphic file (type png)
 
 <use figures/alfred.png>
@@ -754,7 +762,8 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 242.
  [1
 
-{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map} <./figures/alfred.png>]
+{/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./figur
+es/alfred.png>]
 LaTeX Font Info:    Calculating math sizes for size <14> on input line 262.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <14> on input line 262.
@@ -765,7 +774,7 @@ Overfull \hbox (3.0pt too wide) in paragraph at lines 262--262
 |[][][][][][]| 
  []
 
-(main.toc)
+(./main.toc)
 \tf@toc=\write4
 \openout4 = `main.toc'.
 
@@ -774,7 +783,7 @@ Overfull \hbox (3.0pt too wide) in paragraph at lines 263--263
 |[][][][][][]| 
  []
 
-(main.lot)
+(./main.lot)
 \tf@lot=\write5
 \openout5 = `main.lot'.
 
@@ -783,7 +792,7 @@ Overfull \hbox (3.0pt too wide) in paragraph at lines 264--264
 |[][][][][][]| 
  []
 
-(main.lof)
+(./main.lof)
 \tf@lof=\write6
 \openout6 = `main.lof'.
 
@@ -844,547 +853,587 @@ Underfull \hbox (badness 10000) in paragraph at lines 327--328
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 337--337
-[]|\T1/cmr/m/n/10 Alfred Im-age Pro-
+Underfull \hbox (badness 1194) in paragraph at lines 331--331
+[]|\T1/cmr/m/n/10 Client Ap-pli-ca-
  []
 
 
-Overfull \hbox (26.99998pt too wide) in alignment at lines 331--339
+Underfull \hbox (badness 10000) in paragraph at lines 334--334
+[]|\T1/cmr/m/n/10 Alfred Drive-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 335--335
+[]|\T1/cmr/m/n/10 Alfred Im-age
+ []
+
+
+Overfull \hbox (3.51079pt too wide) in alignment at lines 329--337
  [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 339
+Underfull \vbox (badness 10000) detected at line 337
  []
 
 [4]
-Overfull \hbox (3.0pt too wide) in paragraph at lines 340--340
+Overfull \hbox (3.0pt too wide) in paragraph at lines 338--338
 |[][][][][][][]| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 343--343
+Underfull \hbox (badness 10000) in paragraph at lines 341--341
 []|\T1/cmr/bx/n/10 Test
  []
 
 
-Overfull \hbox (1.5212pt too wide) in paragraph at lines 343--343
+Overfull \hbox (1.5212pt too wide) in paragraph at lines 341--341
 []|\T1/cmr/bx/n/10 Requirement
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 343--343
+Underfull \hbox (badness 10000) in paragraph at lines 341--341
 []|\T1/cmr/bx/n/10 Expected
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 343--343
+Underfull \hbox (badness 10000) in paragraph at lines 341--341
 []|\T1/cmr/bx/n/10 Actual
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 345--345
+Underfull \hbox (badness 10000) in paragraph at lines 343--343
 []|\T1/cmr/m/n/10 Testing Lo-gin with
  []
 
 
-Overfull \hbox (20.22745pt too wide) in paragraph at lines 345--345
+Overfull \hbox (20.22745pt too wide) in paragraph at lines 343--343
 []|\T1/cmr/m/n/10 "admin:admin"
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 345--345
+Underfull \hbox (badness 10000) in paragraph at lines 343--343
 []|\T1/cmr/m/n/10 "Could
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 345--345
+Underfull \hbox (badness 10000) in paragraph at lines 343--343
 \T1/cmr/m/n/10 not con-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 345--345
+Underfull \hbox (badness 10000) in paragraph at lines 343--343
 \T1/cmr/m/n/10 nect to
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 345--345
+Underfull \hbox (badness 10000) in paragraph at lines 343--343
+\T1/cmr/m/n/10 server"
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 343--343
+[]|\T1/cmr/m/n/10 "Could
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 343--343
+\T1/cmr/m/n/10 not con-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 343--343
+\T1/cmr/m/n/10 nect to
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 343--343
 \T1/cmr/m/n/10 server"
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 345--345
-[]|\T1/cmr/m/n/10 "Could
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 345--345
-\T1/cmr/m/n/10 not con-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 345--345
-\T1/cmr/m/n/10 nect to
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 345--345
-\T1/cmr/m/n/10 server"
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 347--347
 []|\T1/cmr/m/n/10 Testing Lo-gin with
  []
 
 
-Overfull \hbox (7.28616pt too wide) in paragraph at lines 347--347
+Overfull \hbox (7.28616pt too wide) in paragraph at lines 345--345
 []|\T1/cmr/m/n/10 "wrongUser:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 347--347
+Underfull \hbox (badness 10000) in paragraph at lines 345--345
 \T1/cmr/m/n/10 wrong-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 347--347
+Underfull \hbox (badness 10000) in paragraph at lines 345--345
 \T1/cmr/m/n/10 Pass" as
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 347--347
+Underfull \hbox (badness 10000) in paragraph at lines 345--345
 []|\T1/cmr/m/n/10 "invalid
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 347--347
+Underfull \hbox (badness 10000) in paragraph at lines 345--345
 \T1/cmr/m/n/10 cre-den-
  []
 
 
-Underfull \hbox (badness 1259) in paragraph at lines 347--347
+Underfull \hbox (badness 1259) in paragraph at lines 345--345
+\T1/cmr/m/n/10 tials" pop
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 345--345
+[]|\T1/cmr/m/n/10 "invalid
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 345--345
+\T1/cmr/m/n/10 cre-den-
+ []
+
+
+Underfull \hbox (badness 1259) in paragraph at lines 345--345
 \T1/cmr/m/n/10 tials" pop
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 347--347
-[]|\T1/cmr/m/n/10 "invalid
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 347--347
-\T1/cmr/m/n/10 cre-den-
- []
-
-
-Underfull \hbox (badness 1259) in paragraph at lines 347--347
-\T1/cmr/m/n/10 tials" pop
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 349--349
 []|\T1/cmr/m/n/10 Testing Lo-gin with
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 349--349
+Underfull \hbox (badness 10000) in paragraph at lines 347--347
 []|\T1/cmr/m/n/10 "admin:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 349--349
+Underfull \hbox (badness 10000) in paragraph at lines 347--347
 []|\T1/cmr/m/n/10 settings
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 349--349
+Underfull \hbox (badness 10000) in paragraph at lines 347--347
+\T1/cmr/m/n/10 page is
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 347--347
+[]|\T1/cmr/m/n/10 settings
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 347--347
 \T1/cmr/m/n/10 page is
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 349--349
-[]|\T1/cmr/m/n/10 settings
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 349--349
-\T1/cmr/m/n/10 page is
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 351--351
 []|\T1/cmr/m/n/10 Testing device-table
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 351--351
+Underfull \hbox (badness 10000) in paragraph at lines 349--349
 []|\T1/cmr/m/n/10 Select
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 351--351
+Underfull \hbox (badness 10000) in paragraph at lines 349--349
 \T1/cmr/m/n/10 dif-fer-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 351--351
+Underfull \hbox (badness 10000) in paragraph at lines 349--349
 \T1/cmr/m/n/10 ent ta-ble
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 351--351
+Underfull \hbox (badness 10000) in paragraph at lines 349--349
 \T1/cmr/m/n/10 num-ber
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 351--351
+Underfull \hbox (badness 10000) in paragraph at lines 349--349
 \T1/cmr/m/n/10 and click
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 351--351
+Underfull \hbox (badness 10000) in paragraph at lines 349--349
 []|\T1/cmr/m/n/10 "Table
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 351--351
+Underfull \hbox (badness 10000) in paragraph at lines 349--349
 \T1/cmr/m/n/10 change
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 351--351
+Underfull \hbox (badness 10000) in paragraph at lines 349--349
 \T1/cmr/m/n/10 un-suc-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 351--351
+Underfull \hbox (badness 10000) in paragraph at lines 349--349
 \T1/cmr/m/n/10 cess-ful"
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 351--351
+Underfull \hbox (badness 10000) in paragraph at lines 349--349
 \T1/cmr/m/n/10 pop up
  []
 
 
-Underfull \hbox (badness 4378) in paragraph at lines 351--351
+Underfull \hbox (badness 4378) in paragraph at lines 349--349
 \T1/cmr/m/n/10 and ta-ble
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 351--351
+Underfull \hbox (badness 10000) in paragraph at lines 349--349
 \T1/cmr/m/n/10 num-ber
  []
 
 
-Underfull \hbox (badness 3049) in paragraph at lines 351--351
+Underfull \hbox (badness 3049) in paragraph at lines 349--349
 \T1/cmr/m/n/10 re-verts to
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 351--351
+Underfull \hbox (badness 10000) in paragraph at lines 349--349
 []|\T1/cmr/m/n/10 "Table
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 351--351
+Underfull \hbox (badness 10000) in paragraph at lines 349--349
 \T1/cmr/m/n/10 change
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 351--351
+Underfull \hbox (badness 10000) in paragraph at lines 349--349
 \T1/cmr/m/n/10 un-suc-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 351--351
+Underfull \hbox (badness 10000) in paragraph at lines 349--349
 \T1/cmr/m/n/10 cess-ful"
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 351--351
+Underfull \hbox (badness 10000) in paragraph at lines 349--349
 \T1/cmr/m/n/10 pop up
  []
 
 
-Underfull \hbox (badness 4378) in paragraph at lines 351--351
+Underfull \hbox (badness 4378) in paragraph at lines 349--349
 \T1/cmr/m/n/10 and ta-ble
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 351--351
+Underfull \hbox (badness 10000) in paragraph at lines 349--349
 \T1/cmr/m/n/10 num-ber
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 351--351
+Underfull \hbox (badness 10000) in paragraph at lines 349--349
 \T1/cmr/m/n/10 does not
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 351--351
+Underfull \hbox (badness 10000) in paragraph at lines 349--349
 \T1/cmr/m/n/10 re-vert to
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 353--353
+Underfull \hbox (badness 10000) in paragraph at lines 351--351
 []|\T1/cmr/m/n/10 Testing device-table
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 353--353
+Underfull \hbox (badness 10000) in paragraph at lines 351--351
 []|\T1/cmr/m/n/10 Select
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 353--353
+Underfull \hbox (badness 10000) in paragraph at lines 351--351
 \T1/cmr/m/n/10 dif-fer-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 353--353
+Underfull \hbox (badness 10000) in paragraph at lines 351--351
 \T1/cmr/m/n/10 ent ta-ble
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 353--353
+Underfull \hbox (badness 10000) in paragraph at lines 351--351
 \T1/cmr/m/n/10 num-ber
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 353--353
+Underfull \hbox (badness 10000) in paragraph at lines 351--351
 \T1/cmr/m/n/10 and click
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 353--353
+Underfull \hbox (badness 10000) in paragraph at lines 351--351
 \T1/cmr/m/n/10 page is
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 353--353
+Underfull \hbox (badness 10000) in paragraph at lines 351--351
 []|\T1/cmr/m/n/10 Drinks
  []
 
 
+Underfull \hbox (badness 10000) in paragraph at lines 351--351
+\T1/cmr/m/n/10 page is
+ []
+
+
+Underfull \hbox (badness 1755) in paragraph at lines 353--353
+[]|\T1/cmr/m/n/10 Testing ac-cess to set-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 353--353
+[]|\T1/cmr/m/n/10 Press
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 353--353
+\T1/cmr/m/n/10 drinks
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 353--353
 \T1/cmr/m/n/10 page is
  []
 
 
-Underfull \hbox (badness 1755) in paragraph at lines 355--355
-[]|\T1/cmr/m/n/10 Testing ac-cess to set-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 355--355
-[]|\T1/cmr/m/n/10 Press
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 355--355
-\T1/cmr/m/n/10 drinks
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 355--355
-\T1/cmr/m/n/10 page is
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 355--355
+Underfull \hbox (badness 10000) in paragraph at lines 353--353
 []|\T1/cmr/m/n/10 No ob-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 355--355
+Underfull \hbox (badness 10000) in paragraph at lines 353--353
 \T1/cmr/m/n/10 served
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 355--355
+Underfull \hbox (badness 10000) in paragraph at lines 353--353
 []|\T1/cmr/m/n/10 no ob-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 355--355
+Underfull \hbox (badness 10000) in paragraph at lines 353--353
 \T1/cmr/m/n/10 served
  []
 
 
-Underfull \hbox (badness 3503) in paragraph at lines 357--357
+Underfull \hbox (badness 3503) in paragraph at lines 355--355
 []|\T1/cmr/m/n/10 Testing drink amount
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 357--357
+Underfull \hbox (badness 10000) in paragraph at lines 355--355
 []|\T1/cmr/m/n/10 Change
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 357--357
+Underfull \hbox (badness 10000) in paragraph at lines 355--355
 \T1/cmr/m/n/10 the
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 357--357
+Underfull \hbox (badness 10000) in paragraph at lines 355--355
 \T1/cmr/m/n/10 amount
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 357--357
+Underfull \hbox (badness 10000) in paragraph at lines 355--355
 \T1/cmr/m/n/10 of sprite
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 357--357
+Underfull \hbox (badness 10000) in paragraph at lines 355--355
 []|\T1/cmr/m/n/10 the num-
  []
 
 
-Underfull \hbox (badness 1005) in paragraph at lines 357--357
+Underfull \hbox (badness 1005) in paragraph at lines 355--355
 \T1/cmr/m/n/10 ber picker
  []
 
 
-Underfull \hbox (badness 3792) in paragraph at lines 357--357
+Underfull \hbox (badness 3792) in paragraph at lines 355--355
 \T1/cmr/m/n/10 value will
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 357--357
+Underfull \hbox (badness 10000) in paragraph at lines 355--355
 []|\T1/cmr/m/n/10 the num-
  []
 
 
-Underfull \hbox (badness 1005) in paragraph at lines 357--357
+Underfull \hbox (badness 1005) in paragraph at lines 355--355
 \T1/cmr/m/n/10 ber picker
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 357--357
+Underfull \hbox (badness 10000) in paragraph at lines 355--355
 \T1/cmr/m/n/10 value
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 359--359
+Underfull \hbox (badness 10000) in paragraph at lines 357--357
 []|\T1/cmr/m/n/10 On the
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 359--359
+Underfull \hbox (badness 10000) in paragraph at lines 357--357
 \T1/cmr/m/n/10 drinks
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 359--359
+Underfull \hbox (badness 10000) in paragraph at lines 357--357
 \T1/cmr/m/n/10 list page
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 359--359
+Underfull \hbox (badness 10000) in paragraph at lines 357--357
 \T1/cmr/m/n/10 se-lect 1
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 359--359
+Underfull \hbox (badness 10000) in paragraph at lines 357--357
 \T1/cmr/m/n/10 2 cokes
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 359--359
+Underfull \hbox (badness 10000) in paragraph at lines 357--357
 \T1/cmr/m/n/10 and click
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 359--359
+Underfull \hbox (badness 10000) in paragraph at lines 357--357
 []|\T1/cmr/m/n/10 current
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 359--359
+Underfull \hbox (badness 10000) in paragraph at lines 357--357
 \T1/cmr/m/n/10 cart
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 359--359
+Underfull \hbox (badness 10000) in paragraph at lines 357--357
 \T1/cmr/m/n/10 page is
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 359--359
+Underfull \hbox (badness 10000) in paragraph at lines 357--357
 \T1/cmr/m/n/10 launched
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 359--359
+Underfull \hbox (badness 10000) in paragraph at lines 357--357
 \T1/cmr/m/n/10 and the
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 359--359
+Underfull \hbox (badness 10000) in paragraph at lines 357--357
 \T1/cmr/m/n/10 sum-mary
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 359--359
+Underfull \hbox (badness 10000) in paragraph at lines 357--357
 \T1/cmr/m/n/10 of items
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 359--359
+Underfull \hbox (badness 10000) in paragraph at lines 357--357
 \T1/cmr/m/n/10 shows 1
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 359--359
+Underfull \hbox (badness 10000) in paragraph at lines 357--357
 []|\T1/cmr/m/n/10 current
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 359--359
+Underfull \hbox (badness 10000) in paragraph at lines 357--357
 \T1/cmr/m/n/10 cart
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 359--359
+Underfull \hbox (badness 10000) in paragraph at lines 357--357
 \T1/cmr/m/n/10 page is
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 359--359
+Underfull \hbox (badness 10000) in paragraph at lines 357--357
 \T1/cmr/m/n/10 launched
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 359--359
+Underfull \hbox (badness 10000) in paragraph at lines 357--357
 \T1/cmr/m/n/10 and the
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 359--359
+Underfull \hbox (badness 10000) in paragraph at lines 357--357
 \T1/cmr/m/n/10 sum-mary
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 359--359
+Underfull \hbox (badness 10000) in paragraph at lines 357--357
 \T1/cmr/m/n/10 of items
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 359--359
+Underfull \hbox (badness 10000) in paragraph at lines 357--357
 \T1/cmr/m/n/10 shows 1
+ []
+
+
+Underfull \hbox (badness 2521) in paragraph at lines 358--358
+\T1/cmr/m/n/10 server (server down ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 358--358
+[]|\T1/cmr/m/n/10 have 0
+ []
+
+
+Underfull \hbox (badness 2547) in paragraph at lines 358--358
+\T1/cmr/m/n/10 drinks se-
+ []
+
+
+Underfull \hbox (badness 3148) in paragraph at lines 358--358
+\T1/cmr/m/n/10 or-der" on
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 358--358
+\T1/cmr/m/n/10 the cart
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 358--358
+[]|\T1/cmr/m/n/10 "Empty
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 358--358
+[]|\T1/cmr/m/n/10 "Empty
  []
 
 
 Underfull \hbox (badness 2521) in paragraph at lines 360--360
 \T1/cmr/m/n/10 server (server down ,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 360--360
-[]|\T1/cmr/m/n/10 have 0
  []
 
 
@@ -1404,22 +1453,62 @@ Underfull \hbox (badness 10000) in paragraph at lines 360--360
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 360--360
-[]|\T1/cmr/m/n/10 "Empty
+[]|\T1/cmr/m/n/10 "Order
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 360--360
-[]|\T1/cmr/m/n/10 "Empty
+\T1/cmr/m/n/10 place-ment
  []
 
 
-Underfull \hbox (badness 2521) in paragraph at lines 362--362
-\T1/cmr/m/n/10 server (server down ,
+Underfull \hbox (badness 10000) in paragraph at lines 360--360
+\T1/cmr/m/n/10 un-suc-cess-
  []
 
 
-Underfull \hbox (badness 2547) in paragraph at lines 362--362
-\T1/cmr/m/n/10 drinks se-
+Underfull \hbox (badness 10000) in paragraph at lines 360--360
+\T1/cmr/m/n/10 ful" pop
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 360--360
+[]|\T1/cmr/m/n/10 "Order
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 360--360
+\T1/cmr/m/n/10 place-ment
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 360--360
+\T1/cmr/m/n/10 un-suc-cess-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 360--360
+\T1/cmr/m/n/10 ful" pop
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 362--362
+[]|\T1/cmr/m/n/10 0 drinks
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 362--362
+\T1/cmr/m/n/10 se-lected
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 362--362
+\T1/cmr/m/n/10 and click
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 362--362
+\T1/cmr/m/n/10 "send
  []
 
 
@@ -1434,62 +1523,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 362--362
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 362--362
-[]|\T1/cmr/m/n/10 "Order
+[]|\T1/cmr/m/n/10 "Empty
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 362--362
-\T1/cmr/m/n/10 place-ment
+[]|\T1/cmr/m/n/10 "Empty
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 362--362
-\T1/cmr/m/n/10 un-suc-cess-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 362--362
-\T1/cmr/m/n/10 ful" pop
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 362--362
-[]|\T1/cmr/m/n/10 "Order
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 362--362
-\T1/cmr/m/n/10 place-ment
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 362--362
-\T1/cmr/m/n/10 un-suc-cess-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 362--362
-\T1/cmr/m/n/10 ful" pop
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 364--364
-[]|\T1/cmr/m/n/10 0 drinks
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 364--364
-\T1/cmr/m/n/10 se-lected
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 364--364
-\T1/cmr/m/n/10 and click
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 364--364
-\T1/cmr/m/n/10 "send
+Underfull \hbox (badness 2547) in paragraph at lines 364--364
+\T1/cmr/m/n/10 drinks se-
  []
 
 
@@ -1504,87 +1548,117 @@ Underfull \hbox (badness 10000) in paragraph at lines 364--364
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 364--364
-[]|\T1/cmr/m/n/10 "Empty
+[]|\T1/cmr/m/n/10 "Order
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 364--364
-[]|\T1/cmr/m/n/10 "Empty
- []
-
-
-Underfull \hbox (badness 2547) in paragraph at lines 366--366
-\T1/cmr/m/n/10 drinks se-
- []
-
-
-Underfull \hbox (badness 3148) in paragraph at lines 366--366
-\T1/cmr/m/n/10 or-der" on
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 366--366
-\T1/cmr/m/n/10 the cart
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 366--366
-[]|\T1/cmr/m/n/10 "Order
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 366--366
 \T1/cmr/m/n/10 has been
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 366--366
+Underfull \hbox (badness 10000) in paragraph at lines 364--364
 \T1/cmr/m/n/10 re-ceived
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 366--366
+Underfull \hbox (badness 10000) in paragraph at lines 364--364
 \T1/cmr/m/n/10 pop up
  []
 
 
-Underfull \hbox (badness 3250) in paragraph at lines 366--366
+Underfull \hbox (badness 3250) in paragraph at lines 364--364
 \T1/cmr/m/n/10 and place
  []
 
 
-Underfull \hbox (badness 2469) in paragraph at lines 366--366
+Underfull \hbox (badness 2469) in paragraph at lines 364--364
 \T1/cmr/m/n/10 in line is
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 366--366
+Underfull \hbox (badness 10000) in paragraph at lines 364--364
 []|\T1/cmr/m/n/10 "Order
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 366--366
+Underfull \hbox (badness 10000) in paragraph at lines 364--364
 \T1/cmr/m/n/10 has been
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 366--366
+Underfull \hbox (badness 10000) in paragraph at lines 364--364
 \T1/cmr/m/n/10 re-ceived
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 366--366
+Underfull \hbox (badness 10000) in paragraph at lines 364--364
 \T1/cmr/m/n/10 pop up
  []
 
 
-Underfull \hbox (badness 3250) in paragraph at lines 366--366
+Underfull \hbox (badness 3250) in paragraph at lines 364--364
 \T1/cmr/m/n/10 and place
  []
 
 
-Underfull \hbox (badness 2469) in paragraph at lines 366--366
+Underfull \hbox (badness 2469) in paragraph at lines 364--364
 \T1/cmr/m/n/10 in line is
+ []
+
+
+Underfull \hbox (badness 7012) in paragraph at lines 366--366
+[]|\T1/cmr/m/n/10 send suc-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 366--366
+\T1/cmr/m/n/10 cess-ful
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 366--366
+\T1/cmr/m/n/10 or-der
+ []
+
+
+Underfull \hbox (badness 4072) in paragraph at lines 366--366
+\T1/cmr/m/n/10 and press
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 366--366
+\T1/cmr/m/n/10 "back"
+ []
+
+
+Underfull \hbox (badness 5316) in paragraph at lines 366--366
+\T1/cmr/m/n/10 to go to
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 366--366
+\T1/cmr/m/n/10 drinks
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 366--366
+[]|\T1/cmr/m/n/10 all drink
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 366--366
+\T1/cmr/m/n/10 amounts
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 366--366
+[]|\T1/cmr/m/n/10 all drink
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 366--366
+\T1/cmr/m/n/10 amounts
  []
 
 
@@ -1624,301 +1698,271 @@ Underfull \hbox (badness 10000) in paragraph at lines 368--368
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 368--368
-[]|\T1/cmr/m/n/10 all drink
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 368--368
-\T1/cmr/m/n/10 amounts
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 368--368
-[]|\T1/cmr/m/n/10 all drink
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 368--368
-\T1/cmr/m/n/10 amounts
- []
-
-
-Underfull \hbox (badness 7012) in paragraph at lines 370--370
-[]|\T1/cmr/m/n/10 send suc-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 370--370
-\T1/cmr/m/n/10 cess-ful
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 370--370
-\T1/cmr/m/n/10 or-der
- []
-
-
-Underfull \hbox (badness 4072) in paragraph at lines 370--370
-\T1/cmr/m/n/10 and press
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 370--370
-\T1/cmr/m/n/10 "back"
- []
-
-
-Underfull \hbox (badness 5316) in paragraph at lines 370--370
-\T1/cmr/m/n/10 to go to
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 370--370
-\T1/cmr/m/n/10 drinks
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 370--370
 \T1/cmr/m/n/10 page and
  []
 
 
-Underfull \hbox (badness 6927) in paragraph at lines 370--370
+Underfull \hbox (badness 6927) in paragraph at lines 368--368
 \T1/cmr/m/n/10 press "go
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 370--370
+Underfull \hbox (badness 10000) in paragraph at lines 368--368
 []|\T1/cmr/m/n/10 cart is
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 370--370
+Underfull \hbox (badness 10000) in paragraph at lines 368--368
 []|\T1/cmr/m/n/10 cart is
  []
 
 
-Overfull \hbox (26.24887pt too wide) in alignment at lines 342--371
+Overfull \hbox (26.24887pt too wide) in alignment at lines 340--369
  [] [] [] [] [] [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 371
+Underfull \vbox (badness 10000) detected at line 369
  []
 
 [5] [6]
-Overfull \hbox (3.0pt too wide) in paragraph at lines 373--373
+Overfull \hbox (3.0pt too wide) in paragraph at lines 371--371
 |[][][][][][][]| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 376--376
+Underfull \hbox (badness 10000) in paragraph at lines 374--374
 []|\T1/cmr/bx/n/10 Test
  []
 
 
-Overfull \hbox (1.5212pt too wide) in paragraph at lines 376--376
+Overfull \hbox (1.5212pt too wide) in paragraph at lines 374--374
 []|\T1/cmr/bx/n/10 Requirement
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 376--376
+Underfull \hbox (badness 10000) in paragraph at lines 374--374
 []|\T1/cmr/bx/n/10 Expected
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 376--376
+Underfull \hbox (badness 10000) in paragraph at lines 374--374
 []|\T1/cmr/bx/n/10 Actual
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 378--378
+Underfull \hbox (badness 10000) in paragraph at lines 376--376
+[]|\T1/cmr/m/n/10 res.body
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 376--376
 []|\T1/cmr/m/n/10 res.body
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 378--378
-[]|\T1/cmr/m/n/10 res.body
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 380--380
 []|\T1/cmr/m/n/10 Test GET /nu-mOf-
  []
 
 
-Overfull \hbox (13.6735pt too wide) in paragraph at lines 380--380
+Overfull \hbox (13.6735pt too wide) in paragraph at lines 378--378
 []|\T1/cmr/m/n/10 res.raw_body
  []
 
 
-Overfull \hbox (13.6735pt too wide) in paragraph at lines 380--380
+Overfull \hbox (13.6735pt too wide) in paragraph at lines 378--378
 []|\T1/cmr/m/n/10 res.raw_body
  []
 
 
-Underfull \hbox (badness 8094) in paragraph at lines 382--382
+Underfull \hbox (badness 8094) in paragraph at lines 380--380
 []|\T1/cmr/m/n/10 Test POST /up-date-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 382--382
+Underfull \hbox (badness 10000) in paragraph at lines 380--380
 []|\T1/cmr/m/n/10 New ad-
  []
 
 
-Underfull \hbox (badness 4193) in paragraph at lines 382--382
+Underfull \hbox (badness 4193) in paragraph at lines 380--380
 \T1/cmr/m/n/10 min user-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 382--382
+Underfull \hbox (badness 10000) in paragraph at lines 380--380
 \T1/cmr/m/n/10 name/-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 382--382
+Underfull \hbox (badness 10000) in paragraph at lines 380--380
 \T1/cmr/m/n/10 pass-word
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 384--384
+Underfull \hbox (badness 10000) in paragraph at lines 382--382
 []|\T1/cmr/m/n/10 Admin
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 384--384
+Underfull \hbox (badness 10000) in paragraph at lines 382--382
 \T1/cmr/m/n/10 user-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 384--384
+Underfull \hbox (badness 10000) in paragraph at lines 382--382
 \T1/cmr/m/n/10 name/-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 384--384
+Underfull \hbox (badness 10000) in paragraph at lines 382--382
 \T1/cmr/m/n/10 pass-word
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 386--386
+Underfull \hbox (badness 10000) in paragraph at lines 384--384
 []|\T1/cmr/m/n/10 Text file
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 386--386
+Underfull \hbox (badness 10000) in paragraph at lines 384--384
 \T1/cmr/m/n/10 con-tain-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 386--386
+Underfull \hbox (badness 10000) in paragraph at lines 384--384
 \T1/cmr/m/n/10 ing map
  []
 
 
-Underfull \hbox (badness 1527) in paragraph at lines 388--388
+Underfull \hbox (badness 1527) in paragraph at lines 386--386
 []|\T1/cmr/m/n/10 Test GET /map end-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 388--388
+Underfull \hbox (badness 10000) in paragraph at lines 386--386
 []|\T1/cmr/m/n/10 File con-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 388--388
+Underfull \hbox (badness 10000) in paragraph at lines 386--386
 \T1/cmr/m/n/10 tents
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 388--388
+Underfull \hbox (badness 10000) in paragraph at lines 386--386
+\T1/cmr/m/n/10 == Map
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 386--386
+[]|\T1/cmr/m/n/10 File con-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 386--386
+\T1/cmr/m/n/10 tents
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 386--386
 \T1/cmr/m/n/10 == Map
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 388--388
-[]|\T1/cmr/m/n/10 File con-
+[]|\T1/cmr/m/n/10 Missing
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 388--388
-\T1/cmr/m/n/10 tents
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 388--388
-\T1/cmr/m/n/10 == Map
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 390--390
 []|\T1/cmr/m/n/10 Missing
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 390--390
-[]|\T1/cmr/m/n/10 Missing
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 392--392
 \T1/cmr/m/n/10 and tank
  []
 
 
-Underfull \hbox (badness 4084) in paragraph at lines 392--392
+Underfull \hbox (badness 4084) in paragraph at lines 390--390
 []|\T1/cmr/m/n/10 COKE in
  []
 
 
-Underfull \hbox (badness 4084) in paragraph at lines 392--392
+Underfull \hbox (badness 4084) in paragraph at lines 390--390
 []|\T1/cmr/m/n/10 COKE in
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 394--394
+Underfull \hbox (badness 10000) in paragraph at lines 392--392
 []|\T1/cmr/m/n/10 "token"
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 394--394
+Underfull \hbox (badness 10000) in paragraph at lines 392--392
 \T1/cmr/m/n/10 and "to-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 394--394
+Underfull \hbox (badness 10000) in paragraph at lines 392--392
+\T1/cmr/m/n/10 ken_type"
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 392--392
+[]|\T1/cmr/m/n/10 "token"
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 392--392
+\T1/cmr/m/n/10 and "to-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 392--392
 \T1/cmr/m/n/10 ken_type"
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 394--394
-[]|\T1/cmr/m/n/10 "token"
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 394--394
-\T1/cmr/m/n/10 and "to-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 394--394
-\T1/cmr/m/n/10 ken_type"
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 396--396
 []|\T1/cmr/m/n/10 Table ID
  []
 
 
-Underfull \hbox (badness 2253) in paragraph at lines 396--396
+Underfull \hbox (badness 2253) in paragraph at lines 394--394
 \T1/cmr/m/n/10 and or-der
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 396--396
+Underfull \hbox (badness 10000) in paragraph at lines 394--394
 \T1/cmr/m/n/10 con-tents
+ []
+
+
+Underfull \hbox (badness 6758) in paragraph at lines 396--396
+[]|\T1/cmr/m/n/10 Order ID
+ []
+
+
+Underfull \hbox (badness 4378) in paragraph at lines 396--396
+\T1/cmr/m/n/10 and ta-ble
+ []
+
+
+Overfull \hbox (13.6735pt too wide) in paragraph at lines 396--396
+[]|\T1/cmr/m/n/10 res.raw_body
+ []
+
+
+Overfull \hbox (13.6735pt too wide) in paragraph at lines 396--396
+[]|\T1/cmr/m/n/10 res.raw_body
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 398--398
+[]|\T1/cmr/m/n/10 Test DELETE
  []
 
 
@@ -1932,386 +1976,351 @@ Underfull \hbox (badness 4378) in paragraph at lines 398--398
  []
 
 
-Overfull \hbox (13.6735pt too wide) in paragraph at lines 398--398
-[]|\T1/cmr/m/n/10 res.raw_body
- []
-
-
-Overfull \hbox (13.6735pt too wide) in paragraph at lines 398--398
-[]|\T1/cmr/m/n/10 res.raw_body
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 400--400
-[]|\T1/cmr/m/n/10 Test DELETE
- []
-
-
-Underfull \hbox (badness 6758) in paragraph at lines 400--400
-[]|\T1/cmr/m/n/10 Order ID
- []
-
-
-Underfull \hbox (badness 4378) in paragraph at lines 400--400
-\T1/cmr/m/n/10 and ta-ble
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 402--402
 []|\T1/cmr/m/n/10 Table ID
  []
 
 
-Underfull \hbox (badness 2253) in paragraph at lines 402--402
+Underfull \hbox (badness 2253) in paragraph at lines 400--400
 \T1/cmr/m/n/10 and or-der
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 402--402
+Underfull \hbox (badness 10000) in paragraph at lines 400--400
 \T1/cmr/m/n/10 con-tents
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 404--404
+Underfull \hbox (badness 10000) in paragraph at lines 402--402
 []|\T1/cmr/m/n/10 Must
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 404--404
+Underfull \hbox (badness 10000) in paragraph at lines 402--402
 \T1/cmr/m/n/10 re-turn
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 404--404
+Underfull \hbox (badness 10000) in paragraph at lines 402--402
 []|\T1/cmr/m/n/10 Includes
  []
 
 
-Underfull \hbox (badness 1527) in paragraph at lines 406--406
+Underfull \hbox (badness 1527) in paragraph at lines 404--404
 []|\T1/cmr/m/n/10 Test GET /map end-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 406--406
+Underfull \hbox (badness 10000) in paragraph at lines 404--404
 []|\T1/cmr/m/n/10 File con-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 406--406
+Underfull \hbox (badness 10000) in paragraph at lines 404--404
 \T1/cmr/m/n/10 tents
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 406--406
+Underfull \hbox (badness 10000) in paragraph at lines 404--404
 \T1/cmr/m/n/10 == Map
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 406--406
+Underfull \hbox (badness 10000) in paragraph at lines 404--404
 []|\T1/cmr/m/n/10 File con-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 406--406
+Underfull \hbox (badness 10000) in paragraph at lines 404--404
 \T1/cmr/m/n/10 tents
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 406--406
+Underfull \hbox (badness 10000) in paragraph at lines 404--404
 \T1/cmr/m/n/10 == Map
  []
 
 
-Underfull \hbox (badness 1796) in paragraph at lines 408--408
+Underfull \hbox (badness 1796) in paragraph at lines 406--406
 []|\T1/cmr/m/n/10 Test GET /nex-tOrder
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 408--408
+Underfull \hbox (badness 10000) in paragraph at lines 406--406
 []|\T1/cmr/m/n/10 Order
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 408--408
+Underfull \hbox (badness 10000) in paragraph at lines 406--406
 \T1/cmr/m/n/10 should
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 408--408
+Underfull \hbox (badness 10000) in paragraph at lines 406--406
 \T1/cmr/m/n/10 have all
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 408--408
+Underfull \hbox (badness 10000) in paragraph at lines 406--406
 \T1/cmr/m/n/10 re-quired
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 408--408
+Underfull \hbox (badness 10000) in paragraph at lines 406--406
 []|\T1/cmr/m/n/10 Order
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 408--408
+Underfull \hbox (badness 10000) in paragraph at lines 406--406
 \T1/cmr/m/n/10 has all
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 408--408
+Underfull \hbox (badness 10000) in paragraph at lines 406--406
 \T1/cmr/m/n/10 re-quired
  []
 
 
-Overfull \hbox (26.24887pt too wide) in alignment at lines 375--409
+Overfull \hbox (26.24887pt too wide) in alignment at lines 373--407
  [] [] [] [] [] [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 409
+Underfull \vbox (badness 10000) detected at line 407
  []
 
 [7]
-Overfull \hbox (3.0pt too wide) in paragraph at lines 411--411
+Overfull \hbox (3.0pt too wide) in paragraph at lines 409--409
 |[][][][][][][]| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 414--414
+Underfull \hbox (badness 10000) in paragraph at lines 412--412
 []|\T1/cmr/bx/n/10 Test
  []
 
 
-Overfull \hbox (1.5212pt too wide) in paragraph at lines 414--414
+Overfull \hbox (1.5212pt too wide) in paragraph at lines 412--412
 []|\T1/cmr/bx/n/10 Requirement
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 414--414
+Underfull \hbox (badness 10000) in paragraph at lines 412--412
 []|\T1/cmr/bx/n/10 Expected
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 414--414
+Underfull \hbox (badness 10000) in paragraph at lines 412--412
 []|\T1/cmr/bx/n/10 Actual
  []
 
 
-Underfull \hbox (badness 1824) in paragraph at lines 415--415
+Underfull \hbox (badness 1824) in paragraph at lines 413--413
 []|\T1/cmr/m/n/10 Testing the abil-ity to
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 415--415
+Underfull \hbox (badness 10000) in paragraph at lines 413--413
 \T1/cmr/m/n/10 avoid ob-sta-cles and
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 415--415
+Underfull \hbox (badness 10000) in paragraph at lines 413--413
 \T1/cmr/m/n/10 reach 2 ta-bles 2x4
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 415--415
+Underfull \hbox (badness 10000) in paragraph at lines 413--413
+[]|\T1/cmr/m/n/10 [[(0, 1)],
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 413--413
 []|\T1/cmr/m/n/10 [[(0, 1)],
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 415--415
-[]|\T1/cmr/m/n/10 [[(0, 1)],
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 417--417
 []|\T1/cmr/m/n/10 [(1, 2)]],
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 417--417
+Underfull \hbox (badness 10000) in paragraph at lines 415--415
 \T1/cmr/m/n/10 2)], [(1,
  []
 
 
-Underfull \hbox (badness 5431) in paragraph at lines 421--421
+Underfull \hbox (badness 5431) in paragraph at lines 419--419
 []|\T1/cmr/m/n/10 Testing the or-der of
  []
 
 
-Underfull \hbox (badness 1910) in paragraph at lines 421--421
+Underfull \hbox (badness 1910) in paragraph at lines 419--419
 \T1/cmr/m/n/10 reach-ing ta-bles Ta-bles
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 423--423
-[]|\T1/cmr/m/n/10 KeyError
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 423--423
-\T1/cmr/m/n/10 ("could not
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 423--423
-[]|\T1/cmr/m/n/10 AF3,
- []
-
-
-Overfull \hbox (2.95389pt too wide) in paragraph at lines 423--423
+Overfull \hbox (2.95389pt too wide) in paragraph at lines 421--421
 []|\T1/cmr/m/n/10 KeyError("
  []
 
 
-Underfull \hbox (badness 4378) in paragraph at lines 423--423
+Underfull \hbox (badness 4378) in paragraph at lines 421--421
 \T1/cmr/m/n/10 could not
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 423--423
+Underfull \hbox (badness 10000) in paragraph at lines 421--421
 \T1/cmr/m/n/10 reach
  []
 
 
-Underfull \hbox (badness 6961) in paragraph at lines 425--425
+Underfull \hbox (badness 6961) in paragraph at lines 423--423
 []|\T1/cmr/m/n/10 Testing com-plex flow
  []
 
 
-Underfull \hbox (badness 1270) in paragraph at lines 425--425
+Underfull \hbox (badness 1270) in paragraph at lines 423--423
 \T1/cmr/m/n/10 and ta-bles in cor-ners.
  []
 
 
-Underfull \hbox (badness 3536) in paragraph at lines 427--427
+Underfull \hbox (badness 3536) in paragraph at lines 425--425
 []|\T1/cmr/m/n/10 Testing com-plex flow,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 427--427
+Underfull \hbox (badness 10000) in paragraph at lines 425--425
 \T1/cmr/m/n/10 9)], [(1,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 427--427
+Underfull \hbox (badness 10000) in paragraph at lines 425--425
 \T1/cmr/m/n/10 (0, 10)],
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 428--428
+Underfull \hbox (badness 10000) in paragraph at lines 426--426
 []|\T1/cmr/m/n/10 An or-der
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 428--428
+Underfull \hbox (badness 10000) in paragraph at lines 426--426
 \T1/cmr/m/n/10 of Coke
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 428--428
+Underfull \hbox (badness 10000) in paragraph at lines 426--426
 \T1/cmr/m/n/10 and Diet
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 428--428
+Underfull \hbox (badness 10000) in paragraph at lines 426--426
 \T1/cmr/m/n/10 Coke on
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 428--428
+Underfull \hbox (badness 10000) in paragraph at lines 426--426
 \T1/cmr/m/n/10 the User
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 428--428
+Underfull \hbox (badness 10000) in paragraph at lines 426--426
 \T1/cmr/m/n/10 Ap-pli-ca-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 428--428
+Underfull \hbox (badness 10000) in paragraph at lines 426--426
 []|\T1/cmr/m/n/10 Alfred
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 428--428
+Underfull \hbox (badness 10000) in paragraph at lines 426--426
 \T1/cmr/m/n/10 re-ceives
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 428--428
+Underfull \hbox (badness 10000) in paragraph at lines 426--426
 \T1/cmr/m/n/10 a drink
  []
 
 
-Underfull \hbox (badness 2591) in paragraph at lines 428--428
+Underfull \hbox (badness 2591) in paragraph at lines 426--426
 \T1/cmr/m/n/10 sponds to
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 428--428
+Underfull \hbox (badness 10000) in paragraph at lines 426--426
 []|\T1/cmr/m/n/10 Alfred
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 428--428
+Underfull \hbox (badness 10000) in paragraph at lines 426--426
 \T1/cmr/m/n/10 re-ceives
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 428--428
+Underfull \hbox (badness 10000) in paragraph at lines 426--426
 \T1/cmr/m/n/10 a drink
  []
 
 
-Underfull \hbox (badness 2591) in paragraph at lines 428--428
+Underfull \hbox (badness 2591) in paragraph at lines 426--426
 \T1/cmr/m/n/10 sponds to
  []
 
 
-Overfull \hbox (26.24887pt too wide) in alignment at lines 413--429
+Overfull \hbox (26.24887pt too wide) in alignment at lines 411--427
  [] [] [] [] [] [] [] 
  []
 
 [8]
-Underfull \vbox (badness 10000) detected at line 429
+Underfull \vbox (badness 10000) detected at line 427
  []
 
 [9]
-Overfull \hbox (3.0pt too wide) in paragraph at lines 431--431
+Overfull \hbox (3.0pt too wide) in paragraph at lines 429--429
 |[][][][][][][]| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 434--434
+Underfull \hbox (badness 10000) in paragraph at lines 432--432
 []|\T1/cmr/bx/n/10 Test
  []
 
 
-Overfull \hbox (1.5212pt too wide) in paragraph at lines 434--434
+Overfull \hbox (1.5212pt too wide) in paragraph at lines 432--432
 []|\T1/cmr/bx/n/10 Requirement
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 434--434
+Underfull \hbox (badness 10000) in paragraph at lines 432--432
 []|\T1/cmr/bx/n/10 Expected
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 434--434
+Underfull \hbox (badness 10000) in paragraph at lines 432--432
 []|\T1/cmr/bx/n/10 Actual
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 436--436
+Underfull \hbox (badness 10000) in paragraph at lines 434--434
 []|\T1/cmr/m/n/10 movement
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 437--437
+Underfull \hbox (badness 10000) in paragraph at lines 435--435
 []|\T1/cmr/m/n/10 Testing Neg-a-tive
  []
 
 
-Underfull \hbox (badness 8000) in paragraph at lines 437--437
+Underfull \hbox (badness 8000) in paragraph at lines 435--435
 \T1/cmr/m/n/10 Change of Left En-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 435--435
+[]|\T1/cmr/m/n/10 movement
  []
 
 
@@ -2321,27 +2330,62 @@ Underfull \hbox (badness 10000) in paragraph at lines 437--437
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 439--439
-[]|\T1/cmr/m/n/10 movement
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 441--441
 []|\T1/cmr/m/n/10 Testing Neg-a-tive
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 441--441
+Underfull \hbox (badness 10000) in paragraph at lines 439--439
 []|\T1/cmr/m/n/10 movment
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 441--441
+[]|\T1/cmr/m/n/10 Open Loop Test of
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 441--441
+\T1/cmr/m/n/10 Move-ment go-ing for-
+ []
+
+
+Underfull \hbox (badness 3250) in paragraph at lines 441--441
+[]|\T1/cmr/m/n/10 10% duty
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 441--441
+[]|\T1/cmr/m/n/10 Both
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 441--441
+\T1/cmr/m/n/10 wheels
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 441--441
+\T1/cmr/m/n/10 spin for-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 441--441
+[]|\T1/cmr/m/n/10 Both
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 441--441
+\T1/cmr/m/n/10 wheels
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 441--441
+\T1/cmr/m/n/10 spin for-
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 443--443
 []|\T1/cmr/m/n/10 Open Loop Test of
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 443--443
-\T1/cmr/m/n/10 Move-ment go-ing for-
  []
 
 
@@ -2351,167 +2395,302 @@ Underfull \hbox (badness 3250) in paragraph at lines 443--443
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 443--443
-[]|\T1/cmr/m/n/10 Both
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 443--443
-\T1/cmr/m/n/10 wheels
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 443--443
-\T1/cmr/m/n/10 spin for-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 443--443
-[]|\T1/cmr/m/n/10 Both
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 443--443
-\T1/cmr/m/n/10 wheels
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 443--443
-\T1/cmr/m/n/10 spin for-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 445--445
-[]|\T1/cmr/m/n/10 Open Loop Test of
- []
-
-
-Underfull \hbox (badness 3250) in paragraph at lines 445--445
-[]|\T1/cmr/m/n/10 10% duty
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 445--445
 \T1/cmr/m/n/10 cy-cles
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 445--445
+Underfull \hbox (badness 10000) in paragraph at lines 443--443
 \T1/cmr/m/n/10 with one
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 445--445
+Underfull \hbox (badness 10000) in paragraph at lines 443--443
 \T1/cmr/m/n/10 spec-ify
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 445--445
+Underfull \hbox (badness 10000) in paragraph at lines 443--443
 \T1/cmr/m/n/10 back-ward
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 445--445
+Underfull \hbox (badness 10000) in paragraph at lines 443--443
 []|\T1/cmr/m/n/10 Wheels
  []
 
 
-Underfull \hbox (badness 1546) in paragraph at lines 445--445
+Underfull \hbox (badness 1546) in paragraph at lines 443--443
 \T1/cmr/m/n/10 spin-ing in
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 445--445
+Underfull \hbox (badness 10000) in paragraph at lines 443--443
+\T1/cmr/m/n/10 dif-fer-ent
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 443--443
+[]|\T1/cmr/m/n/10 Wheels
+ []
+
+
+Underfull \hbox (badness 1546) in paragraph at lines 443--443
+\T1/cmr/m/n/10 spin-ing in
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 443--443
 \T1/cmr/m/n/10 dif-fer-ent
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 445--445
-[]|\T1/cmr/m/n/10 Wheels
- []
-
-
-Underfull \hbox (badness 1546) in paragraph at lines 445--445
-\T1/cmr/m/n/10 spin-ing in
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 445--445
-\T1/cmr/m/n/10 dif-fer-ent
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 447--447
 []|\T1/cmr/m/n/10 a wall
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 447--447
+Underfull \hbox (badness 10000) in paragraph at lines 445--445
 \T1/cmr/m/n/10 1.5m in
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 447--447
+Underfull \hbox (badness 10000) in paragraph at lines 445--445
 \T1/cmr/m/n/10 front of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 447--447
+Underfull \hbox (badness 10000) in paragraph at lines 445--445
+[]|\T1/cmr/m/n/10 Nothing
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 445--445
 []|\T1/cmr/m/n/10 Nothing
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 447--447
-[]|\T1/cmr/m/n/10 Nothing
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 449--449
 []|\T1/cmr/m/n/10 a book
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 449--449
+Underfull \hbox (badness 10000) in paragraph at lines 447--447
 \T1/cmr/m/n/10 block-ing
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 452--452
+Underfull \hbox (badness 10000) in paragraph at lines 450--450
 []|\T1/cmr/m/n/10 A 30%
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 452--452
+Underfull \hbox (badness 10000) in paragraph at lines 450--450
 \T1/cmr/m/n/10 in duty
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 452--452
+Underfull \hbox (badness 10000) in paragraph at lines 450--450
 []|\T1/cmr/m/n/10 Printing
  []
 
 
-Underfull \hbox (badness 1259) in paragraph at lines 452--452
+Underfull \hbox (badness 1259) in paragraph at lines 450--450
 \T1/cmr/m/n/10 show-ing a
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 452--452
+Underfull \hbox (badness 10000) in paragraph at lines 450--450
 []|\T1/cmr/m/n/10 Printing
  []
 
 
-Underfull \hbox (badness 1259) in paragraph at lines 452--452
+Underfull \hbox (badness 1259) in paragraph at lines 450--450
 \T1/cmr/m/n/10 show-ing a
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 453--453
+Underfull \hbox (badness 10000) in paragraph at lines 451--451
 []|\T1/cmr/m/n/10 Closed Loop Test
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 453--453
+Underfull \hbox (badness 10000) in paragraph at lines 451--451
 \T1/cmr/m/n/10 of Move-ment go-ing
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 451--451
+[]|\T1/cmr/m/n/10 reference
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 451--451
+\T1/cmr/m/n/10 of 20
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 451--451
+\T1/cmr/m/n/10 en-coder
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 451--451
+[]|\T1/cmr/m/n/10 Both
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 451--451
+\T1/cmr/m/n/10 wheels
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 451--451
+\T1/cmr/m/n/10 spin for-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 451--451
+\T1/cmr/m/n/10 ward at
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 451--451
+[]|\T1/cmr/m/n/10 Both
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 451--451
+\T1/cmr/m/n/10 wheels
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 451--451
+\T1/cmr/m/n/10 spin for-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 451--451
+\T1/cmr/m/n/10 ward at
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 452--452
+[]|\T1/cmr/m/n/10 Closed Loop Test
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 452--452
+\T1/cmr/m/n/10 of Move-ment go-ing
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 452--452
+[]|\T1/cmr/m/n/10 reference
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 452--452
+\T1/cmr/m/n/10 of 10
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 452--452
+\T1/cmr/m/n/10 en-coder
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 452--452
+[]|\T1/cmr/m/n/10 Both
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 452--452
+\T1/cmr/m/n/10 wheels
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 452--452
+\T1/cmr/m/n/10 spin for-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 452--452
+\T1/cmr/m/n/10 ward at
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 452--452
+[]|\T1/cmr/m/n/10 Left side
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 452--452
+\T1/cmr/m/n/10 failed to
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 452--452
+\T1/cmr/m/n/10 cor-rectly
+ []
+
+
+Underfull \hbox (badness 2302) in paragraph at lines 452--452
+[]|\T1/cmr/m/n/10 fail - the
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 452--452
+\T1/cmr/m/n/10 soft-ware
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 452--452
+\T1/cmr/m/n/10 worked
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 452--452
+\T1/cmr/m/n/10 cor-rectly
+ []
+
+
+Underfull \hbox (badness 5667) in paragraph at lines 452--452
+\T1/cmr/m/n/10 but there
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 452--452
+\T1/cmr/m/n/10 was me-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 452--452
+\T1/cmr/m/n/10 chan-i-cal
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 452--452
+\T1/cmr/m/n/10 is-sues
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 452--452
+\T1/cmr/m/n/10 at slow
+ []
+
+
+Underfull \hbox (badness 4634) in paragraph at lines 453--453
+[]|\T1/cmr/m/n/10 Closed Loop Test of
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 453--453
+\T1/cmr/m/n/10 Move-ment go-ing for-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 453--453
+\T1/cmr/m/n/10 ward with un-equal
  []
 
 
@@ -2567,111 +2746,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 453--453
 
 Underfull \hbox (badness 10000) in paragraph at lines 453--453
 \T1/cmr/m/n/10 ward at
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 454--454
-[]|\T1/cmr/m/n/10 Closed Loop Test
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 454--454
-\T1/cmr/m/n/10 of Move-ment go-ing
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 454--454
-[]|\T1/cmr/m/n/10 reference
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 454--454
-\T1/cmr/m/n/10 of 10
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 454--454
-\T1/cmr/m/n/10 en-coder
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 454--454
-[]|\T1/cmr/m/n/10 Both
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 454--454
-\T1/cmr/m/n/10 wheels
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 454--454
-\T1/cmr/m/n/10 spin for-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 454--454
-\T1/cmr/m/n/10 ward at
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 454--454
-[]|\T1/cmr/m/n/10 Left side
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 454--454
-\T1/cmr/m/n/10 failed to
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 454--454
-\T1/cmr/m/n/10 cor-rectly
- []
-
-
-Underfull \hbox (badness 2302) in paragraph at lines 454--454
-[]|\T1/cmr/m/n/10 fail - the
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 454--454
-\T1/cmr/m/n/10 soft-ware
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 454--454
-\T1/cmr/m/n/10 worked
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 454--454
-\T1/cmr/m/n/10 cor-rectly
- []
-
-
-Underfull \hbox (badness 5667) in paragraph at lines 454--454
-\T1/cmr/m/n/10 but there
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 454--454
-\T1/cmr/m/n/10 was me-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 454--454
-\T1/cmr/m/n/10 chan-i-cal
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 454--454
-\T1/cmr/m/n/10 is-sues
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 454--454
-\T1/cmr/m/n/10 at slow
  []
 
 
@@ -2681,16 +2755,6 @@ Underfull \hbox (badness 4634) in paragraph at lines 455--455
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 455--455
-\T1/cmr/m/n/10 Move-ment go-ing for-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 455--455
-\T1/cmr/m/n/10 ward with un-equal
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 455--455
 []|\T1/cmr/m/n/10 reference
  []
 
@@ -2706,261 +2770,261 @@ Underfull \hbox (badness 10000) in paragraph at lines 455--455
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 455--455
-[]|\T1/cmr/m/n/10 Both
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 455--455
-\T1/cmr/m/n/10 wheels
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 455--455
-\T1/cmr/m/n/10 spin for-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 455--455
-\T1/cmr/m/n/10 ward at
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 455--455
-[]|\T1/cmr/m/n/10 Both
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 455--455
-\T1/cmr/m/n/10 wheels
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 455--455
-\T1/cmr/m/n/10 spin for-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 455--455
-\T1/cmr/m/n/10 ward at
- []
-
-
-Underfull \hbox (badness 4634) in paragraph at lines 457--457
-[]|\T1/cmr/m/n/10 Closed Loop Test of
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 457--457
-[]|\T1/cmr/m/n/10 reference
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 457--457
-\T1/cmr/m/n/10 of 20
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 457--457
-\T1/cmr/m/n/10 en-coder
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 457--457
 []|\T1/cmr/m/n/10 Wheels
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 457--457
+Underfull \hbox (badness 10000) in paragraph at lines 455--455
 \T1/cmr/m/n/10 spin-ning
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 457--457
+Underfull \hbox (badness 10000) in paragraph at lines 455--455
 \T1/cmr/m/n/10 di-rec-tions
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 457--457
+Underfull \hbox (badness 10000) in paragraph at lines 455--455
 \T1/cmr/m/n/10 at 20
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 457--457
+Underfull \hbox (badness 10000) in paragraph at lines 455--455
 \T1/cmr/m/n/10 en-coder
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 457--457
+Underfull \hbox (badness 10000) in paragraph at lines 455--455
 []|\T1/cmr/m/n/10 Wheels
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 457--457
+Underfull \hbox (badness 10000) in paragraph at lines 455--455
 \T1/cmr/m/n/10 spin-ning
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 457--457
+Underfull \hbox (badness 10000) in paragraph at lines 455--455
 \T1/cmr/m/n/10 di-rec-tions
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 457--457
+Underfull \hbox (badness 10000) in paragraph at lines 455--455
 \T1/cmr/m/n/10 at 20
  []
 
 
+Underfull \hbox (badness 10000) in paragraph at lines 455--455
+\T1/cmr/m/n/10 en-coder
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 457--457
+[]|\T1/cmr/m/n/10 reference
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 457--457
+\T1/cmr/m/n/10 of 20
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 457--457
 \T1/cmr/m/n/10 en-coder
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 459--459
-[]|\T1/cmr/m/n/10 reference
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 459--459
-\T1/cmr/m/n/10 of 20
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 459--459
-\T1/cmr/m/n/10 en-coder
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 459--459
+Underfull \hbox (badness 10000) in paragraph at lines 457--457
 \T1/cmr/m/n/10 counts/sec
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 459--459
+Underfull \hbox (badness 10000) in paragraph at lines 457--457
 \T1/cmr/m/n/10 then
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 459--459
+Underfull \hbox (badness 10000) in paragraph at lines 457--457
 \T1/cmr/m/n/10 some-thing
  []
 
 
-Underfull \hbox (badness 4765) in paragraph at lines 459--459
+Underfull \hbox (badness 4765) in paragraph at lines 457--457
 \T1/cmr/m/n/10 blocks its
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 459--459
+Underfull \hbox (badness 10000) in paragraph at lines 457--457
 []|\T1/cmr/m/n/10 Something
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 459--459
+Underfull \hbox (badness 10000) in paragraph at lines 457--457
 \T1/cmr/m/n/10 is block-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 459--459
+Underfull \hbox (badness 10000) in paragraph at lines 457--457
 \T1/cmr/m/n/10 ing the
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 459--459
+Underfull \hbox (badness 10000) in paragraph at lines 457--457
 \T1/cmr/m/n/10 mov-ing
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 459--459
+Underfull \hbox (badness 10000) in paragraph at lines 457--457
 \T1/cmr/m/n/10 so Al-fred
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 459--459
+Underfull \hbox (badness 10000) in paragraph at lines 457--457
 []|\T1/cmr/m/n/10 Alfred
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 462--462
+Underfull \hbox (badness 10000) in paragraph at lines 460--460
 []|\T1/cmr/m/n/10 A ref-er-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 462--462
+Underfull \hbox (badness 10000) in paragraph at lines 460--460
 []|\T1/cmr/m/n/10 Alfred
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 462--462
+Underfull \hbox (badness 10000) in paragraph at lines 460--460
 \T1/cmr/m/n/10 con-tin-ued
  []
 
 
-Underfull \hbox (badness 2285) in paragraph at lines 462--463
+Underfull \hbox (badness 2285) in paragraph at lines 460--461
 \T1/cmr/m/n/10 to be re-
  []
 
 
-Overfull \hbox (26.24887pt too wide) in alignment at lines 433--464
+Overfull \hbox (26.24887pt too wide) in alignment at lines 431--462
  [] [] [] [] [] [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 464
+Underfull \vbox (badness 10000) detected at line 462
  []
 
 [10] [11]
-Overfull \hbox (3.0pt too wide) in paragraph at lines 467--467
+Overfull \hbox (3.0pt too wide) in paragraph at lines 465--465
 |[][][][][][][]| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 469--469
+Underfull \hbox (badness 10000) in paragraph at lines 467--467
 []|\T1/cmr/bx/n/10 Test
  []
 
 
-Overfull \hbox (1.5212pt too wide) in paragraph at lines 469--469
+Overfull \hbox (1.5212pt too wide) in paragraph at lines 467--467
 []|\T1/cmr/bx/n/10 Requirement
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 469--469
+Underfull \hbox (badness 10000) in paragraph at lines 467--467
 []|\T1/cmr/bx/n/10 Expected
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 469--469
+Underfull \hbox (badness 10000) in paragraph at lines 467--467
 []|\T1/cmr/bx/n/10 Actual
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 471--471
+Underfull \hbox (badness 10000) in paragraph at lines 469--469
 []|\T1/cmr/m/n/10 software
  []
 
 
-Underfull \hbox (badness 4254) in paragraph at lines 471--471
+Underfull \hbox (badness 4254) in paragraph at lines 469--469
 \T1/cmr/m/n/10 trig-ger to
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 471--471
+Underfull \hbox (badness 10000) in paragraph at lines 469--469
 \T1/cmr/m/n/10 take the
  []
 
 
-Underfull \hbox (badness 1810) in paragraph at lines 473--473
+Underfull \hbox (badness 1810) in paragraph at lines 471--471
 []|\T1/cmr/m/n/10 Able to de-tect cir-cles
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 473--473
+Underfull \hbox (badness 10000) in paragraph at lines 471--471
 []|\T1/cmr/m/n/10 Image
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 473--473
+Underfull \hbox (badness 10000) in paragraph at lines 471--471
 \T1/cmr/m/n/10 with a
+ []
+
+
+Underfull \hbox (badness 2253) in paragraph at lines 473--473
+[]|\T1/cmr/m/n/10 Image pro-cess-ing stop
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 473--473
+[]|\T1/cmr/m/n/10 an im-age
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 473--473
+\T1/cmr/m/n/10 close up
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 473--473
+\T1/cmr/m/n/10 to cam-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 473--473
+\T1/cmr/m/n/10 era while
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 473--473
+[]|\T1/cmr/m/n/10 Has
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 473--473
+\T1/cmr/m/n/10 reached
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 473--473
+\T1/cmr/m/n/10 the next
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 473--473
+\T1/cmr/m/n/10 node so
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 473--473
+\T1/cmr/m/n/10 Al-fred
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 473--473
+\T1/cmr/m/n/10 stops
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 473--473
+[]|\T1/cmr/m/n/10 Alfred
  []
 
 
@@ -2969,182 +3033,172 @@ Underfull \hbox (badness 2253) in paragraph at lines 475--475
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 475--475
-[]|\T1/cmr/m/n/10 an im-age
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 475--475
-\T1/cmr/m/n/10 close up
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 475--475
-\T1/cmr/m/n/10 to cam-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 475--475
-\T1/cmr/m/n/10 era while
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 475--475
-[]|\T1/cmr/m/n/10 Has
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 475--475
-\T1/cmr/m/n/10 reached
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 475--475
-\T1/cmr/m/n/10 the next
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 475--475
-\T1/cmr/m/n/10 node so
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 475--475
-\T1/cmr/m/n/10 Al-fred
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 475--475
-\T1/cmr/m/n/10 stops
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 475--475
-[]|\T1/cmr/m/n/10 Alfred
- []
-
-
-Underfull \hbox (badness 2253) in paragraph at lines 477--477
-[]|\T1/cmr/m/n/10 Image pro-cess-ing stop
- []
-
-
-Underfull \hbox (badness 5288) in paragraph at lines 477--477
+Underfull \hbox (badness 5288) in paragraph at lines 475--475
 \T1/cmr/m/n/10 with node at ceil-ing
  []
 
 
-Underfull \hbox (badness 2772) in paragraph at lines 477--477
+Underfull \hbox (badness 2772) in paragraph at lines 475--475
 []|\T1/cmr/m/n/10 An im-age
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 477--477
+Underfull \hbox (badness 10000) in paragraph at lines 475--475
 \T1/cmr/m/n/10 fur-ther
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 477--477
+Underfull \hbox (badness 10000) in paragraph at lines 475--475
 \T1/cmr/m/n/10 away at
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 477--477
+Underfull \hbox (badness 10000) in paragraph at lines 475--475
 \T1/cmr/m/n/10 ceil-ing
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 477--477
+Underfull \hbox (badness 10000) in paragraph at lines 475--475
 \T1/cmr/m/n/10 height
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 477--477
+Underfull \hbox (badness 10000) in paragraph at lines 475--475
 []|\T1/cmr/m/n/10 Has
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 477--477
+Underfull \hbox (badness 10000) in paragraph at lines 475--475
 \T1/cmr/m/n/10 reached
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 477--477
+Underfull \hbox (badness 10000) in paragraph at lines 475--475
 \T1/cmr/m/n/10 the next
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 477--477
+Underfull \hbox (badness 10000) in paragraph at lines 475--475
 \T1/cmr/m/n/10 node so
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 477--477
+Underfull \hbox (badness 10000) in paragraph at lines 475--475
 \T1/cmr/m/n/10 Al-fred
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 477--477
+Underfull \hbox (badness 10000) in paragraph at lines 475--475
 \T1/cmr/m/n/10 stops
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 477--477
+Underfull \hbox (badness 10000) in paragraph at lines 475--475
 []|\T1/cmr/m/n/10 Alfred
  []
 
 
-Overfull \hbox (4.12027pt too wide) in paragraph at lines 477--478
+Overfull \hbox (4.12027pt too wide) in paragraph at lines 475--476
 []|\T1/cmr/m/n/10 Conditional
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 477--478
+Underfull \hbox (badness 10000) in paragraph at lines 475--476
 \T1/cmr/m/n/10 pass-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 477--478
+Underfull \hbox (badness 10000) in paragraph at lines 475--476
 \T1/cmr/m/n/10 needed
  []
 
 
-Overfull \hbox (26.24887pt too wide) in alignment at lines 468--480
+Overfull \hbox (26.24887pt too wide) in alignment at lines 466--478
  [] [] [] [] [] [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 480
+Underfull \vbox (badness 10000) detected at line 478
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 487--487
+Overfull \hbox (3.0pt too wide) in paragraph at lines 485--485
 |[][][][][][][]| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 490--490
+Underfull \hbox (badness 10000) in paragraph at lines 488--488
 []|\T1/cmr/bx/n/10 Test
  []
 
 
-Overfull \hbox (1.5212pt too wide) in paragraph at lines 490--490
+Overfull \hbox (1.5212pt too wide) in paragraph at lines 488--488
 []|\T1/cmr/bx/n/10 Requirement
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 490--490
+Underfull \hbox (badness 10000) in paragraph at lines 488--488
 []|\T1/cmr/bx/n/10 Expected
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 490--490
+Underfull \hbox (badness 10000) in paragraph at lines 488--488
 []|\T1/cmr/bx/n/10 Actual
+ []
+
+
+Underfull \hbox (badness 1308) in paragraph at lines 489--489
+[]|\T1/cmr/m/n/10 Testing Se-rial com-mu-
+ []
+
+
+Underfull \hbox (badness 1609) in paragraph at lines 489--489
+[]|\T1/cmr/m/n/10 d1d2x via
+ []
+
+
+Underfull \hbox (badness 4072) in paragraph at lines 489--489
+\T1/cmr/m/n/10 se-rial sig-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 489--489
+[]|\T1/cmr/m/n/10 reading
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 489--489
+\T1/cmr/m/n/10 d1d2x
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 489--489
+\T1/cmr/m/n/10 read by
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 489--489
+[]|\T1/cmr/m/n/10 reading
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 489--489
+\T1/cmr/m/n/10 d1d2x
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 489--489
+\T1/cmr/m/n/10 read by
  []
 
 
 Underfull \hbox (badness 1308) in paragraph at lines 491--491
 []|\T1/cmr/m/n/10 Testing Se-rial com-mu-
+ []
+
+
+Underfull \hbox (badness 1412) in paragraph at lines 491--491
+\T1/cmr/m/n/10 ni-ca-tion from RPI by
  []
 
 
@@ -3188,113 +3242,83 @@ Underfull \hbox (badness 10000) in paragraph at lines 491--491
  []
 
 
-Underfull \hbox (badness 1308) in paragraph at lines 493--493
-[]|\T1/cmr/m/n/10 Testing Se-rial com-mu-
- []
-
-
-Underfull \hbox (badness 1412) in paragraph at lines 493--493
-\T1/cmr/m/n/10 ni-ca-tion from RPI by
- []
-
-
-Underfull \hbox (badness 1609) in paragraph at lines 493--493
-[]|\T1/cmr/m/n/10 d1d2x via
- []
-
-
-Underfull \hbox (badness 4072) in paragraph at lines 493--493
-\T1/cmr/m/n/10 se-rial sig-
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 493--493
-[]|\T1/cmr/m/n/10 reading
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 493--493
-\T1/cmr/m/n/10 d1d2x
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 493--493
-\T1/cmr/m/n/10 read by
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 493--493
-[]|\T1/cmr/m/n/10 reading
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 493--493
-\T1/cmr/m/n/10 d1d2x
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 493--493
-\T1/cmr/m/n/10 read by
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 495--495
 []|\T1/cmr/m/n/10 11110000x
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 495--495
+Underfull \hbox (badness 10000) in paragraph at lines 493--493
 \T1/cmr/m/n/10 via se-rial
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 495--495
+Underfull \hbox (badness 10000) in paragraph at lines 493--493
 []|\T1/cmr/m/n/10 reading
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 495--495
+Underfull \hbox (badness 10000) in paragraph at lines 493--493
 \T1/cmr/m/n/10 11110000x
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 495--495
+Underfull \hbox (badness 10000) in paragraph at lines 493--493
 \T1/cmr/m/n/10 read by
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 495--495
+Underfull \hbox (badness 10000) in paragraph at lines 493--493
 []|\T1/cmr/m/n/10 reading
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 495--495
+Underfull \hbox (badness 10000) in paragraph at lines 493--493
 \T1/cmr/m/n/10 11110000x
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 495--495
+Underfull \hbox (badness 10000) in paragraph at lines 493--493
 \T1/cmr/m/n/10 read by
  []
 
 
-Overfull \hbox (9.17459pt too wide) in paragraph at lines 497--497
+Overfull \hbox (9.17459pt too wide) in paragraph at lines 495--495
 []|\T1/cmr/m/n/10 Temperature
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 497--497
+Underfull \hbox (badness 10000) in paragraph at lines 495--495
 \T1/cmr/m/n/10 sen-sor in
  []
 
 
-Underfull \hbox (badness 1112) in paragraph at lines 499--499
+Underfull \hbox (badness 1112) in paragraph at lines 497--497
 \T1/cmr/m/n/10 of 1Kg with the load
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 499--499
+Underfull \hbox (badness 10000) in paragraph at lines 497--497
 []|\T1/cmr/m/n/10 1kg on
+ []
+
+
+Underfull \hbox (badness 1028) in paragraph at lines 498--498
+\T1/cmr/m/n/10 cor-rect tank based on
+ []
+
+
+Underfull \hbox (badness 4832) in paragraph at lines 498--498
+[]|\T1/cmr/m/n/10 Order for
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 498--498
+[]|\T1/cmr/m/n/10 Tank 1
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 498--498
+[]|\T1/cmr/m/n/10 Tank 1
  []
 
 
@@ -3309,12 +3333,12 @@ Underfull \hbox (badness 4832) in paragraph at lines 500--500
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 500--500
-[]|\T1/cmr/m/n/10 Tank 1
+[]|\T1/cmr/m/n/10 Tank 2
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 500--500
-[]|\T1/cmr/m/n/10 Tank 1
+[]|\T1/cmr/m/n/10 Tank 2
  []
 
 
@@ -3329,164 +3353,285 @@ Underfull \hbox (badness 4832) in paragraph at lines 502--502
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 502--502
-[]|\T1/cmr/m/n/10 Tank 2
+[]|\T1/cmr/m/n/10 Tank 3
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 502--502
-[]|\T1/cmr/m/n/10 Tank 2
- []
-
-
-Underfull \hbox (badness 1028) in paragraph at lines 504--504
-\T1/cmr/m/n/10 cor-rect tank based on
- []
-
-
-Underfull \hbox (badness 4832) in paragraph at lines 504--504
-[]|\T1/cmr/m/n/10 Order for
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 504--504
 []|\T1/cmr/m/n/10 Tank 3
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 504--504
-[]|\T1/cmr/m/n/10 Tank 3
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 506--506
 []|\T1/cmr/m/n/10 Under Weight er-ror
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 506--506
+Underfull \hbox (badness 10000) in paragraph at lines 504--504
 []|\T1/cmr/m/n/10 Under
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 506--506
+Underfull \hbox (badness 10000) in paragraph at lines 504--504
 \T1/cmr/m/n/10 Weight
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 506--507
+Underfull \hbox (badness 10000) in paragraph at lines 504--505
 []|\T1/cmr/m/n/10 Fail need
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 506--507
+Underfull \hbox (badness 10000) in paragraph at lines 504--505
 \T1/cmr/m/n/10 am-pli-fier
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 508--508
+Underfull \hbox (badness 10000) in paragraph at lines 506--506
+\T1/cmr/m/n/10 per-a-ture
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 506--506
 \T1/cmr/m/n/10 per-a-ture
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 508--508
-\T1/cmr/m/n/10 per-a-ture
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 510--510
 []|\T1/cmr/m/n/10 No Over
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 510--510
+Underfull \hbox (badness 10000) in paragraph at lines 508--508
 \T1/cmr/m/n/10 Tem-per-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 510--510
+Underfull \hbox (badness 10000) in paragraph at lines 508--508
 \T1/cmr/m/n/10 a-ture
  []
 
 
-Overfull \hbox (26.24887pt too wide) in alignment at lines 489--511
+Overfull \hbox (26.24887pt too wide) in alignment at lines 487--509
  [] [] [] [] [] [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 511
+Underfull \vbox (badness 10000) detected at line 509
  []
 
 [12]
+Overfull \hbox (3.0pt too wide) in paragraph at lines 513--513
+|[][][][][][][]| 
+ []
+
+
 Overfull \hbox (3.0pt too wide) in paragraph at lines 515--515
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 517--517
-|[][][][][][][]| 
- []
-
-
-Overfull \hbox (3.0pt too wide) in paragraph at lines 520--520
+Overfull \hbox (3.0pt too wide) in paragraph at lines 518--518
 |[][][][][][][]| 
  []
 
 [13]
-Overfull \hbox (3.0pt too wide) in paragraph at lines 523--523
+Overfull \hbox (3.0pt too wide) in paragraph at lines 521--521
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 526--526
+Overfull \hbox (3.0pt too wide) in paragraph at lines 524--524
 |[][][][][][][]| 
  []
 
-
+[14]
 Overfull \hbox (3.0pt too wide) in paragraph at lines 530--530
 |[][][][][][][]| 
  []
 
 
+Underfull \hbox (badness 10000) in paragraph at lines 531--532
+
+ []
+
+
+Overfull \hbox (0.93272pt too wide) in paragraph at lines 535--535
+[]|\T1/cmr/m/n/10 Requirements
+ []
+
+
+Overfull \hbox (2.23828pt too wide) in alignment at lines 533--554
+ [] [] [] [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 554
+ []
+
+
+Overfull \hbox (2.23828pt too wide) in alignment at lines 554--574
+ [] [] [] [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (2.23828pt too wide) in alignment at lines 574--594
+ [] [] [] [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[15]
+Overfull \hbox (2.23828pt too wide) in alignment at lines 594--604
+ [] [] [] [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (0.93272pt too wide) in paragraph at lines 608--608
+[]|\T1/cmr/m/n/10 Requirements
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 627
+ []
+
+[16] [17]
+Underfull \hbox (badness 10000) in paragraph at lines 679--680
+
+ []
+
+
+Overfull \hbox (0.93272pt too wide) in paragraph at lines 683--683
+[]|\T1/cmr/m/n/10 Requirements
+ []
+
+
+Overfull \hbox (1.7876pt too wide) in alignment at lines 681--702
+ [] [] [] [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 702
+ []
+
+
+Overfull \hbox (1.7876pt too wide) in alignment at lines 702--722
+ [] [] [] [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (1.7876pt too wide) in alignment at lines 722--742
+ [] [] [] [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[18]
+Overfull \hbox (1.7876pt too wide) in alignment at lines 742--748
+ [] [] [] [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[19]
+Overfull \hbox (0.93272pt too wide) in paragraph at lines 752--752
+[]|\T1/cmr/m/n/10 Requirements
+ []
+
+
+Overfull \hbox (46.77661pt too wide) in alignment at lines 750--771
+ [] [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 771
+ []
+
+
+Overfull \hbox (46.77661pt too wide) in alignment at lines 771--791
+ [] [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (46.77661pt too wide) in alignment at lines 791--811
+ [] [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[20]
+Overfull \hbox (46.77661pt too wide) in alignment at lines 811--817
+ [] [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (0.93272pt too wide) in paragraph at lines 821--821
+[]|\T1/cmr/m/n/10 Requirements
+ []
+
+
+Overfull \hbox (46.77661pt too wide) in alignment at lines 819--840
+ [] [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 840
+ []
+
+
+Overfull \hbox (46.77661pt too wide) in alignment at lines 840--860
+ [] [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[21]
+Overfull \hbox (46.77661pt too wide) in alignment at lines 860--880
+ [] [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (46.77661pt too wide) in alignment at lines 880--886
+ [] [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[22]
+Overfull \hbox (0.93272pt too wide) in paragraph at lines 890--890
+[]|\T1/cmr/m/n/10 Requirements
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 909
+ []
+
+[23] 
 AED: lastpage setting LastPage
-[14]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 532.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 532.
- (main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 532.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 532.
+[24]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 958.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 958.
+ (./main.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 958.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 958.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: 360B4A006FDE3BB068FC2669FEBF486B;1090.
 
 
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: FF7726F68136D6D68A6CE4A5D850453A;1109
-(rerunfilecheck)             After:  E3CCD3300820BF49183BD788EB03FCA7;1108.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 532.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 958.
  ) 
 Here is how much of TeX's memory you used:
- 11395 strings out of 493323
- 170673 string characters out of 3139066
- 418818 words of memory out of 3000000
- 14692 multiletter control sequences out of 15000+200000
- 15129 words of font info for 37 fonts, out of 3000000 for 9000
+ 11432 strings out of 492995
+ 171266 string characters out of 6132704
+ 466588 words of memory out of 5000000
+ 14725 multiletter control sequences out of 15000+600000
+ 15129 words of font info for 37 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,11n,87p,882b,468s stack positions out of 5000i,500n,10000p,200000b,50000s
- <C:\Users\curtm\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\
-ecbx1200.pk> <C:\Users\curtm\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\
-ec\dpi600\ecrm0700.pk> <C:\Users\curtm\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour
-\jknappen\ec\dpi600\ecbx1000.pk> <C:\Users\curtm\AppData\Local\MiKTeX\2.9\fonts
-\pk\ljfour\jknappen\ec\dpi600\ecbx1440.pk> <C:\Users\curtm\AppData\Local\MiKTeX
-\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1000.pk> <C:\Users\curtm\AppData\Lo
-cal\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\eccc1200.pk> <C:\Users\curtm\
-AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1440.pk> <C:\Us
-ers\curtm\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecxc1440.
-pk> <C:\Users\curtm\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600
-\ecrm2488.pk>
-Output written on main.pdf (14 pages, 150089 bytes).
+ 41i,11n,87p,879b,468s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
+</usr/local/texlive/2017/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></
+usr/local/texlive/2017/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></us
+r/local/texlive/2017/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/
+local/texlive/2017/texmf-dist/fonts/type1/public/cm-super/sfcc1200.pfb></usr/lo
+cal/texlive/2017/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb></usr/loca
+l/texlive/2017/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/
+texlive/2017/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/local/te
+xlive/2017/texmf-dist/fonts/type1/public/cm-super/sfrm2488.pfb></usr/local/texl
+ive/2017/texmf-dist/fonts/type1/public/cm-super/sfxc1440.pfb>
+Output written on main.pdf (24 pages, 224571 bytes).
 PDF statistics:
- 507 PDF objects out of 1000 (max. 8388607)
- 42 named destinations out of 1000 (max. 500000)
+ 314 PDF objects out of 1000 (max. 8388607)
+ 273 compressed objects within 3 object streams
+ 58 named destinations out of 1000 (max. 500000)
  156 words of extra memory for PDF output out of 10000 (max. 10000000)
 
