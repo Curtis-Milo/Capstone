@@ -194,6 +194,7 @@ HTTP.createServer(function(req, res) {
 						res.writeHead(200, {'Content-Type': 'text/plain'});
 						stream.pipe(res);
 						unlock();
+						return;
 					});
 				}
 
