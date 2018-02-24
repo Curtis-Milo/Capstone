@@ -1,0 +1,16 @@
+1, Test GET /drinks endpoint, , res.body == drinkTypes, res.body == drinkTypes, pass
+2, Test GET /numOfTanks endpoint, , res.raw_body == 3, res.raw_body == 3, pass
+3, Test POST /updateCreds endpoint, NFR33, 200, 200, pass
+4, Test POST /login endpoint, NFR33, 200, 200, pass
+5, Test POST /map endpoint, AD1/AD2, 200, 200, pass
+6, Test GET /map endpoint, AD1/AD2, File contents == Map received, File contents == Map received, pass
+7, Test DELETE /drinks endpoint, , Missing COKE, Missing COKE, pass
+8, Test POST /drinks endpoint, , COKE in body, COKE in body, pass
+9, Test POST /table endpoint, NFR33, "token" and "token_type" in body, "token" and "token_type" in body, pass
+10, Test POST /placeOrder endpoint, TO1/TO2, 200, 200, pass
+11, Test GET /placeInLine endpoint, AF14, res.raw_body == 1, res.raw_body == 1, pass
+12, Test DELETE /cancelOrder endpoint, , 200, 200, pass
+13, Test POST /placeOrder endpoint, TO1/TO2, 200, 200, pass
+14, Test GET /checkToken endpoint, NFR33, Must return validity of token, Includes validity of token, pass
+15, Test GET /map endpoint, AF3, File contents == Map received, File contents == Map received, pass
+16, Test GET /nextOrder endpoint, AF4, Order should have all required keys, Order has all required keys, pass
