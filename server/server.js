@@ -201,13 +201,8 @@ HTTP.createServer(function(req, res) {
 					}
 
 					mapManager.getMap(function(mapErr, stream, unlock) {
-						if (mapErr) {
-							res.writeHead(500, mapErr, {'Content-Type': 'text/plain'});
-							return;
-						}
 						res.writeHead(200, {'Content-Type': 'text/plain'});
 						stream.pipe(res);
-						unlock();
 					});
 				});
 			} else {
@@ -223,16 +218,6 @@ HTTP.createServer(function(req, res) {
 						res.end();
 						return;
 					}
-
-					mapManager.getMap(function(mapErr, stream, unlock) {
-						if (mapErr) {
-							res.writeHead(500, mapErr, {'Content-Type': 'text/plain'});
-							return;
-						}
-						res.writeHead(200, {'Content-Type': 'text/plain'});
-						stream.pipe(res);
-						unlock();
-					});
 				});
 			}
 		} else {
