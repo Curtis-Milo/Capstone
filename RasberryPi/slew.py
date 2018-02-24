@@ -1,7 +1,7 @@
 class Slew: 
-	def __init__(self,rate):
+	def __init__(self,rate,minV=0):
 		self.rate = rate
-		self.prev = 0
+		self.prev = minV
 
 	def slewValue(self, value):
 		if self.rate + self.prev < value:
@@ -13,3 +13,6 @@ class Slew:
 		else:
 			self.prev = value
 			return value
+
+	def Reset(self,prev):
+		self.prev = prev

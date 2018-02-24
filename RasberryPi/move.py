@@ -6,14 +6,14 @@ GPIO.cleanup()
 GPIO.setmode(GPIO.BCM)
 Motor1A = 18 # set GPIO-18 as Input 1 of the controller IC
 Motor1B = 24 # set GPIO-24 as Input 2 of the controller IC
-PWM_A = 23
-PWM_B = 25
+PWM_L = 23
+PWM_R = 25
 GPIO.setup(Motor1A,GPIO.OUT)
 GPIO.setup(Motor1B,GPIO.OUT)
-GPIO.setup(PWM_A,GPIO.OUT)
-GPIO.setup(PWM_B,GPIO.OUT)
-pwmRight=GPIO.PWM(PWM_A,100) # configuring Enable pin means GPIO-04 for PWM
-pwmLeft =GPIO.PWM(PWM_B,100) # configuring Enable pin means GPIO-04 for PWM
+GPIO.setup(PWM_L,GPIO.OUT)
+GPIO.setup(PWM_R,GPIO.OUT)
+pwmRight=GPIO.PWM(PWM_L,100) # configuring Enable pin means GPIO-04 for PWM
+pwmLeft =GPIO.PWM(PWM_R,100) # configuring Enable pin means GPIO-04 for PWM
 #UltraSonic = UltraSonic()
 slewRate = Slew(1)
 
@@ -58,9 +58,9 @@ def turn(time_Delay,duty, turnRight):
 	pwmLeft.stop()
 
 
-drive(1,30)
-drive(3,17)
-turn(1,20,1)
-drive(1.5,10)
+#drive(1,30)
+#drive(3,17)
+#turn(1,20,1)
+#drive(1.5,10)
 #drive(3,15)
 #drive(3,15)

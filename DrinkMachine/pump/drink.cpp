@@ -1,20 +1,13 @@
 #include "drink.h"
+#include "sensors.h"
 #include "Arduino.h"
 #include "time.h"
 
 #define MOSFET_ON 1
 #define MOSFET_OFF 0
-#define DRINK_BUFF 20
 
-//Internal Struct
-typedef struct
-{
-  DrinkTypes drinksList[DRINK_BUFF];
-  int totalDrinks;
-  int currentDrink;
-  bool drinkFilled;
-  float currentOnTime;
-} Drink_Private;
+
+
 
 //static Calibrations
 static DrinkCals WATER_CALS;
@@ -24,60 +17,10 @@ static TempCals TEMP_CALS;
 static WeightCals WEIGHT_CALS;
 
 //static variables for internal use
-Drink_Private tableStat;
+Table_Info tableStat;
 
 static bool isDrinkTaken() {
   return true;
-}
-
-
-float getTempature(int pin)
-{
-  //https://learn.sparkfun.com/tutorials/sik-experiment-guide-for-arduino---v32/experiment-7-reading-a-temperature-sensor
-  float voltage=  (analogRead(pin) * 0.004882814);
-  return (voltage - 0.5) * 100.0;
-}
-
-
-
-float getWeight(int pin)
-{
-  //TODO: Actually convert voltage to kg
-  return (analogRead(pin)); 
-}
-static void getTableData() {
-    DrinkErrors errors= 0;
-    int i =0;
-    char c='a';
-    if (TEMP_CALS.maxTemp < getTempature(TEMP_CALS.pinA) ||
-          TEMP_CALS.maxTemp < getTempature(TEMP_CALS.pinB)){
-       errors |= DrinkOverTemp;         
-    }
-
-    if (getTempature(WEIGHT_CALS.pinA) < WEIGHT_CALS.minWeight||
-          getTempature(WEIGHT_CALS.pinB)< WEIGHT_CALS.minWeight){
-       errors |= EmptyTank;         
-    }
-
-    
-    boolean drinkNext = false;
-    while (c != 'x'){
-      if (Serial.available() > 0) {
-        c  = Serial.read();
-        if (drinkNext){
-            tableStat.drinksList[i] = c;
-            i++;
-            drinkNext = false;
-        }else if (c == 'd'){
-          drinkNext = true;
-        }else if(c == 'x'){
-          tableStat.totalDrinks = i;
-        }
-      }  
-    
-  } 
-  Serial.print(errors);
-  
 }
 
 static DrinkCals * getDrinkCals() {
@@ -142,7 +85,7 @@ static void processState(Drink * pDrink) {
   DrinkCals * pDrinkData;
   switch (pDrink->state) {
     case Getting_Table:
-      getTableData();
+      getTableData(pDrink);
       break;
     case Pouring_On:
       //Setup pointer to the calibrations
@@ -229,6 +172,44 @@ void initDrink(Drink * pDrink) {
 
 
 }
+
+void getTableData(Drink * pDrink) {
+    DrinkErrors errors= (DrinkErrors)0x1111;
+    int i =0;
+    char c = 0;
+    /*if (TEMP_CALS.maxTemp < getTempature(TEMP_CALS.pinA) ||
+          TEMP_CALS.maxTemp < getTempature(TEMP_CALS.pinB)){
+       errors |= DrinkOverTemp;         
+    }
+
+    if (getTempature(WEIGHT_CALS.pinA) < WEIGHT_CALS.minWeight||
+          getTempature(WEIGHT_CALS.pinB)< WEIGHT_CALS.minWeight){
+       errors |= EmptyTank;         
+    }*/
+
+    
+    boolean drinkNext = false;
+    while (c != 'x'){
+      if (Serial.available() > 0) {
+      c  = Serial.read();
+      if (drinkNext){
+           tableStat.drinksList[i] =(DrinkTypes) c;
+           i++;
+           drinkNext = false;
+      }else if (c == 'd'){
+           drinkNext = true;
+       }else if(c == 'x'){
+            tableStat.totalDrinks = i;
+          
+        }  
+      
+    } 
+  }
+  Serial.print(errors);
+  Serial.print(0);
+  Serial.print('x');
+}
+
 
 void processDrinkRequest(Drink * pDrink) {
   determineState(pDrink);
