@@ -508,6 +508,32 @@ HTTP.createServer(function(req, res) {
 				});
 				res.end();
 			});
+		} else if (url.pathname.toLowerCase().replace(/\//, '') === 'logout') {
+			var server_cookie = _parseCookies(req.headers.cookie).server_sessionId;
+
+			if (! server_cookie) {
+				res.writeHead(400, 'No session ID found.', {'Content-Type': 'application/json'});
+				res.end();
+				return;
+			}
+
+			authManager.checkAuth(server_cookie, function(sessErr, sessPassed) {
+				if (sessErr) {
+					res.writeHead(500, sessErr, {'Content-Type': 'text/html'});
+					res.end();
+					return;
+				}
+
+				if (! sessPassed) {
+					res.writeHead(401, 'Unauthorized', {'Content-Type': 'application/json'});
+					res.end();
+					return;
+				}
+
+				authManager.logout();
+				res.writeHead(200, {'Content-Type': 'application/json'});
+				res.end();
+			});
 		} else if (url.pathname.toLowerCase().replace(/\//, '') === 'errors') {
 			var auth = HELPER.caseInsensitiveKey(req.headers, 'authorization');
 
