@@ -39,6 +39,8 @@ public class Activity_Login extends AppCompatActivity implements AsyncResponse {
             Intent i = new Intent(Activity_Login.this, Activity_Settings.class);
             i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(i);
+        } else if (responseCode == 1337) {
+            Toast.makeText(Activity_Login.this, "Could not connect to server", Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(Activity_Login.this, "Invalid credentials", Toast.LENGTH_LONG).show();
         }

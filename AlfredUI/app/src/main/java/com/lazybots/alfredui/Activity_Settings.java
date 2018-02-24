@@ -20,6 +20,7 @@ public class Activity_Settings extends AppCompatActivity implements AsyncRespons
     NumberPicker.OnValueChangeListener tableNumPickerListener = null;
     int tableNum;
     SharedPreferences appData;
+    NumberPicker np;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +40,7 @@ public class Activity_Settings extends AppCompatActivity implements AsyncRespons
 
         appData = getSharedPreferences("prefs", MODE_PRIVATE);
         tableNum = appData.getInt("tableNum", 1);
-        NumberPicker np = (NumberPicker) findViewById(R.id.tableNumberPicker);
-        np.setValue(tableNum);
+        tableNumPicker.setValue(tableNum);
 
     }
 
@@ -73,6 +73,7 @@ public class Activity_Settings extends AppCompatActivity implements AsyncRespons
             i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(i);
         } else {
+            tableNumPicker.setValue(tableNum);
             Toast.makeText(Activity_Settings.this, "Table Change Unsuccessful", Toast.LENGTH_LONG).show();
         }
     }

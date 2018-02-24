@@ -17,9 +17,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity
             android:name=".Activity_Login"
             android:noHistory="true"
+            android:screenOrientation="portrait"
             android:theme="@style/AlfredTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,13 +32,16 @@
         <activity
             android:name=".Activity_Settings"
             android:noHistory="true"
+            android:screenOrientation="portrait"
             android:theme="@style/AlfredTheme" />
 
         <activity
             android:name=".Activity_DrinksList"
+            android:screenOrientation="portrait"
             android:theme="@style/AlfredTheme" />
         <activity
             android:name=".Activity_OrderCart"
+            android:screenOrientation="portrait"
             android:theme="@style/AlfredTheme" />
 
     </application>

@@ -1,8 +1,10 @@
+# Check if server running
+- Run 'ps -ef | grep server'
+
 # Running server
 - Set environment variable "BOT_HOST" with IP address of robot.
 - Run 'npm install'.
 - Run 'node server.js'
-
 
 # API Reference
 ## GET
