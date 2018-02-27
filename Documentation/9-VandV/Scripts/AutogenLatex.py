@@ -8,7 +8,7 @@ lines = inF.readlines()
 inF.close()
 
 for i in range(len(lines)):
-    data = lines[i].split(",")
+    data = lines[i].split("$")
     testNum =data[0]
     testDis = data[1]
     reqDis = data[2]
