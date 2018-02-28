@@ -2,19 +2,17 @@
 % 1 in margins
 % Contains a relative path for images
 
-\documentclass [10pt]{article}
+\documentclass [11pt]{article}
 
 % page geometry 
 \usepackage[margin=1in]{geometry}
-\usepackage{changepage}
 
 
 % ----------  PACKAGES START ------------ %
 
-% Table cell color package and highlighting
+% Table cell color
 \usepackage[table]{xcolor}
-\usepackage{color,soul}
-\usepackage{colortbl}
+
 
 % VIC title package
 \usepackage{cabin}
@@ -40,25 +38,19 @@
 \usepackage{multicol}
 \usepackage{multirow}
 \usepackage{array}
-\usepackage{tabularx}
 \renewcommand{\arraystretch}{1.2}% Spread rows out evenly in table
-\setlength{\LTpre}{0.5pt} % Reduces white space around tables (top)
-%\setlength{\LTpost}{0pt} % Reduces white space around tables (bottom)
-
-
 
 % Color Packages
 \usepackage{color}   
-\definecolor{sectionC}{rgb}{0.016,0.227,.365}
-\definecolor{subsectionC}{rgb}{.87,0.87,.87}
-\definecolor{subsubsectionC}{rgb}{.94,.93,.90}
-\definecolor{tableCell}{rgb}{.96,.95,.90}
+\definecolor{sectionC}{rgb}{0.95,0.52,.0}
+\definecolor{subsectionC}{rgb}{1.0,.64,.26}
+\definecolor{subsubsectionC}{rgb}{1.0,.87,.68}
+\definecolor{tableCell}{rgb}{.98,.81,.69}
 
 
 % List package
 \usepackage{enumitem}
-\setenumerate{nosep=0pt, itemindent=0in,leftmargin=.1in, topsep= 2pt,  label = -}
-
+\setenumerate{itemsep=0pt, itemindent=0in,leftmargin=0.5in}
 
 % Paragraph parameter
 
@@ -66,10 +58,11 @@
 
 
 % ------------- Creates a linked Table of Contents  Start --------------- %
-
 \usepackage{hyperref}
 \hypersetup{
-linktoc=all,}     %set to all if you want both sections and subsections linked
+colorlinks=true, %set true if you want colored links
+linktoc=all,     %set to all if you want both sections and subsections linked
+linkcolor=black,}  %choose some color if you want links to stand out
 
 % ------------- Creates a click-able Table of Contents  End--------------- %
 
@@ -124,7 +117,31 @@ linktoc=all,}     %set to all if you want both sections and subsections linked
 
 
 % -------- SECTION AND SUBSECTION FORMATING START -------- % 
+% starts the 
+%\setcounter{section}{1}
 
+
+\titleformat{\section} % Section
+{\normalfont \fontsize{14}{14} \bfseries}{}{0em}{\colorsection}
+
+% Makes a background color
+\newcommand{\colorsection}[1]{%
+  \colorbox{sectionC}{\parbox{\dimexpr\textwidth-1\fboxsep}{\color{black}\Large\thesection\ \hspace{1mm} #1}}}
+
+% Makes a background color
+\titleformat{\subsection} % Subsection
+{\normalfont \fontsize{12}{12}  \bfseries}{}{0em}{\colorsubsection }
+
+\newcommand{\colorsubsection}[1]{%
+  \colorbox{subsectionC}{\parbox{\dimexpr \textwidth -1\fboxsep}{\large\thesubsection\ #1}}}
+
+
+% Makes a background color
+\titleformat{\subsubsection} % Subsubsection
+{\normalfont \fontsize{12}{12} \bfseries}{}{0em}{\colorsubsubsection}
+
+\newcommand{\colorsubsubsection}[1]{%
+  \colorbox{subsubsectionC}{\parbox{\dimexpr\textwidth-1\fboxsep}{\thesubsubsection\ #1}}}
 
 % -------- SECTION AND SUBSECTION FORMATING END -------- % 
 \usepackage{lipsum}
@@ -141,9 +158,7 @@ linktoc=all,}     %set to all if you want both sections and subsections linked
 % ------ PARAGRAPH FORMAT END ----%
 
 
-% ------------ BEGIN LANDSCAPE MODE ----------------%
-\usepackage{pdflscape}
-% ------------ END LANDSCAPE MODE ----------------%
+
 
 
 %------------------------------TOC FORMAT START --------------------------------%
@@ -284,7 +299,7 @@ Alexandra Rahman & & 001305735
 % -------------------------------------------------- Goals that Constitute Success -------------------------------------------------
 
 \section{Project Goals that Constitute Success }
-The minimum requirements for success of this project are as follows:\\
+The minimum requirements for success of this project are as follows:
 
 \begin{enumerate}[label=M\arabic*:, ref =\arabic*, leftmargin=0.5in]
 
@@ -300,7 +315,7 @@ The minimum requirements for success of this project are as follows:\\
 % ------------------------------------------------------ Project Goals -----------------------------------------------------
 
 \section{Project Goals}
-The goals that constitute success are as follows: \\
+The goals that constitute success are as follows:
 
 \begin{enumerate}[label=G\arabic*:, ref =\arabic*, leftmargin=0.5in]
 	
@@ -315,7 +330,7 @@ The goals that constitute success are as follows: \\
 
 % ------------------------------------------------------ Extended Goals -----------------------------------------------------
 \section{Extended Project Goals}
-The goals that will exceed the definition of success are as follows: \\
+The goals that will exceed the definition of success are as follows: 
 
 \begin{enumerate}[label=E\arabic*:, ref =\arabic*, leftmargin=0.5in]	
 
