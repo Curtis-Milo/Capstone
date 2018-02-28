@@ -2,34 +2,35 @@
 \BOOKMARK [1][-]{section.2}{Project Drivers}{}% 2
 \BOOKMARK [2][-]{subsection.2.1}{The Purpose of the Project}{section.2}% 3
 \BOOKMARK [2][-]{subsection.2.2}{Scope}{section.2}% 4
-\BOOKMARK [2][-]{subsection.2.3}{The Client, the Customer, and Other Stakeholders}{section.2}% 5
-\BOOKMARK [2][-]{subsection.2.4}{Users of the Product}{section.2}% 6
-\BOOKMARK [1][-]{section.3}{Project Constraints}{}% 7
-\BOOKMARK [2][-]{subsection.3.1}{Mandated Constraints}{section.3}% 8
-\BOOKMARK [2][-]{subsection.3.2}{Naming Conventions and Definitions}{section.3}% 9
-\BOOKMARK [2][-]{subsection.3.3}{Relevant Facts and Assumptions}{section.3}% 10
-\BOOKMARK [1][-]{section.4}{Context Diagrams}{}% 11
-\BOOKMARK [1][-]{section.5}{Functional Requirements}{}% 12
-\BOOKMARK [2][-]{subsection.5.1}{Alfred Functional Requirements}{section.5}% 13
-\BOOKMARK [2][-]{subsection.5.2}{Table Ordering Application Functional Requirements}{section.5}% 14
-\BOOKMARK [2][-]{subsection.5.3}{Administrator Application Functional Requirements}{section.5}% 15
-\BOOKMARK [1][-]{section.6}{Functional Decomposition Diagrams}{}% 16
-\BOOKMARK [1][-]{section.7}{Functional Requirements Likelihood of Change}{}% 17
-\BOOKMARK [2][-]{subsection.7.1}{Alfred Functional Requirements}{section.7}% 18
-\BOOKMARK [2][-]{subsection.7.2}{Table Ordering Application Functional Requirements}{section.7}% 19
-\BOOKMARK [2][-]{subsection.7.3}{Administrator Application Functional Requirements}{section.7}% 20
-\BOOKMARK [1][-]{section.8}{Non-Functional Requirements}{}% 21
-\BOOKMARK [2][-]{subsection.8.1}{Look and Feel Requirements}{section.8}% 22
-\BOOKMARK [2][-]{subsection.8.2}{Usability and Humanity Requirements}{section.8}% 23
-\BOOKMARK [2][-]{subsection.8.3}{Performance Requirements}{section.8}% 24
-\BOOKMARK [2][-]{subsection.8.4}{Operational and Environmental Requirements}{section.8}% 25
-\BOOKMARK [2][-]{subsection.8.5}{Maintainability and Support Requirements }{section.8}% 26
-\BOOKMARK [2][-]{subsection.8.6}{Security Requirements }{section.8}% 27
-\BOOKMARK [2][-]{subsection.8.7}{Cultural and Political Requirements }{section.8}% 28
-\BOOKMARK [2][-]{subsection.8.8}{Legal Requirements}{section.8}% 29
-\BOOKMARK [1][-]{section.9}{Project Issues}{}% 30
-\BOOKMARK [2][-]{subsection.9.1}{Open Issues}{section.9}% 31
-\BOOKMARK [2][-]{subsection.9.2}{Off-the-Shelf Solutions}{section.9}% 32
-\BOOKMARK [2][-]{subsection.9.3}{Risks}{section.9}% 33
-\BOOKMARK [2][-]{subsection.9.4}{Costs}{section.9}% 34
-\BOOKMARK [2][-]{subsection.9.5}{Waiting Room}{section.9}% 35
+\BOOKMARK [2][-]{subsection.2.3}{Typical Operations Overview}{section.2}% 5
+\BOOKMARK [2][-]{subsection.2.4}{The Client, the Customer, and Other Stakeholders}{section.2}% 6
+\BOOKMARK [2][-]{subsection.2.5}{Users of the Product}{section.2}% 7
+\BOOKMARK [1][-]{section.3}{Project Constraints}{}% 8
+\BOOKMARK [2][-]{subsection.3.1}{Mandated Constraints}{section.3}% 9
+\BOOKMARK [2][-]{subsection.3.2}{Naming Conventions and Definitions}{section.3}% 10
+\BOOKMARK [2][-]{subsection.3.3}{Relevant Facts and Assumptions}{section.3}% 11
+\BOOKMARK [1][-]{section.4}{Context Diagrams}{}% 12
+\BOOKMARK [1][-]{section.5}{Functional Decomposition Diagrams}{}% 13
+\BOOKMARK [1][-]{section.6}{Functional Requirements}{}% 14
+\BOOKMARK [2][-]{subsection.6.1}{Alfred Functional Requirements}{section.6}% 15
+\BOOKMARK [2][-]{subsection.6.2}{Table Ordering Application Functional Requirements}{section.6}% 16
+\BOOKMARK [2][-]{subsection.6.3}{Administrator Application Functional Requirements}{section.6}% 17
+\BOOKMARK [1][-]{section.7}{Functional Requirements Likelihood of Change}{}% 18
+\BOOKMARK [2][-]{subsection.7.1}{Alfred Functional Requirements}{section.7}% 19
+\BOOKMARK [2][-]{subsection.7.2}{Table Ordering Application Functional Requirements}{section.7}% 20
+\BOOKMARK [2][-]{subsection.7.3}{Administrator Application Functional Requirements}{section.7}% 21
+\BOOKMARK [1][-]{section.8}{Non-Functional Requirements}{}% 22
+\BOOKMARK [2][-]{subsection.8.1}{Look and Feel Requirements}{section.8}% 23
+\BOOKMARK [2][-]{subsection.8.2}{Usability and Humanity Requirements}{section.8}% 24
+\BOOKMARK [2][-]{subsection.8.3}{Performance Requirements}{section.8}% 25
+\BOOKMARK [2][-]{subsection.8.4}{Operational and Environmental Requirements}{section.8}% 26
+\BOOKMARK [2][-]{subsection.8.5}{Maintainability and Support Requirements }{section.8}% 27
+\BOOKMARK [2][-]{subsection.8.6}{Security Requirements }{section.8}% 28
+\BOOKMARK [2][-]{subsection.8.7}{Cultural and Political Requirements }{section.8}% 29
+\BOOKMARK [2][-]{subsection.8.8}{Legal Requirements}{section.8}% 30
+\BOOKMARK [1][-]{section.9}{Project Issues}{}% 31
+\BOOKMARK [2][-]{subsection.9.1}{Open Issues}{section.9}% 32
+\BOOKMARK [2][-]{subsection.9.2}{Off-the-Shelf Solutions}{section.9}% 33
+\BOOKMARK [2][-]{subsection.9.3}{Risks}{section.9}% 34
+\BOOKMARK [2][-]{subsection.9.4}{Costs}{section.9}% 35
+\BOOKMARK [2][-]{subsection.9.5}{Waiting Room}{section.9}% 36

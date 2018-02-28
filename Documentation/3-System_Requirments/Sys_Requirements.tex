@@ -224,8 +224,7 @@ Alexandra Rahman & & 001305735
 
 \section{Revisions}
 
-\begin{longtable}{| p{.23\textwidth } | p{.23\textwidth } | p{.23\textwidth } | p{.21\textwidth } |}\caption{Table of Revisions}  \\
-
+\begin{longtable}{| p{.21\textwidth } | p{.21\textwidth } | p{.23\textwidth } | p{.25\textwidth } |}
 \hline 
 \centering \textbf{Date} & 
 \multicolumn{1}{c}{\textbf {Revision Number}} &
@@ -242,18 +241,20 @@ Alexandra Rahman & & 001305735
 		Alexandra Rahman} &
  \multirow{4}{*}{-} \\ 
 \hline 
-\end{longtable}
 
-%\multirow{4}{*}{\centering February 25\textsuperscript{th}, 2018}  & 
-%\multirow{4}{*}{Revision 1}& 
-%		{Karim Guirguis \newline
-%		David Hemms \newline
-%		Marko Laban \newline
-%		Curtis Milo \newline
-%		Keyur Patel \newline
-%		Alexandra Rahman} &
-% \multirow{4}{*}{COMMENTS}
-%\hline 
+\multirow{4}{*}{\centering February 25\textsuperscript{th}, 2018}  & 
+\multirow{4}{*}{Revision 1}& 
+		{Karim Guirguis \newline
+		David Hemms \newline
+		Marko Laban \newline
+		Curtis Milo \newline
+		Keyur Patel \newline
+		Alexandra Rahman} &
+{Added the section 'Typical Order of Operations', removed some requirements and modified other requirements. Added nomenclature to the monitored and controlled variables, modified the order of the sections. Fixed grammatical errors and updated the costs.}\\
+\hline 
+
+\caption{Table of Revisions}  
+\end{longtable}
 
 
 \pagebreak
@@ -292,7 +293,6 @@ If at any point the supply or power levels run low or the food safety standards 
 
 \subsubsection{Stakeholders}
  Include Stakeholders
-% 	The stakeholders consists of:
 		\begin{itemize}
  		\item GM, Project Proposers 
  		\item Dr. Alan Wassyng, the Project Supervisor
@@ -311,7 +311,6 @@ This product will be used in a restaurant setting, and the users can be divided 
 
 % ------------------------------------------------------- Mandated Constraints ---------------------------------------------------------
 \subsection{Mandated Constraints}
-%Vehicle intersection control has several mandated constraints tabled below. 
 The following is a list of constraints that will be followed during the design of this system.
 
 \begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
@@ -507,7 +506,6 @@ The following are the functional requirements of the project. They are separated
 \end{longtable}
 
 % ----- 3 ----- %
-%Maybe use discrete math to show this?
 \begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
 \rowcolor{tableCell}\textbf{AF3} &  Alfred must be able to navigate to a table that corresponds to a specific drink order. \\ \hline
 \textbf{Rationale} & Alfred should be able to move autonomously. \\ \hline 
@@ -627,7 +625,11 @@ The following are the functional requirements of the project. They are separated
 \textbf{Rationale} &  To ensure that staff are well informed of Alfred's conditions and are certain that Alfred will remain operational. \\ \hline
 \end{longtable}
 
-
+% ----- 5 ----- %
+\begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
+\rowcolor{tableCell}\textbf{AD5} & The Administrator Application must be able to view Alfred's current liquid status and modify the drinks offered. \\ \hline
+\textbf{Rationale} &  To ensure that staff are well informed of the drinks offered and what drinks are needed when resupplying the liquid containers. \\ \hline
+\end{longtable}
 
 % --------------------------------------------- FUNCTIONAL REQUIREMENTS END ---------------------------------------------
 
@@ -963,8 +965,8 @@ The following are the functional requirements of the project. They are separated
 \begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
 \rowcolor{tableCell}\textbf{NFR32} & The ordering system must not display any information about other tables' drink orders.\\ \hline
 \textbf{Rationale} &  To ensure information is kept private.\\ \hline 
-% Karim can you expand on this??
-\rowcolor{tableCell}\textbf{NFR33} & The system must use secure protocols for any communication. \\ \hline
+
+\rowcolor{tableCell}\textbf{NFR33} & The system must use basic authentication protocols for the Administrator Application and oauth protocols for communication between the client and Alfred. \\ \hline
 \textbf{Rationale} &  To ensure information is kept private.\\ \hline 
 \end{longtable}
 
