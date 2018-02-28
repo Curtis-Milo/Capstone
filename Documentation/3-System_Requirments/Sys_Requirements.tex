@@ -312,7 +312,7 @@ If at any point the supply or power levels run low or the food safety standards 
 
 % --------------------------------------------------------- Users of the Product ---------------------------------------------------------
 \subsection{Users of the Product} 
-This product will be used in a restaurant setting, and the users can be divided into two groups. The first group of users will be the customers of the restaurant, who will be placing drink orders and will be served by the robot. The other group of users will be the restaurant staff, who will ensure that the robot is operating properly and keep the fluid levels topped up.
+This product will be used in a restaurant setting, and the users can be divided into two groups. The first group of users will be the customers of the restaurant, who will be placing drink orders and will be served by Alfred. The other group of users will be the restaurant staff, who will ensure that Alfred is operating properly and keep the fluid levels topped up.
 
 % ---------------------------------------------------- PROJECT DRIVERS END ------------------------------------------------------
 
@@ -514,27 +514,27 @@ The following are the functional requirements of the project. They are separated
 
 % ----- 3 ----- %
 \begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
-\rowcolor{tableCell}\textbf{AF3} &  Alfred must be able to navigate to a table that corresponds to a specific drink order. \\ \hline
-\textbf{Rationale} & Alfred should be able to move autonomously. \\ \hline 
+\rowcolor{tableCell}\textbf{AF3} &  Alfred must be able to navigate to a table that corresponds to a specific drink order. Such that: OrderList(TO) -> T, G(T) -> path = \{N1, N2 ...\}\\ \hline
+\textbf{Rationale} & Alfred should be able to move autonomously.  \\ \hline 
 \end{longtable}
 
 % ----- 4 ----- %
 \begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
-\rowcolor{tableCell}\textbf{AF4} & Alfred must be able to pour the correct drinks corresponding to the specific tables order.\\ \hline
+\rowcolor{tableCell}\textbf{AF4} & Alfred must be able to pour the correct drinks corresponding to the specific tables order. Such that: DrinkList(TO) = Drinks = \{D1, D2 ...\} \\ \hline
 \textbf{Rationale} &  This is so that Alfred will be able to pour the drinks for the customers without the need for any human interference. \\ \hline 
 \end{longtable}
 
 % ----- 5 ----- %
 % Specify the cup size!!!!
 \begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
-\rowcolor{tableCell}\textbf{AF5} & Alfred must be able to dispense the correct amount for the drink based on the size of the cup specified.\\ \hline
+\rowcolor{tableCell}\textbf{AF5} & Alfred must be able to dispense the correct amount for the drink based on the size of the cup specified. Such that:  $m_{cup}$= $ m_{DrinkMin} $ +h \\ \hline
 \textbf{Rationale} &  Alfred will be able to dispense the correct amount of liquid for the user so it will not be under or over filled. \\ \hline 
 \end{longtable}
 
 % ----- 6 ----- %
 % Quantify this with a number
 \begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
-\rowcolor{tableCell}\textbf{AF6} & Alfred must be able to determine when liquids within storage containers are not within the desired temperature range.\\ \hline
+\rowcolor{tableCell}\textbf{AF6} & Alfred must be able to determine when liquids within storage containers are not within the desired temperature range. Such that: $ErrorTemp$ = $T_{min}$ < $T_{Container}$ < $T_{max}$ \\ \hline
 \textbf{Rationale} &  In order to ensure that the drinks served meet FDA food regulation standards. \\ \hline 
 \end{longtable}
 
@@ -546,7 +546,7 @@ The following are the functional requirements of the project. They are separated
 
 % ----- 8 ----- %
 \begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
-\rowcolor{tableCell}\textbf{AF8} & Alfred must be able to determine if any of the liquids within the storage containers are below the desired supply levels. \\ \hline
+\rowcolor{tableCell}\textbf{AF8} & Alfred must be able to determine if any of the liquids within the storage containers are below the desired supply levels. Such that: $ErrorContainer$ = $m_{ContainerMin}$ < $m_{container}$ \\ \hline
 \textbf{Rationale} &  Alfred should be able to know when it will need to be refilled and should not dispense any drink with insufficient supply levels.\\ \hline 
 \end{longtable}
 
@@ -559,20 +559,20 @@ The following are the functional requirements of the project. They are separated
 % ----- 10 ----- %
 % Specify a stopping distance
 \begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
-\rowcolor{tableCell}\textbf{AF10} & Alfred must be able to determine if an obstacle is in its path and come to a timely stop. \\ \hline
+\rowcolor{tableCell}\textbf{AF10} & Alfred must be able to determine if an obstacle is in its path and come to a timely stop. Such that: $S_{robot}$ = Speed($P_{right}$, $P_{left}$, $D_{objects}$) where if $D_{objects}$ < $D_{Min}$ -> $S_{robot}$ = 0 \\ \hline
 \textbf{Rationale} &  To ensure the safety of the users and prevent destruction of property. \\ \hline 
 \end{longtable}
 
 % ----- 11 ----- %
 % Specify using function table
 \begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
-\rowcolor{tableCell}\textbf{AF11} & Alfred shall be able to determine when a component will no longer be operational due to low power levels. \\ \hline
+\rowcolor{tableCell}\textbf{AF11} & Alfred shall be able to determine when a component will no longer be operational due to low power levels. Such that: $ErrorLowPower$ = $V_{batt}$ < $V_{min}$ \\ \hline
 \textbf{Rationale} &  To ensure that no internal components get abused or destroyed proper safety measures are in place; Alfred returns to home base before shutting down. \\ \hline
 \end{longtable}
 
 % ----- 12 ----- %
 \begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
-\rowcolor{tableCell}\textbf{AF12} & Alfred must be able to navigate back to the designated home base at any given point in time. \\ \hline
+\rowcolor{tableCell}\textbf{AF12} & Alfred must be able to navigate back to the designated home base at any given point in time. Such that: G(H) -> path = \{N1, N2 ...\} \\ \hline
 \textbf{Rationale} &  To ensure safety of the customers and Alfred shall return to a designated home base when any issue pertaining to supply temperature, supply levels or power levels. This is also in place so that the staff an request Alfred to return to home base at the end of the business day. \\ \hline
 \end{longtable}
 
@@ -687,7 +687,7 @@ The following are the functional requirements of the project. They are separated
 \multicolumn{1}{|c|}{Very Unlikely} & Ensures robot safety & N/A \\ \hline
 
 \multicolumn{1}{|c|}{AF12}& 
-\multicolumn{1}{|c|}{Unlikely} & Administrator can override the system & Restrictions on when the robot can be called back to home base may be implemented. \\ \hline
+\multicolumn{1}{|c|}{Unlikely} & Administrator can override the system & Restrictions on when Alfred can be called back to home base may be implemented. \\ \hline
 
 \rowcolor{tableCell} \multicolumn{1}{|c|}{AF13}& 
 \multicolumn{1}{|c|}{Unlikely} & Key implementation aspect & N/A \\ \hline
@@ -754,7 +754,7 @@ The following are the functional requirements of the project. They are separated
 \rowcolor{tableCell}\textbf{NFR2} & Alfred must not have any exposed electronic wiring. \\ \hline
 \textbf{Rationale} & To ensure user safety.\\ \hline 
 \rowcolor{tableCell}\textbf{NFR3} & Alfred must be at the appropriate table height. \\ \hline
-\textbf{Rationale} & To ensure user safety when the robot is moving and to allow ease of use.\\ \hline 
+\textbf{Rationale} & To ensure user safety when Alfred is moving and to allow ease of use.\\ \hline 
 \end{longtable}
 
 % ------------------------------- Style Requirements -------------------------------%
@@ -829,7 +829,7 @@ The following are the functional requirements of the project. They are separated
 \rowcolor{tableCell}\textbf{NF12} & Alfred must be able to pour a drink within 30 seconds. \\ \hline
 \textbf{Rationale} & Approximate time for a person to dispense a drink. \\ \hline 
 \rowcolor{tableCell}\textbf{NFR13} & Alfred must be able to move at the walking speed of a human. \\ \hline
-\textbf{Rationale} & The user will not be waiting any longer than the current system, ensures that the robot speed is not significant enough to cause harm or damage. \\ \hline 
+\textbf{Rationale} & The user will not be waiting any longer than the current system, ensures that Alfred's speed is not significant enough to cause harm or damage. \\ \hline 
 \rowcolor{tableCell}\textbf{NFR14} &  Alfred must be able to receive an order within 30 seconds. \\ \hline
 \textbf{Rationale} & Ensures that the speed of communication is not a limiting factor when considering user satisfaction.\\ \hline
 \rowcolor{tableCell}\textbf{NFR15} &  The ordering application must be able to send an order to the administrative program within 30 seconds. \\ \hline
@@ -868,7 +868,7 @@ The following are the functional requirements of the project. They are separated
 
 \begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
 \rowcolor{tableCell}\textbf{NFR22} &  Alfred must not allow liquid containers to leak. \\ \hline
-\textbf{Rationale} & In the case that the robot is tipped over, no electrical components shall be affected.\\ \hline 
+\textbf{Rationale} & In the case that Alfred is tipped over, no electrical components shall be affected.\\ \hline 
 \end{longtable}
 
 % --------------- Robustness or Fault-Tolerance Requirements -------------%		
@@ -897,7 +897,7 @@ The following are the functional requirements of the project. They are separated
 
 \begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
 \rowcolor{tableCell}\textbf{NFR25} &  Alfred must be able to keep drinks cold for 8 hours. \\ \hline
-\textbf{Rationale} & To ensure that the robot does not return to home base frequently. This time period also correlates with a typical work shift.\\ \hline 
+\textbf{Rationale} & To ensure that Alfred does not return to home base frequently. This time period also correlates with a typical work shift.\\ \hline 
 \end{longtable}
  % ---------------------------------------- Operational and Environmental Requirements ----------------------------------------
 \subsection{Operational and Environmental Requirements}
@@ -1039,8 +1039,8 @@ The following are the functional requirements of the project. They are separated
  % -------------------------------------------------------------- Open Issues --------------------------------------------------------------
 \subsection{Open Issues}
 	\begin{enumerate}[label=\textbf{(\roman*)}]
-		\item Weight of the containers requires a lot of torque to get the robot to move at the desired speed.
-		\item Rotation of the robot causes the liquids to sway inside their storage containers causing momentum opposing that of the desired direction of motion.
+		\item Weight of the containers requires a lot of torque to get Alfred to move at the desired speed.
+		\item Rotation of Alfred causes the liquids to sway inside their storage containers causing momentum opposing that of the desired direction of motion.
 		\item Smooth acceleration and deceleration to prevent liquid spills and undesired momentum.
 		\item Pumping mechanism runs using an Arduino while drive-train uses a raspberry pi therefor low latency communication between the two boards is vital.
 		\item Robust communication to server in the case of sensor or board failure.	
@@ -1072,7 +1072,7 @@ The following are the functional requirements of the project. They are separated
 \pagebreak
  % ------------------------------------------------------------------ Costs -------------------------------------------------------------------
 \subsection{Costs}	
-The budget for the all components of the robot must not exceed \$750. A breakdown of the individual part costs are as follows:
+The budget for the all components of Alfred must not exceed \$750. A breakdown of the individual part costs are as follows:
 
 \begin{center}
 \begin{tabular}{ | p{8.5cm} | p{1.5cm} | } \hline
