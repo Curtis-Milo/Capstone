@@ -242,7 +242,7 @@ Alexandra Rahman & & 001305735
  \multirow{4}{*}{-} \\ 
 \hline 
 
-\multirow{4}{*}{\centering February 25\textsuperscript{th}, 2018}  & 
+\multirow{4}{*}{\centering December 15\textsuperscript{th}, 2017}  & 
 \multirow{4}{*}{Revision 1}& 
 		{Karim Guirguis \newline
 		David Hemms \newline
@@ -250,7 +250,18 @@ Alexandra Rahman & & 001305735
 		Curtis Milo \newline
 		Keyur Patel \newline
 		Alexandra Rahman} &
-{Added the section 'Typical Order of Operations', removed some requirements and modified other requirements. Added nomenclature to the monitored and controlled variables, modified the order of the sections. Fixed grammatical errors and updated the costs.}\\
+{Added the section 'Typical Order of Operations', removed some requirements and modified other requirements. Updated the cost subsection.}\\
+\hline 
+
+\multirow{4}{*}{\centering February 25\textsuperscript{th}, 2018}  & 
+\multirow{4}{*}{Revision 2}& 
+		{Karim Guirguis \newline
+		David Hemms \newline
+		Marko Laban \newline
+		Curtis Milo \newline
+		Keyur Patel \newline
+		Alexandra Rahman} &
+{Added nomenclature to the monitored and controlled variables, modified the order of the sections. Fixed grammatical errors and updated the costs subsection.}\\
 \hline 
 
 \caption{Table of Revisions}  
@@ -269,11 +280,11 @@ Alexandra Rahman & & 001305735
 \subsection{The Purpose of the Project} 
 The purpose of this project will be to create an autonomous robot that will navigate to and serve the requested drink to the user who requests a drink. Currently in restaurants, drinks are served by waiters and waitresses, which hinders them from doing other tasks at that time. Alfred will be designed to make the serving drinks autonomous. \newline
 
-Alfred will allow users to request drinks through an interface. These requests will form a queue which Alfred will serve in order using a FIFO (first in, fist out) protocol. Alfred will go to the table of each user and dispense the drinks ordered from said table. Alfred will also have an administrator user which will be able to call Alfred back and override any action that is being taken at the time. The following document will outline the functional and non-functional requirements of Alfred.  Other topics that will be covered pertaining to Alfred will include: Scope, Project Constraints, Likely Changes and Project Issues.
+Alfred will allow users to request drinks through an interface. These requests will form a queue which Alfred will serve in order using a FIFO (first in, first out) protocol. Alfred will go to the table of each user and dispense the drinks ordered from said table. Alfred will also have an administrator user which will be able to call Alfred back and override any action that is being taken at the time. The following document will outline the functional and non-functional requirements of Alfred.  Other topics that will be covered pertaining to Alfred will include: Scope, Project Constraints, Likely Changes and Project Issues.
 
 % ------------------------------------------------------------------ Scope ------------------------------------------------------------------
 \subsection{Scope}
-The system implemented is one that is meant to automate the dispensing of beverages to customers within a restaurant at the respected customers' table. The customer will be able to order a drink from their table which will be followed by Alfred arriving at their table and dispensing the requested drinks. The staff will be able to request Alfred to return to a Home Base for charging and refilling when desired. 
+The system implemented is one that is meant to automate the dispensing of beverages to customers within a restaurant at the respective customers' table. The customer will be able to order a drink from their table which will be followed by Alfred arriving at their table and dispensing the requested drinks. The staff will be able to request Alfred to return to a Home Base for charging and refilling when desired. 
 
 % ------------------------------------------------------------- Ops Overview --------------------------------------------------------------
 \subsection{Typical Operations Overview}
@@ -359,7 +370,7 @@ Note: The following naming conventions apply to this document specifically.
 \begin{enumerate}
 	\itemsep0pt
 	\item \textbf{Steps/Revolution} -  The number of steps within a revolution of the stepper motor
-	\item \textbf{Mililiters/Second} - The amount of liquid that will be pumped at a specific voltage
+	\item \textbf{Millilitres/Second} - The amount of liquid that will be pumped at a specific voltage
 \end{enumerate}
 
 
@@ -367,42 +378,38 @@ Note: The following naming conventions apply to this document specifically.
 
 The following is a list of variables that will be monitored.
 
-\begin{longtable}{ |p{.14\textwidth }  p{.82\textwidth }|}
-\hline
-
-\textbf{MV1} &  Speed of the wheels (rad/s)\\
-
-\cellcolor{tableCell}\textbf{MV2} &  \cellcolor{tableCell}Weight of the storage device (kg)\\ 
-
-\textbf{MV3} &  If the cup has been taken (boolean)\\
-
-\cellcolor{tableCell}\textbf{MV4} &  \cellcolor{tableCell}Distance of any obstacles (m)\\ 
-
-\textbf{MV5} &  Voltage levels of batteries (V)\\
-\hline
-
-\caption{Monitored Variables}
+\begin{longtable}{|l|l|l|l|l|}\hline 
+	\rowcolor{tableCell}\textbf{Monitor Name} & \textbf{Monitor Type} & \textbf{Range} & \textbf{Units} & \textbf{Comment(s)} \\ \hline
+	$ w_{wheel_{left}} $ & Speed & [0, $ 100 $]& rad/s &  Left Wheel Speed\\ \hline
+	\rowcolor{tableCell}$ w_{wheel_{right}} $ & Speed & [0, $ 100 $]& rad/s & Right Wheel Speed \\ \hline
+	$ m_{container} $ & Mass & [0, 1.0]& Kg &  Weight of the storage device  \\ \hline
+	\rowcolor{tableCell}$ m_{drink} $    & Mass & [0, 1.0] & Kg &  Weight of the drink  \\ \hline
+	$ b_{cuptaken } $ & Boolean & [0,1] & N/A & If the cup has been taken \\ \hline
+	\rowcolor{tableCell}$  d_{objects} $ & Distance[] & [0, 10.0]& m & Set of distances to closest obstacle \\ \hline
+	$  V_{batt} $ & Voltage & [0, 20.0]& m &  Voltage levels of batteries \\ \hline
+	\caption{Monitored Variables}
 \end{longtable}
+
+
 
 
 The following is a list of variables that will be controlled:
 
-\begin{longtable}{ |p{.14\textwidth }  p{.82\textwidth }|}
-\hline
-
-\textbf{CV1} &  Speed of the motor (rad/s)\\
-
-\cellcolor{tableCell}\textbf{CV2} &  \cellcolor{tableCell}Voltage going to the liquid pumps. (V)\\ 
-
-\textbf{CV3} &  Signal of drink that it is ready to be picked up (boolean) <<<<<<< HEAD\\
-
-\cellcolor{tableCell}\textbf{CV4} &  \cellcolor{tableCell}Error codes sent (unsigned byte) =======\\ 
-
-\textbf{CV5} &  Error codes sent from Alfred (unsigned byte) >>>>>>> bb878a034c7372cc85fa69f8569b402501b7f1b8\\
-\hline
+\begin{longtable}{| p{.18\textwidth } | p{.16\textwidth } | p{.08\textwidth} | p{.08\textwidth} | p{.34\textwidth} |}\hline
+\rowcolor{tableCell}\textbf{Controlled Name} & \textbf{Controlled Type} & \textbf{Range} & \textbf{Units} & \textbf{Comment(s)} \\ \hline
+    $w_{motor}$ & Speed & [0, $ 100 $]& rad/s &  Motor Speed\\ \hline
+    	\rowcolor{tableCell}$ percent_{dutycycle_{left}} $ & Percent & [0,1.0] & \% & The duty cycle of the left side of the drive-train \\ \hline
+    $ percent_{dutycycle_{right}} $ & Percent & [0, 1.0]& \% & The duty cycle of the right side of the drive-train\\ \hline
+   \rowcolor{tableCell} $  V_{pump} $ & Voltage & [0, 5.0]& m &  Voltage going to the liquid pump \\ \hline
+	$ errors_{drivetrain} $ & Unsigned Byte & [0, $2^{8}$]& N/A & Errors from drive-train \\ \hline
+	\rowcolor{tableCell}$  errors_{pump} $ & Unsigned Byte & [0, $2^{8}$]& N/A & Errors from pumping system module \\ \hline
+	$  errors_{Alfred} $ & Unsigned Byte & [0, $2^{8}$]& N/A & Errors from Alfred \\ \hline
+	\rowcolor{tableCell}$LED_{drinksignal}$ & Boolean & [0, 1]& N/A & Signal of drink that it is ready to be picked up \\ \hline
+	$Q_{pump}$ & Flow Rate & [0, $ 100 $]& ($m^3/s$) &  Flow rate of the pump\\ \hline
 
 \caption{Controlled Variables}
 \end{longtable}
+
 
 % ------------------------------------------------- Relevant Facts and Assumptions -------------------------------------------------
 \subsection{Relevant Facts and Assumptions} 
@@ -435,7 +442,7 @@ Alfred's assumption are represented in the tables below.
 
 \begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
 \rowcolor{tableCell}\textbf{A4} & The height of a table will not exceed 30". \\ \hline
-\textbf{Rationale} &  This will help simplify the scope of the project and reduce the customers discomfort when reaching for a drink.\\ \hline
+\textbf{Rationale} &  This will help simplify the scope of the project and reduce the customers' discomfort when reaching for a drink.\\ \hline
 \end{longtable}
 
 \begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
@@ -473,14 +480,14 @@ The following is a data flow diagram of the drink serving robot, Alfred.
 \begin{figure} [h!]
 	\centering
 	\includegraphics [scale = 0.425] {Figures/UserDiagram.png}
-	\caption{Drink Serving Robot User Diagram}
+	\caption{Alfred User Diagram}
 \end{figure}
 
 \pagebreak
 \begin{figure} [h!]
 	\centering
 	\includegraphics [scale = 0.625] {Figures/DataFlowDiagram.png}
-	\caption{Drink Serving Robot Data Flow Diagram}
+	\caption{Alfred Data Flow Diagram}
 \end{figure}
 
 % ------------------------------------ FUNCTIONAL DECOMPOSITION DIAGRAMS END ------------------------------------
@@ -566,7 +573,7 @@ The following are the functional requirements of the project. They are separated
 % ----- 12 ----- %
 \begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
 \rowcolor{tableCell}\textbf{AF12} & Alfred must be able to navigate back to the designated home base at any given point in time. \\ \hline
-\textbf{Rationale} &  To ensure safety of the customers and the robot, Alfred shall return to a designated home base when any issue pertaining to supply temperature, supply levels or power levels. This is also in place so that the staff an request Alfred to return to home base at the end of the business day. \\ \hline
+\textbf{Rationale} &  To ensure safety of the customers and Alfred shall return to a designated home base when any issue pertaining to supply temperature, supply levels or power levels. This is also in place so that the staff an request Alfred to return to home base at the end of the business day. \\ \hline
 \end{longtable}
 
 % ----- 13 ----- %
@@ -966,7 +973,7 @@ The following are the functional requirements of the project. They are separated
 \rowcolor{tableCell}\textbf{NFR32} & The ordering system must not display any information about other tables' drink orders.\\ \hline
 \textbf{Rationale} &  To ensure information is kept private.\\ \hline 
 
-\rowcolor{tableCell}\textbf{NFR33} & The system must use basic authentication protocols for the Administrator Application and oauth protocols for communication between the client and Alfred. \\ \hline
+\rowcolor{tableCell}\textbf{NFR33} & The system must use basic authentication protocols for the Administrator Application and Oauth protocols for communication between the client and Alfred. \\ \hline
 \textbf{Rationale} &  To ensure information is kept private.\\ \hline 
 \end{longtable}
 
@@ -1010,7 +1017,7 @@ The following are the functional requirements of the project. They are separated
 \begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
 \rowcolor{tableCell}\textbf{NFR35} & Alfred must follow food and safety regulations. \\ \hline
 \textbf{Rationale} & To ensure that the restaurant is not at risk of failing public health inspections.\\ \hline
-\rowcolor{tableCell}\textbf{NFR36} & Alfred must not preform any actions that can be perceived as discriminatory to the user. \\ \hline
+\rowcolor{tableCell}\textbf{NFR36} & Alfred must not perform any actions that can be perceived as discriminatory to the user. \\ \hline
 \textbf{Rationale} & To ensure that all users are comfortable using Alfred.\\ \hline 
 \rowcolor{tableCell}\textbf{NFR37} & Alfred must not serve any alcoholic beverages or prohibited substances. \\ \hline
 \textbf{Rationale} & To ensure Alfred abides by Canadian Laws and that users under the drinking age can be served.\\ \hline 
@@ -1046,7 +1053,7 @@ The following are the functional requirements of the project. They are separated
 \subsubsection{Ready-Made Products}
 	\begin{enumerate}[label=\textbf{(\roman*)}]
 		\item Bar2D2 - a radio-controlled, mobile bar that features a motorized beer elevator, motorized ice/mixer drawer, six-bottle shot dispenser, and sound activated neon lighting. 
-		\item Laskmi-Do Corporation Table Robot - a robot two wheeled robot that delivers drinks.
+		\item Laskmi-Do Corporation Table Robot - a robot two-wheeled robot that delivers drinks.
 	\end{enumerate}
 	
  % ------------------------------------------------------------------ Risks -------------------------------------------------------------------
@@ -1065,7 +1072,7 @@ The following are the functional requirements of the project. They are separated
 \pagebreak
  % ------------------------------------------------------------------ Costs -------------------------------------------------------------------
 \subsection{Costs}	
-The budget for the all components of the robot must not exceed \$750. A breakdown of the individual part costs is as follows:
+The budget for the all components of the robot must not exceed \$750. A breakdown of the individual part costs are as follows:
 
 \begin{center}
 \begin{tabular}{ | p{8.5cm} | p{1.5cm} | } \hline
