@@ -32,7 +32,7 @@ class DriveTrain():
 		self.pwmLeft =GPIO.PWM(self.PWM_R,100) # configuring Enable pin means GPIO-04 for PWM
 		#CALS
 		self.encoderCountsMin =20
-		self.countPerDeg = (38.0/360.0)
+		self.countPerRad = 2*(38.0/math.pi)
 		self.refSpeedFrwd = 20
 		self.refSpeedTurn = 100*(math.pi/30.0)
 		self.batteryMax = 18.0
@@ -45,6 +45,10 @@ class DriveTrain():
 		self.MinOutL = 10
 		self.MaxOutR = 15
 		self.MinOutR = 8
+
+		self.WheelRad = 10
+		self.RobotRad = 10
+
 		self.slewRateRight = Slew(1,self.MinOutR)
 		self.slewRateLeft = Slew(1,self.MinOutL)
 
@@ -100,7 +104,10 @@ class DriveTrain():
 			while 1 < abs(currentAngle -TargetAngle):
 				self.checkEncoder()
 				while self.encoderCountsMin<   abs(self.EncoderR.getEncoderCount()):
-					currentAngle +=(self.EncoderL.getEncoderCount())*self.countPerDeg
+
+					distances += self.WheelRad*(self.EncoderR.getEncoderCount()/self.countPerRad)
+
+					currentAngle = math.atan2(distances,self.RobotRad)  
 					if(currentAngle < TargetAngle):
 						sign_L = 1.0
 						sign_R = -1.0
@@ -113,6 +120,8 @@ class DriveTrain():
 						GPIO.output(self.MotorR,GPIO.HIGH)
 					
 					err = abs(self.Pi_Angle.PI_Calc(TargetAngle, currentAngle))
+					
+
 					
 					#Calculating Percentage
 					duty_cycleR = self.slewRateRight.slewValue(100*(err/self.batteryMax))
