@@ -26,7 +26,7 @@ var mapManager = new MAP_MANAGER();
 const MAX_NUM_TYPES = 3;
 
 function _parseCookies(cookies) {
-	if (! cookies) return null;
+	if (! cookies) return {};
 
 	var ret = {};
 
