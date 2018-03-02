@@ -115,7 +115,7 @@ SessionManager.prototype.endSession = function() {
 
 SessionManager.prototype.checkToken = function(token, cb) {
 	if (this._token) {
-		cb(null, token === this._token);
+		cb(null, token == this._token);
 
 		clearTimeout(this._timeout);
 
