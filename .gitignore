@@ -1,3 +1,5 @@
 server/node_modules
 server/creds
 *.pyc
+RasberryPi/*.pyc
+RasberryPi/pass

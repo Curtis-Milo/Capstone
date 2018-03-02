@@ -48,15 +48,16 @@ class pathFindingTest:
 				
 				if (0 < j): 
 					prev = (i,j-1)
-					table,passable = self.determinePassable(lines,prev,cur_Node)
+
+					passable,table = self.determinePassable(lines,prev,cur_Node)
 					if passable and not table:
-						self.map.add_edge(prev,cur_Node, 1)
+						self.map.add_edge(cur_Node,prev, 1)
 					elif table and not passable:
-						self.map.add_edge(prev, cur_Node,float("inf"))
+						self.map.add_edge(cur_Node,prev,float("inf"))
 						
-				if (j < len(chars)):
-					nextN =(i,j)
-					table, passable = self.determinePassable(lines,cur_Node,nextN)
+				if (j < len(chars)-1):
+					nextN =(i,j+1)
+					passable, table = self.determinePassable(lines,cur_Node,nextN)
 					if passable and not table:
 						self.map.add_edge(cur_Node, nextN, 1)
 					elif table and not passable:
@@ -64,15 +65,16 @@ class pathFindingTest:
 
 				if (0 < i):
 					prev = (i-1,j)
-					table, passable = self.determinePassable(lines,prev,cur_Node)
+					print "Node ", str(cur_Node), '->',str(prev),' = ', passable
+					passable, table = self.determinePassable(lines,prev,cur_Node)
 					if passable and not table:
-						self.map.add_edge(prev, cur_Node, 1)
+						self.map.add_edge(cur_Node, prev,1)
 					elif table and not passable:
-						self.map.add_edge(prev, cur_Node, float("inf"))
+						self.map.add_edge( cur_Node,prev, float("inf"))
 						
-				if (i < len(lines)):
-					nextN =(i,j)
-					table, passable = self.determinePassable(lines,cur_Node,nextN)
+				if (i < len(lines)-1):
+					nextN =(i+1,j)
+					passable, table= self.determinePassable(lines,cur_Node,nextN)
 					if passable and not table:
 						self.map.add_edge(cur_Node, nextN, 1)
 					elif table and  not passable:
@@ -85,7 +87,7 @@ class pathFindingTest:
 		node2Char = lines[node2[0]].strip().split(',')[node2[1]].strip()
 
 		
-		isT = node2Char == 'T'
+		isT =  node1Char == 'T' or node2Char == 'T'
 		isX = node1Char == 'X' or node2Char == 'X'
 
 		if isX:
@@ -96,21 +98,21 @@ class pathFindingTest:
 			return True, False
 
        
-##
-##p =pathFindingTest("maps/map_2.txt")
-##currNode = (0,0)
-##visited, path = p.map.dijsktra(currNode)
-##node = p.tablesList[0]
-##nodesToTravel = []
-##for table in p.tablesList:
-##	nodes = []
-##	node = table
-##	visited, path = p.map.dijsktra(currNode)
-##	while (node != currNode):
-##			nodes.insert(0,path[node]);
-##			node= path[node]
-##	nodesToTravel.append(nodes)
-##	currNode=nodes[len(nodes)-1]
-##	if(len(nodes) >1):
-##		nodes.pop(0)
-##	print table, nodesToTravel
+
+p =pathFindingTest("maps/map_7.txt")
+currNode = (0,0)
+visited, path = p.map.dijsktra(currNode)
+node = p.tablesList[0]
+nodesToTravel = []
+for table in p.tablesList:
+	nodes = []
+	node = table
+	visited, path = p.map.dijsktra(currNode)
+	while (node != currNode):
+			nodes.insert(0,path[node]);
+			node= path[node]
+	nodesToTravel.append(nodes)
+	currNode=nodes[len(nodes)-1]
+	if(len(nodes) >1):
+		nodes.pop(0)
+	print table, nodesToTravel
