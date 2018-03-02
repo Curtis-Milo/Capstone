@@ -124,7 +124,7 @@ SessionManager.prototype.checkToken = function(token, cb) {
 		this._timeout = setTimeout(function() {
 			that._token = null;
 		}, 60000);
+	} else {
+		cb(null, false);
 	}
-
-	cb(null, false);
 };
