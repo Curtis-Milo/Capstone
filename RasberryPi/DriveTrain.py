@@ -41,16 +41,21 @@ class DriveTrain():
 		self.Pi_R = PI_Controller(0.5,0.01)
 		self.Pi_Angle = PI_Controller(1,1)
 
-		self.MaxOutL = 15
-		self.MinOutL = 10
-		self.MaxOutR = 15
-		self.MinOutR = 8
+		self.MaxOutStrtL = 15
+		self.MinOutStrtL = 10
+		self.MaxOutStrtR = 15
+		self.MinOutStrtR = 10
 
-		self.WheelRad = 10
-		self.RobotRad = 10
+		self.MaxOutTrnL = 30
+		self.MinOutTrnL = 25
+		self.MaxOutTrnR = 30
+		self.MinOutTrnR = 25
 
-		self.slewRateRight = Slew(1,self.MinOutR)
-		self.slewRateLeft = Slew(1,self.MinOutL)
+		self.WheelRad = 0.09
+		self.RobotRad = 0.3
+
+		self.slewRateRight = Slew(1,self.MinOutStrtR)
+		self.slewRateLeft = Slew(1,self.MinOutStrtL)
 
 	def driveToLocation(self,toNode):
 		visited, path = self.map.dijsktra(self.currNode)
@@ -93,13 +98,19 @@ class DriveTrain():
 	def turn(self, TargetAngle):
 		time_prev= time.time()
 		currentAngle = 0
-		self.slewRateRight.Reset(self.MinOutR)
-		self.slewRateLeft.Reset(self.MinOutL)
+		if(currentAngle < TargetAngle):
+			GPIO.output(self.MotorL,GPIO.HIGH)
+			GPIO.output(self.MotorR,GPIO.HIGH)
+		elif(TargetAngle < currentAngle):
+			GPIO.output(self.MotorL,GPIO.LOW)
+			GPIO.output(self.MotorR,GPIO.LOW)
+		self.slewRateRight.Reset(self.MinOutTrnR)
+		self.slewRateLeft.Reset(self.MinOutTrnL)
 		self.Pi_R.Reset()
 		self.Pi_L.Reset()
-		self.pwmRight.start(5)
-		self.pwmLeft.start(5)
-
+		self.pwmRight.start(self.MinOutTrnR)
+		self.pwmLeft.start(self.MinOutTrnL)
+		distances =0 
 		try:
 			while 1 < abs(currentAngle -TargetAngle):
 				self.checkEncoder()
@@ -108,16 +119,17 @@ class DriveTrain():
 					distances += self.WheelRad*(self.EncoderR.getEncoderCount()/self.countPerRad)
 
 					currentAngle = math.atan2(distances,self.RobotRad)  
+					print "CurrAng: ", str(currentAngle),"TargetAng: ", str(TargetAngle)
 					if(currentAngle < TargetAngle):
 						sign_L = 1.0
 						sign_R = -1.0
 						GPIO.output(self.MotorL,GPIO.HIGH)
-						GPIO.output(self.MotorR,GPIO.LOW)
+						GPIO.output(self.MotorR,GPIO.HIGH)
 					elif(TargetAngle < currentAngle):
 						sign_L = -1.0
 						sign_R = 1.0
 						GPIO.output(self.MotorL,GPIO.LOW)
-						GPIO.output(self.MotorR,GPIO.HIGH)
+						GPIO.output(self.MotorR,GPIO.LOW)
 					
 					err = abs(self.Pi_Angle.PI_Calc(TargetAngle, currentAngle))
 					
@@ -128,8 +140,8 @@ class DriveTrain():
 					duty_cycleL = self.slewRateLeft.slewValue(100*(err/self.batteryMax))
 
 					#limiting the duty cycles
-					duty_cycleR = self.limit(duty_cycleR, self.MinOutR,self.MaxOutR)
-					duty_cycleL = self.limit(duty_cycleL, self.MinOutL,self.MaxOutL)
+					duty_cycleR = self.limit(duty_cycleR, self.MinOutTrnR,self.MaxOutTrnR)
+					duty_cycleL = self.limit(duty_cycleL, self.MinOutTrnL,self.MaxOutTrnL)
 					self.pwmRight.ChangeDutyCycle(duty_cycleR)
 					self.pwmLeft.ChangeDutyCycle(duty_cycleL)
 					self.EncoderL.resetEncoderCount()
@@ -148,12 +160,12 @@ class DriveTrain():
 		GPIO.output(self.MotorL,GPIO.HIGH)
 		GPIO.output(self.MotorR,GPIO.LOW)
 		wasBlocked = False
-		self.slewRateRight.Reset(self.MinOutR)
-		self.slewRateLeft.Reset(self.MinOutL)
+		self.slewRateRight.Reset(self.MinOutStrtR)
+		self.slewRateLeft.Reset(self.MinOutStrtL)
 		self.Pi_R.Reset()
 		self.Pi_L.Reset()
-		self.pwmRight.start(self.MinOutR)
-		self.pwmLeft.start(self.MinOutL)
+		self.pwmRight.start(self.MinOutStrtR)
+		self.pwmLeft.start(self.MinOutStrtL)
 		time_elapse  = 0 
 		try:
 			while not circlefound:
@@ -167,25 +179,25 @@ class DriveTrain():
 					speedFdbk_R = self.EncoderR.getEncoderCount() /delta_t
 					notBlocked = self.UltraSonic.nothingBlocking()
 					if wasBlocked and notBlocked:
-							self.pwmRight.start(self.MinOutR)
-							self.pwmLeft.start(self.MinOutL)
+							self.pwmRight.start(self.MinOutStrtR)
+							self.pwmLeft.start(self.MinOutStrtL)
 							wasBlocked = False
 					elif notBlocked:
-						print "Right "
+						#print "Right "
 						errRight = self.Pi_R.PI_Calc(self.refSpeedFrwd, speedFdbk_R)
-						print "Left "
+						#print "Left "
 						errLeft = self.Pi_L.PI_Calc(self.refSpeedFrwd, speedFdbk_L)
-						print "Error L: " + str(errLeft) + " Error R: " + str(errRight)
+						#print "Error L: " + str(errLeft) + " Error R: " + str(errRight)
 						#Calculating Percentage
 						
 						duty_cycleR = self.slewRateRight.slewValue(100.0*(errRight/self.batteryMax))
 						duty_cycleL = self.slewRateLeft.slewValue(100.0*(errLeft/self.batteryMax))
 						
 						#limiting the duty cycles
-						duty_cycleR = self.limit(duty_cycleR, self.MinOutR,self.MaxOutR)
-						duty_cycleL = self.limit(duty_cycleL, self.MinOutL,self.MaxOutL)
+						duty_cycleR = self.limit(duty_cycleR, self.MinOutStrtR,self.MaxOutStrtR)
+						duty_cycleL = self.limit(duty_cycleL, self.MinOutStrtL,self.MaxOutStrtL)
 
-						print "Duty L: " + str(duty_cycleL) + " Duty R: " + str(duty_cycleR)
+						#print "Duty L: " + str(duty_cycleL) + " Duty R: " + str(duty_cycleR)
 						
 						self.pwmRight.ChangeDutyCycle(duty_cycleR)
 						self.pwmLeft.ChangeDutyCycle(duty_cycleL)
@@ -203,7 +215,7 @@ class DriveTrain():
 						circles = self.circleChecker.checkForCircle()
 
 						if circles is not None:
-							print "circles found " + str(len(circles))
+							#print "circles found " + str(len(circles))
 							# convert the (x, y) coordinates and radius of the circles to integers
 							circles = np.round(circles[0, :]).astype("int")
 					 
@@ -211,7 +223,8 @@ class DriveTrain():
 							for (x, y, r) in circles:
 									circlefound =  True
 						else:
-							print "No circles"
+							pass
+							#print "No circles"
 		except Exception as e:
 			print(e)
 			self.runEconderThread = False
