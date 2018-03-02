@@ -6,7 +6,7 @@ class pathFindingTestCases(unittest.TestCase):
 	
 ##      2x4 matrix with 2 tables at (0,2) and (1,3)
 ##	H,0,T,X
-##      X,0,0,T
+##  X,0,0,T
 	def test_1(self):
 		p =pathFindingTest("maps/map_1.txt")
 		currNode = (0,0)
@@ -180,7 +180,8 @@ class pathFindingTestCases(unittest.TestCase):
 				nodes.pop(0)
 			nodesToTravel.append(nodes)
 			currNode=nodes[len(nodes)-1]
-		self.assertEqual(str(nodesToTravel),"[[(1, 0), (2, 0), (3, 0), (4, 0), (4, 1), (4, 2), (3, 2), (3, 3), (3, 4), (3, 5), (3, 6), (3, 7), (2, 7), (1, 7), (0, 7)], [(0, 8), (0, 9)], [(1, 9)], [], [(0, 9), (0, 8), (0, 7), (1, 7), (1, 6)], [(1, 7), (2, 7), (3, 7), (3, 6), (3, 5), (3, 4), (3, 3), (3, 2), (4, 2), (4, 1), (4, 0), (3, 0), (2, 0)]]")
+		self.assertEqual(str(nodesToTravel),"[[(1, 0), (2, 0), (3, 0), (4, 0), (4, 1), (4, 2), (3, 2), (3, 3), (3, 4), (3, 5), (3, 6), 
+			(3, 7), (2, 7), (1, 7), (0, 7)], [(0, 8), (0, 9)], [(1, 9)], [], [(0, 9), (0, 8), (0, 7), (1, 7), (1, 6)], [(1, 7), (2, 7), (3, 7), (3, 6), (3, 5), (3, 4), (3, 3), (3, 2), (4, 2), (4, 1), (4, 0), (3, 0), (2, 0)]]")
 
 	
 
