@@ -183,24 +183,6 @@ var tests = {
 			});
 		},
 
-		setErrorCode: function(resObj, host) {
-			var that = this;
-			return new Promise(function(resolve, reject) {
-				unirest.post(host + '/errors')
-				.headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
-				.auth(that._creds.userName, that._creds.password)
-				.send(that._error.toString())
-				.end(function(res) {
-					if (res.code < 200 || res.code > 299) {
-						resObj.testRes('Test POST /errors endpoint', '', 200, res.code, 'fail');
-					} else {
-						resObj.testRes('Test POST /errors endpoint', '', 200, res.code, 'pass');
-					}
-					resolve();
-				});
-			});
-		},
-
 		getErrorCode: function(resObj, host) {
 			var that = this;
 			return new Promise(function(resolve, reject) {
@@ -383,6 +365,7 @@ var tests = {
 
 	robotTest: {
 		token: null,
+		_error: 123,
 
 		reqListenForToken: function(host, cb) {
 			var that = this;
@@ -469,6 +452,23 @@ var tests = {
 			});
 		},
 
+		setErrorCode: function(resObj, host) {
+			var that = this;
+			return new Promise(function(resolve, reject) {
+				unirest.post(host + '/errors')
+				.headers({'Accept': 'application/json', 'Content-Type': 'application/json', 'Authorization': `Bearer ${that.token}`})
+				.send(that._error.toString())
+				.end(function(res) {
+					if (res.code < 200 || res.code > 299) {
+						resObj.testRes('Test POST /errors endpoint', '', 200, res.code, 'fail');
+					} else {
+						resObj.testRes('Test POST /errors endpoint', '', 200, res.code, 'pass');
+					}
+					resolve();
+				});
+			});
+		},
+
 		nextOrder: function(resObj, host) {
 			var that = this;
 			return new Promise(function(resolve, reject) {
@@ -505,43 +505,44 @@ var tests = {
 const IP = 'http://localhost:8080';
 var resObj = new TestRes();
 
-tests.generalTest.getDrinks(resObj, IP).then(function() {
-	return tests.generalTest.getNumOfTanks(resObj, IP);
-}).then(function() {
-	return tests.adminTest.updateCreds(resObj, IP);
-}).then(function() {
-	return tests.adminTest.login(resObj, IP);
-}).then(function() {
-	return tests.adminTest.setMap(resObj, IP);
-}).then(function() {
-	return tests.adminTest.getMap(resObj, IP);
-}).then(function() {
-	return tests.adminTest.setErrorCode(resObj, IP);
-}).then(function() {
-	return tests.adminTest.getErrorCode(resObj, IP);
-}).then(function() {
-	return tests.adminTest.deleteDrink(resObj, IP);
-}).then(function() {
-	return tests.adminTest.addDrink(resObj, IP);
-}).then(function() {
-	return tests.clientTest.getToken(resObj, IP);
-}).then(function() {
-	return tests.clientTest.placeOrder(resObj, IP);
-}).then(function() {
-	return tests.clientTest.placeInLine(resObj, IP);
-}).then(function() {
-	return tests.clientTest.cancelOrder(resObj, IP);
-}).then(function() {
-	return tests.clientTest.placeOrder(resObj, IP);
-}).then(function() {
-	tests.robotTest.reqListenForToken(IP, function() {
-		tests.robotTest.checkToken(resObj, IP).then(function() {
-			return tests.robotTest.getMap(resObj, IP);
-		}).then(function() {
-			return tests.robotTest.nextOrder(resObj, IP);
-		}).then(function() {
-			console.log('DONE!');
-		});
+
+tests.robotTest.reqListenForToken(IP, function() {
+	tests.generalTest.getDrinks(resObj, IP).then(function() {
+		return tests.generalTest.getNumOfTanks(resObj, IP);
+	}).then(function() {
+		return tests.adminTest.updateCreds(resObj, IP);
+	}).then(function() {
+		return tests.adminTest.login(resObj, IP);
+	}).then(function() {
+		return tests.adminTest.setMap(resObj, IP);
+	}).then(function() {
+		return tests.adminTest.getMap(resObj, IP);
+	}).then(function() {
+		return tests.robotTest.setErrorCode(resObj, IP);
+	}).then(function() {
+		return tests.adminTest.getErrorCode(resObj, IP);
+	}).then(function() {
+		return tests.adminTest.deleteDrink(resObj, IP);
+	}).then(function() {
+		return tests.adminTest.addDrink(resObj, IP);
+	}).then(function() {
+		return tests.clientTest.getToken(resObj, IP);
+	}).then(function() {
+		return tests.clientTest.placeOrder(resObj, IP);
+	}).then(function() {
+		return tests.clientTest.placeInLine(resObj, IP);
+	}).then(function() {
+		return tests.clientTest.cancelOrder(resObj, IP);
+	}).then(function() {
+		return tests.clientTest.placeOrder(resObj, IP);
+	}).then(function() {
+		return tests.robotTest.checkToken(resObj, IP)
+	}).then(function() {
+		return tests.robotTest.getMap(resObj, IP);
+	}).then(function() {
+		return tests.robotTest.nextOrder(resObj, IP);
+	}).then(function() {
+		console.log('DONE!');
 	});
 });
 
