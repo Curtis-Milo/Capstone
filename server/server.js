@@ -776,7 +776,7 @@ HTTP.createServer(function(req, res) {
 							res.end();
 							return;
 						} else if (HELPER.jsonVals(DRINKS).indexOf(tank_num) >= 0) {
-							res.writeHead(400, `Tanke ${tank_num} already in use.`, {'Content-Type': 'application/json'});
+							res.writeHead(400, `Tank ${tank_num} already in use.`, {'Content-Type': 'application/json'});
 							res.end();
 							return;
 						}
