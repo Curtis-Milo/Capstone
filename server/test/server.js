@@ -34,18 +34,16 @@ var tests = {
 					if (res.code < 200 || res.code > 299) {
 						resObj.testRes('Test GET /drinks endpoint', '', 200, res.code, 'fail');
 					} else {
-						var i = 0;
 						var pass = true;
 						var types = Object.keys(drinks);
 						if (types.length != Object.keys(res.body).length) {
 							pass = false;
 						}
 						for (let type in res.body) {
-							if (type != types[i] || res.body[type] != drinks[type]) {
+							if (types.indexOf(type) < 0 || res.body[type] != drinks[type]) {
 								pass = false;
 								break;
 							}
-							i += 1;
 						}
 
 						if (pass) {
