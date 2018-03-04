@@ -25,6 +25,8 @@ var mapManager = new MAP_MANAGER();
 
 const MAX_NUM_TYPES = 3;
 
+var errors = 0;
+
 function _parseCookies(cookies) {
 	if (! cookies) return {};
 
@@ -37,6 +39,10 @@ function _parseCookies(cookies) {
 	}
 
 	return ret;
+}
+
+function _isInt(val) {
+	return val.match(/^-{0,1}\d+$/) != null;
 }
 
 tokenGen.sendToken(process.env.BOT_HOST); // Define bot IP in environment
@@ -265,6 +271,58 @@ HTTP.createServer(function(req, res) {
 							stream.pipe(res);
 							unlock();
 						});
+					});
+				}
+			});
+		} else if (url.pathname.toLowerCase().replace(/\//, '') === 'errors') {
+			var auth = HELPER.caseInsensitiveKey(req.headers, 'authorization');
+			var server_cookie = _parseCookies(req.headers.cookie).server_sessionId;
+
+			authManager.checkAuth(server_cookie, function(sessErr, sessPassed) {
+				if (sessErr) {
+					res.writeHead(500, sessErr, {'Content-Type': 'text/html'});
+					res.end();
+					return;
+				}
+
+				if (sessPassed) {
+					res.writeHead(200, {'Content-Type': 'application/json'});
+					res.write(errors.toString());
+					res.end();
+				} else {
+					if (! auth) {
+						res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
+						res.end();
+						return;
+					}
+
+					var token = auth.trim().split(' ')[1];
+
+					if (! token) {
+						res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
+						res.end();
+						return;
+					}
+
+					var buf = new Buffer(token, 'base64');
+					var plainAuth = buf.toString().split(':');
+
+					authManager.checkAuth(plainAuth[0], plainAuth[1], function(err, passed) {
+						if (err) {
+							res.writeHead(500, err, {'Content-Type': 'text/html'});
+							res.end();
+							return;
+						}
+
+						if (! passed) {
+							res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
+							res.end();
+							return;
+						}
+
+						res.writeHead(200, {'Content-Type': 'application/json'});
+						res.write(errors.toString());
+						res.end();
 					});
 				}
 			});
@@ -571,10 +629,17 @@ HTTP.createServer(function(req, res) {
 				});
 
 				req.on('end', function() {
-					// TODO: Handle POST body
+					body = body.trim();
 
-					res.writeHead(200, {'Content-Type': 'application/json'});
-					res.end();
+					if (_isInt(body)) {
+						errors = parseInt(body);
+
+						res.writeHead(200, {'Content-Type': 'application/json'});
+						res.end();
+					} else {
+						res.writeHead(400, 'Invalid error code', {'Content-Type': 'application/json'});
+						res.end();
+					}
 				});
 			});
 		} else if (url.pathname.toLowerCase().replace(/\//, '') === 'table') {

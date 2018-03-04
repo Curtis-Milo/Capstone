@@ -111,6 +111,18 @@ file
 ```
 
 
+##### Return unsigned integer representing error code.
+
+*${HOST}/map*
+
+AUTHORIZATION: Basic authorization using original administrator credentials.
+
+RETURNS:
+```javascript
+file
+```
+
+
 ## POST
 ##### Place an order in queue.
 

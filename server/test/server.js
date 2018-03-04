@@ -34,18 +34,16 @@ var tests = {
 					if (res.code < 200 || res.code > 299) {
 						resObj.testRes('Test GET /drinks endpoint', '', 200, res.code, 'fail');
 					} else {
-						var i = 0;
 						var pass = true;
 						var types = Object.keys(drinks);
 						if (types.length != Object.keys(res.body).length) {
 							pass = false;
 						}
 						for (let type in res.body) {
-							if (type != types[i] || res.body[type] != drinks[type]) {
+							if (types.indexOf(type) < 0 || res.body[type] != drinks[type]) {
 								pass = false;
 								break;
 							}
-							i += 1;
 						}
 
 						if (pass) {
@@ -84,6 +82,8 @@ var tests = {
 			userName: 'admin',
 			password: 'admin'
 		},
+
+		_error: 123,
 
 		updateCreds: function(resObj, host) {
 			var that = this;
@@ -177,6 +177,27 @@ var tests = {
 								}
 							}
 						});
+					}
+					resolve();
+				});
+			});
+		},
+
+		getErrorCode: function(resObj, host) {
+			var that = this;
+			return new Promise(function(resolve, reject) {
+				unirest.get(host + '/errors')
+				.headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
+				.auth(that._creds.userName, that._creds.password)
+				.end(function(res) {
+					if (res.code < 200 || res.code > 299) {
+						resObj.testRes('Test GET /errors endpoint', '', 200, res.code, 'fail');
+					} else {
+						if (res.raw_body === that._error.toString()) {
+							resObj.testRes('Test GET /errors endpoint', '', that._error.toString(), res.raw_body, 'pass');
+						} else {
+							resObj.testRes('Test GET /errors endpoint', '', that._error.toString(), res.raw_body, 'fail');
+						}
 					}
 					resolve();
 				});
@@ -344,6 +365,7 @@ var tests = {
 
 	robotTest: {
 		token: null,
+		_error: 123,
 
 		reqListenForToken: function(host, cb) {
 			var that = this;
@@ -430,6 +452,23 @@ var tests = {
 			});
 		},
 
+		setErrorCode: function(resObj, host) {
+			var that = this;
+			return new Promise(function(resolve, reject) {
+				unirest.post(host + '/errors')
+				.headers({'Accept': 'application/json', 'Content-Type': 'application/json', 'Authorization': `Bearer ${that.token}`})
+				.send(that._error.toString())
+				.end(function(res) {
+					if (res.code < 200 || res.code > 299) {
+						resObj.testRes('Test POST /errors endpoint', '', 200, res.code, 'fail');
+					} else {
+						resObj.testRes('Test POST /errors endpoint', '', 200, res.code, 'pass');
+					}
+					resolve();
+				});
+			});
+		},
+
 		nextOrder: function(resObj, host) {
 			var that = this;
 			return new Promise(function(resolve, reject) {
@@ -466,39 +505,44 @@ var tests = {
 const IP = 'http://localhost:8080';
 var resObj = new TestRes();
 
-tests.generalTest.getDrinks(resObj, IP).then(function() {
-	return tests.generalTest.getNumOfTanks(resObj, IP);
-}).then(function() {
-	return tests.adminTest.updateCreds(resObj, IP);
-}).then(function() {
-	return tests.adminTest.login(resObj, IP);
-}).then(function() {
-	return tests.adminTest.setMap(resObj, IP);
-}).then(function() {
-	return tests.adminTest.getMap(resObj, IP);
-}).then(function() {
-	return tests.adminTest.deleteDrink(resObj, IP);
-}).then(function() {
-	return tests.adminTest.addDrink(resObj, IP);
-}).then(function() {
-	return tests.clientTest.getToken(resObj, IP);
-}).then(function() {
-	return tests.clientTest.placeOrder(resObj, IP);
-}).then(function() {
-	return tests.clientTest.placeInLine(resObj, IP);
-}).then(function() {
-	return tests.clientTest.cancelOrder(resObj, IP);
-}).then(function() {
-	return tests.clientTest.placeOrder(resObj, IP);
-}).then(function() {
-	tests.robotTest.reqListenForToken(IP, function() {
-		tests.robotTest.checkToken(resObj, IP).then(function() {
-			return tests.robotTest.getMap(resObj, IP);
-		}).then(function() {
-			return tests.robotTest.nextOrder(resObj, IP);
-		}).then(function() {
-			console.log('DONE!');
-		});
+
+tests.robotTest.reqListenForToken(IP, function() {
+	tests.generalTest.getDrinks(resObj, IP).then(function() {
+		return tests.generalTest.getNumOfTanks(resObj, IP);
+	}).then(function() {
+		return tests.adminTest.updateCreds(resObj, IP);
+	}).then(function() {
+		return tests.adminTest.login(resObj, IP);
+	}).then(function() {
+		return tests.adminTest.setMap(resObj, IP);
+	}).then(function() {
+		return tests.adminTest.getMap(resObj, IP);
+	}).then(function() {
+		return tests.robotTest.setErrorCode(resObj, IP);
+	}).then(function() {
+		return tests.adminTest.getErrorCode(resObj, IP);
+	}).then(function() {
+		return tests.adminTest.deleteDrink(resObj, IP);
+	}).then(function() {
+		return tests.adminTest.addDrink(resObj, IP);
+	}).then(function() {
+		return tests.clientTest.getToken(resObj, IP);
+	}).then(function() {
+		return tests.clientTest.placeOrder(resObj, IP);
+	}).then(function() {
+		return tests.clientTest.placeInLine(resObj, IP);
+	}).then(function() {
+		return tests.clientTest.cancelOrder(resObj, IP);
+	}).then(function() {
+		return tests.clientTest.placeOrder(resObj, IP);
+	}).then(function() {
+		return tests.robotTest.checkToken(resObj, IP)
+	}).then(function() {
+		return tests.robotTest.getMap(resObj, IP);
+	}).then(function() {
+		return tests.robotTest.nextOrder(resObj, IP);
+	}).then(function() {
+		console.log('DONE!');
 	});
 });
 
