@@ -216,11 +216,28 @@ N/A
 ```
 
 
-##### Verify administrator credentials.
+##### Verify administrator credentials and start a session.
 
 *${HOST}/login*
 
 AUTHORIZATION: Basic authorization using original administrator credentials.
+
+BODY:
+```javascript
+N/A
+```
+
+RETURNS:
+```javascript
+N/A
+```
+
+
+##### End user session.
+
+*${HOST}/logout*
+
+AUTHORIZATION: Session cookie.
 
 BODY:
 ```javascript
