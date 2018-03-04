@@ -533,6 +533,8 @@ tests.robotTest.reqListenForToken(IP, function() {
 	}).then(function() {
 		return tests.adminTest.login(resObj, IP);
 	}).then(function() {
+		return tests.adminTest.logout(resObj, IP);
+	}).then(function() {
 		return tests.adminTest.setMap(resObj, IP);
 	}).then(function() {
 		return tests.adminTest.getMap(resObj, IP);
