@@ -85,6 +85,8 @@ var tests = {
 			password: 'admin'
 		},
 
+		_error: 123,
+
 		updateCreds: function(resObj, host) {
 			var that = this;
 			return new Promise(function(resolve, reject) {
@@ -177,6 +179,45 @@ var tests = {
 								}
 							}
 						});
+					}
+					resolve();
+				});
+			});
+		},
+
+		setErrorCode: function(resObj, host) {
+			var that = this;
+			return new Promise(function(resolve, reject) {
+				unirest.post(host + '/errors')
+				.headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
+				.auth(that._creds.userName, that._creds.password)
+				.send(that._error.toString())
+				.end(function(res) {
+					if (res.code < 200 || res.code > 299) {
+						resObj.testRes('Test POST /errors endpoint', '', 200, res.code, 'fail');
+					} else {
+						resObj.testRes('Test POST /errors endpoint', '', 200, res.code, 'pass');
+					}
+					resolve();
+				});
+			});
+		},
+
+		getErrorCode: function(resObj, host) {
+			var that = this;
+			return new Promise(function(resolve, reject) {
+				unirest.get(host + 'errors')
+				.headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
+				.auth(that._creds.userName, that._creds.password)
+				.end(function(res) {
+					if (res.code < 200 || res.code > 299) {
+						resObj.testRes('Test GET /errors endpoint', '', 200, res.code, 'fail');
+					} else {
+						if (res.raw_body === that._error.toString()) {
+							resObj.testRes('Test GET /errors endpoint', '', that._error.toString(), res.raw_body, 'pass');
+						} else {
+							resObj.testRes('Test GET /errors endpoint', '', that._error.toString(), res.raw_body, 'fail');
+						}
 					}
 					resolve();
 				});
