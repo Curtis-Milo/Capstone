@@ -518,6 +518,10 @@ tests.generalTest.getDrinks(resObj, IP).then(function() {
 }).then(function() {
 	return tests.adminTest.getMap(resObj, IP);
 }).then(function() {
+	return tests.adminTest.setErrorCode(resObj, IP);
+}).then(function() {
+	return tests.adminTest.getErrorCode(resObj, IP);
+}).then(function() {
 	return tests.adminTest.deleteDrink(resObj, IP);
 }).then(function() {
 	return tests.adminTest.addDrink(resObj, IP);
