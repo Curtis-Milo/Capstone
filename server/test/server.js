@@ -206,7 +206,7 @@ var tests = {
 		getErrorCode: function(resObj, host) {
 			var that = this;
 			return new Promise(function(resolve, reject) {
-				unirest.get(host + 'errors')
+				unirest.get(host + '/errors')
 				.headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
 				.auth(that._creds.userName, that._creds.password)
 				.end(function(res) {
