@@ -42,7 +42,7 @@ function _parseCookies(cookies) {
 }
 
 function _isInt(val) {
-	return num.match(/^-{0,1}\d+$/) != null;
+	return val.match(/^-{0,1}\d+$/) != null;
 }
 
 tokenGen.sendToken(process.env.BOT_HOST); // Define bot IP in environment
