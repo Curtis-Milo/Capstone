@@ -2,72 +2,73 @@
 \contentsline {section}{\numberline {2}\textbf {Project Drivers}}{5}{section.2}
 \contentsline {subsection}{\numberline {2.1}The Purpose of the Project}{5}{subsection.2.1}
 \contentsline {subsection}{\numberline {2.2}Scope}{5}{subsection.2.2}
-\contentsline {subsection}{\numberline {2.3}The Client, the Customer, and Other Stakeholders}{5}{subsection.2.3}
-\contentsline {subsubsection}{\numberline {2.3.1}Client and Customer}{5}{subsubsection.2.3.1}
-\contentsline {subsubsection}{\numberline {2.3.2}Stakeholders}{5}{subsubsection.2.3.2}
-\contentsline {subsection}{\numberline {2.4}Users of the Product}{6}{subsection.2.4}
+\contentsline {subsection}{\numberline {2.3}Typical Operations Overview}{5}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.4}The Client, the Customer, and Other Stakeholders}{5}{subsection.2.4}
+\contentsline {subsubsection}{\numberline {2.4.1}Client and Customer}{5}{subsubsection.2.4.1}
+\contentsline {subsubsection}{\numberline {2.4.2}Stakeholders}{6}{subsubsection.2.4.2}
+\contentsline {subsection}{\numberline {2.5}Users of the Product}{6}{subsection.2.5}
 \contentsline {section}{\numberline {3}\textbf {Project Constraints}}{6}{section.3}
 \contentsline {subsection}{\numberline {3.1}Mandated Constraints}{6}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Naming Conventions and Definitions}{6}{subsection.3.2}
-\contentsline {subsubsection}{\numberline {3.2.1}Naming Conventions}{6}{subsubsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2}Naming Conventions and Definitions}{7}{subsection.3.2}
+\contentsline {subsubsection}{\numberline {3.2.1}Naming Conventions}{7}{subsubsection.3.2.1}
 \contentsline {subsubsection}{\numberline {3.2.2}Constants}{7}{subsubsection.3.2.2}
 \contentsline {subsubsection}{\numberline {3.2.3}Monitored and Controlled Variables}{7}{subsubsection.3.2.3}
-\contentsline {subsection}{\numberline {3.3}Relevant Facts and Assumptions}{7}{subsection.3.3}
-\contentsline {subsubsection}{\numberline {3.3.1}Relevant Facts}{7}{subsubsection.3.3.1}
-\contentsline {subsubsection}{\numberline {3.3.2}Assumptions}{7}{subsubsection.3.3.2}
-\contentsline {section}{\numberline {4}Context Diagrams}{8}{section.4}
-\contentsline {section}{\numberline {5}Functional Requirements}{9}{section.5}
-\contentsline {subsection}{\numberline {5.1}Alfred Functional Requirements}{9}{subsection.5.1}
-\contentsline {subsection}{\numberline {5.2}Table Ordering Application Functional Requirements}{10}{subsection.5.2}
-\contentsline {subsection}{\numberline {5.3}Administrator Application Functional Requirements}{11}{subsection.5.3}
-\contentsline {section}{\numberline {6}Functional Decomposition Diagrams}{12}{section.6}
-\contentsline {section}{\numberline {7}Functional Requirements Likelihood of Change}{14}{section.7}
-\contentsline {subsection}{\numberline {7.1}Alfred Functional Requirements}{14}{subsection.7.1}
-\contentsline {subsection}{\numberline {7.2}Table Ordering Application Functional Requirements}{14}{subsection.7.2}
-\contentsline {subsection}{\numberline {7.3}Administrator Application Functional Requirements}{14}{subsection.7.3}
-\contentsline {section}{\numberline {8}Non-Functional Requirements}{15}{section.8}
-\contentsline {subsection}{\numberline {8.1}Look and Feel Requirements}{15}{subsection.8.1}
-\contentsline {subsubsection}{\numberline {8.1.1}Appearance Requirements}{15}{subsubsection.8.1.1}
-\contentsline {subsubsection}{\numberline {8.1.2}Style Requirements}{15}{subsubsection.8.1.2}
-\contentsline {subsection}{\numberline {8.2}Usability and Humanity Requirements}{15}{subsection.8.2}
-\contentsline {subsubsection}{\numberline {8.2.1}Ease of Use Requirements}{15}{subsubsection.8.2.1}
-\contentsline {subsubsection}{\numberline {8.2.2}Personalization and Internationalization Requirements}{16}{subsubsection.8.2.2}
-\contentsline {subsubsection}{\numberline {8.2.3}Learning Requirements }{16}{subsubsection.8.2.3}
-\contentsline {subsubsection}{\numberline {8.2.4}Understandability and Politeness Requirements}{16}{subsubsection.8.2.4}
-\contentsline {subsubsection}{\numberline {8.2.5}Accessibility Requirements }{16}{subsubsection.8.2.5}
-\contentsline {subsection}{\numberline {8.3}Performance Requirements}{16}{subsection.8.3}
-\contentsline {subsubsection}{\numberline {8.3.1}Speed Requirements }{16}{subsubsection.8.3.1}
-\contentsline {subsubsection}{\numberline {8.3.2}Safety-Critical Requirements }{17}{subsubsection.8.3.2}
-\contentsline {subsubsection}{\numberline {8.3.3}Precision Requirements}{17}{subsubsection.8.3.3}
-\contentsline {subsubsection}{\numberline {8.3.4}Reliability or Availability Requirements}{17}{subsubsection.8.3.4}
-\contentsline {subsubsection}{\numberline {8.3.5}Robustness or Fault-Tolerance Requirements }{17}{subsubsection.8.3.5}
-\contentsline {subsubsection}{\numberline {8.3.6}Capacity Requirements }{18}{subsubsection.8.3.6}
-\contentsline {subsubsection}{\numberline {8.3.7}Scalability or Extensibility Requirements }{18}{subsubsection.8.3.7}
-\contentsline {subsubsection}{\numberline {8.3.8}Longevity Requirements }{18}{subsubsection.8.3.8}
-\contentsline {subsection}{\numberline {8.4}Operational and Environmental Requirements}{18}{subsection.8.4}
-\contentsline {subsubsection}{\numberline {8.4.1}Expected Physical Environment }{18}{subsubsection.8.4.1}
-\contentsline {subsubsection}{\numberline {8.4.2}Requirements for Interacting with Adjacent Systems}{18}{subsubsection.8.4.2}
-\contentsline {subsection}{\numberline {8.5}Maintainability and Support Requirements }{18}{subsection.8.5}
-\contentsline {subsubsection}{\numberline {8.5.1}Maintenance Requirements }{18}{subsubsection.8.5.1}
-\contentsline {subsubsection}{\numberline {8.5.2}Supportability Requirements }{19}{subsubsection.8.5.2}
-\contentsline {subsubsection}{\numberline {8.5.3}Adaptability Requirements}{19}{subsubsection.8.5.3}
-\contentsline {subsection}{\numberline {8.6}Security Requirements }{19}{subsection.8.6}
-\contentsline {subsubsection}{\numberline {8.6.1}Access Requirements }{19}{subsubsection.8.6.1}
-\contentsline {subsubsection}{\numberline {8.6.2}Integrity Requirements }{19}{subsubsection.8.6.2}
-\contentsline {subsubsection}{\numberline {8.6.3}Privacy Requirements }{19}{subsubsection.8.6.3}
-\contentsline {subsubsection}{\numberline {8.6.4}Audit Requirements}{19}{subsubsection.8.6.4}
-\contentsline {subsubsection}{\numberline {8.6.5}Immunity Requirements}{19}{subsubsection.8.6.5}
-\contentsline {subsection}{\numberline {8.7}Cultural and Political Requirements }{20}{subsection.8.7}
-\contentsline {subsubsection}{\numberline {8.7.1}Cultural Requirements }{20}{subsubsection.8.7.1}
-\contentsline {subsubsection}{\numberline {8.7.2}Political Requirements }{20}{subsubsection.8.7.2}
-\contentsline {subsection}{\numberline {8.8}Legal Requirements}{20}{subsection.8.8}
-\contentsline {subsubsection}{\numberline {8.8.1}Compliance Requirements }{20}{subsubsection.8.8.1}
-\contentsline {subsubsection}{\numberline {8.8.2}Standards Requirements }{20}{subsubsection.8.8.2}
-\contentsline {section}{\numberline {9}Project Issues}{20}{section.9}
-\contentsline {subsection}{\numberline {9.1}Open Issues}{20}{subsection.9.1}
-\contentsline {subsection}{\numberline {9.2}Off-the-Shelf Solutions}{21}{subsection.9.2}
-\contentsline {subsubsection}{\numberline {9.2.1}Ready-Made Products}{21}{subsubsection.9.2.1}
-\contentsline {subsection}{\numberline {9.3}Risks}{21}{subsection.9.3}
-\contentsline {subsection}{\numberline {9.4}Costs}{21}{subsection.9.4}
-\contentsline {subsection}{\numberline {9.5}Waiting Room}{21}{subsection.9.5}
+\contentsline {subsection}{\numberline {3.3}Relevant Facts and Assumptions}{8}{subsection.3.3}
+\contentsline {subsubsection}{\numberline {3.3.1}Relevant Facts}{8}{subsubsection.3.3.1}
+\contentsline {subsubsection}{\numberline {3.3.2}Assumptions}{8}{subsubsection.3.3.2}
+\contentsline {section}{\numberline {4}Context Diagrams}{9}{section.4}
+\contentsline {section}{\numberline {5}Functional Decomposition Diagrams}{10}{section.5}
+\contentsline {section}{\numberline {6}Functional Requirements}{12}{section.6}
+\contentsline {subsection}{\numberline {6.1}Alfred Functional Requirements}{12}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}Table Ordering Application Functional Requirements}{14}{subsection.6.2}
+\contentsline {subsection}{\numberline {6.3}Administrator Application Functional Requirements}{14}{subsection.6.3}
+\contentsline {section}{\numberline {7}Functional Requirements Likelihood of Change}{15}{section.7}
+\contentsline {subsection}{\numberline {7.1}Alfred Functional Requirements}{15}{subsection.7.1}
+\contentsline {subsection}{\numberline {7.2}Table Ordering Application Functional Requirements}{15}{subsection.7.2}
+\contentsline {subsection}{\numberline {7.3}Administrator Application Functional Requirements}{16}{subsection.7.3}
+\contentsline {section}{\numberline {8}Non-Functional Requirements}{16}{section.8}
+\contentsline {subsection}{\numberline {8.1}Look and Feel Requirements}{16}{subsection.8.1}
+\contentsline {subsubsection}{\numberline {8.1.1}Appearance Requirements}{16}{subsubsection.8.1.1}
+\contentsline {subsubsection}{\numberline {8.1.2}Style Requirements}{16}{subsubsection.8.1.2}
+\contentsline {subsection}{\numberline {8.2}Usability and Humanity Requirements}{17}{subsection.8.2}
+\contentsline {subsubsection}{\numberline {8.2.1}Ease of Use Requirements}{17}{subsubsection.8.2.1}
+\contentsline {subsubsection}{\numberline {8.2.2}Personalization and Internationalization Requirements}{17}{subsubsection.8.2.2}
+\contentsline {subsubsection}{\numberline {8.2.3}Learning Requirements }{17}{subsubsection.8.2.3}
+\contentsline {subsubsection}{\numberline {8.2.4}Understandability and Politeness Requirements}{17}{subsubsection.8.2.4}
+\contentsline {subsubsection}{\numberline {8.2.5}Accessibility Requirements }{17}{subsubsection.8.2.5}
+\contentsline {subsection}{\numberline {8.3}Performance Requirements}{17}{subsection.8.3}
+\contentsline {subsubsection}{\numberline {8.3.1}Speed Requirements }{18}{subsubsection.8.3.1}
+\contentsline {subsubsection}{\numberline {8.3.2}Safety-Critical Requirements }{18}{subsubsection.8.3.2}
+\contentsline {subsubsection}{\numberline {8.3.3}Precision Requirements}{18}{subsubsection.8.3.3}
+\contentsline {subsubsection}{\numberline {8.3.4}Reliability or Availability Requirements}{19}{subsubsection.8.3.4}
+\contentsline {subsubsection}{\numberline {8.3.5}Robustness or Fault-Tolerance Requirements }{19}{subsubsection.8.3.5}
+\contentsline {subsubsection}{\numberline {8.3.6}Capacity Requirements }{19}{subsubsection.8.3.6}
+\contentsline {subsubsection}{\numberline {8.3.7}Scalability or Extensibility Requirements }{19}{subsubsection.8.3.7}
+\contentsline {subsubsection}{\numberline {8.3.8}Longevity Requirements }{19}{subsubsection.8.3.8}
+\contentsline {subsection}{\numberline {8.4}Operational and Environmental Requirements}{19}{subsection.8.4}
+\contentsline {subsubsection}{\numberline {8.4.1}Expected Physical Environment }{19}{subsubsection.8.4.1}
+\contentsline {subsubsection}{\numberline {8.4.2}Requirements for Interacting with Adjacent Systems}{19}{subsubsection.8.4.2}
+\contentsline {subsection}{\numberline {8.5}Maintainability and Support Requirements }{20}{subsection.8.5}
+\contentsline {subsubsection}{\numberline {8.5.1}Maintenance Requirements }{20}{subsubsection.8.5.1}
+\contentsline {subsubsection}{\numberline {8.5.2}Supportability Requirements }{20}{subsubsection.8.5.2}
+\contentsline {subsubsection}{\numberline {8.5.3}Adaptability Requirements}{20}{subsubsection.8.5.3}
+\contentsline {subsection}{\numberline {8.6}Security Requirements }{20}{subsection.8.6}
+\contentsline {subsubsection}{\numberline {8.6.1}Access Requirements }{20}{subsubsection.8.6.1}
+\contentsline {subsubsection}{\numberline {8.6.2}Integrity Requirements }{20}{subsubsection.8.6.2}
+\contentsline {subsubsection}{\numberline {8.6.3}Privacy Requirements }{20}{subsubsection.8.6.3}
+\contentsline {subsubsection}{\numberline {8.6.4}Audit Requirements}{21}{subsubsection.8.6.4}
+\contentsline {subsubsection}{\numberline {8.6.5}Immunity Requirements}{21}{subsubsection.8.6.5}
+\contentsline {subsection}{\numberline {8.7}Cultural and Political Requirements }{21}{subsection.8.7}
+\contentsline {subsubsection}{\numberline {8.7.1}Cultural Requirements }{21}{subsubsection.8.7.1}
+\contentsline {subsubsection}{\numberline {8.7.2}Political Requirements }{21}{subsubsection.8.7.2}
+\contentsline {subsection}{\numberline {8.8}Legal Requirements}{21}{subsection.8.8}
+\contentsline {subsubsection}{\numberline {8.8.1}Compliance Requirements }{21}{subsubsection.8.8.1}
+\contentsline {subsubsection}{\numberline {8.8.2}Standards Requirements }{21}{subsubsection.8.8.2}
+\contentsline {section}{\numberline {9}Project Issues}{22}{section.9}
+\contentsline {subsection}{\numberline {9.1}Open Issues}{22}{subsection.9.1}
+\contentsline {subsection}{\numberline {9.2}Off-the-Shelf Solutions}{22}{subsection.9.2}
+\contentsline {subsubsection}{\numberline {9.2.1}Ready-Made Products}{22}{subsubsection.9.2.1}
+\contentsline {subsection}{\numberline {9.3}Risks}{22}{subsection.9.3}
+\contentsline {subsection}{\numberline {9.4}Costs}{23}{subsection.9.4}
+\contentsline {subsection}{\numberline {9.5}Waiting Room}{23}{subsection.9.5}
 \contentsfinish 

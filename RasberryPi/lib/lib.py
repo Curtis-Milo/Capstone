@@ -51,7 +51,7 @@ def reqNextOrder():
 	headers = {
 		"Authorization": auth['token_type'] + " " + auth['access_token']
 	}
-	requests.get(host, headers=headers)
+	r = requests.get(host, headers=headers)
 	if  r.status_code in range(200, 300):
 		return r.json()
 	else:

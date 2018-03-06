@@ -40,6 +40,10 @@ public class DrinksViewAdapter extends BaseAdapter {
 
     public ArrayList<Drink> getAllItems() {return drinks;}
 
+    public void setAllItems(ArrayList<Drink> drinks) {
+        this.drinks = drinks;
+    }
+
     @Override
     public Object getItem(int position) {
         return drinks.get(position);
@@ -83,7 +87,7 @@ public class DrinksViewAdapter extends BaseAdapter {
 
         holder.name.setText(drink.getName());
         holder.image.setImageResource(drink.getImage());
-        holder.price.setText(Double.toString(drink.getPrice()));
+        holder.price.setText("$" + Double.toString(drink.getPrice()));
         holder.calories.setText(Integer.toString(drink.getCalories()));
         holder.amount.setMinValue(0);
         holder.amount.setMaxValue(25);

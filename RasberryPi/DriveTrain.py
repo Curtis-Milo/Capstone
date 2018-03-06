@@ -2,41 +2,61 @@
 #https://www.sunfounder.com/learn/Super_Kit_V2_for_RaspberryPi/lesson-8-rotary-encoder-super-kit-for-raspberrypi.html
 from Graph import *
 import RPi.GPIO as GPIO
-from time import *
+import time
 from Encoder import *
 import math
 from ImageRec import *
 from UltraSonicCheck import *
+from slew import *
 from PI import *
+
 class DriveTrain():
 	def __init__(self):
 		#encoder pins (TODO set pins)
 		GPIO.setmode(GPIO.BCM)
 		self.currNode ="Base"
-		self.EncoderA = Encoder(27,22)
-		self.EncoderB = Encoder(10,9)
+		self.EncoderL = Encoder(27,22,0)
+		self.EncoderR = Encoder(10,9,1)
 		self.circleChecker = ImageRec()
 		self.UltraSonic = UltraSonic()
 		#Motor H brige GPIO pins
-		self.Motor1A = 18 # set GPIO-18 as Input 1 of the controller IC
-		self.Motor1B = 24 # set GPIO-24 as Input 2 of the controller IC
-		self.PWM_A = 23
-		self.PWM_B = 25
-		GPIO.setup(self.Motor1A,GPIO.OUT)
-		GPIO.setup(self.Motor1B,GPIO.OUT)
-		GPIO.setup(self.PWM_A,GPIO.OUT)
-		GPIO.setup(self.PWM_B,GPIO.OUT)
-		pwmRight=GPIO.PWM(self.PWM_A,100) # configuring Enable pin means GPIO-04 for PWM
-		pwmLeft =GPIO.PWM(self.PWM_B,100) # configuring Enable pin means GPIO-04 for PWM
+		self.MotorL = 18 # set GPIO-18 as Input 1 of the controller IC
+		self.MotorR = 24 # set GPIO-24 as Input 2 of the controller IC
+		self.PWM_L = 23
+		self.PWM_R = 25
+		GPIO.setup(self.MotorL,GPIO.OUT)
+		GPIO.setup(self.MotorR,GPIO.OUT)
+		GPIO.setup(self.PWM_L,GPIO.OUT)
+		GPIO.setup(self.PWM_R,GPIO.OUT)
+		self.pwmRight=GPIO.PWM(self.PWM_L,100) # configuring Enable pin means GPIO-04 for PWM
+		self.pwmLeft =GPIO.PWM(self.PWM_R,100) # configuring Enable pin means GPIO-04 for PWM
 		#CALS
-		self.encoderCountsMin =100;
-		self.countPerDeg = 0.001; #Need to look up
-		self.refSpeedFrwd = 300*(math.pi/30.0)
+		self.encoderCountsMin =20
+		self.countPerRad = 2*(38.0/math.pi)
+		self.refSpeedFrwd = 20
 		self.refSpeedTurn = 100*(math.pi/30.0)
-		self.batteryMax = 18.0;
-		self.PiA = PI_Controller(1,1)
-		self.PiB = PI_Controller(1,1)
-	
+		self.batteryMax = 18.0
+		self.hist =100
+		self.Pi_L = PI_Controller(0.4,0.01)
+		self.Pi_R = PI_Controller(0.5,0.01)
+		self.Pi_Angle = PI_Controller(1,1)
+
+		self.MaxOutStrtL = 15
+		self.MinOutStrtL = 10
+		self.MaxOutStrtR = 15
+		self.MinOutStrtR = 10
+
+		self.MaxOutTrnL = 30
+		self.MinOutTrnL = 25
+		self.MaxOutTrnR = 30
+		self.MinOutTrnR = 25
+
+		self.WheelRad = 0.09
+		self.RobotRad = 0.3
+
+		self.slewRateRight = Slew(1,self.MinOutStrtR)
+		self.slewRateLeft = Slew(1,self.MinOutStrtL)
+
 	def driveToLocation(self,toNode):
 		visited, path = self.map.dijsktra(self.currNode)
 		node = toNode
@@ -66,96 +86,149 @@ class DriveTrain():
 			
 		self.currNode = toNode
 			
-		
-	def turn(self, angle_deg):
-		time_prev= time()
-		self.circleChecker.captureImage()
-		circles = self.circleChecker.checkForCircle()
+	def limit(self,value,minV,maxV):
+		value = min(value,maxV)
+		value = max(value,minV)
+		return value
 
-		TargetAngle = int(angle_deg)/45
+	def checkEncoder(self):
+		self.EncoderL.rotaryDeal()
+		self.EncoderR.rotaryDeal()
+
+	def turn(self, TargetAngle):
+		time_prev= time.time()
 		currentAngle = 0
-		pwmRight.start(0)
-		pwmLeft.start(0)
-		while currentAngle != TargetAngle:
-			while self.EncoderA.getEncoderCount() < self.encoderCountsMin:
-				delta_t = time() - time_prev
-				time_prev = time()
-				speedFdbk_A = self.EncoderA.getEncoderCount() /delta_t
-				speedFdbk_B = self.EncoderA.getEncoderCount() /delta_t
+		if(currentAngle < TargetAngle):
+			GPIO.output(self.MotorL,GPIO.HIGH)
+			GPIO.output(self.MotorR,GPIO.HIGH)
+		elif(TargetAngle < currentAngle):
+			GPIO.output(self.MotorL,GPIO.LOW)
+			GPIO.output(self.MotorR,GPIO.LOW)
+		self.slewRateRight.Reset(self.MinOutTrnR)
+		self.slewRateLeft.Reset(self.MinOutTrnL)
+		self.Pi_R.Reset()
+		self.Pi_L.Reset()
+		self.pwmRight.start(self.MinOutTrnR)
+		self.pwmLeft.start(self.MinOutTrnL)
+		distances =0 
+		try:
+			while 1 < abs(currentAngle -TargetAngle):
+				self.checkEncoder()
+				while self.encoderCountsMin<   abs(self.EncoderR.getEncoderCount()):
 
-				if(currentAngle < TargetAngle):
-					signA = 1.0
-					signB = -1.0
-					GPIO.output(Motor1A,GPIO.HIGH)
-					GPIO.output(Motor1B,GPIO.LOW)
-				elif(TargetAngle < currentAngle):
-					signA = -1.0
-					signB = 1.0
-					GPIO.output(Motor1A,GPIO.LOW)
-					GPIO.output(Motor1B,GPIO.HIGH)
-				
-				GPIO.output(Motor1A,GPIO.HIGH)
-				GPIO.output(Motor1B,GPIO.HIGH)
-				errRight = self.PiA.PI_Calc(signA*self.refSpeedTurn, speedFdbk_A)
-				errLeft = self.PiB.PI_Calc(signB*self.refSpeedTurn, speedFdbk_B)
-				
-				duty_cycleR = 100*(errRight/self.batteryMax)
-				duty_cycleL = 100*(errLeft/self.batteryMax)
-				pwmRight.ChangeDutyCycle(duty_cycleR)
-				pwmLeft.ChangeDutyCycle(duty_cycleL)
-				self.circleChecker.captureImage()
-				circles = self.circleChecker.checkForCircle()
+					distances += self.WheelRad*(self.EncoderR.getEncoderCount()/self.countPerRad)
 
-				if circles is not None:
-					# convert the (x, y) coordinates and radius of the circles to integers
-					circles = np.round(circles[0, :]).astype("int")
-			 
-					# loop over the (x, y) coordinates and radius of the circles
-					for (x, y, r) in circles:
-						dist = ((self.circleChecker.end_x -x)**2 + (self.circleChecker.end_y -y)**2)**0.5
-						if  dist < self.hist:
-							currentAngle =currentAngle + 1
-
-		pwm.stop()
-
-	def drive(self,distance_meters):
-		time_prev= time()
-		circlefound = False;
-		GPIO.output(Motor1A,GPIO.HIGH)
-		GPIO.output(Motor1B,GPIO.HIGH)
-		pwm.start(0)
-		while not circlefound:
-			while self.EncoderA.getEncoderCount() < self.encoderCountsMin:
-				delta_t = time() - time_prev
-				time_prev = time()
-				speedFdbk_A = self.EncoderA.getEncoderCount() /delta_t
-				speedFdbk_B = self.EncoderB.getEncoderCount() /delta_t
-				self.EncoderA.clear()
-				self.EncoderB.clear()
-				if self.UltraSonic.nothingBlocking():
-					errRight = abs(self.PiA.PI_Calc(signA*self.refSpeedTurn, speedFdbk_A))
-					errLeft = abs(self.PiB.PI_Calc(signB*self.refSpeedTurn, speedFdbk_B))
+					currentAngle = math.atan2(distances,self.RobotRad)  
+					print "CurrAng: ", str(currentAngle),"TargetAng: ", str(TargetAngle)
+					if(currentAngle < TargetAngle):
+						sign_L = 1.0
+						sign_R = -1.0
+						GPIO.output(self.MotorL,GPIO.HIGH)
+						GPIO.output(self.MotorR,GPIO.HIGH)
+					elif(TargetAngle < currentAngle):
+						sign_L = -1.0
+						sign_R = 1.0
+						GPIO.output(self.MotorL,GPIO.LOW)
+						GPIO.output(self.MotorR,GPIO.LOW)
 					
-					duty_cycleR = max(100*(errRight/self.batteryMax),75)
-					duty_cycleL =  max(100*(errLeft/self.batteryMax),75)
-					pwmRight.ChangeDutyCycle(duty_cycleR)
-					pwmLeft.ChangeDutyCycle(duty_cycleL)
-				else:
-					pwmRight.ChangeDutyCycle(0)
-					pwmLeft.ChangeDutyCycle(0)
+					err = abs(self.Pi_Angle.PI_Calc(TargetAngle, currentAngle))
+					
 
-				self.circleChecker.captureImage()
-				circles = self.circleChecker.checkForCircle()
+					
+					#Calculating Percentage
+					duty_cycleR = self.slewRateRight.slewValue(100*(err/self.batteryMax))
+					duty_cycleL = self.slewRateLeft.slewValue(100*(err/self.batteryMax))
 
-				if circles is not None:
-					# convert the (x, y) coordinates and radius of the circles to integers
-					circles = np.round(circles[0, :]).astype("int")
-			 
-					# loop over the (x, y) coordinates and radius of the circles
-					for (x, y, r) in circles:
-						dist = ((self.circleChecker.mid_x -x)**2 + (self.circleChecker.mid_y -y)**2)**0.5
-						if  dist < self.hist:
-							circlefound =  True
-							
-		 
-		pwm.stop()
+					#limiting the duty cycles
+					duty_cycleR = self.limit(duty_cycleR, self.MinOutTrnR,self.MaxOutTrnR)
+					duty_cycleL = self.limit(duty_cycleL, self.MinOutTrnL,self.MaxOutTrnL)
+					self.pwmRight.ChangeDutyCycle(duty_cycleR)
+					self.pwmLeft.ChangeDutyCycle(duty_cycleL)
+					self.EncoderL.resetEncoderCount()
+					self.EncoderR.resetEncoderCount()
+		except Exception as e:
+			print(e)
+			self.runEconderThread = False
+		
+		finally:
+			self.pwmRight.ChangeDutyCycle(0)
+			self.pwmLeft.ChangeDutyCycle(0)
+
+	def drive(self):
+		time_prev= time.time()
+		circlefound = False
+		GPIO.output(self.MotorL,GPIO.HIGH)
+		GPIO.output(self.MotorR,GPIO.LOW)
+		wasBlocked = False
+		self.slewRateRight.Reset(self.MinOutStrtR)
+		self.slewRateLeft.Reset(self.MinOutStrtL)
+		self.Pi_R.Reset()
+		self.Pi_L.Reset()
+		self.pwmRight.start(self.MinOutStrtR)
+		self.pwmLeft.start(self.MinOutStrtL)
+		time_elapse  = 0 
+		try:
+			while not circlefound:
+				self.checkEncoder()
+				while self.encoderCountsMin<   abs(self.EncoderR.getEncoderCount()):
+
+					delta_t = time.time() - time_prev
+					time_elapse += delta_t
+					time_prev = time.time()
+					speedFdbk_L = self.EncoderL.getEncoderCount() /delta_t
+					speedFdbk_R = self.EncoderR.getEncoderCount() /delta_t
+					notBlocked = self.UltraSonic.nothingBlocking()
+					if wasBlocked and notBlocked:
+							self.pwmRight.start(self.MinOutStrtR)
+							self.pwmLeft.start(self.MinOutStrtL)
+							wasBlocked = False
+					elif notBlocked:
+						#print "Right "
+						errRight = self.Pi_R.PI_Calc(self.refSpeedFrwd, speedFdbk_R)
+						#print "Left "
+						errLeft = self.Pi_L.PI_Calc(self.refSpeedFrwd, speedFdbk_L)
+						#print "Error L: " + str(errLeft) + " Error R: " + str(errRight)
+						#Calculating Percentage
+						
+						duty_cycleR = self.slewRateRight.slewValue(100.0*(errRight/self.batteryMax))
+						duty_cycleL = self.slewRateLeft.slewValue(100.0*(errLeft/self.batteryMax))
+						
+						#limiting the duty cycles
+						duty_cycleR = self.limit(duty_cycleR, self.MinOutStrtR,self.MaxOutStrtR)
+						duty_cycleL = self.limit(duty_cycleL, self.MinOutStrtL,self.MaxOutStrtL)
+
+						#print "Duty L: " + str(duty_cycleL) + " Duty R: " + str(duty_cycleR)
+						
+						self.pwmRight.ChangeDutyCycle(duty_cycleR)
+						self.pwmLeft.ChangeDutyCycle(duty_cycleL)
+					else:
+						self.pwmRight.stop()
+						self.pwmLeft.stop()
+						wasBlocked = True
+						print "blocked"
+
+					self.EncoderL.resetEncoderCount()
+					self.EncoderR.resetEncoderCount()
+					self.circleChecker.captureImage()
+					if 1< time_elapse:
+						time_elapse =0
+						circles = self.circleChecker.checkForCircle()
+
+						if circles is not None:
+							#print "circles found " + str(len(circles))
+							# convert the (x, y) coordinates and radius of the circles to integers
+							circles = np.round(circles[0, :]).astype("int")
+					 
+							# loop over the (x, y) coordinates and radius of the circles
+							for (x, y, r) in circles:
+									circlefound =  True
+						else:
+							pass
+							#print "No circles"
+		except Exception as e:
+			print(e)
+			self.runEconderThread = False
+
+		finally:
+			self.pwmRight.stop()
+			self.pwmLeft.stop()

@@ -1,8 +1,10 @@
+# Check if server running
+- Run 'ps -ef | grep server'
+
 # Running server
 - Set environment variable "BOT_HOST" with IP address of robot.
 - Run 'npm install'.
 - Run 'node server.js'
-
 
 # API Reference
 ## GET
@@ -102,6 +104,18 @@ int
 *${HOST}/map*
 
 AUTHORIZATION: Basic authorization using original administrator credentials OR Bearer token auth, using token generated and passed to robot.
+
+RETURNS:
+```javascript
+file
+```
+
+
+##### Return unsigned integer representing error code.
+
+*${HOST}/map*
+
+AUTHORIZATION: Basic authorization using original administrator credentials.
 
 RETURNS:
 ```javascript

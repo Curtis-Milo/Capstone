@@ -8,7 +8,6 @@ from lib.lib import *
 class Robot():
 	def __init__(self):
 		self.drivetrain = DriveTrain();
-		self.getMap();
 		self.currAngle = 0
 		self.toOrder = "Base"
 		self.order = None
@@ -16,7 +15,7 @@ class Robot():
 		self.time = 0
 		self.timeoutCal = 1000
 
-		self.tablesList ={};
+		self.tablesList ={}
 		
 		self.statesEnum= {"WaitingForRequest":0,
 						  "RecevingMap":1,
@@ -25,6 +24,7 @@ class Robot():
 						  "Pumping":4}
 
 		self.state= "WaitingForRequest"
+		self.getMap()
 
 	def main(self):
 		try:
@@ -157,18 +157,23 @@ class Robot():
 		
 	def communicateToArduino(self):
 		#https://oscarliang.com/raspberry-pi-and-arduino-connected-serial-gpio/
-		ser = serial.Serial('/dev/ttyAMA0', 9600, timeout=1)
-		ser.open()
 		bitdone = 0
 		try:
-			while not bitdone or self.errors:
-				ser.write(self.order.toString())
-				response = ser.readline()
-				bitdone = response&0x00000001
-				self.errors = self.errors| response>>2
+			done =ser.write("d1d2x")
+			while bitdone != 1:
+				inData = ser.read()
+				input_number = ord(inData)
+			
+				if inData != 'x':
+					self.errors = self.errors| input_number
+				else:
+					bitdone =1
+
 		except KeyboardInterrupt:
+			pass
+		finally:
 			ser.close()
 
- 
+ser = serial.Serial('/dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0', 9600)
 robot = Robot()
-robot.main()
+#robot.main()

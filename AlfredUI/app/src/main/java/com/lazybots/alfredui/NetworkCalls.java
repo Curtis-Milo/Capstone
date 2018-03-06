@@ -142,6 +142,7 @@ public class NetworkCalls extends AsyncTask {
 
     @Override
     protected void onPostExecute(Object result) {
+
         delegate.processFinish((int) ((Object[]) result)[0], ((Object[]) result)[1]);
     }
 }

@@ -15,9 +15,9 @@ import java.util.ArrayList;
 
 public class DrinkCartListAdapter extends BaseAdapter {
 
+    private static LayoutInflater inflater = null;
     Context context;
     ArrayList<String[]> currentCart;
-    private static LayoutInflater inflater = null;
 
     public DrinkCartListAdapter(Context context, ArrayList<String[]> currentCart) {
         this.context = context;
@@ -50,7 +50,7 @@ public class DrinkCartListAdapter extends BaseAdapter {
 
         name.setText(currentCart.get(position)[0]);
         amt.setText(currentCart.get(position)[1]);
-        price.setText(currentCart.get(position)[2]);
+        price.setText("$" + currentCart.get(position)[2]);
 
         return vi;
     }
