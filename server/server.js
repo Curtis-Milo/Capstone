@@ -50,8 +50,7 @@ function _resolveRole(req, cb) {
 		robot: false,
 		admin: false,
 		client: false,
-		is_sess: false,
-		table_id: null
+		is_sess: false
 	};
 
 	var auth = HELPER.caseInsensitiveKey(req.headers, 'authorization');
@@ -194,6 +193,8 @@ HTTP.createServer(function(req, res) {
 		} else if (req.method.toUpperCase() === 'POST') {
 			if (url.pathname.toLowerCase().replace(/\//, '') === 'placeorder') {
 				if (roles.client) {
+					var table_id = HELPER.caseInsensitiveKey(url.query, 'table_id');
+
 					var body = '';
 					req.on('data', function(data) {
 						body += data;
