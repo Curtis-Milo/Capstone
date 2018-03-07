@@ -54,6 +54,7 @@ function _resolveRole(req, cb) {
 	};
 
 	var auth = HELPER.caseInsensitiveKey(req.headers, 'authorization');
+	var table_id = HELPER.caseInsensitiveKey(req.headers, 'table_id');
 	var server_cookie = _parseCookies(req.headers.cookie).server_sessionId;
 
 	authManager.checkAuth(server_cookie, function(sessErr, sessPassed) {
@@ -71,7 +72,7 @@ function _resolveRole(req, cb) {
 						roles.robot = robotPassed;
 					}
 
-					tableManager.checkToken(token, function(tableErr, tablePassed) {
+					tableManager.checkToken(table_id, token, function(tableErr, tablePassed) {
 						if (! tableErr) {
 							roles.client = tablePassed;
 						}
