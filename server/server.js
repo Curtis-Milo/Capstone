@@ -9,7 +9,7 @@ const TABLE_MANAGER = require('./lib/table_mgmt');
 const ORDER = require('./lib/order');
 const FS = require('fs');
 const LOCKS = require('locks');
-const MAP_MANAGER = require('./lib/map_manager')
+const MAP_MANAGER = require('./lib/map_manager');
 
 var mutex = LOCKS.createMutex();
 

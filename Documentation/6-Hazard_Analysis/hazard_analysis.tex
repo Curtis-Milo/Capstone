@@ -197,7 +197,7 @@ linkcolor=black,}  %choose some color if you want links to stand out
 
 % Header
 \lhead{Draft Hazard Analysis}
-\rhead{Revision: 0}
+\rhead{Revision: 1}
 \fancyhead[LE,CO]{Group 9: LazyBots}
 
 % Removes line under the header 
@@ -292,11 +292,19 @@ Alexandra Rahman & & 001305735
 		Marko Laban \newline
 		Curtis Milo \newline
 		Keyur Patel \newline
-		Alexandra Rahman}
- &
- 
-% ------------------------------------------------------- Comments -------------------------------------------------------
-\multirow{4}{*}{-} \\ 
+		Alexandra Rahman} &
+ \multirow{4}{*}{-} \\ 
+\hline 
+
+\multirow{4}{*}{\centering March 6\textsuperscript{th}, 2018}  & 
+\multirow{4}{*}{Revision 1}& 
+		{Karim Guirguis \newline
+		David Hemms \newline
+		Marko Laban \newline
+		Curtis Milo \newline
+		Keyur Patel \newline
+		Alexandra Rahman} &
+{Added the section to include the scope of the project as well as edited the FMEA table to include hazards that have been previously overlooked. }\\
 \hline 
 
 \end{longtable}
@@ -314,9 +322,13 @@ Alexandra Rahman & & 001305735
 
 % ------------------------------------------------------- Document Purpose ------------------------------------------------------- %
 \subsection{Document Purpose}
-The purpose of this document is to identify the components of Alfred which could potentially have hazardous consequences, and either eliminate them or reduce its risk to an acceptable level. Hazard analysis should be performed for all the major phases of the software development lifecycle, including requirements, architectural design, detailed design, and actual code. In particular, this document will look at the hazardous potential when the system works correctly, as well as when the system works incorrectly. \\
-Hazards will be identified based on hazards from similar systems, as well as any hazards that occur during development/lifecycle of the system.\\
+The purpose of this document is to identify the components of Alfred which could potentially have hazardous consequences, and either eliminate them or reduce its risk to an acceptable level. Hazard analysis should be performed for all the major phases of the software development lifecycle, including requirements, architectural design, detailed design, and actual code. In particular, this document will look at the hazardous potential when the system works correctly, as well as when the system works incorrectly. \\ \newline
+Hazards will be identified based on hazards from similar systems, as well as any hazards that occur during development/lifecycle of the system.\\ \newline
 For this report we will analyze the hazards which can be affected by our mechanical and software systems.
+
+% --------------------------------------------------------------- Scope --------------------------------------------------------------- %
+\subsection{Scope}
+The system implemented is one that is meant to automate the dispensing of beverages to customers within a restaurant at the respective customers' table. The customer will be able to order a drink from their table which will be followed by Alfred arriving at their table and dispensing the requested drinks. The staff will be able to request Alfred to return to a Home Base for charging and refilling when desired. 
 
 % ------------------------------------------------------------ Definitions ------------------------------------------------------------ %
 \subsection{Definitions}
@@ -332,7 +344,7 @@ For this report we will analyze the hazards which can be affected by our mechani
 
 % ---------------------------------------------------- COMPONENT OVERVIEW --------------------------------------------------- %
 \section{Component Overview}
-The components can be divided into ten components;
+The components can be divided into the following ten components:
 
 % ------------------------------------------------------ Drink Ordering System ------------------------------------------------------- %
 \subsection{Drink Ordering System}
@@ -502,8 +514,218 @@ Alfred will be utilizing this subsystem to assure that all pathways are clear an
 
 \newpage
 
+
+
+% --------------------------------------- Relation between Hazards and Requirements -------------------------------------- %
+\section{Correlation Between Hazard Functions and  Requirements}
+
+% --------------------------------------- Hazard Function 1 -------------------------------------- %
+
+\begin{longtable}{| p{.25\textwidth } | p{.50\textwidth } |}
+\hline 
+\centering \textbf{Hazard Function} & 
+\multicolumn{1}{c}{\textbf {Functional and/or Non-Functional Requirement}}\\ \hline
+\multirow{7}{*}{F1: Movement of Alfred}& 
+		{Alfred Functional Requirement 3 \newline
+		Alfred Functional Requirement 10 \newline
+		Alfred Functional Requirement 11 \newline
+		Alfred Functional Requirement 12 \newline
+		Non-Functional Requirement 11 \newline
+		Non-Functional Requirement 13 \newline
+		Non-Functional Requirement 16 \newline
+		Non-Functional Requirement 18 \newline
+		Non-Functional Requirement 20} \\ 
+\hline 
+\caption{Correlation between Hazard Function 1 and Requirements}  
+\end{longtable}
+
+
+% --------------------------------------- Hazard Function 2 -------------------------------------- %
+
+\begin{longtable}{| p{.25\textwidth } | p{.50\textwidth } |}
+\hline 
+\centering \textbf{Hazard Function} & 
+\multicolumn{1}{c}{\textbf {Functional and/or Non-Functional Requirement}}\\ \hline
+\multirow{6}{*}{F2: Correlates drink order to correct table} & 
+		{Alfred Functional Requirement 1 \newline
+		Alfred Functional Requirement 2 \newline
+		Alfred Functional Requirement 4 \newline
+		Alfred Functional Requirement 8 \newline
+		Alfred Functional Requirement 14 \newline
+		Table Ordering Functional Requirement 2 \newline
+		Non-Functional Requirement 14 \newline
+		Non-Functional Requirement 15} \\
+\hline 
+\caption{Correlation between Hazard Function 2 and Requirements}  
+\end{longtable}
+
+
+% --------------------------------------- Hazard Function 3 -------------------------------------- %
+
+\begin{longtable}{| p{.25\textwidth } | p{.50\textwidth } |}
+\hline 
+\centering \textbf{Hazard Function} & 
+\multicolumn{1}{c}{\textbf {Functional and/or Non-Functional Requirement}}\\ \hline
+\multirow{7}{*}{F3: Correlates drink order to correct table} & 
+		{Alfred Functional Requirement 3 \newline
+		Alfred Functional Requirement 10 \newline
+		Alfred Functional Requirement 11 \newline
+		Alfred Functional Requirement 12 \newline
+		Non-Functional Requirement 11 \newline
+		Non-Functional Requirement 13 \newline
+		Non-Functional Requirement 16 \newline
+		Non-Functional Requirement 18 \newline
+		Non-Functional Requirement 20} \\ 
+\hline 
+\caption{Correlation between Hazard Function 3 and Requirements}  
+\end{longtable}
+
+% --------------------------------------- Hazard Function 4 -------------------------------------- %
+
+\begin{longtable}{| p{.25\textwidth } | p{.50\textwidth } |}
+\hline 
+\centering \textbf{Hazard Function} & 
+\multicolumn{1}{c}{\textbf {Functional and/or Non-Functional Requirement}}\\ \hline
+\multirow{7}{*}{F3: Correlates drink order to correct table} & 
+		{Alfred Functional Requirement 3 \newline
+		Alfred Functional Requirement 10 \newline
+		Alfred Functional Requirement 11 \newline
+		Alfred Functional Requirement 12 \newline
+		Non-Functional Requirement 11 \newline
+		Non-Functional Requirement 13 \newline
+		Non-Functional Requirement 16 \newline
+		Non-Functional Requirement 18 \newline
+		Non-Functional Requirement 20} \\ 
+\hline 
+\caption{Correlation between Hazard Function 4 and Requirements}  
+\end{longtable}
+
+% --------------------------------------- Hazard Function 5 -------------------------------------- %
+
+\begin{longtable}{| p{.25\textwidth } | p{.50\textwidth } |}
+\hline 
+\centering \textbf{Hazard Function} & 
+\multicolumn{1}{c}{\textbf {Functional and/or Non-Functional Requirement}}\\ \hline
+\multirow{7}{*}{F3: Correlates drink order to correct table} & 
+		{Alfred Functional Requirement 3 \newline
+		Alfred Functional Requirement 10 \newline
+		Alfred Functional Requirement 11 \newline
+		Alfred Functional Requirement 12 \newline
+		Non-Functional Requirement 11 \newline
+		Non-Functional Requirement 13 \newline
+		Non-Functional Requirement 16 \newline
+		Non-Functional Requirement 18 \newline
+		Non-Functional Requirement 20} \\ 
+\hline 
+\caption{Correlation between Hazard Function 5 and Requirements}  
+\end{longtable}
+
+% --------------------------------------- Hazard Function 6 -------------------------------------- %
+
+\begin{longtable}{| p{.25\textwidth } | p{.50\textwidth } |}
+\hline 
+\centering \textbf{Hazard Function} & 
+\multicolumn{1}{c}{\textbf {Functional and/or Non-Functional Requirement}}\\ \hline
+\multirow{7}{*}{F3: Correlates drink order to correct table} & 
+		{Alfred Functional Requirement 3 \newline
+		Alfred Functional Requirement 10 \newline
+		Alfred Functional Requirement 11 \newline
+		Alfred Functional Requirement 12 \newline
+		Non-Functional Requirement 11 \newline
+		Non-Functional Requirement 13 \newline
+		Non-Functional Requirement 16 \newline
+		Non-Functional Requirement 18 \newline
+		Non-Functional Requirement 20} \\ 
+\hline 
+\caption{Correlation between Hazard Function 6 and Requirements}  
+\end{longtable}
+
+% --------------------------------------- Hazard Function 7 -------------------------------------- %
+
+\begin{longtable}{| p{.25\textwidth } | p{.50\textwidth } |}
+\hline 
+\centering \textbf{Hazard Function} & 
+\multicolumn{1}{c}{\textbf {Functional and/or Non-Functional Requirement}}\\ \hline
+\multirow{7}{*}{F3: Correlates drink order to correct table} & 
+		{Alfred Functional Requirement 3 \newline
+		Alfred Functional Requirement 10 \newline
+		Alfred Functional Requirement 11 \newline
+		Alfred Functional Requirement 12 \newline
+		Non-Functional Requirement 11 \newline
+		Non-Functional Requirement 13 \newline
+		Non-Functional Requirement 16 \newline
+		Non-Functional Requirement 18 \newline
+		Non-Functional Requirement 20} \\ 
+\hline 
+\caption{Correlation between Hazard Function 7 and Requirements}  
+\end{longtable}
+
+% --------------------------------------- Hazard Function 8 -------------------------------------- %
+
+\begin{longtable}{| p{.25\textwidth } | p{.50\textwidth } |}
+\hline 
+\centering \textbf{Hazard Function} & 
+\multicolumn{1}{c}{\textbf {Functional and/or Non-Functional Requirement}}\\ \hline
+\multirow{7}{*}{F3: Correlates drink order to correct table} & 
+		{Alfred Functional Requirement 3 \newline
+		Alfred Functional Requirement 10 \newline
+		Alfred Functional Requirement 11 \newline
+		Alfred Functional Requirement 12 \newline
+		Non-Functional Requirement 11 \newline
+		Non-Functional Requirement 13 \newline
+		Non-Functional Requirement 16 \newline
+		Non-Functional Requirement 18 \newline
+		Non-Functional Requirement 20} \\ 
+\hline 
+\caption{Correlation between Hazard Function 8 and Requirements}  
+\end{longtable}
+
+% --------------------------------------- Hazard Function 9 -------------------------------------- %
+
+\begin{longtable}{| p{.25\textwidth } | p{.50\textwidth } |}
+\hline 
+\centering \textbf{Hazard Function} & 
+\multicolumn{1}{c}{\textbf {Functional and/or Non-Functional Requirement}}\\ \hline
+\multirow{7}{*}{F3: Correlates drink order to correct table} & 
+		{Alfred Functional Requirement 3 \newline
+		Alfred Functional Requirement 10 \newline
+		Alfred Functional Requirement 11 \newline
+		Alfred Functional Requirement 12 \newline
+		Non-Functional Requirement 11 \newline
+		Non-Functional Requirement 13 \newline
+		Non-Functional Requirement 16 \newline
+		Non-Functional Requirement 18 \newline
+		Non-Functional Requirement 20} \\ 
+\hline 
+\caption{Correlation between Hazard Function 9 and Requirements}  
+\end{longtable}
+
+% --------------------------------------- Hazard Function 10 -------------------------------------- %
+
+\begin{longtable}{| p{.25\textwidth } | p{.50\textwidth } |}
+\hline 
+\centering \textbf{Hazard Function} & 
+\multicolumn{1}{c}{\textbf {Functional and/or Non-Functional Requirement}}\\ \hline
+\multirow{7}{*}{F3: Correlates drink order to correct table} & 
+		{Alfred Functional Requirement 3 \newline
+		Alfred Functional Requirement 10 \newline
+		Alfred Functional Requirement 11 \newline
+		Alfred Functional Requirement 12 \newline
+		Non-Functional Requirement 11 \newline
+		Non-Functional Requirement 13 \newline
+		Non-Functional Requirement 16 \newline
+		Non-Functional Requirement 18 \newline
+		Non-Functional Requirement 20} \\ 
+\hline 
+\caption{Correlation between Hazard Function 10 and Requirements}  
+\end{longtable}
+
+\pagebreak
+
 % ------------------------------------------------------- FMEA WORKSHEET ------------------------------------------------------- %
 \section{FMEA Worksheet}
+
+The following is a breakdown of the failure modes and effects analysis, or FMEA table. A hazard function will be presented with the possible failures, the unacceptable events that could occur should said failure occur, the severity of the failure, the possible cause of said failure, the likelihood of the failure, recommended action and the likelihood of failure detection.
 
 \begin{figure} [h!]
 	\centering
@@ -529,10 +751,5 @@ Alfred will be utilizing this subsystem to assure that all pathways are clear an
 	\caption{FMEA Table Part 4}
 \end{figure}
 
-\begin{figure} [h!]
-	\centering
-	\includegraphics [scale = 0.7] {figures/FMEA_5.png}
-	\caption{FMEA Table Part 5}
-\end{figure}
 
 \end{document}
