@@ -45,7 +45,7 @@ var tests = {
 								break;
 							}
 						}
-						for (let type in types) {
+						for (let type of types) {
 							if (!(type in res.body) || res.body[type] != drinks[type]) {
 								pass = false;
 								break;
