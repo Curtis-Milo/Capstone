@@ -30,5 +30,13 @@ module.exports = {
 			}
 		}
 		return null;
+	},
+
+	jsonVals: function(obj) {
+		var ret = [];
+
+		for (let key in obj) ret.push(obj[key]);
+
+		return ret;
 	}
 };
