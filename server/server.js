@@ -50,11 +50,11 @@ function _resolveRole(req, cb) {
 		robot: false,
 		admin: false,
 		client: false,
-		is_sess: false
+		is_sess: false,
+		table_id: null
 	};
 
 	var auth = HELPER.caseInsensitiveKey(req.headers, 'authorization');
-	var table_id = HELPER.caseInsensitiveKey(req.headers, 'table_id');
 	var server_cookie = _parseCookies(req.headers.cookie).server_sessionId;
 
 	authManager.checkAuth(server_cookie, function(sessErr, sessPassed) {
@@ -72,9 +72,10 @@ function _resolveRole(req, cb) {
 						roles.robot = robotPassed;
 					}
 
-					tableManager.checkToken(table_id, token, function(tableErr, tablePassed) {
+					tableManager.checkToken(token, function(tableErr, tablePassed, table_id) {
 						if (! tableErr) {
 							roles.client = tablePassed;
+							roles.table_id = table_id;
 						}
 
 						var buf = new Buffer(token, 'base64');
@@ -194,7 +195,7 @@ HTTP.createServer(function(req, res) {
 		} else if (req.method.toUpperCase() === 'POST') {
 			if (url.pathname.toLowerCase().replace(/\//, '') === 'placeorder') {
 				if (roles.client) {
-					var table_id = HELPER.caseInsensitiveKey(url.query, 'table_id');
+					var table_id = roles.table_id;
 
 					var body = '';
 					req.on('data', function(data) {
