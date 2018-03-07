@@ -45,11 +45,13 @@ function _isInt(val) {
 	return val.match(/^-{0,1}\d+$/) != null;
 }
 
-function _resolveRole(req) {
+function _resolveRole(req, cb) {
 	var roles = {
 		robot: false,
 		admin: false,
-		client: false
+		client: false,
+		is_sess: false,
+		table_id: null
 	};
 
 	var auth = HELPER.caseInsensitiveKey(req.headers, 'authorization');
@@ -58,22 +60,23 @@ function _resolveRole(req) {
 	authManager.checkAuth(server_cookie, function(sessErr, sessPassed) {
 		if (! sessErr) {
 			roles.admin = sessPassed;
+			roles.is_sess = sessPassed;
 		}
 
 		if (auth) {
-			tokenGen.checkToken(token, function(robotErr, robotPassed) {
-				if (! robotErr) {
-					roles.robot = robotPassed;
-				}
+			var token = auth.trim().split(' ')[1];
 
-				tableManager.checkToken(table_id, token, function(tableErr, tablePassed) {
-					if (! tableErr) {
-						roles.client = tablePassed;
+			if (token) {
+				tokenGen.checkToken(token, function(robotErr, robotPassed) {
+					if (! robotErr) {
+						roles.robot = robotPassed;
 					}
 
-					var token = auth.trim().split(' ')[1];
+					tableManager.checkToken(token, function(tableErr, tablePassed) {
+						if (! tableErr) {
+							roles.client = tablePassed;
+						}
 
-					if (token) {
 						var buf = new Buffer(token, 'base64');
 						var plainAuth = buf.toString().split(':');
 
@@ -82,15 +85,15 @@ function _resolveRole(req) {
 								roles.admin = adminPassed;
 							}
 
-							return roles;
+							cb(roles);
 						});
-					} else {
-						return roles;
-					}
+					});
 				});
-			});
+			} else {
+				cb(roles);
+			}
 		} else {
-			return roles;
+			cb(roles);
 		}
 	});
 }
@@ -98,149 +101,69 @@ function _resolveRole(req) {
 tokenGen.sendToken(process.env.BOT_HOST); // Define bot IP in environment
 
 HTTP.createServer(function(req, res) {
-	var url = URL.parse(req.url, true);
-	if (req.method.toUpperCase() === 'GET') {
-		if (url.pathname.toLowerCase().replace(/\//, '') === 'placeinline') {
-			var auth = HELPER.caseInsensitiveKey(req.headers, 'authorization');
-			var table_id = HELPER.caseInsensitiveKey(url.query, 'table_id');
-
-			if (! auth || ! table_id) {
-				res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
-				res.end();
-				return;
-			}
-
-			var token = auth.trim().split(' ')[1];
-
-			if (! token) {
-				res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
-				res.end();
-				return;
-			}
-
-			tableManager.checkToken(table_id, token, function(authErr, passed) {
-				if (authErr) {
-					res.writeHead(500, authErr, {'Content-Type': 'text/html'});
-					res.end();
-					return;
-				} else if (! passed) {
-					res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
-					res.end();
-					return;
-				}
-				var order_id = HELPER.caseInsensitiveKey(url.query, 'order_id');
-				queue.search(order_id, function(err, placeInLine) {
-					if (err) {
-						res.writeHead(404, err, {'Content-Type': 'text/html'});
-						res.end();
-					} else {
-						res.writeHead(200, {'Content-Type': 'text/html'});
-						res.write(placeInLine.toString());
-						res.end();
-					}
-				});
-			});
-		} else if (url.pathname.toLowerCase().replace(/\//, '') === 'nextorder') {
-			var auth = HELPER.caseInsensitiveKey(req.headers, 'authorization');
-
-			if (! auth) {
-				res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
-				res.end();
-				return;
-			}
-
-			var token = auth.trim().split(' ')[1];
-
-			if (! token) {
-				res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
-				res.end();
-				return;
-			}
-
-			tokenGen.checkToken(token, function(tokenErr, passed) {
-				if (tokenErr) {
-					res.writeHead(500, tokenErr, {'Content-Type': 'text/html'});
-					res.end();
-					return;
-				}
-
-				if (! passed) {
-					res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
-					res.end();
-					return;
-				}
-
-				queue.pop(function(err, data) {
-					if (err) {
-						res.writeHead(500, err, {'Content-Type': 'text/html'});
-						res.end();
-					} else {
-						if (! data) {
-							res.writeHead(404, 'No jobs to serve', {'Content-Type': 'text/html'});
+	_resolveRole(req, function(roles) {
+		var url = URL.parse(req.url, true);
+		if (req.method.toUpperCase() === 'GET') {
+			if (url.pathname.toLowerCase().replace(/\//, '') === 'placeinline') {
+				if (roles.client || roles.admin) {
+					var order_id = HELPER.caseInsensitiveKey(url.query, 'order_id');
+					queue.search(order_id, function(err, placeInLine) {
+						if (err) {
+							res.writeHead(404, err, {'Content-Type': 'text/html'});
 							res.end();
 						} else {
-							res.writeHead(200, {'Content-Type': 'application/json'});
-							res.write(JSON.stringify(data));
+							res.writeHead(200, {'Content-Type': 'text/html'});
+							res.write(placeInLine.toString());
 							res.end();
 						}
-					}
-				});
-			});
-		} else if (url.pathname.toLowerCase().replace(/\//, '') === 'checktoken') {
-			var auth = HELPER.caseInsensitiveKey(req.headers, 'authorization');
-			var resp_auth = {
-				valid: true
-			};
-
-			if (! auth) {
-				res.writeHead(200, {'Content-Type': 'application/json'});
-				resp_auth.valid = false;
-				res.write(JSON.stringify(resp_auth));
-				res.end();
-				return;
-			}
-
-			var token = auth.trim().split(' ')[1];
-
-			if (! token) {
-				res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
-				res.end();
-				return;
-			}
-
-			tokenGen.checkToken(token, function(tokenErr, passed) {
-				if (tokenErr) {
-					res.writeHead(500, tokenErr, {'Content-Type': 'text/html'});
+					});
+				} else {
+					res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
 					res.end();
-					return;
 				}
-
-				if (! passed) {
-					resp_auth.valid = false;
+			} else if (url.pathname.toLowerCase().replace(/\//, '') === 'nextorder') {
+				if (roles.robot) {
+					queue.pop(function(err, data) {
+						if (err) {
+							res.writeHead(500, err, {'Content-Type': 'text/html'});
+							res.end();
+						} else {
+							if (! data) {
+								res.writeHead(404, 'No jobs to serve', {'Content-Type': 'text/html'});
+								res.end();
+							} else {
+								res.writeHead(200, {'Content-Type': 'application/json'});
+								res.write(JSON.stringify(data));
+								res.end();
+							}
+						}
+					});
+				} else {
+					res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
+					res.end();
 				}
+			} else if (url.pathname.toLowerCase().replace(/\//, '') === 'checktoken') {
+				var resp_auth = {
+					valid: roles.robot
+				};
 
 				res.writeHead(200, {'Content-Type': 'application/json'});
 				res.write(JSON.stringify(resp_auth));
 				res.end();
-			});
-		} else if (url.pathname.toLowerCase().replace(/\//, '') === 'drinks') {
-			res.writeHead(200, {'Content-Type': 'application/json'});
-			res.write(JSON.stringify(DRINKS));
-			res.end();
-		} else if (url.pathname.toLowerCase().replace(/\//, '') === 'sizes') {
-			res.writeHead(200, {'Content-Type': 'application/json'});
-			res.write(JSON.stringify(SIZES));
-			res.end();
-		} else if (url.pathname.toLowerCase().replace(/\//, '') === 'numoftanks') {
-			res.writeHead(200, {'Content-Type': 'application/json'});
-			res.write(MAX_NUM_TYPES.toString());
-			res.end();
-		} else if (url.pathname.toLowerCase().replace(/\//, '') === 'map') {
-			var auth = HELPER.caseInsensitiveKey(req.headers, 'authorization');
-			var server_cookie = _parseCookies(req.headers.cookie).server_sessionId;
-
-			authManager.checkAuth(server_cookie, function(sessErr, sessPassed) {
-				if (sessPassed) {
+			} else if (url.pathname.toLowerCase().replace(/\//, '') === 'drinks') {
+				res.writeHead(200, {'Content-Type': 'application/json'});
+				res.write(JSON.stringify(DRINKS));
+				res.end();
+			} else if (url.pathname.toLowerCase().replace(/\//, '') === 'sizes') {
+				res.writeHead(200, {'Content-Type': 'application/json'});
+				res.write(JSON.stringify(SIZES));
+				res.end();
+			} else if (url.pathname.toLowerCase().replace(/\//, '') === 'numoftanks') {
+				res.writeHead(200, {'Content-Type': 'application/json'});
+				res.write(MAX_NUM_TYPES.toString());
+				res.end();
+			} else if (url.pathname.toLowerCase().replace(/\//, '') === 'map') {
+				if (roles.admin || roles.robot) {
 					mapManager.getMap(function(mapErr, stream, unlock) {
 						if (mapErr) {
 							res.writeHead(500, mapErr, {'Content-Type': 'text/html'});
@@ -250,254 +173,82 @@ HTTP.createServer(function(req, res) {
 						res.writeHead(200, {'Content-Type': 'text/plain'});
 						stream.pipe(res);
 						unlock();
-						return;
-					});
-				}
-
-				if (! auth) {
-					res.writeHead(401, 'Unauthorized', {'Content-Type': 'application/json'});
-					res.end();
-					return;
-				}
-
-				var token = auth.trim().split(' ')[1];
-				var auth_type = auth.trim().split(' ')[0];
-
-				if (! token) {
-					res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
-					res.end();
-					return;
-				}
-
-				if (auth_type.toUpperCase() == 'BASIC') {
-					var buf = new Buffer(token, 'base64');
-					var plainAuth = buf.toString().split(':');
-
-					authManager.checkAuth(plainAuth[0], plainAuth[1], function(err, passed) {
-						if (err) {
-							res.writeHead(500, err, {'Content-Type': 'text/html'});
-							res.end();
-							return;
-						}
-
-						if (! passed) {
-							res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
-							res.end();
-							return;
-						}
-
-						mapManager.getMap(function(mapErr, stream, unlock) {
-							if (mapErr) {
-								res.writeHead(500, mapErr, {'Content-Type': 'text/html'});
-								res.end();
-								return;
-							}
-							res.writeHead(200, {'Content-Type': 'text/plain'});
-							stream.pipe(res);
-							unlock();
-						});
 					});
 				} else {
-					tokenGen.checkToken(token, function(tokenErr, passed) {
-						if (tokenErr) {
-							res.writeHead(500, tokenErr, {'Content-Type': 'text/html'});
-							res.end();
-							return;
-						}
-
-						if (! passed) {
-							res.writeHead(401, 'Unauthorized', {'Content-Type': 'application/json'});
-							res.end();
-							return;
-						}
-
-						mapManager.getMap(function(mapErr, stream, unlock) {
-							if (mapErr) {
-								res.writeHead(500, mapErr, {'Content-Type': 'text/html'});
-								res.end();
-								return;
-							}
-							res.writeHead(200, {'Content-Type': 'text/plain'});
-							stream.pipe(res);
-							unlock();
-						});
-					});
-				}
-			});
-		} else if (url.pathname.toLowerCase().replace(/\//, '') === 'errors') {
-			var auth = HELPER.caseInsensitiveKey(req.headers, 'authorization');
-			var server_cookie = _parseCookies(req.headers.cookie).server_sessionId;
-
-			authManager.checkAuth(server_cookie, function(sessErr, sessPassed) {
-				if (sessErr) {
-					res.writeHead(500, sessErr, {'Content-Type': 'text/html'});
+					res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
 					res.end();
-					return;
 				}
-
-				if (sessPassed) {
+			} else if (url.pathname.toLowerCase().replace(/\//, '') === 'errors') {
+				if (roles.admin) {
 					res.writeHead(200, {'Content-Type': 'application/json'});
 					res.write(errors.toString());
 					res.end();
 				} else {
-					if (! auth) {
-						res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
-						res.end();
-						return;
-					}
-
-					var token = auth.trim().split(' ')[1];
-
-					if (! token) {
-						res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
-						res.end();
-						return;
-					}
-
-					var buf = new Buffer(token, 'base64');
-					var plainAuth = buf.toString().split(':');
-
-					authManager.checkAuth(plainAuth[0], plainAuth[1], function(err, passed) {
-						if (err) {
-							res.writeHead(500, err, {'Content-Type': 'text/html'});
-							res.end();
-							return;
-						}
-
-						if (! passed) {
-							res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
-							res.end();
-							return;
-						}
-
-						res.writeHead(200, {'Content-Type': 'application/json'});
-						res.write(errors.toString());
-						res.end();
-					});
-				}
-			});
-		} else {
-			res.writeHead(404, 'No such method', {'Content-Type': 'text/html'});
-			res.end();
-		}
-	} else if (req.method.toUpperCase() === 'POST') {
-		if (url.pathname.toLowerCase().replace(/\//, '') === 'placeorder') {
-			var auth = HELPER.caseInsensitiveKey(req.headers, 'authorization');
-			var table_id = HELPER.caseInsensitiveKey(url.query, 'table_id');
-
-			if (! auth || ! table_id) {
-				res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
-				res.end();
-				return;
-			}
-
-			var token = auth.trim().split(' ')[1];
-
-			if (! token) {
-				res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
-				res.end();
-				return;
-			}
-
-			tableManager.checkToken(table_id, token, function(authErr, passed) {
-				if (authErr) {
-					res.writeHead(500, authErr, {'Content-Type': 'text/html'});
-					res.end();
-					return;
-				} else if (! passed) {
 					res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
 					res.end();
-					return;
 				}
-				var body = '';
-				req.on('data', function(data) {
-					body += data;
-				});
+			} else {
+				res.writeHead(404, 'No such method', {'Content-Type': 'text/html'});
+				res.end();
+			}
+		} else if (req.method.toUpperCase() === 'POST') {
+			if (url.pathname.toLowerCase().replace(/\//, '') === 'placeorder') {
+				if (roles.client) {
+					var body = '';
+					req.on('data', function(data) {
+						body += data;
+					});
 
-				req.on('end', function() {
-					try {
-						body = JSON.parse(body);
-					} catch (e) {
-						res.writeHead(500, 'Invalid body', {'Content-Type': 'text/html'});
-						res.end();
-						return;
-					}
-
-					VERIF.checkData(body, order, table_id, function(err, newData) {
-						if (err) {
-							res.writeHead(500, err, {'Content-Type': 'text/html'});
+					req.on('end', function() {
+						try {
+							body = JSON.parse(body);
+						} catch (e) {
+							res.writeHead(500, 'Invalid body', {'Content-Type': 'text/html'});
 							res.end();
 							return;
 						}
 
-						queue.push(newData, function(queueErr, placeInLine) {
-							if (queueErr) {
-								res.writeHead(500, queueErr, {'Content-Type': 'text/html'});
+						VERIF.checkData(body, order, table_id, function(err, newData) {
+							if (err) {
+								res.writeHead(500, err, {'Content-Type': 'text/html'});
 								res.end();
 								return;
 							}
-							res.writeHead(200, {'Content-Type': 'application/json'});
-							res.write(JSON.stringify({
-								placeInLine: placeInLine,
-								orderData: newData
-							}));
-							res.end();
+
+							queue.push(newData, function(queueErr, placeInLine) {
+								if (queueErr) {
+									res.writeHead(500, queueErr, {'Content-Type': 'text/html'});
+									res.end();
+									return;
+								}
+								res.writeHead(200, {'Content-Type': 'application/json'});
+								res.write(JSON.stringify({
+									placeInLine: placeInLine,
+									orderData: newData
+								}));
+								res.end();
+							});
 						});
 					});
-				});
-			});
-		} else if (url.pathname.toLowerCase().replace(/\//, '') === 'gentoken') {
-			tokenGen.refresh(function(err) {
-				if (err) {
-					res.writeHead(500, err, {'Content-Type': 'text/html'});
-					res.end();
-					return;
-				}
-
-				tokenGen.sendToken(process.env.BOT_HOST);
-
-				res.writeHead(200);
-				res.end();
-			});
-		} else if (url.pathname.toLowerCase().replace(/\//, '') === 'updatecreds') {
-			var auth = HELPER.caseInsensitiveKey(req.headers, 'authorization');
-			var server_cookie = _parseCookies(req.headers.cookie).server_sessionId;
-
-			authManager.checkAuth(server_cookie, function(sessErr, sessPassed) {
-				if (! sessPassed) {
-					if (! auth) {
-						res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
-						res.end();
-						return;
-					}
-
-					var token = auth.trim().split(' ')[1];
-
-					if (! token) {
-						res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
-						res.end();
-						return;
-					}
-
-					var buf = new Buffer(token, 'base64');
-					var plainAuth = buf.toString().split(':');
 				} else {
-					plainAuth = ['', ''];
+					res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
+					res.end();
 				}
-
-				authManager.checkAuth(plainAuth[0], plainAuth[1], function(err, passed) {
+			} else if (url.pathname.toLowerCase().replace(/\//, '') === 'gentoken') {
+				tokenGen.refresh(function(err) {
 					if (err) {
 						res.writeHead(500, err, {'Content-Type': 'text/html'});
 						res.end();
 						return;
 					}
 
-					if (!passed && !sessPassed) {
-						res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
-						res.end();
-						return;
-					}
+					tokenGen.sendToken(process.env.BOT_HOST);
 
+					res.writeHead(200);
+					res.end();
+				});
+			} else if (url.pathname.toLowerCase().replace(/\//, '') === 'updatecreds') {
+				if (roles.admin) {
 					var body = '';
 					req.on('data', function(data) {
 						body += data;
@@ -532,78 +283,29 @@ HTTP.createServer(function(req, res) {
 							res.end();
 						});
 					});
-				});
-			});
-		} else if (url.pathname.toLowerCase().replace(/\//, '') === 'returntobase') {
-			var auth = HELPER.caseInsensitiveKey(req.headers, 'authorization');
-			var server_cookie = _parseCookies(req.headers.cookie).server_sessionId;
-
-			authManager.checkAuth(server_cookie, function(sessErr, sessPassed) {
-				if (! sessPassed) {
-					if (! auth) {
-						res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
-						res.end();
-						return;
-					}
-
-					var token = auth.trim().split(' ')[1];
-
-					if (! token) {
-						res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
-						res.end();
-						return;
-					}
-
-					var buf = new Buffer(token, 'base64');
-					var plainAuth = buf.toString().split(':');
 				} else {
-					plainAuth = ['', ''];
+					res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
+					res.end();
 				}
-
-				authManager.checkAuth(plainAuth[0], plainAuth[1], function(err, passed) {
-					if (err) {
-						res.writeHead(500, err, {'Content-Type': 'text/html'});
-						res.end();
-						return;
-					}
-
-					if (!passed && !sessPassed) {
-						res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
-						res.end();
-						return;
-					}
-
+			} else if (url.pathname.toLowerCase().replace(/\//, '') === 'returntobase') {
+				if (roles.admin) {
 					// TODO: implement return to base function...
 					res.writeHead(400, 'Not implemented yet...', {'Content-Type': 'text/html'});
 					res.end();
-				});
-			});
-		} else if (url.pathname.toLowerCase().replace(/\//, '') === 'login') {
-			var auth = HELPER.caseInsensitiveKey(req.headers, 'authorization');
+				} else {
+					res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
+					res.end();
+				}
+			} else if (url.pathname.toLowerCase().replace(/\//, '') === 'login') {
+				var auth = HELPER.caseInsensitiveKey(req.headers, 'authorization');
 
-			if (! auth) {
-				res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
-				res.end();
-				return;
-			}
-
-			var token = auth.trim().split(' ')[1];
-
-			if (! token) {
-				res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
-				res.end();
-				return;
-			}
-
-			var buf = new Buffer(token, 'base64');
-			var plainAuth = buf.toString().split(':');
-
-			authManager.login(plainAuth[0], plainAuth[1], function(err, token) {
-				if (err) {
-					res.writeHead(500, err, {'Content-Type': 'text/html'});
+				if (! auth) {
+					res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
 					res.end();
 					return;
 				}
+
+				var token = auth.trim().split(' ')[1];
 
 				if (! token) {
 					res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
@@ -611,133 +313,65 @@ HTTP.createServer(function(req, res) {
 					return;
 				}
 
-				res.writeHead(200, {
-					'Content-Type': 'text/html',
-					'Set-Cookie': `server_sessionId=${token}`
-				});
-				res.end();
-			});
-		} else if (url.pathname.toLowerCase().replace(/\//, '') === 'logout') {
-			var server_cookie = _parseCookies(req.headers.cookie).server_sessionId;
+				var buf = new Buffer(token, 'base64');
+				var plainAuth = buf.toString().split(':');
 
-			if (! server_cookie) {
-				res.writeHead(400, 'No session ID found.', {'Content-Type': 'application/json'});
-				res.end();
-				return;
-			}
-
-			authManager.checkAuth(server_cookie, function(sessErr, sessPassed) {
-				if (sessErr) {
-					res.writeHead(500, sessErr, {'Content-Type': 'text/html'});
-					res.end();
-					return;
-				}
-
-				if (! sessPassed) {
-					res.writeHead(401, 'Unauthorized', {'Content-Type': 'application/json'});
-					res.end();
-					return;
-				}
-
-				authManager.logout();
-				res.writeHead(200, {'Content-Type': 'application/json'});
-				res.end();
-			});
-		} else if (url.pathname.toLowerCase().replace(/\//, '') === 'errors') {
-			var auth = HELPER.caseInsensitiveKey(req.headers, 'authorization');
-
-			if (! auth) {
-				res.writeHead(401, 'Unauthorized', {'Content-Type': 'application/json'});
-				res.end();
-				return;
-			}
-
-			var token = auth.trim().split(' ')[1];
-
-			if (! token) {
-				res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
-				res.end();
-				return;
-			}
-
-			tokenGen.checkToken(token, function(tokenErr, passed) {
-				if (tokenErr) {
-					res.writeHead(500, tokenErr, {'Content-Type': 'text/html'});
-					res.end();
-					return;
-				}
-
-				if (! passed) {
-					res.writeHead(401, 'Unauthorized', {'Content-Type': 'application/json'});
-					res.end();
-					return;
-				}
-
-				var body = '';
-				req.on('data', function(data) {
-					body += data;
-				});
-
-				req.on('end', function() {
-					body = body.trim();
-
-					if (_isInt(body)) {
-						errors = parseInt(body);
-
-						res.writeHead(200, {'Content-Type': 'application/json'});
-						res.end();
-					} else {
-						res.writeHead(400, 'Invalid error code', {'Content-Type': 'application/json'});
-						res.end();
-					}
-				});
-			});
-		} else if (url.pathname.toLowerCase().replace(/\//, '') === 'table') {
-			var auth = HELPER.caseInsensitiveKey(req.headers, 'authorization');
-			var table_id = HELPER.caseInsensitiveKey(url.query, 'table_id');
-			var server_cookie = _parseCookies(req.headers.cookie).server_sessionId;
-
-			if (! table_id) {
-				res.writeHead(400, 'Missing table_id', {'Content-Type': 'application/json'});
-				res.end();
-				return;
-			}
-
-			authManager.checkAuth(server_cookie, function(sessErr, sessPassed) {
-				if (! sessPassed) {
-					if (! auth) {
-						res.writeHead(401, 'Unauthorized', {'Content-Type': 'application/json'});
-						res.end();
-						return;
-					}
-
-					var token = auth.trim().split(' ')[1];
-
-					if (! token) {
-						res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
-						res.end();
-						return;
-					}
-
-					var buf = new Buffer(token, 'base64');
-					var plainAuth = buf.toString().split(':');
-				} else {
-					plainAuth = ['', ''];
-				}
-
-				authManager.checkAuth(plainAuth[0], plainAuth[1], function(err, passed) {
+				authManager.login(plainAuth[0], plainAuth[1], function(err, cookie) {
 					if (err) {
 						res.writeHead(500, err, {'Content-Type': 'text/html'});
 						res.end();
 						return;
 					}
 
-					if (!passed && !sessPassed) {
+					if (! cookie) {
 						res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
 						res.end();
 						return;
 					}
 
+					res.writeHead(200, {
+						'Content-Type': 'text/html',
+						'Set-Cookie': `server_sessionId=${cookie}`
+					});
+					res.end();
+				});
+			} else if (url.pathname.toLowerCase().replace(/\//, '') === 'logout') {
+				if (roles.admin && roles.is_sess) {
+					authManager.logout();
+					res.writeHead(200, {'Content-Type': 'application/json'});
+					res.end();
+				} else {
+					res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
+					res.end();
+				}
+			} else if (url.pathname.toLowerCase().replace(/\//, '') === 'errors') {
+				if (roles.robot) {
+					var body = '';
+					req.on('data', function(data) {
+						body += data;
+					});
+
+					req.on('end', function() {
+						body = body.trim();
+
+						if (_isInt(body)) {
+							errors = parseInt(body);
+
+							res.writeHead(200, {'Content-Type': 'application/json'});
+							res.end();
+						} else {
+							res.writeHead(400, 'Invalid error code', {'Content-Type': 'application/json'});
+							res.end();
+						}
+					});
+				} else {
+					res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
+					res.end();
+				}
+			} else if (url.pathname.toLowerCase().replace(/\//, '') === 'table') {
+				var table_id = HELPER.caseInsensitiveKey(url.query, 'table_id');
+
+				if (roles.admin) {
 					tableManager.addTable(table_id, function(addErr, token) {
 						if (addErr) {
 							res.writeHead(500, addErr, {'Content-Type': 'text/html'});
@@ -752,47 +386,12 @@ HTTP.createServer(function(req, res) {
 						}));
 						res.end();
 					});
-				});
-			});
-		} else if (url.pathname.toLowerCase().replace(/\//, '') === 'drinks') {
-			var auth = HELPER.caseInsensitiveKey(req.headers, 'authorization');
-			var server_cookie = _parseCookies(req.headers.cookie).server_sessionId;
-
-			authManager.checkAuth(server_cookie, function(sessErr, sessPassed) {
-				if (! sessPassed) {
-					if (! auth) {
-						res.writeHead(401, 'Unauthorized', {'Content-Type': 'application/json'});
-						res.end();
-						return;
-					}
-
-					var token = auth.trim().split(' ')[1];
-
-					if (! token) {
-						res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
-						res.end();
-						return;
-					}
-
-					var buf = new Buffer(token, 'base64');
-					var plainAuth = buf.toString().split(':');
 				} else {
-					plainAuth = ['', ''];
+					res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
+					res.end();
 				}
-
-				authManager.checkAuth(plainAuth[0], plainAuth[1], function(err, passed) {
-					if (err) {
-						res.writeHead(500, err, {'Content-Type': 'text/html'});
-						res.end();
-						return;
-					}
-
-					if (!passed && !sessPassed) {
-						res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
-						res.end();
-						return;
-					}
-
+			} else if (url.pathname.toLowerCase().replace(/\//, '') === 'drinks') {
+				if (roles.admin) {
 					if (Object.keys(DRINKS).length >= MAX_NUM_TYPES) {
 						res.writeHead(400, 'Max number of types of drinks already set.', {'Content-Type': 'text/html'});
 						res.end();
@@ -852,47 +451,12 @@ HTTP.createServer(function(req, res) {
 							});
 						});
 					});
-				});
-			});
-		} else if (url.pathname.toLowerCase().replace(/\//, '') === 'map') {
-			var auth = HELPER.caseInsensitiveKey(req.headers, 'authorization');
-			var server_cookie = _parseCookies(req.headers.cookie).server_sessionId;
-
-			authManager.checkAuth(server_cookie, function(sessErr, sessPassed) {
-				if (! sessPassed) {
-					if (! auth) {
-						res.writeHead(401, 'Unauthorized', {'Content-Type': 'application/json'});
-						res.end();
-						return;
-					}
-
-					var token = auth.trim().split(' ')[1];
-
-					if (! token) {
-						res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
-						res.end();
-						return;
-					}
-
-					var buf = new Buffer(token, 'base64');
-					var plainAuth = buf.toString().split(':');
 				} else {
-					plainAuth = ['', ''];
+					res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
+					res.end();
 				}
-
-				authManager.checkAuth(plainAuth[0], plainAuth[1], function(err, passed) {
-					if (err) {
-						res.writeHead(500, err, {'Content-Type': 'text/html'});
-						res.end();
-						return;
-					}
-
-					if (!passed && !sessPassed) {
-						res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
-						res.end();
-						return;
-					}
-
+			} else if (url.pathname.toLowerCase().replace(/\//, '') === 'map') {
+				if (roles.admin) {
 					mapManager.setMap(req, function(mapErr) {
 						if (mapErr) {
 							res.writeHead(500, mapErr, {'Content-Type': 'text/html'});
@@ -903,98 +467,34 @@ HTTP.createServer(function(req, res) {
 						res.writeHead(200, 'Map uploaded!', {'Content-Type': 'text/html'});
 						res.end();
 					});
-				});
-			});
-		} else {
-			res.writeHead(404, 'No such method', {'Content-Type': 'text/html'});
-			res.end();
-		}
-	} else if (req.method.toUpperCase() === 'DELETE') {
-		if (url.pathname.toLowerCase().replace(/\//, '') === 'cancelorder') {
-			var auth = HELPER.caseInsensitiveKey(req.headers, 'authorization');
-			var table_id = HELPER.caseInsensitiveKey(url.query, 'table_id');
-
-			if (! auth || ! table_id) {
-				res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
-				res.end();
-				return;
-			}
-
-			var token = auth.trim().split(' ')[1];
-
-			if (! token) {
-				res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
-				res.end();
-				return;
-			}
-
-			tableManager.checkToken(table_id, token, function(authErr, passed) {
-				if (authErr) {
-					res.writeHead(500, authErr, {'Content-Type': 'text/html'});
-					res.end();
-					return;
-				} else if (! passed) {
+				} else {
 					res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
 					res.end();
-					return;
 				}
-				var order_id = HELPER.caseInsensitiveKey(url.query, 'order_id');
-				queue.delete(order_id, function(err) {
-					if (err) {
-						res.writeHead(500, err, {'Content-Type': 'text/html'});
-						res.end();
-					} else {
-						res.writeHead(200);
-						res.end();
-					}
-				});
-			});
-		} else if (url.pathname.toLowerCase().replace(/\//, '') === 'drinks') {
-			var auth = HELPER.caseInsensitiveKey(req.headers, 'authorization');
-			var name = HELPER.caseInsensitiveKey(url.query, 'name');
-			var server_cookie = _parseCookies(req.headers.cookie).server_sessionId;
-
-			if (! name) {
-				res.writeHead(400, 'Missing name of drink type', {'Content-Type': 'text/html'});
+			} else {
+				res.writeHead(404, 'No such method', {'Content-Type': 'text/html'});
 				res.end();
-				return;
 			}
-
-			authManager.checkAuth(server_cookie, function(sessErr, sessPassed) {
-				if (! sessPassed) {
-					if (! auth) {
-						res.writeHead(401, 'Unauthorized', {'Content-Type': 'application/json'});
-						res.end();
-						return;
-					}
-
-					var token = auth.trim().split(' ')[1];
-
-					if (! token) {
-						res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
-						res.end();
-						return;
-					}
-
-					var buf = new Buffer(token, 'base64');
-					var plainAuth = buf.toString().split(':');
+		} else if (req.method.toUpperCase() === 'DELETE') {
+			if (url.pathname.toLowerCase().replace(/\//, '') === 'cancelorder') {
+				if (roles.client) {
+					var order_id = HELPER.caseInsensitiveKey(url.query, 'order_id');
+					queue.delete(order_id, function(err) {
+						if (err) {
+							res.writeHead(500, err, {'Content-Type': 'text/html'});
+							res.end();
+						} else {
+							res.writeHead(200);
+							res.end();
+						}
+					});
 				} else {
-					plainAuth = ['', ''];
+					res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
+					res.end();
 				}
-
-				authManager.checkAuth(plainAuth[0], plainAuth[1], function(err, passed) {
-					if (err) {
-						res.writeHead(500, err, {'Content-Type': 'text/html'});
-						res.end();
-						return;
-					}
-
-					if (!passed && !sessPassed) {
-						res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
-						res.end();
-						return;
-					}
-
+			} else if (url.pathname.toLowerCase().replace(/\//, '') === 'drinks') {
+				if (roles.admin) {
+					var name = HELPER.caseInsensitiveKey(url.query, 'name');
 					mutex.timedLock(10000, function(lockErr) {
 						if (lockErr) {
 							res.writeHead(500, lockErr, {'Content-Type': 'application/json'});
@@ -1015,14 +515,17 @@ HTTP.createServer(function(req, res) {
 							res.end();
 						});
 					});
-				});
-			});
+				} else {
+					res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
+					res.end();
+				}
+			} else {
+				res.writeHead(404, 'No such method', {'Content-Type': 'text/html'});
+				res.end();
+			}
 		} else {
-			res.writeHead(404, 'No such method', {'Content-Type': 'text/html'});
+			res.writeHead(500, 'No such method', {'Content-Type': 'text/html'});
 			res.end();
 		}
-	} else {
-		res.writeHead(500, 'No such method', {'Content-Type': 'text/html'});
-		res.end();
-	}
+	});
 }).listen(8080, '0.0.0.0');
