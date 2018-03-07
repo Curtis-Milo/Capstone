@@ -9,7 +9,8 @@ const TABLE_MANAGER = require('./lib/table_mgmt');
 const ORDER = require('./lib/order');
 const FS = require('fs');
 const LOCKS = require('locks');
-const MAP_MANAGER = require('./lib/map_manager')
+const MAP_MANAGER = require('./lib/map_manager');
+const UNIREST = require('unirest');
 
 var mutex = LOCKS.createMutex();
 
@@ -50,7 +51,13 @@ tokenGen.sendToken(process.env.BOT_HOST); // Define bot IP in environment
 HTTP.createServer(function(req, res) {
 	var url = URL.parse(req.url, true);
 	if (req.method.toUpperCase() === 'GET') {
-		if (url.pathname.toLowerCase().replace(/\//, '') === 'placeinline') {
+		if (url.pathname.toLowerCase().replace(/\//, '').trim() === '') {
+			unirest.get('http://localhost:8080').end(function(resp) {
+				res.writeHead(200, {'Content-Type': 'text/html'});
+				res.write(resp.raw_body);
+				res.end();
+			});
+		} else if (url.pathname.toLowerCase().replace(/\//, '') === 'placeinline') {
 			var auth = HELPER.caseInsensitiveKey(req.headers, 'authorization');
 			var table_id = HELPER.caseInsensitiveKey(url.query, 'table_id');
 
@@ -975,4 +982,4 @@ HTTP.createServer(function(req, res) {
 		res.writeHead(500, 'No such method', {'Content-Type': 'text/html'});
 		res.end();
 	}
-}).listen(8080, '0.0.0.0');
+}).listen(80, '0.0.0.0');
