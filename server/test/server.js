@@ -45,6 +45,12 @@ var tests = {
 								break;
 							}
 						}
+						for (let type in types) {
+							if (!(type in res.body) || res.body[type] != drinks[type]) {
+								pass = false;
+								break;
+							}
+						}
 
 						if (pass) {
 							resObj.testRes('Test GET /drinks endpoint', '', 'res.body == drinkTypes', 'res.body == drinkTypes', 'pass');
