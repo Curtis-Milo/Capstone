@@ -64,8 +64,8 @@ TableManager.prototype.addTable = function(tableId, cb) {
 //verify that a given token for a specific table is correct
 TableManager.prototype.checkToken = function(token, cb) {
 	var hash = CRYPTO.createHash('md5').update(token).digest("hex");
-	if (! this.hashedTokens[hash]) {
-		return cb(new Error('Invalid tableId'));
+	if (! (hash in this.hashedTokens)) {
+		return cb(null, false, null);
 	}
 
 	var tableId = this.hashedTokens[hash];
