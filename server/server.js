@@ -9,8 +9,7 @@ const TABLE_MANAGER = require('./lib/table_mgmt');
 const ORDER = require('./lib/order');
 const FS = require('fs');
 const LOCKS = require('locks');
-const MAP_MANAGER = require('./lib/map_manager');
-const UNIREST = require('unirest');
+const MAP_MANAGER = require('./lib/map_manager')
 
 var mutex = LOCKS.createMutex();
 
@@ -51,13 +50,7 @@ tokenGen.sendToken(process.env.BOT_HOST); // Define bot IP in environment
 HTTP.createServer(function(req, res) {
 	var url = URL.parse(req.url, true);
 	if (req.method.toUpperCase() === 'GET') {
-		if (url.pathname.toLowerCase().replace(/\//, '').trim() === '') {
-			UNIREST.get('http://localhost:8080').end(function(resp) {
-				res.writeHead(200, {'Content-Type': 'text/html'});
-				res.write(resp.raw_body);
-				res.end();
-			});
-		} else if (url.pathname.toLowerCase().replace(/\//, '') === 'placeinline') {
+		if (url.pathname.toLowerCase().replace(/\//, '') === 'placeinline') {
 			var auth = HELPER.caseInsensitiveKey(req.headers, 'authorization');
 			var table_id = HELPER.caseInsensitiveKey(url.query, 'table_id');
 
