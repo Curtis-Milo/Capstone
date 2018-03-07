@@ -35,7 +35,7 @@ function NetworkCall(api_key, objects) {
     if (!xhttp) {
         throw new Error('CORS not supported');
     }
-    var temp = String(objects['userid']) + ":" + String(objects['passwd']);
+    var temp = String(objects[0]) + ":" + String(objects[1]);
     var basic = btoa(temp);
     // xhttp.open("POST", "http://130.113.68.87:8080/login");
     xhttp.setRequestHeader('Authorization', "Basic " + basic);
