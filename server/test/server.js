@@ -45,6 +45,12 @@ var tests = {
 								break;
 							}
 						}
+						for (let type of types) {
+							if (!(type in res.body) || res.body[type] != drinks[type]) {
+								pass = false;
+								break;
+							}
+						}
 
 						if (pass) {
 							resObj.testRes('Test GET /drinks endpoint', '', 'res.body == drinkTypes', 'res.body == drinkTypes', 'pass');
@@ -84,6 +90,7 @@ var tests = {
 		},
 
 		_error: 123,
+		_cookieJar: unirest.jar(true),
 
 		updateCreds: function(resObj, host) {
 			var that = this;
@@ -125,11 +132,29 @@ var tests = {
 				unirest.post(host + '/login')
 				.headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
 				.auth(that._creds.userName, that._creds.password)
+				.jar(that._cookieJar)
 				.end(function(res) {
 					if (res.code < 200 || res.code > 299) {
 						resObj.testRes('Test POST /login endpoint', 'NFR33', 200, res.code, 'fail');
 					} else {
 						resObj.testRes('Test POST /login endpoint', 'NFR33', 200, res.code, 'pass');
+					}
+					resolve();
+				});
+			});
+		},
+
+		logout: function(resObj, host) {
+			var that = this;
+			return new Promise(function(resolve, reject) {
+				unirest.post(host + '/logout')
+				.headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
+				.jar(that._cookieJar)
+				.end(function(res) {
+					if (res.code < 200 || res.code > 299) {
+						resObj.testRes('Test POST /logout endpoint', '', 200, res.code, 'fail');
+					} else {
+						resObj.testRes('Test POST /logout endpoint', '', 200, res.code, 'pass');
 					}
 					resolve();
 				});
@@ -513,6 +538,8 @@ tests.robotTest.reqListenForToken(IP, function() {
 		return tests.adminTest.updateCreds(resObj, IP);
 	}).then(function() {
 		return tests.adminTest.login(resObj, IP);
+	}).then(function() {
+		return tests.adminTest.logout(resObj, IP);
 	}).then(function() {
 		return tests.adminTest.setMap(resObj, IP);
 	}).then(function() {

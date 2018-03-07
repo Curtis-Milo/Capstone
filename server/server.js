@@ -775,6 +775,10 @@ HTTP.createServer(function(req, res) {
 							res.writeHead(400, `Tank number must be integer between 0 and ${MAX_NUM_TYPES}`, {'Content-Type': 'application/json'});
 							res.end();
 							return;
+						} else if (HELPER.jsonVals(DRINKS).indexOf(tank_num) >= 0) {
+							res.writeHead(400, `Tank ${tank_num} already in use.`, {'Content-Type': 'application/json'});
+							res.end();
+							return;
 						}
 
 						mutex.timedLock(10000, function(lockErr) {
