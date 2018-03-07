@@ -52,7 +52,7 @@ HTTP.createServer(function(req, res) {
 	var url = URL.parse(req.url, true);
 	if (req.method.toUpperCase() === 'GET') {
 		if (url.pathname.toLowerCase().replace(/\//, '').trim() === '') {
-			unirest.get('http://localhost:8080').end(function(resp) {
+			UNIREST.get('http://localhost:8080').end(function(resp) {
 				res.writeHead(200, {'Content-Type': 'text/html'});
 				res.write(resp.raw_body);
 				res.end();
