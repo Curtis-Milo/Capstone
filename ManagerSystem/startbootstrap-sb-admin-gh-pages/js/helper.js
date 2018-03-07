@@ -31,7 +31,7 @@ function Login() {
 
 function NetworkCall(api_key, objects) {
     var xhttp = new XMLHttpRequest();
-    var xhttp = createCORSRequest('POST', "http://130.113.68.87:8080/login");
+    var xhttp = createCORSRequest('POST', "/proxy/login");
     if (!xhttp) {
         throw new Error('CORS not supported');
     }
