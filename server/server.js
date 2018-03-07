@@ -45,6 +45,56 @@ function _isInt(val) {
 	return val.match(/^-{0,1}\d+$/) != null;
 }
 
+function _resolveRole(req) {
+	var roles = {
+		robot: false,
+		admin: false,
+		client: false
+	};
+
+	var auth = HELPER.caseInsensitiveKey(req.headers, 'authorization');
+	var server_cookie = _parseCookies(req.headers.cookie).server_sessionId;
+
+	authManager.checkAuth(server_cookie, function(sessErr, sessPassed) {
+		if (! sessErr) {
+			roles.admin = sessPassed;
+		}
+
+		if (auth) {
+			tokenGen.checkToken(token, function(robotErr, robotPassed) {
+				if (! robotErr) {
+					roles.robot = robotPassed;
+				}
+
+				tableManager.checkToken(table_id, token, function(tableErr, tablePassed) {
+					if (! tableErr) {
+						roles.client = tablePassed;
+					}
+
+					var token = auth.trim().split(' ')[1];
+
+					if (token) {
+						var buf = new Buffer(token, 'base64');
+						var plainAuth = buf.toString().split(':');
+
+						authManager.checkAuth(plainAuth[0], plainAuth[1], function(adminErr, adminPassed) {
+							if (! adminErr && ! roles.admin) {
+								roles.admin = adminPassed;
+							}
+
+							return roles;
+						});
+					} else {
+						return roles;
+					}
+				});
+			});
+		} else {
+			return roles;
+		}
+	});
+}
+
 tokenGen.sendToken(process.env.BOT_HOST); // Define bot IP in environment
 
 HTTP.createServer(function(req, res) {
