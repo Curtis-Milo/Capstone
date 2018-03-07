@@ -38,7 +38,7 @@ function NetworkCall(api_key, objects) {
     var temp = String(objects['userid']) + ":" + String(objects['passwd']);
     var basic = btoa(temp);
     // xhttp.open("POST", "http://130.113.68.87:8080/login");
-    xhttp.setRequestHeader('Authentication', "Basic " + basic);
+    xhttp.setRequestHeader('Authorization', "Basic " + basic);
     // xhttp.setRequestHeader("Access-Control-Allow-Origin", "*");
     // xhttp.setRequestHeader("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT, OPTIONS");
 
