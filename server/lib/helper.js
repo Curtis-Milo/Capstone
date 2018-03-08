@@ -22,13 +22,15 @@ module.exports = {
 		var lower = 0;
 		var upper = list.length - 1;
 
+		element = element.toString();
+
 		while (lower <= upper) {
 			var mid = Math.floor((upper + lower) / 2);
 			var curr = list[mid];
 
-			if (curr[attr] > element) {
+			if (curr[attr].toString() > element) {
 				lower = mid + 1;
-			} else if (curr[attr] < element) {
+			} else if (curr[attr].toString() < element) {
 				upper = mid - 1;
 			} else {
 				return mid;
