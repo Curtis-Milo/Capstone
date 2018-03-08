@@ -29,6 +29,11 @@ function TableManager() {
 TableManager.prototype.addTable = function(tableId, cb) {
 	var newMutex = false;
 	var that = this;
+
+	if (! tableId) {
+		return cb(new Error('No table_id specified.'));
+	}
+
 	if (! (tableId in mutexes)) {
 		mutexes[tableId] = LOCKS.createMutex();
 		newMutex = true;
