@@ -54,11 +54,14 @@ Queue.prototype.size = function() {
 
 //search for order within the queue given an table_id
 Queue.prototype.search = function(table_id, cb) {
+	if (! table_id) {
+		return cb('No table_id specified.');
+	}
 	var temp = HELPER.sortOnAttr(this.queue, 'table_id');
 	var index = HELPER.binSearch(temp, table_id, 'table_id');
 
 	if (index < 0) {
-		return cb(`table_id: ${table_id} not in queue`);
+		return cb(`table_id: ${table_id} not in queue.`);
 	}
 
 	var order_id = temp[index].order_id;
