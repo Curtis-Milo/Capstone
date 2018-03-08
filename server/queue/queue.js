@@ -15,9 +15,20 @@ Queue.prototype.push = function(data, cb) {
 		if (err) {
 			return cb(err);
 		}
-		that.queue = [data].concat(that.queue);
-		mutex.unlock();
-		cb(null, that.queue.length);
+
+		var temp = HELPER.sortOnAttr(that.queue, 'table_id');
+		var index = HELPER.binSearch(temp, data.table_id, 'table_id');
+
+		if (index < 0) {
+			that.queue = [data].concat(that.queue);
+			mutex.unlock();
+			cb(null, that.queue.length);
+		} else {
+			var newIndex = HELPER.binSearch(that.queue, temp[index].order_id, 'order_id');
+
+			that.queue[newIndex].order = HELPER.simplifyOrder(that.queue[newIndex].order.concat(data.order));
+			cb(null, that.queue.length);
+		}
 	});
 };
 
@@ -39,35 +50,45 @@ Queue.prototype.size = function() {
 	return this.queue.length;
 };
 
-//search for order within the queue given an order_id
-Queue.prototype.search = function(order_id, cb) {
-	var that = this;
-	var index = HELPER.binSearch(that.queue, order_id);
-	if (index >= 0) {
-		cb(null, (that.queue.length - index));
-	} else {
-		cb('order_id not in queue');
+//search for order within the queue given an table_id
+Queue.prototype.search = function(table_id, cb) {
+	var temp = HELPER.sortOnAttr(this.queue, 'table_id');
+	var index = HELPER.binSearch(temp, table_id, 'table_id');
+
+	if (index < 0) {
+		return cb('table_id not in queue');
 	}
+
+	var order_id = temp[index].order_id;
+
+	var newIndex = HELPER.binSearch(this.queue, order_id, 'order_id');
+
+	cb(null, (this.queue.length - newIndex));
 };
 
-//delete specific order from the queue given an order_id
-Queue.prototype.delete = function(order_id, cb) {
+//delete specific order from the queue given an table_id
+Queue.prototype.delete = function(table_id, cb) {
 	var that = this;
 	mutex.timedLock(10000, function(err) {
 		if (err) {
 			return cb(err);
 		}
 
-		var index = HELPER.binSearch(that.queue, order_id);
+		var temp = HELPER.sortOnAttr(that.queue, 'table_id');
+		var index = HELPER.binSearch(temp, table_id, 'table_id');
 
-		if (index >= 0) {
-			that.queue.splice(index, 1);
+		if (index < 0) {
 			mutex.unlock();
-			cb();
-		} else {
-			mutex.unlock();
-			cb('order_id not in queue');
+			return cb('table_id not in queue');
 		}
+
+		var order_id = temp[index].order_id;
+
+		var newIndex = HELPER.binSearch(that.queue, order_id, 'order_id');
+
+		that.queue.splice(newIndex, 1);
+		mutex.unlock();
+		cb();
 	});
 };
 

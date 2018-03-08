@@ -107,8 +107,8 @@ HTTP.createServer(function(req, res) {
 		if (req.method.toUpperCase() === 'GET') {
 			if (url.pathname.toLowerCase().replace(/\//, '') === 'placeinline') {
 				if (roles.client || roles.admin) {
-					var order_id = HELPER.caseInsensitiveKey(url.query, 'order_id');
-					queue.search(order_id, function(err, placeInLine) {
+					var table_id = roles.table_id || HELPER.caseInsensitiveKey(url.query, 'table_id');
+					queue.search(table_id, function(err, placeInLine) {
 						if (err) {
 							res.writeHead(404, err, {'Content-Type': 'text/html'});
 							res.end();
@@ -481,8 +481,8 @@ HTTP.createServer(function(req, res) {
 		} else if (req.method.toUpperCase() === 'DELETE') {
 			if (url.pathname.toLowerCase().replace(/\//, '') === 'cancelorder') {
 				if (roles.client) {
-					var order_id = HELPER.caseInsensitiveKey(url.query, 'order_id');
-					queue.delete(order_id, function(err) {
+					var table_id = roles.table_id;
+					queue.delete(table_id, function(err) {
 						if (err) {
 							res.writeHead(500, err, {'Content-Type': 'text/html'});
 							res.end();
