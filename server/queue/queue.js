@@ -27,6 +27,8 @@ Queue.prototype.push = function(data, cb) {
 			var newIndex = HELPER.binSearch(that.queue, temp[index].order_id, 'order_id');
 
 			that.queue[newIndex].order = HELPER.simplifyOrder(that.queue[newIndex].order.concat(data.order));
+
+			mutex.unlock();
 			cb(null, that.queue.length);
 		}
 	});
