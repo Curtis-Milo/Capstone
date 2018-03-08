@@ -29,7 +29,7 @@ Queue.prototype.push = function(data, cb) {
 			that.queue[newIndex].order = HELPER.simplifyOrder(that.queue[newIndex].order.concat(data.order));
 
 			mutex.unlock();
-			cb(null, that.queue.length);
+			cb(null, that.queue.length - newIndex);
 		}
 	});
 };
