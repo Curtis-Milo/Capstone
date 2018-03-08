@@ -756,31 +756,41 @@ Alfred will be utilizing this subsystem to assure that all pathways are clear an
 % ------------------------------------------------------- FMEA WORKSHEET ------------------------------------------------------- %
 \section{FMEA Worksheet}
 
+\subsection{Hazards Considered Out of Scope}
+
+\begin{itemize}
+	\item Alfred wheels slip due to liquids or clothing articles on the floor
+	\item A wheel is not able to rotate with the motor due to coupling issue
+	\item A failed component on the micro-controllers prevent Alfred from being able to function
+	\item Someone tampering with Alfred to inject fake errors (example: disconnecting the battery, tampering with the weight sensors)
+	\item An intentional blocking of the snesors (example: tape on the camera)
+\end{itemize}
+
+\subsection{Failure Modes and Effect Analysis Table}
 The following is a breakdown of the failure modes and effects analysis, or FMEA table. A hazard function will be presented with the possible failures, the unacceptable events that could occur should said failure occur, the severity of the failure, the possible cause of said failure, the likelihood of the failure, recommended action and the likelihood of failure detection.
 
-\begin{figure} [h!]
+\begin{figure} [H]
 	\centering
 	\includegraphics [scale = 0.7] {figures/FMEA_1.png}
 	\caption{FMEA Table Part 1}
 \end{figure}
 
-\begin{figure} [h!]
+\begin{figure} [H]
 	\centering
 	\includegraphics [scale = 0.7] {figures/FMEA_2.png}
 	\caption{FMEA Table Part 2}
 \end{figure}
 
-\begin{figure} [h!]
+\begin{figure} [H]
 	\centering
 	\includegraphics [scale = 0.7] {figures/FMEA_3.png}
 	\caption{FMEA Table Part 3}
 \end{figure}
 
-\begin{figure} [h!]
+\begin{figure} [H]
 	\centering
 	\includegraphics [scale = 0.7] {figures/FMEA_4.png}
 	\caption{FMEA Table Part 4}
 \end{figure}
-
 
 \end{document}
