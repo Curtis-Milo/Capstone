@@ -58,7 +58,7 @@ Queue.prototype.search = function(table_id, cb) {
 	var index = HELPER.binSearch(temp, table_id, 'table_id');
 
 	if (index < 0) {
-		return cb('table_id not in queue');
+		return cb(`table_id: ${table_id} not in queue`);
 	}
 
 	var order_id = temp[index].order_id;
