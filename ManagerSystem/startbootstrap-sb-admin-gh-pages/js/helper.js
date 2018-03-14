@@ -24,8 +24,12 @@ function Login() {
     userid = form.user.value;
     passwd = form.pass.value;
 
-    str = NetworkCall('login', [userid, passwd]);
-    console.log(str);
+    NetworkCall('login', [userid, passwd]);
+    
+}
+
+function navigate(dest) {
+   window.location.href = dest;
 }
 
 function NetworkCall(api_key, objects) {
@@ -51,7 +55,7 @@ function NetworkCall(api_key, objects) {
     }
     xhttp.onreadystatechange = function() {
         if (xhttp.readyState == 4 && xhttp.status == 200) {
-            return true;
+            navigate("index.html");
         } else {
             console.log("Error: " + xhttp.responseText);
         }
