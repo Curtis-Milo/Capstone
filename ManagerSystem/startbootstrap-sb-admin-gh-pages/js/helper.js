@@ -24,9 +24,8 @@ function Login() {
     userid = form.user.value;
     passwd = form.pass.value;
 
-    if (NetworkCall('login', [userid, passwd])) {
-        console.log("success");
-    }
+    str = NetworkCall('login', [userid, passwd]);
+    console.log(str);
 }
 
 function NetworkCall(api_key, objects) {
@@ -42,14 +41,6 @@ function NetworkCall(api_key, objects) {
     // xhttp.setRequestHeader("Access-Control-Allow-Origin", "*");
     // xhttp.setRequestHeader("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT, OPTIONS");
 
-
-    xhttp.onreadystatechange = function() {
-        if (xhttp.readyState == 4 && xhttp.status == 200) {
-            return true;
-        } else {
-            console.log("Error: " + xhttp.responseText);
-        }
-    }
     var tempResp;
     xhttp.onload = function() {
         tempResp = xhttp.responseText;
@@ -58,5 +49,13 @@ function NetworkCall(api_key, objects) {
     xhttp.onerror = function() {
         console.log("error");
     }
+    xhttp.onreadystatechange = function() {
+        if (xhttp.readyState == 4 && xhttp.status == 200) {
+            return true;
+        } else {
+            console.log("Error: " + xhttp.responseText);
+        }
+    }
+    
     xhttp.send();
 }
