@@ -54,7 +54,7 @@ function NetworkCall(api_key, objects) {
     }
     xhttp.onreadystatechange = function() {
         if (xhttp.status == 200) {
-            navigate("index.html");
+            navigate("../index.html");
         } else {
             console.log("Error: " + xhttp.responseText);
         }
