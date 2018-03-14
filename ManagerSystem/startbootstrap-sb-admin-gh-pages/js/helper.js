@@ -48,13 +48,12 @@ function NetworkCall(api_key, objects) {
     var tempResp;
     xhttp.onload = function() {
         tempResp = xhttp.responseText;
-        console.log("fuck");
     }
     xhttp.onerror = function() {
         console.log("error");
     }
     xhttp.onreadystatechange = function() {
-        if (xhttp.readyState == 4 && xhttp.status == 200) {
+        if (xhttp.status == 200) {
             navigate("index.html");
         } else {
             console.log("Error: " + xhttp.responseText);
