@@ -528,7 +528,7 @@ var tests = {
 					if (res.code < 200 || res.code > 299) {
 						resObj.testRes('Test GET /nextOrder endpoint', '', 200, res.code, 'fail');
 					} else {
-						var keys = ['table_id', 'order_id', 'orders'];
+						var keys = ['table_id', 'order_id', 'order'];
 						var passed = true;
 						var body_keys = Object.keys(res.body);
 
