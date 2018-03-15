@@ -587,6 +587,8 @@ tests.robotTest.reqListenForToken(IP, function() {
 	}).then(function() {
 		return tests.clientTest.placeOrder(resObj, IP);
 	}).then(function() {
+		return tests.adminTest.placeInLine(resObj, IP, tests.clientTest.table_id);
+	}).then(function() {
 		return tests.robotTest.checkToken(resObj, IP)
 	}).then(function() {
 		return tests.robotTest.getMap(resObj, IP);
