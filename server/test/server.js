@@ -315,6 +315,7 @@ var tests = {
 							resObj.testRes('Test GET /placeInLine?table_id endpoint', '', 'to be integer', res.raw_body, 'fail');
 						}
 					}
+					resolve();
 				});
 			});
 		}
