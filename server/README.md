@@ -113,7 +113,7 @@ file
 
 ##### Return unsigned integer representing error code.
 
-*${HOST}/map*
+*${HOST}/errors*
 
 AUTHORIZATION: Basic authorization using original administrator credentials.
 
