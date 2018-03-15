@@ -6,6 +6,10 @@ var http = require('http');
 var url = require('url');
 var request = unirest.request;
 
+function _isInt(val) {
+	return val.match(/^-{0,1}\d+$/) != null;
+}
+
 function TestRes() {
 	this._test_num = 0;
 	this.mutex = locks.createMutex();
@@ -292,6 +296,27 @@ var tests = {
 					}
 				});
 			});
+		},
+
+		placeInLine: function(resObj, host, table_id) {
+			var that = this;
+			return new Promise(function(resolve, reject) {
+				unirest.get(host + `/placeInLine?table_id=${table_id}`)
+				.headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
+				.auth(that._creds.userName, that._creds.password)
+				.end(function(res) {
+					if (res.code < 200 || res.code > 299) {
+						resObj.testRes('Test GET /placeInLine?table_id endpoint', '', 200, res.code, 'fail');
+						resolve();
+					} else {
+						if (_isInt(res.raw_body.trim())) {
+							resObj.testRes('Test GET /placeInLine?table_id endpoint', '', 'to be integer', res.raw_body, 'pass');
+						} else {
+							resObj.testRes('Test GET /placeInLine?table_id endpoint', '', 'to be integer', res.raw_body, 'fail');
+						}
+					}
+				});
+			});
 		}
 	},
 
@@ -301,12 +326,12 @@ var tests = {
 			password: 'admin'
 		},
 		token: null,
-		order_id: null,
+		table_id: 1,
 
 		getToken: function(resObj, host) {
 			var that = this;
 			return new Promise(function(resolve, reject) {
-				unirest.post(host + '/table?table_id=1')
+				unirest.post(host + `/table?table_id=${that.table_id}`)
 				.headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
 				.auth(that._creds.userName, that._creds.password)
 				.end(function(res) {
@@ -336,7 +361,7 @@ var tests = {
 					]
 				};
 
-				unirest.post(host + '/placeOrder?table_id=1')
+				unirest.post(host + '/placeOrder')
 				.headers({'Accept': 'application/json', 'Content-Type': 'application/json', 'Authorization': `Bearer ${that.token}`})
 				.send(data)
 				.end(function(res) {
@@ -344,7 +369,6 @@ var tests = {
 						resObj.testRes('Test POST /placeOrder endpoint', 'TO1/TO2', 200, res.code, 'fail');
 					} else {
 						resObj.testRes('Test POST /placeOrder endpoint', 'TO1/TO2', 200, res.code, 'pass');
-						that.order_id = res.body.orderData.order_id;
 					}
 					resolve();
 				});
@@ -354,7 +378,7 @@ var tests = {
 		placeInLine: function(resObj, host) {
 			var that = this;
 			return new Promise(function(resolve, reject) {
-				unirest.get(host + `/placeInLine?table_id=1&order_id${that.order_id}`)
+				unirest.get(host + `/placeInLine`)
 				.headers({'Accept': 'application/json', 'Content-Type': 'application/json', 'Authorization': `Bearer ${that.token}`})
 				.end(function(res) {
 					if (res.code < 200 || res.code > 299) {
@@ -374,7 +398,7 @@ var tests = {
 		cancelOrder: function(resObj, host) {
 			var that = this;
 			return new Promise(function(resolve, reject) {
-				unirest.delete(host + `/cancelOrder?table_id=1&order_id=${that.order_id}`)
+				unirest.delete(host + `/cancelOrder`)
 				.headers({'Accept': 'application/json', 'Content-Type': 'application/json', 'Authorization': `Bearer ${that.token}`})
 				.end(function(res){
 					if (res.code < 200 || res.code > 299) {
