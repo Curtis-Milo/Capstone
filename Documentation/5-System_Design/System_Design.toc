@@ -3,73 +3,74 @@
 \contentsline {subsection}{\numberline {2.1}Scope}{4}{subsection.2.1}
 \contentsline {subsection}{\numberline {2.2}Context Diagram}{4}{subsection.2.2}
 \contentsline {subsection}{\numberline {2.3}Diagram of Components}{5}{subsection.2.3}
-\contentsline {section}{\numberline {3}System Variables}{5}{section.3}
-\contentsline {subsection}{\numberline {3.1}Monitored and Controlled Variables}{5}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Constants}{6}{subsection.3.2}
-\contentsline {section}{\numberline {4}Behaviour Overview}{6}{section.4}
-\contentsline {section}{\numberline {5}Component Overview}{7}{section.5}
-\contentsline {subsection}{\numberline {5.1}Ordering System Module}{7}{subsection.5.1}
-\contentsline {subsubsection}{\numberline {5.1.1}Inputs and Outputs}{7}{subsubsection.5.1.1}
-\contentsline {subsubsection}{\numberline {5.1.2}Description}{7}{subsubsection.5.1.2}
-\contentsline {subsubsection}{\numberline {5.1.3}Timing Constraints}{7}{subsubsection.5.1.3}
+\contentsline {subsection}{\numberline {2.4}Assumptions}{5}{subsection.2.4}
+\contentsline {subsection}{\numberline {2.5}Components to Requirements}{6}{subsection.2.5}
+\contentsline {section}{\numberline {3}System Variables}{6}{section.3}
+\contentsline {subsection}{\numberline {3.1}Monitored and Controlled Variables}{6}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Constants}{7}{subsection.3.2}
+\contentsline {section}{\numberline {4}Behaviour Overview}{7}{section.4}
+\contentsline {section}{\numberline {5}Component Overview}{8}{section.5}
+\contentsline {subsection}{\numberline {5.1}Ordering System Module}{8}{subsection.5.1}
+\contentsline {subsubsection}{\numberline {5.1.1}Inputs and Outputs}{8}{subsubsection.5.1.1}
+\contentsline {subsubsection}{\numberline {5.1.2}Description}{8}{subsubsection.5.1.2}
+\contentsline {subsubsection}{\numberline {5.1.3}Timing Constraints}{8}{subsubsection.5.1.3}
 \contentsline {subsubsection}{\numberline {5.1.4}Initialization}{8}{subsubsection.5.1.4}
-\contentsline {subsection}{\numberline {5.2}Manager Login Page Module}{8}{subsection.5.2}
-\contentsline {subsubsection}{\numberline {5.2.1}Inputs and Outputs}{8}{subsubsection.5.2.1}
-\contentsline {subsubsection}{\numberline {5.2.2}Description}{8}{subsubsection.5.2.2}
-\contentsline {subsubsection}{\numberline {5.2.3}Timing Constraints}{8}{subsubsection.5.2.3}
-\contentsline {subsubsection}{\numberline {5.2.4}Initialization}{8}{subsubsection.5.2.4}
-\contentsline {subsection}{\numberline {5.3}Manager Station Map Software Module}{8}{subsection.5.3}
-\contentsline {subsubsection}{\numberline {5.3.1}Inputs and Outputs}{8}{subsubsection.5.3.1}
-\contentsline {subsubsection}{\numberline {5.3.2}Description}{9}{subsubsection.5.3.2}
-\contentsline {subsubsection}{\numberline {5.3.3}Timing Constraints}{9}{subsubsection.5.3.3}
-\contentsline {subsubsection}{\numberline {5.3.4}Initialization}{9}{subsubsection.5.3.4}
-\contentsline {subsection}{\numberline {5.4}Manager Station Request Software Module}{9}{subsection.5.4}
-\contentsline {subsubsection}{\numberline {5.4.1}Inputs and Outputs}{9}{subsubsection.5.4.1}
-\contentsline {subsubsection}{\numberline {5.4.2}Description}{9}{subsubsection.5.4.2}
-\contentsline {subsubsection}{\numberline {5.4.3}Timing Constraints}{9}{subsubsection.5.4.3}
+\contentsline {subsection}{\numberline {5.2}Manager Login Page Module}{9}{subsection.5.2}
+\contentsline {subsubsection}{\numberline {5.2.1}Inputs and Outputs}{9}{subsubsection.5.2.1}
+\contentsline {subsubsection}{\numberline {5.2.2}Description}{9}{subsubsection.5.2.2}
+\contentsline {subsubsection}{\numberline {5.2.3}Timing Constraints}{9}{subsubsection.5.2.3}
+\contentsline {subsubsection}{\numberline {5.2.4}Initialization}{9}{subsubsection.5.2.4}
+\contentsline {subsection}{\numberline {5.3}Manager Station Map Software Module}{9}{subsection.5.3}
+\contentsline {subsubsection}{\numberline {5.3.1}Inputs and Outputs}{9}{subsubsection.5.3.1}
+\contentsline {subsubsection}{\numberline {5.3.2}Description}{10}{subsubsection.5.3.2}
+\contentsline {subsubsection}{\numberline {5.3.3}Timing Constraints}{10}{subsubsection.5.3.3}
+\contentsline {subsubsection}{\numberline {5.3.4}Initialization}{10}{subsubsection.5.3.4}
+\contentsline {subsection}{\numberline {5.4}Manager Station Request Software Module}{10}{subsection.5.4}
+\contentsline {subsubsection}{\numberline {5.4.1}Inputs and Outputs}{10}{subsubsection.5.4.1}
+\contentsline {subsubsection}{\numberline {5.4.2}Description}{10}{subsubsection.5.4.2}
+\contentsline {subsubsection}{\numberline {5.4.3}Timing Constraints}{10}{subsubsection.5.4.3}
 \contentsline {subsubsection}{\numberline {5.4.4}Initialization}{10}{subsubsection.5.4.4}
-\contentsline {subsection}{\numberline {5.5}Back End Web Service Module}{10}{subsection.5.5}
-\contentsline {subsubsection}{\numberline {5.5.1}Inputs and Outputs}{10}{subsubsection.5.5.1}
-\contentsline {subsubsection}{\numberline {5.5.2}Description}{10}{subsubsection.5.5.2}
-\contentsline {subsubsection}{\numberline {5.5.3}Timing Constraints}{10}{subsubsection.5.5.3}
-\contentsline {subsubsection}{\numberline {5.5.4}Initialization}{10}{subsubsection.5.5.4}
-\contentsline {subsection}{\numberline {5.6}Alfred Manager Module}{10}{subsection.5.6}
-\contentsline {subsubsection}{\numberline {5.6.1}Inputs and Outputs}{10}{subsubsection.5.6.1}
-\contentsline {subsubsection}{\numberline {5.6.2}Description}{11}{subsubsection.5.6.2}
-\contentsline {subsubsection}{\numberline {5.6.3}Timing Constraints}{11}{subsubsection.5.6.3}
-\contentsline {subsubsection}{\numberline {5.6.4}Initialization}{11}{subsubsection.5.6.4}
-\contentsline {subsubsection}{\numberline {5.6.5}Alfred Communication Circuit Diagram}{11}{subsubsection.5.6.5}
-\contentsline {subsubsection}{\numberline {5.6.6}Raspberry PI Specifications}{12}{subsubsection.5.6.6}
+\contentsline {subsection}{\numberline {5.5}Back End Web Service Module}{11}{subsection.5.5}
+\contentsline {subsubsection}{\numberline {5.5.1}Inputs and Outputs}{11}{subsubsection.5.5.1}
+\contentsline {subsubsection}{\numberline {5.5.2}Description}{11}{subsubsection.5.5.2}
+\contentsline {subsubsection}{\numberline {5.5.3}Timing Constraints}{11}{subsubsection.5.5.3}
+\contentsline {subsubsection}{\numberline {5.5.4}Initialization}{11}{subsubsection.5.5.4}
+\contentsline {subsection}{\numberline {5.6}Alfred Manager Module}{11}{subsection.5.6}
+\contentsline {subsubsection}{\numberline {5.6.1}Inputs and Outputs}{11}{subsubsection.5.6.1}
+\contentsline {subsubsection}{\numberline {5.6.2}Description}{12}{subsubsection.5.6.2}
+\contentsline {subsubsection}{\numberline {5.6.3}Timing Constraints}{12}{subsubsection.5.6.3}
+\contentsline {subsubsection}{\numberline {5.6.4}Initialization}{12}{subsubsection.5.6.4}
+\contentsline {subsubsection}{\numberline {5.6.5}Raspberry PI Specifications}{12}{subsubsection.5.6.5}
 \contentsline {subsection}{\numberline {5.7}Alfred Drive-Train Module}{12}{subsection.5.7}
 \contentsline {subsubsection}{\numberline {5.7.1}Inputs and Outputs}{12}{subsubsection.5.7.1}
-\contentsline {subsubsection}{\numberline {5.7.2}Description}{12}{subsubsection.5.7.2}
+\contentsline {subsubsection}{\numberline {5.7.2}Description}{13}{subsubsection.5.7.2}
 \contentsline {subsubsection}{\numberline {5.7.3}Timing Constraints}{13}{subsubsection.5.7.3}
 \contentsline {subsubsection}{\numberline {5.7.4}Initialization}{13}{subsubsection.5.7.4}
 \contentsline {subsubsection}{\numberline {5.7.5}Diagram of Simulink Control System}{13}{subsubsection.5.7.5}
-\contentsline {subsubsection}{\numberline {5.7.6}DC Motors Circuit Diagram}{13}{subsubsection.5.7.6}
+\contentsline {subsubsection}{\numberline {5.7.6}DC Motors Circuit Diagram}{14}{subsubsection.5.7.6}
 \contentsline {subsubsection}{\numberline {5.7.7}DC Motor Specifications}{14}{subsubsection.5.7.7}
 \contentsline {subsubsection}{\numberline {5.7.8}H-bridge Specifications}{14}{subsubsection.5.7.8}
 \contentsline {subsubsection}{\numberline {5.7.9}Encoder Specifications}{14}{subsubsection.5.7.9}
 \contentsline {subsection}{\numberline {5.8}Alfred Pumping System Module}{14}{subsection.5.8}
 \contentsline {subsubsection}{\numberline {5.8.1}Inputs and Outputs}{14}{subsubsection.5.8.1}
-\contentsline {subsubsection}{\numberline {5.8.2}Description}{14}{subsubsection.5.8.2}
-\contentsline {subsubsection}{\numberline {5.8.3}Timing Constraints}{14}{subsubsection.5.8.3}
+\contentsline {subsubsection}{\numberline {5.8.2}Description}{15}{subsubsection.5.8.2}
+\contentsline {subsubsection}{\numberline {5.8.3}Timing Constraints}{15}{subsubsection.5.8.3}
 \contentsline {subsubsection}{\numberline {5.8.4}Initialization}{15}{subsubsection.5.8.4}
 \contentsline {subsubsection}{\numberline {5.8.5}Diagram of DC Pump Control System}{15}{subsubsection.5.8.5}
 \contentsline {subsubsection}{\numberline {5.8.6}DC Pump Circuit Diagram}{15}{subsubsection.5.8.6}
 \contentsline {subsubsection}{\numberline {5.8.7}Liquid Temperature Circuit Diagram}{16}{subsubsection.5.8.7}
-\contentsline {subsubsection}{\numberline {5.8.8}Weight Detection Circuit Diagram}{16}{subsubsection.5.8.8}
+\contentsline {subsubsection}{\numberline {5.8.8}Weight Detection Circuit Diagram}{17}{subsubsection.5.8.8}
 \contentsline {subsubsection}{\numberline {5.8.9}DC Pump Specifications}{17}{subsubsection.5.8.9}
 \contentsline {subsubsection}{\numberline {5.8.10}Arduino Mega Specifications}{17}{subsubsection.5.8.10}
 \contentsline {subsubsection}{\numberline {5.8.11}Container Specifications}{17}{subsubsection.5.8.11}
-\contentsline {subsubsection}{\numberline {5.8.12}Tubing Specifications}{17}{subsubsection.5.8.12}
-\contentsline {subsection}{\numberline {5.9}Alfred Image Processing Module }{17}{subsection.5.9}
-\contentsline {subsubsection}{\numberline {5.9.1}Inputs and Outputs}{17}{subsubsection.5.9.1}
-\contentsline {subsubsection}{\numberline {5.9.2}Description}{17}{subsubsection.5.9.2}
+\contentsline {subsubsection}{\numberline {5.8.12}Tubing Specifications}{18}{subsubsection.5.8.12}
+\contentsline {subsection}{\numberline {5.9}Alfred Image Processing Module }{18}{subsection.5.9}
+\contentsline {subsubsection}{\numberline {5.9.1}Inputs and Outputs}{18}{subsubsection.5.9.1}
+\contentsline {subsubsection}{\numberline {5.9.2}Description}{18}{subsubsection.5.9.2}
 \contentsline {subsubsection}{\numberline {5.9.3}Timing Constraints}{18}{subsubsection.5.9.3}
 \contentsline {subsubsection}{\numberline {5.9.4}Initialization}{18}{subsubsection.5.9.4}
 \contentsline {subsubsection}{\numberline {5.9.5}Raspberry PI Camera Specifications}{18}{subsubsection.5.9.5}
 \contentsline {section}{\numberline {6}Normal Operation}{18}{section.6}
-\contentsline {section}{\numberline {7}Undesired Event Handling}{18}{section.7}
-\contentsline {section}{\numberline {8}References}{18}{section.8}
+\contentsline {section}{\numberline {7}Undesired Event Handling}{19}{section.7}
+\contentsline {section}{\numberline {8}References}{19}{section.8}
 \contentsfinish 
