@@ -53,13 +53,12 @@ function parseFiles(){
     map = [];
     if(prevFile){
         lines = mapFile.split('\n');
-        console.log(lines);
         length= lines[0].split(',')[0];
         width = lines[0].split(',')[1];
         for (var i = 1; i < length+1; i++) {
             map.push([]);
             for (var j = 0; j < width; j++) {
-                map[i].push(lines[i].split(',')[j]);
+                map[i-1].push(lines[i].split(',')[j]);
             }
         }
     }else{
