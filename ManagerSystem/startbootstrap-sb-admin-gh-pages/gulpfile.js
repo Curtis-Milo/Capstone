@@ -96,8 +96,18 @@ gulp.task('js:minify', function() {
         .pipe(gulp.dest('./js'))
         .pipe(browserSync.stream());
 });
+// DEV Javascript
+gulp.task('js:dev',function() {
+    return gulp.src([
+        './js/*.js',
+        '!./js/*.min.js'
+        ])
+        .pipe(browserSync.stream());
+});
 // JS
 gulp.task('js', ['js:minify']);
+//JS dev
+gulp.task('jsDEV',['js:dev']);
 // PUG
 gulp.task('pug', function buildHTML() {
     return gulp.src('./pug/*.pug')

@@ -11,38 +11,18 @@ html(lang='en')
     title SB Admin - Start Bootstrap Template
 
     include includes/css/core.pug
-
-    // Page level plugin CSS
-    link(href='vendor/datatables/dataTables.bootstrap4.css', rel='stylesheet')
-
     include includes/css/custom.pug
 
   body#page-top.fixed-nav.sticky-footer.bg-dark
     include includes/navbar.pug
     .content-wrapper
       .container-fluid
-        // Icon Cards
-        .row
-            .card.text-white.bg-primary.o-hidden.h-100
-              .card-body#lowLiquid
-                .mr-5
-                  | Low Liquid
-        .row
-            .card.text-white.bg-warning.o-hidden.h-100
-              .card-body
-                .mr-5
-                  | Leaking Tank
-        .row
-            .card.text-white.bg-success.o-hidden.h-100
-              .card-body
-                .mr-5
-                  | Low Battery
-        .row
-            .card.text-white.bg-danger.o-hidden.h-100
-              .card-body
-                .mr-5
-                  | No Movement
-
+        div#errorContainer(class='col w-50' style='float:left;')
+        div#errorPageOptions(class='col w-50' style='float:right;')
+          .row
+            button.btn.btn-lg.btn-primary.w-25 Call Home
+          .row.mt-5
+            button.btn.btn-lg.btn-info.w-25 Refresh Errors
       // /.container-fluid
       // /.content-wrapper
 
@@ -53,10 +33,5 @@ html(lang='en')
       include includes/modals/logout.pug
 
       include includes/js/core.pug
-
-      // Page level plugin JavaScript
-      script(src='vendor/chart.js/Chart.min.js')
-      script(src='vendor/datatables/jquery.dataTables.js')
-      script(src='vendor/datatables/dataTables.bootstrap4.js')
 
       include includes/js/custom.pug

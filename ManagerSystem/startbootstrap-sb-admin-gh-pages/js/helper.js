@@ -1,39 +1,197 @@
+//errors page vars
 var errList = [];
+//map maker vars
+var map;
+var table_coords;
+var table_refs;
+var length;
+var width;
+var square_size = 100;
+var editTables = false;
+var mapFile;
 
+//what to do when window loads
 window.onload = function() {
     x = document.getElementById('lowLiquid');
-    console.log(x);
-    console.log("hello");
-    NetworkCall('getErrors');
+    path = document.location.pathname;
+    
+    //dev mode
+    if (document.location.hostname=='localhost' && document.location.port==3000) {
+        if (path=='/' || path=='/index.html') {
+            if (document.location.hostname=='localhost' && document.location.port==3000) {
+                //testing at home
+                setErrorList(15);
+            }
+        } else if (path=='/charts.html') {
+            parseFiles();
+            updateMap();
+        }
+    //prod
+    } else {
+        if (path=='/' || path=='/index.html') {
+            NetworkCall('getErrors');
+        } else if (path=='/charts.html') {
+            parseFiles();
+            updateMap();
+        }
+    }
+    
 };
 
+function parseFiles(){
+    var prevFile = false;
+    map = [];
+    if(prevFile){
+        var mapfile;
+        parse = mapfile.split('\n').split(",")
+        length= parse[0][0];
+        width = parse[0][1];
+        for (var i = 1; i < length+1; i++) {
+            map.push([]);
+            for (var j = 0; j < width; j++) {
+             map[i].push(parse[i][j]);
+            }
+        }
+    }else{
+        //default information when there is no 
+        length = 10;
+        width = 10;
+        //Setting all the information to 0 except for the last one
+        for (var i = 0; i < length; i++) {
+            map.push([]);
+            for (var j = 0; j < width; j++) {
+             map[i].push("0");
+            }
+        }
+        map[0][0] = 3;
+        table_coords = [];
+    }
+}
+
+function save(){
+
+    mapFile = length+","+width +"\n";
+    for (var i = 0; i < length; i++) {
+        map.push([]);
+        for (var j = 0; j < width; j++) {
+            if(j == width-1){
+                mapFile = mapFile +map[i][j];
+            }else{
+                mapFile = mapFile +map[i][j] +",";
+            }            
+        }
+        if(i != length-1){
+                mapFile = mapFile +"\n";
+        }
+    }
+    NetworkCall('save_map');
+
+}
+
+//map maker function every time a block is clicked
+function onClickChange(i,j){
+    console.log("merp i = "+i+", j = "+j)
+    if (editTables) {
+        //TODO edit table ids
+    } else {
+        // toggle map block
+        map[i][j] = (map[i][j]+1)%4;
+        updateMap();        
+    }
+    
+}
+
+//map maker function to update the gui
+function updateMap(){
+    var mapString = "";
+    table_coords = [];
+    table_refs = [];
+    count_tblRef = 0;
+    var top = 100;
+
+    console.log("len"+length);
+
+    for (var i = 0; i < length; i++) {  
+            var left = 0;
+            for (var j = 0; j < width; j++) {
+                var label="";
+             var button = "<div style =  \" display:block;float:left;    left:"+left+"px; top:"+top+"px;\"";
+             var insideStuff= "";
+             if (map[i][j] == "0"){
+                insideStuff = " onclick = \"onClickChange("+i+","+j+")\" id = \"clear\""; 
+             }else if(map[i][j] == "1"){
+                insideStuff = " onclick = \"onClickChange("+i+","+j+")\" id = \"blocked\"";     
+             }else if(map[i][j] == "2"){
+                insideStuff = " onclick = \"onClickChange("+i+","+j+")\" id = \"table\"";
+                label = "Table";
+                //update table refereces
+                table_refs.push(count_tblRef);
+                table_coords.push([i,j]); 
+                count_tblRef = count_tblRef+1;
+             }else if(map[i][j] == "3"){
+                insideStuff = " onclick = \"onClickChange("+i+","+j+")\" id = \"base\"";
+                label = "Home";
+             }
+             
+             button = button+ insideStuff + ">" + label +"</div>";
+             mapString = mapString + button;
+             left= left+square_size;
+            }
+            mapString=mapString+"<br>";
+            top= top+square_size;
+        }
+    
+    console.log("table coords:");
+    console.log(table_coords);
+    console.log("tableCount: "+count_tblRef);
+    
+    document.getElementById("board").innerHTML =mapString;
+    console.log(document.getElementById("board"));
+}
+
+function load() {
+    NetworkCall('load_map');
+}
+
+
+
 function setErrorList(errsList) {
-    var errors = 0x00001111;
+    var errors = errsList;
     var StringErrors = "";
-    console.log(errsList);
 
     if ((errors && 0x00000001)==0x00000001){
         StringErrors = StringErrors + "LowLiquid <br>";
-        errList.push('lowLiquid');
+        errList.push('Low Liquid');
     }
     if((errors && 0x00000010)==0x00000010){
         StringErrors = StringErrors + "LeakingTank <br>";
-        errList.push('leakingTank');
+        errList.push('Leaking Tank');
     }
     if ((errors && 0x00000100)==0x00000100){
         StringErrors = StringErrors + "LowBattery <br>";
-        errList.push('lowBattery');
+        errList.push('Low Battery');
     }
     if ((errors && 0x00001000)==0x00001000){
         StringErrors = StringErrors + "NoMovement <br>";
-        errList.push('noMovement');
+        errList.push('No Movement');
     }
     renderErrors();
     //document.getElementById("errors").innerHTML = StringErrors;
   }
 
   function renderErrors() {
+    var container = document.getElementById("errorContainer");
+    console.log(container);
 
+    for (x in errList) {
+        console.log(errList[x]);
+
+        var str = errList[x];
+        $(container).append('<div class="row text-center ml-5 w-25 "><div class="card card-body text-center text-white bg-danger o-hidden h-100 w-25">' +
+                               // '<div class="card-body text-center">' +
+                                str + '</div></div><br>');
+        console.log(container);
+    }
   }
 
 function createCORSRequest(method, url) {
@@ -116,7 +274,26 @@ function NetworkCall(api_key, objects) {
                 console.log("Error: " + xhttp.responseText);
             }
         }
+    } else if (api_key=='save_map') {
+        var xhttp = createCORSRequest('POST','/proxy/map');
+        if (!xhttp) {
+            throw new Error('CORS not supported');
+        }
+        var tempResp;
+        xhttp.onload = function() {
+            tempResp = xhttp.responseText;
+        }
+        xhttp.onerror = function() {
+            console.log("error");
+        }
+        xhttp.onreadystatechange = function() {
+            if (xhttp.status == 200) {
+                setErrorList(xhttp.responseText);
+                alert("uploaded to server");
+            } else {
+                console.log("Error: " + xhttp.responseText);
+            }
+        }
+        xhttp.send(mapFile);
     }
-    
-    xhttp.send();
 }
