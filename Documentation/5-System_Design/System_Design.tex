@@ -14,8 +14,9 @@
 \usepackage{mathtools}
 
 % Table cell color package and highlighting
-\usepackage[table]{xcolor}
+\usepackage[table,xcdraw]{xcolor}
 \usepackage{color,soul}
+
 
 % VIC title package
 %\usepackage{cabin}
@@ -488,12 +489,216 @@ The following is a list of system constants. \\
 	\item \textbf{Image Processing Module}: Will detect any obstacles in the way as well as locate incoming nodes. Will communicate with Alfred Drive Train Module, to determine wether any required action based on results.
 \end{enumerate}
 
-% --------------------------------------------------- COMPONENT OVERVIEW ---------------------------------------------------- %
+% ------------------------------------------------ COMPONENT TRACEABILITY ------------------------------------------------- %
+
+\section{Component Traceability}
+
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{lllll}
+\cline{1-2}
+\multicolumn{1}{|c|}{\textbf{Component Module:}} & \multicolumn{1}{c|}{\textbf{Functional and Non-Functional Requirement:}} &  &  &  \\ \cline{1-2}
+\multicolumn{1}{|c|}{\multirow{9}{*}{Ordering System Module}} & \multicolumn{1}{l|}{Table Ordering Functional Requirement 1} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|c|}{} & \multicolumn{1}{l|}{Table Ordering Functional Requirement 2} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|c|}{} & \multicolumn{1}{l|}{Non Functional Requirement 4} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|c|}{} & \multicolumn{1}{l|}{Non Functional Requirement 5} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|c|}{} & \multicolumn{1}{l|}{Non Functional Requirement 8} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|c|}{} & \multicolumn{1}{l|}{Non Functional Requirement 9} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|c|}{} & \multicolumn{1}{l|}{Non Functional Requirement 15} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|c|}{} & \multicolumn{1}{l|}{Non Functional Requirement 30} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|c|}{} & \multicolumn{1}{l|}{Non Functional Requirement 32} &  &  &  \\ \cline{1-2}
+\end{tabular}
+\caption{Ordering System Traceability}
+\end{table}
+
+
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{lllll}
+\cline{1-2}
+\multicolumn{1}{|c|}{\textbf{Component Module:}} & \multicolumn{1}{c|}{\textbf{Functional and Non-Functional Requirement:}} &  &  &  \\ \cline{1-2}
+\multicolumn{1}{|l|}{\multirow{5}{*}{Manager Login Page Module}} & \multicolumn{1}{l|}{Non Functional Requirement 4} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Non Functional Requirement 5} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Non Functional Requirement 8} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Non Functional Requirement 9} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Non Functional Requirement 30} &  &  &  \\ \cline{1-2}
+\end{tabular}
+\caption{Manager Login Page Traceability}
+\end{table}
+
+
+\pagebreak
+
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{lllll}
+\cline{1-2}
+\multicolumn{1}{|c|}{\textbf{Component Module:}} & \multicolumn{1}{c|}{\textbf{Functional and Non-Functional Requirement:}} &  &  &  \\ \cline{1-2}
+\multicolumn{1}{|l|}{\multirow{9}{*}{Manager Station Map Software Module}} & \multicolumn{1}{l|}{Administrator Functional Requirement 1} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Administrator Functional Requirement 2} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Non Functional Requirement 4} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Non Functional Requirement 5} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Non Functional Requirement 8} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Non Functional Requirement 9} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Non Functional Requirement 29} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Non Functional Requirement 30} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Non Functional Requirement 33} &  &  &  \\ \cline{1-2}
+\end{tabular}
+\caption{Manager Station Map Traceability}
+\end{table}
+
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{lllll}
+\cline{1-2}
+\multicolumn{1}{|c|}{\textbf{Component Module:}} & \multicolumn{1}{c|}{\textbf{Functional and Non-Functional Requirement:}} &  &  &  \\ \cline{1-2}
+\multicolumn{1}{|l|}{\multirow{11}{*}{Manager Station Request Software Module}} & \multicolumn{1}{l|}{Administrator Functional Requirement 3} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Administrator Functional Requirement 4} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Administrator Functional Requirement 5} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Non Functional Requirement 4} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Non Functional Requirement 5} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Non Functional Requirement 8} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Non Functional Requirement 9} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Non Functional Requirement 29} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Non Functional Requirement 30} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Non Functional Requirement 31} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Non Functional Requirement 33} &  &  &  \\ \cline{1-2}
+\end{tabular}
+\caption{Manager Station Request Traceability}
+\end{table}
+
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{lllll}
+\cline{1-2}
+\multicolumn{1}{|c|}{\textbf{Component Module:}} & \multicolumn{1}{c|}{\textbf{Functional and Non-Functional Requirement:}} &  &  &  \\ \cline{1-2}
+\multicolumn{1}{|l|}{\multirow{15}{*}{Back End Web Service Module}} & \multicolumn{1}{l|}{Alfred Functional Requirement 1} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Alfred Functional Requirement 2} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Alfred Functional Requirement 4} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Alfred Functional Requirement 6} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Alfred Functional Requirement 7} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Alfred Functional Requirement 8} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Alfred Functional Requirement 9} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Alfred Functional Requirement 10} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Table Ordering Functional Requirement 1} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Table Ordering Functional Requirement 2} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Non Functional Requirement 26} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Non Functional Requirement 27} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Non Functional Requirement 31} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Non Functional Requirement 32} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Non Functional Requirement 33} &  &  &  \\ \cline{1-2}
+\end{tabular}
+\caption{Back End Web Service Traceability}
+\end{table}
+
+
+
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{lllll}
+\cline{1-2}
+\multicolumn{1}{|c|}{\textbf{Component Module:}} & \multicolumn{1}{c|}{\textbf{Functional and Non-Functional Requirement:}} &  &  &  \\ \cline{1-2}
+\multicolumn{1}{|l|}{\multirow{18}{*}{Alfred Manager Module}} & \multicolumn{1}{l|}{Alfred Functional Requirement 3} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Alfred Functional Requirement 7} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Alfred Functional Requirement 8} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Alfred Functional Requirement 9} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Alfred Functional Requirement 10} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Alfred Functional Requirement 11} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Alfred Functional Requirement 12} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Alfred Functional Requirement 13} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Alfred Functional Requirement 14} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Non Functional Requirement 11} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Non Functional Requirement 16} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Non Functional Requirement 17} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Non Functional Requirement 19} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Non Functional Requirement 20} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Non Functional Requirement 21} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Non Functional Requirement 26} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Non Functional Requirement 27} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Non Functional Requirement 31} &  &  &  \\ \cline{1-2}
+\end{tabular}
+\caption{Alfred Manager Traceability}
+\end{table}
+
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{lllll}
+\cline{1-2}
+\multicolumn{1}{|c|}{\textbf{Component Module:}} & \multicolumn{1}{c|}{\textbf{Functional and Non-Functional Requirement:}} &  &  &  \\ \cline{1-2}
+\multicolumn{1}{|l|}{\multirow{10}{*}{Alfred Drive-Train Module}} & \multicolumn{1}{l|}{Alfred Functional Requirement 3} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Alfred Functional Requirement 12} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Non Functional Requirement 1} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Non Functional Requirement 2} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Non Functional Requirement 11} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Non Functional Requirement 13} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Non Functional Requirement 16} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Non Functional Requirement 18} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Non Functional Requirement 20} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Non Functional Requirement 38} &  &  &  \\ \cline{1-2}
+\end{tabular}
+\caption{Alfred Drive-Train Traceability}
+\end{table}
+
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{lllll}
+\cline{1-2}
+\multicolumn{1}{|c|}{\textbf{Component Module:}} & \multicolumn{1}{c|}{\textbf{Functional and Non-Functional Requirement:}} &  &  &  \\ \cline{1-2}
+\multicolumn{1}{|l|}{\multirow{15}{*}{Alfred Pumping System Module}} & \multicolumn{1}{l|}{Alfred Functional Requirement 1} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Alfred Functional Requirement 4} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Alfred Functional Requirement 5} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Alfred Functional Requirement 6} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Alfred Functional Requirement 7} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Alfred Functional Requirement 8} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Alfred Functional Requirement 9} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Alfred Functional Requirement 11} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Alfred Functional Requirement 13} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Non Functional Requirement 1} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Non Functional Requirement 2} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Non Functional Requirement 10} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Non Functional Requirement 12} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Non Functional Requirement 17} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Non Functional Requirement 19} &  &  &  \\ \cline{1-2} 
+\end{tabular}
+\caption{Alfred Pumping System Traceability}
+\end{table}
+
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{lllll}
+\cline{1-2}
+\multicolumn{1}{|c|}{\textbf{Component Module:}} & \multicolumn{1}{c|}{\textbf{Functional and Non-Functional Requirement:}} &  &  &  \\ \cline{1-2}
+\multicolumn{1}{|l|}{\multirow{3}{*}{Alfred Image Processing Module}} & \multicolumn{1}{l|}{Alfred Functional Requirement 10} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Non Functional Requirement 16} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{Non Functional Requirement 20} &  &  &  \\ \cline{1-2}
+\end{tabular}
+\caption{Alfred Image Processing Traceability}
+\end{table}
+
+
+
+\pagebreak
+
+% -------------------------------------------------- COMPONENT OVERVIEW ---------------------------------------------------- %
 
 \section{Component Overview}
 
 % ----------------------------------------------------- Ordering System Module ---------------------------------------------------- %
 \subsection{Ordering System Module}
+
+% ----------------------------------------------------- Description ---------------------------------------------------- %
+
+\subsubsection{Description}
+This module will be used for user input by taking the orders of the client. This user input will be taken in by the mobile application based on different button inputs/ radio button selections. These orders are then packaged by the module to be sent to the server based on an HTTP request.
 
 % ----------------------------------------------------- Inputs and Outputs ---------------------------------------------------- %
 \subsubsection{Inputs and Outputs}
@@ -516,12 +721,8 @@ The following is a list of system constants. \\
 	\rowcolor{tableCell}$Order_{Rid} $ & Unsigned Integer User Input & [0,$2^{16}$] & N/A & Identification of the restaurant \\ \hline
 \end{longtable}
 
-% ----------------------------------------------------- Description ---------------------------------------------------- %
 
-\subsubsection{Description}
-This module will be used for user input by taking the orders of the client. This user input will be taken in by the mobile application based on different button inputs/ radio button selections. These orders are then packaged by the module to be sent to the server based on an HTTP request.
-
-% ----------------------------------------------------- Timing Constrints ---------------------------------------------------- %
+% ----------------------------------------------------- Timing Constriants ---------------------------------------------------- %
 
 \subsubsection{Timing Constraints}
 Timing Constraints are based on the server sending a success signal within $ t_{timeout} $ seconds.
@@ -534,6 +735,11 @@ At startup/new order of the application, it will start a blank order page where 
 % --------------------------------------------------- Manager Login Page Module -------------------------------------------------- %
 
 \subsection{Manager Login Page Module}
+
+% ----------------------------------------------------- Description ---------------------------------------------------- %
+
+\subsubsection{Description}
+This module is a web based application for the managers to be able to log into the management systems.
 
 % ----------------------------------------------------- Inputs and Outputs ---------------------------------------------------- %
 
@@ -557,10 +763,6 @@ At startup/new order of the application, it will start a blank order page where 
 	\rowcolor{tableCell}$  GotoPage $ & Action & N/A  & N/A & navigating to the correct page if it was a success. \\ \hline
 \end{longtable}
 
-% ----------------------------------------------------- Description ---------------------------------------------------- %
-
-\subsubsection{Description}
-This module is a web based application for the managers to be able to log into the management systems.
 
 % ----------------------------------------------------- Timing Constraints ---------------------------------------------------- %
 
@@ -575,6 +777,11 @@ This will default to a HTML page with no information.
 % ------------------------------------------- Manager Station Map Software Module ------------------------------------------ %
 
 \subsection{Manager Station Map Software Module}
+
+% ----------------------------------------------------- Description ---------------------------------------------------- %
+
+\subsubsection{Description}
+This module will be used for the user input to create a map where the manager of the restaurant will be able to define the details about the restaurant that will help Alfred with it's navigation to different tables.
 
 % ----------------------------------------------------- Inputs and Outputs ---------------------------------------------------- %
 
@@ -594,6 +801,7 @@ This will default to a HTML page with no information.
 
 
 \textbf{Outputs: }A text file that contains the following information. \\
+
 \begin{longtable}{|l|l|l|l|l|}\hline 
 	\rowcolor{tableCell}\textbf{Input Name} & \textbf{Input Type} & \textbf{Range} & \textbf{Units} & \textbf{Comment(s)} \\ \hline
 	$ Resturant_{Width} $ & Integer &  [0,20] & m &  N/A\\ \hline
@@ -601,10 +809,6 @@ This will default to a HTML page with no information.
 	$ Resturant_Data $& Char  &  [H,X,0,T] & N/A & Table Information \\ \hline
 \end{longtable}
 
-% ----------------------------------------------------- Description ---------------------------------------------------- %
-
-\subsubsection{Description}
-This module will be used as the user input to create a map where the manager of the restaurant will be able to define the details about the restaurant that will help Alfred with it's navigation to different tables.
 
 % ----------------------------------------------------- Timing Constraints ---------------------------------------------------- %
 
@@ -616,9 +820,14 @@ Timing Constraints are based on the server sending a success signal within  $ t_
 \subsubsection{Initialization}
 At startup/new order of the application, it will load in the users map that is associated with their profile. If this is the first time using the application then it will default to a 1x1 map.
 
-% ----------------------------------------- Manager Station Request Software Module ----------------------------------------- %
+% ---------------------------------------- Manager Station Request Software Module ----------------------------------------- %
 
 \subsection{Manager Station Request Software Module}
+
+% ----------------------------------------------------- Description ---------------------------------------------------- %
+
+\subsubsection{Description}
+This module is used for the manager to determine Alfred's state from an office as well as being able to override Alfred's system to come back to the home base. 
 
 % ----------------------------------------------------- Inputs and Outputs ---------------------------------------------------- %
 
@@ -643,10 +852,9 @@ At startup/new order of the application, it will load in the users map that is a
 	$  error_{LowBatt} $ & Boolean & [0, 1]& N/A & Low battery Error \\ \hline
 \end{longtable}
 
-% ----------------------------------------------------- Description ---------------------------------------------------- %
 
-\subsubsection{Description}
-This module is used for the manager to determine the state of Alfred from an office as well as being able to override the robot to come back to the home base. 
+% ----------------------------------------------------- Timing Constraints ---------------------------------------------------- %
+
 \subsubsection{Timing Constraints}
 One timing constraints are based on the server sending a success signal within  $ t_{timeout} $ seconds. Another constraint is that Alfred will return within the time of $ w_{wheel} $*distance.
 
@@ -658,6 +866,11 @@ At startup this interface should pull the last status of the robot and display i
 % ------------------------------------------------- Back End Web Service Module ------------------------------------------------ %
 
 \subsection{Back End Web Service Module}
+
+% ----------------------------------------------------- Description ---------------------------------------------------- %
+
+\subsubsection{Description}
+This module is a server component that will hold order information for different tables. This will  authorize different users to be able to accept different drink requests from the ordering system. It will return the next drink order for the restaurants Alfred robot.
 
 % ----------------------------------------------------- Inputs and Outputs ---------------------------------------------------- %
 
@@ -686,10 +899,6 @@ At startup this interface should pull the last status of the robot and display i
 	$  Http_{Result} $ & String & 10 chars & N/A & N/A\\ \hline
 \end{longtable}
 
-% ----------------------------------------------------- Description ---------------------------------------------------- %
-
-\subsubsection{Description}
-This module is a server component that will hold account information for different restaurants. This will  authorize different users to be able to accept different drink requests from the ordering system. It will return the next drink order for the restaurants Alfred robot.
 
 % ----------------------------------------------------- TIming Constraints ---------------------------------------------------- %
 
@@ -704,6 +913,11 @@ This server will be initialized by a database with one restaurant which will be 
 % ----------------------------------------------------- Alfred Manager Module ---------------------------------------------------- %
 
 \subsection{Alfred Manager Module}
+
+% ----------------------------------------------------- Description ---------------------------------------------------- %
+
+\subsubsection{Description}
+This module acts as a manager to the different components of Alfred. It will run on a raspberry pi to command the drive-train to move to different nodes of the map. The manager will also communicate through serial communication using a USB when ordering the next drink to the pumping system.
 
 % ----------------------------------------------------- Inputs and Outputs ---------------------------------------------------- %
 
@@ -723,6 +937,7 @@ This server will be initialized by a database with one restaurant which will be 
 
 
 \textbf{Outputs: } \\
+
 \begin{longtable}{|l|l|l|l|l|}\hline 
 	\rowcolor{tableCell}\textbf{Output Name} & \textbf{Output Type} & \textbf{Range} & \textbf{Units} & \textbf{Comment(s)} \\ \hline
 	$ NextOrder $ & Order & N/A & N/A & Next Drink Order \\ \hline
@@ -730,10 +945,6 @@ This server will be initialized by a database with one restaurant which will be 
 	$  errors_{Alfred} $ & Unsigned Byte & [0, $2^{8}$]& N/A & Errors from Alfred \\ \hline
 \end{longtable}
 
-% ----------------------------------------------------- Description ---------------------------------------------------- %
-
-\subsubsection{Description}
-This module acts as the manager to the different components of Alfred. It will run on a raspberry pi to command the drive-train to move to different nodes of the map. The manager will also communicate through serial communication using a USB when ordering the next drink to the pumping system.
 
 % ----------------------------------------------------- TIming Constraints ---------------------------------------------------- %
 
@@ -760,6 +971,11 @@ Memory Card Slot: Push/pull Micro SDIO\\
 % --------------------------------------------- Alfred Drive-Train Module -------------------------------------------- %
 
 \subsection{Alfred Drive-Train Module}
+
+% --------------------------------------------- Description -------------------------------------------- %
+
+\subsubsection{Description}
+This module will provide power to Alfred's drive-train. It will use the feedback of the left and right encoders and take the error to perform PI control on them. This PI control output will then be translated into a duty cycle for each side to be able to power the DC motors with pulse width modulation. This module will communicate to the image recognition software to receive the position of the next marker and use this information of where it currently is on its path. This module will use ultrasonic sensors to get a set of distances ($ d_{object} $) to the nearest object to determine if it is safe to continue moving.
 
 % --------------------------------------------- Inputs and Outputs -------------------------------------------- %
 
@@ -789,10 +1005,6 @@ Memory Card Slot: Push/pull Micro SDIO\\
 	$ errors_{drivetrain} $ & Unsigned Byte & [0, $2^{8}$]& N/A & N/A\\ \hline
 \end{longtable}
 
-% --------------------------------------------- Description -------------------------------------------- %
-
-\subsubsection{Description}
-This module will provide power to the drive-train of Alfred. It will use the feedback of the left and right encoders and take the error to perform PI control on them. This PI control output will then be translated into a duty cycle for each side to be able to power the DC motors with pulse width modulation. This module will communicate to the image recognition software to receive the position of the next next marker and use this information of where it currently is on its path. This module will use ultrasonic sensors to get a set of distances ($ d_{object} $) to the nearest object to determine if it is safe to continue moving.
 
 % --------------------------------------------- Timing Constraints -------------------------------------------- %
 
@@ -848,6 +1060,11 @@ Working Range: 3-5V DC\\
 
 \subsection{Alfred Pumping System Module}
 
+% --------------------------------------------- Description -------------------------------------------- %
+
+\subsubsection{Description}
+This module consists of an Arduino Mega which will receive information from the Alfred manager module through UART to receive the next drink order. This will then begin to dispense the specific drink until it has reached $ m_{containerMin} $. It will then show the customer that the drink has been completed by turning on: $ LED_{drinksignal} $. It will then read $ b_{cuptaken} $ from a light sensor to determine if the cup has been taken at which point it will then wait for the next drink cup to get in place and begin pouring. If it is not able to pump liquid, or it is losing fluid when not dispensing, then it will send the appropriate errors through UART back to the manager.
+
 % --------------------------------------------- Inputs and Outputs -------------------------------------------- %
 
 \subsubsection{Inputs and Outputs}
@@ -871,10 +1088,6 @@ Working Range: 3-5V DC\\
 	$  errors_{pump} $ & Unsigned Byte & [0, $2^{8}$]& N/A & N/A\\ \hline
 \end{longtable}
 
-% --------------------------------------------- Description -------------------------------------------- %
-
-\subsubsection{Description}
-This module consists of an Arduino Mega which will receive information from the Alfred manager module through UART to receive the next drink order. This will then begin to dispense the specific drink until it has reached $ m_{containerMin} $. It will then show the customer that the drink has been completed by turning on: $ LED_{drinksignal} $. It will then read $ b_{cuptaken} $ from a light sensor to determine if the cup has been taken at which point it will then wait for the next drink cup to get in place and begin pouring. If it is not able to pump liquid, or it is losing fluid when not dispensing, then it will send the appropriate errors through UART back to the manager.
 
 % --------------------------------------------- TIming Constraints -------------------------------------------- %
 
@@ -973,6 +1186,11 @@ Diameter: 1/4"ID Food Grade Tubing will be used.\\
 
 \subsection{Alfred Image Processing Module }
 
+% --------------------------------------------- Description -------------------------------------------- %
+
+\subsubsection{Description}
+This module will receive information from a camera while the drive-train is in motion. This camera will be looking at the ceiling looking for positions of circles that will denote one meter distances set up within a grid around the ceiling of the restaurant. This module will determine if there is a new marker within the image and if so where is the X and Y position of that marker to provide to the drive-train.
+
 % --------------------------------------------- Inputs and Outputs -------------------------------------------- %
 
 \subsubsection{Inputs and Outputs}
@@ -993,11 +1211,6 @@ Diameter: 1/4"ID Food Grade Tubing will be used.\\
 	$ b_{NextMarkerFound} $ & Boolean & [0,1] & N/A & N/A\\ \hline
 \end{longtable}
 
-% --------------------------------------------- Description -------------------------------------------- %
-
-\subsubsection{Description}
-This module will receive information from a camera while the drive-train is in motion. This camera will be looking at the ceiling looking for positions of circles that will denote one meter distances set up within a grid around the ceiling of the restaurant. This module will determine if there is a new maker within the image and if so where is the X and Y position of that marker to provide to the drive-train.
-
 % --------------------------------------------- Timing Constraints -------------------------------------------- %
 
 \subsubsection{Timing Constraints}
@@ -1014,6 +1227,45 @@ This module start by the drive-train application.
 Manufacturer: Raspberry PI \\
 Resolution: 1080p30, 720p60 and 640 × 480p60/90\\
 Field of View (FOV): 62.2 degrees by 48.8 degrees\\
+
+
+% --------------------------------------------- Modules Likelihood of Change -------------------------------------------- %
+
+\section{Likelihood of Change}
+
+\begin{longtable}{| p{.30\textwidth } | p{.23\textwidth } |  p{.28\textwidth } |}\hline 
+\multicolumn{1}{|c|}{\textbf {Module}} & 
+\begin{minipage}{.25 \columnwidth}\begin{center}\vspace{1.5mm}\textbf{Likelihood of Change}   \vspace{1.5mm} \end{center}\end{minipage}& 
+\multicolumn{1}{c|}{\textbf {Rationale}} \\ \hline
+
+\rowcolor{tableCell} \multicolumn{1}{|c|}{Ordering System Module}& 
+\multicolumn{1}{|c|}{Very Unlikely} & Key implementation aspect \\ \hline
+
+\multicolumn{1}{|c|}{Manager Login Page Module}& 
+\multicolumn{1}{|c|}{Very Unlikely} & Key implementation aspect \\ \hline
+
+\rowcolor{tableCell} \multicolumn{1}{|c|}{Manager Station Map Software Module}& 
+\multicolumn{1}{|c|}{Very Unlikely} & Key implementation aspect \\ \hline
+
+\multicolumn{1}{|c|}{Manager Station Request Software Module}& 
+\multicolumn{1}{|c|}{Very Unlikely} & Key implementation aspect \\ \hline
+
+\rowcolor{tableCell} \multicolumn{1}{|c|}{Back End Web Service Module}& 
+\multicolumn{1}{|c|}{Very Unlikely} & Key implementation aspect \\ \hline
+
+\multicolumn{1}{|c|}{Alfred Manager Module}& 
+\multicolumn{1}{|c|}{Very Unlikely} & Key implementation aspect \\ \hline
+
+\rowcolor{tableCell} \multicolumn{1}{|c|}{Alfred Pumping System Module}& 
+\multicolumn{1}{|c|}{Very Unlikely} & Key implementation aspect \\ \hline
+
+\multicolumn{1}{|c|}{Alfred Image Processing Module}& 
+\multicolumn{1}{|c|}{Very Unlikely} & Key implementation aspect \\ \hline
+
+
+\end{longtable}
+
+
 
 % --------------------------------------------- Normal Operation -------------------------------------------- %
 
