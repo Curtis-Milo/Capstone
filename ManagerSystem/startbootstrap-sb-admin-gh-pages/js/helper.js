@@ -293,7 +293,7 @@ function NetworkCall(api_key, objects) {
             } else {
                 console.log("Error: " + xhttp.responseText);
             }
-        }
+        }   
         xhttp.send(mapFile);
     }
 }
