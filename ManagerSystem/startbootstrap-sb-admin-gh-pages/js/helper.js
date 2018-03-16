@@ -119,8 +119,6 @@ function updateMap(){
     count_tblRef = 0;
     var top = 100;
 
-    console.log("len"+length);
-
     for (var i = 0; i < length; i++) {  
             var left = 0;
             for (var j = 0; j < width; j++) {
@@ -150,11 +148,7 @@ function updateMap(){
             mapString=mapString+"<br>";
             top= top+square_size;
         }
-    
-    console.log("table coords:");
-    console.log(table_coords);
-    console.log("tableCount: "+count_tblRef);
-    
+
     document.getElementById("board").innerHTML =mapString;
     console.log(document.getElementById("board"));
 }
@@ -168,6 +162,7 @@ function load() {
 function setErrorList(errsList) {
     var errors = errsList;
     var StringErrors = "";
+    errList = [];
 
     if ((errors && 0x00000001)==0x00000001){
         StringErrors = StringErrors + "LowLiquid <br>";
@@ -191,10 +186,7 @@ function setErrorList(errsList) {
 
   function renderErrors() {
     var container = document.getElementById("errorContainer");
-    console.log(container);
-
     for (x in errList) {
-        console.log(errList[x]);
 
         var str = errList[x];
         $(container).append('<div class="row text-center ml-5 w-25 "><div class="card card-body text-center text-white bg-danger o-hidden h-100 w-25">' +
@@ -321,6 +313,8 @@ function NetworkCall(api_key, objects) {
         }
         xhttp.onreadystatechange = function() {
             if (xhttp.status == 200) {
+                mapFile = xhttp.responseText;
+                console.log(mapFile);
                 parseFiles();
                 updateMap();
                 mapModified = false;
