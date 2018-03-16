@@ -313,8 +313,8 @@ function NetworkCall(api_key, objects) {
         }
         xhttp.onreadystatechange = function() {
             if (xhttp.status == 200) {
-                mapFile = xhttp.responseText;
-                console.log(mapFile);
+                mapFile = String(xhttp.responseText);
+                console.log(typeof mapFile);
                 parseFiles();
                 updateMap();
                 mapModified = false;
