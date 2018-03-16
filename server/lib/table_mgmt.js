@@ -8,12 +8,16 @@ const DIR = './tables';
 
 //load all currently registerd tables from filesystem into JSON object
 function TableManager() {
+	this.hashedTokens = {};
+	var that = this;
 	if (! FS.existsSync(DIR)){
 		FS.mkdirSync(DIR);
 	} else {
 		FS.readdir(DIR, function(err, files) {
 			for (var file of files) {
 				mutexes[file] = LOCKS.createMutex();
+				var t = FS.readFileSync(DIR + '/' + file);
+				that.hashedTokens[t] = file;
 			}
 		});
 	}
@@ -24,6 +28,12 @@ function TableManager() {
 //communication with the server
 TableManager.prototype.addTable = function(tableId, cb) {
 	var newMutex = false;
+	var that = this;
+
+	if (! tableId) {
+		return cb(new Error('No table_id specified.'));
+	}
+
 	if (! (tableId in mutexes)) {
 		mutexes[tableId] = LOCKS.createMutex();
 		newMutex = true;
@@ -48,6 +58,8 @@ TableManager.prototype.addTable = function(tableId, cb) {
 				return cb(err);
 			}
 
+			that.hashedTokens[hash] = tableId.toString();
+
 			mutexes[tableId].unlock();
 			cb(null, token);
 		});
@@ -55,26 +67,21 @@ TableManager.prototype.addTable = function(tableId, cb) {
 };
 
 //verify that a given token for a specific table is correct
-TableManager.prototype.checkToken = function(tableId, token, cb) {
-	if (! (tableId in mutexes)) {
-		return cb(new Error('Invalid tableId'));
+TableManager.prototype.checkToken = function(token, cb) {
+	var hash = CRYPTO.createHash('md5').update(token).digest("hex");
+	if (! (hash in this.hashedTokens)) {
+		return cb(null, false, null);
 	}
+
+	var tableId = this.hashedTokens[hash];
+	var that = this;
 
 	mutexes[tableId].timedLock(10000, function(lockErr) {
 		if (lockErr) {
 			return cb(lockErr);
 		}
-		var path = DIR + '/' + tableId.toString();
-
-		FS.readFile(path, 'utf8', function(err, hash) {
-			if (err) {
-				mutexes[tableId].unlock();
-				return cb(err);
-			}
-
-			mutexes[tableId].unlock();
-			cb(null, CRYPTO.createHash('md5').update(token).digest("hex") === hash);
-		});
+		mutexes[tableId].unlock();
+		cb(null, true, tableId);
 	});
 };
 
@@ -95,6 +102,8 @@ TableManager.prototype.deleteTable = function(tableId, cb) {
 		return cb(new Error('Invalid tableId'));
 	}
 
+	var that = this;
+
 	mutexes[tableId].timedLock(10000, function(err) {
 		if (err) {
 			return cb(err);
@@ -108,6 +117,17 @@ TableManager.prototype.deleteTable = function(tableId, cb) {
 		
 		mutexes[tableId].unlock();
 		delete mutexes[tableId];
+		
+		var hash = null;
+
+		for (let i in that.hashedTokens) {
+			if (that.hashedTokens[i] == tableId.toString()) {
+				hash = i;
+				break;
+			}
+		}
+
+		delete that.hashedTokens[hash];
 		cb();
 	});
 };
