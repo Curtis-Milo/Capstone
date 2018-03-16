@@ -255,6 +255,7 @@ function NetworkCall(api_key, objects) {
                 console.log("Error: " + xhttp.responseText);
             }
         }
+        xhttp.send();
     } else if (api_key=='getErrors') {
         var xhttp = createCORSRequest('GET','/proxy/errors');
         if (!xhttp) {
@@ -274,6 +275,7 @@ function NetworkCall(api_key, objects) {
                 console.log("Error: " + xhttp.responseText);
             }
         }
+        xhttp.send();
     } else if (api_key=='save_map') {
         var xhttp = createCORSRequest('POST','/proxy/map');
         if (!xhttp) {
