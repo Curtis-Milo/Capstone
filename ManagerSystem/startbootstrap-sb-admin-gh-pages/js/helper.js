@@ -9,6 +9,7 @@ var width;
 var square_size = 100;
 var editTables = false;
 var mapFile;
+var mapModified = false;
 
 //what to do when window loads
 window.onload = function() {
@@ -42,8 +43,7 @@ function parseFiles(){
     var prevFile = false;
     map = [];
     if(prevFile){
-        var mapfile;
-        parse = mapfile.split('\n').split(",")
+        parse = mapFile.split('\n').split(",")
         length= parse[0][0];
         width = parse[0][1];
         for (var i = 1; i < length+1; i++) {
@@ -95,6 +95,7 @@ function onClickChange(i,j){
         //TODO edit table ids
     } else {
         // toggle map block
+        mapModified = true;
         map[i][j] = (map[i][j]+1)%4;
         updateMap();        
     }
@@ -290,12 +291,34 @@ function NetworkCall(api_key, objects) {
         }
         xhttp.onreadystatechange = function() {
             if (xhttp.status == 200) {
-                setErrorList(xhttp.responseText);
                 alert("uploaded to server");
+                mapModified = false;
             } else {
                 console.log("Error: " + xhttp.responseText);
             }
         }   
         xhttp.send(mapFile);
+    } else if (api_key=='load_map') {
+        var xhttp = createCORSRequest('GET','/proxy/map');
+        if (!xhttp) {
+            throw new Error('CORS not supported');
+        }
+        var tempResp;
+        xhttp.onload = function() {
+            tempResp = xhttp.responseText;
+        }
+        xhttp.onerror = function() {
+            console.log("error");
+        }
+        xhttp.onreadystatechange = function() {
+            if (xhttp.status == 200) {
+                parseFiles();
+                updateMap();
+                mapModified = false;
+            } else {
+                console.log("Error: " + xhttp.responseText);
+            }
+        }   
+        xhttp.send();
     }
 }
