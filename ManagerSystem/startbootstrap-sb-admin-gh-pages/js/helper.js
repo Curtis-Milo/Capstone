@@ -11,6 +11,11 @@ var editTables = false;
 var mapFile;
 var mapModified = false;
 
+//testing vars
+mapTEST =   "10,10\n3,0,0,0,0,0,0,0,0,0\n0,2,0,2,0,0,0,0,0,0\n0,0,0,1,0,0,0,0,0,0\n" +
+        "0,0,0,0,0,0,0,0,0,0\n0,0,0,0,0,0,0,0,0,0\n0,0,0,0,0,0,0,0,0,0\n" + 
+        "0,0,0,0,0,0,0,0,0,0\n0,0,0,0,0,0,0,0,0,0\n0,0,0,0,0,0,0,0,0,0\n0,0,0,0,0,0,0,0,0,0";
+
 //what to do when window loads
 window.onload = function() {
     x = document.getElementById('lowLiquid');
@@ -40,7 +45,11 @@ window.onload = function() {
 };
 
 function parseFiles(){
-    var prevFile = false;
+    if (typeof mapFile=='undefined') {
+        var prevFile = false;
+    } else {
+        var prevFile = true;
+    }
     map = [];
     if(prevFile){
         parse = mapFile.split('\n').split(",")
