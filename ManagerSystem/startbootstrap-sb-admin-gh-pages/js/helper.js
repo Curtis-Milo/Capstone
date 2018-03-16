@@ -52,7 +52,8 @@ function parseFiles(){
     }
     map = [];
     if(prevFile){
-        parse = mapFile.split('\n').split(",")
+        console.log(typeof mapFile);
+        parse = mapFile.split('\n').split(",");
         length= parse[0][0];
         width = parse[0][1];
         for (var i = 1; i < length+1; i++) {
@@ -313,8 +314,7 @@ function NetworkCall(api_key, objects) {
         }
         xhttp.onreadystatechange = function() {
             if (xhttp.status == 200) {
-                mapFile = String(xhttp.responseText);
-                console.log(typeof mapFile);
+                this.mapFile = String(xhttp.responseText);
                 parseFiles();
                 updateMap();
                 mapModified = false;
