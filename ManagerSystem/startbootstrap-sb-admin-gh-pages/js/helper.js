@@ -52,8 +52,8 @@ function parseFiles(){
     }
     map = [];
     if(prevFile){
-        console.log(typeof mapFile);
         lines = mapFile.split('\n');
+        console.log(lines);
         length= lines[0].split(',')[0];
         width = lines[0].split(',')[1];
         for (var i = 1; i < length+1; i++) {
