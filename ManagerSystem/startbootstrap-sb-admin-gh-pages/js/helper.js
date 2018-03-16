@@ -186,6 +186,7 @@ function setErrorList(errsList) {
 
   function renderErrors() {
     var container = document.getElementById("errorContainer");
+    $(container).html('');
     for (x in errList) {
 
         var str = errList[x];
