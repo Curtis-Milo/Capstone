@@ -1,5 +1,6 @@
 const LOCKS = require('locks');
 const FS = require('fs');
+const HELPER = require('./helper');
 
 var mutex = LOCKS.createMutex();
 
@@ -53,12 +54,25 @@ MapManager.prototype._parse = function(dataMat) {
 
 MapManager.prototype._validate = function(data) {
 	var rows = data.trim().split('\n');
+	var dim = rows[0].trim().split(',');
+	rows = rows.splice(1);
+
+	for (var j in dim) {
+		dim[j] = dim[j].trim();
+		if (! HELPER._isInt(dim[j])) return false;
+		dim[j] = parseInt(dim[j]);
+	}
+
+	if (dim.length != 2 || dim[0] != rows.length) return false;
+
 	var i = 0;
 
 	const VALID = ['0', 'T', 'H', 'X'];
 
 	for (let row of rows) {
 		row = row.trim().split(',');
+
+		if (dim[1] != row.length) return false;
 
 		for (let element of row) {
 			element = element.trim();

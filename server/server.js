@@ -42,10 +42,6 @@ function _parseCookies(cookies) {
 	return ret;
 }
 
-function _isInt(val) {
-	return val.match(/^-{0,1}\d+$/) != null;
-}
-
 function _resolveRole(req, cb) {
 	var roles = {
 		robot: false,
@@ -375,7 +371,7 @@ HTTP.createServer(function(req, res) {
 					req.on('end', function() {
 						body = body.trim();
 
-						if (_isInt(body)) {
+						if (HELPER._isInt(body)) {
 							errors = parseInt(body);
 
 							res.writeHead(200, {'Content-Type': 'application/json'});
