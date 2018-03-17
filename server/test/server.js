@@ -323,7 +323,7 @@ var tests = {
 		availableTables: function(resObj, host) {
 			var that = this;
 			return new Promise(function(resolve, reject) {
-				unirest.get(host + 'availableTables')
+				unirest.get(host + '/availableTables')
 				.headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
 				.auth(that._creds.userName, that._creds.password)
 				.end(function(res) {
