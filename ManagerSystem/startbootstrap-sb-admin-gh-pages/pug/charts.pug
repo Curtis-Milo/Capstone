@@ -24,8 +24,10 @@ html(lang='en')
             a(href='#') Dashboard
           li.breadcrumb-item.active Charts
         h1 Alfred Mapping System
-        button#save.btn.btn-lg.btn-primary.mr-5(onclick='save();') Save
-        button#load.btn.btn-lg.btn-primary(onclick='load();') Load
+        .col.mr-5
+          button#save.btn.btn-lg.btn-primary.mr-5(onclick='save();') Save
+        .col
+          button#load.btn.btn-lg.btn-primary(onclick='load();') Load
         div#board
 
       // /.container-fluid
