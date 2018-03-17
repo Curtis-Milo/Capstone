@@ -23,7 +23,7 @@ function MapManager() {
 		this.exists = false;
 	} else if (FS.existsSync(MAP_PATH)) {
 		this.exists = true;
-		this._validate(FS.readFileSync(MAP_PATH), 'utf8');
+		this._validate(FS.readFileSync(MAP_PATH, 'utf8'));
 	} else {
 		this.exists = false;
 	}
