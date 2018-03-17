@@ -98,10 +98,28 @@
     </nav>
     <div class="content-wrapper">
         <div class="container-fluid">
-            <div class="col w-50" id="errorContainer" style="float:left;"></div>
-            <div class="col w-50" id="errorPageOptions" style="float:right;">
-                <div class="row"><button class="btn btn-lg btn-primary w-25">Call Home</button></div>
-                <div class="row mt-5"><button class="btn btn-lg btn-info w-25">Refresh Errors</button></div>
+            <!-- Breadcrumbs-->
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="errors.html">Dashboard</a></li>
+                <li class="breadcrumb-item active">Manage Drinks</li>
+            </ol>
+            <div class="w-100 h-100">
+                <div class="row w-50 text-center">
+                    <div class="col d-inline-block w-25">
+                        <h1>Available Nozzles</h1>
+                    </div>
+                    <div class="col d-inline-block w-25">
+                        <h1>Drink Name</h1>
+                    </div>
+                </div>
+            </div>
+            <div id="drinkList">
+                <div class="input-group mb-3 my-3 w-50">
+                    <div class="input-group-prepend w-50"><span class="input-group-text w-100">Nozzle 1:</span></div><input class="form-control" type="text">
+                    <div class="input-group-append">
+                        <div class="btn btn-danger">x</div>
+                    </div>
+                </div>
             </div>
         </div>
         <!-- /.container-fluid-->

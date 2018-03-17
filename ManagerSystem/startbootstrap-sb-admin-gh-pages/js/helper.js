@@ -10,8 +10,13 @@ var square_size = 100;
 var editTables = false;
 var mapFile;
 var mapModified = false;
+var mapSyms = ['0','X','T','H'];
+//Drink management vars
+var drinkArr;
+var numTanks;
 
 //testing vars
+devMode = false;
 mapTEST =   "10,10\n3,0,0,0,0,0,0,0,0,0\n0,2,0,2,0,0,0,0,0,0\n0,0,0,1,0,0,0,0,0,0\n" +
         "0,0,0,0,0,0,0,0,0,0\n0,0,0,0,0,0,0,0,0,0\n0,0,0,0,0,0,0,0,0,0\n" + 
         "0,0,0,0,0,0,0,0,0,0\n0,0,0,0,0,0,0,0,0,0\n0,0,0,0,0,0,0,0,0,0\n0,0,0,0,0,0,0,0,0,0";
@@ -23,6 +28,7 @@ window.onload = function() {
     
     //dev mode
     if (document.location.hostname=='localhost' && document.location.port==3000) {
+        devMode = true;
         if (path=='/' || path=='/errors.html') {
             if (document.location.hostname=='localhost' && document.location.port==3000) {
                 //testing at home
@@ -31,18 +37,78 @@ window.onload = function() {
         } else if (path=='/charts.html') {
             parseFiles();
             updateMap();
+        } else if (path=='/manageDrinks.html') {
+            getAndSetDrinks();
         }
     //prod
     } else {
+        devMode = false;
         if (path=='/' || path=='/errors.html') {
             NetworkCall('getErrors');
         } else if (path=='/charts.html') {
             parseFiles();
             updateMap();
+        } else if (path=='/manageDrinks.html') {
+            getAndSetDrinks();
         }
     }
     
 };
+
+function getAndSetDrinks() {
+    if (!devMode) {
+        NetworkCall('get-num-tanks');
+        NetworkCall('get-drink');        
+    } else {
+        drinksArr = {'coke':'1','pepsi':'3'};
+        numTanks = 3;
+        updateDrinksList();
+    }
+
+}
+
+function tankFilled(num) {
+    var listNames = Object.entries(drinksArr);
+    for (x in listNames) {
+        console.log("num: " +num);
+        console.log("listNAmesValue: "+ listNames[x][1]);
+        if (num==listNames[x][1]) {
+            return true;
+        }
+    }
+    return false;
+}
+
+function updateDrinksList() {
+    var con = document.getElementById('drinkList');
+    $(con).html('');
+    var listNames = Object.entries(drinksArr);
+    for (var j=1; j<numTanks+1;j++) {
+        if (tankFilled(j)) {
+            $(con).append('<div class="input-group mb-3 my-3 w-50">' + 
+                    '<div class="input-group-prepend w-50">' + 
+                    '<span class="input-group-text w-100"> Nozzle ' + j + ": " + 
+                    '</span></div><input class="form-control" type="text" value= ' + listNames[j-1][0] + ' >' +
+                    '<div class="input-group-append">'+
+                    '<div class="btn btn-danger">x</div>' + '</div></div>');
+        } else {
+            $(con).append('<div class="input-group mb-3 my-3 w-50">' + 
+                    '<div class="input-group-prepend w-50">' + 
+                    '<span class="input-group-text w-100"> Nozzle ' + j + ": " + '</span>' +
+                    '</div><input class="form-control" id="nozzle' + j+'" type="text">' +
+                    '<div class="input-group-append">'+
+                    '<div class="btn btn-success" onclick="addDrink('+ j +');">Apply</div>' + '</div></div>');
+        }
+    }
+}
+
+function addDrink(nozzleNum) {
+    NetworkCall('add_drink',{})
+}
+
+/*------------------------------------------------------------------------------------------------------------------------------------------
+/*------------------------------------------------------------------------------------------------------------------------------------------
+/*------------------------------------------------------------------------------------------------------------------------------------------*/
 
 function parseFiles(){
     if (typeof mapFile=='undefined') {
@@ -66,6 +132,7 @@ function parseFiles(){
                     map[i-1].push(temp[j]);
                 }
             }
+            table_coords = []
         } catch (err) {
             console.log(err.message);
         }
@@ -80,13 +147,12 @@ function parseFiles(){
              map[i].push("0");
             }
         }
-        map[0][0] = 3;
+        map[0][0] = 'H';
         table_coords = [];
     }
 }
 
 function save(){
-
     mapFile = length+","+width +"\n";
     for (var i = 0; i < length; i++) {
         map.push([]);
@@ -101,7 +167,11 @@ function save(){
                 mapFile = mapFile +"\n";
         }
     }
-    NetworkCall('save_map');
+    if (!devMode) {
+        NetworkCall('save_map');
+    } else {
+        console.log(mapFile);
+    }
 
 }
 
@@ -113,7 +183,9 @@ function onClickChange(i,j){
     } else {
         // toggle map block
         mapModified = true;
-        map[i][j] = (map[i][j]+1)%4;
+        console.log(map);
+        map[i][j] = mapSyms[(mapSyms.indexOf(map[i][j])+1)%4];
+        console.log(map);
         updateMap();        
     }
     
@@ -135,16 +207,16 @@ function updateMap(){
                 var insideStuff= "";
                 if (map[i][j] == "0"){
                     insideStuff = " onclick = \"onClickChange("+i+","+j+")\" id = \"clear\""; 
-                }else if(map[i][j] == "1"){
+                }else if(map[i][j] == "X"){
                     insideStuff = " onclick = \"onClickChange("+i+","+j+")\" id = \"blocked\"";     
-                }else if(map[i][j] == "2"){
+                }else if(map[i][j] == "T"){
                     insideStuff = " onclick = \"onClickChange("+i+","+j+")\" id = \"table\"";
                     label = "Table";
                     //update table refereces
                     table_refs.push(count_tblRef);
                     table_coords.push([i,j]); 
                     count_tblRef = count_tblRef+1;
-                }else if(map[i][j] == "3"){
+                }else if(map[i][j] == "H"){
                     insideStuff = " onclick = \"onClickChange("+i+","+j+")\" id = \"base\"";
                     label = "Home";
                 }
@@ -158,13 +230,15 @@ function updateMap(){
         }
 
     document.getElementById("board").innerHTML =mapString;
-    console.log(document.getElementById("board"));
 }
 
 function load() {
     NetworkCall('load_map');
 }
 
+/*------------------------------------------------------------------------------------------------------------------------------------------
+/*------------------------------------------------------------------------------------------------------------------------------------------
+/*------------------------------------------------------------------------------------------------------------------------------------------*/
 
 
 function setErrorList(errsList) {
@@ -223,13 +297,20 @@ function createCORSRequest(method, url) {
     return xhr;
 }
 
+/*------------------------------------------------------------------------------------------------------------------------------------------
+/*------------------------------------------------------------------------------------------------------------------------------------------
+/*------------------------------------------------------------------------------------------------------------------------------------------*/
 
 function Login() {
-    form = document.getElementById("loginForm");
-    userid = form.user.value;
-    passwd = form.pass.value;
+    if (!devMode) {
+        form = document.getElementById("loginForm");
+        userid = form.user.value;
+        passwd = form.pass.value;
 
-    NetworkCall('login', [userid, passwd]);  
+        NetworkCall('login', [userid, passwd]);  
+    } else {
+        navigate('../errors.html');
+    }
 }
 
 
@@ -240,6 +321,10 @@ function Logout() {
 function navigate(dest) {
    window.location.href = dest;
 }
+
+/*------------------------------------------------------------------------------------------------------------------------------------------
+/*------------------------------------------------------------------------------------------------------------------------------------------
+/*------------------------------------------------------------------------------------------------------------------------------------------*/
 
 function NetworkCall(api_key, objects) {
     if (api_key=='login') {
@@ -325,5 +410,32 @@ function NetworkCall(api_key, objects) {
                 console.log("Error: " + xhttp.responseText);
             }
         }   
+    } else if (api_key=='get_drink') {
+        var xhttp = createCORSRequest('GET','proxy/drinks');
+        if (!xhttp) {
+            throw new Error('CORS not supported');
+        }
+        xhttp.onreadystatechange = function() {
+            if(xhttp.status==200) {
+                drinksArr = xhttp.responseText;
+                updateDrinksList();
+            } else {
+                alert("error getting drink list");
+            }
+        }
+        xhttp.send()
+    } else if (api_key=='get_num_tanks') {
+        var xhttp = createCORSRequest('GET','proxy/numOfTanks');
+        if (!xhttp) {
+            throw new Error('CORS not supported');
+        }
+        xhttp.onreadystatechange = function() {
+            if(xhttp.status==200) {
+                numTanks = xhttp.responseText;
+            } else {
+                alert("error getting number of tanks");
+            }
+        }
+        xhttp.send()
     }
 }
