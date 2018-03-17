@@ -58,7 +58,7 @@ window.onload = function() {
 function getAndSetDrinks() {
     if (!devMode) {
         NetworkCall('get-num-tanks');
-        NetworkCall('get-drink');        
+        NetworkCall('get-drinks');        
     } else {
         drinksArr = {'coke':'1','pepsi':'3'};
         numTanks = 3;
