@@ -224,18 +224,18 @@ function createCORSRequest(method, url) {
 
 
 function Login() {
-    cookie = document.cookie;
-    console.log(cookie);
-    //NetworkCall('login', [userid, passwd]);  
-}
-
-
-function Logout() {
     form = document.getElementById("loginForm");
     userid = form.user.value;
     passwd = form.pass.value;
 
     NetworkCall('login', [userid, passwd]);  
+}
+
+
+function Logout() {
+    cookie = document.cookie;
+    console.log("cookie: " + cookie);
+    NetworkCall('logout', cookie);  
 }
 
 function navigate(dest) {
