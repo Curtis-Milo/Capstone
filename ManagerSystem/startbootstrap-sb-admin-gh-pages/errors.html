@@ -98,17 +98,11 @@
     </nav>
     <div class="content-wrapper">
         <div class="container-fluid">
-            <!-- Breadcrumbs-->
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                <li class="breadcrumb-item active">Charts</li>
-            </ol>
-            <h1>Alfred Mapping System</h1>
-            <div class="mb-2">
-                <div class="col d-inline"><button class="btn btn-lg btn-primary" id="save" onclick="save();">Save</button></div>
-                <div class="col d-inline"><button class="btn btn-lg btn-primary" id="load" onclick="load();">Load</button></div>
+            <div class="col w-50" id="errorContainer" style="float:left;"></div>
+            <div class="col w-50" id="errorPageOptions" style="float:right;">
+                <div class="row"><button class="btn btn-lg btn-primary w-25">Call Home</button></div>
+                <div class="row mt-5"><button class="btn btn-lg btn-info w-25">Refresh Errors</button></div>
             </div>
-            <div id="board"></div>
         </div>
         <!-- /.container-fluid-->
         <!-- /.content-wrapper-->
