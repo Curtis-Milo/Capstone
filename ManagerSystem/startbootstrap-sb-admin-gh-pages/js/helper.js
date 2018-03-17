@@ -57,8 +57,7 @@ window.onload = function() {
 
 function getAndSetDrinks() {
     if (!devMode) {
-        NetworkCall('get-num-tanks');
-        NetworkCall('get-drinks');        
+        NetworkCall('get_num_tanks');       
     } else {
         drinksArr = {'coke':'1','pepsi':'3'};
         numTanks = 3;
@@ -357,7 +356,7 @@ function NetworkCall(api_key, objects) {
         xhttp.setRequestHeader('Authorization', "Basic " + basic);
 
         xhttp.onreadystatechange = function() {
-            if (xhttp.status == 200) {
+            if (xhttp.status == 200 && xhttp.readyState==4) {
                 navigate("../errors.html");
             } else {
                 console.log("Error: " + xhttp.responseText);
@@ -371,7 +370,7 @@ function NetworkCall(api_key, objects) {
             throw new Error('CORS not supported');
         }
         xhttp.onreadystatechange = function() {
-            if (xhttp.status==200) {
+            if (xhttp.status==200 && xhttp.readyState==4) {
                 navigate('../login.html');
             } else {
                 console.log("Error: " + xhttp.responseText);
@@ -385,7 +384,7 @@ function NetworkCall(api_key, objects) {
             throw new Error('CORS not supported');
         }
         xhttp.onreadystatechange = function() {
-            if (xhttp.status == 200) {
+            if (xhttp.status == 200 && xhttp.readyState==4) {
                 setErrorList(xhttp.responseText);
             } else if (xhttp.status==401) {
                 navigate('../index.html');
@@ -403,7 +402,7 @@ function NetworkCall(api_key, objects) {
             throw new Error('CORS not supported');
         }
         xhttp.onreadystatechange = function() {
-            if (xhttp.status == 200) {
+            if (xhttp.status == 200 && xhttp.readyState==4) {
                 alert("uploaded to server");
                 mapModified = false;
             } else if (xhttp.status==401) {
@@ -422,7 +421,7 @@ function NetworkCall(api_key, objects) {
         }
         xhttp.send();
         xhttp.onreadystatechange = function() {
-            if (xhttp.status == 200) {
+            if (xhttp.status == 200 && xhttp.readyState==4) {
                 mapFile = String(xhttp.responseText);
                 console.log(xhttp.responseText);
                 console.log(mapFile);
@@ -441,7 +440,7 @@ function NetworkCall(api_key, objects) {
             throw new Error('CORS not supported');
         }
         xhttp.onreadystatechange = function() {
-            if(xhttp.status==200) {
+            if(xhttp.status==200 && xhttp.readyState==4) {
                 drinksArr = xhttp.responseText;
                 updateDrinksList();
             } else if (xhttp.status==401) {
@@ -457,8 +456,9 @@ function NetworkCall(api_key, objects) {
             throw new Error('CORS not supported');
         }
         xhttp.onreadystatechange = function() {
-            if(xhttp.status==200) {
+            if(xhttp.status==200 && xhttp.readyState==4) {
                 numTanks = xhttp.responseText;
+                NetworkCall('get_drinks');
             } else if (xhttp.status==401) {
                 navigate('../index.html');
             } else {
@@ -473,7 +473,7 @@ function NetworkCall(api_key, objects) {
             throw new Error('CORS not supported');
         }
         xhttp.onreadystatechange = function() {
-            if(xhttp.status==200) {
+            if(xhttp.status==200 && xhttp.readyState==4) {
                 alert("added drink");
                 NetworkCall('get_drinks');
             } else if (xhttp.status==401) {
@@ -490,7 +490,7 @@ function NetworkCall(api_key, objects) {
             throw new Error('CORS not supported');
         }
         xhttp.onreadystatechange = function() {
-            if(xhttp.status==200) {
+            if(xhttp.status==200 && xhttp.readyState==4) {
                 alert("removed drink");
                 NetworkCall('get_drinks');
             } else if (xhttp.status==401) {
