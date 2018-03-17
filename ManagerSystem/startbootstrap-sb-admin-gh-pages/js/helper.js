@@ -273,7 +273,6 @@ function NetworkCall(api_key, objects) {
         }
         xhttp.send();
 
-
     } else if (api_key=='getErrors') {
         var xhttp = createCORSRequest('GET','/proxy/errors');
         if (!xhttp) {
