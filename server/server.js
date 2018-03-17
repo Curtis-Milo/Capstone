@@ -189,6 +189,15 @@ HTTP.createServer(function(req, res) {
 					res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
 					res.end();
 				}
+			} else if (url.pathname.toLowerCase().replace(/\//, '') === 'availabletables') {
+				if (roles.client || roles.admin) {
+					res.writeHead(200, {'Content-Type': 'application/json'});
+					res.write(mapManager.getTables().toString());
+					res.end();
+				} else {
+					res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
+					res.end();
+				}
 			} else {
 				res.writeHead(404, 'No such method', {'Content-Type': 'text/html'});
 				res.end();
