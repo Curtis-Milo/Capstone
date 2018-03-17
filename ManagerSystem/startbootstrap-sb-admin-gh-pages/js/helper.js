@@ -233,8 +233,6 @@ function Login() {
 
 
 function Logout() {
-    cookie = document.cookie;
-    console.log("cookie: " + cookie);
     NetworkCall('logout', cookie);  
 }
 
@@ -256,6 +254,20 @@ function NetworkCall(api_key, objects) {
         xhttp.onreadystatechange = function() {
             if (xhttp.status == 200) {
                 navigate("../errors.html");
+            } else {
+                console.log("Error: " + xhttp.responseText);
+            }
+        }
+        xhttp.send();
+    
+    } else if (api_key=='logout') {
+        var xhttp = createCORSRequest('POST','/proxy/logout');
+        if (!xhttp) {
+            throw new Error('CORS not supported');
+        }
+        xhttp.onreadystatechange = function() {
+            if (xhttp.status==200) {
+                navigate('../login.html');
             } else {
                 console.log("Error: " + xhttp.responseText);
             }
