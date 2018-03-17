@@ -294,9 +294,12 @@ HTTP.createServer(function(req, res) {
 			} else if (url.pathname.toLowerCase().replace(/\//, '') === 'returntobase') {
 				if (roles.admin) {
 					var token = tokenGen.getToken();
-					UNIREST.post(host + '/token')
+					var host = process.env.BOT_HOST;
+					if (! host.startsWith('http')) {
+						host = 'http://' + host;
+					}
+					UNIREST.post(host + '/return')
 					.headers({'Accept': 'application/json', 'Content-Type': 'application/json', 'Authorization': token.token_type + ' ' + token.access_token})
-					.send(data)
 					.end(function(res) {
 						res.writeHead(res.code, {'Content-Type': 'text/html'});
 						res.end();
