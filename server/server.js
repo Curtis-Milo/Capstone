@@ -42,10 +42,6 @@ function _parseCookies(cookies) {
 	return ret;
 }
 
-function _isInt(val) {
-	return val.match(/^-{0,1}\d+$/) != null;
-}
-
 function _resolveRole(req, cb) {
 	var roles = {
 		robot: false,
@@ -184,6 +180,15 @@ HTTP.createServer(function(req, res) {
 				if (roles.admin) {
 					res.writeHead(200, {'Content-Type': 'application/json'});
 					res.write(errors.toString());
+					res.end();
+				} else {
+					res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
+					res.end();
+				}
+			} else if (url.pathname.toLowerCase().replace(/\//, '') === 'availabletables') {
+				if (roles.client || roles.admin) {
+					res.writeHead(200, {'Content-Type': 'text/html'});
+					res.write(mapManager.getTables().toString());
 					res.end();
 				} else {
 					res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
@@ -366,7 +371,7 @@ HTTP.createServer(function(req, res) {
 					req.on('end', function() {
 						body = body.trim();
 
-						if (_isInt(body)) {
+						if (HELPER._isInt(body)) {
 							errors = parseInt(body);
 
 							res.writeHead(200, {'Content-Type': 'application/json'});
@@ -384,6 +389,12 @@ HTTP.createServer(function(req, res) {
 				var table_id = HELPER.caseInsensitiveKey(url.query, 'table_id');
 
 				if (roles.admin) {
+					if (! mapManager.isValidTable(table_id)) {
+						res.writeHead(400, 'Invalid table_id.', {'Content-Type': 'text/html'});
+						res.end();
+						return;
+					}
+
 					tableManager.addTable(table_id, function(addErr, token) {
 						if (addErr) {
 							res.writeHead(500, addErr, {'Content-Type': 'text/html'});
@@ -476,8 +487,30 @@ HTTP.createServer(function(req, res) {
 							return;
 						}
 
-						res.writeHead(200, 'Map uploaded!', {'Content-Type': 'text/html'});
-						res.end();
+						var tables = mapManager.getTables();
+
+						tableManager.availableTables(function(tableErr, availableTables) {
+							if (tableErr) {
+								res.writeHead(500, tableErr, {'Content-Type': 'text/html'});
+								res.end();
+								return;
+							}
+							for (let table_id of availableTables) {
+								if (tables.indexOf(table_id) < 0) {
+									tableManager.deleteTable(table_id, function(delErr) {
+										// if (delErr) {
+										// 	console.log(`\nFailed to delete table_id: ${table_id}`);
+										// 	console.log(delErr);
+										// } else {
+										// 	console.log(`\nDeleted table_id: ${table_id}`);
+										// }
+									});
+								}
+							}
+
+							res.writeHead(200, 'Map uploaded!', {'Content-Type': 'text/html'});
+							res.end();
+						});
 					});
 				} else {
 					res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});

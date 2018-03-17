@@ -76,5 +76,9 @@ module.exports = {
 		}
 
 		return orders;
+	},
+
+	_isInt: function(val) {
+		return val.match(/^-{0,1}\d+$/) != null;
 	}
 };

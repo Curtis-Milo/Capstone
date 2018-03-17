@@ -318,6 +318,28 @@ var tests = {
 					resolve();
 				});
 			});
+		},
+
+		availableTables: function(resObj, host) {
+			var that = this;
+			return new Promise(function(resolve, reject) {
+				unirest.get(host + '/availableTables')
+				.headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
+				.auth(that._creds.userName, that._creds.password)
+				.end(function(res) {
+					if (res.code < 200 || res.code > 299) {
+						resObj.testRes('Test GET /availableTables endpoint', '', 200, res.code, 'fail');
+						resolve();
+					} else {
+						if (res.raw_body === '0,1,2,3,4,5,6,7') {
+							resObj.testRes('Test GET /availableTables endpoint', '', '0,1,2,3,4,5,6,7', res.raw_body, 'pass');
+						} else {
+							resObj.testRes('Test GET /availableTables endpoint', '', '0,1,2,3,4,5,6,7', res.raw_body, 'fail');
+						}
+					}
+					resolve();
+				});
+			});
 		}
 	},
 
@@ -577,6 +599,8 @@ tests.robotTest.reqListenForToken(IP, function() {
 		return tests.adminTest.deleteDrink(resObj, IP);
 	}).then(function() {
 		return tests.adminTest.addDrink(resObj, IP);
+	}).then(function() {
+		return tests.adminTest.availableTables(resObj, IP);
 	}).then(function() {
 		return tests.clientTest.getToken(resObj, IP);
 	}).then(function() {

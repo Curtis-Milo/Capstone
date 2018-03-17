@@ -10,9 +10,9 @@
 ## GET
 ##### Request position in line for table.
 
-*${HOST}/placeInLine?table_id=${table_id}&order_id=${order_id}*
+*${HOST}/placeInLine*
 
-AUTHORIZATION: Bearer token auth, using token generated for table_id.
+AUTHORIZATION: Bearer token auth, using token generated for table.
 
 RETURNS:
 ```javascript
@@ -123,12 +123,24 @@ file
 ```
 
 
+##### Return tables that were registered through the map.
+
+*${HOST}/availableTables*
+
+AUTHORIZATION: Basic authorization using original administrator credentials OR Bearer token auth, using token generated for table.
+
+RETURNS:
+```javascript
+$TABLE_ID_1,TABLE_ID_2,TABLE_ID_3...
+```
+
+
 ## POST
 ##### Place an order in queue.
 
-*${HOST}/placeOrder?table_id=${table_id}*
+*${HOST}/placeOrder*
 
-AUTHORIZATION: Bearer token auth, using token generated for table_id.
+AUTHORIZATION: Bearer token auth, using token generated for table.
 
 BODY: 
 ```javascript
@@ -326,9 +338,9 @@ N/A
 ## DELETE
 ##### Cancel an order.
 
-*${HOST}/cancelOrder?table_id=${table_id}&order_id=${order_id}*
+*${HOST}/cancelOrder*
 
-AUTHORIZATION: Bearer token auth, using token generated for table_id.
+AUTHORIZATION: Bearer token auth, using token generated for table.
 
 RETURNS:
 ```javascript
