@@ -16,7 +16,7 @@ function TableManager() {
 		FS.readdir(DIR, function(err, files) {
 			for (var file of files) {
 				mutexes[file] = LOCKS.createMutex();
-				var t = FS.readFileSync(DIR + '/' + file);
+				var t = FS.readFileSync(DIR + '/' + file, 'utf8');
 				that.hashedTokens[t] = file;
 			}
 		});

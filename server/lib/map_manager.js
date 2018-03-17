@@ -23,7 +23,7 @@ function MapManager() {
 		this.exists = false;
 	} else if (FS.existsSync(MAP_PATH)) {
 		this.exists = true;
-		this._validate(FS.readFileSync(MAP_PATH));
+		this._validate(FS.readFileSync(MAP_PATH), 'utf8');
 	} else {
 		this.exists = false;
 	}
@@ -100,7 +100,7 @@ MapManager.prototype.setMap = function(stream, cb) {
 		stream.pipe(fileStream);
 
 		try {
-			var data = FS.readFileSync(TEMP_PATH);
+			var data = FS.readFileSync(TEMP_PATH, 'utf8');
 
 			 if (this._validate(data)) {
 			 	_copy(TEMP_PATH, MAP_PATH);
