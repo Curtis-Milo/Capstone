@@ -52,6 +52,7 @@ function parseFiles(){
     }
     map = [];
     if(prevFile){
+        try {
         lines = mapFile.split('\n');
         console.log(lines[0]);
         console.log(lines[0].split(','));
@@ -63,6 +64,9 @@ function parseFiles(){
                 map[i-1].push(lines[i].split(',')[j]);
             }
         }
+    } catch (err) {
+        console.log(err.message);
+    }
     }else{
         //default information when there is no 
         length = 10;
@@ -125,27 +129,27 @@ function updateMap(){
             var left = 0;
             for (var j = 0; j < width; j++) {
                 var label="";
-             var button = "<div style =  \" display:block;float:left;    left:"+left+"px; top:"+top+"px;\"";
-             var insideStuff= "";
-             if (map[i][j] == "0"){
-                insideStuff = " onclick = \"onClickChange("+i+","+j+")\" id = \"clear\""; 
-             }else if(map[i][j] == "1"){
-                insideStuff = " onclick = \"onClickChange("+i+","+j+")\" id = \"blocked\"";     
-             }else if(map[i][j] == "2"){
-                insideStuff = " onclick = \"onClickChange("+i+","+j+")\" id = \"table\"";
-                label = "Table";
-                //update table refereces
-                table_refs.push(count_tblRef);
-                table_coords.push([i,j]); 
-                count_tblRef = count_tblRef+1;
-             }else if(map[i][j] == "3"){
-                insideStuff = " onclick = \"onClickChange("+i+","+j+")\" id = \"base\"";
-                label = "Home";
-             }
+                var button = "<div style =  \" display:block;float:left;    left:"+left+"px; top:"+top+"px;\"";
+                var insideStuff= "";
+                if (map[i][j] == "0"){
+                    insideStuff = " onclick = \"onClickChange("+i+","+j+")\" id = \"clear\""; 
+                }else if(map[i][j] == "1"){
+                    insideStuff = " onclick = \"onClickChange("+i+","+j+")\" id = \"blocked\"";     
+                }else if(map[i][j] == "2"){
+                    insideStuff = " onclick = \"onClickChange("+i+","+j+")\" id = \"table\"";
+                    label = "Table";
+                    //update table refereces
+                    table_refs.push(count_tblRef);
+                    table_coords.push([i,j]); 
+                    count_tblRef = count_tblRef+1;
+                }else if(map[i][j] == "3"){
+                    insideStuff = " onclick = \"onClickChange("+i+","+j+")\" id = \"base\"";
+                    label = "Home";
+                }
              
-             button = button+ insideStuff + ">" + label +"</div>";
-             mapString = mapString + button;
-             left= left+square_size;
+                button = button+ insideStuff + ">" + label +"</div>";
+                mapString = mapString + button;
+                left= left+square_size;
             }
             mapString=mapString+"<br>";
             top= top+square_size;
