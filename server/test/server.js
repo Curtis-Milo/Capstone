@@ -600,6 +600,8 @@ tests.robotTest.reqListenForToken(IP, function() {
 	}).then(function() {
 		return tests.adminTest.addDrink(resObj, IP);
 	}).then(function() {
+		return tests.adminTest.availableTables(resObj, IP);
+	}).then(function() {
 		return tests.clientTest.getToken(resObj, IP);
 	}).then(function() {
 		return tests.clientTest.placeOrder(resObj, IP);
