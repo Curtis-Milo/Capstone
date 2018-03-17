@@ -62,8 +62,6 @@ function parseFiles(){
             for (var j = 0; j < width; j++) {
                 temp = lines[i].split(',')
                 map[i-1].push(temp[j]);
-                console.log("i:"+i);
-                console.log("lines[i]: "+lines[i]);
             }
         }
     } catch (err) {
