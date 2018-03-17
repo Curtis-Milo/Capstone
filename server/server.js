@@ -375,6 +375,12 @@ HTTP.createServer(function(req, res) {
 				var table_id = HELPER.caseInsensitiveKey(url.query, 'table_id');
 
 				if (roles.admin) {
+					if (mapManager.getTables().indexOf(table_id) < 0) {
+						res.writeHead(400, 'Invalid table_id.', {'Content-Type': 'text/html'});
+						res.end();
+						return;
+					}
+
 					tableManager.addTable(table_id, function(addErr, token) {
 						if (addErr) {
 							res.writeHead(500, addErr, {'Content-Type': 'text/html'});
@@ -465,6 +471,21 @@ HTTP.createServer(function(req, res) {
 							res.writeHead(500, mapErr, {'Content-Type': 'text/html'});
 							res.end();
 							return;
+						}
+
+						var tables = mapManager.getTables();
+
+						for (let table_id of tableManager.availableTables()) {
+							if (tables.indexOf(table_id) < 0) {
+								tableManager.deleteTable(table_id, function(delErr) {
+									// if (delErr) {
+									// 	console.log(`\nFailed to delete table_id: ${table_id}`);
+									// 	console.log(delErr);
+									// } else {
+									// 	console.log(`\nDeleted table_id: ${table_id}`);
+									// }
+								});
+							}
 						}
 
 						res.writeHead(200, 'Map uploaded!', {'Content-Type': 'text/html'});
