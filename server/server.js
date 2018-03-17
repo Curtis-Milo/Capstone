@@ -187,7 +187,7 @@ HTTP.createServer(function(req, res) {
 				}
 			} else if (url.pathname.toLowerCase().replace(/\//, '') === 'availabletables') {
 				if (roles.client || roles.admin) {
-					res.writeHead(200, {'Content-Type': 'application/json'});
+					res.writeHead(200, {'Content-Type': 'text/html'});
 					res.write(mapManager.getTables().toString());
 					res.end();
 				} else {
@@ -389,7 +389,7 @@ HTTP.createServer(function(req, res) {
 				var table_id = HELPER.caseInsensitiveKey(url.query, 'table_id');
 
 				if (roles.admin) {
-					if (mapManager.getTables().indexOf(table_id) < 0) {
+					if (! mapManager.isValidTable(table_id)) {
 						res.writeHead(400, 'Invalid table_id.', {'Content-Type': 'text/html'});
 						res.end();
 						return;

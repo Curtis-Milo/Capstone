@@ -8,6 +8,28 @@ const DIR = './map';
 const MAP_PATH = DIR + '/map';
 const TEMP_PATH = DIR + '/temp_map';
 
+function _binSearch(list, element) {
+	var lower = 0;
+	var upper = list.length - 1;
+
+	element = element.toString();
+
+	while (lower <= upper) {
+		var mid = Math.floor((upper + lower) / 2);
+		var curr = list[mid];
+
+		if (curr.toString() < element) {
+			lower = mid + 1;
+		} else if (curr.toString() > element) {
+			upper = mid - 1;
+		} else {
+			return mid;
+		}
+	} 
+
+	return -1;
+};
+
 function _copy(source, target) {
 	FS.createReadStream(source).pipe(FS.createWriteStream(target));
 };
@@ -126,6 +148,10 @@ MapManager.prototype.setMap = function(stream, cb) {
 
 MapManager.prototype.getTables = function() {
 	return this._tables;
+};
+
+MapManager.prototype.isValidTable = function(table_id) {
+	return _binSearch(this._tables, table_id) >= 0;
 };
 
 module.exports = MapManager;
