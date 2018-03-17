@@ -194,7 +194,6 @@ function setErrorList(errsList) {
     var container = document.getElementById("errorContainer");
     $(container).html('');
     for (x in errList) {
-
         var str = errList[x];
         $(container).append('<div class="row text-center ml-5 w-25 "><div class="card card-body text-center text-white bg-danger o-hidden h-100 w-25">' +
                                // '<div class="card-body text-center">' +
@@ -233,7 +232,7 @@ function Login() {
 
 
 function Logout() {
-    NetworkCall('logout', cookie);  
+    NetworkCall('logout');  
 }
 
 function navigate(dest) {
