@@ -70,10 +70,19 @@ function getAndSetDrinks() {
 function tankFilled(num) {
     var listNames = Object.entries(drinksArr);
     for (x in listNames) {
-        console.log("num: " +num);
-        console.log("listNAmesValue: "+ listNames[x][1]);
         if (num==listNames[x][1]) {
             return true;
+        }
+    }
+    console.log("num: " +num);
+    return false;
+}
+
+function getIndex(num) {
+    var listNames = Object.entries(drinksArr);
+    for (x in listNames) {
+        if (num==listNames[x][1]) {
+            return x;
         }
     }
     return false;
@@ -82,20 +91,23 @@ function tankFilled(num) {
 function updateDrinksList() {
     var con = document.getElementById('drinkList');
     $(con).html('');
+    var x=0;
     var listNames = Object.entries(drinksArr);
     for (var j=1; j<numTanks+1;j++) {
+
         if (tankFilled(j)) {
+            x = getIndex(j);
             $(con).append('<div class="input-group mb-3 my-3 w-50">' + 
                     '<div class="input-group-prepend w-50">' + 
                     '<span class="input-group-text w-100"> Nozzle ' + j + ": " + 
-                    '</span></div><input class="form-control" type="text" value= ' + listNames[j-1][0] + ' >' +
+                    '</span></div><input readonly class="form-control" type="text" value= ' + listNames[x][0] + ' >' +
                     '<div class="input-group-append">'+
-                    '<div class="btn btn-danger">x</div>' + '</div></div>');
+                    '<div class="btn btn-danger onclick="removeDrink('+listNames[x][0]+');">Remove</div>' + '</div></div>');
         } else {
             $(con).append('<div class="input-group mb-3 my-3 w-50">' + 
                     '<div class="input-group-prepend w-50">' + 
                     '<span class="input-group-text w-100"> Nozzle ' + j + ": " + '</span>' +
-                    '</div><input class="form-control" id="nozzle' + j+'" type="text">' +
+                    '</div><input class="form-control" placeholder="NOT SET" id="nozzle' + j+'" type="text">' +
                     '<div class="input-group-append">'+
                     '<div class="btn btn-success" onclick="addDrink('+ j +');">Apply</div>' + '</div></div>');
         }
@@ -103,7 +115,14 @@ function updateDrinksList() {
 }
 
 function addDrink(nozzleNum) {
-    NetworkCall('add_drink',{})
+    elem = document.getElementById('nozzle'+ nozzleNum);
+    var obj = {};
+    obj[elem.value] = nozzleNum;
+    NetworkCall('add_drink', obj );
+}
+
+function removeDrink(drinkName) {
+    NetworkCall('remove_drink',drinkName);
 }
 
 /*------------------------------------------------------------------------------------------------------------------------------------------
@@ -368,6 +387,8 @@ function NetworkCall(api_key, objects) {
         xhttp.onreadystatechange = function() {
             if (xhttp.status == 200) {
                 setErrorList(xhttp.responseText);
+            } else if (xhttp.status==401) {
+                navigate('../index.html');
             } else {
                 console.log("Error: " + xhttp.responseText);
             }
@@ -385,6 +406,8 @@ function NetworkCall(api_key, objects) {
             if (xhttp.status == 200) {
                 alert("uploaded to server");
                 mapModified = false;
+            } else if (xhttp.status==401) {
+                navigate('../index.html');
             } else {
                 console.log("Error: " + xhttp.responseText);
             }
@@ -406,11 +429,13 @@ function NetworkCall(api_key, objects) {
                 parseFiles();
                 updateMap();
                 mapModified = false;
+            } else if (xhttp.status==401) {
+                navigate('../index.html');
             } else {
                 console.log("Error: " + xhttp.responseText);
             }
         }   
-    } else if (api_key=='get_drink') {
+    } else if (api_key=='get_drinks') {
         var xhttp = createCORSRequest('GET','proxy/drinks');
         if (!xhttp) {
             throw new Error('CORS not supported');
@@ -419,11 +444,13 @@ function NetworkCall(api_key, objects) {
             if(xhttp.status==200) {
                 drinksArr = xhttp.responseText;
                 updateDrinksList();
+            } else if (xhttp.status==401) {
+                navigate('../index.html');
             } else {
                 alert("error getting drink list");
             }
         }
-        xhttp.send()
+        xhttp.send();
     } else if (api_key=='get_num_tanks') {
         var xhttp = createCORSRequest('GET','proxy/numOfTanks');
         if (!xhttp) {
@@ -432,10 +459,46 @@ function NetworkCall(api_key, objects) {
         xhttp.onreadystatechange = function() {
             if(xhttp.status==200) {
                 numTanks = xhttp.responseText;
+            } else if (xhttp.status==401) {
+                navigate('../index.html');
             } else {
                 alert("error getting number of tanks");
             }
         }
-        xhttp.send()
+        xhttp.send();
+
+    } else if (api_key=='add_drink') {
+        var xhttp = createCORSRequest('POST','proxy/drinks');
+        if (!xhttp) {
+            throw new Error('CORS not supported');
+        }
+        xhttp.onreadystatechange = function() {
+            if(xhttp.status==200) {
+                alert("added drink");
+                NetworkCall('get_drinks');
+            } else if (xhttp.status==401) {
+                navigate('../index.html');
+            } else {
+                alert("error getting number of tanks");
+            }
+        }
+        xhttp.send(JSON.stringify(object));
+
+    } else if (api_key=='remove_drink') {
+        var xhttp = createCORSRequest('DELETE','proxy/drinks?name='+String(object));
+        if (!xhttp) {
+            throw new Error('CORS not supported');
+        }
+        xhttp.onreadystatechange = function() {
+            if(xhttp.status==200) {
+                alert("removed drink");
+                NetworkCall('get_drinks');
+            } else if (xhttp.status==401) {
+                navigate('../index.html');
+            } else {
+                alert("error getting number of tanks");
+            }
+        }
+        xhttp.send();
     }
 }
