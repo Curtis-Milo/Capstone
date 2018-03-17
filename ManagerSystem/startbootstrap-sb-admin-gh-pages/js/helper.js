@@ -315,9 +315,9 @@ function NetworkCall(api_key, objects) {
         xhttp.send();
         xhttp.onreadystatechange = function() {
             if (xhttp.status == 200) {
-                this.mapFile = String(xhttp.responseText);
+                mapFile = String(xhttp.responseText);
                 console.log(xhttp.responseText);
-                console.log(this.mapFile);
+                console.log(mapFile);
                 parseFiles();
                 updateMap();
                 mapModified = false;
