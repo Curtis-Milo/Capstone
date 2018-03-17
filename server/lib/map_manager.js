@@ -100,17 +100,18 @@ MapManager.prototype.setMap = function(stream, cb) {
 		stream.pipe(fileStream);
 
 		try {
+			stream.on('finish', function() {
+				if (that._validate(data)) {
+				 	_copy(TEMP_PATH, MAP_PATH);
+
+					that.exists = true;
+
+					cb();
+				 } else {
+				 	cb('Invalid map.');
+				 }
+			});
 			var data = FS.readFileSync(TEMP_PATH, 'utf8');
-
-			 if (that._validate(data)) {
-			 	_copy(TEMP_PATH, MAP_PATH);
-
-				that.exists = true;
-
-				cb();
-			 } else {
-			 	cb('Invalid map.');
-			 }
 		} catch(e) {
 			cb(e);
 		} finally {
