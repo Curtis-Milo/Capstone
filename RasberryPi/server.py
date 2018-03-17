@@ -7,12 +7,25 @@ from urlparse import urlparse
 
 authManager = AuthHandler()
 
+def _caseInsensitiveKey(obj, key):
+    for k in obj:
+        if k.lower() == key.lower():
+            return obj[k]
+    return None
+
 class Handler(BaseHTTPRequestHandler):
     def _set_headers(self, code=200):
         self.send_response(code)
         self.send_header('Content-type', 'application/json')
         self.end_headers()
-        
+    def _isAuth(self):
+        auth = _caseInsensitiveKey(self.headers, 'Authorization')
+        if auth is not None:
+            split_auth = auth.split(' ')
+            if len(split_auth) > 1:
+                return auth[1] == authManager.getToken()['access_token']
+        return False
+  
     def do_POST(self):
         if urlparse(self.path).path.lower() == '/token':
             content_length = int(self.headers['Content-Length'])
@@ -23,8 +36,11 @@ class Handler(BaseHTTPRequestHandler):
             else:
                 self._set_headers(code=401)
         elif urlparse(self.path).path.lower() == '/return':
-            self._set_headers(code=400)
-            # TODO: implement return to base function
+            if self._isAuth():
+                self._set_headers(code=400)
+                # TODO: implement return to base function
+            else:
+                self._set_headers(code=401)
         else:
             self._set_headers(code=404)
 
