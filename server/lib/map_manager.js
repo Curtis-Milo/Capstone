@@ -97,11 +97,11 @@ MapManager.prototype.setMap = function(stream, cb) {
 
 		var fileStream = FS.createWriteStream(TEMP_PATH);
 
-		stream.pipe(fileStream);
+		stream.pipe(fileStream).on('finish', function() {
+			try {
+				var data = FS.readFileSync(TEMP_PATH, 'utf8');
 
-		try {
-			stream.on('finish', function() {
-				if (that._validate(data)) {
+				 if (that._validate(data)) {
 				 	_copy(TEMP_PATH, MAP_PATH);
 
 					that.exists = true;
@@ -110,14 +110,13 @@ MapManager.prototype.setMap = function(stream, cb) {
 				 } else {
 				 	cb('Invalid map.');
 				 }
-			});
-			var data = FS.readFileSync(TEMP_PATH, 'utf8');
-		} catch(e) {
-			cb(e);
-		} finally {
-			FS.unlinkSync(TEMP_PATH);
-			mutex.unlock();
-		}
+			} catch(e) {
+				cb(e);
+			} finally {
+				FS.unlinkSync(TEMP_PATH);
+				mutex.unlock();
+			}
+		});
 	});
 };
 
