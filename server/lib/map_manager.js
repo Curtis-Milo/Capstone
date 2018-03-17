@@ -53,6 +53,7 @@ MapManager.prototype._parse = function(dataMat) {
 };
 
 MapManager.prototype._validate = function(data) {
+	var dataMat = [];
 	var rows = data.trim().split('\n');
 	var dim = rows[0].trim().split(',');
 	rows = rows.splice(1);
@@ -71,11 +72,13 @@ MapManager.prototype._validate = function(data) {
 
 	for (let row of rows) {
 		row = row.trim().split(',');
+		dataMat.push([]);
 
 		if (dim[1] != row.length) return false;
 
 		for (let element of row) {
 			element = element.trim();
+			dataMat[i].push(element);
 
 			if (VALID.indexOf(element) < 0) return false;
 		}
