@@ -5,7 +5,7 @@ var mutex = LOCKS.createMutex();
 
 const DIR = './map';
 const MAP_PATH = DIR + '/map';
-const TEMP_PATH = DIR + 'temp_map';
+const TEMP_PATH = DIR + '/temp_map';
 
 function _copy(source, target) {
 	FS.createReadStream(source).pipe(FS.createWriteStream(target));
