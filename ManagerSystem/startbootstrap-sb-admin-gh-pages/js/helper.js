@@ -53,20 +53,20 @@ function parseFiles(){
     map = [];
     if(prevFile){
         try {
-        lines = mapFile.split('\n');
-        temp = lines[0];
-        length= temp.split(',')[0];
-        width = temp.split(',')[1];
-        for (var i = 1; i < length+1; i++) {
-            map.push([]);
-            for (var j = 0; j < width; j++) {
-                temp = lines[i].split(',')
-                map[i-1].push(temp[j]);
+            lines = mapFile.split('\n');
+            temp = lines[0];
+            length= temp.split(',')[0];
+            width = temp.split(',')[1];
+            for (var i = 1; i < length+1; i++) {
+                map.push([]);
+                temp = lines[i].split(',');
+                for (var j = 0; j < width; j++) {
+                    map[i-1].push(temp[j]);
+                }
             }
+        } catch (err) {
+            console.log(err.message);
         }
-    } catch (err) {
-        console.log(err.message);
-    }
     }else{
         //default information when there is no 
         length = 10;
@@ -314,6 +314,8 @@ function NetworkCall(api_key, objects) {
         xhttp.onreadystatechange = function() {
             if (xhttp.status == 200) {
                 this.mapFile = String(xhttp.responseText);
+                console.log(xhttp.responseText);
+                console.log(this.mapFile);
                 parseFiles();
                 updateMap();
                 mapModified = false;
