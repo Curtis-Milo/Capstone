@@ -73,7 +73,6 @@ function tankFilled(num) {
             return true;
         }
     }
-    console.log("num: " +num);
     return false;
 }
 
@@ -92,7 +91,7 @@ function updateDrinksList() {
     $(con).html('');
     var x=0;
     var listNames = Object.entries(drinksArr);
-    for (var j=1; j<numTanks+1;j++) {
+    for (var j=1; j<(numTanks+1);j++) {
 
         if (tankFilled(j)) {
             x = getIndex(j);
@@ -440,14 +439,18 @@ function NetworkCall(api_key, objects) {
             throw new Error('CORS not supported');
         }
         xhttp.onreadystatechange = function() {
-            if(xhttp.status==200 && xhttp.readyState==4) {
-                drinksArr = xhttp.responseText;
-                updateDrinksList();
-            } else if (xhttp.status==401) {
-                navigate('../index.html');
-            } else {
-                alert("error getting drink list");
+            if (xhttp.readyState==4) {
+                if(xhttp.status==200) {
+                    drinksArr = xhttp.responseText;
+                    console.log(drinksArr);
+                    updateDrinksList();
+                } else if (xhttp.status==401) {
+                    navigate('../index.html');
+                } else {
+                    alert("error getting drink list");
+                }
             }
+           
         }
         xhttp.send();
     } else if (api_key=='get_num_tanks') {
@@ -456,14 +459,17 @@ function NetworkCall(api_key, objects) {
             throw new Error('CORS not supported');
         }
         xhttp.onreadystatechange = function() {
-            if(xhttp.status==200 && xhttp.readyState==4) {
-                numTanks = xhttp.responseText;
-                NetworkCall('get_drinks');
-            } else if (xhttp.status==401) {
-                navigate('../index.html');
-            } else {
-                alert("error getting number of tanks");
+            if(xhttp.readyState==4) {
+                if(xhttp.status==200) {
+                    numTanks = xhttp.responseText;
+                    NetworkCall('get_drinks');
+                } else if (xhttp.status==401) {
+                   navigate('../index.html');
+                } else {
+                    alert("error getting number of tanks");
+                }
             }
+            
         }
         xhttp.send();
 
@@ -473,14 +479,17 @@ function NetworkCall(api_key, objects) {
             throw new Error('CORS not supported');
         }
         xhttp.onreadystatechange = function() {
-            if(xhttp.status==200 && xhttp.readyState==4) {
-                alert("added drink");
-                NetworkCall('get_drinks');
-            } else if (xhttp.status==401) {
-                navigate('../index.html');
-            } else {
-                alert("error getting number of tanks");
+            if (xhttp.readyState==4) {
+                if(xhttp.status==200) {
+                    alert("added drink");
+                    NetworkCall('get_drinks');
+                } else if (xhttp.status==401) {
+                    navigate('../index.html');
+                } else {
+                    alert("error getting number of tanks");
+                }
             }
+            
         }
         xhttp.send(JSON.stringify(object));
 
@@ -490,13 +499,15 @@ function NetworkCall(api_key, objects) {
             throw new Error('CORS not supported');
         }
         xhttp.onreadystatechange = function() {
-            if(xhttp.status==200 && xhttp.readyState==4) {
-                alert("removed drink");
-                NetworkCall('get_drinks');
-            } else if (xhttp.status==401) {
-                navigate('../index.html');
-            } else {
-                alert("error getting number of tanks");
+            if (xhttp.readyState==4) {
+                if(xhttp.status==200) {
+                    alert("removed drink");
+                    NetworkCall('get_drinks');
+                } else if (xhttp.status==401) {
+                   navigate('../index.html');
+                } else {
+                    alert("error getting number of tanks");
+                }  
             }
         }
         xhttp.send();
