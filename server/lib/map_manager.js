@@ -102,7 +102,7 @@ MapManager.prototype.setMap = function(stream, cb) {
 		try {
 			var data = FS.readFileSync(TEMP_PATH, 'utf8');
 
-			 if (this._validate(data)) {
+			 if (that._validate(data)) {
 			 	_copy(TEMP_PATH, MAP_PATH);
 
 				that.exists = true;
