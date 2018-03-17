@@ -10,6 +10,7 @@ const ORDER = require('./lib/order');
 const FS = require('fs');
 const LOCKS = require('locks');
 const MAP_MANAGER = require('./lib/map_manager');
+const UNIREST = require('unirest');
 
 var mutex = LOCKS.createMutex();
 
@@ -292,9 +293,14 @@ HTTP.createServer(function(req, res) {
 				}
 			} else if (url.pathname.toLowerCase().replace(/\//, '') === 'returntobase') {
 				if (roles.admin) {
-					// TODO: implement return to base function...
-					res.writeHead(400, 'Not implemented yet...', {'Content-Type': 'text/html'});
-					res.end();
+					var token = tokenGen.getToken();
+					UNIREST.post(host + '/token')
+					.headers({'Accept': 'application/json', 'Content-Type': 'application/json', 'Authorization': token.token_type + ' ' + token.access_token})
+					.send(data)
+					.end(function(res) {
+						res.writeHead(res.code, {'Content-Type': 'text/html'});
+						res.end();
+					});
 				} else {
 					res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
 					res.end();
