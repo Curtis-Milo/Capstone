@@ -340,7 +340,7 @@ var tests = {
 					resolve();
 				});
 			});
-		};
+		}
 	},
 
 	clientTest: {
