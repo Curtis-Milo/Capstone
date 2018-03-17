@@ -47,8 +47,10 @@ window.onload = function() {
 function parseFiles(){
     if (typeof mapFile=='undefined') {
         var prevFile = false;
+        console.log("mapFile is undefined");
     } else {
         var prevFile = true;
+        console.log("mapFile is DEFINED");
     }
     map = [];
     if(prevFile){
