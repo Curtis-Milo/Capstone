@@ -16,8 +16,8 @@
     border:1px solid black;
     text-align:center;
     vertical-align:center;
-        line-height:100px;
-
+    color:white;
+    line-height:100px;
 }
 
 #table {
@@ -28,7 +28,7 @@
     text-align:center;
     vertical-align:center;
     color:white;
-        line-height:100px;
+    line-height:100px;
 
 
 }
@@ -41,7 +41,7 @@
     text-align:center;
     vertical-align:center;
     font-color:black;
-        line-height:100px;
+    line-height:100px;
 
 }
 

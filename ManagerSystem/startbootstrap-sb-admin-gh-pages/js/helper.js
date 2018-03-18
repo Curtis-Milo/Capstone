@@ -272,8 +272,10 @@ function updateMap(){
                 var insideStuff= "";
                 if (map[i][j] == "0"){
                     insideStuff = " onclick = \"onClickChange("+i+","+j+")\" id = \"clear\""; 
+                    label = "Free Space";
                 }else if(map[i][j] == "X"){
-                    insideStuff = " onclick = \"onClickChange("+i+","+j+")\" id = \"blocked\"";     
+                    insideStuff = " onclick = \"onClickChange("+i+","+j+")\" id = \"blocked\"";
+                    label = "Blocked";     
                 }else if(map[i][j] == "T"){
                     insideStuff = " onclick = \"onClickChange("+i+","+j+")\" id = \"table\"";
                     label = "Table";
@@ -337,7 +339,7 @@ function setErrorList(errsList) {
     $(container).html('');
     for (x in errList) {
         var str = errList[x];
-        $(container).append('<div class="row text-center ml-5 w-25 "><div class="card card-body text-center text-white bg-danger o-hidden h-100 w-25">' +
+        $(container).append('<div class="row text-center w-25 "><div class="card card-body text-center text-white bg-danger o-hidden h-100 w-25">' +
                                // '<div class="card-body text-center">' +
                                 str + '</div></div><br>');
         console.log(container);
@@ -462,6 +464,7 @@ function NetworkCall(api_key, objects) {
 
 
 
+
     } else if (api_key=='save_map') {
         var xhttp = createCORSRequest('POST','/proxy/map');
         if (!xhttp) {
@@ -578,5 +581,19 @@ function NetworkCall(api_key, objects) {
             }
         }
         xhttp.send();
+    } else if (api_key=='validate') {
+        var xhttp = createCORSRequest('GET','/proxy/isValidSess');
+        if (!xhttp) {
+            throw new Error('CORS not supported');
+        }
+        xhttp.onreadystatechange = function() {
+            if (xhttp.status==401 && xhttp.readyState==4) {
+                navigate('../index.html');
+            } else {
+                console.log("Error: " + xhttp.responseText);
+            }
+        }
+        xhttp.send();
+
     }
 }

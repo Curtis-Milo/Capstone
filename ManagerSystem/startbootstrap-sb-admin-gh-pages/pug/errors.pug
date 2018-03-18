@@ -17,8 +17,9 @@ html(lang='en')
     include includes/navbar.pug
     .content-wrapper
       .container-fluid
-        div#errorContainer(class='col w-50' style='float:left;')
-        div#errorPageOptions(class='col w-50' style='float:right;')
+        h1.ml-2.w-25 Errors List
+        div#errorContainer.col.w-50(style='float:left;')
+        div#errorPageOptions.col.d-inline.w-50(style='float:right;')
           .row
             button.btn.btn-lg.btn-primary.w-25(onclick='NetworkCall("call_home");') Call Home
           .row.mt-5
