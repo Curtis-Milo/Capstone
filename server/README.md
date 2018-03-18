@@ -119,7 +119,7 @@ AUTHORIZATION: Basic authorization using original administrator credentials.
 
 RETURNS:
 ```javascript
-file
+int
 ```
 
 
