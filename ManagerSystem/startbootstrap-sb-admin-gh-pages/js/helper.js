@@ -91,10 +91,11 @@ function updateDrinksList() {
     $(con).html('');
     var x=0;
     var listNames = Object.entries(drinksArr);
-    for (var j=1; j<(numTanks+1);j++) {
 
+    for (var j=1; j<(numTanks+1);j++) {
         if (tankFilled(j)) {
             x = getIndex(j);
+
             $(con).append('<div class="input-group mb-3 my-3 w-50">' + 
                     '<div class="input-group-prepend w-50">' + 
                     '<span class="input-group-text w-100"> Nozzle ' + j + ": " + 
@@ -441,7 +442,7 @@ function NetworkCall(api_key, objects) {
         xhttp.onreadystatechange = function() {
             if (xhttp.readyState==4) {
                 if(xhttp.status==200) {
-                    drinksArr = xhttp.responseText;
+                    drinksArr = JSON.parse(xhttp.responseText);
                     console.log(drinksArr);
                     updateDrinksList();
                 } else if (xhttp.status==401) {
@@ -461,7 +462,7 @@ function NetworkCall(api_key, objects) {
         xhttp.onreadystatechange = function() {
             if(xhttp.readyState==4) {
                 if(xhttp.status==200) {
-                    numTanks = xhttp.responseText;
+                    numTanks = JSON.parse(xhttp.responseText);
                     NetworkCall('get_drinks');
                 } else if (xhttp.status==401) {
                    navigate('../index.html');
