@@ -5,14 +5,6 @@ function _cleanRequire(module){
     return require(module)
 }
 
-var _jsonVals = function(obj) {
-	var ret = [];
-	for (let i of Object.keys(obj)) {
-		ret.push(obj[i]);
-	}
-	return ret;
-};
-
 //verification that orders sent to server contain necessary
 //information amd is in the proper format
 module.exports = {
@@ -46,7 +38,7 @@ module.exports = {
 			} else continue;
 
 			//ensure sizes given and is valid or default to Medium
-			if (size && _jsonVals(SIZES).indexOf(size.toUpperCase()) >= 0) {
+			if (size && HELPER.jsonVals(SIZES).indexOf(size.toUpperCase()) >= 0) {
 				temp.size = size.toUpperCase();
 			} else {
 				temp.size = SIZES.M;
@@ -63,6 +55,8 @@ module.exports = {
 			orders.push(temp);
 		}
 
+		orders = HELPER.simplifyOrder(orders);
+
 		if (orders.length === 0) {
 			return cb('No valid orders to fill');
 		}
@@ -77,7 +71,7 @@ module.exports = {
 			cb(null, {
 				table_id: table_id,
 				order_id: order_id,
-				orders: orders
+				order: orders
 			});
 		});
 	}
