@@ -108,19 +108,19 @@ function updateDrinksList() {
                     '<span class="input-group-text w-100"> Nozzle ' + j + ": " + '</span>' +
                     '</div><input class="form-control" placeholder="NOT SET" id="nozzle' + j+'" type="text">' +
                     '<div class="input-group-append">'+
-                    '<div class="btn btn-success" onclick="addDrink('+ j +');">Apply</div>' + '</div></div>');
+                    "<div class='btn btn-success' onclick='addDrink("+ j +");'>Apply</div>" + "</div></div>");
         }
     }
 }
 
-function adddrink(nozzleNum) {
+function addDrink(nozzleNum) {
     elem = document.getElementById('nozzle'+ nozzleNum);
     var obj = {};
     obj[elem.value] = nozzleNum;
     NetworkCall('add_drink', obj );
 }
 
-function removedrink(drinkName) {
+function removeDrink(drinkName) {
     NetworkCall('remove_drink',drinkName);
 }
 
@@ -255,7 +255,7 @@ function load() {
 }
 
 /*------------------------------------------------------------------------------------------------------------------------------------------
-/*------------------------------------------------------------------------------------------------------------------------------------------
+/*--------------------------------------------------------------------------------addDrink----------------------------------------------------------
 /*------------------------------------------------------------------------------------------------------------------------------------------*/
 
 
@@ -492,7 +492,7 @@ function NetworkCall(api_key, objects) {
             }
             
         }
-        xhttp.send(JSON.stringify(object));
+        xhttp.send(JSON.stringify(objects));
 
     } else if (api_key=='remove_drink') {
         var xhttp = createCORSRequest('DELETE','proxy/drinks?name='+String(object));
