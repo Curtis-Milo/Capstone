@@ -96,7 +96,7 @@ function updateDrinksList() {
         if (tankFilled(j)) {
             x = getIndex(j);
 
-            $(con).append('<div class="input-group mb-3 my-3 w-50">' + 
+            $(con).append('<div class="input-group mb-3 my-3 w-50">' +  
                     '<div class="input-group-prepend w-50">' + 
                     '<span class="input-group-text w-100"> Nozzle ' + j + ": " + 
                     '</span></div><input readonly class="form-control" type="text" value= ' + listNames[x][0] + ' >' +
@@ -127,6 +127,27 @@ function removeDrink(drinkName) {
 /*------------------------------------------------------------------------------------------------------------------------------------------
 /*------------------------------------------------------------------------------------------------------------------------------------------
 /*------------------------------------------------------------------------------------------------------------------------------------------*/
+
+function changeDimensions() {
+
+    templength = parseInt(document.getElementById("len").value);
+    tempwidth = parseInt(document.getElementById("wid").value);
+    if (!isNaN(templength)) {length = templength;}
+    if (!isNaN(tempwidth)) {width = tempwidth;}
+    makeMap();
+    updateMap();
+}
+function makeMap() {
+    var mapFile;
+    for (var i = 0; i < length; i++) {
+        map.push([]);
+        for (var j = 0; j < width; j++) {
+            map[i].push("0");
+        }
+    }
+        map[0][0] = 'H';
+        table_coords = [];
+}
 
 function parseFiles(){
     if (typeof mapFile=='undefined') {
@@ -217,11 +238,37 @@ function updateMap(){
     count_tblRef = 0;
     var top = 100;
 
+    newWidth = String(width*100)+ "px";
+    newLength = String(length*100)+ "px";
+    doc = document.getElementById("mapmaker");
+   // console.log(board.clientWidth);
+   // board.clientWidth = width*100;
+   // board.clientHeight = length*100;
+   // board.style.width = newWidth;
+   // board.style.height = newLength;
+    /*var sheet = document.createElement('style')
+    sheet.innerHTML = ".board {width:"+newWidth+"; height:"+newLength+"}";
+    document.body.appendChild(sheet);*/
+
+
+    //board.style.width = newWidth;
+
+    board = document.getElementById("board");
+    if (board) {
+            board.parentNode.removeChild(board);
+    }
+
+    mapString = "<div id='board' class='board mt-2 px-auto' style='width:"+newWidth+"; height:"+newLength+";' >"
     for (var i = 0; i < length; i++) {  
             var left = 0;
             for (var j = 0; j < width; j++) {
                 var label="";
-                var button = "<div style =  \" display:block;float:left;    left:"+left+"px; top:"+top+"px;\"";
+                if (j==width-1) {
+                    var button = "<div class='d-block' style =  \" display:block; float:left;    left:"+left+"px; top:"+top+"px;\"";
+                } else {
+                    var button = "<div class='d-inline' style =  \" float:left;    left:"+left+"px; top:"+top+"px;\"";
+                }
+                
                 var insideStuff= "";
                 if (map[i][j] == "0"){
                     insideStuff = " onclick = \"onClickChange("+i+","+j+")\" id = \"clear\""; 
@@ -243,11 +290,12 @@ function updateMap(){
                 mapString = mapString + button;
                 left= left+square_size;
             }
-            mapString=mapString+"<br>";
-            top= top+square_size;
+            mapString=mapString+"";
+            top=top+square_size;
         }
+        mapString = mapString+"</div>";
+    $(doc).append(mapString);
 
-    document.getElementById("board").innerHTML =mapString;
 }
 
 function load() {
@@ -386,6 +434,24 @@ function NetworkCall(api_key, objects) {
         xhttp.onreadystatechange = function() {
             if (xhttp.status == 200 && xhttp.readyState==4) {
                 setErrorList(xhttp.responseText);
+            } else if (xhttp.status==401) {
+                navigate('../index.html');
+            } else {
+                console.log("Error: " + xhttp.responseText);
+            }
+        }
+        xhttp.send();
+
+
+
+    } else if (api_key=='call_home') {
+        var xhttp = createCORSRequest('GET','/proxy/returnToBase');
+        if (!xhttp) {
+            throw new Error('CORS not supported');
+        }
+        xhttp.onreadystatechange = function() {
+            if (xhttp.status == 200 && xhttp.readyState==4) {
+                alert("alfred is on the way home");
             } else if (xhttp.status==401) {
                 navigate('../index.html');
             } else {

@@ -17,19 +17,32 @@ html(lang='en')
   body#page-top.fixed-nav.sticky-footer.bg-dark
     include includes/navbar.pug
     .content-wrapper
-      .container-fluid
+
+      #mapmaker.container-fluid(style='overflow-x:scroll;')
         // Breadcrumbs
         ol.breadcrumb
           li.breadcrumb-item
             a(href='#') Dashboard
           li.breadcrumb-item.active Charts
         h1 Alfred Mapping System
-        .mb-2
+        .mb-2.w-100
           .col.d-inline
-            button#save.btn.btn-lg.btn-primary(onclick='save();') Save
+            button#save.btn.btn-lg.btn-primary(onclick='save();') Save Map
           .col.d-inline
-            button#load.btn.btn-lg.btn-primary(onclick='load();') Load
-        div#board
+            button#load.btn.btn-lg.btn-primary(onclick='load();') Load Map
+          .col.d-inline
+            button#changeDimensions.btn.btn-lg.btn-secondary(type='submit' onclick='changeDimensions();') Save Dimensions
+          .input-group.mb-3.my-3.w-25
+            .input-group-prepend.w-25
+              span.input-group-text.w-100 Length:
+            input#len.form-control(type='number' placeholder='length' min='1' max='100')
+    
+          .input-group.mb-3.my-3.w-25
+            .input-group-prepend.w-25
+              span.input-group-text.w-100 Width:
+            input#wid.form-control(type='number' placeholder='length' min='1' max='100')
+        div.w-100(style='overflow-x:scroll;')
+        //div#board.board.mt-2.px-auto
 
       // /.container-fluid
       // /.content-wrapper
