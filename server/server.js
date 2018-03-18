@@ -501,6 +501,8 @@ HTTP.createServer(function(req, res) {
 								res.end();
 								return;
 							}
+
+							// unregistering tables to avoid re-ID-ing of tables 
 							for (let table_id of availableTables) {
 								tableManager.deleteTable(table_id, function(delErr) {
 									// if (delErr) {
