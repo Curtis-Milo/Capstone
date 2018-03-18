@@ -113,14 +113,14 @@ function updateDrinksList() {
     }
 }
 
-function addDrink(nozzleNum) {
+function adddrink(nozzleNum) {
     elem = document.getElementById('nozzle'+ nozzleNum);
     var obj = {};
     obj[elem.value] = nozzleNum;
     NetworkCall('add_drink', obj );
 }
 
-function removeDrink(drinkName) {
+function removedrink(drinkName) {
     NetworkCall('remove_drink',drinkName);
 }
 
