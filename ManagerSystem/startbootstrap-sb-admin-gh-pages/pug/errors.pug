@@ -1,0 +1,38 @@
+doctype html
+html(lang='en')
+
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(name='description', content='')
+    meta(name='author', content='')
+
+    title SB Admin - Start Bootstrap Template
+
+    include includes/css/core.pug
+    include includes/css/custom.pug
+
+  body#page-top.fixed-nav.sticky-footer.bg-dark
+    include includes/navbar.pug
+    .content-wrapper
+      .container-fluid
+        h1.ml-2.w-25 Errors List
+        div#errorContainer.col.w-50(style='float:left;')
+        div#errorPageOptions.col.d-inline.w-50(style='float:right;')
+          .row
+            button.btn.btn-lg.btn-primary.w-25(onclick='NetworkCall("call_home");') Call Home
+          .row.mt-5
+            button.btn.btn-lg.btn-info.w-25(onclick='NetworkCall("getErrors");') Refresh Errors
+      // /.container-fluid
+      // /.content-wrapper
+
+      include includes/footer.pug
+
+      include includes/scroll-to-top.pug
+
+      include includes/modals/logout.pug
+
+      include includes/js/core.pug
+
+      include includes/js/custom.pug

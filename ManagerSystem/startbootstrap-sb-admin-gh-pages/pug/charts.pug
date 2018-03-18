@@ -1,0 +1,59 @@
+doctype html
+html(lang='en')
+
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(name='description', content='')
+    meta(name='author', content='')
+
+    title SB Admin - Start Bootstrap Template
+
+    include includes/css/core.pug
+
+    include includes/css/custom.pug
+
+  body#page-top.fixed-nav.sticky-footer.bg-dark
+    include includes/navbar.pug
+    .content-wrapper
+
+      #mapmaker.container-fluid(style='overflow-x:scroll;')
+        // Breadcrumbs
+        ol.breadcrumb
+          li.breadcrumb-item
+            a(href='#') Dashboard
+          li.breadcrumb-item.active Charts
+        h1 Alfred Mapping System
+        .mb-2.w-50
+          .col.d-inline
+            button#save.btn.btn-lg.btn-primary(onclick='save();') Save Map
+          .col.d-inline
+            button#load.btn.btn-lg.btn-primary(onclick='load();') Load Map
+          .col.d-inline
+            button#changeDimensions.btn.btn-lg.btn-secondary(type='submit' onclick='changeDimensions();') Update Dimensions
+          .w-100
+          .input-group.mb-3.my-3.w-25
+            .input-group-prepend.w-50
+              span.input-group-text.w-100 Length:
+            input#len.form-control(type='number' placeholder='length' min='1' max='100')
+          .input-group.mb-3.my-3.w-25
+            .input-group-prepend.w-50
+              span.input-group-text.w-100 Width:
+            input#wid.form-control(type='number' placeholder='width' min='1' max='100')
+          
+        //div#board.board.mt-2.px-auto
+
+      // /.container-fluid
+      // /.content-wrapper
+
+
+      include includes/footer.pug
+
+      include includes/scroll-to-top.pug
+
+      include includes/modals/logout.pug
+
+      include includes/js/core.pug
+
+      include includes/js/custom.pug
