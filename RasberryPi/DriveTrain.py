@@ -219,10 +219,7 @@ class DriveTrain():
 						circles = self.circleChecker.checkForCircle()
 
 						if circles is not None:
-							#print "circles found " + str(len(circles))
-							# convert the (x, y) coordinates and radius of the circles to integers
-							circles = np.round(circles[0, :]).astype("int")
-					 
+							#print "circles found " + str(len(circles)
 							# loop over the (x, y) coordinates and radius of the circles
 							for (x, y, r) in circles:
 									circlefound =  True
