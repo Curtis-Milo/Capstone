@@ -135,6 +135,19 @@ $TABLE_ID_1,TABLE_ID_2,TABLE_ID_3...
 ```
 
 
+##### 200 if session is valid, 401 otherwise.
+
+*${HOST}/isValidSess*
+
+AUTHORIZATION: Session cookie generated after logging in admin.
+
+RETURNS:
+```javascript
+N/A
+```
+
+
+
 ## POST
 ##### Place an order in queue.
 

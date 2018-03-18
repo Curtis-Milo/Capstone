@@ -194,6 +194,14 @@ HTTP.createServer(function(req, res) {
 					res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
 					res.end();
 				}
+			} else if (url.pathname.toLowerCase().replace(/\//, '') === 'isvalidsess') {
+				if (roles.is_sess) {
+					res.writeHead(200, {'Content-Type': 'text/html'});
+					res.end();
+				} else {
+					res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
+					res.end();
+				}
 			} else {
 				res.writeHead(404, 'No such method', {'Content-Type': 'text/html'});
 				res.end();
