@@ -3,20 +3,24 @@
 \BOOKMARK [2][-]{subsection.2.1}{Scope}{section.2}% 3
 \BOOKMARK [2][-]{subsection.2.2}{Context Diagram}{section.2}% 4
 \BOOKMARK [2][-]{subsection.2.3}{Diagram of Components}{section.2}% 5
-\BOOKMARK [1][-]{section.3}{System Variables}{}% 6
-\BOOKMARK [2][-]{subsection.3.1}{Monitored and Controlled Variables}{section.3}% 7
-\BOOKMARK [2][-]{subsection.3.2}{Constants}{section.3}% 8
-\BOOKMARK [1][-]{section.4}{Behaviour Overview}{}% 9
-\BOOKMARK [1][-]{section.5}{Component Overview}{}% 10
-\BOOKMARK [2][-]{subsection.5.1}{Ordering System Module}{section.5}% 11
-\BOOKMARK [2][-]{subsection.5.2}{Manager Login Page Module}{section.5}% 12
-\BOOKMARK [2][-]{subsection.5.3}{Manager Station Map Software Module}{section.5}% 13
-\BOOKMARK [2][-]{subsection.5.4}{Manager Station Request Software Module}{section.5}% 14
-\BOOKMARK [2][-]{subsection.5.5}{Back End Web Service Module}{section.5}% 15
-\BOOKMARK [2][-]{subsection.5.6}{Alfred Manager Module}{section.5}% 16
-\BOOKMARK [2][-]{subsection.5.7}{Alfred Drive-Train Module}{section.5}% 17
-\BOOKMARK [2][-]{subsection.5.8}{Alfred Pumping System Module}{section.5}% 18
-\BOOKMARK [2][-]{subsection.5.9}{Alfred Image Processing Module }{section.5}% 19
-\BOOKMARK [1][-]{section.6}{Normal Operation}{}% 20
-\BOOKMARK [1][-]{section.7}{Undesired Event Handling}{}% 21
-\BOOKMARK [1][-]{section.8}{References}{}% 22
+\BOOKMARK [2][-]{subsection.2.4}{Assumptions}{section.2}% 6
+\BOOKMARK [2][-]{subsection.2.5}{Components to Requirements}{section.2}% 7
+\BOOKMARK [1][-]{section.3}{System Variables}{}% 8
+\BOOKMARK [2][-]{subsection.3.1}{Monitored and Controlled Variables}{section.3}% 9
+\BOOKMARK [2][-]{subsection.3.2}{Constants}{section.3}% 10
+\BOOKMARK [1][-]{section.4}{Behaviour Overview}{}% 11
+\BOOKMARK [1][-]{section.5}{Component Traceability}{}% 12
+\BOOKMARK [1][-]{section.6}{Component Overview}{}% 13
+\BOOKMARK [2][-]{subsection.6.1}{Ordering System Module}{section.6}% 14
+\BOOKMARK [2][-]{subsection.6.2}{Manager Login Page Module}{section.6}% 15
+\BOOKMARK [2][-]{subsection.6.3}{Manager Station Map Software Module}{section.6}% 16
+\BOOKMARK [2][-]{subsection.6.4}{Manager Station Request Software Module}{section.6}% 17
+\BOOKMARK [2][-]{subsection.6.5}{Back End Web Service Module}{section.6}% 18
+\BOOKMARK [2][-]{subsection.6.6}{Alfred Manager Module}{section.6}% 19
+\BOOKMARK [2][-]{subsection.6.7}{Alfred Drive-Train Module}{section.6}% 20
+\BOOKMARK [2][-]{subsection.6.8}{Alfred Pumping System Module}{section.6}% 21
+\BOOKMARK [2][-]{subsection.6.9}{Alfred Image Processing Module }{section.6}% 22
+\BOOKMARK [1][-]{section.7}{Likelihood of Change}{}% 23
+\BOOKMARK [1][-]{section.8}{Normal Operation}{}% 24
+\BOOKMARK [1][-]{section.9}{Undesired Event Handling}{}% 25
+\BOOKMARK [1][-]{section.10}{References}{}% 26
