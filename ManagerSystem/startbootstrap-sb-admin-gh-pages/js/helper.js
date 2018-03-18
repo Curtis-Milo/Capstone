@@ -101,7 +101,7 @@ function updateDrinksList() {
                     '<span class="input-group-text w-100"> Nozzle ' + j + ": " + 
                     '</span></div><input readonly class="form-control" type="text" value= ' + listNames[x][0] + ' >' +
                     '<div class="input-group-append">'+
-                    "<div class='btn btn-danger onclick='removeDrink("+listNames[x][0]+");'>Remove</div>" + "</div></div>");
+                    "<div class='btn btn-danger' onclick='removeDrink(\""+listNames[x][0]+"\");'>Remove</div>" + "</div></div>");
         } else {
             $(con).append('<div class="input-group mb-3 my-3 w-50">' + 
                     '<div class="input-group-prepend w-50">' + 
