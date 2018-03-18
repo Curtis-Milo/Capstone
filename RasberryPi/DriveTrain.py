@@ -33,7 +33,7 @@ class DriveTrain():
 		#CALS
 		self.encoderCountsMin =10
 		self.countPerRad = 2*(38.0/math.pi)
-		self.refSpeedFrwdL = 17
+		self.refSpeedFrwdL = 19
 		self.refSpeedFrwdR = 15
 		self.refSpeedTurn = 100*(math.pi/30.0)
 		self.batteryMax = 18.0
@@ -42,15 +42,15 @@ class DriveTrain():
 		self.Pi_R = PI_Controller(0.2,0.01)
 		self.Pi_Angle = PI_Controller(1,1)
 
-		self.MaxOutStrtL = 15
-		self.MinOutStrtL = 10
-		self.MaxOutStrtR = 15
-		self.MinOutStrtR = 7
+		self.MaxOutStrtL = 30
+		self.MinOutStrtL = 20
+		self.MaxOutStrtR = 30
+		self.MinOutStrtR = 20
 
-		self.MaxOutTrnL = 40
-		self.MinOutTrnL = 30
-		self.MaxOutTrnR = 40
-		self.MinOutTrnR = 30
+		self.MaxOutTrnL = 60
+		self.MinOutTrnL = 50
+		self.MaxOutTrnR = 60
+		self.MinOutTrnR = 50
 
 		self.WheelRad = 0.2
 		self.RobotRad = 0.3
@@ -112,14 +112,14 @@ class DriveTrain():
 		self.pwmRight.start(self.MinOutTrnR)
 		self.pwmLeft.start(self.MinOutTrnL)
 		distances =0 
+		num_rotations = 0
 		try:
-			while 0.1 < abs(currentAngle -TargetAngle):
+			while 0.2 < abs(currentAngle -TargetAngle):
 				self.checkEncoder()
-				while self.encoderCountsMin<   abs(self.EncoderR.getEncoderCount()):
-
+				while self.encoderCountsMin<   abs(self.EncoderR.getEncoderCount()): 
 					distances += self.WheelRad*(self.EncoderR.getEncoderCount()/self.countPerRad)
 					print "distance: "+ str(distances)
-					currentAngle = -1*math.atan2(distances,self.RobotRad)  
+					currentAngle = -1*(distances/self.RobotRad)
 					print "CurrAng: ", str(currentAngle),"TargetAng: ", str(TargetAngle)
 					if(currentAngle < TargetAngle):
 						sign_L = 1.0
@@ -222,6 +222,8 @@ class DriveTrain():
 							#print "circles found " + str(len(circles)
 							# loop over the (x, y) coordinates and radius of the circles
 							for (x, y, r) in circles:
+								#print "x: "+ str(x) +  " y: "+ str(y)
+								if abs(self.circleChecker.mid_x - x) < self.circleChecker.hist and abs(self.circleChecker.mid_y - y) < self.circleChecker.hist:
 									circlefound =  True
 						else:
 							pass

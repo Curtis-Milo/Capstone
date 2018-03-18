@@ -10,22 +10,22 @@ class ImageRec():
 	
 	def __init__(self):
 		#CALS
-		self.mid_x = 1920.0/2.0
-		self.mid_y = 1080.0/2.0
-		self.end_x = 1920*(0.8)
-		self.end_y = 1080*(0.8)
-		self.before_x = 1920*(0.2)
-		self.before_y = 1080*(0.2)
-		self.hist = 100.0
+		self.mid_x = 640.0/2.0
+		self.mid_y = 480.0/2.0
+		self.end_x = 640*(0.8)
+		self.end_y = 480*(0.8)
+		self.before_x = 640*(0.2)
+		self.before_y = 480*(0.2)
+		self.hist = 200.0
 		self.imgCounter=0
 
 	def captureImage(self):
-		Global_Camera.capture('images/ceiling'+str(self.imgCounter)+'.jpg')
 		self.imgCounter +=1
+		Global_Camera.capture('images/ceiling'+str(self.imgCounter)+'.jpg')
 
 	def checkForCircle(self):
 
-		original = cv2.imread('images/ceiling'+str(self.imgCounter)+'.jpg', cv2.CV_LOAD_IMAGE_GRAYSCALE)
+		original = cv2.imread('images/ceiling'+str(self.imgCounter)+'.jpg', 0)
 		retval, image = cv2.threshold(original, 50, 255, cv2.cv.CV_THRESH_BINARY)
 
 		el = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (5, 5))
@@ -57,10 +57,9 @@ class ImageRec():
 
 		return circles
 
+
 	def test(self):
 		print "Capturing Image... "
-		#i = ImageRec()
-		#i.captureImage()
 		circles = self.checkForCircle()
 
 		if circles is not None:
