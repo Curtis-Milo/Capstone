@@ -24,5 +24,7 @@
 \contentsline {subsection}{\numberline {4.8}Alfred Pumping System}{7}{subsection.4.8}
 \contentsline {subsection}{\numberline {4.9}Image Processing Subsystem}{7}{subsection.4.9}
 \contentsline {section}{\numberline {5}Correlation Between Hazard Functions and Requirements}{8}{section.5}
-\contentsline {section}{\numberline {6}FMEA Worksheet}{11}{section.6}
+\contentsline {section}{\numberline {6}FMEA Worksheet}{12}{section.6}
+\contentsline {subsection}{\numberline {6.1}Hazards Considered Out of Scope}{12}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}Failure Modes and Effect Analysis Table}{12}{subsection.6.2}
 \contentsfinish 
