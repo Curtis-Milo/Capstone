@@ -15,8 +15,8 @@ class DriveTrain():
 		#encoder pins (TODO set pins)
 		GPIO.setmode(GPIO.BCM)
 		self.currNode ="Base"
-		self.EncoderL = Encoder(27,22,0)
-		self.EncoderR = Encoder(10,9,1)
+		self.EncoderL = Encoder(27,22,1)
+		self.EncoderR = Encoder(10,9,0)
 		self.circleChecker = ImageRec()
 		self.UltraSonic = UltraSonic()
 		#Motor H brige GPIO pins
@@ -31,31 +31,32 @@ class DriveTrain():
 		self.pwmRight=GPIO.PWM(self.PWM_L,100) # configuring Enable pin means GPIO-04 for PWM
 		self.pwmLeft =GPIO.PWM(self.PWM_R,100) # configuring Enable pin means GPIO-04 for PWM
 		#CALS
-		self.encoderCountsMin =20
+		self.encoderCountsMin =10
 		self.countPerRad = 2*(38.0/math.pi)
-		self.refSpeedFrwd = 20
+		self.refSpeedFrwdL = 17
+		self.refSpeedFrwdR = 15
 		self.refSpeedTurn = 100*(math.pi/30.0)
 		self.batteryMax = 18.0
 		self.hist =100
-		self.Pi_L = PI_Controller(0.4,0.01)
-		self.Pi_R = PI_Controller(0.5,0.01)
+		self.Pi_L = PI_Controller(0.5, 0.2)
+		self.Pi_R = PI_Controller(0.2,0.01)
 		self.Pi_Angle = PI_Controller(1,1)
 
 		self.MaxOutStrtL = 15
 		self.MinOutStrtL = 10
 		self.MaxOutStrtR = 15
-		self.MinOutStrtR = 10
+		self.MinOutStrtR = 7
 
-		self.MaxOutTrnL = 30
-		self.MinOutTrnL = 25
-		self.MaxOutTrnR = 30
-		self.MinOutTrnR = 25
+		self.MaxOutTrnL = 40
+		self.MinOutTrnL = 30
+		self.MaxOutTrnR = 40
+		self.MinOutTrnR = 30
 
-		self.WheelRad = 0.09
+		self.WheelRad = 0.2
 		self.RobotRad = 0.3
 
-		self.slewRateRight = Slew(1,self.MinOutStrtR)
-		self.slewRateLeft = Slew(1,self.MinOutStrtL)
+		self.slewRateRight = Slew(5,self.MinOutStrtR)
+		self.slewRateLeft = Slew(5,self.MinOutStrtL)
 
 	def driveToLocation(self,toNode):
 		visited, path = self.map.dijsktra(self.currNode)
@@ -78,7 +79,7 @@ class DriveTrain():
 			turnAngle = (NewAngle-self.currAngle)
 
 			if  turnAngle < 0:
-				turnAngle = turnAngle+360    
+				turnAngle = turnAngle+2*Math.pi    
 			self.drivetrain.turn()
 			self.currAngle  = NewAngle
 			self.drivetrain.drive(self.map.distances[(prev, nextNode)])
@@ -112,13 +113,13 @@ class DriveTrain():
 		self.pwmLeft.start(self.MinOutTrnL)
 		distances =0 
 		try:
-			while 1 < abs(currentAngle -TargetAngle):
+			while 0.1 < abs(currentAngle -TargetAngle):
 				self.checkEncoder()
 				while self.encoderCountsMin<   abs(self.EncoderR.getEncoderCount()):
 
 					distances += self.WheelRad*(self.EncoderR.getEncoderCount()/self.countPerRad)
-
-					currentAngle = math.atan2(distances,self.RobotRad)  
+					print "distance: "+ str(distances)
+					currentAngle = -1*math.atan2(distances,self.RobotRad)  
 					print "CurrAng: ", str(currentAngle),"TargetAng: ", str(TargetAngle)
 					if(currentAngle < TargetAngle):
 						sign_L = 1.0
@@ -157,8 +158,8 @@ class DriveTrain():
 	def drive(self):
 		time_prev= time.time()
 		circlefound = False
-		GPIO.output(self.MotorL,GPIO.HIGH)
-		GPIO.output(self.MotorR,GPIO.LOW)
+		GPIO.output(self.MotorL,GPIO.LOW)
+		GPIO.output(self.MotorR,GPIO.HIGH)
 		wasBlocked = False
 		self.slewRateRight.Reset(self.MinOutStrtR)
 		self.slewRateLeft.Reset(self.MinOutStrtL)
@@ -167,9 +168,16 @@ class DriveTrain():
 		self.pwmRight.start(self.MinOutStrtR)
 		self.pwmLeft.start(self.MinOutStrtL)
 		time_elapse  = 0 
+		
 		try:
 			while not circlefound:
 				self.checkEncoder()
+				notBlocked = True #self.UltraSonic.nothingBlocking()
+				if wasBlocked and notBlocked:
+					self.pwmRight.start(self.MinOutStrtR)
+					self.pwmLeft.start(self.MinOutStrtL)
+					wasBlocked = False
+
 				while self.encoderCountsMin<   abs(self.EncoderR.getEncoderCount()):
 
 					delta_t = time.time() - time_prev
@@ -177,16 +185,12 @@ class DriveTrain():
 					time_prev = time.time()
 					speedFdbk_L = self.EncoderL.getEncoderCount() /delta_t
 					speedFdbk_R = self.EncoderR.getEncoderCount() /delta_t
-					notBlocked = self.UltraSonic.nothingBlocking()
-					if wasBlocked and notBlocked:
-							self.pwmRight.start(self.MinOutStrtR)
-							self.pwmLeft.start(self.MinOutStrtL)
-							wasBlocked = False
-					elif notBlocked:
+					
+					if notBlocked:
 						#print "Right "
-						errRight = self.Pi_R.PI_Calc(self.refSpeedFrwd, speedFdbk_R)
+						errRight = self.Pi_R.PI_Calc(self.refSpeedFrwdR, speedFdbk_R)
 						#print "Left "
-						errLeft = self.Pi_L.PI_Calc(self.refSpeedFrwd, speedFdbk_L)
+						errLeft = self.Pi_L.PI_Calc(self.refSpeedFrwdL, speedFdbk_L)
 						#print "Error L: " + str(errLeft) + " Error R: " + str(errRight)
 						#Calculating Percentage
 						
@@ -202,8 +206,8 @@ class DriveTrain():
 						self.pwmRight.ChangeDutyCycle(duty_cycleR)
 						self.pwmLeft.ChangeDutyCycle(duty_cycleL)
 					else:
-						self.pwmRight.stop()
-						self.pwmLeft.stop()
+						self.pwmRight.ChangeDutyCycle(0)
+						self.pwmLeft.ChangeDutyCycle(0)
 						wasBlocked = True
 						print "blocked"
 

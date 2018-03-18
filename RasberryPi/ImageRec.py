@@ -2,10 +2,10 @@ import numpy as np
 import argparse
 import cv2
 import math
-#import picamera
+import picamera
 #https://www.raspberrypi.org/documentation/usage/camera/python/README.md
 #https://www.pyimagesearch.com/2014/07/21/detecting-circles-images-using-opencv-hough-circles/
-#Global_Camera = picamera.PiCamera()
+Global_Camera = picamera.PiCamera()
 class ImageRec():
 	
 	def __init__(self):
@@ -17,13 +17,15 @@ class ImageRec():
 		self.before_x = 1920*(0.2)
 		self.before_y = 1080*(0.2)
 		self.hist = 100.0
+		self.imgCounter=0
 
 	def captureImage(self):
-		Global_Camera.capture('ceiling10.jpg')
+		Global_Camera.capture('images/ceiling'+str(self.imgCounter)+'.jpg')
+		self.imgCounter +=1
 
 	def checkForCircle(self):
 
-		original = cv2.imread('ceiling10.jpg', cv2.CV_LOAD_IMAGE_GRAYSCALE)
+		original = cv2.imread('images/ceiling'+str(self.imgCounter)+'.jpg', cv2.CV_LOAD_IMAGE_GRAYSCALE)
 		retval, image = cv2.threshold(original, 50, 255, cv2.cv.CV_THRESH_BINARY)
 
 		el = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (5, 5))
@@ -37,7 +39,7 @@ class ImageRec():
 			cv2.cv.CV_CHAIN_APPROX_SIMPLE
 		)
 
-		drawing = cv2.imread('ceiling10.jpg')
+		drawing = cv2.imread('images/ceiling'+str(self.imgCounter)+'.jpg')
 
 		circles = []
 		for contour in contours:
