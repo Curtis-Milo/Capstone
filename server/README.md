@@ -2,7 +2,7 @@
 - Run 'ps -ef | grep server'
 
 # Running server
-- Set environment variable "BOT_HOST" with IP address of robot.
+- Run 'source envrc.test' for testing, or 'source envrc.prod' for connecting to robot.
 - Run 'npm install'.
 - Run 'node server.js'
 
