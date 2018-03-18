@@ -495,7 +495,7 @@ function NetworkCall(api_key, objects) {
         xhttp.send(JSON.stringify(objects));
 
     } else if (api_key=='remove_drink') {
-        var xhttp = createCORSRequest('DELETE','proxy/drinks?name='+String(object));
+        var xhttp = createCORSRequest('DELETE','proxy/drinks?name='+String(objects));
         if (!xhttp) {
             throw new Error('CORS not supported');
         }
