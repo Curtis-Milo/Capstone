@@ -328,7 +328,7 @@ The scope of this section is associated with any front end user interfaces that 
 
 \textbf{Activity\_DrinksList [Requirement T01]}: GUI class for users to go through available drinks and choose their order. Secrets include parsing drink info coming from the server.
 
-\textbf{Activity\_OrderCart [Requirement T01]}: GUI class for users to view their current cart, as well as their previous orders. Secrets include parsing and dealing with server’s response when order is sent to the server.
+\textbf{Activity\_OrderCart [Requirement T01]}: GUI class for users to view their current cart, as well as their previous orders. Secrets include parsing and dealing with server's response when order is sent to the server.
 
 \textbf{DrinksViewAdapter}: Adapter class for each visible drink in Activity\_DrinksList
 
@@ -336,7 +336,7 @@ The scope of this section is associated with any front end user interfaces that 
 
 \textbf{Drink}: Object class representing a drink item.
 
-\textbf{DrinkOrder}: Object class representing a table’s order to be sent to the server. 
+\textbf{DrinkOrder}: Object class representing a table's order to be sent to the server. 
 
 \textbf{NetworkCalls [Requirement T02]}: Asynchronous class to perform network calls for the client app. Secrets include how network requests/responses are handled.
 
@@ -372,7 +372,7 @@ Sets the number of drinks of this type in the cart.
 Returns the name of the drink.
 
 \textbf{getCalories():int}
-Returns the amount of calories for the restaurant’s serving size.
+Returns the amount of calories for the restaurant's serving size.
 
 \textbf{getImage():int}
 Returns the id number for the image of this drink type.
@@ -564,7 +564,7 @@ Sets the number of drinks of this type in the cart.
 Sets the name of the drink. Takes in the name of the drink.
 
 \textbf{private setCalories(int cals):void}
-Sets the amount of calories for the restaurant’s serving size. Takes in amount of calories.
+Sets the amount of calories for the restaurant's serving size. Takes in amount of calories.
 
 \textbf{private setImage(int imgID):void}
 Sets the id number for the image of this drink type. Takes in an integer image id.
@@ -576,7 +576,7 @@ Sets the price of this drink. Takes in the price of the drink.
 Returns the name of the drink.
 
 \textbf{public getCalories():int}
-Returns the amount of calories for the restaurant’s serving size.
+Returns the amount of calories for the restaurant's serving size.
 
 \textbf{public getImage():int}
 Returns the id number for the image of this drink type.
@@ -1456,8 +1456,8 @@ Sets the radius of the circle.
 		Raspberry Pi GPIO         & 5                 & 3             & Ultra sonic sensor \#2 ECHO            &                                                                                                                                                                                  \\ \hline
 		Raspberry Pi GPIO         & 7                 & 4             & Ultra sonic sensor \#3 TRIG            & Send trigger signal                                                                                                                                                              \\ \hline
 		Raspberry Pi GPIO         & 11                & 17            & Ultra sonic sensor \#3 ECHO            &                                                                                                                                                                                  \\ \hline
-		Raspberry Pi GND GPIO     & 20                & -             & Encoders GND                           & \begin{tabular}[c]{@{}l@{}}Shared between encoders \\   ***can utilize ultra sonic sensors’ GND or H-Bridge GND instead of taking new\\   pin\end{tabular}                       \\ \hline
-		Raspberry Pi 3.3V GPIO    & 1                 & -             & Encoders VCC                           & \begin{tabular}[c]{@{}l@{}}Shared between encoders in parallel\\   ***can utilize 5V from either H-Bridge pin or ultra sonic sensors’ pin\\   instead of 3.3v\end{tabular}       \\ \hline
+		Raspberry Pi GND GPIO     & 20                & -             & Encoders GND                           & \begin{tabular}[c]{@{}l@{}}Shared between encoders \\   ***can utilize ultra sonic sensors' GND or H-Bridge GND instead of taking new\\   pin\end{tabular}                       \\ \hline
+		Raspberry Pi 3.3V GPIO    & 1                 & -             & Encoders VCC                           & \begin{tabular}[c]{@{}l@{}}Shared between encoders in parallel\\   ***can utilize 5V from either H-Bridge pin or ultra sonic sensors' pin\\   instead of 3.3v\end{tabular}       \\ \hline
 		Raspberry Pi GPIO         & 13                & 27            & Encoder \#1 DT                         &                                                                                                                                                                                  \\ \hline
 		Raspberry Pi GPIO         & 15                & 22            & Encoder \#1 CLK                        &                                                                                                                                                                                  \\ \hline
 		Raspberry Pi GPIO         & 19                & 10            & Encoder \#2 DT                         &                                                                                                                                                                                  \\ \hline
@@ -1916,60 +1916,60 @@ Call the callback function with the next order\_id and increment the counter.
 Call checkToken for table authentication
 If passed, search queue for order\_id
 res.write(placeInLine.toString());
-\textbf{Placeorder}
+\newline\textbf{Placeorder}
 Call checkToken for table authentication
 If passed, parse the body of the request
 Verify that all data is correct
 If correct, push order to queue
-\textbf{cancelOrder}
+\newline\textbf{cancelOrder}
 Call checkToken for robot authentication
 If passed, delete order from queue for specific order\_id
-\textbf{Nextorder}
+\newline\textbf{Nextorder}
 Call checkToken for robot authentication
-If passed, call queue’s pop function
+If passed, call queue's pop function
 res.write(placeInLine.toString());
-\textbf{Gentoken}
+\newline\textbf{Gentoken}
 Call token refresh function
 Send token to robot host
-\textbf{Checktoken}
+\newline\textbf{Checktoken}
 Call checkToken for robot authentication
 res.write(JSON.stringify(resp\_auth));
-\textbf{Updatecreds}
+\newline\textbf{Updatecreds}
 Call checkAuth for admin authentication
 If passed, parse body of request
 Call authManager update function to update new user/password combination
-\textbf{Login}
+\newline\textbf{Login}
 Call checkAuth for admin authentication
 res.writeHead(200, 'Logged in', {'Content-Type': 'text/html'}); if credentials were authenticated
-\textbf{Returntobase}
+\newline\textbf{Returntobase}
 Call checkAuth for admin authentication
 Call returnToBase function to have robot return to the kitchen
-\textbf{Sizes}
+\newline\textbf{Sizes}
 Print out list of drinks that are available
-\textbf{Numoftanks}
+\newline\textbf{Numoftanks}
 Print out maximum number of tanks that the robot can hold
-\textbf{Errors}
+\newline\textbf{Errors}
 Call checkToken for robot authentication
 If passed, list all error messages thrown by the robot
-\textbf{Drinks (GET)}
+\newline\textbf{Drinks (GET)}
 Print out list of drinks that are available
-\textbf{Drinks (POST)}
+\newline\textbf{Drinks (POST)}
 Call checkAuth for admin authentication
 Check that the total number of drink types is not already at the maximum
 Parse the body of the request
 Lock mutex
 Store new drink type and tank number into drinks object and write them to file
 Unlock mutex
-\textbf{Drinks (DELETE)}
+\newline\textbf{Drinks (DELETE)}
 Call checkAuth for admin authentication
 If passed, parse body of the request. Lock the mutex
 Delete specified drink type from DRINKS object. Write drink type list to file
 Unlock the mutex
-\textbf{Tables (POST)}
+\newline\textbf{Tables (POST)}
 Call checkAuth for admin authentication
 If passed, call addTable function
 res.write(JSON.stringify({token: token, token\_type: 'bearer'}));
-\textbf{Tables (DELETE)}
+\newline\textbf{Tables (DELETE)}
 Call checkAuth for admin authentication
 If passed, call deleteTable function
 
@@ -2059,18 +2059,18 @@ Return null
 If CREDS\_PATH exists
 	\_hashCreds = readFile(CREDS\_PATH)
 Else
-	\_hashCreds = hash(‘admin:admin’)
+	\_hashCreds = hash('admin:admin')
 	writeToFile(CREDS\_PATH, \_hashCreds)
 
 \textbf{checkAuth(uName, pw, cb): void}
 mutex\_auth.lock()
-passed = \_hashCreds == hash(uName + ‘:’ + pw)
+passed = \_hashCreds == hash(uName + ':' + pw)
 mutex\_auth.unlock()
 cb(null, passed)
 
 \textbf{update(uName, pw, cb): void}
 mutex\_auth.lock()
-\_hashedCreds =  hash(uName + ‘:’ + pw)
+\_hashedCreds =  hash(uName + ':' + pw)
 writeToFile(CREDS\_PATH, \_hashedCreds)
 mutex\_auth.unlock()
 cb()
@@ -2107,7 +2107,7 @@ cb(null, passed)
 
 \textbf{sendToken(host): void}
 data = {
-	token\_type: ‘bearer’,
+	token\_type: 'bearer',
 	access\_token : \_token
 }
 unirest.post(host, data)
@@ -2123,58 +2123,58 @@ unirest.post(host, data)
 None
 
 \textbf{Functions}
-\textbf{checkData(data, orderObj, table\_id, cb): void}
-order = helper.caseInsensitiveKey(data, ‘order’)
-If order missing values or in wrong format
-	cb(error)
-
-orders = []
-
-For i of order
-	temp = {}
-	type = helper.caseInsensitiveKey(i, ‘type’)
-	size = helper.caseInsensitiveKey(i, ‘size’)
-	quantity =  helper.caseInsensitiveKey(i, ‘quantity’)
-	If type is valid
-		temp.type = type
-	Else
-		Continue
-	
-	If size valid
-		temp.size = size
-	Else 
-		Temp.size = M
-	If quantity valid
-		temp.quantity  = quantity 
-	Else 
-		temp.quantity  = 1
-	
-	orders.push(temp)
-
-If no orders
-	Return cb(‘no valid orders’)
-
-orderObj.getOrderNum(function(err, order\_id) {
-	if (err) {
-		return cb(err);
-	}
-	//return order information
-	cb(null, {
-		table\_id: table\_id,
-		order\_id: order\_id,
-		orders: orders
-	});
-});
-
-\textbf{\_cleanRequire(module): Module}
-Delete cached data for module
-Return require(module)
-
-\textbf{\_jsonVals(obj): Array}
-ret = []
-For i of Object.keys(obj)
-	ret.push(obj[i])
-Return ret
+\textbf{checkData(data, orderObj, table\_id, cb): void} \newline
+order = helper.caseInsensitiveKey(data, 'order') \newline
+If order missing values or in wrong format  \newline
+	cb(error) \newline
+\newline
+orders = [] \newline
+\newline
+For i of order \newline
+	temp = {} \newline
+	type = helper.caseInsensitiveKey(i, 'type') \newline
+	size = helper.caseInsensitiveKey(i, 'size') \newline
+	quantity =  helper.caseInsensitiveKey(i, 'quantity') \newline
+	If type is valid \newline
+		temp.type = type \newline
+	Else \newline
+		Continue \newline
+	 \newline
+	If size valid \newline
+		temp.size = size \newline
+	Else \newline
+		Temp.size = M \newline
+	If quantity valid \newline
+		temp.quantity  = quantity \newline
+	Else \newline
+		temp.quantity  = 1 \newline
+	\newline
+	orders.push(temp) \newline
+\newline
+If no orders \newline
+	Return cb(no valid 'orders') \newline
+\newline
+orderObj.getOrderNum(function(err, order\_id) { \newline
+	if (err) { \newline
+		return cb(err); \newline
+	} \newline
+	//return order information \newline
+	cb(null, { \newline
+		table\_id: table\_id, \newline
+		order\_id: order\_id, \newline
+		orders: orders \newline
+	}); \newline
+}); \newline
+ \newline
+\textbf{\_cleanRequire(module): Module} \newline
+Delete cached data for module \newline
+Return require(module) \newline
+ \newline
+\textbf{\_jsonVals(obj): Array} \newline
+ret = [] \newline
+For i of Object.keys(obj) \newline
+	ret.push(obj[i]) \newline
+Return ret \newline
 
 \subsubsection{table\_mgmt}
 \textbf{Uses}
@@ -2214,7 +2214,7 @@ cb(null, files)
 
 \textbf{deleteTable(tableId, cb): void}
 Lock mutexes JSON object
-Unlink table’s path from filesystem
+Unlink table's path from filesystem
 Delete mutexes[tableId]
 Unlock JSON object
 cb()

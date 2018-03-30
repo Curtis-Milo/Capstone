@@ -713,6 +713,7 @@ This module will be used for user input by taking the orders of the client. This
 
 
 \textbf{Outputs:} Packaged Information within HTTP Request for: \\
+
 \begin{longtable}{|l|l|l|l|l|}\hline 
 	\rowcolor{tableCell}\textbf{Output Name} & \textbf{Output Type} & \textbf{Range} & \textbf{Units} & \textbf{Comment(s)} \\ \hline
 	$Order_{Num} $ & Unsigned Integer User Input & [0,5] & count &  Number of Orders \\ \hline
@@ -720,6 +721,16 @@ This module will be used for user input by taking the orders of the client. This
 	$Order_{TableNum} $ & Unsigned Integer User Input & [0,$2^{16}$] & N/A &  Table Number \\ \hline
 	\rowcolor{tableCell}$Order_{Rid} $ & Unsigned Integer User Input & [0,$2^{16}$] & N/A & Identification of the restaurant \\ \hline
 \end{longtable}
+
+% ----------------------------------------------------- Exception Handling ---------------------------------------------------- %
+\subsubsection{Exception Handling}
+
+\begin{longtable}{|l|l|l|l|}\hline 
+	\rowcolor{tableCell}\textbf{Input Name} & \textbf{Input Type} & \textbf{Exception} & \textbf{Exception Handling} \\ \hline
+	$Order_{Num} $ & Unsigned Integer User Input & $Order_{Num} $ of type string & Input Regulation  \\ \hline
+	\rowcolor{tableCell}$Order_{Drinks} $ &  User Input & $Order_{Drinks} $ not of type string & Input Regulation \\ \hline
+\end{longtable}
+
 
 
 % ----------------------------------------------------- Timing Constriants ---------------------------------------------------- %
@@ -763,6 +774,17 @@ This module is a web based application for the managers to be able to log into t
 	\rowcolor{tableCell}$  GotoPage $ & Action & N/A  & N/A & navigating to the correct page if it was a success. \\ \hline
 \end{longtable}
 
+
+% ----------------------------------------------------- Exception Handling ---------------------------------------------------- %
+\subsubsection{Exception Handling}
+
+\begin{longtable}{|l|l|l|l|}\hline 
+	\rowcolor{tableCell}\textbf{Input Name} & \textbf{Input Type} & \textbf{Exception} & \textbf{Exception Handling} \\ \hline
+	$  UserName $ & String User Input & N/A & N/A  \\ \hline
+	\rowcolor{tableCell}$  Password $ & String User Input & N/A & N/A\\ \hline
+	$  GotoMapPage $ & Button User Input & N/A & N/A\\ \hline
+	\rowcolor{tableCell}$  GotoAlfredInfo $ & Button User Input & N/A & N/A\\ \hline
+\end{longtable}
 
 % ----------------------------------------------------- Timing Constraints ---------------------------------------------------- %
 
@@ -809,6 +831,19 @@ This module will be used for the user input to create a map where the manager of
 	$ Resturant_Data $& Char  &  [H,X,0,T] & N/A & Table Information \\ \hline
 \end{longtable}
 
+% ----------------------------------------------------- Exception Handling ---------------------------------------------------- %
+\subsubsection{Exception Handling}
+
+\begin{longtable}{|l|l|l|l|}\hline 
+	\rowcolor{tableCell}\textbf{Input Name} & \textbf{Input Type} & \textbf{Exception} & \textbf{Exception Handling} \\ \hline
+	$ Resturant_{Width} $ & Integer User input & $ Resturant_{Width} $ of type string &  Input Regulation \\ \hline
+	\rowcolor{tableCell}$ Resturant_{Length} $ & Integer User input & $ Resturant_{Length} $ of type string &  Input Regulation \\ \hline
+	$ Resturant_{CanTravel[][]} $ & Button[][] User input &  N/A & N/A  \\ \hline
+	\rowcolor{tableCell}$ Resturant_{Tables[][]} $ & Button[][] User input &  N/A & N/A \\ \hline
+	$ Resturant_{CannotTravel[][]} $ & Button[][] User input &  N/A & N/A  \\ \hline
+	\rowcolor{tableCell}$ Resturant_{Home} $ & Button User input &  N/A & N/A  \\ \hline
+\end{longtable}
+
 
 % ----------------------------------------------------- Timing Constraints ---------------------------------------------------- %
 
@@ -852,6 +887,15 @@ This module is used for the manager to determine Alfred's state from an office a
 	$  error_{LowBatt} $ & Boolean & [0, 1]& N/A & Low battery Error \\ \hline
 \end{longtable}
 
+
+% ----------------------------------------------------- Exception Handling ---------------------------------------------------- %
+\subsubsection{Exception Handling}
+
+\begin{longtable}{|l|l|l|l|}\hline 
+	\rowcolor{tableCell}\textbf{Input Name} & \textbf{Input Type} & \textbf{Exception} & \textbf{Exception Handling} \\ \hline
+	$ req_{Home} $ & Boolean User input & N/A & N/A \\ \hline
+	\rowcolor{tableCell}$  errors_{Alfred} $ & Unsigned Byte & N/A & N/A \\ \hline
+\end{longtable}
 
 % ----------------------------------------------------- Timing Constraints ---------------------------------------------------- %
 
@@ -897,6 +941,19 @@ This module is a server component that will hold order information for different
 	$  errors_{Alfred} $ & Unsigned Byte & [0, $2^{8}$]& N/A & Errors from Alfred \\ \hline
 	\rowcolor{tableCell}$  Login_{Status} $ & String & 10 chars & N/A & Login Success or Fail \\ \hline
 	$  Http_{Result} $ & String & 10 chars & N/A & N/A\\ \hline
+\end{longtable}
+
+
+% ----------------------------------------------------- Exception Handling ---------------------------------------------------- %
+\subsubsection{Exception Handling}
+
+\begin{longtable}{| l | l | l | l |}\hline 
+	\rowcolor{tableCell}\textbf{Input Name} & \textbf{Input Type} & \textbf{Exception} & \textbf{Exception Handling} \\ \hline
+	$ HttpReq_{Orders} $ & HTTP Request & $ HttpReq_{Orders} $ formatting error & Server Validation \\ \hline
+	\rowcolor{tableCell}$ Map_{textfile} $ & Text File & N/A & N/A \\ \hline
+	$  errors_{Alfred} $ & Unsigned Byte & N/A & N/A \\ \hline
+	\rowcolor{tableCell}$  UserName $ & String & N/A & N/A\\ \hline
+	$  Password $ & HashCode & N/A & N/A \\ \hline
 \end{longtable}
 
 
@@ -946,6 +1003,18 @@ This module acts as a manager to the different components of Alfred. It will run
 \end{longtable}
 
 
+% ----------------------------------------------------- Exception Handling ---------------------------------------------------- %
+\subsubsection{Exception Handling}
+
+\begin{longtable}{|l|l|l|l|}\hline 
+	\rowcolor{tableCell}\textbf{Input Name} & \textbf{Input Type} & \textbf{Exception} & \textbf{Exception Handling} \\ \hline
+	$ Map $ & Graph & N/A & N/A  \\ \hline
+	\rowcolor{tableCell}$ Orders_{drinks} $ & Order[] & N/A & N/A \\ \hline
+	$ b_{requestHome} $ & Boolean & N/A &  N/A \\ \hline
+	\rowcolor{tableCell}$ errors_{drivetrain} $ & Unsigned Byte & N/A & N/A \\ \hline
+	$  errors_{pump} $ & Unsigned Byte & N/A & N/A \\ \hline
+\end{longtable}
+
 % ----------------------------------------------------- TIming Constraints ---------------------------------------------------- %
 
 \subsubsection{Timing Constraints}
@@ -992,7 +1061,7 @@ This module will provide power to Alfred's drive-train. It will use the feedback
 	$  d_{objects} $ & Float[] & [0, 10.0]& m &  N/A\\ \hline
 	\rowcolor{tableCell}$ Marker_{PosX} $ & Unsigned Integer & [0,$2^{16}$] & Pixels &  N/A\\ \hline
 	$ Marker_{PosY} $ & Unsigned Integer & [0,$2^{16}$] & Pixels & N/A\\ \hline
-	\rowcolor{tableCell}$ b_{NextMarkerFound} $ & Boolean & [0,1] & N/A & \\ \hline
+	\rowcolor{tableCell}$ b_{NextMarkerFound} $ & Boolean & [0,1] & N/A & N/A \\ \hline
 	$  V_{batt} $ & Float & [0, 20.0]& m &  N/A\\ \hline
 \end{longtable}
 
@@ -1005,6 +1074,22 @@ This module will provide power to Alfred's drive-train. It will use the feedback
 	$ errors_{drivetrain} $ & Unsigned Byte & [0, $2^{8}$]& N/A & N/A\\ \hline
 \end{longtable}
 
+
+% ----------------------------------------------------- Exception Handling ---------------------------------------------------- %
+\subsubsection{Exception Handling}
+
+\begin{longtable}{| p{.15\textwidth} | p{.15\textwidth} | p{.15\textwidth} | p{.45\textwidth} |}\hline 
+	\rowcolor{tableCell}\textbf{Input Name} & \textbf{Input Type} & \textbf{Exception} & \textbf{Exception Handling} \\ \hline
+	$ Map $ & Graph & $ Map $ formatting error & Map set from User Interface which constricts format of file. \\ \hline
+	\rowcolor{tableCell}$ NextNode $ & Node & N/A & N/A \\ \hline
+	$ w_{wheel_{left}} $ & Float & N/A & N/A \\ \hline
+	\rowcolor{tableCell}$ w_{wheel_{right}} $ & Float & N/A & N/A \\ \hline
+	$  d_{objects} $ & Float[] & N/A & N/A \\ \hline
+	\rowcolor{tableCell}$ Marker_{PosX} $ & Unsigned Integer & N/A & N/A\\ \hline
+	$ Marker_{PosY} $ & Unsigned Integer & N/A & N/A \\ \hline
+	\rowcolor{tableCell}$ b_{NextMarkerFound} $ & Boolean & N/A & N/A \\ \hline
+	$  V_{batt} $ & Float & N/A &  N/A\\ \hline
+\end{longtable}
 
 % --------------------------------------------- Timing Constraints -------------------------------------------- %
 
@@ -1073,7 +1158,7 @@ This module consists of an Arduino Mega which will receive information from the 
 
 \begin{longtable}{|l|l|l|l|l|}\hline 
 		\rowcolor{tableCell}\textbf{Input Name} & \textbf{Input Type} & \textbf{Range} & \textbf{Units} & \textbf{Comment(s)} \\ \hline
-		$ b_{cuptaken } $ & Boolean & [0,1] & N/A &  N/A\\ \hline
+		$ b_{cuptaken} $ & Boolean & [0,1] & N/A &  N/A\\ \hline
 		\rowcolor{tableCell}$ m_{container} $ & float & [0, 1.0]& Kg & N/A\\ \hline
 		$ m_{drink} $    & float & [0, 1.0] & Kg &  N/A\\ \hline
 		\rowcolor{tableCell}$ Order_{drinks} $ & Order[] & N/A  & N/A & List of Drinks  \\ \hline
@@ -1088,6 +1173,17 @@ This module consists of an Arduino Mega which will receive information from the 
 	$  errors_{pump} $ & Unsigned Byte & [0, $2^{8}$]& N/A & N/A\\ \hline
 \end{longtable}
 
+
+% ----------------------------------------------------- Exception Handling ---------------------------------------------------- %
+\subsubsection{Exception Handling}
+
+\begin{longtable}{|l|l|l|l|}\hline 
+		\rowcolor{tableCell}\textbf{Input Name} & \textbf{Input Type} & \textbf{Exception} & \textbf{Exception Handling} \\ \hline
+		$ b_{cuptaken} $ & Boolean & N/A &  N/A\\ \hline
+		\rowcolor{tableCell}$ m_{container} $ & float & N/A & N/A \\ \hline
+		$ m_{drink} $  & float & N/A & N/A \\ \hline
+		\rowcolor{tableCell}$ Order_{drinks} $ & Order[] & $ Order_{drinks} $ formatting error & Server Validation \\ \hline
+\end{longtable}
 
 % --------------------------------------------- TIming Constraints -------------------------------------------- %
 
@@ -1199,7 +1295,7 @@ This module will receive information from a camera while the drive-train is in m
 
 \begin{longtable}{|l|l|l|l|l|}\hline 
 	\rowcolor{tableCell}\textbf{Input Name} & \textbf{Input Type} & \textbf{Range} & \textbf{Units} & \textbf{Comment(s)} \\ \hline
-	 & Bitmap &  N/A & N/A & Image of the ceiling  \\ \hline
+	 $ Image_{input} $ & Bitmap &  N/A & N/A & Image of the ceiling  \\ \hline
 \end{longtable}
 
 \textbf{Outputs: } \\
@@ -1209,6 +1305,14 @@ This module will receive information from a camera while the drive-train is in m
 	$ Marker_{PosX} $ & Unsigned Integer & [0,$2^{16}$] & Pixels &  N/A\\ \hline
 	\rowcolor{tableCell}$ Marker_{PosY} $ & Unsigned Integer & [0,$2^{16}$] & Pixels & N/A\\ \hline
 	$ b_{NextMarkerFound} $ & Boolean & [0,1] & N/A & N/A\\ \hline
+\end{longtable}
+
+% ----------------------------------------------------- Exception Handling ---------------------------------------------------- %
+\subsubsection{Exception Handling}
+
+\begin{longtable}{|l|l|l|l|l|}\hline 
+	\rowcolor{tableCell}\textbf{Input Name} & \textbf{Input Type} & \textbf{Exception} & \textbf{Exception Handling} \\ \hline
+	 $ Image_{input} $ & Bitmap &  N/A & N/A \\ \hline
 \end{longtable}
 
 % --------------------------------------------- Timing Constraints -------------------------------------------- %

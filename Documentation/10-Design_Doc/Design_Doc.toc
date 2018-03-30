@@ -1,0 +1,87 @@
+\contentsline {section}{\numberline {1}Revisions}{4}{section.1}
+\contentsline {section}{\numberline {2}Purpose}{5}{section.2}
+\contentsline {subsection}{\numberline {2.1}Scope}{5}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Context Diagram}{5}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Diagram of Components}{6}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.4}Assumptions}{6}{subsection.2.4}
+\contentsline {subsection}{\numberline {2.5}Components to Requirements}{7}{subsection.2.5}
+\contentsline {section}{\numberline {3}System Variables}{7}{section.3}
+\contentsline {subsection}{\numberline {3.1}Monitored and Controlled Variables}{7}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Constants}{8}{subsection.3.2}
+\contentsline {section}{\numberline {4}Behaviour Overview}{8}{section.4}
+\contentsline {section}{\numberline {5}Component Traceability}{9}{section.5}
+\contentsline {section}{\numberline {6}Component Overview}{12}{section.6}
+\contentsline {subsection}{\numberline {6.1}Ordering System Module}{12}{subsection.6.1}
+\contentsline {subsubsection}{\numberline {6.1.1}Description}{12}{subsubsection.6.1.1}
+\contentsline {subsubsection}{\numberline {6.1.2}Inputs and Outputs}{13}{subsubsection.6.1.2}
+\contentsline {subsubsection}{\numberline {6.1.3}Exception Handling}{13}{subsubsection.6.1.3}
+\contentsline {subsubsection}{\numberline {6.1.4}Timing Constraints}{13}{subsubsection.6.1.4}
+\contentsline {subsubsection}{\numberline {6.1.5}Initialization}{13}{subsubsection.6.1.5}
+\contentsline {subsection}{\numberline {6.2}Manager Login Page Module}{13}{subsection.6.2}
+\contentsline {subsubsection}{\numberline {6.2.1}Description}{13}{subsubsection.6.2.1}
+\contentsline {subsubsection}{\numberline {6.2.2}Inputs and Outputs}{13}{subsubsection.6.2.2}
+\contentsline {subsubsection}{\numberline {6.2.3}Exception Handling}{14}{subsubsection.6.2.3}
+\contentsline {subsubsection}{\numberline {6.2.4}Timing Constraints}{14}{subsubsection.6.2.4}
+\contentsline {subsubsection}{\numberline {6.2.5}Initialization}{14}{subsubsection.6.2.5}
+\contentsline {subsection}{\numberline {6.3}Manager Station Map Software Module}{14}{subsection.6.3}
+\contentsline {subsubsection}{\numberline {6.3.1}Description}{14}{subsubsection.6.3.1}
+\contentsline {subsubsection}{\numberline {6.3.2}Inputs and Outputs}{14}{subsubsection.6.3.2}
+\contentsline {subsubsection}{\numberline {6.3.3}Exception Handling}{15}{subsubsection.6.3.3}
+\contentsline {subsubsection}{\numberline {6.3.4}Timing Constraints}{15}{subsubsection.6.3.4}
+\contentsline {subsubsection}{\numberline {6.3.5}Initialization}{15}{subsubsection.6.3.5}
+\contentsline {subsection}{\numberline {6.4}Manager Station Request Software Module}{15}{subsection.6.4}
+\contentsline {subsubsection}{\numberline {6.4.1}Description}{15}{subsubsection.6.4.1}
+\contentsline {subsubsection}{\numberline {6.4.2}Inputs and Outputs}{15}{subsubsection.6.4.2}
+\contentsline {subsubsection}{\numberline {6.4.3}Exception Handling}{16}{subsubsection.6.4.3}
+\contentsline {subsubsection}{\numberline {6.4.4}Timing Constraints}{16}{subsubsection.6.4.4}
+\contentsline {subsubsection}{\numberline {6.4.5}Initialization}{16}{subsubsection.6.4.5}
+\contentsline {subsection}{\numberline {6.5}Back End Web Service Module}{16}{subsection.6.5}
+\contentsline {subsubsection}{\numberline {6.5.1}Description}{16}{subsubsection.6.5.1}
+\contentsline {subsubsection}{\numberline {6.5.2}Inputs and Outputs}{16}{subsubsection.6.5.2}
+\contentsline {subsubsection}{\numberline {6.5.3}Exception Handling}{16}{subsubsection.6.5.3}
+\contentsline {subsubsection}{\numberline {6.5.4}Timing Constraints}{17}{subsubsection.6.5.4}
+\contentsline {subsubsection}{\numberline {6.5.5}Initialization}{17}{subsubsection.6.5.5}
+\contentsline {subsection}{\numberline {6.6}Alfred Manager Module}{17}{subsection.6.6}
+\contentsline {subsubsection}{\numberline {6.6.1}Description}{17}{subsubsection.6.6.1}
+\contentsline {subsubsection}{\numberline {6.6.2}Inputs and Outputs}{17}{subsubsection.6.6.2}
+\contentsline {subsubsection}{\numberline {6.6.3}Exception Handling}{17}{subsubsection.6.6.3}
+\contentsline {subsubsection}{\numberline {6.6.4}Timing Constraints}{18}{subsubsection.6.6.4}
+\contentsline {subsubsection}{\numberline {6.6.5}Initialization}{18}{subsubsection.6.6.5}
+\contentsline {subsubsection}{\numberline {6.6.6}Raspberry PI Specifications}{18}{subsubsection.6.6.6}
+\contentsline {subsection}{\numberline {6.7}Alfred Drive-Train Module}{18}{subsection.6.7}
+\contentsline {subsubsection}{\numberline {6.7.1}Description}{18}{subsubsection.6.7.1}
+\contentsline {subsubsection}{\numberline {6.7.2}Inputs and Outputs}{18}{subsubsection.6.7.2}
+\contentsline {subsubsection}{\numberline {6.7.3}Exception Handling}{19}{subsubsection.6.7.3}
+\contentsline {subsubsection}{\numberline {6.7.4}Timing Constraints}{19}{subsubsection.6.7.4}
+\contentsline {subsubsection}{\numberline {6.7.5}Initialization}{19}{subsubsection.6.7.5}
+\contentsline {subsubsection}{\numberline {6.7.6}Diagram of Simulink Control System}{19}{subsubsection.6.7.6}
+\contentsline {subsubsection}{\numberline {6.7.7}DC Motors Circuit Diagram}{19}{subsubsection.6.7.7}
+\contentsline {subsubsection}{\numberline {6.7.8}DC Motor Specifications}{19}{subsubsection.6.7.8}
+\contentsline {subsubsection}{\numberline {6.7.9}H-bridge Specifications}{19}{subsubsection.6.7.9}
+\contentsline {subsubsection}{\numberline {6.7.10}Encoder Specifications}{20}{subsubsection.6.7.10}
+\contentsline {subsection}{\numberline {6.8}Alfred Pumping System Module}{20}{subsection.6.8}
+\contentsline {subsubsection}{\numberline {6.8.1}Description}{20}{subsubsection.6.8.1}
+\contentsline {subsubsection}{\numberline {6.8.2}Inputs and Outputs}{21}{subsubsection.6.8.2}
+\contentsline {subsubsection}{\numberline {6.8.3}Exception Handling}{21}{subsubsection.6.8.3}
+\contentsline {subsubsection}{\numberline {6.8.4}Timing Constraints}{21}{subsubsection.6.8.4}
+\contentsline {subsubsection}{\numberline {6.8.5}Initialization}{21}{subsubsection.6.8.5}
+\contentsline {subsubsection}{\numberline {6.8.6}Diagram of DC Pump Control System}{21}{subsubsection.6.8.6}
+\contentsline {subsubsection}{\numberline {6.8.7}DC Pump Circuit Diagram}{21}{subsubsection.6.8.7}
+\contentsline {subsubsection}{\numberline {6.8.8}Liquid Temperature Circuit Diagram}{22}{subsubsection.6.8.8}
+\contentsline {subsubsection}{\numberline {6.8.9}Weight Detection Circuit Diagram}{22}{subsubsection.6.8.9}
+\contentsline {subsubsection}{\numberline {6.8.10}DC Pump Specifications}{22}{subsubsection.6.8.10}
+\contentsline {subsubsection}{\numberline {6.8.11}Arduino Mega Specifications}{23}{subsubsection.6.8.11}
+\contentsline {subsubsection}{\numberline {6.8.12}Container Specifications}{24}{subsubsection.6.8.12}
+\contentsline {subsubsection}{\numberline {6.8.13}Tubing Specifications}{24}{subsubsection.6.8.13}
+\contentsline {subsection}{\numberline {6.9}Alfred Image Processing Module }{24}{subsection.6.9}
+\contentsline {subsubsection}{\numberline {6.9.1}Description}{24}{subsubsection.6.9.1}
+\contentsline {subsubsection}{\numberline {6.9.2}Inputs and Outputs}{24}{subsubsection.6.9.2}
+\contentsline {subsubsection}{\numberline {6.9.3}Exception Handling}{24}{subsubsection.6.9.3}
+\contentsline {subsubsection}{\numberline {6.9.4}Timing Constraints}{24}{subsubsection.6.9.4}
+\contentsline {subsubsection}{\numberline {6.9.5}Initialization}{25}{subsubsection.6.9.5}
+\contentsline {subsubsection}{\numberline {6.9.6}Raspberry PI Camera Specifications}{25}{subsubsection.6.9.6}
+\contentsline {section}{\numberline {7}Likelihood of Change}{25}{section.7}
+\contentsline {section}{\numberline {8}Normal Operation}{25}{section.8}
+\contentsline {section}{\numberline {9}Undesired Event Handling}{25}{section.9}
+\contentsline {section}{\numberline {10}References}{25}{section.10}
+\contentsfinish 

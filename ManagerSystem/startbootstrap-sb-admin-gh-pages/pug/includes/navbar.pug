@@ -1,0 +1,31 @@
+// Navigation
+nav#mainNav.navbar.navbar-expand-lg.navbar-dark.bg-dark.fixed-top
+  a.navbar-brand(href='errors.html') Home Page
+  button.navbar-toggler.navbar-toggler-right(type='button', data-toggle='collapse', data-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
+    span.navbar-toggler-icon
+  #navbarResponsive.collapse.navbar-collapse
+    ul#exampleAccordion.navbar-nav.navbar-sidenav
+      li.nav-item(data-toggle='tooltip', data-placement='right', title='Errors')
+        a.nav-link(href='errors.html')
+          i.fa.fa-fw.fa-dashboard
+          span.nav-link-text
+            | Errors
+      li.nav-item(data-toggle='tooltip', data-placement='right', title='MapMaker')
+        a.nav-link(href='charts.html')
+          i.fa.fa-fw.fa-area-chart
+          span.nav-link-text
+            | Map Maker
+      li.nav-item(data-toggle='tooltip', data-placement='right', title='Manage Drinks')
+        a.nav-link(href='manageDrinks.html')
+          i.fa.fa-fw.fa-table
+          span.nav-link-text
+            | Drink Manager
+    ul.navbar-nav.sidenav-toggler
+      li.nav-item
+        a#sidenavToggler.nav-link.text-center
+          i.fa.fa-fw.fa-angle-left
+    ul.navbar-nav.ml-auto
+      li.nav-item
+        a.nav-link(data-toggle='modal', data-target='#exampleModal')
+          i.fa.fa-fw.fa-sign-out
+          | Logout

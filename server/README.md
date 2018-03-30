@@ -2,7 +2,7 @@
 - Run 'ps -ef | grep server'
 
 # Running server
-- Set environment variable "BOT_HOST" with IP address of robot.
+- Run 'source envrc.test' for testing, or 'source envrc.prod' for connecting to robot.
 - Run 'npm install'.
 - Run 'node server.js'
 
@@ -133,6 +133,19 @@ RETURNS:
 ```javascript
 $TABLE_ID_1,TABLE_ID_2,TABLE_ID_3...
 ```
+
+
+##### 200 if session is valid, 401 otherwise.
+
+*${HOST}/isValidSess*
+
+AUTHORIZATION: Session cookie generated after logging in admin.
+
+RETURNS:
+```javascript
+N/A
+```
+
 
 
 ## POST

@@ -194,6 +194,14 @@ HTTP.createServer(function(req, res) {
 					res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
 					res.end();
 				}
+			} else if (url.pathname.toLowerCase().replace(/\//, '') === 'isvalidsess') {
+				if (roles.is_sess) {
+					res.writeHead(200, {'Content-Type': 'text/html'});
+					res.end();
+				} else {
+					res.writeHead(401, 'Unauthorized', {'Content-Type': 'text/html'});
+					res.end();
+				}
 			} else {
 				res.writeHead(404, 'No such method', {'Content-Type': 'text/html'});
 				res.end();
@@ -487,25 +495,23 @@ HTTP.createServer(function(req, res) {
 							return;
 						}
 
-						var tables = mapManager.getTables();
-
 						tableManager.availableTables(function(tableErr, availableTables) {
 							if (tableErr) {
 								res.writeHead(500, tableErr, {'Content-Type': 'text/html'});
 								res.end();
 								return;
 							}
+
+							// unregistering tables to avoid re-ID-ing of tables 
 							for (let table_id of availableTables) {
-								if (tables.indexOf(table_id) < 0) {
-									tableManager.deleteTable(table_id, function(delErr) {
-										// if (delErr) {
-										// 	console.log(`\nFailed to delete table_id: ${table_id}`);
-										// 	console.log(delErr);
-										// } else {
-										// 	console.log(`\nDeleted table_id: ${table_id}`);
-										// }
-									});
-								}
+								tableManager.deleteTable(table_id, function(delErr) {
+									// if (delErr) {
+									// 	console.log(`\nFailed to delete table_id: ${table_id}`);
+									// 	console.log(delErr);
+									// } else {
+									// 	console.log(`\nDeleted table_id: ${table_id}`);
+									// }
+								});
 							}
 
 							res.writeHead(200, 'Map uploaded!', {'Content-Type': 'text/html'});
