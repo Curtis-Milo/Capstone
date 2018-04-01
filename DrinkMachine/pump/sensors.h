@@ -13,8 +13,8 @@ typedef struct{
 
 typedef struct{
   float minWeight;
-  int pinA;
-  int pinB;
+  float minCup;
+  float timeOut;
 }WeightCals;
 
 #endif

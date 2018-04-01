@@ -1,5 +1,13 @@
 #include "sensors.h"
 #include "Arduino.h"
+#include "Hx711/Hx711.h"
+
+Hx711 tank1(A0, A1);
+Hx711 tank2(A2, A3);
+Hx711 tank3(A4, A5);
+Hx711 cup(A6, A7);
+
+//https://www.dfrobot.com/wiki/index.php/Weight_Sensor_Module_SKU:SEN0160
 //#https://learn.adafruit.com/thermistor/using-a-thermistor
 // resistance at 25 degrees C
 #define THERMISTORNOMINAL 3500     
@@ -43,5 +51,13 @@ float getTempature(int pin)
 float getWeight(int pin)
 {
   //TODO: Actually convert voltage to kg
-  return (analogRead(pin)); 
+  if (pin ==1){
+    return (tank1.getGram()); 
+  }else if(pin ==2){
+    return (tank2.getGram()); 
+  }else if(pin == 3){
+    return (tank3.getGram()); 
+  }else{
+    return (cup.getGram()); 
+  }
 }

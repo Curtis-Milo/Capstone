@@ -38,19 +38,19 @@ class DriveTrain():
 		self.refSpeedTurn = 100*(math.pi/30.0)
 		self.batteryMax = 18.0
 		self.hist =100
-		self.Pi_L = PI_Controller(0.5, 0.2)
-		self.Pi_R = PI_Controller(0.2,0.01)
+		self.Pi_L = PI_Controller(0.25, 0.02)
+		self.Pi_R = PI_Controller(0.1,0.01)
 		self.Pi_Angle = PI_Controller(1,1)
 
-		self.MaxOutStrtL = 30
-		self.MinOutStrtL = 20
-		self.MaxOutStrtR = 30
+		self.MaxOutStrtL = 24
+		self.MinOutStrtL = 22
+		self.MaxOutStrtR = 22
 		self.MinOutStrtR = 20
 
-		self.MaxOutTrnL = 60
-		self.MinOutTrnL = 50
-		self.MaxOutTrnR = 60
-		self.MinOutTrnR = 50
+		self.MaxOutTrnL = 24#60
+		self.MinOutTrnL = 22#55
+		self.MaxOutTrnR = 22#60
+		self.MinOutTrnR = 20#55
 
 		self.WheelRad = 0.2
 		self.RobotRad = 0.3
@@ -99,12 +99,15 @@ class DriveTrain():
 	def turn(self, TargetAngle):
 		time_prev= time.time()
 		currentAngle = 0
-		if(currentAngle < TargetAngle):
+		if(0 < TargetAngle):
 			GPIO.output(self.MotorL,GPIO.HIGH)
 			GPIO.output(self.MotorR,GPIO.HIGH)
-		elif(TargetAngle < currentAngle):
+			mult = -1.0
+		else:
 			GPIO.output(self.MotorL,GPIO.LOW)
 			GPIO.output(self.MotorR,GPIO.LOW)
+			mult = -1.0
+
 		self.slewRateRight.Reset(self.MinOutTrnR)
 		self.slewRateLeft.Reset(self.MinOutTrnL)
 		self.Pi_R.Reset()
@@ -113,13 +116,14 @@ class DriveTrain():
 		self.pwmLeft.start(self.MinOutTrnL)
 		distances =0 
 		num_rotations = 0
+
 		try:
-			while 0.2 < abs(currentAngle -TargetAngle):
+			while 0.25  < abs(currentAngle - TargetAngle):
 				self.checkEncoder()
 				while self.encoderCountsMin<   abs(self.EncoderR.getEncoderCount()): 
 					distances += self.WheelRad*(self.EncoderR.getEncoderCount()/self.countPerRad)
 					print "distance: "+ str(distances)
-					currentAngle = -1*(distances/self.RobotRad)
+					currentAngle = mult*(distances/self.RobotRad)
 					print "CurrAng: ", str(currentAngle),"TargetAng: ", str(TargetAngle)
 					if(currentAngle < TargetAngle):
 						sign_L = 1.0
@@ -214,7 +218,7 @@ class DriveTrain():
 					self.EncoderL.resetEncoderCount()
 					self.EncoderR.resetEncoderCount()
 					self.circleChecker.captureImage()
-					if 1< time_elapse:
+					if 0.5< time_elapse:
 						time_elapse =0
 						circles = self.circleChecker.checkForCircle()
 
@@ -222,7 +226,7 @@ class DriveTrain():
 							#print "circles found " + str(len(circles)
 							# loop over the (x, y) coordinates and radius of the circles
 							for (x, y, r) in circles:
-								#print "x: "+ str(x) +  " y: "+ str(y)
+								print "x: "+ str(x) +  " y: "+ str(y)
 								if abs(self.circleChecker.mid_x - x) < self.circleChecker.hist and abs(self.circleChecker.mid_y - y) < self.circleChecker.hist:
 									circlefound =  True
 						else:
@@ -235,3 +239,11 @@ class DriveTrain():
 		finally:
 			self.pwmRight.stop()
 			self.pwmLeft.stop()
+
+
+d = DriveTrain()
+#d.drive()
+#time.sleep(1)
+#d.turn(0.45)
+#time.sleep(1)
+#d.drive()

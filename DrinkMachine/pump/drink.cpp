@@ -15,12 +15,13 @@ static DrinkCals COKE_CALS;
 static DrinkCals DIET_COKE_CALS;
 static TempCals TEMP_CALS;
 static WeightCals WEIGHT_CALS;
-
+DrinkErrors errors;
+static unsigned long start;
 //static variables for internal use
 Table_Info tableStat;
 
 static bool isDrinkTaken() {
-  return true;
+  return (getWeight(4)< WEIGHT_CALS.minCup);
 }
 
 static DrinkCals * getDrinkCals() {
@@ -36,7 +37,13 @@ static DrinkCals * getDrinkCals() {
   }
 }
 static void determineState(Drink * pDrink) {
+  
   switch (pDrink->state) {
+    case Waiting_For_Button:
+        if (digitalRead(10)){
+          pDrink->state = Getting_Table;
+        }
+    break;
     case Getting_Table:
       //Serial.print("Getting Table\n");
       if (tableStat.totalDrinks != 0) {
@@ -45,6 +52,7 @@ static void determineState(Drink * pDrink) {
         tableStat.drinkFilled = false;
         tableStat.currentOnTime = 0.0f;
         pDrink->state = Pouring_On;
+        start = millis();
       }
       break;
     case Pouring_On:
@@ -52,6 +60,11 @@ static void determineState(Drink * pDrink) {
       break;
 
     case Pouring_Off:
+      if ((millis()-start) < WEIGHT_CALS.timeOut){
+         errors |= TankLeak;
+         pDrink->state = Waiting_For_Button;
+         return;
+      }
       if (tableStat.drinkFilled) {
         pDrink->state = Drink_Done;
       } else if (!pDrink->errors) {
@@ -70,12 +83,12 @@ static void determineState(Drink * pDrink) {
             tableStat.totalDrinks =0;
           }else{
             tableStat.drinkFilled = false;
-            pDrink->state = Pouring_On;
+            pDrink->state = Waiting_For_Button;
           }
       }
       break;
     case Table_Done:
-      pDrink->state = Getting_Table;
+      pDrink->state = Waiting_For_Button;
       break;
   }
 }
@@ -105,7 +118,7 @@ static void processState(Drink * pDrink) {
         tableStat.currentOnTime += pDrinkData->onTime_sec;
       }
       //check for if its complete
-      if (pDrinkData->totalFillTime_sec <= tableStat.currentOnTime) {
+      if (WEIGHT_CALS.minCup< getWeight(4)) {
         tableStat.drinkFilled = true;
       }
       break;
@@ -150,8 +163,8 @@ void initDrink(Drink * pDrink) {
   TEMP_CALS.pinB =1;
 
   WEIGHT_CALS.minWeight = 0.375;
-  WEIGHT_CALS.pinA = 2;
-  WEIGHT_CALS.pinB = 3;
+  WEIGHT_CALS.minCup = 0.375;
+  WEIGHT_CALS.timeOut = 600000;
   pinMode(WATER_CALS.pin, OUTPUT);
   pinMode(COKE_CALS.pin, OUTPUT);
   pinMode(DIET_COKE_CALS.pin, OUTPUT);
@@ -174,21 +187,26 @@ void initDrink(Drink * pDrink) {
 }
 
 void getTableData(Drink * pDrink) {
-    DrinkErrors errors= (DrinkErrors)0x1111;
+    
     int i =0;
     char c = 0;
-    /*if (TEMP_CALS.maxTemp < getTempature(TEMP_CALS.pinA) ||
+    if (tableStat.totalDrinks != 0 && errors ==0) {
+      return ;
+    }
+    if (TEMP_CALS.maxTemp < getTempature(TEMP_CALS.pinA) ||
           TEMP_CALS.maxTemp < getTempature(TEMP_CALS.pinB)){
        errors |= DrinkOverTemp;         
     }
 
-    if (getTempature(WEIGHT_CALS.pinA) < WEIGHT_CALS.minWeight||
-          getTempature(WEIGHT_CALS.pinB)< WEIGHT_CALS.minWeight){
+    if (getWeight(1) < WEIGHT_CALS.minWeight||
+          getWeight(2) < WEIGHT_CALS.minWeight||
+          getWeight(3) < WEIGHT_CALS.minWeight){
        errors |= EmptyTank;         
-    }*/
+    }
 
     
     boolean drinkNext = false;
+    start= millis();
     while (c != 'x'){
       if (Serial.available() > 0) {
       c  = Serial.read();
@@ -203,11 +221,15 @@ void getTableData(Drink * pDrink) {
           
         }  
       
-    } 
+    }
+
+    if ((millis()-start) < WEIGHT_CALS.timeOut){
+     errors |= Timeout;
+     pDrink->state = Waiting_For_Button;
+     return;
+    }
   }
-  Serial.print(errors);
-  Serial.print(0);
-  Serial.print('x');
+  errors =0;
 }
 
 

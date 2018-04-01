@@ -3,11 +3,12 @@
 
 #define DRINK_BUFF 20
 typedef enum{
-	Getting_Table = 0,
-	Pouring_On = 1,
-	Pouring_Off = 2,
-	Drink_Done = 3,
-	Table_Done = 4
+  Waiting_For_Button = 0,
+	Getting_Table = 1,
+	Pouring_On = 2,
+	Pouring_Off = 3,
+	Drink_Done = 4,
+	Table_Done = 5
 } DrinkState;
 
 
@@ -20,9 +21,10 @@ typedef enum {
 
 typedef enum {
   NoErrors = 0x0000,
-  NoResponseServer = 0x0001,
-  EmptyTank = 0x0010,
-  DrinkOverTemp = 0x0100
+  EmptyTank = 0x0001,
+  TankLeak = 0x00010,
+  Timeout = 0x00100,
+  DrinkOverTemp = 0x01000
 }DrinkErrors;
 
 typedef struct{

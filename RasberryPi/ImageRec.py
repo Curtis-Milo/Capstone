@@ -16,7 +16,7 @@ class ImageRec():
 		self.end_y = 480*(0.8)
 		self.before_x = 640*(0.2)
 		self.before_y = 480*(0.2)
-		self.hist = 200.0
+		self.hist = 3000.0
 		self.imgCounter=0
 
 	def captureImage(self):
@@ -60,12 +60,15 @@ class ImageRec():
 
 	def test(self):
 		print "Capturing Image... "
+		self.captureImage()
 		circles = self.checkForCircle()
 
 		if circles is not None:
 			# convert the (x, y) coordinates and radius of the circles to integers
-	 
+	 	
 			# loop over the (x, y) coordinates and radius of the circles
 			for (x, y, r) in circles:
 				print "Circle At: " + str(x) +", "+ str(y)
 				print "Radius of: " + str(r)
+		else:
+			print "No Circle" 
