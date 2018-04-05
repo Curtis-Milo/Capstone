@@ -94,7 +94,7 @@ function _resolveRole(req, cb) {
 			cb(roles);
 		}
 	});
-}
+};
 
 tokenGen.sendToken(process.env.BOT_HOST); // Define bot IP in environment
 
