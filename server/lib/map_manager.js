@@ -70,7 +70,7 @@ MapManager.prototype._parse = function(dataMat) {
 	this._tables = [];
 	for (let row of dataMat) {
 		for (let element of row) {
-			if (element == 'T') this._tables.push(this._tables.length);
+			if (element == 'T') this._tables.push(this._tables.length + 1);
 		}
 	}
 };
