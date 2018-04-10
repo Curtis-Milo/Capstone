@@ -7,7 +7,7 @@ function _getSortOrder(prop) {
 		}
 		return 0;
 	}
-}
+};
 
 module.exports = {
 	sortOnAttr: function(list, attr) {
