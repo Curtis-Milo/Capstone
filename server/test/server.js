@@ -148,6 +148,23 @@ var tests = {
 			});
 		},
 
+		isValidSess: function(resObj, host) {
+			var that = this;
+			return new Promise(function(resolve, reject) {
+				unirest.get(host + '/isValidSess')
+				.headers({'Accept': 'application/json'})
+				.jar(that._cookieJar)
+				.end(function(res) {
+					if (res.code < 200 || res.code > 299) {
+						resObj.testRes('Test GET /isValidSess endpoint', '', 200, res.code, 'fail');
+					} else {
+						resObj.testRes('Test GET /isValidSess endpoint', '', 200, res.code, 'pass');
+					}
+					resolve();
+				});
+			});
+		},
+
 		logout: function(resObj, host) {
 			var that = this;
 			return new Promise(function(resolve, reject) {
@@ -585,6 +602,8 @@ tests.robotTest.reqListenForToken(IP, function() {
 		return tests.adminTest.updateCreds(resObj, IP);
 	}).then(function() {
 		return tests.adminTest.login(resObj, IP);
+	}).then(function() {
+		return tests.adminTest.isValidSess(resObj, IP);
 	}).then(function() {
 		return tests.adminTest.logout(resObj, IP);
 	}).then(function() {
