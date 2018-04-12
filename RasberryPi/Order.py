@@ -4,17 +4,17 @@ class Order:
 		self.order_id = order_id
 		self.orders = []
 
-	def getTableID():
+	def getTableID(self):
 		return self.table_id
 
-	def viewOrders():
+	def viewOrders(self):
 		return self.orders
 
-	def addOrder(order):
-		self.orders.push(order)
+	def addOrder(self,order):
+		self.orders.append(order)
 
-	def getNextOrder():
-		self.orders.pop(order)
+	def getNextOrder(self):
+		return self.orders.pop()
 
-	def isDone():
+	def isDone(self):
 		return len(self.orders) ==0

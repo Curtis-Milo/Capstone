@@ -9,7 +9,7 @@ class PI_Controller():
 
     def PI_Calc(self, ref, feedback):
         err =ref-feedback
-        print "ref: " +str(ref) + " fdbk: " +str(feedback) +" Error: " + str(err)
+        #print "ref: " +str(ref) + " fdbk: " +str(feedback) +" Error: " + str(err)
         delta_t  = time.time()-self.t1
         self.Integrator = self.Integrator +err*delta_t
         self.t1 = time.time()
