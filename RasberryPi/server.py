@@ -1,11 +1,11 @@
 from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
 import json
-from multiprocessing import Process
+from multiprocessing import *
 from lib.auth import AuthHandler
 from lib.lib import reqServerToken
 from urlparse import urlparse
 
-authManager = AuthHandler()
+authManager = None
 
 def _caseInsensitiveKey(obj, key):
     for k in obj:
@@ -47,12 +47,13 @@ class Handler(BaseHTTPRequestHandler):
 
 class Server(object):
     """Server on robot side"""
-    def __init__(self, port=80, address=''):
+    def __init__(self, d, port=80, address=''):
         super(Server, self).__init__()
         self.server_address = (address, port)
         self.server = HTTPServer(self.server_address, Handler)
         self.running = False
-        
+        authManager = AuthHandler(d)
+
     def startServer(self):
         if not self.running:
             self.running = True

@@ -14,9 +14,10 @@ class Singleton(type):
 
 class AuthHandler(object):
 	__metaclass__ = Singleton
-	def __init__(self):
+	def __init__(self, d):
 		self.token = None
 		self.token_type = None
+		self.d = d
 
 	def setToken(self, auth):
 		host = os.environ['SERVER_IP']
@@ -39,6 +40,10 @@ class AuthHandler(object):
 		
 		self.token = token
 		self.token_type = token_type
+
+		self.d['access_token'] = self.token
+		self.d['token_type'] = self.token_type
+
 		return True
 
 	def getToken(self):
