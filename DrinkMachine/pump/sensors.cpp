@@ -1,6 +1,6 @@
 #include "sensors.h"
 #include "Arduino.h"
-#include "Hx711/Hx711.h"
+#include "Hx711.h"
 
 Hx711 tank1(A0, A1);
 Hx711 tank2(A2, A3);
