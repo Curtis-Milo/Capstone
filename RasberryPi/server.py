@@ -1,6 +1,6 @@
 from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
 import json
-import threading
+from multiprocessing import Process
 from lib.auth import AuthHandler
 from lib.lib import reqServerToken
 from urlparse import urlparse
@@ -56,8 +56,8 @@ class Server(object):
     def startServer(self):
         if not self.running:
             self.running = True
-            t = threading.Thread(target=self.server.serve_forever)
-            t.start()
+            p = Process(target=self.server.serve_forever)
+            p.start()
 
             reqServerToken()
 
