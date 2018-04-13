@@ -261,7 +261,7 @@ Alexandra Rahman & & 001305735
 
 \tableofcontents
 \listoftables
-\listoffigures
+
 
 
 
@@ -270,33 +270,42 @@ Alexandra Rahman & & 001305735
 % -----------  REVISION HISTORY START ----------- %
 
 %\section*{Revisions}
-%\thispagestyle{empty}
+\thispagestyle{empty}
 \section{Revisions}
-\begin{longtable}{| p{.2\textwidth } | p{.23\textwidth } | p{.23\textwidth } | p{.23\textwidth } |} \caption{LazyBots Table of Revisions}  \\
+\begin{longtable}{| p{.2\textwidth } | p{.23\textwidth } | p{.23\textwidth } | p{.23\textwidth } |}
 
 \hline 
 \centering \textbf{Date} & 
-\multicolumn{1}{c|}{\textbf {Revision Number}} &
-\multicolumn{1}{c|}{\textbf {Authors}} & 
-\multicolumn{1}{c|}{\textbf {Comments}} \\ \hline
+\multicolumn{1}{c}{\textbf {Revision Number}} &
+\multicolumn{1}{|c}{\textbf {Authors}} & 
+\multicolumn{1}{|c|}{\textbf {Comments}} \\ \hline
 
-
-\multicolumn{1}{|c|}{\multirow{1}{*}{\centering February 17\textsuperscript{th}, 2018}}  & 
-\multirow{4}{*}{Revision 0}& 
+\multirow{5}{*}{\centering February 17\textsuperscript{th}, 2018}  & 
+\multirow{5}{*}{Revision 0}& 
 		{Karim Guirguis \newline
 		David Hemms \newline
 		Marko Laban \newline
 		Curtis Milo \newline
 		Keyur Patel \newline
-		Alexandra Rahman}
- &
+		Alexandra Rahman} &
  
-% ------------------------------------------------------- Comments -------------------------------------------------------
 \multirow{4}{*}{-} \\ 
 \hline 
 
-\end{longtable}
 
+\multirow{5}{*}{\centering April 12\textsuperscript{th}, 2018}  & 
+\multirow{5}{*}{Revision 1}& 
+		{Karim Guirguis \newline
+		David Hemms \newline
+		Marko Laban \newline
+		Curtis Milo \newline
+		Keyur Patel \newline
+		Alexandra Rahman} &
+{Updated some test case results and changed the traceability matrix to be multiple ones, for clarity.}\\
+\hline 
+
+\caption{LazyBots Table of Revisions} 
+\end{longtable}
 
 
 \pagebreak
@@ -480,7 +489,7 @@ Testing was performed based on the systems and sub systems that were defined wit
 
 
 
-
+\pagebreak
 
 \subsection {Alfred Pumping System}
 
@@ -509,6 +518,7 @@ Testing was performed based on the systems and sub systems that were defined wit
 	\end{longtable}
 
 
+\pagebreak
 
 \section {Beyond Testing}
 
@@ -525,435 +535,86 @@ Will be performed on the Motor control/Image processing within future revisions.
 
 Please refer to previous design documents.
 
-\pagebreak
+\section {Traceability Matrices}
+The following is the Traceability Matrix for the functional and non-functional requirements according to their test case classification: \\
 
-\section {Appendix}
-The following is the Traceability Matrix for the functional requirements: \\
 
-\begin{longtable}{ | p{0.125\textwidth} | c | c | c | c | c | c | c | c | c | c | c | c | }
-\hline
-	Requirements ID: & AF1 & AF2 & AF3 & AF4 & AF5 & AF6 & AF7 & AF8 & AF9 & AF10 & AF11 & AF12 \\ \hline
-	CA01 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA02 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA03 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA04 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA05 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA06 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA07 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA08 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA09 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA10 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA11 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA12 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA13 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA14 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS01 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS02 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS03 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS04 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS05 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS06 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS07 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS08 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS09 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS10 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS11 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS12 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS13 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS14 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS15 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS16 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	MS01 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\ \hline
-	MS02 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\ \hline
-	MS03 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\ \hline
-	MS04 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\ \hline
-	MS05 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\ \hline
-	MS06 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\ \hline
-	MS07 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\ \hline
-	MS08 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT01 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT02 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT03 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT04 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT05 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT06 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT07 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\ \hline
-	DT08 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\ \hline
-	DT09 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT10 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT11 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT12 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT13 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT14 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT15 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	IP01 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	IP02 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	IP03 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	IP04 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	PS01 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	PS02 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	PS03 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	PS04 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	PS05 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	PS06 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	PS07 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	PS08 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	PS09 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	PS10 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	PS11 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-\end{longtable}
+\begin{table}[h!]
+\centering
+\begin{tabular}{lllll}
+\cline{1-2}
+\multicolumn{1}{|c|}{\textbf{Test Cases:}} & \multicolumn{1}{c|}{\textbf{Functional and Non-Functional Requirement:}} &  &  &  \\ \cline{1-2}
+\multicolumn{1}{|c|}{\multirow{7}{*}{Alfred Client Application}} & \multicolumn{1}{l|}{Table Ordering Functional Requirement 1} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|c|}{} & \multicolumn{1}{l|}{Non-Functional Requirement 5} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|c|}{} & \multicolumn{1}{l|}{Non-Functional Requirement 8} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|c|}{} & \multicolumn{1}{l|}{Non-Functional Requirement 15} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|c|}{} & \multicolumn{1}{l|}{Non-Functional Requirement 21} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|c|}{} & \multicolumn{1}{l|}{Non-Functional Requirement 30} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|c|}{} & \multicolumn{1}{l|}{Non-Functional Requirement 32} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|c|}{} & \multicolumn{1}{l|}{Non-Functional Requirement 35} &  &  &  \\ \cline{1-2}
+\end{tabular}
+\caption{Alfred Client Application Traceability}
+\end{table}
 
-\begin{longtable}{ | p{0.125\textwidth} | c | c | c | c | c | c | c | c | c | }
-\hline
-	Requirements ID: & AF12 & AF13 & AF14 & TO1 & TO2 & AD1 & AD2 & AD3 & AD4 \\ \hline
-	CA01 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA02 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA03 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA04 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA05 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA06 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA07 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA08 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA09 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 \\ \hline
-	CA10 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 \\ \hline
-	CA11 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 \\ \hline
-	CA12 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 \\ \hline
-	CA13 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA14 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS01 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS02 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS03 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS04 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS05 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\ \hline
-	SS06 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\ \hline
-	SS07 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS08 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS09 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS10 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 \\ \hline
-	SS11 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS12 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS13 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 \\ \hline
-	SS14 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS15 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS16 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	MS01 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	MS02 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	MS03 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	MS04 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	MS05 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	MS06 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	MS07 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	MS08 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT01 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT02 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT03 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT04 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT05 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT06 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT07 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT08 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT09 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT10 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT11 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT12 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT13 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT14 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT15 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	IP01 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	IP02 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	IP03 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	IP04 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	PS01 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	PS02 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	PS03 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	PS04 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	PS05 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	PS06 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	PS07 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	PS08 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	PS09 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	PS10 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	PS11 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-\end{longtable}
 
-The following is the Traceability Matrix for the non-functional requirements: \\
+\begin{table}[h!]
+\centering
+\begin{tabular}{lllll}
+\cline{1-2}
+\multicolumn{1}{|c|}{\textbf{Test Cases:}} & \multicolumn{1}{c|}{\textbf{Functional and Non-Functional Requirement:}} &  &  &  \\ \cline{1-2}
+\multicolumn{1}{|c|}{\multirow{6}{*}{Server System}} & \multicolumn{1}{l|}{Alfred Functional Requirement 3} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|c|}{} & \multicolumn{1}{l|}{Alfred Functional Requirement 4} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|c|}{} & \multicolumn{1}{l|}{Alfred Functional Requirement 14} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|c|}{} & \multicolumn{1}{l|}{Table Ordering Functional Requirement 1} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|c|}{} & \multicolumn{1}{l|}{Table Ordering Functional Requirement 2} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|c|}{} & \multicolumn{1}{l|}{Non Functional Requirement 33} &  &  &  \\ \cline{1-2}
+\end{tabular}
+\caption{Server System Traceability}
+\end{table}
 
-\begin{longtable}{ | p{0.125\textwidth}  | c | c | c | c | c | c | c | c | c | c | c | c | }
-\hline
-	Requirements ID: & NFR1 & NFR2 & NFR3 & NFR4 & NFR5 & NFR6 & NFR7 & NFR8 & NFR9 & NFR10 \\ \hline
-	CA01 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA02 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA03 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA04 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA05 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA06 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA07 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 1 & 0 & 0 \\ \hline
-	CA08 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA09 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA10 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA11 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA12 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA13 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA14 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS01 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS02 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS03 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS04 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS05 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS06 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS07 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS08 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS09 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS10 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS11 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS12 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS13 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS14 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS15 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS16 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	MS01 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	MS02 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	MS03 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	MS04 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	MS05 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	MS06 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	MS07 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	MS08 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT01 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT02 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT03 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT04 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT05 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT06 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT07 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT08 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT09 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT10 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT11 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT12 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT13 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT14 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT15 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	IP01 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	IP02 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	IP03 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	IP04 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	PS01 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	PS02 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	PS03 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	PS04 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	PS05 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	PS06 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	PS07 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-\end{longtable}
 
-\begin{longtable}{ | p{0.125\textwidth}  | c | c | c | c | c | c | c | c | c | c | }
-\hline
-	Requirements ID: & NFR11 & NFR12 & NFR13 & NFR14 & NFR15 & NFR16 & NFR17 & NFR18 & NFR19 & NFR20 \\ \hline
-	CA01 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA02 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA03 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA04 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA05 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA06 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA07 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA08 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA09 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA10 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA11 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA12 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA13 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA14 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS01 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS02 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS03 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS04 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS05 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS06 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS07 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS08 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS09 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS10 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS11 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS12 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS13 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS14 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS15 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS16 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	MS01 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	MS02 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	MS03 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	MS04 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	MS05 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	MS06 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	MS07 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	MS08 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT01 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT02 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT03 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT04 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT05 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT06 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT07 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT08 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT09 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT10 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT11 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT12 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT13 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT14 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT15 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	IP01 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	IP02 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	IP03 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	IP04 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	PS01 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	PS02 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	PS03 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	PS04 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	PS05 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	PS06 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	PS07 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-\end{longtable}
+\begin{table}[h!]
+\centering
+\begin{tabular}{lllll}
+\cline{1-2}
+\multicolumn{1}{|c|}{\textbf{Test Cases:}} & \multicolumn{1}{c|}{\textbf{Functional and Non-Functional Requirement:}} &  &  &  \\ \cline{1-2}
+\multicolumn{1}{|c|}{\multirow{3}{*}{Alfred Manager System}} & \multicolumn{1}{l|}{Alfred Functional Requirement 1} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|c|}{} & \multicolumn{1}{l|}{Alfred Functional Requirement 3} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|c|}{} & \multicolumn{1}{l|}{Alfred Functional Requirement 10} &  &  &  \\ \cline{1-2}
+\end{tabular}
+\caption{Alfred Manager System Traceability}
+\end{table}
 
-\begin{longtable}{ | p{0.125\textwidth} | c | c | c | c | c | c | c | c | c | c | }
-\hline
-	Requirements ID: & NFR21 & NFR22 & NFR23 & NFR24 & NFR25 & NFR26 & NFR27 & NFR28 & NFR29 & NFR30 \\ \hline
-	CA01 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA02 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA03 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA04 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA05 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA06 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA07 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA08 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \\ \hline
-	CA09 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA10 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA11 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA12 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA13 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA14 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS01 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS02 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS03 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS04 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS05 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS06 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS07 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS08 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS09 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS10 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS11 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS12 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS13 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS14 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS15 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS16 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	MS01 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	MS02 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	MS03 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	MS04 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	MS05 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	MS06 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	MS07 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	MS08 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT01 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT02 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT03 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT04 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT05 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT06 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT07 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT08 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT09 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT10 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT11 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT12 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT13 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT14 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT15 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	IP01 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	IP02 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	IP03 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	IP04 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	PS01 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	PS02 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	PS03 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	PS04 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	PS05 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	PS06 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	PS07 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-\end{longtable}
+\begin{table}[h!]
+\centering
+\begin{tabular}{lllll}
+\cline{1-2}
+\multicolumn{1}{|c|}{\textbf{Test Cases:}} & \multicolumn{1}{c|}{\textbf{Functional and Non-Functional Requirement:}} &  &  &  \\ \cline{1-2}
+\multicolumn{1}{|c|}{\multirow{2}{*}{Alfred Drive Train System}} & \multicolumn{1}{l|}{Alfred Functional Requirement 3} &  &  &  \\ \cline{2-2}
+\multicolumn{1}{|c|}{} & \multicolumn{1}{l|}{Alfred Functional Requirement 10} &  &  &  \\ \cline{1-2}
+\end{tabular}
+\caption{Alfred Drive Train System Traceability}
+\end{table}
 
-\begin{longtable}{ | p{0.125\textwidth} | c | c | c | c | c | c | c | c | }
-\hline
-	Requirements ID: & NFR31 & NFR32 & NFR33 & NFR34 & NFR35 & NFR36 & NFR37 & NFR38 \\ \hline
-	CA01 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA02 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA03 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA04 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA05 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA06 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA07 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\ \hline
-	CA08 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA09 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA10 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA11 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA12 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA13 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	CA14 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS01 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS02 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS03 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS04 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS05 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS06 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS07 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS08 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS09 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS10 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS11 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS12 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS13 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS14 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS15 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	SS16 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	MS01 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	MS02 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	MS03 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	MS04 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	MS05 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	MS06 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	MS07 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	MS08 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT01 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT02 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT03 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT04 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT05 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT06 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT07 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT08 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT09 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT10 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT11 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT12 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT13 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT14 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	DT15 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	IP01 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	IP02 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	IP03 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	IP04 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	PS01 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	PS02 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	PS03 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	PS04 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	PS05 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	PS06 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-	PS07 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
-\end{longtable}
+\begin{table}[h!]
+\centering
+\begin{tabular}{lllll}
+\cline{1-2}
+\multicolumn{1}{|c|}{\textbf{Test Cases:}} & \multicolumn{1}{c|}{\textbf{Functional and Non-Functional Requirement:}} &  &  &  \\ \cline{1-2}
+\multicolumn{1}{|c|}{\multirow{1}{*}{Alfred Image Processing System}} & \multicolumn{1}{l|}{Alfred Functional Requirement 3} &  &  &  \\ \cline{1-2}
+\end{tabular}
+\caption{Alfred Image Processing System Traceability}
+\end{table}
 
+\begin{table}[h!]
+\centering
+\begin{tabular}{lllll}
+\cline{1-2}
+\multicolumn{1}{|c|}{\textbf{Test Cases:}} & \multicolumn{1}{c|}{\textbf{Functional and Non-Functional Requirement:}} &  &  &  \\ \cline{1-2}
+\multicolumn{1}{|c|}{\multirow{1}{*}{Alfred Pumping System}} & \multicolumn{1}{l|}{Alfred Functional Requirement 1} &  &  &  \\ \cline{1-2}
+\end{tabular}
+\caption{Alfred Pumping System Traceability}
+\end{table}
 
 \end{document}
 

@@ -30,7 +30,7 @@
 % ---------- End Font Packages -------------- %
 
 \usepackage{listings}
-
+\usepackage{float}
 
 %\definecolor{dkgreen}{rgb}{0,0.6,0}
 %\definecolor{gray}{rgb}{0.5,0.5,0.5}
@@ -316,7 +316,7 @@ Alexandra Rahman & & 001305735
 		Curtis Milo \newline
 		Keyur Patel \newline
 		Alexandra Rahman} &
-{Combined System Design Document and Component Design Document }\\
+{Combined System Design Document and Component Design Document and updated the MIS, MID and Design Notes.}\\
 \hline 
 
 \caption{LazyBots Table of Revisions} 
@@ -381,6 +381,8 @@ Alfred's assumption are represented in the tables below.  \\
 \rowcolor{tableCell}\textbf{A1} & The environment will only be comprised of a one story building with no steps. \\ \hline
 \textbf{Rationale} & Different environment elevations are beyond the scope of the project. Alfred will not be able to navigate around steps.\\ \hline 
 \end{longtable}
+
+\pagebreak 
 
 % ------------------------------ Assumption 2 ------------------------------ %
 \begin{longtable}{| p{.15\textwidth } | p{.80\textwidth } | }\hline 
@@ -697,10 +699,10 @@ The following is a list of system constants. \\
 
 
 
-\pagebreak
-
 % -------------------------------------------------- COMPONENT OVERVIEW ---------------------------------------------------- %
 
+\pagebreak
+\newpage
 \section{Component Overview}
 
 % ----------------------------------------------------- Ordering System Module ---------------------------------------------------- %
@@ -832,6 +834,7 @@ This module will be used for the user input to create a map where the manager of
 	\rowcolor{tableCell}$ Resturant_{Home} $ & Button User input &  N/A & N/A & An area that defines Alfred's home location \\ \hline
 \end{longtable}
 
+\pagebreak
 
 \textbf{Outputs: }A text file that contains the following information. \\
 
@@ -957,6 +960,10 @@ This module is a server component that will hold order information for different
 \end{longtable}
 
 
+
+\pagebreak
+
+
 % ----------------------------------------------------- Exception Handling ---------------------------------------------------- %
 \subsubsection{Exception Handling}
 
@@ -1014,6 +1021,9 @@ This module acts as a manager to the different components of Alfred. It will run
 	\rowcolor{tableCell}$ NextNode $ & Node & [(0,0), (length($Map)$, width($Map$)] & N/A & The next node to travel to \\ \hline
 	$  errors_{Alfred} $ & Unsigned Byte & [0, $2^{8}$]& N/A & Errors from Alfred \\ \hline
 \end{longtable}
+
+
+\pagebreak
 
 
 % ----------------------------------------------------- Exception Handling ---------------------------------------------------- %
@@ -1209,7 +1219,10 @@ This module will have to dispense the drink within $ t_{maxpump} $
 This module start by waiting for the manager to send the drink information for the system to pour. All errors within the system will start as false until they have been triggered.
 
 
-% --------------------------------------------- Diagram of DC Pump Control System -------------------------------------------- %
+\pagebreak
+
+
+% -------------------------------------------- Diagram of DC Pump Control System -------------------------------------------- %
 
 \subsubsection{Diagram of DC Pump Control System}
 Figure 5 is a diagram that shows the top level of the dc pump control system. 
@@ -1311,6 +1324,10 @@ This module will receive information from a camera while the drive-train is in m
 	 $ Image_{input} $ & Bitmap &  N/A & N/A & Image of the ceiling  \\ \hline
 \end{longtable}
 
+
+\pagebreak
+
+
 \textbf{Outputs: } \\
 
 \begin{longtable}{|l|l|l|l|l|}\hline 
@@ -1395,10 +1412,2233 @@ Alfred is a mostly autonomous robot, only requiring human intervention in the ev
 \section{Undesired Event Handling}
 Alfred will be able to detect undesired behaviours and conditions such as low liquid levels below threshold $ m_{containerMin} $, any issues with pumping liquid, low battery level, leaking liquids, and any blockages in the current path once Alfred has been blocked for a time greater than $ obstruction_{timeout} $. In the event of any error condition, Alfred will send an error code to the kitchen, to alert the staff of the issue. Wherever possible, Alfred will return to the kitchen in an error condition to request a fix. Otherwise, if movement is not possible, the kitchen staff will have to pick Alfred up from the dining room. Along with alerting management of any current errors, Alfred will also be able to indicate whether it is returning to the kitchen or requires pickup.
 
+
+
+% ----------------------------------------------------- CLIENT APPLICATION ---------------------------------------------------- %
+
+\section {ClientApp}
+
+% ----------------------------------------------------- Purpose ---------------------------------------------------- %
+
+\subsection{Purpose}
+The following will describe the component software design associated with the Client Application. This will be carried out within android based tools to allow customers to order drinks from any table..
+
+% -----------------------------------------------------Scope ---------------------------------------------------- %
+
+\subsection{Scope}
+The scope of this section is associated with any front end user interfaces that the customers will use.
+
+% ------------------------------------------- Module Decomposition ------------------------------------------- %
+
+\subsection{Module Decomposition}
+
+\textbf{Activity\_Login}: GUI class for admin to log into client app device.
+
+\textbf{Activity\_Settings}: GUI class for admin to reset device cart, as well as change the table number of the client device. Secrets include parsing and storing table info coming from the server.
+
+\textbf{Activity\_DrinksList [Requirement T01]}: GUI class for users to go through available drinks and choose their order. Secrets include parsing drink info coming from the server.
+
+\textbf{Activity\_OrderCart [Requirement T01]}: GUI class for users to view their current cart, as well as their previous orders. Secrets include parsing and dealing with server's response when order is sent to the server.
+
+\textbf{DrinksViewAdapter}: Adapter class for each visible drink in Activity\_DrinksList
+
+\textbf{DrinkCartListAdapter}: Adapter class for each cart item in Activity\_OrderCart
+
+\textbf{Drink}: Object class representing a drink item.
+
+\textbf{DrinkOrder}: Object class representing a table's order to be sent to the server. 
+
+\textbf{NetworkCalls [Requirement T02]}: Asynchronous class to perform network calls for the client app. Secrets include how network requests/responses are handled.
+
+\textbf{AsyncResponse [Requirement T02]} Interface to deliver NetworkCall results to the current activity for processing.
+
+% ----------------------------------------------------- Uses Relation ---------------------------------------------------- %
+
+\subsection{Uses Relation}
+
+Please refer to Figure 1 on following page.
+
+\begin{figure} [h!]
+	\centering
+	\includegraphics [scale = 0.4] {figures/Client_UsesDiagram.png}
+	\caption{Android Client Application Uses Relation Diagram}
+\end{figure}
+
+
+
+\subsection{MIS}
+
+% ------------------------------------- Drink  ------------------------------------- %
+
+\subsubsection{Drink}
+
+\textbf{Uses} : None
+
+\textbf{Public Functions}
+
+\textbf{Drink(String name,int calories,int image,double price)}
+Constructor for Drink class. Takes the name, image, and price of the drink, and the amount of calories in a serving.
+
+\textbf{setAmount(int amt):void}
+Sets the number of drinks of this type in the cart.
+
+\textbf{getName():String}
+Returns the name of the drink.
+
+\textbf{getCalories():int}
+Returns the amount of calories for the restaurant's serving size.
+
+\textbf{getImage():int}
+Returns the id number for the image of this drink type.
+
+\textbf{getPrice():double}
+Returns the price of this drink.
+
+\textbf{getPriceForAmount():double}
+Returns the total price of the amount of this drink.
+
+\textbf{getAmount():int}
+Returns the amount of the drink currently in the cart.
+
+% ------------------------------------- Drink Order ------------------------------------- %
+
+\subsubsection{DrinkOrder}
+
+\textbf{Uses} : None
+
+\textbf{Public Functions}
+
+\textbf{DrinkOrder(ArrayList<String[]> rawCartData)}
+Constructor for DrinkOrder class. Takes the raw cart data for the currently selected drinks.
+
+
+\pagebreak 
+
+
+% ------------------------------------- Activity Drink List  ------------------------------------- %
+
+\subsubsection{Activity\_DrinksList}
+
+\textbf{Uses}
+
+\begin{itemize}
+	\item DrinksViewAdapter (Class)
+	\item NetworkCalls (Class)
+	\item AsyncResponse (Interface)
+\end{itemize}
+
+\textbf{onActivityResult(int requestCode, int responseCode, Intent data):void}
+Process the results of any activities launched by this activity.
+
+\textbf{onClickViewCart(View v):void}
+Listener for the view cart button. Launches Activity\_OrderCart.
+
+\textbf{processDrinksInfoResponse(int responseCode):void}
+Processes the response of the drink info retrieval from the server.
+
+\textbf{onCreate(Bundle savedInstanceState):void}
+Initialize this Activity(app menu) when created.
+
+% ------------------------------------- Activity/ Login  ------------------------------------- %
+
+\subsubsection{Activity\_Login}
+
+\textbf{Uses}
+\begin{itemize}
+	\item NetworkCalls (Class)
+	\item AsyncResponse (Interface)
+\end{itemize}
+
+\textbf{Public Functions}
+
+\textbf{onClickButtonLogin(View v):void}
+Listener for the login button. Attempts to log in with filled in username and password.
+
+\textbf{onCreate(Bundle savedInstanceState):void}
+Initialize this Activity(app menu) when created.
+
+% ------------------------------------- Activity/ Settings  ------------------------------------- %
+
+\subsubsection{Activity\_Settings}
+
+\textbf{Uses}
+\begin{itemize}
+	\item NetworkCalls (Class)
+	\item AsyncResponse (Interface)
+\end{itemize}
+
+\textbf{onClickButtonResetCart(View v):void}
+Listener for the reset cart button. Resets the cart for the next guests.
+
+\textbf{processTableChangeResponse(int responseCode, String token):void}
+Processes the class specific changes based on the response from the server.
+
+\textbf{onCreate(Bundle savedInstanceState):void}
+Initialize this Activity(app menu) when created.
+
+% ------------------------------------- Activity/ Order Cart  ------------------------------------- %
+
+\subsubsection{Activity\_OrderCart}
+
+\textbf{Uses}
+\begin{itemize}
+	\item DrinkCartListAdapter (Class)
+	\item NetworkCalls (Class)
+	\item AsyncResponse (Interface)
+\end{itemize}
+
+\textbf{Public Functions}
+
+\textbf{processSendOrderResponse(int responseCode, int placeInLine):void}
+Processes the response of attempt to place an order with the server.
+
+\textbf{onClickSendOrder(View v):void}
+Listener for the send order button. Sends the current cart to the server.
+
+\textbf{onCreate(Bundle savedInstanceState):void}
+Initialize this Activity(app menu) when created.
+
+% ------------------------------------- Network Calls  ------------------------------------- %
+
+\subsubsection{NetworkCalls}
+
+\textbf{Uses}
+\begin{itemize}
+	\item AsyncResponse (Interface)
+\end{itemize}
+
+
+\textbf{Public Functions}
+
+\textbf{NetworkCalls(String api\_key)}
+Constructor for NetworkCalls. Takes the api key.
+
+\textbf{doInBackground(String[] strings):Object}
+Executes the HTTP request based on the api key provided.
+
+\textbf{onPostExecute(Object result):void}
+Processes the response after doInBackground is completed.
+
+\subsubsection{Interface AsyncResponse}
+\textbf{Uses} : None
+
+\textbf{Public Functions}
+
+\textbf{processFinish(int responseCode, Object x): void}
+Processes data in calling activity after NetworkCalls is completed execution.
+
+% ------------------------------------- Drinks View Adapter ------------------------------------- %
+
+\subsubsection{DrinksViewAdapter}
+
+\textbf{Uses}
+\begin{itemize}
+	\item Drink (Class)
+\end{itemize}
+
+\textbf{Public Functions}
+
+\textbf{DrinksViewAdapter(Context context, ArrayList<Drink> drinks)}
+Constructor for DrinksViewAdapter. Takes the context of this adapter and the list of drink info.
+
+\textbf{getCount():int}
+Returns the amount of items in the list of drinks.
+
+\textbf{getAllItems():ArrayList<Drink>}
+Returns the list of drink info.
+
+\textbf{getItem(int position):Object}
+Returns the item for the position id passed to it.
+
+\textbf{getView(int position, View v, ViewGroup parent):View}
+Returns the view for the position id passed to it. Takes the position id, current View, and ViewGroup.
+
+
+% ------------------------------------- Drink Cart List Adapter  ------------------------------------- %
+
+\subsubsection{DrinkCartListAdapter}
+
+\textbf{Uses} None
+
+\textbf{Public Functions}
+
+\textbf{DrinkCartListAdapter(Context context, ArrayList<String[]> currentCartInfo)}
+Constructor for DrinkCartListAdapter. Takes the context of this adapter and the current cart information.
+
+\textbf{getCount():int}
+Returns the amount of items in the cart.
+
+\textbf{getItem(int position):Object}
+Returns the item for the position id passed to it.
+
+\textbf{getView(int position, View v, ViewGroup parent):View}
+Returns the view for the position id passed to it. Takes the position id, current View, and ViewGroup.
+
+% --------------------------------------------------------------- MID -------------------------------------------------------------------- %
+
+\subsection{MID}
+
+% ------------------------------------- Drink  ------------------------------------- %
+
+\subsubsection{Drink}
+
+\textbf{Uses} : None
+
+\textbf{Internal Variables}
+\textbf{name: String} - Name of the drink
+
+\textbf{calories: int} - Number of calories in a serving of this drink
+
+\textbf{image: int} - id of the image of this drink
+
+\textbf{amount: int} - the amount of this drink currently selected by the user
+
+\textbf{Functions}
+
+\textbf{Drink(String name,int calories,int image,double price)}
+Constructor for Drink class. Takes the name, image, and price of the drink, and the amount of calories in a serving. Sets the internal variable values.
+
+\textbf{public setAmount(int amt):void}
+Sets the number of drinks of this type in the cart.
+
+\textbf{private setName(String name):void}
+Sets the name of the drink. Takes in the name of the drink.
+
+\textbf{private setCalories(int cals):void}
+Sets the amount of calories for the restaurant's serving size. Takes in amount of calories.
+
+\textbf{private setImage(int imgID):void}
+Sets the id number for the image of this drink type. Takes in an integer image id.
+
+\textbf{private setPrice(double price):void}
+Sets the price of this drink. Takes in the price of the drink.
+
+\textbf{public getName():String}
+Returns the name of the drink.
+
+\textbf{public getCalories():int}
+Returns the amount of calories for the restaurant's serving size.
+
+\textbf{public getImage():int}
+Returns the id number for the image of this drink type.
+
+\textbf{public getPrice():double}
+Returns the price of this drink.
+
+\textbf{public getAmount():int}
+Returns the amount of this drink currently in the cart.
+
+\textbf{public getPriceForAmount():double}
+Returns the total price of the amount of this drink.
+
+\subsubsection{DrinkOrder}
+\textbf{Uses} : None
+
+\textbf{Internal Variables}
+
+\textbf{order: item[]} - Array of drink items
+
+\textbf{Functions}
+
+\textbf{public DrinkOrder(ArrayList<String[]> rawCartData)}
+Constructor for DrinkOrder class. Takes the raw cart data for the currently selected drinks.
+
+% ------------------------------------- Activity/ Drink List------------------------------------- %
+
+\subsubsection{Activity\_DrinksList}
+
+\textbf{Uses}
+
+\begin{itemize}
+	\item DrinksViewAdapter (Class)
+	\item NetworkCalls (Class)
+	\item AsyncResponse (Interface)
+\end{itemize}
+
+\textbf{Internal Variables}
+\textbf{gv: GridView} - The view holding the list of drink items
+
+\textbf{Functions}
+
+\textbf{public onActivityResult(int requestCode, int responseCode, Intent data):void}
+Process the results of any activities launched by this activity.
+
+\textbf{public onClickViewCart(View v):void}
+Listener for the view cart button. Launches Activity\_OrderCart.
+
+\textbf{public processDrinksInfoResponse(int responseCode):void}
+Processes the response of the drink info retrieval from the server.
+
+\textbf{protected onCreate(Bundle savedInstanceState):void}
+Initialize this Activity(app menu) when created. Retrieve the drink info from the server and initialize each item in the gridview as a DrinksViewAdapter. 
+
+\textbf{private setUpCurrentCart():ArrayList<Drink>}
+Retrieves and returns the items stored in gv.
+
+% ------------------------------------- Activity/ Login ------------------------------------- %
+
+\subsubsection{Activity\_Login}
+
+\textbf{Uses}
+
+\begin{itemize}
+	\item NetworkCalls (Class)
+	\item AsyncResponse (Interface)
+\end{itemize}
+
+\textbf{Internal Variables} None
+
+\textbf{Functions}
+\textbf{public processLoginResponse(int responseCode):void}
+Processes class specific changes based on the log in attempt. If (responseCode == 200) then launch settings page. Else show alert.
+
+\textbf{public onClickButtonLogin(View v):void}
+Listener for the login button. Attempts to log in with filled in username and password. Executes a NetworkCall task with the correct api key passed.
+
+\textbf{protected onCreate(Bundle savedInstanceState):void}
+Initialize this Activity(app menu) when created.
+
+% ------------------------------------- Activity/ Settings ------------------------------------- %
+
+\subsubsection{Activity\_Settings}
+
+\textbf{Uses}
+\begin{itemize}
+	\item NetworkCalls (Class)
+	\item AsyncResponse (Interface)
+\end{itemize}
+
+\textbf{Internal Variables}
+\textbf{tableNum: int} - The table number associated with this device.
+
+\textbf{Functions}
+\textbf{public onClickButtonResetCart(View v):void}
+Listener for the reset cart button. Resets the cart for the next guests. Clears all cart information.
+
+\textbf{public processTableChangeResponse(int responseCode, String token):void}
+Processes the class specific changes based on the response from the server. If (responseCode == 200) then store the token and new tableNum. Else show alert and keep tableNum the same.
+
+\textbf{onCreate(Bundle savedInstanceState):void}
+Initialize this Activity(app menu) when created.
+
+% ------------------------------------- Activity/ Order Cart ------------------------------------- %
+
+\subsubsection{Activity\_OrderCart}
+
+\textbf{Uses}
+
+\begin{itemize}
+	\item DrinkCartListAdapter (Class)
+	\item NetworkCalls (Class)
+	\item AsyncResponse (Interface)
+\end{itemize}
+
+\textbf{Internal Variables}
+\textbf{currentCart: ArrayList<Drink>} - ArrayList of Drink objects representing the current cart selections.
+
+\textbf{rawCartData: ArrayList<String[]>} - ArrayList of String[] representing the current cart. This is data used for the DrinkCartListAdapter.
+
+\textbf{lv: ListView} - The view which contains and displays the cart items.
+
+\textbf{Functions}
+\textbf{public processSendOrderResponse(int responseCode, int placeInLine):void}
+Processes the response of attempt to place an order with the server.
+
+\textbf{public onClickSendOrder(View v):void}
+Listener for the send order button. Sends the current cart to the server.
+
+\textbf{protected onCreate(Bundle savedInstanceState):void}
+Initialize this Activity(app menu) when created.
+
+\textbf{private setUpRawCartData():void}
+Uses the information from the currentCart to set up an ArrayList<String[]>. Each item in the ArrayList is a String array consisting of [name, amount, price for amount]
+
+% ------------------------------------- Network Calls ------------------------------------- %
+
+\subsubsection{NetworkCalls}
+
+\textbf{Uses}
+\begin{itemize}
+	\item AsyncResponse (Interface)
+\end{itemize}
+\textbf{Internal Variables}
+
+\textbf{api\_key: String} - String representing the api being targeted. Used for conditionals.
+
+\begin{itemize}
+	\item "table\_token" - target (HOST)$\backslash$table?tableId=?
+	\item "placeOrder" - target (HOST)$\backslash$placeOrder?tableId=?
+	\item "login" - target (HOST)$\backslash$login
+\end{itemize}
+
+\textbf{Functions}
+
+\textbf{public NetworkCalls(String api\_key)}
+Constructor for NetworkCalls. Takes the api key.
+
+\textbf{public doInBackground(String[] strings):Object}
+Executes the HTTP request based on the api key provided.
+
+\textbf{public onPostExecute(Object result):void}
+Processes the response after doInBackground is completed.
+
+% ------------------------------------- Interface Async Response ------------------------------------- %
+
+\subsubsection{Interface AsyncResponse}
+
+\textbf{Uses}:None
+
+\textbf{Internal Variables} : None
+
+\textbf{Functions}
+
+\textbf{public processFinish(int responseCode, Object x): void}
+Processes data in calling activity after NetworkCalls is completed execution.
+
+% ------------------------------------- Drink View Adapter ------------------------------------- %
+
+\subsubsection{DrinksViewAdapter}
+
+\textbf{Uses}
+
+\begin{itemize}
+	\item Drink (Class)
+\end{itemize}
+
+\textbf{Internal Variables}
+
+\textbf{drinks: ArrayList<Drink>} - ArrayList of Drink objects representing the current cart selections.
+
+\textbf{Functions}
+
+\textbf{public DrinksViewAdapter(Context context, ArrayList<Drink> drinks)}
+Constructor for DrinksViewAdapter. Takes the context of this adapter and the list of drink info.
+
+\textbf{public getCount():int}
+Returns the amount of items in the list of drinks.
+
+\textbf{public getAllItems():ArrayList<Drink>}
+Returns the list of drink info.
+
+\textbf{public getItem(int position):Object}
+Returns the item for the position id passed to it.
+
+\textbf{public getView(int position, View v, ViewGroup parent):View}
+Returns the view for the position id passed to it. Takes the position id, current View, and ViewGroup.
+
+% ------------------------------------- Drink Cart List Adapter ------------------------------------- %
+
+\subsubsection{DrinkCartListAdapter}
+
+\textbf{Uses} None
+
+\textbf{Internal Variables}
+\textbf{currentCart: ArrayList<String[]>} - ArrayList of Drink objects representing the current cart selections.
+
+\textbf{Functions}
+\textbf{public DrinkCartListAdapter(Context context, ArrayList<String[]> currentCartInfo)}
+Constructor for DrinkCartListAdapter. Takes the context of this adapter and the current cart information.
+
+\textbf{public getCount():int}
+Returns the amount of items in the cart.
+
+\textbf{public getItem(int position):Object}
+Returns the item for the position id passed to it.
+
+\textbf{public getView(int position, View v, ViewGroup parent):View}
+Returns the view for the position id passed to it. Takes the position id, current View, and ViewGroup.
+
+
+\pagebreak
+
+
+% ------------------------------------------------------ MANAGER SYSTEM ----------------------------------------------------- %
+
+\section {Manager System}
+
+% ------------------------------------------------ Purpose --------------------------------------------- %
+
+\subsection{Purpose}
+The following will describe the component software design associated with Manager System. This will be carried out within web based tools to allow management to access there information anywhere.
+
+% ------------------------------------------------ Scope --------------------------------------------- %
+
+\subsection{Scope}
+
+The scope of this section is associated with any front end user interfaces that the management staff will use. This includes the MIS/MID and uses relation in regards to the Map Making Page, the Error Viewing page and the Login System. 
+
+% --------------------------------------- Module Decomposition ------------------------------------- %
+
+\subsection{Module Decomposition}
+
+\textbf{Manager Login Page}: Given the login credentials, will authenticate administrator of the system with the server. Secrets include how it goes about verifying with the server if the credentials are valid.
+\textbf{Manager Station Map Software Page}: Will allow administrator to create or modify the map of the area where Alfred will deliver drinks. This map will then be sent and stored on the server. The secrets of this module includes how the mapping system will translate user input into the map file
+\textbf{Manager Station Request Software Page}: Will allow administrator to execute commands for Alfred, as well as view incoming error codes from Alfred. Secrets include how the errors are decoded from the server.
+
+% ----------------------------------------------- Uses Relation ------------------------------------------- %
+
+\subsection{Uses Relation}
+
+\begin{figure} [h!]
+	\centering
+	\includegraphics [scale = 0.4] {figures/Manager_UsesDiagram.png}
+	\caption{Alfred Uses Relation Diagram}
+\end{figure}
+
+
+% ------------------------------------------------------- MIS ----------------------------------------------------- %
+
+\subsection{MIS}
+
+% ------------------------------------ Login Page ------------------------------------ %
+
+\subsubsection{Login Page}
+
+\textbf{Uses}
+\begin{itemize}
+	\item MapMaking (WebPage)
+	\item ErrorViewer (WebPage)
+\end{itemize}
+
+
+\pagebreak 
+
+
+\textbf{Public Functions}
+
+\textbf{gotoErrorsPage(): void}
+Navigates to the page associated with showing the Managers page for Errors with Alfred.
+
+\textbf{gotoMapMakingPage(): void}
+Navigates to the page associated with showing the Managers page for creating a resturant Map.
+
+\textbf{verifyUser(): void}
+Determines if the information that the user put into the form on the webpage is correct.
+
+% ------------------------------ Map Making Page ------------------------------- %
+
+\subsubsection{MapMaking Page}
+\textbf{Uses}
+None
+
+\textbf{Public Functions}
+
+\textbf{ Map(length:Int, width:Int): void}
+Constructor to object for page load
+
+\textbf{onLengthChange(int Length)}
+Sets the length of the map when the user changes it in the form. This is based on requirement AD1.
+
+\textbf{onWidthChange(int Width)}
+Sets the width of the map when the user changes it in the form.This is based on requirement AD1.
+
+\textbf{setSquare(X:Int, Y:Int, value:Int): void}
+Sets the value of the square based on its X,Y position when there is an on click event. This is based on requirement AD2.
+
+% ------------------------------------ Error View Page ------------------------------------ %
+
+\subsubsection{ErrorViewer Page}
+
+\textbf{Uses}
+None
+
+\textbf{Public Functions}
+
+\textbf{ showErrors(): void}
+Shows the Errors Associated to Alfred. Based on requirement NFR26.
+\textbf{onClickReturnHome()}
+Signals the Robot to return home. Based on requirement NFR11.
+
+
+% ------------------------------------------------------- MID ----------------------------------------------------- %
+
+\subsection{MID}
+
+% ------------------------------------  Login Page ------------------------------------ %
+
+\subsubsection{Login Page}
+
+\textbf{Uses}
+\begin{itemize}
+	\item MapMaking (WebPage)
+	\item ErrorViewer (WebPage)
+\end{itemize}
+
+
+\textbf{Internal Variables}
+
+\textbf{token: String} - Token for a session with the server.
+
+
+\textbf{Functions}
+
+\textbf{public gotoErrorsPage(): void}
+Navigates to the page associated with showing the Managers page for Errors with Alfred.
+
+\textbf{public gotoMapMakingPage(): void}
+Navigates to the page associated with showing the Managers page for creating a resturant Map.
+
+\textbf{public verifyUser(): void}
+Determines if the information that the user put into the form on the webpage is correct.
+
+% ------------------------------------ Map Making Page ------------------------------------ %
+
+\subsubsection{MapMaking Page}
+
+\textbf{Uses}
+None
+
+\textbf{Internal Variables}
+
+\textbf{length: Integer} - Length of the Map
+
+\textbf{width: Integer} - Width of the Map
+
+\textbf{MapData: String[][]}- Storage of the map values
+
+\textbf{Public Functions}
+
+\textbf{public Map(length:Int, width:Int): void}
+
+Constructor to object for page load
+
+\textbf{public onLengthChange(int Length)}
+
+Sets the length of the map when the user changes it in the form.
+
+\textbf{public onWidthChange(int Width)}
+
+Sets the width of the map when the user changes it in the form.
+
+\textbf{setSquare(X:Int, Y:Int, value:Int): void}
+
+Sets the value of the square based on its X,Y position when there is an on click event. The Values corresponds to: 
+ 
+\begin{itemize}
+	\item 0: Free to move
+	\item 1: Path is blocked
+	\item 2: Table
+	\item 3: Base
+\end{itemize}
+
+% ------------------------------------ Error View Page ------------------------------------ %
+
+\subsubsection{ErrorViewer Page}
+\textbf{Uses}
+None
+
+\textbf{Public Functions}
+
+\textbf{ showErrors(): void}
+Shows the Errors Associated to Alfred. where the Errors are in the following format
+\begin{itemize}
+	\item LowLiquid: 0x00000001
+	\item LeakingTank: 0x00000010
+	\item LowBattery: 0x00000100
+	\item NoMovement: 0x00001000
+\end{itemize}
+
+\textbf{onClickReturnHome()}
+Signals the Robot to return home.
+
+% ------------------------------------------------------- ALFRED SYSTEM ----------------------------------------------------- %
+
+
+\section {Alfred System}
+
+% ------------------------------------------------ Purpose ----------------------------------------------- %
+
+\subsection{Purpose}
+The following will describe the component software, mechanical and electrical design associated with Alfred's Manager System, Alfred's Drivetrain and Alfred's Image Processing system. These three systems will be ran on the Raspberry Pi. 
+
+% ----------------------------------------------- Scope ------------------------------------------------- %
+
+\subsection{Scope}
+
+The scope of this section is associated with Alfred's Manager System, Alfred's Drivetrain and Alfred's Image Processing system. The software documentation will provide the MIS and MID, uses relations to describe how the system will be designed to preform its function of being able to drive to a specific location. The mechanical and electrical design will focus on the aspects to provide motion and navigation.
+
+% ---------------------------------- Module Decomposition -------------------------------------- %
+
+\subsection{Module Decomposition}
+
+\textbf{Alfred Manager Module}: Endpoint for communication with Alfred. Will manage communication with server, as well as send any errors that Alfred is experiencing. Secrets include Parsing of messages from the server and the pumping system. 
+\textbf{Alfred Drive Train Module}: Responsible for driving and managing the motors based on desired route. Will also be sending errors preventing movement to Alfred Manager Module. Secrets include how the robot will preform navigation based on the map, how the robot will control and drive the robot and the inputs from the image processing module.
+\textbf{Image Processing Module}: Will detect any obstacles in the way as well as locate incoming nodes. Will communicate with Alfred Drive Train Module, to determine whether any required action based on results. Secretes include how the image processing will be carried out
+
+% ------------------------------------------ Uses Relation -------------------------------------- %
+
+\subsection{Uses Relation}
+\begin{figure} [h!]
+	\centering
+	\includegraphics [scale = 0.38] {figures/Alfred_UsesDiagram.png}
+	\caption{Alfred Uses Relation Diagram}
+\end{figure}
+
+% ------------------------------------------------------- MIS ----------------------------------------------------- %
+
+\subsection{MIS}
+
+% ------------------------ Alfred Manager Class ------------------------------ %
+
+\subsubsection{Alfred Manager Class}
+
+\textbf{Uses}
+\begin{itemize}
+	\item Communication (Static Class)
+	\item State (Enum)
+	\item Drivetrain (Class)
+	\item Order (Class)
+\end{itemize}
+
+\textbf{Public Functions}
+
+\textbf{determineState(): void}
+
+Determines the overall state of Alfred based on the inputs to Alfred. 
+
+\textbf{performAction(): void}
+
+Will preform the desired state based on the state of Alfred.
+
+% ------------------------ Order Class ------------------------------ %
+
+\subsubsection{Order Class}
+\textbf{Uses}
+\begin{itemize}
+	\item Drink (Enum)
+\end{itemize}
+
+\textbf{Public Functions}
+
+\textbf{getDrinks()}
+
+Drink[] - Returns the list of drinks. Based on requirement AF1.
+
+\textbf{getTableNumber}
+
+ Integer - Returns the table number reference. Based on requirement AF3.
+
+\textbf{getTableCoords}
+
+ Integer[] - Returns the coordinates to the table. Based on requirement AF3.
+
+% ------------------------ Drivetrain Class ------------------------------ %
+
+\subsubsection{Drivetrain Class}
+\textbf{Uses}
+\begin{itemize}
+	\item Order (Class)
+	\item ImageProcessing (Class)
+	\item Drive\_State (Enum)
+	\item ErrorCodes (Enum)
+	\item Circle (Class)
+	\item Graph (Class)
+	\item Node (Class)
+	\item PI (Class)
+\end{itemize}
+
+\textbf{Public Functions}
+\textbf{driveToTable(Order): Integer}
+This function will preform the driving operation in order to navigate towards the specific table. Based on requirement AF3.
+
+% ------------------------ Communication Static Class ------------------------------ %
+
+\subsubsection{Communication Static Class}
+\textbf{Uses}
+
+None 
+
+\textbf{Public Functions}
+
+\textbf{getResturantMap(): String}
+
+Retrieves and stores the map to be used for navigation. Returns the path of the map. Based on requirement AF3.
+
+\textbf{getTableOrder(): Order}
+
+Retrieves and returns the Table's Order. Based on requirement AF3.
+
+\textbf{sendErrors(errors: Integer)}
+
+Sends an integer with the described set of integers. Based on requirement NFR26.
+
+\textbf{transferPump(Order): Integer}
+
+Preforms communication with the pumping system. Sends the Order data and receives the errors from the pumping system and if it complete. Based on requirement AF1.
+
+% ------------------------ Graph Class ------------------------------ %
+
+\subsubsection{Graph Class}
+\textbf{Uses}
+\begin{itemize}
+	\item Node (Class)
+\end{itemize}
+
+\textbf{Public Functions}
+
+\textbf{Graph(String Filename)}
+
+Constructor to create a graph object. Builds the graph based on the path to the map. Based on requirement AF3.
+
+\textbf{getShortestPath(): Node[]}
+
+Returns a list of nodes that describes the shortest way to get to the destination. 
+
+% ------------------------ Node Class ------------------------------ %
+
+\subsubsection{Node Class}
+\textbf{Uses}
+None 
+
+\textbf{Public Functions}
+
+\textbf{Node(Int X, Int Y)}
+
+Constructor to the node class, takes in the position of the point along the X Y plane.
+
+\textbf{getX(): integer}
+
+
+Returns the x coordinate of the node
+
+\textbf{getY(): integer}
+
+Returns the y coordinate of the node
+
+% ------------------------ PI Class ------------------------------ %
+
+\subsubsection{PI Class}
+\textbf{Uses}
+None 
+
+\textbf{Public Functions}
+
+\textbf{PI(Ki: Float, Kp: Float)}
+
+Constructor for the PI controller object taking in the Ki and Kp terms
+
+\textbf{regulate(Int ref, Int feedback)}
+
+Based on the reference to control to and the feedback, will determine the value to set the outputs too.  Based on requirement AF3 to allow regulated movement to the location.
+
+% ------------------------ Image Processing Static Class ------------------------------ %
+
+\subsubsection{Imaging Processing Static Class}
+\textbf{Uses}
+\begin{itemize}
+	\item Circle (Class)
+\end{itemize}
+
+\textbf{Public Functions}
+
+\textbf{getCirclePositions(): Circle[]}
+
+Gives a list of circles that were within the view of the camera
+
+% ------------------------ Circle Class ------------------------------ %
+
+\subsubsection{Circle Class}
+
+\textbf{Uses}
+None
+
+\textbf{Public Functions}
+
+\textbf{Circle(radius, x, y)}
+
+Constructor of the circle class, takes in initial radius, x and y values. Based on requirement AF3 to allow regulated movement to the location.
+
+\textbf{getX(): Float}
+
+Gives the X position of the circle relative to the image
+
+\textbf{getY(): Float}
+
+Gives the Y position of the circle relative to the image
+
+\textbf{getRadius(): Float}
+
+Gives the radius of the circle
+
+\textbf{setX(X:Float)}
+
+Sets the X position of the circle.
+
+\textbf{setY(Y:Float)}
+
+Sets the Y position of the circle.
+
+\textbf{setRadius(rad : Float)}
+
+Sets the radius of the circle
+
+
+% ------------------------------------------------------- MID ----------------------------------------------------- %
+
+\subsection{MID}
+
+% ------------------------ Alfred Manager Class ------------------------------ %
+
+\subsubsection{Alfred Manager Class}
+
+\textbf{Uses}
+\begin{itemize}
+	\item Communication (Static Class)
+	\item State (Enum)
+	\item Drivetrain (Class)
+	\item Order (Class)
+\end{itemize}
+
+\textbf{Internal Variables}
+
+\textbf{mapPath: String} - The absolute path to the map directory
+
+\textbf{drivetrain: DriveTrain} - An object encapsulates information in regards to the drivetrain
+
+\textbf{currentState: State} - Holds the information in regards to which action will be preformed by Alfred
+
+
+\textbf{Functions}
+
+\textbf{public determineState(): void}
+
+Determines the overall state of Alfred based on the inputs to Alfred based on the following tabular expression:
+\begin{figure} [h!]
+	\centering
+	\includegraphics [scale = 0.4] {figures/AlfredSystem_DetermineState.png}
+\end{figure}
+
+
+\textbf{public performAction(): void}
+
+Will preform the desired state based on the state of Alfred based on the following table:
+\begin{figure} [h!]
+	\centering
+	\includegraphics [scale = 0.4] {figures/AlfredSystem_PerformAction.png}
+\end{figure}
+\subsubsection{Order Class}
+\textbf{Uses}
+\begin{itemize}
+	\item Drink (Enum)
+\end{itemize}
+
+
+\textbf{Internal Variables}
+
+\textbf{tableNum: Integer} - the reference to the table
+
+\textbf{drinks: Drink[]} - List of drinks for the user's table
+
+\textbf{tableMap: Hashmap<Int>} -  Map that takes in a table reference number and returns its X,Y Coord
+
+\textbf{tablePath: String} - gives the path of the table for the hashmap 
+
+\textbf{Functions}
+
+\textbf{public getDrinks(): Drink[]}
+
+Returns the list of drinks
+
+\textbf{public getTableNumber: Integer}
+
+Returns the table number reference
+
+\textbf{public getTableCoords: Integer[]}
+
+Returns the coordinates to the table from the Hashmap of table numbers
+
+
+% ------------------------ Drivetrain Class ------------------------------ %
+
+\subsubsection{Drivetrain Class}
+\textbf{Uses}
+\begin{itemize}
+	\item Order (Class)
+	\item ImageProcessing (Class)
+	\item Drive\_State (Enum)
+	\item ErrorCodes (Enum)
+	\item Circle (Class)
+	\item Graph (Class)
+	\item Node (Class)
+	\item PI (Class)
+\end{itemize}
+
+
+\textbf{Internal Variables}
+\textbf{mapPath: String} - The absolute path to the map directory
+
+\textbf{tableorder: Order} - The order from the next table.
+
+\textbf{ultraSonicPins: Int[]} - The pins dedicated for the ultrasonic sensors
+
+\textbf{hBridgePins: Int[]} - The pins dedicated for the H-bridge
+
+\textbf{graph: Graph} - Object to the graph object to find the shortest path
+
+\textbf{piControllerLeft: PI} - Object used for PI control for the left side of the drivetrain
+
+\textbf{piControllerRight: PI} - Object used for PI control for the left side of the drivetrain
+
+\textbf{Functions}
+
+\textbf{public driveToTable(Order): Integer}
+
+This function will preform the driving operation in order to navigate towards the specific table.
+
+\textbf{private turn(degree: Integer): void}
+
+This function will turn relative to its current position the amount desired within the argument. The robot will use the references of the circles to help with alignment by knowing that every node is 90 degrees from one another.
+
+\textbf{private driveForward(void): void}
+
+This function will control the robot to move forward provided: $ \forall front ultrasonic sensors: d_{ultrasonic} > d_{min} $. This motion will use the PI regulators to provide motion at human speed and will continue until a the next circle is within the middle of the camera.
+
+\textbf{private pathwayClear (void): boolean}
+
+This function will determine if robot to move forward provided: $ \forall front ultrasonic sensors: d_{ultrasonic} > d_{min} $. 
+
+\subsubsection{Communication Static Class}
+\textbf{Uses}
+None 
+\textbf{Internal Variables}
+
+None 
+
+\textbf{Functions}
+
+\textbf{getResturantMap(): String}
+
+Retrieves the map file based off of an FTP protocol and stores the map to be used for navigation. Returns the path of the map.
+
+\textbf{getTableOrder(): Order}
+
+Retrieves and returns the Table's Order.
+
+\textbf{sendErrors(errors: Integer)}
+
+ Sends an integer with the described set of integers. 
+ 
+\textbf{transferPump(Order): Integer}
+
+ Performs communication with the pumping system using UART communication. The first 32 bits are the error code of the pumping system and the last bit is the status of the pumping system. Sends the Order data and receives the errors from the pumping system.
+
+% ------------------------ Graph Class ------------------------------ %
+
+\subsubsection{Graph Class}
+\textbf{Uses}
+\begin{itemize}
+	\item Node (Class)
+\end{itemize}
+
+\textbf{Internal Variables}
+None 
+
+\textbf{Functions}
+
+\textbf{Graph(String Filename)}
+
+Constructor to create a graph object. Builds the graph based on the path to the map
+
+\textbf{getShortestPath(): Node[]}
+
+Returns a list of nodes that describes the shortest way to get to the destination.  The shortest path will be preformed using the map and Dijkstra's algorithm.
+
+% ------------------------ Node Class ------------------------------ %
+
+\subsubsection{Node Class}
+
+\textbf{Uses}
+None 
+
+\textbf{Public Functions}
+
+\textbf{Node(Int X, Int Y)}
+
+Constructor to the node class, takes in the position of the point along the X Y plane.
+
+\textbf{getX(): integer}
+
+Returns the x coordinate of the node.
+
+\textbf{getY(): integer}
+
+Returns the y coordinate of the node.
+
+\textbf{Internal Variables}
+
+\textbf{x: Integer} - The x coordinate of the node
+
+\textbf{y: Integer} - The y coordinate of the node
+
+\textbf{Functions}
+
+\textbf{public Node(Int X, Int Y)}
+
+Constructor to the node class, takes in the position of the point along the X Y plane.
+
+\textbf{public getX(): integer}
+
+Returns the x coordinate of the node
+
+\textbf{public getY(): integer}
+
+Returns the y coordinate of the node
+
+% ------------------------ PI Class ------------------------------ %
+
+\subsubsection{PI Class}
+\textbf{Uses}
+None 
+\textbf{Internal Variables}
+\textbf{Ki: Float} - Integral temp for the PI controller
+\textbf{Kp: Float} - The y coordinate of the node.
+
+\textbf{Functions}
+
+\textbf{public PI(Ki: Float, Kp: Float)}
+
+Constructor for the PI controller object taking in the Ki and Kp terms
+
+\textbf{public regulate(Int ref, Int feedback)}
+
+Based on the reference to control to and the feedback, will determine the value to set the outputs too. Determines the output based along the following formula: $ out = Kp*error+Ki*\int_{0}^{t}(error)dt$. Note that the derivative term is not used due to the error associated with derivatives within computing systems.
+
+% ------------------------ Image Processing Class ------------------------------ %
+
+\subsubsection{Imaging Processing Static Class}
+
+\textbf{Uses}
+\begin{itemize}
+	\item Circle (Class)
+	\item Open CV (External Library)
+\end{itemize}
+
+\textbf{Internal Variables}
+None
+
+\textbf{Functions}
+
+\textbf{Public getCirclePositions(): Circle[]}
+
+Gives a list of circles that were within the view of the camera. Open CV returns a list of objects which can then be checked to see if they are black circles.
+
+% ------------------------ Circle Class ------------------------------ %
+
+\subsubsection{Circle Class}
+
+\textbf{Uses}
+None
+\textbf{Internal Variables}
+
+\textbf{rad: Float} - The radius of the circle
+
+\textbf{x: Integer} - The X position of the circle relative to the image
+
+\textbf{y: Integer} - The Y position of the circle relative to the image 
+
+\textbf{Functions}
+
+\textbf{Circle(radius, x, y)}
+
+Constructor of the circle class, takes in initial radius, x and y values
+
+\textbf{getX(): Float}
+
+Gives the X position of the circle relative to the image
+
+\textbf{getY(): Float}
+
+Gives the Y position of the circle relative to the image
+
+\textbf{getRadius(): Float}
+
+Gives the radius of the circle
+
+\textbf{setX(X:Float)}
+
+Sets the X position of the circle.
+
+\textbf{setY(Y:Float)}
+
+Sets the Y position of the circle.
+
+\textbf{setRadius(rad : Float)}
+
+Sets the radius of the circle.
+
+% ------------------------ Raspberry Pi Pin Information ------------------------------ %
+
+\subsubsection{Raspberry Pi Pin Information}
+\resizebox{\textwidth}{!}{%
+	\begin{tabular}{|l|l|l|l|l|}
+		\hline
+		From                      & PIN \# (physical) & GPIO \# (BCM) & To                                     & Comments                                                                                                                                                                         \\ \hline
+		Raspberry Pi GND GPIO     & 6                 & -             & H-Bridge GND                           & Ground for Motor controller                                                                                                                                                      \\ \hline
+		Raspberry Pi 5V GPIO      & 4                 & -             & H-Bridge PWR                           & \begin{tabular}[c]{@{}l@{}}5V supply to H-bridge\\   ***can utilize the 5v pin of the ultrasonic sensors instead of a new pin\end{tabular}                                       \\ \hline
+		Raspberry Pi GPIO         & 12                & 18            & H-Bridge DIR 1                         & Direction of motor 1                                                                                                                                                             \\ \hline
+		Raspberry Pi GPIO         & 16                & 23            & H-Bridge PWM 1                         & PWM of motor 1                                                                                                                                                                   \\ \hline
+		Raspberry Pi GPIO         & 18                & 24            & H-Bridge DIR 2                         & Direction of motor 2                                                                                                                                                             \\ \hline
+		Raspberry Pi GPIO         & 22                & 25            & H-Bridge PWM 2                         & PWM of motor 2                                                                                                                                                                   \\ \hline
+		Raspberry Pi GND GPIO     & 14                & -             & Ultra sonic sensors GND                & \begin{tabular}[c]{@{}l@{}}Ground for all ultra sonic sensors\\   ***can utilize GND from H-Bridge GND pin\end{tabular}                                                          \\ \hline
+		Raspberry Pi 5V GPIO      & 2                 & -             & Ultra sonic sensors VCC                & \begin{tabular}[c]{@{}l@{}}5V supply for all ultrasonic sensors, connected parallel\\   ***can utilize the 5v pin of the H-bridge supply instead of using a new pin\end{tabular} \\ \hline
+		Raspberry Pi GPIO         & 24                & 8             & Ultra sonic sensor \#1 TRIG            & Send trigger signal                                                                                                                                                              \\ \hline
+		Raspberry Pi GPIO         & 26                & 7             & Ultra sonic sensor \#1 ECHO            &                                                                                                                                                                                  \\ \hline
+		Raspberry Pi GPIO         & 3                 & 2             & Ultra sonic sensor \#2 TRIG            & Send trigger signal                                                                                                                                                              \\ \hline
+		Raspberry Pi GPIO         & 5                 & 3             & Ultra sonic sensor \#2 ECHO            &                                                                                                                                                                                  \\ \hline
+		Raspberry Pi GPIO         & 7                 & 4             & Ultra sonic sensor \#3 TRIG            & Send trigger signal                                                                                                                                                              \\ \hline
+		Raspberry Pi GPIO         & 11                & 17            & Ultra sonic sensor \#3 ECHO            &                                                                                                                                                                                  \\ \hline
+		Raspberry Pi GND GPIO     & 20                & -             & Encoders GND                           & \begin{tabular}[c]{@{}l@{}}Shared between encoders \\   ***can utilize ultra sonic sensors' GND or H-Bridge GND instead of taking new\\   pin\end{tabular}                       \\ \hline
+		Raspberry Pi 3.3V GPIO    & 1                 & -             & Encoders VCC                           & \begin{tabular}[c]{@{}l@{}}Shared between encoders in parallel\\   ***can utilize 5V from either H-Bridge pin or ultra sonic sensors' pin\\   instead of 3.3v\end{tabular}       \\ \hline
+		Raspberry Pi GPIO         & 13                & 27            & Encoder \#1 DT                         &                                                                                                                                                                                  \\ \hline
+		Raspberry Pi GPIO         & 15                & 22            & Encoder \#1 CLK                        &                                                                                                                                                                                  \\ \hline
+		Raspberry Pi GPIO         & 19                & 10            & Encoder \#2 DT                         &                                                                                                                                                                                  \\ \hline
+		Raspberry Pi GPIO         & 21                & 9             & Encoder \#2 CLK                        &                                                                                                                                                                                  \\ \hline
+		Raspberry Pi GPIO         & 8                 & 14            & Arduino                                & Communication between Arduino and Pi                                                                                                                                             \\ \hline
+		Raspberry Pi GPIO         & 10                & 15            & Arduino                                & Communication between Arduino and Pi                                                                                                                                             \\ \hline
+		36V Positive terminal     & -                 & -             & H-Bridge power                         & Power supply to motors                                                                                                                                                           \\ \hline
+		36V Negative terminal     & -                 & -             & H-Bridge ground                        & Motor ground                                                                                                                                                                     \\ \hline
+		Motor 1 positive terminal & -                 & -             & H-Bridge Motor 1 +                     & Positive connection to controller                                                                                                                                                \\ \hline
+		Motor 1 negative terminal & -                 & -             & H-Bridge Motor 1 -                     & Negative connection to controller                                                                                                                                                \\ \hline
+		Motor 2 positive terminal & -                 & -             & H-Bridge Motor 2 +                     & Positive connection to controller                                                                                                                                                \\ \hline
+		Motor 2 negative terminal & -                 & -             & H-Bridge Motor 2 -                     & Negative connection to controller                                                                                                                                                \\ \hline
+		Pi Camera bus terminals   & -                 & -             & Raspberry Pi camera bus terminal input & Communication between the pi camera and the raspberry pi                                                                                                                         \\ \hline
+	\end{tabular}%
+}
+
+
+% ------------------------------------------------------- PUMPING SYSTEM ----------------------------------------------------- %
+
+
+\section {Pumping System}
+
+
+% ---------------------------------------------- Purpose --------------------------------------------- %
+
+\subsection{Purpose}
+The following will describe the component software, mechanical and electrical design associated with Alfred's Pumping System, Alfred's Drivetrain and Alfred's Image Processing system. This system will be ran on the Arduino Mega.
+
+% ---------------------------------------------- Scope --------------------------------------------- %
+
+\subsection{Scope}
+The scope of this section is associated with Alfred's Pumping System. The software documentation will provide the MIS and MID, uses relations to describe how the system will be designed to preform its function of being able to communicate to the raspberry pi and pump drinks. The mechanical and electrical design will focus on the different pumps/sensors that will be associated with the pumping system.
+
+% ---------------------------------- Module Decomposition  ----------------------------------- %
+
+\subsection{Module Decomposition}
+
+\textbf{Alfred Pumping Module}: Will control pumping system in regards of when to pour, how long and rate of dispensing. Will communicate to the raspberry pi errors pertaining to the pump or container to Alfred Manager Module. secrets include how the system preforms the dispensing of drinks and determination of errors.
+
+% ------------------------------------------ Uses Relation ----------------------------------------- %
+
+\subsection{Uses Relation}
+\begin{figure} [h!]
+	\centering
+	\includegraphics [scale = 0.4] {figures/Pumping_UsesDiagram.png}
+	\caption{Uses Relation Diagram for the pumping system}
+\end{figure}
+
+% -------------------------------------------------------- MIS ----------------------------------------------------- %
+
+\subsection{MIS}
+
+% ------------------------------- Main Class ---------------------------------- %
+
+\subsubsection{Main Class}
+
+\textbf{Uses}
+\begin{itemize}
+	\item Order (Class)
+	\item Drink (Enum)
+	\item Pump (Class)
+	\item Pump\_State (Enum)
+	\item Communication (Class)
+\end{itemize}
+
+\textbf{Internal Variables}
+None
+
+\textbf{Functions}
+
+\textbf{public setup(): void}
+
+Setup function for Arduino that initializes the pins that will be used 
+
+\textbf{publicloop(): void}
+
+Main loop that will preform the main logic of the pumping system
+
+\textbf{public determineState(): void}
+
+Based on the previous state of the pumping machine will look at factors such as weight of the liquid, need for communication and errors to determine the next state.
+
+\textbf{public performAction(): void}
+
+Based on the state of the device it will:
+\begin{itemize}
+	
+	\item Pumping\_On: Turn on the voltage for the pump
+	\item Pumping\_Off: Turn off the voltage for the pump
+	
+	\item Wait\_Request: Will Sleep for a specific amount of time before checking again
+	\item Transfer: Preform transferring via UART
+	\item Pumping\_Error: Perform No Action, and ensure all pumping devices are off
+\end{itemize}
+
+
+% ------------------------------- Class Pump ---------------------------------- %
+
+\subsubsection{Class Pump}
+
+\textbf{Uses}
+
+\begin{itemize}
+	\item DrinkCals
+\end{itemize}
+
+
+\textbf{public Functions}
+
+\textbf{Pump():void}
+
+Initializes the values of the pumping module.
+
+\textbf{pumpLiquid(Drink): Integer}
+
+Turns on the pump for the specific drink type. Based on requirement AF1.
+
+\textbf{stopPump(Drink): Integer}
+
+Turns off the pump for the specific drink type. Based on requirement AF5.
+
+\textbf{isComplete(): Boolean}
+
+Determines if the drink has been completely filled or not based. Based on requirement AF5.
+
+
+\textbf{isLeaking(): Boolean}
+
+Determines if the containers are losing fluid when there is no pumping. Based on requirement NFR22.
+
+\textbf{isSafeTempature()}
+
+Determines if the containers are still storing the liquids are at a safe temperature. Based on requirement AF6.
+
+% ------------------------------- Communication Class ---------------------------------- %
+
+\subsubsection{Communication Class}
+
+\textbf{Uses}
+
+\begin{itemize}
+	\item DrinkCals
+\end{itemize}
+
+\textbf{Internal Values}
+None
+
+\textbf{Functions}
+
+\textbf{transferData(Integer): Order}
+
+Communication performed used  where Orders are received and errors are transferred with the Manager system.
+
+% -------------------------------------------------------- MID ----------------------------------------------------- %
+
+\subsection{MID}
+
+% ------------------------------- Main Class ---------------------------------- %
+
+\subsubsection{Main Class}
+
+\textbf{Uses}
+\begin{itemize}
+	\item Order (Class)
+	\item Drink (Enum)
+	\item Pump (Class)
+	\item Pump\_State (Enum)
+	\item Communication (Class)
+\end{itemize}
+
+\textbf{Internal Variables}
+
+ None
+
+\textbf{Functions}
+
+\textbf{public setup(): void}
+
+Setup function for Arduino that initializes the pins that will be used 
+
+\textbf{public loop(): void}
+
+Main loop that will preform the main logic of the pumping system
+
+\textbf{public determineState(): void}
+
+Based on the previous state of the pumping machine will look at factors such as weight of the liquid, need for communication and errors to determine the next state. Which state is summarized in the following table:
+\begin{figure} [h!]
+	\centering
+	\includegraphics [scale = 0.45] {figures/Pumping_DetermineState.png}
+\end{figure}
+
+\textbf{public performAction(): void}
+
+Based on the state of the the pumping system, will preform the following actions:
+\begin{figure} [h!]
+	\centering
+	\includegraphics [scale = 0.45] {figures/Pumping_PerformActions.png}
+\end{figure}
+
+% ------------------------------- Pump Class ---------------------------------- %
+
+\subsubsection{Pump Class}
+
+\textbf{Uses}
+
+\begin{itemize}
+	\item DrinkCals
+\end{itemize}
+
+\textbf{Internal Values}
+
+\textbf{DrinkCals coke}: Structure holding the calibrations related to Coke products
+
+\textbf{DrinkCals water}: Structure holding the calibrations related to Water
+
+\textbf{Functions}
+
+\textbf{public Pump():void}
+
+Initializes the values of the pumping module.
+
+\textbf{public pumpLiquid(Drink): Integer}
+
+Turns on the pump for the specific drink type.
+
+\textbf{public stopPump(Drink): Integer}
+
+Turns off the pump for the specific drink type.
+
+\textbf{public isComplete(): Boolean}
+
+Determines if the drink has been completely filled or not based on the following equation:
+$Filled := M_min < M_cup$
+
+\textbf{public isLeaking(): Boolean}
+
+Determines if the containers are losing fluid when there is no pumping based on the following equation:
+$Leaking := [M_minleak < (M_container1 - M_container_prev1) \wedge Pin7 ==0] \vee [M_minleak < (M_container2 - M_container_prev2) \wedge Pin8 ==0] $
+
+\textbf{public isSafeTempature()}
+
+Determines if the containers are still storing the liquids at a temperature greater then the minimum temperature for the liquids based off of the following equations.
+$OverTempature := (T_container1 < T_min) \vee (T_container2 < T_min)$ 
+
+% ------------------------------- Communication Class ---------------------------------- %
+
+\subsubsection{Communication Class}
+
+\textbf{Uses}
+
+\begin{itemize}
+	\item DrinkCals
+\end{itemize}
+
+\textbf{Internal Values}
+ None
+
+\textbf{Functions}
+
+\textbf{transferData(Integer): Order}
+
+Communication performed used using UART where Orders are received and errors are transferred. The first 32 bits will be the errors associated with the pumping system and the last bit will be if the robot is done.
+
+
+
+% ------------------------------------------------------- SERVER ----------------------------------------------------- %
+
+\section {Server}
+
+% ---------------------------------------------- Purpose --------------------------------------------- %
+
+\subsection{Purpose}
+The following will describe the component software design associated with the server. This system will be run on an external RHEL server.
+
+% ---------------------------------------------- Scope --------------------------------------------- %
+
+\subsection{Scope}
+The scope of this section is associated with the REST API server that will be responsible for the communication within the system. The software documentation will provide the MIS and MID, uses relations to describe how the system will be designed to perform its function of being able to route communication between difference modules in the system.
+
+% ---------------------------------- Module Decomposition --------------------------------- %
+
+\subsection{Module Decomposition}
+\textbf{Serer Module}: Will have different REST API endpoints available to be able to "perform actions" in different parts of the system, as well as route data.
+
+% ----------------------------------- Uses Relation ------------------------------------- %
+
+\pagebreak
+
+\subsection{Uses Relation}
+\begin{figure} [h!]
+	\centering
+	\includegraphics [scale = 0.55] {figures/server_class_diagram.PNG}
+	\caption{Alfred Uses Relation Diagram}
+\end{figure}
+
+% -------------------------------------------------------- MIS ----------------------------------------------------- %
+
+\subsection{MIS}
+
+% ------------------------------- Server ---------------------------------- %
+
+\subsubsection{server}
+\textbf{Uses}
+\begin{itemize}
+	\item order (Class)
+	\item types (Enum)
+	\item verification (Class)
+	\item helper (Class)
+	\item queue (Class)
+	\item robot\_auth (Class)
+	\item basic\_auth (Class)
+	\item table\_mgmt (Class)
+	\item http (External Class)
+	\item url (External Class)
+	\item fs (External Class)
+	\item locks (External Class)
+\end{itemize}
+
+\textbf{Public Functions}
+\textbf{main(): void}
+Running the server, intercepting REST API requests and taking required action.
+
+% ------------------------------- Queue ---------------------------------- %
+
+\subsubsection{queue}
+\textbf{Uses}
+\begin{itemize}
+	\item locks (External Class)
+	\item helper (Class)
+\end{itemize}
+
+\textbf{Public Functions}
+\textbf{Queue(): void}
+Constructor function that creates a new empty queue.
+
+\textbf{push(data, cb): void}
+Push new order information into the queue and callback function with the place in line.
+
+\textbf{pop(cb): void}
+Pops the first element from the queue.
+
+\textbf{size(): int}
+calls the callback function with the current size of the queue.
+
+\textbf{search(order\_id, cb): void}
+Searches the queue and calls callback function with the place in line for the order specified by the order\_id.
+
+\textbf{delete(order\_id, cb): void}
+Searches the queue for order identified by given order\_id and removes it from the queue.
+
+% ------------------------------- helper ---------------------------------- %
+
+\subsubsection{helper}
+\textbf{Uses}
+None
+
+\textbf{Public Functions}
+\textbf{binSearch(list, element): int}
+Binary search algorithm to find an element and return its position. If element not found, returns -1.
+
+\textbf{caseInsensitiveKey(obj, key): obj[i]}
+Extracts information from a JSON object for a given key. Comparison between the key and the JSON object's keys are case insensitive.
+
+% ------------------------------- basic/ auth ---------------------------------- %
+
+\subsubsection{basic\_auth}
+\textbf{Uses}
+\begin{itemize}
+	\item fs (External Class)
+	\item locks (External Class)
+	\item util (External Class)
+	\item crypto (External Class)
+\end{itemize}
+
+\textbf{Public Functions}
+\textbf{BasicAuthManager(): void}
+Constructor function to create the object.
+
+\textbf{checkAuth(uName, pw, cb): void}
+Will check the validity of the username and password given as parameters, and will call the callback function with a boolean of whether username/password combination is valid.
+
+\textbf{update(uName, pw, cb): void}
+Will update the stored username and password combination, with the given ones.
+
+% ------------------------------- robot/ auth ---------------------------------- %
+
+\subsubsection{robot\_auth}
+\textbf{Uses}
+\begin{itemize}
+	\item locks (External Class)
+	\item rand-token (External Class)
+	\item unirest (External Class)
+\end{itemize}
+
+\textbf{Public Functions}
+\textbf{TokenGen(): void}
+Constructor function to create the object with new token.
+
+\textbf{refresh(cb): void}
+Updates current token.
+
+\textbf{checkToken(token, cb): void}
+Check that the given token in the parameters matches the token stored in the object, and calls the callback function with boolean result.
+
+\textbf{sendToken(host): void}
+Will send current token to the 'host' given in the parameters.
+
+% ------------------------------- verification ---------------------------------- %
+
+\subsubsection{verification}
+\textbf{Uses}
+\begin{itemize}
+	\item helper (Class)
+	\item types (Enum)
+\end{itemize}
+
+\textbf{Public Functions}
+\textbf{checkData(data, orderObj, table\_id, cb): void}
+Verify that the order information in the HTTP request has all necessary information and is in the correct format. Information required includes drink types, sizes, and quantities. Then calls callback function with error, if one exists.
+
+% ------------------------------- table management ---------------------------------- %
+
+\subsubsection{table\_mgmt}
+\textbf{Uses}
+\begin{itemize}
+	\item locks (External Class)
+	\item rand-token (External Class)
+	\item fs (External Class)
+	\item crypto (External Class)
+\end{itemize}
+
+\textbf{Public Functions}
+\textbf{TableManager(): void}
+Constructor function that reads all currently listed tables from the tables filesystem and creates a mutex for each.
+
+\textbf{addTable(tableId, cb): void}
+Register a new table with the filesystem and generate an authentication token for that table to be used with server communication, then calls the callback function with the token.
+
+\textbf{checkToken(tableId, token, cb): void}
+Verify that an inputted token is correct for the table, and calls callback function with boolean result.
+
+\textbf{availableTables(cb): void}
+Search the filesystem to find all tables currently registered, and call callback function with list of all tables.
+
+\textbf{deleteTable(tableId, cb): void}
+Remove a table from the filesystem.
+
+% ------------------------------- order ---------------------------------- %
+
+\subsubsection{order}
+\textbf{Uses}
+\begin{itemize}
+	\item locks (External Class)
+\end{itemize}
+
+\textbf{Public Functions}
+\textbf{Order(): void}
+Constructor function that creates a new Order object, with order\_id == 0.
+
+\textbf{getOrderNum(cb): void}
+Call the callback function with the next order\_id and increment the counter.
+
+% -------------------------------------------------------- MID ----------------------------------------------------- %
+
+\subsection{MID}
+
+% ------------------------------- server ---------------------------------- %
+
+\subsubsection{server}
+\textbf{Uses}
+\begin{itemize}
+	\item order (Class)
+	\item types (Enum)
+	\item verification (Class)
+	\item helper (Class)
+	\item queue (Class)
+	\item robot\_auth (Class)
+	\item basic\_auth (Class)
+	\item table\_mgmt (Class)
+	\item http (External Class)
+	\item url (External Class)
+	\item fs (External Class)
+	\item locks (External Class)
+\end{itemize}
+
+\textbf{Internal Values}
+\begin{itemize}
+	\item Mutex mutex: Mutex to synchronize requests updating value of 'types.json' in the filesystem.
+	\item Queue queue: A FIFO queue where orders are stored.
+	\item Order order: Object to keep track of order ID's.
+	\item TokenGen tokenGen: A token generator and manager for the robot token for authentication.
+	\item BasicAuthManager authManager: Object responsible for authenticating administrator.
+	\item TableManager tableManager: Object responsible for authenticating each table.
+	\item final int MAX\_NUM\_TYPES: Variable storing maximum number of types of drinks that the robot can hold.
+\end{itemize}
+
+\textbf{Functions}
+\textbf{main(): void}
+
+\begin{center}
+	\begin{tabular}{ |c|c|c| } 
+		\hline
+		\textbf{GET} & \textbf{POST} & \textbf{DELETE} \\ \hline
+		placeinline & placeorder & cancelorder \\ \hline
+		nextorder & gentoken & drinks \\ \hline
+		checktoken & updatecreds & tables \\ \hline
+		drinks & returntobase &  \\ \hline
+		sizes & login &  \\ \hline
+		numoftanks & errors &  \\ \hline
+		& drinks &  \\ \hline
+		& tables &  \\ \hline
+	\end{tabular}
+\end{center}
+
+\textbf{Placeinline}
+Call checkToken for table authentication
+If passed, search queue for order\_id
+res.write(placeInLine.toString());
+\newline\textbf{Placeorder}
+Call checkToken for table authentication
+If passed, parse the body of the request
+Verify that all data is correct
+If correct, push order to queue
+\newline\textbf{cancelOrder}
+Call checkToken for robot authentication
+If passed, delete order from queue for specific order\_id
+\newline\textbf{Nextorder}
+Call checkToken for robot authentication
+If passed, call queue's pop function
+res.write(placeInLine.toString());
+\newline\textbf{Gentoken}
+Call token refresh function
+Send token to robot host
+\newline\textbf{Checktoken}
+Call checkToken for robot authentication
+res.write(JSON.stringify(resp\_auth));
+\newline\textbf{Updatecreds}
+Call checkAuth for admin authentication
+If passed, parse body of request
+Call authManager update function to update new user/password combination
+\newline\textbf{Login}
+Call checkAuth for admin authentication
+res.writeHead(200, 'Logged in', {'Content-Type': 'text/html'}); if credentials were authenticated
+\newline\textbf{Returntobase}
+Call checkAuth for admin authentication
+Call returnToBase function to have robot return to the kitchen
+\newline\textbf{Sizes}
+Print out list of drinks that are available
+\newline\textbf{Numoftanks}
+Print out maximum number of tanks that the robot can hold
+\newline\textbf{Errors}
+Call checkToken for robot authentication
+If passed, list all error messages thrown by the robot
+\newline\textbf{Drinks (GET)}
+Print out list of drinks that are available
+\newline\textbf{Drinks (POST)}
+Call checkAuth for admin authentication
+Check that the total number of drink types is not already at the maximum
+Parse the body of the request
+Lock mutex
+Store new drink type and tank number into drinks object and write them to file
+Unlock mutex
+\newline\textbf{Drinks (DELETE)}
+Call checkAuth for admin authentication
+If passed, parse body of the request. Lock the mutex
+Delete specified drink type from DRINKS object. Write drink type list to file
+Unlock the mutex
+\newline\textbf{Tables (POST)}
+Call checkAuth for admin authentication
+If passed, call addTable function
+res.write(JSON.stringify({token: token, token\_type: 'bearer'}));
+\newline\textbf{Tables (DELETE)}
+Call checkAuth for admin authentication
+If passed, call deleteTable function
+
+% ------------------------------- queue ---------------------------------- %
+
+\subsubsection{queue}
+\textbf{Uses}
+\begin{itemize}
+	\item locks (External Class)
+	\item helper (Class)
+\end{itemize}
+
+\textbf{Internal Values}
+\begin{itemize}
+	\item Mutex mutex: Mutex used to lock the resource to prevent from problems arising from asynchronicity.
+	\item Array queue: An array to store elements in queue.
+\end{itemize}
+
+\textbf{Functions}
+\textbf{Queue(): void}
+This.queue = []
+
+\textbf{push(data, cb): void}
+Lock queue
+Add data to the queue
+Unlock queue
+cb(null, length of queue)
+
+\textbf{pop(cb): void}
+Lock queue
+element = queue.pop()
+Unlock queue
+cb(null, element)
+
+\textbf{size(): int}
+Return queue.length
+
+\textbf{search(order\_id, cb): void}
+index = helper.binSearch(queue, order\_id)
+if (index >= 0) {
+	cb(null, (that.queue.length - index));
+} else {
+	cb('order\_id not in queue');
+}
+
+\textbf{delete(order\_id, cb): void}
+Lock queue
+index = helper.binSearch(queue, order\_id)
+Remove element from queue at index if it exists
+cb()
+
+% ------------------------------- helper ---------------------------------- %
+
+\subsubsection{helper}
+\textbf{Uses}
+None
+
+\textbf{Internal Values}
+None
+
+\textbf{Functions}
+\textbf{binSearch(list, element): int}
+Binary search algorithm based on element being the order\_id.
+Return index if found or -1 if not found
+
+\textbf{caseInsensitiveKey(obj, key): obj[i]}
+For k in keys of obj
+	If k.toLowerCase() == key.toLowerCase()
+		Return obj[k]
+Return null
+
+% ------------------------------- basic auth ---------------------------------- %
+
+\subsubsection{basic\_auth}
+\textbf{Uses}
+\begin{itemize}
+	\item fs (External Class)
+	\item locks (External Class)
+	\item util (External Class)
+	\item crypto (External Class)
+\end{itemize}
+
+\textbf{Internal Values}
+\begin{itemize}
+	\item Mutex mutex\_auth: Mutex to synchronize token from asynchronicity.
+	\item final String CREDS\_PATH: Path to store hashed credentials in.
+	\item String \_hashCreds: Hashed value of current user credentials.
+\end{itemize}
+
+\textbf{Functions}
+\textbf{BasicAuthManager(): void}
+If CREDS\_PATH exists
+	\_hashCreds = readFile(CREDS\_PATH)
+Else
+	\_hashCreds = hash('admin:admin')
+	writeToFile(CREDS\_PATH, \_hashCreds)
+
+\textbf{checkAuth(uName, pw, cb): void}
+mutex\_auth.lock()
+passed = \_hashCreds == hash(uName + ':' + pw)
+mutex\_auth.unlock()
+cb(null, passed)
+
+\textbf{update(uName, pw, cb): void}
+mutex\_auth.lock()
+\_hashedCreds =  hash(uName + ':' + pw)
+writeToFile(CREDS\_PATH, \_hashedCreds)
+mutex\_auth.unlock()
+cb()
+
+% ------------------------------- robot auth ---------------------------------- %
+
+\subsubsection{robot\_auth}
+\textbf{Uses}
+\begin{itemize}
+	\item locks (External Class)
+	\item rand-token (External Class)
+	\item unirest (External Class)
+\end{itemize}
+
+\textbf{Internal Values}
+\begin{itemize}
+	\item Mutex mutex: Mutex to synchronize token from asynchronicity.
+	\item String \_token: Value of current token to authenticate robot.
+\end{itemize}
+
+\textbf{Functions}
+\textbf{TokenGen(): void}
+\_token = rand-token.generate(32)
+
+\textbf{refresh(cb): void}
+mutex.lock()
+\_token = rand-token.generate(32)
+mutex.unlock()
+cb()
+
+\textbf{checkToken(token, cb): void}
+mutex.lock()
+passed = token == \_token
+mutex.unlock()
+cb(null, passed)
+
+\textbf{sendToken(host): void}
+data = {
+	token\_type: 'bearer',
+	access\_token : \_token
+}
+unirest.post(host, data)
+
+% ------------------------------- verification ---------------------------------- %
+
+\subsubsection{verification}
+\textbf{Uses}
+\begin{itemize}
+	\item helper (Class)
+	\item types (Enum)
+\end{itemize}
+
+\textbf{Internal Values}
+None
+
+\textbf{Functions}
+\textbf{checkData(data, orderObj, table\_id, cb): void} \newline
+order = helper.caseInsensitiveKey(data, 'order') \newline
+If order missing values or in wrong format  \newline
+	cb(error) \newline
+\newline
+orders = [] \newline
+\newline
+For i of order \newline
+	temp = {} \newline
+	type = helper.caseInsensitiveKey(i, 'type') \newline
+	size = helper.caseInsensitiveKey(i, 'size') \newline
+	quantity =  helper.caseInsensitiveKey(i, 'quantity') \newline
+	If type is valid \newline
+		temp.type = type \newline
+	Else \newline
+		Continue \newline
+	 \newline
+	If size valid \newline
+		temp.size = size \newline
+	Else \newline
+		Temp.size = M \newline
+	If quantity valid \newline
+		temp.quantity  = quantity \newline
+	Else \newline
+		temp.quantity  = 1 \newline
+	\newline
+	orders.push(temp) \newline
+\newline
+If no orders \newline
+	Return cb(no valid 'orders') \newline
+\newline
+orderObj.getOrderNum(function(err, order\_id) { \newline
+	if (err) { \newline
+		return cb(err); \newline
+	} \newline
+	//return order information \newline
+	cb(null, { \newline
+		table\_id: table\_id, \newline
+		order\_id: order\_id, \newline
+		orders: orders \newline
+	}); \newline
+}); \newline
+ \newline
+\textbf{\_cleanRequire(module): Module} \newline
+Delete cached data for module \newline
+Return require(module) \newline
+ \newline
+\textbf{\_jsonVals(obj): Array} \newline
+ret = [] \newline
+For i of Object.keys(obj) \newline
+	ret.push(obj[i]) \newline
+Return ret \newline
+
+\subsubsection{table\_mgmt}
+\textbf{Uses}
+\begin{itemize}
+	\item locks (External Class)
+	\item rand-token (External Class)
+	\item fs (External Class)
+	\item crypto (External Class)
+\end{itemize}
+
+\textbf{Internal Values}
+\begin{itemize}
+	\item final String DIR: Directory to store hashed tokens for tables
+	\item Json mutexes: A mutex for each table, to synchronize tokens from asynchronous calls.
+\end{itemize}
+
+\textbf{Functions}
+\textbf{TableManager(): void}
+Create DIR filesystem if not already created
+Read all files from filesystem, create a mutex for each, and load the filename/mutex pairs into a JSON object
+
+\textbf{addTable(tableId, cb): void}
+Create new mutex for new table and add to JSON object
+Lock mutex for new table
+Create new file in tables filesystem
+Generate authentication token for table
+Write hashed token to corresponding file in tables filesystem
+Unlock mutex for table
+cb(null, token)
+
+\textbf{checkToken(tableId, token, cb): void}
+Verify that an inputted token is correct for the table, and calls callback function with boolean result.
+
+\textbf{availableTables(cb): void}
+Read all files from filesystem
+cb(null, files)
+
+\textbf{deleteTable(tableId, cb): void}
+Lock mutexes JSON object
+Unlink table's path from filesystem
+Delete mutexes[tableId]
+Unlock JSON object
+cb()
+
+% ------------------------------- order ---------------------------------- %
+
+\subsubsection{order}
+\textbf{Uses}
+\begin{itemize}
+	\item locks (External Class)
+\end{itemize}
+
+\textbf{Internal Values}
+\begin{itemize}
+	\item int order\_id: Current order number.
+\end{itemize}
+
+\textbf{Public Functions}
+\textbf{Order(): void}
+This.order\_id = 0
+
+\textbf{getOrderNum(cb): void}
+Lock counter
+Add one to counter
+Unlock counter
+cb(null, new order\_id)
+
+
+% ------------------------------------------------------- SCHEDULING ----------------------------------------------------- %
+
+
+\section {Scheduling}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics [scale = 0.6] {figures/Alfred_SequenceDiagram.png}
+	\caption{Alfred Sequence Diagram}
+\end{figure}
+
+\newpage
+
+% ------------------------------------------------------- DESIGN NOTES ----------------------------------------------------- %
+
+\section {Design Notes}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics [scale = 0.55] {figures/CAD_Top_View.png}
+	\caption{Engineering Model - Top View}
+\end{figure}
+	
+\begin{figure}[H]
+	\centering
+	\includegraphics [scale = 0.55] {figures/CAD_Front_View.png}
+	\caption{Engineering Model - Front View}
+\end{figure}
+	
+\begin{figure}[H]
+	\centering
+	\includegraphics [scale = 0.55] {figures/CAD_Liquid_Storage.png}
+	\caption{Engineering Model - Liquid Storage}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics [scale = 0.55] {figures/CAD_Pumping_System.png}
+	\caption{Engineering Model - Pumping System}
+\end{figure}
+	
+\begin{figure}[H]
+	\centering
+	\includegraphics [scale = 0.55] {figures/CAD_Electrical_Storage.png}
+	\caption{Engineering Model - Electrical Storage}
+\end{figure}
+	
+\begin{figure}[H]
+	\centering
+	\includegraphics [scale = 0.55] {figures/CAD_Battery_Storage.png}
+	\caption{Engineering Model - Battery Storage}
+\end{figure}
+	
+\begin{figure}[H]
+	\centering
+	\includegraphics [scale = 0.55] {figures/CAD_Battery.png}
+	\caption{Engineering Model - Battery Compartment Exploded View}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics [scale = 0.55] {figures/CAD_Motor_Mount.png}
+	\caption{Engineering Model - Motor Mount}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics [scale = 0.55] {figures/CAD_Bottom_GB.png}
+	\caption{Engineering Model - Bottom Gear Box}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics [scale = 0.55] {figures/CAD_GB_Assembly.png}
+	\caption{Engineering Model - Gear Box Assembly}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics [scale = 0.55] {figures/CAD_Bottom_Motor_GB.png}
+	\caption{Engineering Model - Gear Box Assembly}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics [scale = 0.55] {figures/CAD_Motor_GB.png}
+	\caption{Engineering Model - Bottom Motor Gear Box}
+\end{figure}
+
+
 % --------------------------------------------- References -------------------------------------------- %
 
-\section{References}
+\pagebreak
 
+\section{References}
 
 \textbf{Raspberry pi data sheet}
 \begin{verbatim}
@@ -1433,4 +3673,6 @@ https://www.amazon.ca/gp/product/B00BEUDXRW/ref=oh_aui_detailpage_o09_s00?ie=UTF
 [4] "CAMERA MODULE". [Online]. Available:
 https://www.raspberrypi.org/documentation/hardware/camera/. [Accessed: 23- Dec- 2017].
 \end{verbatim}
+
+
 \end{document}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  18 MAR 2018 12:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  19 MAR 2018 14:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -236,6 +236,14 @@ File: listings.cfg 2015/06/04 1.6 listings configuration
 ))
 Package: listings 2015/06/04 1.6 (Carsten Heinz)
 
+(/usr/local/texlive/2017/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count116
+\float@exts=\toks29
+\float@box=\box30
+\@float@everytoks=\toks30
+\@floatcapt=\box31
+)
 (/usr/local/texlive/2017/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
@@ -247,12 +255,12 @@ File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
 )
 (/usr/local/texlive/2017/texmf-dist/tex/latex/titlesec/titlesec.sty
 Package: titlesec 2016/03/21 v2.10.2 Sectioning titles
-\ttl@box=\box30
+\ttl@box=\box32
 \beforetitleunit=\skip54
 \aftertitleunit=\skip55
 \ttl@plus=\dimen138
 \ttl@minus=\dimen139
-\ttl@toksa=\toks29
+\ttl@toksa=\toks31
 \titlewidth=\dimen140
 \titlewidthlast=\dimen141
 \titlewidthfirst=\dimen142
@@ -284,50 +292,48 @@ Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)
 \LTright=\skip57
 \LTpre=\skip58
 \LTpost=\skip59
-\LTchunksize=\count116
+\LTchunksize=\count117
 \LTcapwidth=\dimen146
-\LT@head=\box31
-\LT@firsthead=\box32
-\LT@foot=\box33
-\LT@lastfoot=\box34
-\LT@cols=\count117
-\LT@rows=\count118
-\c@LT@tables=\count119
-\c@LT@chunks=\count120
-\LT@p@ftn=\toks30
+\LT@head=\box33
+\LT@firsthead=\box34
+\LT@foot=\box35
+\LT@lastfoot=\box36
+\LT@cols=\count118
+\LT@rows=\count119
+\c@LT@tables=\count120
+\c@LT@chunks=\count121
+\LT@p@ftn=\toks32
 )
 (/usr/local/texlive/2017/texmf-dist/tex/latex/multirow/multirow.sty
 Package: multirow 2016/11/25 v2.2 Span multiple rows of a table
 \multirow@colwidth=\skip60
-\multirow@cntb=\count121
+\multirow@cntb=\count122
 \multirow@dima=\skip61
 \bigstrutjot=\dimen147
 )
 (/usr/local/texlive/2017/texmf-dist/tex/latex/tools/multicol.sty
 Package: multicol 2017/04/11 v1.8q multicolumn formatting (FMi)
-\c@tracingmulticols=\count122
-\mult@box=\box35
+\c@tracingmulticols=\count123
+\mult@box=\box37
 \multicol@leftmargin=\dimen148
-\c@unbalance=\count123
-\c@collectmore=\count124
-\doublecol@number=\count125
-\multicoltolerance=\count126
-\multicolpretolerance=\count127
+\c@unbalance=\count124
+\c@collectmore=\count125
+\doublecol@number=\count126
+\multicoltolerance=\count127
+\multicolpretolerance=\count128
 \full@width=\dimen149
 \page@free=\dimen150
 \premulticols=\dimen151
 \postmulticols=\dimen152
 \multicolsep=\skip62
 \multicolbaselineskip=\skip63
-\partial@page=\box36
-\last@line=\box37
+\partial@page=\box38
+\last@line=\box39
 \maxbalancingoverflow=\dimen153
-\mult@rightbox=\box38
-\mult@grightbox=\box39
-\mult@gfirstbox=\box40
-\mult@firstbox=\box41
-\@tempa=\box42
-\@tempa=\box43
+\mult@rightbox=\box40
+\mult@grightbox=\box41
+\mult@gfirstbox=\box42
+\mult@firstbox=\box43
 \@tempa=\box44
 \@tempa=\box45
 \@tempa=\box46
@@ -343,22 +349,24 @@ Package: multicol 2017/04/11 v1.8q multicolumn formatting (FMi)
 \@tempa=\box56
 \@tempa=\box57
 \@tempa=\box58
-\c@columnbadness=\count128
-\c@finalcolumnbadness=\count129
+\@tempa=\box59
+\@tempa=\box60
+\c@columnbadness=\count129
+\c@finalcolumnbadness=\count130
 \last@try=\dimen154
 \multicolovershoot=\dimen155
 \multicolundershoot=\dimen156
-\mult@nat@firstbox=\box59
-\colbreak@box=\box60
-\mc@col@check@num=\count130
+\mult@nat@firstbox=\box61
+\colbreak@box=\box62
+\mc@col@check@num=\count131
 )
 (/usr/local/texlive/2017/texmf-dist/tex/latex/enumitem/enumitem.sty
 Package: enumitem 2011/09/28 v3.5.2 Customized lists
 \labelindent=\skip64
 \enit@outerparindent=\dimen157
-\enit@toks=\toks31
-\enit@inbox=\box61
-\enitdp@description=\count131
+\enit@toks=\toks33
+\enit@inbox=\box63
+\enitdp@description=\count132
 )
 (/usr/local/texlive/2017/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2017/03/14 v6.85a Hypertext links for LaTeX
@@ -413,13 +421,13 @@ Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
 Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
 )
 \@linkdim=\dimen158
-\Hy@linkcounter=\count132
-\Hy@pagecounter=\count133
+\Hy@linkcounter=\count133
+\Hy@pagecounter=\count134
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2017/03/14 v6.85a Hyperref: PDFDocEncoding definition (HO)
 )
-\Hy@SavedSpaceFactor=\count134
+\Hy@SavedSpaceFactor=\count135
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/latexconfig/hyperref.cfg
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
@@ -431,7 +439,7 @@ Package hyperref Info: Plain pages OFF on input line 4513.
 Package hyperref Info: Backreferencing OFF on input line 4518.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4751.
-\c@Hy@tempcnt=\count135
+\c@Hy@tempcnt=\count136
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip11
@@ -439,7 +447,7 @@ Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 5104.
 \XeTeXLinkMargin=\dimen159
-\Fld@menulength=\count136
+\Fld@menulength=\count137
 \Field@Width=\dimen160
 \Fld@charsize=\dimen161
 Package hyperref Info: Hyper figures OFF on input line 6358.
@@ -451,17 +459,17 @@ Package hyperref Info: Link coloring with OCG OFF on input line 6383.
 Package hyperref Info: PDF/A mode OFF on input line 6388.
 LaTeX Info: Redefining \ref on input line 6428.
 LaTeX Info: Redefining \pageref on input line 6432.
-\Hy@abspage=\count137
-\c@Item=\count138
-\c@Hfootnote=\count139
+\Hy@abspage=\count138
+\c@Item=\count139
+\c@Hfootnote=\count140
 )
 
 Package hyperref Message: Driver (autodetected): hpdftex.
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/hyperref/hpdftex.def
 File: hpdftex.def 2017/03/14 v6.85a Hyperref driver for pdfTeX
-\Fld@listcount=\count140
-\c@bookmark@seq@number=\count141
+\Fld@listcount=\count141
+\c@bookmark@seq@number=\count142
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
 Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
@@ -474,7 +482,7 @@ Package hyperref Info: Option `colorlinks' set `true' on input line 96.
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/lipsum/lipsum.sty
 Package: lipsum 2014/07/27 v1.3 150 paragraphs of Lorem Ipsum dummy text
-\c@lips@count=\count142
+\c@lips@count=\count143
 )
 (/usr/local/texlive/2017/texmf-dist/tex/latex/tocloft/tocloft.sty
 Package: tocloft 2013/05/02 v2.3f parameterised ToC, etc., typesetting
@@ -505,8 +513,8 @@ Package tocloft Info: The document has section divisions on input line 44.
 \cftbeforefigskip=\skip89
 \cftfigindent=\skip90
 \cftfignumwidth=\skip91
-\c@lofdepth=\count143
-\c@lotdepth=\count144
+\c@lofdepth=\count144
+\c@lotdepth=\count145
 \cftbeforelottitleskip=\skip92
 \cftafterlottitleskip=\skip93
 \cftbeforetabskip=\skip94
@@ -586,17 +594,17 @@ LaTeX Font Info:    ... okay on input line 222.
 
 (/usr/local/texlive/2017/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count145
+\scratchcounter=\count146
 \scratchdimen=\dimen162
-\scratchbox=\box62
-\nofMPsegments=\count146
-\nofMParguments=\count147
-\everyMPshowfont=\toks32
-\MPscratchCnt=\count148
+\scratchbox=\box64
+\nofMPsegments=\count147
+\nofMParguments=\count148
+\everyMPshowfont=\toks34
+\MPscratchCnt=\count149
 \MPscratchDim=\dimen163
-\MPnumerator=\count149
-\makeMPintoPDFobject=\count150
-\everyMPtoPDFconversion=\toks33
+\MPnumerator=\count150
+\makeMPintoPDFobject=\count151
+\everyMPtoPDFconversion=\toks35
 ) (/usr/local/texlive/2017/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
@@ -614,8 +622,8 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\c@lstlisting=\count151
-\AtBeginShipoutBox=\box63
+\c@lstlisting=\count152
+\AtBeginShipoutBox=\box65
 Package hyperref Info: Link coloring ON on input line 222.
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/hyperref/nameref.sty
@@ -624,7 +632,7 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 (/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count152
+\c@section@level=\count153
 )
 LaTeX Info: Redefining \ref on input line 222.
 LaTeX Info: Redefining \pageref on input line 222.
@@ -638,7 +646,7 @@ Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
 (lastpage)             ! on input line 222.
 
-<figures/alfred.png, id=108, 501.875pt x 501.875pt>
+<figures/alfred.png, id=257, 501.875pt x 501.875pt>
 File: figures/alfred.png Graphic file (type png)
  <use figures/alfred.png>
 Package pdftex.def Info: figures/alfred.png used on input line 233.
@@ -647,7 +655,7 @@ Package pdftex.def Info: figures/alfred.png used on input line 233.
 [1
 
 {/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./figur
-es/alfred.png>] (./Design_Doc.toc)
+es/alfred.png>] (./Design_Doc.toc [2])
 \tf@toc=\write4
 \openout4 = `Design_Doc.toc'.
 
@@ -656,11 +664,11 @@ es/alfred.png>] (./Design_Doc.toc)
 \openout5 = `Design_Doc.lot'.
 
  (./Design_Doc.lof
-[2])
+[3])
 \tf@lof=\write6
 \openout6 = `Design_Doc.lof'.
 
- [3]
+ [4]
 LaTeX Font Info:    Calculating math sizes for size <14> on input line 278.
 
 Overfull \hbox (3.0pt too wide) in paragraph at lines 278--278
@@ -698,15 +706,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 319--320
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 319--320
-\T1/cmr/m/n/10 Com-po-nent De-sign
+Underfull \hbox (badness 1082) in paragraph at lines 319--320
+\T1/cmr/m/n/10 MIS, MID and De-sign
  []
 
 
 Underfull \vbox (badness 10000) detected at line 323
  []
 
-[4]
+[5]
 Overfull \hbox (3.0pt too wide) in paragraph at lines 335--335
 |[][][][][][][]| 
  []
@@ -731,7 +739,7 @@ Overfull \hbox (3.0pt too wide) in paragraph at lines 355--355
 |[][][][][][][]| 
  []
 
-<Figures/ContextDiagram.png, id=247, 763.85374pt x 573.14125pt>
+<Figures/ContextDiagram.png, id=529, 763.85374pt x 573.14125pt>
 File: Figures/ContextDiagram.png Graphic file (type png)
 
 <use Figures/ContextDiagram.png>
@@ -742,7 +750,7 @@ Overfull \hbox (3.0pt too wide) in paragraph at lines 365--365
 |[][][][][][][]| 
  []
 
-<Figures/SystemComponents.png, id=248, 801.99625pt x 663.47874pt>
+<Figures/SystemComponents.png, id=530, 801.99625pt x 663.47874pt>
 File: Figures/SystemComponents.png Graphic file (type png)
 
 <use Figures/SystemComponents.png>
@@ -753,7 +761,7 @@ Overfull \hbox (11.44643pt too wide) in paragraph at lines 369--370
  [][] 
  []
 
-[5 <./Figures/ContextDiagram.png>]
+[6 <./Figures/ContextDiagram.png>]
 Overfull \hbox (3.0pt too wide) in paragraph at lines 375--375
 |[][][][][][][]| 
  []
@@ -772,148 +780,148 @@ Overfull \hbox (1.71077pt too wide) in alignment at lines 380--383
 Underfull \vbox (badness 10000) detected at line 383
  []
 
-
-Overfull \hbox (1.71077pt too wide) in alignment at lines 386--389
+[7 <./Figures/SystemComponents.png>]
+Overfull \hbox (1.71077pt too wide) in alignment at lines 388--391
  [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 389
+Underfull \vbox (badness 10000) detected at line 391
  []
 
-[6 <./Figures/SystemComponents.png>]
-Overfull \hbox (1.71077pt too wide) in alignment at lines 392--395
+
+Overfull \hbox (1.71077pt too wide) in alignment at lines 394--397
  [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 395
+Underfull \vbox (badness 10000) detected at line 397
  []
 
 
-Overfull \hbox (1.71077pt too wide) in alignment at lines 398--401
+Overfull \hbox (1.71077pt too wide) in alignment at lines 400--403
  [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 401
+Underfull \vbox (badness 10000) detected at line 403
  []
 
 
-Overfull \hbox (1.71077pt too wide) in alignment at lines 404--407
+Overfull \hbox (1.71077pt too wide) in alignment at lines 406--409
  [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 407
+Underfull \vbox (badness 10000) detected at line 409
  []
 
 
-Overfull \hbox (1.71077pt too wide) in alignment at lines 410--413
+Overfull \hbox (1.71077pt too wide) in alignment at lines 412--415
  [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 413
+Underfull \vbox (badness 10000) detected at line 415
  []
 
 
-Overfull \hbox (1.71077pt too wide) in alignment at lines 416--419
+Overfull \hbox (1.71077pt too wide) in alignment at lines 418--421
  [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 419
+Underfull \vbox (badness 10000) detected at line 421
  []
 
 
-Overfull \hbox (1.71077pt too wide) in alignment at lines 422--425
+Overfull \hbox (1.71077pt too wide) in alignment at lines 424--427
  [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 425
+Underfull \vbox (badness 10000) detected at line 427
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 428--428
+Overfull \hbox (3.0pt too wide) in paragraph at lines 430--430
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 434--434
+Overfull \hbox (3.0pt too wide) in paragraph at lines 436--436
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 438--438
+Overfull \hbox (3.0pt too wide) in paragraph at lines 440--440
 |[][][][][][][]| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 439--440
+Underfull \hbox (badness 10000) in paragraph at lines 441--442
 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 450
+Underfull \vbox (badness 10000) detected at line 452
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 453--454
+Underfull \hbox (badness 10000) in paragraph at lines 455--456
 
  []
 
-
-Overfull \hbox (40.29733pt too wide) in alignment at lines 455--466
+[8]
+Overfull \hbox (40.29733pt too wide) in alignment at lines 457--468
  [] [] [] [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 466
+Underfull \vbox (badness 10000) detected at line 468
  []
 
-[7]
-Overfull \hbox (3.0pt too wide) in paragraph at lines 471--471
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 473--473
 |[][][][][][][]| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 473--474
+Underfull \hbox (badness 10000) in paragraph at lines 475--476
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 476--476
+Underfull \hbox (badness 10000) in paragraph at lines 478--478
 []|\T1/cmr/bx/n/10 Constant
  []
 
 
-Overfull \hbox (4.6845pt too wide) in paragraph at lines 476--476
+Overfull \hbox (4.6845pt too wide) in paragraph at lines 478--478
 []|\T1/cmr/bx/n/10 Value| 
  []
 
 
-Overfull \hbox (29.51364pt too wide) in alignment at lines 475--485
+Overfull \hbox (29.51364pt too wide) in alignment at lines 477--487
  [] [] [] [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 485
+Underfull \vbox (badness 10000) detected at line 487
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 490--490
-|[][][][][][][]| 
- []
-
-[8]
-Overfull \hbox (3.0pt too wide) in paragraph at lines 505--505
+Overfull \hbox (3.0pt too wide) in paragraph at lines 492--492
 |[][][][][][][]| 
  []
 
 [9]
-Overfull \hbox (8.14876pt too wide) in paragraph at lines 567--582
+Overfull \hbox (3.0pt too wide) in paragraph at lines 507--507
+|[][][][][][][]| 
+ []
+
+[10]
+Overfull \hbox (8.14876pt too wide) in paragraph at lines 569--584
  [][] 
  []
 
@@ -932,468 +940,458 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[10]
-Overfull \hbox (3.0pt too wide) in paragraph at lines 704--704
+[11]
+Overfull \hbox (3.0pt too wide) in paragraph at lines 706--706
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 707--707
+Overfull \hbox (3.0pt too wide) in paragraph at lines 709--709
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 711--711
+Overfull \hbox (3.0pt too wide) in paragraph at lines 713--713
 |[][][][][][][]| 
  []
 
-[11] [12]
-Overfull \hbox (3.0pt too wide) in paragraph at lines 715--715
-|[][][][][][][]| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 717--718
-
- []
-
-
-Underfull \vbox (badness 10000) detected at line 723
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 726--727
-
- []
-
-
-Underfull \vbox (badness 10000) detected at line 734
- []
-
-
-Overfull \hbox (3.0pt too wide) in paragraph at lines 737--737
+[12] [13]
+Overfull \hbox (3.0pt too wide) in paragraph at lines 717--717
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (0.71254pt too wide) in alignment at lines 739--743
+Underfull \hbox (badness 10000) in paragraph at lines 719--720
+
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 725
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 728--729
+
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 736
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 739--739
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (0.71254pt too wide) in alignment at lines 741--745
  [] [] [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 743
+Underfull \vbox (badness 10000) detected at line 745
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 749--749
+Overfull \hbox (3.0pt too wide) in paragraph at lines 751--751
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 754--754
+Overfull \hbox (3.0pt too wide) in paragraph at lines 756--756
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 759--759
+Overfull \hbox (3.0pt too wide) in paragraph at lines 761--761
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 763--763
+Overfull \hbox (3.0pt too wide) in paragraph at lines 765--765
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 768--768
+Overfull \hbox (3.0pt too wide) in paragraph at lines 770--770
 |[][][][][][][]| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 770--771
+Underfull \hbox (badness 10000) in paragraph at lines 772--773
 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 778
+Underfull \vbox (badness 10000) detected at line 780
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 781--782
+Underfull \hbox (badness 10000) in paragraph at lines 783--784
 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 786
+Underfull \vbox (badness 10000) detected at line 788
  []
 
-[13]
-Overfull \hbox (3.0pt too wide) in paragraph at lines 790--790
+[14]
+Overfull \hbox (3.0pt too wide) in paragraph at lines 792--792
 |[][][][][][][]| 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 798
+Underfull \vbox (badness 10000) detected at line 800
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 802--802
+Overfull \hbox (3.0pt too wide) in paragraph at lines 804--804
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 807--807
+Overfull \hbox (3.0pt too wide) in paragraph at lines 809--809
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 812--812
+Overfull \hbox (3.0pt too wide) in paragraph at lines 814--814
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 816--816
+Overfull \hbox (3.0pt too wide) in paragraph at lines 818--818
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 821--821
+Overfull \hbox (3.0pt too wide) in paragraph at lines 823--823
 |[][][][][][][]| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 823--824
+Underfull \hbox (badness 10000) in paragraph at lines 825--826
 
  []
 
 
-Overfull \hbox (4.34593pt too wide) in paragraph at lines 831--831
+Overfull \hbox (4.34593pt too wide) in paragraph at lines 833--833
 []|$\OML/cmm/m/it/10 Resturant[]$| 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 833
+Underfull \vbox (badness 10000) detected at line 835
+ []
+
+[15]
+Underfull \hbox (badness 10000) in paragraph at lines 839--840
+
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 836--837
-
+Underfull \vbox (badness 10000) detected at line 846
  []
 
 
-Underfull \vbox (badness 10000) detected at line 843
- []
-
-[14]
-Overfull \hbox (3.0pt too wide) in paragraph at lines 846--846
+Overfull \hbox (3.0pt too wide) in paragraph at lines 849--849
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (14.77715pt too wide) in alignment at lines 848--856
+Overfull \hbox (14.77715pt too wide) in alignment at lines 851--859
  [] [] [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 856
+Underfull \vbox (badness 10000) detected at line 859
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 861--861
+Overfull \hbox (3.0pt too wide) in paragraph at lines 864--864
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 866--866
+Overfull \hbox (3.0pt too wide) in paragraph at lines 869--869
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 871--871
+Overfull \hbox (3.0pt too wide) in paragraph at lines 874--874
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 875--875
+Overfull \hbox (3.0pt too wide) in paragraph at lines 878--878
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 880--880
+Overfull \hbox (3.0pt too wide) in paragraph at lines 883--883
 |[][][][][][][]| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 882--883
+Underfull \hbox (badness 10000) in paragraph at lines 885--886
 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 888
+Underfull \vbox (badness 10000) detected at line 891
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 891--892
-
- []
-
-
-Underfull \vbox (badness 10000) detected at line 899
- []
-
-[15]
-Overfull \hbox (3.0pt too wide) in paragraph at lines 905--905
-|[][][][][][][]| 
- []
-
-
-Underfull \vbox (badness 10000) detected at line 911
- []
-
-
-Overfull \hbox (3.0pt too wide) in paragraph at lines 915--915
-|[][][][][][][]| 
- []
-
-
-Overfull \hbox (3.0pt too wide) in paragraph at lines 920--920
-|[][][][][][][]| 
- []
-
-
-Overfull \hbox (3.0pt too wide) in paragraph at lines 925--925
-|[][][][][][][]| 
- []
-
-
-Overfull \hbox (3.0pt too wide) in paragraph at lines 929--929
-|[][][][][][][]| 
- []
-
-
-Overfull \hbox (3.0pt too wide) in paragraph at lines 934--934
-|[][][][][][][]| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 936--937
+Underfull \hbox (badness 10000) in paragraph at lines 894--895
 
  []
 
 
-Overfull \hbox (1.3223pt too wide) in alignment at lines 938--945
- [] [] [] [] [] 
- []
-
-
-Underfull \vbox (badness 10000) detected at line 945
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 948--949
-
- []
-
-
-Overfull \hbox (1.3223pt too wide) in alignment at lines 950--957
- [] [] [] [] [] 
- []
-
-
-Underfull \vbox (badness 10000) detected at line 957
- []
-
-
-Overfull \hbox (3.0pt too wide) in paragraph at lines 961--961
-|[][][][][][][]| 
- []
-
-
-Underfull \vbox (badness 10000) detected at line 970
+Underfull \vbox (badness 10000) detected at line 902
  []
 
 [16]
-Overfull \hbox (3.0pt too wide) in paragraph at lines 975--975
+Overfull \hbox (3.0pt too wide) in paragraph at lines 908--908
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 980--980
+Underfull \vbox (badness 10000) detected at line 914
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 918--918
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 985--985
+Overfull \hbox (3.0pt too wide) in paragraph at lines 923--923
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 989--989
+Overfull \hbox (3.0pt too wide) in paragraph at lines 928--928
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 994--994
+Overfull \hbox (3.0pt too wide) in paragraph at lines 932--932
 |[][][][][][][]| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 997--998
+Overfull \hbox (3.0pt too wide) in paragraph at lines 937--937
+|[][][][][][][]| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 939--940
 
  []
 
 
-Overfull \hbox (6.61107pt too wide) in alignment at lines 999--1006
+Overfull \hbox (1.3223pt too wide) in alignment at lines 941--948
  [] [] [] [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 1006
+Underfull \vbox (badness 10000) detected at line 948
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1009--1010
+Underfull \hbox (badness 10000) in paragraph at lines 951--952
 
  []
 
 
-Overfull \hbox (24.96407pt too wide) in alignment at lines 1011--1016
+Overfull \hbox (1.3223pt too wide) in alignment at lines 953--960
  [] [] [] [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 1016
- []
-
-
-Overfull \hbox (3.0pt too wide) in paragraph at lines 1020--1020
-|[][][][][][][]| 
- []
-
-
-Underfull \vbox (badness 10000) detected at line 1029
- []
-
-
-Overfull \hbox (3.0pt too wide) in paragraph at lines 1033--1033
-|[][][][][][][]| 
+Underfull \vbox (badness 10000) detected at line 960
  []
 
 [17]
-Overfull \hbox (3.0pt too wide) in paragraph at lines 1038--1038
+Overfull \hbox (3.0pt too wide) in paragraph at lines 968--968
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 1044--1044
+Underfull \vbox (badness 10000) detected at line 977
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 982--982
 |[][][][][][][]| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1045--1052
-
- []
-
-
-Overfull \hbox (3.0pt too wide) in paragraph at lines 1055--1055
+Overfull \hbox (3.0pt too wide) in paragraph at lines 987--987
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 1059--1059
+Overfull \hbox (3.0pt too wide) in paragraph at lines 992--992
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 1064--1064
+Overfull \hbox (3.0pt too wide) in paragraph at lines 996--996
 |[][][][][][][]| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1066--1067
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1001--1001
+|[][][][][][][]| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1004--1005
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1071--1071
+Overfull \hbox (6.61107pt too wide) in alignment at lines 1006--1013
+ [] [] [] [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 1013
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1016--1017
+
+ []
+
+
+Overfull \hbox (24.96407pt too wide) in alignment at lines 1018--1023
+ [] [] [] [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 1023
+ []
+
+[18]
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1030--1030
+|[][][][][][][]| 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 1039
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1043--1043
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1048--1048
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1054--1054
+|[][][][][][][]| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1055--1062
+
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1065--1065
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1069--1069
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1074--1074
+|[][][][][][][]| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1076--1077
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1081--1081
 []|\T1/cmr/m/n/10 [(0,0),
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1071--1071
+Underfull \hbox (badness 10000) in paragraph at lines 1081--1081
 \T1/cmr/m/n/10 (length($\OML/cmm/m/it/10 Map\OT1/cmr/m/n/10 )$\T1/cmr/m/n/10 ,
  []
 
 
-Underfull \hbox (badness 5274) in paragraph at lines 1075--1075
+Underfull \hbox (badness 5274) in paragraph at lines 1085--1085
 []|\T1/cmr/m/n/10 Unsigned In-te-
  []
 
 
-Underfull \hbox (badness 5274) in paragraph at lines 1076--1076
+Underfull \hbox (badness 5274) in paragraph at lines 1086--1086
 []|\T1/cmr/m/n/10 Unsigned In-te-
  []
 
 
-Overfull \hbox (0.77782pt too wide) in paragraph at lines 1077--1077
+Overfull \hbox (0.77782pt too wide) in paragraph at lines 1087--1087
 []|$\OML/cmm/m/it/10 b[]$| 
  []
 
 
-Overfull \hbox (1.32947pt too wide) in alignment at lines 1068--1079
+Overfull \hbox (1.32947pt too wide) in alignment at lines 1078--1089
  [] [] [] [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 1079
+Underfull \vbox (badness 10000) detected at line 1089
+ []
+
+[19]
+Underfull \hbox (badness 10000) in paragraph at lines 1092--1093
+
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1082--1083
-
- []
-
-[18]
-Underfull \vbox (badness 10000) detected at line 1088
+Underfull \vbox (badness 10000) detected at line 1098
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 1092--1092
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1102--1102
 |[][][][][][][]| 
  []
 
 
-Underfull \hbox (badness 5274) in paragraph at lines 1101--1101
+Underfull \hbox (badness 5274) in paragraph at lines 1111--1111
 []|\T1/cmr/m/n/10 Unsigned In-te-
  []
 
 
-Underfull \hbox (badness 5274) in paragraph at lines 1102--1102
+Underfull \hbox (badness 5274) in paragraph at lines 1112--1112
 []|\T1/cmr/m/n/10 Unsigned In-te-
  []
 
 
-Overfull \hbox (5.47997pt too wide) in paragraph at lines 1103--1103
+Overfull \hbox (5.47997pt too wide) in paragraph at lines 1113--1113
 []|$\OML/cmm/m/it/10 b[]$| 
  []
 
 
-Overfull \hbox (3.01439pt too wide) in alignment at lines 1094--1105
+Overfull \hbox (3.01439pt too wide) in alignment at lines 1104--1115
  [] [] [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 1105
- []
-
-
-Overfull \hbox (3.0pt too wide) in paragraph at lines 1109--1109
-|[][][][][][][]| 
- []
-
-
-Overfull \hbox (3.0pt too wide) in paragraph at lines 1114--1114
-|[][][][][][][]| 
+Underfull \vbox (badness 10000) detected at line 1115
  []
 
 
@@ -1401,31 +1399,26 @@ Overfull \hbox (3.0pt too wide) in paragraph at lines 1119--1119
 |[][][][][][][]| 
  []
 
-<Figures/Simulink.png, id=403, 1185.67969pt x 455.45157pt>
-File: Figures/Simulink.png Graphic file (type png)
 
-<use Figures/Simulink.png>
-Package pdftex.def Info: Figures/Simulink.png used on input line 1123.
-(pdftex.def)             Requested size: 474.26347pt x 182.1774pt.
-
-Overfull \hbox (4.50845pt too wide) in paragraph at lines 1123--1124
- [][] 
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1124--1124
+|[][][][][][][]| 
  []
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 Overfull \hbox (3.0pt too wide) in paragraph at lines 1129--1129
 |[][][][][][][]| 
  []
 
-<Figures/H_Bridge.png, id=404, 737.00343pt x 412.54124pt>
-File: Figures/H_Bridge.png Graphic file (type png)
+<Figures/Simulink.png, id=686, 1185.67969pt x 455.45157pt>
+File: Figures/Simulink.png Graphic file (type png)
 
-<use Figures/H_Bridge.png>
-Package pdftex.def Info: Figures/H_Bridge.png used on input line 1133.
-(pdftex.def)             Requested size: 294.79614pt x 165.01357pt.
+<use Figures/Simulink.png>
+Package pdftex.def Info: Figures/Simulink.png used on input line 1133.
+(pdftex.def)             Requested size: 474.26347pt x 182.1774pt.
+
+Overfull \hbox (4.50845pt too wide) in paragraph at lines 1133--1134
+ [][] 
+ []
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -1435,34 +1428,34 @@ Overfull \hbox (3.0pt too wide) in paragraph at lines 1139--1139
 |[][][][][][][]| 
  []
 
+<Figures/H_Bridge.png, id=687, 737.00343pt x 412.54124pt>
+File: Figures/H_Bridge.png Graphic file (type png)
 
-Underfull \hbox (badness 10000) in paragraph at lines 1140--1143
+<use Figures/H_Bridge.png>
+Package pdftex.def Info: Figures/H_Bridge.png used on input line 1143.
+(pdftex.def)             Requested size: 294.79614pt x 165.01357pt.
 
- []
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 1146--1146
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1149--1149
 |[][][][][][][]| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1147--1150
+Underfull \hbox (badness 10000) in paragraph at lines 1150--1153
 
  []
 
-[19]
-Overfull \hbox (3.0pt too wide) in paragraph at lines 1153--1153
+[20]
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1156--1156
 |[][][][][][][]| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1154--1156
+Underfull \hbox (badness 10000) in paragraph at lines 1157--1160
 
- []
-
-
-Overfull \hbox (3.0pt too wide) in paragraph at lines 1159--1159
-|[][][][][][][]| 
  []
 
 
@@ -1470,18 +1463,24 @@ Overfull \hbox (3.0pt too wide) in paragraph at lines 1163--1163
 |[][][][][][][]| 
  []
 
-[20 <./Figures/Simulink.png> <./Figures/H_Bridge.png>]
-Overfull \hbox (3.0pt too wide) in paragraph at lines 1168--1168
+
+Underfull \hbox (badness 10000) in paragraph at lines 1164--1166
+
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1169--1169
 |[][][][][][][]| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1170--1171
-
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1173--1173
+|[][][][][][][]| 
  []
 
-
-Underfull \vbox (badness 10000) detected at line 1178
+[21 <./Figures/Simulink.png> <./Figures/H_Bridge.png>]
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1178--1178
+|[][][][][][][]| 
  []
 
 
@@ -1490,259 +1489,1071 @@ Underfull \hbox (badness 10000) in paragraph at lines 1180--1181
  []
 
 
-Underfull \vbox (badness 10000) detected at line 1187
+Underfull \vbox (badness 10000) detected at line 1188
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 1191--1191
+Underfull \hbox (badness 10000) in paragraph at lines 1190--1191
+
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 1197
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1201--1201
 |[][][][][][][]| 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 1199
+Underfull \vbox (badness 10000) detected at line 1209
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 1203--1203
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1213--1213
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 1208--1208
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1218--1218
 |[][][][][][][]| 
  []
 
-
-Overfull \hbox (3.0pt too wide) in paragraph at lines 1214--1214
+[22]
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1227--1227
 |[][][][][][][]| 
  []
 
-<Figures/DC_PumpSim.png, id=427, 729.47531pt x 242.40562pt>
+<Figures/DC_PumpSim.png, id=721, 729.47531pt x 242.40562pt>
 File: Figures/DC_PumpSim.png Graphic file (type png)
 
 <use Figures/DC_PumpSim.png>
-Package pdftex.def Info: Figures/DC_PumpSim.png used on input line 1218.
+Package pdftex.def Info: Figures/DC_PumpSim.png used on input line 1231.
 (pdftex.def)             Requested size: 437.68855pt x 145.44447pt.
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Overfull \hbox (3.0pt too wide) in paragraph at lines 1225--1225
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1238--1238
 |[][][][][][][]| 
  []
 
-<Figures/Pump.png, id=428, 653.44125pt x 427.5975pt>
+<Figures/Pump.png, id=722, 653.44125pt x 427.5975pt>
 File: Figures/Pump.png Graphic file (type png)
  <use Figures/Pump.png>
-Package pdftex.def Info: Figures/Pump.png used on input line 1229.
+Package pdftex.def Info: Figures/Pump.png used on input line 1242.
 (pdftex.def)             Requested size: 392.06776pt x 256.56047pt.
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[21]
-Overfull \hbox (3.0pt too wide) in paragraph at lines 1239--1239
+[23 <./Figures/DC_PumpSim.png> <./Figures/Pump.png>]
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1252--1252
 |[][][][][][][]| 
  []
 
-<Figures/TempSensor.png, id=443, 516.42938pt x 430.60875pt>
+<Figures/TempSensor.png, id=730, 516.42938pt x 430.60875pt>
 File: Figures/TempSensor.png Graphic file (type png)
 
 <use Figures/TempSensor.png>
-Package pdftex.def Info: Figures/TempSensor.png used on input line 1243.
+Package pdftex.def Info: Figures/TempSensor.png used on input line 1256.
 (pdftex.def)             Requested size: 309.86002pt x 258.36723pt.
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Overfull \hbox (3.0pt too wide) in paragraph at lines 1249--1249
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1262--1262
 |[][][][][][][]| 
  []
 
-<Figures/WeightSensors.png, id=444, 474.27188pt x 428.35031pt>
+<Figures/WeightSensors.png, id=731, 474.27188pt x 428.35031pt>
 File: Figures/WeightSensors.png Graphic file (type png)
 
 <use Figures/WeightSensors.png>
-Package pdftex.def Info: Figures/WeightSensors.png used on input line 1253.
+Package pdftex.def Info: Figures/WeightSensors.png used on input line 1266.
 (pdftex.def)             Requested size: 237.13536pt x 214.17462pt.
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Overfull \hbox (3.0pt too wide) in paragraph at lines 1259--1259
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1272--1272
 |[][][][][][][]| 
  []
 
-[22 <./Figures/DC_PumpSim.png> <./Figures/Pump.png>]
-Overfull \hbox (3.0pt too wide) in paragraph at lines 1269--1269
+[24 <./Figures/TempSensor.png> <./Figures/WeightSensors.png>]
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1282--1282
 |[][][][][][][]| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1270--1278
+Underfull \hbox (badness 10000) in paragraph at lines 1283--1291
 
  []
 
-[23 <./Figures/TempSensor.png> <./Figures/WeightSensors.png>]
-Overfull \hbox (3.0pt too wide) in paragraph at lines 1281--1281
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1294--1294
 |[][][][][][][]| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1283--1286
+Underfull \hbox (badness 10000) in paragraph at lines 1296--1299
 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 1289--1289
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1302--1302
 |[][][][][][][]| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1290--1292
+Underfull \hbox (badness 10000) in paragraph at lines 1303--1305
 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 1296--1296
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1309--1309
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 1300--1300
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1313--1313
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 1305--1305
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1318--1318
 |[][][][][][][]| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1307--1308
+Underfull \hbox (badness 10000) in paragraph at lines 1320--1321
 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 1312
+Underfull \vbox (badness 10000) detected at line 1325
+ []
+
+[25]
+Underfull \hbox (badness 10000) in paragraph at lines 1331--1332
+
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1314--1315
-
+Underfull \vbox (badness 10000) detected at line 1338
  []
 
 
-Underfull \vbox (badness 10000) detected at line 1321
- []
-
-
-Overfull \hbox (3.0pt too wide) in paragraph at lines 1324--1324
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1341--1341
 |[][][][][][][]| 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 1329
+Underfull \vbox (badness 10000) detected at line 1346
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 1333--1333
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1350--1350
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 1338--1338
-|[][][][][][][]| 
- []
-
-[24]
-Overfull \hbox (3.0pt too wide) in paragraph at lines 1343--1343
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1355--1355
 |[][][][][][][]| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1344--1347
-
- []
-
-
-Overfull \hbox (3.0pt too wide) in paragraph at lines 1351--1351
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1360--1360
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (9.39711pt too wide) in paragraph at lines 1355--1355
+Underfull \hbox (badness 10000) in paragraph at lines 1361--1364
+
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1368--1368
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (9.39711pt too wide) in paragraph at lines 1372--1372
 []|$[]$| 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 1383
+Underfull \vbox (badness 10000) detected at line 1400
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 1389--1389
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1406--1406
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 1395--1395
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1412--1412
+|[][][][][][][]| 
+ []
+
+[26]
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1419--1419
 |[][][][][][][]| 
  []
 
 
-Overfull \hbox (3.0pt too wide) in paragraph at lines 1400--1400
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1423--1423
 |[][][][][][][]| 
  []
 
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 1404
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1428--1428
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1433--1433
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1457--1457
+|[][][][][][][]| 
+ []
+
+<figures/Client_UsesDiagram.png, id=764, 974.64125pt x 964.60374pt>
+File: figures/Client_UsesDiagram.png Graphic file (type png)
+
+<use figures/Client_UsesDiagram.png>
+Package pdftex.def Info: figures/Client_UsesDiagram.png used on input line 1463
+.
+(pdftex.def)             Requested size: 389.8496pt x 385.83466pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1469--1469
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1473--1473
+|[][][][][][][]| 
+ []
+
+[27]
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1505--1505
+|[][][][][][][]| 
+ []
+
+[28 <./figures/Client_UsesDiagram.png>]
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1520--1520
+|[][][][][][][]| 
+ []
+
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 1525
+.
+(/usr/local/texlive/2017/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 1525.
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1544--1544
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1562--1562
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1581--1581
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1603--1603
+|[][][][][][][]| 
+ []
+
+[29]
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1622--1622
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1632--1632
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (15.67088pt too wide) in paragraph at lines 1641--1643
+[]\T1/cmr/bx/n/10 DrinksViewAdapter(Context con-text, Ar-rayList<Drink> drinks)
+ \T1/cmr/m/n/10 Con-struc-tor for DrinksViewAdapter.
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1659--1659
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1679--1679
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1683--1683
+|[][][][][][][]| 
+ []
+
+[30]
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1734--1734
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1748--1748
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1780--1780
+|[][][][][][][]| 
+ []
+
+[31]
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1803--1803
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1826--1826
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (30.58252pt too wide) in paragraph at lines 1853--1855
+[]\T1/cmr/bx/n/10 private se-tUpRaw-Cart-Data():void \T1/cmr/m/n/10 Uses the in
+-for-ma-tion from the cur-rent-Cart to set up an Ar-rayList<String[]>.
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1858--1858
+|[][][][][][][]| 
+ []
+
+[32]
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1887--1887
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1900--1900
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (48.885pt too wide) in paragraph at lines 1914--1916
+[]\T1/cmr/bx/n/10 public DrinksViewAdapter(Context con-text, Ar-rayList<Drink> 
+drinks) \T1/cmr/m/n/10 Con-struc-tor for DrinksViewAdapter.
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1931--1931
+|[][][][][][][]| 
+ []
+
+[33]
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1957--1957
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1961--1961
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1966--1966
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1972--1972
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1980--1980
+|[][][][][][][]| 
+ []
+
+<figures/Manager_UsesDiagram.png, id=824, 512.91624pt x 395.4775pt>
+File: figures/Manager_UsesDiagram.png Graphic file (type png)
+
+<use figures/Manager_UsesDiagram.png>
+Package pdftex.def Info: figures/Manager_UsesDiagram.png used on input line 198
+4.
+(pdftex.def)             Requested size: 205.16286pt x 158.18819pt.
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1991--1991
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 1995--1995
+|[][][][][][][]| 
+ []
+
+[34 <./figures/Manager_UsesDiagram.png>]
+Overfull \hbox (3.0pt too wide) in paragraph at lines 2020--2020
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 2040--2040
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 2055--2055
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 2059--2059
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 2086--2086
+|[][][][][][][]| 
+ []
+
+[35]
+Overfull \hbox (3.0pt too wide) in paragraph at lines 2126--2126
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 2147--2147
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 2151--2151
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 2156--2156
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 2162--2162
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 2170--2170
+|[][][][][][][]| 
+ []
+
+<figures/Alfred_UsesDiagram.png, id=841, 1285.80376pt x 651.43375pt>
+File: figures/Alfred_UsesDiagram.png Graphic file (type png)
+
+<use figures/Alfred_UsesDiagram.png>
+Package pdftex.def Info: figures/Alfred_UsesDiagram.png used on input line 2173
+.
+(pdftex.def)             Requested size: 488.6105pt x 247.5474pt.
+
+Overfull \hbox (18.85548pt too wide) in paragraph at lines 2173--2174
+ [][] 
+ []
+
+[36]
+Overfull \hbox (3.0pt too wide) in paragraph at lines 2179--2179
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 2183--2183
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 2205--2205
+|[][][][][][][]| 
+ []
+
+[37 <./figures/Alfred_UsesDiagram.png>]
+Overfull \hbox (3.0pt too wide) in paragraph at lines 2227--2227
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 2246--2246
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 2271--2271
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 2289--2289
+|[][][][][][][]| 
+ []
+
+[38]
+Overfull \hbox (3.0pt too wide) in paragraph at lines 2310--2310
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 2326--2326
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 2340--2340
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 2378--2378
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 2382--2382
+|[][][][][][][]| 
+ []
+
+[39]
+<figures/AlfredSystem_DetermineState.png, id=874, 1090.0725pt x 374.14781pt>
+File: figures/AlfredSystem_DetermineState.png Graphic file (type png)
+
+<use figures/AlfredSystem_DetermineState.png>
+Package pdftex.def Info: figures/AlfredSystem_DetermineState.png used on input 
+line 2408.
+(pdftex.def)             Requested size: 436.02127pt x 149.65646pt.
+
+<figures/AlfredSystem_PerformAction.png, id=875, 956.07187pt x 203.25937pt>
+File: figures/AlfredSystem_PerformAction.png Graphic file (type png)
+
+<use figures/AlfredSystem_PerformAction.png>
+Package pdftex.def Info: figures/AlfredSystem_PerformAction.png used on input l
+ine 2417.
+(pdftex.def)             Requested size: 382.42197pt x 81.30229pt.
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 2419--2419
+|[][][][][][][]| 
+ []
+
+[40 <./figures/AlfredSystem_DetermineState.png> <./figures/AlfredSystem_Perform
+Action.png>]
+Overfull \hbox (3.0pt too wide) in paragraph at lines 2453--2453
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 2500--2500
+|[][][][][][][]| 
+ []
+
+[41]
+Overfull \hbox (3.0pt too wide) in paragraph at lines 2527--2527
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 2548--2548
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 2589--2589
+|[][][][][][][]| 
+ []
+
+[42]
+Overfull \hbox (3.0pt too wide) in paragraph at lines 2608--2608
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 2627--2627
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 2671--2671
+|[][][][][][][]| 
+ []
+
+[43]
+Overfull \hbox (3.0pt too wide) in paragraph at lines 2712--2712
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 2717--2717
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 2722--2722
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 2727--2727
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 2733--2733
+|[][][][][][][]| 
+ []
+
+<figures/Pumping_UsesDiagram.png, id=908, 741.77126pt x 552.0625pt>
+File: figures/Pumping_UsesDiagram.png Graphic file (type png)
+
+<use figures/Pumping_UsesDiagram.png>
+Package pdftex.def Info: figures/Pumping_UsesDiagram.png used on input line 273
+6.
+(pdftex.def)             Requested size: 296.70325pt x 220.82108pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 2742--2742
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 2746--2746
+|[][][][][][][]| 
+ []
+
+[44]
+Overfull \hbox (3.0pt too wide) in paragraph at lines 2790--2790
+|[][][][][][][]| 
+ []
+
+[45 <./figures/Pumping_UsesDiagram.png>]
+Overfull \hbox (3.0pt too wide) in paragraph at lines 2828--2828
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 2847--2847
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 2851--2851
+|[][][][][][][]| 
+ []
+
+<figures/Pumping_DetermineState.png, id=922, 971.12813pt x 466.74374pt>
+File: figures/Pumping_DetermineState.png Graphic file (type png)
+
+<use figures/Pumping_DetermineState.png>
+Package pdftex.def Info: figures/Pumping_DetermineState.png used on input line 
+2881.
+(pdftex.def)             Requested size: 437.00362pt x 210.03275pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<figures/Pumping_PerformActions.png, id=923, 553.31718pt x 380.92313pt>
+File: figures/Pumping_PerformActions.png Graphic file (type png)
+
+<use figures/Pumping_PerformActions.png>
+Package pdftex.def Info: figures/Pumping_PerformActions.png used on input line 
+2889.
+(pdftex.def)             Requested size: 248.99043pt x 171.41382pt.
+ [46]
+Overfull \hbox (3.0pt too wide) in paragraph at lines 2894--2894
+|[][][][][][][]| 
+ []
+
+[47 <./figures/Pumping_DetermineState.png> <./figures/Pumping_PerformActions.pn
+g>]
+Overfull \hbox (3.0pt too wide) in paragraph at lines 2939--2939
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 2960--2960
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 2964--2964
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 2969--2969
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 2974--2974
+|[][][][][][][]| 
+ []
+
+[48]
+Overfull \hbox (3.0pt too wide) in paragraph at lines 2981--2981
+|[][][][][][][]| 
+ []
+
+<figures/server_class_diagram.PNG, id=944, 573.64313pt x 415.5525pt>
+File: figures/server_class_diagram.PNG Graphic file (type png)
+
+<use figures/server_class_diagram.PNG>
+Package pdftex.def Info: figures/server_class_diagram.PNG used on input line 29
+84.
+(pdftex.def)             Requested size: 315.50468pt x 228.55458pt.
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 2990--2990
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 2994--2994
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 3017--3017
+|[][][][][][][]| 
+ []
+
+[49 <./figures/server_class_diagram.PNG>]
+Overfull \hbox (3.0pt too wide) in paragraph at lines 3045--3045
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 3058--3058
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 3079--3079
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 3102--3102
+|[][][][][][][]| 
+ []
+
+[50]
+Overfull \hbox (3.0pt too wide) in paragraph at lines 3115--3115
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 3142--3142
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 3157--3157
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 3161--3161
+|[][][][][][][]| 
+ []
+
+[51]
+Overfull \hbox (61.69159pt too wide) in paragraph at lines 3207--3267
+[]\T1/cmr/bx/n/10 Placeinline \T1/cmr/m/n/10 Call check-To-ken for ta-ble au-th
+en-ti-ca-tion If passed, search queue for or-der_id res.write(placeInLine.toStr
+ing()); 
+ []
+
+
+Overfull \hbox (56.69975pt too wide) in paragraph at lines 3207--3267
+\T1/cmr/bx/n/10 Nextorder \T1/cmr/m/n/10 Call check-To-ken for robot au-then-ti
+-ca-tion If passed, call queue's pop func-tion res.write(placeInLine.toString()
+); 
+ []
+
+
+Overfull \hbox (61.05315pt too wide) in paragraph at lines 3207--3267
+\T1/cmr/bx/n/10 Tables (POST) \T1/cmr/m/n/10 Call check-Auth for ad-min au-then
+-ti-ca-tion If passed, call ad-dTable func-tion res.write(JSON.stringify(token:
+
+ []
+
+[52]
+Overfull \hbox (3.0pt too wide) in paragraph at lines 3270--3270
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (36.48941pt too wide) in paragraph at lines 3302--3309
+[]\T1/cmr/bx/n/10 search(order_id, cb): void \T1/cmr/m/n/10 in-dex = helper.bin
+Search(queue, or-der_id) if (in-dex >= 0)  cb(null, (that.queue.length
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 3318--3318
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 3338--3338
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (2.99232pt too wide) in paragraph at lines 3354--3361
+[]\T1/cmr/bx/n/10 Functions Ba-si-cAu-th-Man-ager(): void \T1/cmr/m/n/10 If CRE
+DS_PATH ex-ists _hash-Creds = read-File(CREDS_PATH)
+ []
+
+[53]
+Overfull \hbox (73.37346pt too wide) in paragraph at lines 3368--3374
+[]\T1/cmr/bx/n/10 update(uName, pw, cb): void \T1/cmr/m/n/10 mu-tex_auth.lock()
+ _hashed-Creds = hash(uName + ':' + pw) writeToFile(CREDS_PATH,
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 3377--3377
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 3416--3416
+|[][][][][][][]| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3426--3479
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3426--3479
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3426--3479
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3426--3479
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3426--3479
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3426--3479
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3426--3479
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3426--3479
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3426--3479
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3426--3479
+
+ []
+
+[54]
+Overfull \hbox (3.0pt too wide) in paragraph at lines 3480--3480
+|[][][][][][][]| 
+ []
+
+[55]
+Overfull \hbox (3.0pt too wide) in paragraph at lines 3525--3525
+|[][][][][][][]| 
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 3550--3550
+|[][][][][][][]| 
+ []
+
+<figures/Alfred_SequenceDiagram.png, id=999, 545.03625pt x 400.49625pt>
+File: figures/Alfred_SequenceDiagram.png Graphic file (type png)
+
+<use figures/Alfred_SequenceDiagram.png>
+Package pdftex.def Info: figures/Alfred_SequenceDiagram.png used on input line 
+3554.
+(pdftex.def)             Requested size: 327.02428pt x 240.29959pt.
+ [56 <./figures/Alfred_SequenceDiagram.png>]
+Overfull \hbox (3.0pt too wide) in paragraph at lines 3562--3562
+|[][][][][][][]| 
+ []
+
+<figures/CAD_Top_View.png, id=1006, 783.92876pt x 502.87875pt>
+File: figures/CAD_Top_View.png Graphic file (type png)
+
+<use figures/CAD_Top_View.png>
+Package pdftex.def Info: figures/CAD_Top_View.png used on input line 3566.
+(pdftex.def)             Requested size: 431.16216pt x 276.58417pt.
+
+<figures/CAD_Front_View.png, id=1007, 783.92876pt x 501.875pt>
+File: figures/CAD_Front_View.png Graphic file (type png)
+
+<use figures/CAD_Front_View.png>
+Package pdftex.def Info: figures/CAD_Front_View.png used on input line 3572.
+(pdftex.def)             Requested size: 431.16216pt x 276.03209pt.
+ [57 <./figures/CAD_Top_View.png>]
+<figures/CAD_Liquid_Storage.png, id=1014, 782.925pt x 499.8675pt>
+File: figures/CAD_Liquid_Storage.png Graphic file (type png)
+
+<use figures/CAD_Liquid_Storage.png>
+Package pdftex.def Info: figures/CAD_Liquid_Storage.png used on input line 3578
+.
+(pdftex.def)             Requested size: 430.61008pt x 274.92796pt.
+
+<figures/CAD_Pumping_System.png, id=1015, 781.92125pt x 497.86pt>
+File: figures/CAD_Pumping_System.png Graphic file (type png)
+
+<use figures/CAD_Pumping_System.png>
+Package pdftex.def Info: figures/CAD_Pumping_System.png used on input line 3584
+.
+(pdftex.def)             Requested size: 430.05801pt x 273.82384pt.
+ [58 <./figures/CAD_Front_View.png> <./figures/CAD_Liquid_Storage.png>]
+<figures/CAD_Electrical_Storage.png, id=1023, 782.925pt x 500.87125pt>
+File: figures/CAD_Electrical_Storage.png Graphic file (type png)
+
+<use figures/CAD_Electrical_Storage.png>
+Package pdftex.def Info: figures/CAD_Electrical_Storage.png used on input line 
+3590.
+(pdftex.def)             Requested size: 430.61008pt x 275.48003pt.
+
+<figures/CAD_Battery_Storage.png, id=1024, 784.9325pt x 499.8675pt>
+File: figures/CAD_Battery_Storage.png Graphic file (type png)
+
+<use figures/CAD_Battery_Storage.png>
+Package pdftex.def Info: figures/CAD_Battery_Storage.png used on input line 359
+6.
+(pdftex.def)             Requested size: 431.7142pt x 274.92796pt.
+ [59 <./figures/CAD_Pumping_System.png> <./figures/CAD_Electrical_Storage.png>]
+
+<figures/CAD_Battery.png, id=1032, 783.92876pt x 500.87125pt>
+File: figures/CAD_Battery.png Graphic file (type png)
+
+<use figures/CAD_Battery.png>
+Package pdftex.def Info: figures/CAD_Battery.png used on input line 3602.
+(pdftex.def)             Requested size: 431.16216pt x 275.48003pt.
+
+<figures/CAD_Motor_Mount.png, id=1033, 781.92125pt x 498.86375pt>
+File: figures/CAD_Motor_Mount.png Graphic file (type png)
+
+<use figures/CAD_Motor_Mount.png>
+Package pdftex.def Info: figures/CAD_Motor_Mount.png used on input line 3608.
+(pdftex.def)             Requested size: 430.05801pt x 274.37592pt.
+ [60 <./figures/CAD_Battery_Storage.png> <./figures/CAD_Battery.png>]
+<figures/CAD_Bottom_GB.png, id=1041, 779.91376pt x 498.86375pt>
+File: figures/CAD_Bottom_GB.png Graphic file (type png)
+
+<use figures/CAD_Bottom_GB.png>
+Package pdftex.def Info: figures/CAD_Bottom_GB.png used on input line 3614.
+(pdftex.def)             Requested size: 428.9539pt x 274.37592pt.
+
+<figures/CAD_GB_Assembly.png, id=1042, 781.92125pt x 499.8675pt>
+File: figures/CAD_GB_Assembly.png Graphic file (type png)
+
+<use figures/CAD_GB_Assembly.png>
+Package pdftex.def Info: figures/CAD_GB_Assembly.png used on input line 3620.
+(pdftex.def)             Requested size: 430.05801pt x 274.92796pt.
+ [61 <./figures/CAD_Motor_Mount.png> <./figures/CAD_Bottom_GB.png>]
+<figures/CAD_Bottom_Motor_GB.png, id=1051, 784.9325pt x 500.87125pt>
+File: figures/CAD_Bottom_Motor_GB.png Graphic file (type png)
+
+<use figures/CAD_Bottom_Motor_GB.png>
+Package pdftex.def Info: figures/CAD_Bottom_Motor_GB.png used on input line 362
+6.
+(pdftex.def)             Requested size: 431.7142pt x 275.48003pt.
+
+<figures/CAD_Motor_GB.png, id=1052, 780.9175pt x 498.86375pt>
+File: figures/CAD_Motor_GB.png Graphic file (type png)
+
+<use figures/CAD_Motor_GB.png>
+Package pdftex.def Info: figures/CAD_Motor_GB.png used on input line 3632.
+(pdftex.def)             Requested size: 429.50595pt x 274.37592pt.
+ [62 <./figures/CAD_GB_Assembly.png> <./figures/CAD_Bottom_Motor_GB.png>] [63 <
+./figures/CAD_Motor_GB.png>]
+Overfull \hbox (3.0pt too wide) in paragraph at lines 3641--3641
+|[][][][][][][]| 
+ []
+
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 3644
 .
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-) [25]
+)
 
 AED: lastpage setting LastPage
-[26]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1436.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1436.
+[64]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 3678.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 3678.
  (./Design_Doc.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1436.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1436.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 3678.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 3678.
 
 Package rerunfilecheck Info: File `Design_Doc.out' has not changed.
-(rerunfilecheck)             Checksum: 0134819F07FE1E0BDE6C727E282D86A8;1686.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1436.
+(rerunfilecheck)             Checksum: A72711B033493943A16B09D02CF9848A;3838.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 3678.
  ) 
 Here is how much of TeX's memory you used:
- 10616 strings out of 492995
- 153466 string characters out of 6132704
- 401523 words of memory out of 5000000
- 13823 multiletter control sequences out of 15000+600000
+ 10998 strings out of 492995
+ 160983 string characters out of 6132704
+ 402880 words of memory out of 5000000
+ 14015 multiletter control sequences out of 15000+600000
  16481 words of font info for 43 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,12n,58p,816b,471s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,15n,58p,816b,471s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
-</usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
-/usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></u
-sr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr
-/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/l
-ocal/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/loca
-l/texlive/2017/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/
-texlive/2017/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/te
-xlive/2017/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texl
-ive/2017/texmf-dist/fonts/type1/public/cm-super/sfcc1200.pfb></usr/local/texliv
-e/2017/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb></usr/local/texlive/
-2017/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/20
-17/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/local/texlive/2017
-/texmf-dist/fonts/type1/public/cm-super/sfrm2488.pfb></usr/local/texlive/2017/t
-exmf-dist/fonts/type1/public/cm-super/sftt1000.pfb></usr/local/texlive/2017/tex
-mf-dist/fonts/type1/public/cm-super/sfxc1440.pfb>
-Output written on Design_Doc.pdf (26 pages, 545471 bytes).
+</usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
+/usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
+usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></us
+r/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/
+local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/lo
+cal/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local
+/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/
+texlive/2017/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/te
+xlive/2017/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texl
+ive/2017/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texliv
+e/2017/texmf-dist/fonts/type1/public/cm-super/sfcc1200.pfb></usr/local/texlive/
+2017/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb></usr/local/texlive/20
+17/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2017
+/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/local/texlive/2017/t
+exmf-dist/fonts/type1/public/cm-super/sfrm2488.pfb></usr/local/texlive/2017/tex
+mf-dist/fonts/type1/public/cm-super/sftt1000.pfb></usr/local/texlive/2017/texmf
+-dist/fonts/type1/public/cm-super/sfxc1440.pfb>
+Output written on Design_Doc.pdf (64 pages, 1744142 bytes).
 PDF statistics:
- 576 PDF objects out of 1000 (max. 8388607)
- 514 compressed objects within 6 object streams
- 179 named destinations out of 1000 (max. 500000)
- 260 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1202 PDF objects out of 1440 (max. 8388607)
+ 1056 compressed objects within 11 object streams
+ 339 named destinations out of 1000 (max. 500000)
+ 666 words of extra memory for PDF output out of 10000 (max. 10000000)
 

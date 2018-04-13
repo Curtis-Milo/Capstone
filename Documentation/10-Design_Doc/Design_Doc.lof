@@ -1,9 +1,27 @@
-\contentsline {figure}{\numberline {1}{\ignorespaces Drink Serving Robot Context Diagram}}{5}{figure.1}
-\contentsline {figure}{\numberline {2}{\ignorespaces Drink Serving Robot System Component Diagram}}{6}{figure.2}
-\contentsline {figure}{\numberline {3}{\ignorespaces Top level of the dc motor control system}}{20}{figure.3}
-\contentsline {figure}{\numberline {4}{\ignorespaces H-Bridge Circuit Diagram}}{20}{figure.4}
-\contentsline {figure}{\numberline {5}{\ignorespaces Top level of the dc motor control system}}{22}{figure.5}
-\contentsline {figure}{\numberline {6}{\ignorespaces DC Pump Circuit Diagram}}{22}{figure.6}
-\contentsline {figure}{\numberline {7}{\ignorespaces Top level of the dc motor control system}}{23}{figure.7}
-\contentsline {figure}{\numberline {8}{\ignorespaces Weight Detection Circuit Diagram}}{23}{figure.8}
+\contentsline {figure}{\numberline {1}{\ignorespaces Drink Serving Robot Context Diagram}}{6}{figure.1}
+\contentsline {figure}{\numberline {2}{\ignorespaces Drink Serving Robot System Component Diagram}}{7}{figure.2}
+\contentsline {figure}{\numberline {3}{\ignorespaces Top level of the dc motor control system}}{21}{figure.3}
+\contentsline {figure}{\numberline {4}{\ignorespaces H-Bridge Circuit Diagram}}{21}{figure.4}
+\contentsline {figure}{\numberline {5}{\ignorespaces Top level of the dc motor control system}}{23}{figure.5}
+\contentsline {figure}{\numberline {6}{\ignorespaces DC Pump Circuit Diagram}}{23}{figure.6}
+\contentsline {figure}{\numberline {7}{\ignorespaces Top level of the dc motor control system}}{24}{figure.7}
+\contentsline {figure}{\numberline {8}{\ignorespaces Weight Detection Circuit Diagram}}{24}{figure.8}
+\contentsline {figure}{\numberline {9}{\ignorespaces Android Client Application Uses Relation Diagram}}{28}{figure.9}
+\contentsline {figure}{\numberline {10}{\ignorespaces Alfred Uses Relation Diagram}}{34}{figure.10}
+\contentsline {figure}{\numberline {11}{\ignorespaces Alfred Uses Relation Diagram}}{37}{figure.11}
+\contentsline {figure}{\numberline {12}{\ignorespaces Uses Relation Diagram for the pumping system}}{45}{figure.12}
+\contentsline {figure}{\numberline {13}{\ignorespaces Alfred Uses Relation Diagram}}{49}{figure.13}
+\contentsline {figure}{\numberline {14}{\ignorespaces Alfred Sequence Diagram}}{56}{figure.14}
+\contentsline {figure}{\numberline {15}{\ignorespaces Engineering Model - Top View}}{57}{figure.15}
+\contentsline {figure}{\numberline {16}{\ignorespaces Engineering Model - Front View}}{58}{figure.16}
+\contentsline {figure}{\numberline {17}{\ignorespaces Engineering Model - Liquid Storage}}{58}{figure.17}
+\contentsline {figure}{\numberline {18}{\ignorespaces Engineering Model - Pumping System}}{59}{figure.18}
+\contentsline {figure}{\numberline {19}{\ignorespaces Engineering Model - Electrical Storage}}{59}{figure.19}
+\contentsline {figure}{\numberline {20}{\ignorespaces Engineering Model - Battery Storage}}{60}{figure.20}
+\contentsline {figure}{\numberline {21}{\ignorespaces Engineering Model - Battery Compartment Exploded View}}{60}{figure.21}
+\contentsline {figure}{\numberline {22}{\ignorespaces Engineering Model - Motor Mount}}{61}{figure.22}
+\contentsline {figure}{\numberline {23}{\ignorespaces Engineering Model - Bottom Gear Box}}{61}{figure.23}
+\contentsline {figure}{\numberline {24}{\ignorespaces Engineering Model - Gear Box Assembly}}{62}{figure.24}
+\contentsline {figure}{\numberline {25}{\ignorespaces Engineering Model - Gear Box Assembly}}{62}{figure.25}
+\contentsline {figure}{\numberline {26}{\ignorespaces Engineering Model - Bottom Motor Gear Box}}{63}{figure.26}
 \contentsfinish 
