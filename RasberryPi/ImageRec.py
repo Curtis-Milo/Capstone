@@ -22,10 +22,10 @@ class ImageRec():
 	def captureImage(self):
 		self.imgCounter +=1
 		Global_Camera.capture('images/ceiling'+str(self.imgCounter)+'.jpg')
+		return 'images/ceiling'+str(self.imgCounter)+'.jpg'
 
-	def checkForCircle(self):
-
-		original = cv2.imread('images/ceiling'+str(self.imgCounter)+'.jpg', 0)
+	def checkForCircle(self, imgName):
+		original = cv2.imread(imgName, 0)
 		retval, image = cv2.threshold(original, 50, 255, cv2.cv.CV_THRESH_BINARY)
 
 		el = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (5, 5))
@@ -39,7 +39,7 @@ class ImageRec():
 			cv2.cv.CV_CHAIN_APPROX_SIMPLE
 		)
 
-		drawing = cv2.imread('images/ceiling'+str(self.imgCounter)+'.jpg')
+		drawing = cv2.imread(imgName)
 
 		circles = []
 		for contour in contours:

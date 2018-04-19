@@ -9,14 +9,22 @@ from ImageRec import *
 from UltraSonicCheck import *
 from slew import *
 from PI import *
+from multiprocessing import *
 
 class DriveTrain():
 	def __init__(self):
 		#encoder pins (TODO set pins)
 		GPIO.setmode(GPIO.BCM)
+		# Shared memory between processes
+		self.manager = Manager()
+		l = self.manager.list([0, 0])
+		self.checkForCirclesFlag = Value('i', 0)
+		self.checkForCircle = Value('i', 0)
+		self.isAlive = Value('i', 1)
+
 		self.currNode =(0,0)
-		self.EncoderL = Encoder(27,22,1)
-		self.EncoderR = Encoder(10,9,0)
+		self.EncoderL = Encoder(27,22,1,l,0)
+		self.EncoderR = Encoder(10,9,0,l,1)
 		self.circleChecker = ImageRec()
 		self.UltraSonic = UltraSonic()
 		#Motor H brige GPIO pins
@@ -34,31 +42,32 @@ class DriveTrain():
 		#CALS
 		self.encoderCountsMin =10
 		self.countPerRad = 2*(38.0/math.pi)
-		self.refSpeedFrwdL = 20
-		self.refSpeedFrwdR = 15
+		self.refSpeedFrwdL = 25
+		self.refSpeedFrwdR = 20
 		self.refSpeedTurn = 100*(math.pi/30.0)
 		self.batteryMax = 18.0
-		self.hist =100
-		self.Pi_L = PI_Controller(0.05, 0.)
-		self.Pi_R = PI_Controller(0.02,0)
-		self.Pi_Angle = PI_Controller(1,1)
+		self.hist =800
+		self.Pi_L = PI_Controller(0.06, 0.04)
+		self.Pi_R = PI_Controller(0.025,0)
+		self.Pi_Angle = PI_Controller(0.8,0.01)
 
-		self.MaxOutStrtL = 20
-		self.MinOutStrtL = 15
-		self.MaxOutStrtR = 17
-		self.MinOutStrtR = 10
+		self.MaxOutStrtL = 50
+		self.MinOutStrtL = 17
+		self.MaxOutStrtR = 50
+		self.MinOutStrtR = 15
 
-		self.MaxOutTrnL = 50
-		self.MinOutTrnL = 22#55
-		self.MaxOutTrnR = 50
-		self.MinOutTrnR = 20#55
+		self.MaxOutTrnL = 60
+		self.MinOutTrnL = 45
+		self.MaxOutTrnR = 60
+		self.MinOutTrnR = 45
 
-		self.WheelRad = 0.2
-		self.RobotRad = 0.3
+		self.WheelRad = 0.09
+		self.RobotRad = 0.12
 		self.TIME_OUT = 10
-		self.MIN_DELTA = 1
+		self.MIN_DELTA = 0.1
 		self.slewRateRight = Slew(2,self.MinOutStrtR)
 		self.slewRateLeft = Slew(5,self.MinOutStrtL)
+
 
 	def driveToLocation(self,map,tablesList, TableID):
 		visited, path = map.dijsktra(self.currNode)
@@ -82,7 +91,7 @@ class DriveTrain():
 			turnAngle = (NewAngle- self.currAngle)
 
 			##self.drivetrain.turn(turnAngle)
-			print "New Angle",NewAngle,"Turn: ",turnAngle
+			print "Turn: ",turnAngle
 			self.currAngle  = NewAngle
 			##error = self.drivetrain.drive()
 			error= 0
@@ -119,10 +128,14 @@ class DriveTrain():
 		return value
 
 	def checkEncoder(self):
-		self.EncoderL.rotaryDeal()
-		self.EncoderR.rotaryDeal()
+		while self.isAlive.value:
+			self.EncoderL.rotaryDeal()
+			self.EncoderR.rotaryDeal()
 
 	def turn(self, TargetAngle):
+		self.encProcess = Process(target = self.checkEncoder)
+		self.encProcess.start()
+
 		time_prev= time.time()
 		currentAngle = 0
 		if(0 < TargetAngle):
@@ -146,8 +159,7 @@ class DriveTrain():
 		try:
 			prevT = time.time()
 			while 0.25  < abs(currentAngle - TargetAngle):
-				self.checkEncoder()
-				if time.time()-start < self.TIME_OUT:
+				if  self.TIME_OUT < time.time()-start:
 					raise Exception
 				while (time.time()-prevT) <self.MIN_DELTA:
 					pass
@@ -156,6 +168,10 @@ class DriveTrain():
 				print "distance: "+ str(distances)
 				currentAngle = mult*(distances/self.RobotRad)
 				print "CurrAng: ", str(currentAngle),"TargetAng: ", str(TargetAngle)
+
+				print "Encoder L: " + str(self.EncoderL.getEncoderCount()) +" Encoder R: " + str(self.EncoderR.getEncoderCount()) 
+					
+
 				if(currentAngle < TargetAngle):
 					sign_L = 1.0
 					sign_R = -1.0
@@ -168,9 +184,8 @@ class DriveTrain():
 					GPIO.output(self.MotorR,GPIO.LOW)
 				
 				err = abs(self.Pi_Angle.PI_Calc(TargetAngle, currentAngle))
-					
-
-					
+				
+				print "err", err
 				#Calculating Percentage
 				duty_cycleR = self.slewRateRight.slewValue(100*(err/self.batteryMax))
 				duty_cycleL = self.slewRateLeft.slewValue(100*(err/self.batteryMax))
@@ -178,22 +193,28 @@ class DriveTrain():
 				#limiting the duty cycles
 				duty_cycleR = self.limit(duty_cycleR, self.MinOutTrnR,self.MaxOutTrnR)
 				duty_cycleL = self.limit(duty_cycleL, self.MinOutTrnL,self.MaxOutTrnL)
+
+				print "Duty L: " + str(duty_cycleL) + " Duty R: " + str(duty_cycleR)
 				self.pwmRight.ChangeDutyCycle(duty_cycleR)
 				self.pwmLeft.ChangeDutyCycle(duty_cycleL)
 				self.EncoderL.resetEncoderCount()
 				self.EncoderR.resetEncoderCount()
 				prevT = time.time()
 		except Exception as e:
-			return 1
-			self.runEconderThread = False
-		
+			print(e)
+		except KeyboardInterrupt as k:
+			self.destroy()
+			GPIO.cleanup()
 		finally:
-			self.pwmRight.ChangeDutyCycle(0)
-			self.pwmLeft.ChangeDutyCycle(0)
+			self.destroy()
+			self.pwmRight.stop()
+			self.pwmLeft.stop()
 
 	def drive(self):
+		self.encProcess = Process(target = self.checkEncoder)
+		self.encProcess.start()
+
 		time_prev= time.time()
-		circlefound = False
 		GPIO.output(self.MotorL,GPIO.LOW)
 		GPIO.output(self.MotorR,GPIO.HIGH)
 		wasBlocked = False
@@ -203,12 +224,15 @@ class DriveTrain():
 		self.Pi_L.Reset()
 		self.pwmRight.start(self.MinOutStrtR)
 		self.pwmLeft.start(self.MinOutStrtL)
+		self.EncoderL.resetEncoderCount()
+		self.EncoderR.resetEncoderCount()
+		self.checkForCirclesFlag.value = 1
 		time_elapse  = 0 
 		prevT = time.time()
 		try:
-			while not circlefound:
-				self.checkEncoder()
-				notBlocked = True #self.UltraSonic.nothingBlocking()
+			self.checkForCircle.value =0 
+			while not self.checkForCircle.value:
+				notBlocked = self.UltraSonic.nothingBlocking()
 				if wasBlocked and notBlocked:
 					self.pwmRight.start(self.MinOutStrtR)
 					self.pwmLeft.start(self.MinOutStrtL)
@@ -221,15 +245,17 @@ class DriveTrain():
 					delta_t = time.time() - time_prev
 					time_elapse += delta_t
 					time_prev = time.time()
-					speedFdbk_L = self.EncoderL.getEncoderCount() /delta_t
-					speedFdbk_R = self.EncoderR.getEncoderCount() /delta_t
-					print "Encoder R: " + str(self.EncoderR.getEncoderCount()) + " Encoder L: " + str(self.EncoderL.getEncoderCount())
-					#print "Speed L: " + str(speedFdbk_L) + " Speed R: " + str(speedFdbk_R)
-					#print "Right "
-					errRight = self.Pi_R.PI_Calc(self.refSpeedFrwdR, speedFdbk_R)
-					#print "Left "
-					errLeft = self.Pi_L.PI_Calc(self.refSpeedFrwdL, speedFdbk_L)
-					#print "Error L: " + str(errLeft) + " Error R: " + str(errRight)
+					encderFdbk_L = self.EncoderL.getEncoderCount()
+					encderFdbk_R = self.EncoderR.getEncoderCount()
+					print "Encoder L: " + str(encderFdbk_L) +" Encoder R: " + str(encderFdbk_R) 
+					posn_R  = self.refSpeedFrwdR*time_elapse
+					posn_L  = self.refSpeedFrwdL*time_elapse
+					print "Position L:",posn_L," Position R:",posn_R
+					
+
+					errRight = self.Pi_R.PI_Calc(posn_R, encderFdbk_R)
+					errLeft = self.Pi_L.PI_Calc(posn_L, encderFdbk_L)
+					print "Error L: " + str(errLeft) + " Error R: " + str(errRight)
 					#Calculating Percentage
 					
 					duty_cycleR = self.slewRateRight.slewValue(100.0*(errRight/self.batteryMax))
@@ -238,43 +264,52 @@ class DriveTrain():
 					#limiting the duty cycles
 					duty_cycleR = self.limit(duty_cycleR, self.MinOutStrtR,self.MaxOutStrtR)
 					duty_cycleL = self.limit(duty_cycleL, self.MinOutStrtL,self.MaxOutStrtL)
-					#print "Duty L: " + str(duty_cycleL) + " Duty R: " + str(duty_cycleR)
+					print "Duty L: " + str(duty_cycleL) + " Duty R: " + str(duty_cycleR)
 					
 					self.pwmRight.ChangeDutyCycle(duty_cycleR)
 					self.pwmLeft.ChangeDutyCycle(duty_cycleL)
+					imgName = self.circleChecker.captureImage()
+					p = Process(target=self.checkForNode, args=(imgName,))
+					p.start()
 				else:
 					self.pwmRight.ChangeDutyCycle(0)
 					self.pwmLeft.ChangeDutyCycle(0)
 					wasBlocked = True
 					print "blocked"
 
-				self.EncoderL.resetEncoderCount()
-				self.EncoderR.resetEncoderCount()
+				
 				prevT = time.time()
-				self.circleChecker.captureImage()
-
-				if 0.1< time_elapse:
-					time_elapse =0
-					circles = self.circleChecker.checkForCircle()
-					if circles is not None:
-						#print "circles found " + str(len(circles)
-						# loop over the (x, y) coordinates and radius of the circles
-						for (x, y, r) in circles:
-							print "x: "+ str(x) +  " y: "+ str(y) + " r: "+str(r)
-							if abs(self.circleChecker.mid_x - x) < self.circleChecker.hist and abs(self.circleChecker.mid_y - y) < self.circleChecker.hist and 100< r:
-								circlefound =  True
-					else:
-						pass
-						#print "No circles"
+			
+			self.EncoderL.resetEncoderCount()
+			self.EncoderR.resetEncoderCount()
+			self.checkForCirclesFlag.value = 0		
 		except Exception as e:
 			print(e)
-			self.runEconderThread = False
-
+		except KeyboardInterrupt as k:
+			self.destroy()
+			GPIO.cleanup()
 		finally:
+			self.destroy()
 			self.pwmRight.stop()
 			self.pwmLeft.stop()
 
-
+	def checkForNode(self, imgName):
+		# while self.isAlive.value:
+			# if self.checkForCirclesFlag.value:
+			# 	sleep(1)
+		circles = self.circleChecker.checkForCircle(imgName)
+		if circles is not None:
+			#print "circles found " + str(len(circles)
+			# loop over the (x, y) coordinates and radius of the circles
+			for (x, y, r) in circles:
+				print "x: "+ str(x) +  " y: "+ str(y) + " r: "+str(r)
+				if abs(self.circleChecker.mid_x - x) < self.circleChecker.hist and abs(self.circleChecker.mid_y - y) < self.circleChecker.hist and 10< r:
+					self.checkForCircle.value =  1
+	def destroy(self):
+		self.isAlive.value = 0
+		# self.manager.shutdown()
+		# self.manager.join()
+						
 #d = DriveTrain()
 #d.drive()
 #time.sleep(1)
