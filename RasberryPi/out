@@ -17,8 +17,8 @@ Connected to HTTPS on 130.113.69.65
 POST https://130.113.69.65/+webvpn+/index.html
 Got CONNECT response: HTTP/1.1 200 OK
 CSTP connected. DPD 30, Keepalive 20
-Connected as 130.113.90.49, using SSL
-Continuing in background; pid 697
+Connected as 130.113.90.143, using SSL
+Continuing in background; pid 686
 Established DTLS connection (using GnuTLS). Ciphersuite (DTLS0.9)-(RSA)-(AES-128-CBC)-(SHA1).
 SSL negotiation with 130.113.69.65
 Server certificate verify failed: signer not found
