@@ -25,7 +25,6 @@ class DriveTrain():
 		self.currNode =(0,0)
 		self.EncoderL = Encoder(27,22,1,l,0)
 		self.EncoderR = Encoder(10,9,0,l,1)
-		self.circleChecker = ImageRec()
 		self.UltraSonic = UltraSonic()
 		#Motor H brige GPIO pins
 		self.MotorL = 18 # set GPIO-18 as Input 1 of the controller IC
@@ -214,6 +213,9 @@ class DriveTrain():
 		self.encProcess = Process(target = self.checkEncoder)
 		self.encProcess.start()
 
+		self.imgProcess = Process(target=self.checkForNode)
+		self.imgProcess.start()
+
 		time_prev= time.time()
 		GPIO.output(self.MotorL,GPIO.LOW)
 		GPIO.output(self.MotorR,GPIO.HIGH)
@@ -268,9 +270,6 @@ class DriveTrain():
 					
 					self.pwmRight.ChangeDutyCycle(duty_cycleR)
 					self.pwmLeft.ChangeDutyCycle(duty_cycleL)
-					imgName = self.circleChecker.captureImage()
-					p = Process(target=self.checkForNode, args=(imgName,))
-					p.start()
 				else:
 					self.pwmRight.ChangeDutyCycle(0)
 					self.pwmLeft.ChangeDutyCycle(0)
@@ -293,18 +292,18 @@ class DriveTrain():
 			self.pwmRight.stop()
 			self.pwmLeft.stop()
 
-	def checkForNode(self, imgName):
-		# while self.isAlive.value:
-			# if self.checkForCirclesFlag.value:
-			# 	sleep(1)
-		circles = self.circleChecker.checkForCircle(imgName)
-		if circles is not None:
-			#print "circles found " + str(len(circles)
-			# loop over the (x, y) coordinates and radius of the circles
-			for (x, y, r) in circles:
-				print "x: "+ str(x) +  " y: "+ str(y) + " r: "+str(r)
-				if abs(self.circleChecker.mid_x - x) < self.circleChecker.hist and abs(self.circleChecker.mid_y - y) < self.circleChecker.hist and 10< r:
-					self.checkForCircle.value =  1
+	def checkForNode(self):
+		circleChecker = ImageRec()
+		while self.isAlive.value:
+			imgName = circleChecker.captureImage()
+			circles = circleChecker.checkForCircle(imgName)
+			if circles is not None:
+				# print "circles found " + str(len(circles)
+				# loop over the (x, y) coordinates and radius of the circles
+				for (x, y, r) in circles:
+					print "x: "+ str(x) +  " y: "+ str(y) + " r: "+str(r)
+					if abs(circleChecker.mid_x - x) < circleChecker.hist and abs(circleChecker.mid_y - y) < circleChecker.hist and 10 < r:
+						self.checkForCircle.value =  1
 	def destroy(self):
 		self.isAlive.value = 0
 		# self.manager.shutdown()
