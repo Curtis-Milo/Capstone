@@ -304,6 +304,8 @@ class DriveTrain():
 					print "x: "+ str(x) +  " y: "+ str(y) + " r: "+str(r)
 					if abs(circleChecker.mid_x - x) < circleChecker.hist and abs(circleChecker.mid_y - y) < circleChecker.hist and 10 < r:
 						self.checkForCircle.value =  1
+		circleChecker.destroy()
+
 	def destroy(self):
 		self.isAlive.value = 0
 		# self.manager.shutdown()

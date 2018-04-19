@@ -72,3 +72,6 @@ class ImageRec():
 				print "Radius of: " + str(r)
 		else:
 			print "No Circle" 
+
+	def destroy(self):
+		Global_Camera.close()
