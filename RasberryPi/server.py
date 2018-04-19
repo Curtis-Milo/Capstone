@@ -5,7 +5,11 @@ from lib.auth import AuthHandler
 from lib.lib import reqServerToken
 from urlparse import urlparse
 
-authManager = None
+d = Manager().dict()
+d['access_token'] = None
+d['access_token'] = None
+
+authManager = AuthHandler(d)
 
 def _caseInsensitiveKey(obj, key):
     for k in obj:
@@ -47,12 +51,11 @@ class Handler(BaseHTTPRequestHandler):
 
 class Server(object):
     """Server on robot side"""
-    def __init__(self, d, port=80, address=''):
+    def __init__(self, port=80, address=''):
         super(Server, self).__init__()
         self.server_address = (address, port)
         self.server = HTTPServer(self.server_address, Handler)
         self.running = False
-        authManager = AuthHandler(d)
 
     def startServer(self):
         if not self.running:
@@ -61,6 +64,10 @@ class Server(object):
             p.start()
 
             reqServerToken()
+
+            return d
+
+        return None
 
     def stopServer(self):
         if self.running:
