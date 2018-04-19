@@ -3,7 +3,7 @@ from time import sleep
 from multiprocessing import Lock
 #https://github.com/modmypi/Rotary-Encoder/blob/master/rotary_encoder.py
 class Encoder():
-	def __init__(self,Clk,Dt,Sw, l, i, lock):
+	def __init__(self,Clk,Dt,Sw, l, i):
 		GPIO.setmode(GPIO.BCM)
 		self.Clk  = Clk
 		self.Dt  = Dt
