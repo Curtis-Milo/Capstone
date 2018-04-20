@@ -280,6 +280,7 @@ class DriveTrain():
 					self.pwmLeft.ChangeDutyCycle(duty_cycleL)
 				else:
 					blockCount += 1
+					time_prev = time.time()
 					if blockCount >= 3:
 						self.pwmRight.ChangeDutyCycle(0)
 						self.pwmLeft.ChangeDutyCycle(0)
@@ -293,7 +294,7 @@ class DriveTrain():
 						self.Pi_L.Reset()
 						time_elapse = 0
 
-						print "blocked"
+						# print "blocked"
 
 				
 				prevT = time.time()

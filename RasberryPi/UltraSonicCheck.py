@@ -39,7 +39,7 @@ class UltraSonic():#ONLY LOOKING AT FRONT SENSOR FOR NOW
 
         pulse_duration = pulse_end - pulse_start
         distance = pulse_duration * (17150.0)
-        print "distance: ",distance
+        # print "distance: ",distance
 
         if distance <  self.mindist:
             return False
