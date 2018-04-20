@@ -256,8 +256,8 @@ class Robot():
 				bitdone =1
 
 try:
+	roboServer = Server()
 	d = roboServer.startServer()
-	roboServer = Server(d)
 	robot = Robot(d)
 	robot.main()
 except Exception as e:
