@@ -209,6 +209,8 @@ class DriveTrain():
 			self.destroy()
 			self.pwmRight.stop()
 			self.pwmLeft.stop()
+			self.encProcess.join()
+			self.imgProcess.join()
 			self._reset()
 
 	def drive(self):
@@ -293,6 +295,8 @@ class DriveTrain():
 			self.destroy()
 			self.pwmRight.stop()
 			self.pwmLeft.stop()
+			self.encProcess.join()
+			self.imgProcess.join()
 			self._reset()
 
 	def checkForNode(self):
@@ -325,7 +329,6 @@ class DriveTrain():
 		self.UltraSonic.reset()
 
 		self.isAlive.value = 1
-		self.checkForCircle.value =  0
 
 	def destroy(self):
 		self.isAlive.value = 0
