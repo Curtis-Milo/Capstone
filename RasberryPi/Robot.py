@@ -268,3 +268,4 @@ except Exception as e:
  	robot.drivetrain.destroy()
  	roboServer.stopServer()
  	GPIO.cleanup()
+ 	exit()
