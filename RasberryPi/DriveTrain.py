@@ -324,6 +324,9 @@ class DriveTrain():
 		self.EncoderL.reset()
 		self.UltraSonic.reset()
 
+		self.isAlive.value = 1
+		self.checkForCircle.value =  0
+
 	def destroy(self):
 		self.isAlive.value = 0
 		# self.manager.shutdown()
