@@ -214,7 +214,6 @@ class DriveTrain():
 			self.pwmLeft.stop()
 			self.destroy()
 			self.encProcess.join()
-			self.imgProcess.join()
 			self._reset()
 
 	def drive(self):
