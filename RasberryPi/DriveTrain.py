@@ -38,7 +38,7 @@ class DriveTrain():
 		GPIO.setup(self.MotorR,GPIO.OUT)
 		GPIO.setup(self.PWM_L,GPIO.OUT)
 		GPIO.setup(self.PWM_R,GPIO.OUT)
-		self.currAngle = 0
+		self.currAngle = 3.14
 		self.pwmRight=GPIO.PWM(self.PWM_L,100) # configuring Enable pin means GPIO-04 for PWM
 		self.pwmLeft =GPIO.PWM(self.PWM_R,100) # configuring Enable pin means GPIO-04 for PWM
 		#CALS
@@ -91,12 +91,14 @@ class DriveTrain():
 			NewAngle = self.getDesiredAng(x1,x2,y1,y2)
 
 			turnAngle = (NewAngle- self.currAngle)
+			if turnAngle != 0:
+				self.drivetrain.turn(turnAngle)
 
-			##self.drivetrain.turn(turnAngle)
-			print "Turn: ",turnAngle
+			print "Turn: ", turnAngle
+
 			self.currAngle  = NewAngle
-			##error = self.drivetrain.drive()
-			error= 0
+			error = self.drivetrain.drive()
+
 			print "Forward"
 			if error !=0:
 				return 0x00001000
