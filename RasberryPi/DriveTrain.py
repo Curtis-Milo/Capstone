@@ -42,19 +42,19 @@ class DriveTrain():
 		#CALS
 		self.encoderCountsMin =10
 		self.countPerRad = 2*(38.0/math.pi)
-		self.refSpeedFrwdL = 25
-		self.refSpeedFrwdR = 20
+		self.refSpeedFrwdL = 15
+		self.refSpeedFrwdR = 10
 		self.refSpeedTurn = 100*(math.pi/30.0)
 		self.batteryMax = 18.0
-		self.hist =800
+
 		self.Pi_L = PI_Controller(0.06, 0.04)
 		self.Pi_R = PI_Controller(0.025,0)
 		self.Pi_Angle = PI_Controller(0.8,0.01)
 
 		self.MaxOutStrtL = 50
-		self.MinOutStrtL = 17
+		self.MinOutStrtL = 12
 		self.MaxOutStrtR = 50
-		self.MinOutStrtR = 15
+		self.MinOutStrtR = 10
 
 		self.MaxOutTrnL = 60
 		self.MinOutTrnL = 45
@@ -206,9 +206,9 @@ class DriveTrain():
 			self.destroy()
 			GPIO.cleanup()
 		finally:
-			self.destroy()
 			self.pwmRight.stop()
 			self.pwmLeft.stop()
+			self.destroy()
 			self.encProcess.join()
 			self.imgProcess.join()
 			self._reset()
@@ -253,15 +253,15 @@ class DriveTrain():
 					time_prev = time.time()
 					encderFdbk_L = self.EncoderL.getEncoderCount()
 					encderFdbk_R = self.EncoderR.getEncoderCount()
-					print "Encoder L: " + str(encderFdbk_L) +" Encoder R: " + str(encderFdbk_R) 
+					# print "Encoder L: " + str(encderFdbk_L) +" Encoder R: " + str(encderFdbk_R) 
 					posn_R  = self.refSpeedFrwdR*time_elapse
 					posn_L  = self.refSpeedFrwdL*time_elapse
-					print "Position L:",posn_L," Position R:",posn_R
+					# print "Position L:",posn_L," Position R:",posn_R
 					
 
 					errRight = self.Pi_R.PI_Calc(posn_R, encderFdbk_R)
 					errLeft = self.Pi_L.PI_Calc(posn_L, encderFdbk_L)
-					print "Error L: " + str(errLeft) + " Error R: " + str(errRight)
+					# print "Error L: " + str(errLeft) + " Error R: " + str(errRight)
 					#Calculating Percentage
 					
 					duty_cycleR = self.slewRateRight.slewValue(100.0*(errRight/self.batteryMax))
@@ -292,9 +292,10 @@ class DriveTrain():
 			self.destroy()
 			GPIO.cleanup()
 		finally:
-			self.destroy()
 			self.pwmRight.stop()
 			self.pwmLeft.stop()
+			print "DONE"
+			self.destroy()
 			self.encProcess.join()
 			self.imgProcess.join()
 			self._reset()
@@ -302,6 +303,7 @@ class DriveTrain():
 	def checkForNode(self):
 		camera = picamera.PiCamera()
 		circleChecker = ImageRec(camera)
+		time.sleep(4)
 		while self.isAlive.value:
 			imgName = circleChecker.captureImage()
 			circles = circleChecker.checkForCircle(imgName)
@@ -310,7 +312,8 @@ class DriveTrain():
 				# loop over the (x, y) coordinates and radius of the circles
 				for (x, y, r) in circles:
 					print "x: "+ str(x) +  " y: "+ str(y) + " r: "+str(r)
-					if abs(circleChecker.mid_x - x) < circleChecker.hist and abs(circleChecker.mid_y - y) < circleChecker.hist and 10 < r:
+					if circleChecker.isInHist(x, y) and 5 < r:
+						print circleChecker.getImgCounter()
 						self.checkForCircle.value =  1
 		camera.close()
 

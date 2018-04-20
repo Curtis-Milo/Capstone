@@ -18,8 +18,8 @@ class UltraSonic():#ONLY LOOKING AT FRONT SENSOR FOR NOW
     def nothingBlocking(self):
         
         GPIO.output(self.TRIG, False)
-        print "waiting for SENSOR to settle"
-        time.sleep(2)
+        #print "waiting for SENSOR to settle"
+        #time.sleep(.02)
 
         # set Trigger to HIGH
         GPIO.output(self.TRIG, True)

@@ -15,9 +15,15 @@ class ImageRec():
 		self.end_y = 480*(0.8)
 		self.before_x = 640*(0.2)
 		self.before_y = 480*(0.2)
-		self.hist = 3000.0
+		self.hist = 30.0
 		self.imgCounter=0
 		self.camera = camera
+		self.camera.exposure_mode = 'antishake'
+		self.camera.shutter_speed = int((1.0 / 200.0) * 1000000)
+		self.camera.iso = 500
+
+	def isInHist(self, x, y):
+		return self.hist > ((self.mid_x - x) ** 2.0 + (self.mid_y - y) ** 2.0) ** 0.5
 
 	def captureImage(self):
 		self.imgCounter +=1
@@ -57,13 +63,18 @@ class ImageRec():
 
 		return circles
 
+	def getImgCounter(self):
+		return self.imgCounter
 
 	def test(self):
 		print "Capturing Image... "
-		self.captureImage()
-		circles = self.checkForCircle()
+		# print "Settings: ", self.camera._get_camera_settings()
+		name = self.captureImage()
+		circles = self.checkForCircle(name)
 
-		if circles is not None:
+		print "Name: ", name
+
+		if len(circles):
 			# convert the (x, y) coordinates and radius of the circles to integers
 	 	
 			# loop over the (x, y) coordinates and radius of the circles
