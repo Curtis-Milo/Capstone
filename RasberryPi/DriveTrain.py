@@ -48,7 +48,7 @@ class DriveTrain():
 		self.batteryMax = 18.0
 
 		self.Pi_L = PI_Controller(0.06, 0.04)
-		self.Pi_R = PI_Controller(0.025,0)
+		self.Pi_R = PI_Controller(0.06,0)
 		self.Pi_Angle = PI_Controller(0.8,0.01)
 
 		self.MaxOutStrtL = 50
@@ -335,8 +335,8 @@ class DriveTrain():
 
 	def destroy(self):
 		self.isAlive.value = 0
-		# self.manager.shutdown()
-		# self.manager.join()
+		self.manager.shutdown()
+		self.manager.join()
 						
 #d = DriveTrain()
 #d.drive()
