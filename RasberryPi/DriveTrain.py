@@ -92,12 +92,12 @@ class DriveTrain():
 
 			turnAngle = (NewAngle- self.currAngle)
 			if turnAngle != 0:
-				self.drivetrain.turn(turnAngle)
+				self.turn(turnAngle)
 
 			print "Turn: ", turnAngle
 
 			self.currAngle  = NewAngle
-			error = self.drivetrain.drive()
+			error = self.drive()
 
 			print "Forward"
 			if error !=0:
