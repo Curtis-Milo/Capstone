@@ -51,7 +51,7 @@ class Handler(BaseHTTPRequestHandler):
 
 class SharedMemHttpServer(HTTPServer):
     def __init__(self, server_address, RequestHandlerClass, stop):
-        HTTPServer.__init__(server_address, RequestHandlerClass)
+        HTTPServer.__init__(self, server_address, RequestHandlerClass)
         self.stop = stop
 
     def serve_forever(self):
