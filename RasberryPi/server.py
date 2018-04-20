@@ -7,7 +7,7 @@ from urlparse import urlparse
 
 d = Manager().dict()
 d['access_token'] = None
-d['access_token'] = None
+d['token_type'] = None
 
 authManager = AuthHandler(d)
 
@@ -62,7 +62,7 @@ class Server(object):
     """Server on robot side"""
     def __init__(self, port=80, address=''):
         super(Server, self).__init__()
-        self.stop = Value('i', 0)
+        self.stop = Value('i', 1)
         self.server_address = (address, port)
         self.server = SharedMemHttpServer(self.server_address, Handler, self.stop)
 
