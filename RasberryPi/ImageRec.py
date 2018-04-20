@@ -5,10 +5,9 @@ import math
 import picamera
 #https://www.raspberrypi.org/documentation/usage/camera/python/README.md
 #https://www.pyimagesearch.com/2014/07/21/detecting-circles-images-using-opencv-hough-circles/
-Global_Camera = picamera.PiCamera()
+
 class ImageRec():
-	
-	def __init__(self):
+	def __init__(self, camera):
 		#CALS
 		self.mid_x = 640.0/2.0
 		self.mid_y = 480.0/2.0
@@ -18,10 +17,11 @@ class ImageRec():
 		self.before_y = 480*(0.2)
 		self.hist = 3000.0
 		self.imgCounter=0
+		self.camera = camera
 
 	def captureImage(self):
 		self.imgCounter +=1
-		Global_Camera.capture('images/ceiling'+str(self.imgCounter)+'.jpg')
+		self.camera.capture('images/ceiling'+str(self.imgCounter)+'.jpg')
 		return 'images/ceiling'+str(self.imgCounter)+'.jpg'
 
 	def checkForCircle(self, imgName):
@@ -72,6 +72,3 @@ class ImageRec():
 				print "Radius of: " + str(r)
 		else:
 			print "No Circle" 
-
-	def destroy(self):
-		Global_Camera.close()

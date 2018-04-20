@@ -10,6 +10,7 @@ from UltraSonicCheck import *
 from slew import *
 from PI import *
 from multiprocessing import *
+import picamera
 
 class DriveTrain():
 	def __init__(self):
@@ -293,7 +294,8 @@ class DriveTrain():
 			self.pwmLeft.stop()
 
 	def checkForNode(self):
-		circleChecker = ImageRec()
+		camera = picamera.PiCamera()
+		circleChecker = ImageRec(camera)
 		while self.isAlive.value:
 			imgName = circleChecker.captureImage()
 			circles = circleChecker.checkForCircle(imgName)
@@ -304,7 +306,7 @@ class DriveTrain():
 					print "x: "+ str(x) +  " y: "+ str(y) + " r: "+str(r)
 					if abs(circleChecker.mid_x - x) < circleChecker.hist and abs(circleChecker.mid_y - y) < circleChecker.hist and 10 < r:
 						self.checkForCircle.value =  1
-		circleChecker.destroy()
+		camera.close()
 
 	def destroy(self):
 		self.isAlive.value = 0
