@@ -209,6 +209,7 @@ class DriveTrain():
 			self.destroy()
 			self.pwmRight.stop()
 			self.pwmLeft.stop()
+			self._reset()
 
 	def drive(self):
 		self.encProcess = Process(target = self.checkEncoder)
@@ -292,6 +293,7 @@ class DriveTrain():
 			self.destroy()
 			self.pwmRight.stop()
 			self.pwmLeft.stop()
+			self._reset()
 
 	def checkForNode(self):
 		camera = picamera.PiCamera()
@@ -307,6 +309,14 @@ class DriveTrain():
 					if abs(circleChecker.mid_x - x) < circleChecker.hist and abs(circleChecker.mid_y - y) < circleChecker.hist and 10 < r:
 						self.checkForCircle.value =  1
 		camera.close()
+
+	def _reset(self):
+		GPIO.cleanup()
+		GPIO.setmode(GPIO.BCM)
+		GPIO.setup(self.MotorL,GPIO.OUT)
+		GPIO.setup(self.MotorR,GPIO.OUT)
+		GPIO.setup(self.PWM_L,GPIO.OUT)
+		GPIO.setup(self.PWM_R,GPIO.OUT)
 
 	def destroy(self):
 		self.isAlive.value = 0
