@@ -320,6 +320,10 @@ class DriveTrain():
 		self.pwmRight=GPIO.PWM(self.PWM_L,100) # configuring Enable pin means GPIO-04 for PWM
 		self.pwmLeft =GPIO.PWM(self.PWM_R,100) # configuring Enable pin means GPIO-04 for PWM
 
+		self.EncoderR.reset()
+		self.EncoderL.reset()
+		self.UltraSonic.reset()
+
 	def destroy(self):
 		self.isAlive.value = 0
 		# self.manager.shutdown()

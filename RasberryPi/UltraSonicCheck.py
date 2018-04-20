@@ -46,3 +46,7 @@ class UltraSonic():#ONLY LOOKING AT FRONT SENSOR FOR NOW
         else:
             return True
         
+    def reset(self):
+        GPIO.setmode(GPIO.BCM)
+        GPIO.setup(self.TRIG,GPIO.OUT)
+        GPIO.setup(self.ECHO,GPIO.IN)

@@ -43,6 +43,12 @@ class Encoder():
 		with self.lock:
 			self.l[self.i] =0
 
+	def reset(self):
+		GPIO.setmode(GPIO.BCM)
+		GPIO.setmode(GPIO.BCM)
+		GPIO.setup(self.Clk , GPIO.IN)    # input mode
+		GPIO.setup(self.Dt , GPIO.IN)
+
 	def test(self):
 		while 1:
 			self.rotaryDeal()
