@@ -257,15 +257,15 @@ class DriveTrain():
 					time_prev = time.time()
 					encderFdbk_L = self.EncoderL.getEncoderCount()
 					encderFdbk_R = self.EncoderR.getEncoderCount()
-					# print "Encoder L: " + str(encderFdbk_L) +" Encoder R: " + str(encderFdbk_R) 
+					print "Encoder L: " + str(encderFdbk_L) +" Encoder R: " + str(encderFdbk_R) 
 					posn_R  = self.refSpeedFrwdR*time_elapse
 					posn_L  = self.refSpeedFrwdL*time_elapse
-					# print "Position L:",posn_L," Position R:",posn_R
+					print "Position L:",posn_L," Position R:",posn_R
 					
 
 					errRight = self.Pi_R.PI_Calc(posn_R, encderFdbk_R)
 					errLeft = self.Pi_L.PI_Calc(posn_L, encderFdbk_L)
-					# print "Error L: " + str(errLeft) + " Error R: " + str(errRight)
+					print "Error L: " + str(errLeft) + " Error R: " + str(errRight)
 					#Calculating Percentage
 					
 					duty_cycleR = self.slewRateRight.slewValue(100.0*(errRight/self.batteryMax))
@@ -289,6 +289,8 @@ class DriveTrain():
 						self.slewRateLeft.Reset(self.MinOutStrtL)
 						self.EncoderL.resetEncoderCount()
 						self.EncoderR.resetEncoderCount()
+						self.Pi_R.Reset()
+						self.Pi_L.Reset()
 						time_elapse = 0
 
 						print "blocked"
