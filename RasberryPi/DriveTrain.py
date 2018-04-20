@@ -317,6 +317,8 @@ class DriveTrain():
 		GPIO.setup(self.MotorR,GPIO.OUT)
 		GPIO.setup(self.PWM_L,GPIO.OUT)
 		GPIO.setup(self.PWM_R,GPIO.OUT)
+		self.pwmRight=GPIO.PWM(self.PWM_L,100) # configuring Enable pin means GPIO-04 for PWM
+		self.pwmLeft =GPIO.PWM(self.PWM_R,100) # configuring Enable pin means GPIO-04 for PWM
 
 	def destroy(self):
 		self.isAlive.value = 0
