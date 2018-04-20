@@ -17,15 +17,17 @@ class DriveTrain():
 		#encoder pins (TODO set pins)
 		GPIO.setmode(GPIO.BCM)
 		# Shared memory between processes
-		self.manager = Manager()
-		l = self.manager.list([0, 0])
+		# self.manager = Manager()
+		# self.l = self.manager.list([0, 0])
+		rEncVal = Value('i', 0)
+		lEncVal = Value('i', 0)
 		self.checkForCirclesFlag = Value('i', 0)
 		self.checkForCircle = Value('i', 0)
 		self.isAlive = Value('i', 1)
 
 		self.currNode =(0,0)
-		self.EncoderL = Encoder(27,22,1,l,0)
-		self.EncoderR = Encoder(10,9,0,l,1)
+		self.EncoderL = Encoder(27,22,1,rEncVal)
+		self.EncoderR = Encoder(10,9,0,lEncVal)
 		self.UltraSonic = UltraSonic()
 		#Motor H brige GPIO pins
 		self.MotorL = 18 # set GPIO-18 as Input 1 of the controller IC
@@ -335,8 +337,8 @@ class DriveTrain():
 
 	def destroy(self):
 		self.isAlive.value = 0
-		self.manager.shutdown()
-		self.manager.join()
+		# self.manager.shutdown()
+		# self.manager.join()
 						
 #d = DriveTrain()
 #d.drive()

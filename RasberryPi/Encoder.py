@@ -3,7 +3,7 @@ from time import sleep
 from multiprocessing import Lock
 #https://github.com/modmypi/Rotary-Encoder/blob/master/rotary_encoder.py
 class Encoder():
-	def __init__(self,Clk,Dt,Sw, l, i):
+	def __init__(self,Clk,Dt,Sw, encVal):
 		GPIO.setmode(GPIO.BCM)
 		self.Clk  = Clk
 		self.Dt  = Dt
@@ -11,14 +11,13 @@ class Encoder():
 			self.Sw = -1.0
 		else:
 			self.Sw = 1.0
-		self.l = l
-		self.i = i
+		self.encVal = encVal
 
 		GPIO.setmode(GPIO.BCM)
 		GPIO.setup(self.Clk , GPIO.IN)    # input mode
 		GPIO.setup(self.Dt , GPIO.IN)
-		self.l[self.i]= 0
-		self.clkLastState =0
+
+		self.clkLastState = 0
 		self.lock = Lock()
 
 	def rotaryDeal(self):
@@ -27,21 +26,21 @@ class Encoder():
 		if clkState !=  self.clkLastState:
 			with self.lock:
 				if dtState != clkState:
-					self.l[self.i] += 1
+					self.encVal.value += 1
 				else:
-					self.l[self.i] -= 1
+					self.encVal.value -= 1
 			   
 		self.clkLastState = clkState
 
 	def getEncoderCount(self):
 		value = 0
 		with self.lock:
-			value = self.l[self.i]*self.Sw
+			value = self.encVal.value*self.Sw
 		return value
 
 	def resetEncoderCount(self):
 		with self.lock:
-			self.l[self.i] =0
+			self.encVal.value = 0
 
 	def reset(self):
 		GPIO.setmode(GPIO.BCM)
