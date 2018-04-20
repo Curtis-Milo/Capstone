@@ -57,6 +57,8 @@ class SharedMemHttpServer(HTTPServer):
     def serve_forever(self):
         while not self.stop.value:
             self.handle_request()
+        self.shutdown()
+        self.server_close()
 
 class Server(object):
     """Server on robot side"""
