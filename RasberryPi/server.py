@@ -49,17 +49,26 @@ class Handler(BaseHTTPRequestHandler):
             self._set_headers(code=404)
 
 
+class SharedMemHttpServer(HTTPServer):
+    def __init__(self, server_address, RequestHandlerClass, stop):
+        HTTPServer.__init__(server_address, RequestHandlerClass)
+        self.stop = stop
+
+    def serve_forever(self):
+        while not self.stop.value:
+            self.handle_request()
+
 class Server(object):
     """Server on robot side"""
     def __init__(self, port=80, address=''):
         super(Server, self).__init__()
+        self.stop = Value('i', 0)
         self.server_address = (address, port)
-        self.server = HTTPServer(self.server_address, Handler)
-        self.running = False
+        self.server = SharedMemHttpServer(self.server_address, Handler, self.stop)
 
     def startServer(self):
-        if not self.running:
-            self.running = True
+        if self.stop.value:
+            self.stop.value = 0
             self.p = Process(target=self.server.serve_forever)
             self.p.start()
 
@@ -70,9 +79,9 @@ class Server(object):
         return None
 
     def stopServer(self):
-        if self.running:
-            self.running = False
-            self.p.terminate()
+        if not self.stop.value:
+            self.stop.value = 1
+            self.p.join()
 
 #if __name__ == '__main__':
 #    server = Server()
