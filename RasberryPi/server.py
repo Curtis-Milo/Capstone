@@ -60,8 +60,8 @@ class Server(object):
     def startServer(self):
         if not self.running:
             self.running = True
-            p = Process(target=self.server.serve_forever)
-            p.start()
+            self.p = Process(target=self.server.serve_forever)
+            self.p.start()
 
             reqServerToken()
 
@@ -72,7 +72,7 @@ class Server(object):
     def stopServer(self):
         if self.running:
             self.running = False
-            self.server.shutdown()
+            self.p.terminate()
 
 #if __name__ == '__main__':
 #    server = Server()
