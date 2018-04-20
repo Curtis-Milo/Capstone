@@ -236,6 +236,7 @@ class DriveTrain():
 		self.EncoderR.resetEncoderCount()
 		self.checkForCirclesFlag.value = 1
 		time_elapse  = 0 
+		blockCount = 0
 		prevT = time.time()
 		try:
 			self.checkForCircle.value =0 
@@ -250,6 +251,7 @@ class DriveTrain():
 					pass
 					
 				if notBlocked:
+					blockCount = 0
 					delta_t = time.time() - time_prev
 					time_elapse += delta_t
 					time_prev = time.time()
@@ -277,10 +279,19 @@ class DriveTrain():
 					self.pwmRight.ChangeDutyCycle(duty_cycleR)
 					self.pwmLeft.ChangeDutyCycle(duty_cycleL)
 				else:
-					self.pwmRight.ChangeDutyCycle(0)
-					self.pwmLeft.ChangeDutyCycle(0)
-					wasBlocked = True
-					print "blocked"
+					blockCount += 1
+					if blockCount >= 3:
+						self.pwmRight.ChangeDutyCycle(0)
+						self.pwmLeft.ChangeDutyCycle(0)
+						wasBlocked = True
+
+						self.slewRateRight.Reset(self.MinOutStrtR)
+						self.slewRateLeft.Reset(self.MinOutStrtL)
+						self.EncoderL.resetEncoderCount()
+						self.EncoderR.resetEncoderCount()
+						time_elapse = 0
+
+						print "blocked"
 
 				
 				prevT = time.time()
