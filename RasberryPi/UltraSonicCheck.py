@@ -13,7 +13,7 @@ class UltraSonic():#ONLY LOOKING AT FRONT SENSOR FOR NOW
 
         #CALS
 
-        self.mindist =200;
+        self.mindist = 100;
         
     def nothingBlocking(self):
         
