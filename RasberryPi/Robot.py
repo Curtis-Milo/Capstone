@@ -218,7 +218,7 @@ class Robot():
 			ordersList = orderRaw["order"]
 			for x in range(len(ordersList)):
 				for y in range(int(ordersList[x]['quantity'])):
-					self.order.addOrder(ordersList[x]["tank_num"])
+					self.order.addOrder(ordersList[x]["tank_num"]-1)
 
  
 		

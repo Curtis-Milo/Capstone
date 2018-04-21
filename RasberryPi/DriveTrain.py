@@ -54,17 +54,17 @@ class DriveTrain():
 		self.Pi_Angle = PI_Controller(5.8,0.04)
 
 		self.MaxOutStrtL = 50
-		self.MinOutStrtL = 12
+		self.MinOutStrtL = 13
 		self.MaxOutStrtR = 50
-		self.MinOutStrtR = 10
+		self.MinOutStrtR = 11
 
 		self.MaxOutTrnL = 70
-		self.MinOutTrnL = 60
+		self.MinOutTrnL = 55
 		self.MaxOutTrnR = 70
 		self.MinOutTrnR = 55
 
-		self.WheelRad = 0.045
-		self.RobotRad = 0.25
+		self.WheelRad = 0.09
+		self.RobotRad = 0.15
 		self.TIME_OUT = 50
 		self.MIN_DELTA = 0.1
 		self.slewRateRight = Slew(2,self.MinOutStrtR)
@@ -106,7 +106,7 @@ class DriveTrain():
 			
 
 			error = self.drive()
-
+			error= 0
 			print "Forward"
 			if error != 0:
 				return 0x00001000

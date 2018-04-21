@@ -3,6 +3,7 @@ import argparse
 import cv2
 import math
 import picamera
+import os
 #https://www.raspberrypi.org/documentation/usage/camera/python/README.md
 #https://www.pyimagesearch.com/2014/07/21/detecting-circles-images-using-opencv-hough-circles/
 
@@ -16,7 +17,6 @@ class ImageRec():
 		self.before_x = 640*(0.2)
 		self.before_y = 480*(0.2)
 		self.hist = 150.0
-		self.imgCounter=0
 		self.camera = camera
 		self.camera.exposure_mode = 'antishake'
 		self.camera.shutter_speed = int((1.0 / 200.0) * 1000000)
@@ -26,9 +26,9 @@ class ImageRec():
 		return self.hist > ((self.mid_x - x) ** 2.0 + (self.mid_y - y) ** 2.0) ** 0.5
 
 	def captureImage(self):
-		self.imgCounter +=1
-		self.camera.capture('images/ceiling'+str(self.imgCounter)+'.jpg')
-		return 'images/ceiling'+str(self.imgCounter)+'.jpg'
+		imgName = 'images/ceiling'+str(len(os.listdir('./images')))+'.jpg'
+		self.camera.capture(imgName)
+		return imgName
 
 	def checkForCircle(self, imgName):
 		original = cv2.imread(imgName, 0)
@@ -64,7 +64,7 @@ class ImageRec():
 		return circles
 
 	def getImgCounter(self):
-		return self.imgCounter
+		return len(os.listdir('./images'))
 
 	def test(self):
 		print "Capturing Image... "
