@@ -15,7 +15,7 @@ class ImageRec():
 		self.end_y = 480*(0.8)
 		self.before_x = 640*(0.2)
 		self.before_y = 480*(0.2)
-		self.hist = 30.0
+		self.hist = 150.0
 		self.imgCounter=0
 		self.camera = camera
 		self.camera.exposure_mode = 'antishake'

@@ -25,7 +25,7 @@ class DriveTrain():
 		self.checkForCircle = Value('i', 0)
 		self.isAlive = Value('i', 1)
 
-		self.currNode =(0,0)
+		self.currNode =(0,1)
 		self.EncoderL = Encoder(27,22,1,rEncVal)
 		self.EncoderR = Encoder(10,9,0,lEncVal)
 		self.UltraSonic = UltraSonic()
@@ -51,21 +51,21 @@ class DriveTrain():
 
 		self.Pi_L = PI_Controller(0.06, 0.04)
 		self.Pi_R = PI_Controller(0.06,0)
-		self.Pi_Angle = PI_Controller(0.8,0.01)
+		self.Pi_Angle = PI_Controller(5.8,0.04)
 
 		self.MaxOutStrtL = 50
 		self.MinOutStrtL = 12
 		self.MaxOutStrtR = 50
 		self.MinOutStrtR = 10
 
-		self.MaxOutTrnL = 60
-		self.MinOutTrnL = 45
-		self.MaxOutTrnR = 60
-		self.MinOutTrnR = 45
+		self.MaxOutTrnL = 70
+		self.MinOutTrnL = 60
+		self.MaxOutTrnR = 70
+		self.MinOutTrnR = 55
 
-		self.WheelRad = 0.09
-		self.RobotRad = 0.12
-		self.TIME_OUT = 10
+		self.WheelRad = 0.045
+		self.RobotRad = 0.25
+		self.TIME_OUT = 50
 		self.MIN_DELTA = 0.1
 		self.slewRateRight = Slew(2,self.MinOutStrtR)
 		self.slewRateLeft = Slew(5,self.MinOutStrtL)
@@ -81,8 +81,12 @@ class DriveTrain():
 			toNode= path[toNode]
 
 		nodesToTravel.pop(0)
+		nodesToTravel.append(tablesList[TableID])
 		prev =self.currNode
+		print 'nodesToTravel: ', nodesToTravel
 		for nextNode in nodesToTravel:
+			# print 'prev: ', prev
+			# print 'next: ', nextNode
 			x1 = prev[0]
 			x2 = nextNode[0]
 			y1= prev[1]
@@ -90,17 +94,21 @@ class DriveTrain():
 
 			NewAngle = self.getDesiredAng(x1,x2,y1,y2)
 
-			turnAngle = (NewAngle- self.currAngle)
+			# print 'NewAngle: ', NewAngle
+
+			turnAngle = (NewAngle - self.currAngle)
 			if turnAngle != 0:
 				self.turn(turnAngle)
 
-			print "Turn: ", turnAngle
+				print "Turn: ", turnAngle
 
-			self.currAngle  = NewAngle
+				self.currAngle  = NewAngle
+			
+
 			error = self.drive()
 
 			print "Forward"
-			if error !=0:
+			if error != 0:
 				return 0x00001000
 
 			prev = nextNode
@@ -239,6 +247,7 @@ class DriveTrain():
 		time_elapse  = 0 
 		blockCount = 0
 		prevT = time.time()
+		errors = 0
 		try:
 			self.checkForCircle.value =0 
 			while not self.checkForCircle.value:
@@ -305,9 +314,11 @@ class DriveTrain():
 			self.checkForCirclesFlag.value = 0		
 		except Exception as e:
 			print(e)
+			errors=1
 		except KeyboardInterrupt as k:
 			self.destroy()
 			GPIO.cleanup()
+			errors =1
 		finally:
 			self.pwmRight.stop()
 			self.pwmLeft.stop()
@@ -316,6 +327,7 @@ class DriveTrain():
 			self.encProcess.join()
 			self.imgProcess.join()
 			self._reset()
+			return errors
 
 	def checkForNode(self):
 		camera = picamera.PiCamera()
