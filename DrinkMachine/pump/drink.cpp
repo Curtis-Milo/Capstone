@@ -215,7 +215,7 @@ void initDrink(Drink * pDrink) {
   //Cals
   WATER_CALS.onTime_sec = -1.0f;
   WATER_CALS.offTime_sec =  0.0f;
-  WATER_CALS.totalFillTime_sec = 27.5f;
+  WATER_CALS.totalFillTime_sec = 24.5f;
   WATER_CALS.pin = 7;
 
   COKE_CALS.onTime_sec = -1.0f;
