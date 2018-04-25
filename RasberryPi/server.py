@@ -5,7 +5,11 @@ from lib.auth import AuthHandler
 from lib.lib import reqServerToken
 from urlparse import urlparse
 
-authManager = None
+d = Manager().dict()
+d['access_token'] = None
+d['token_type'] = None
+
+authManager = AuthHandler(d)
 
 def _caseInsensitiveKey(obj, key):
     for k in obj:
@@ -45,27 +49,41 @@ class Handler(BaseHTTPRequestHandler):
             self._set_headers(code=404)
 
 
+class SharedMemHttpServer(HTTPServer):
+    def __init__(self, server_address, RequestHandlerClass, stop):
+        HTTPServer.__init__(self, server_address, RequestHandlerClass)
+        self.stop = stop
+
+    def serve_forever(self):
+        while not self.stop.value:
+            self.handle_request()
+        self.shutdown()
+        self.server_close()
+
 class Server(object):
     """Server on robot side"""
-    def __init__(self, d, port=80, address=''):
+    def __init__(self, port=80, address=''):
         super(Server, self).__init__()
+        self.stop = Value('i', 1)
         self.server_address = (address, port)
-        self.server = HTTPServer(self.server_address, Handler)
-        self.running = False
-        authManager = AuthHandler(d)
+        self.server = SharedMemHttpServer(self.server_address, Handler, self.stop)
 
     def startServer(self):
-        if not self.running:
-            self.running = True
-            p = Process(target=self.server.serve_forever)
-            p.start()
+        if self.stop.value:
+            self.stop.value = 0
+            self.p = Process(target=self.server.serve_forever)
+            self.p.start()
 
             reqServerToken()
 
+            return d
+
+        return None
+
     def stopServer(self):
-        if self.running:
-            self.running = False
-            self.server.shutdown()
+        if not self.stop.value:
+            self.stop.value = 1
+            self.p.join()
 
 #if __name__ == '__main__':
 #    server = Server()

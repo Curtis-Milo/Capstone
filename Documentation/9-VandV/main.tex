@@ -466,7 +466,7 @@ Testing was performed based on the systems and sub systems that were defined wit
 		14 &  Ultra Sonic Stop &  AF3 &  reference of 20 encoder counts/sec then something blocks its path &  Something is blocking the path while moving so Alfred stops &  Alfred Stopped &  pass 
 		\\ \hline
 
-		15 &  Turn of 90deg &  AF3 &  A reference of 90 degrees &  Alfred will turn 90deg and stop &  Alfred continued to turn &  fail- needs to be re-designed.
+		15 &  Turn of 90deg &  AF3 &  A reference of 90 degrees &  Alfred will turn 90deg and stop &  Alfred will turn 90deg and stop &  Pass
 		\\ \hline
 	\end{longtable}
 
@@ -483,7 +483,10 @@ Testing was performed based on the systems and sub systems that were defined wit
 	\\ \hline
 	18 &  Image processing stop with node at ceiling away &  AF3 &  An image further away at ceiling height distance &  Has reached the next node so Alfred stops motion &  Alfred Stopped &  Conditional pass- needed lighting
 	\\ \hline
-	
+	19 &  Image processing False Positive 1 &  AF3 &  Camera staring at a brick wall with no circles &  Alfred should continue motion &  Alfred Continued motion &  Pass
+	\\ \hline
+	20 &  Image processing False Positive 2 &  AF3 &  Camera staring at the track within MARC &  Alfred should continue motion &  Alfred Stopped &  Conditional Pass- Alfred noticed the contours within the track. This is deemed as an out of scope problem
+	\\ \hline
 	\end{longtable}
 
 
@@ -514,9 +517,24 @@ Testing was performed based on the systems and sub systems that were defined wit
 		\\ \hline  
 		10 &  Over Temperature error when tank is empty &  AF2 &  a hot liquid &  Over Temperature Error &  Over Temperature Error &  Pass
 		\\ \hline  
-		11 &  Not over Tempature error when tank is empty &  AF2 &  a cold liquid &  No Over Temperature Error &  Nothing &  Pass \\ \hline  
+		11 &  Not over Temperature error when tank is empty &  AF2 &  a cold liquid &  No Over Temperature Error &  Nothing &  Pass \\ \hline  
 	\end{longtable}
+\newpage
+\subsection {Integration Testing}
 
+	\begin{longtable}{| p{0.1\textwidth} | p{0.225\textwidth} | p{0.135\textwidth} | p{0.1\textwidth} | p{.1\textwidth} | p{0.1\textwidth} | p{0.1\textwidth} |}\hline 
+	\rowcolor{tableCell}\textbf{Test Number} & \textbf{Description} & \textbf{Requirement Reference} & \textbf{Inputs} & \textbf{Expected Outputs} & \textbf{Actual Outputs}& \textbf{Results} \\ \hline
+	1 &  Alfred is able to pull from server and receive the next order&  AF3 &  An order from the client application & Json indicating the order & Json indicating the order &  pass
+	\\ \hline  
+	2 &  Alfred is able to pull from server and receive a modified map &  AF3 & A change from the administrative system for a change within the map of the restaurant & A text based version of the map & A text based version of the map &  pass
+	\\ \hline  
+	3 &  Alfred is able to display text in regards to the directions that must be travelled to get to table 1 &  AF3 & The map/ order from previous steps & Turn left-> Forward-> Turn Left -> Forward -> Turn Right -> Forward -> Turn Right -> Forward -> Forward & Turn left-> Forward-> Turn Left -> Forward -> Turn Right -> Forward -> Turn Right -> Forward -> Forward &  pass
+	\\ \hline  
+	4 &  Alfred is able to build a message and send an order to the pumping system &  AF1 & The order from the previous test & d1d1d1 d2d3d3x & d1d1d1 d2d3d3x &  pass
+	\\ \hline 
+	5 &  The pumping system is able to parse this message and poor to a cup based on the corresponding order &  AF1 & The message from the previous test & Dispenses 3 drinks from tank 1, 1 from tank 2 and 2 from tank 3 and replies with 0 for errors and ! for done & Dispenses 3 drinks from tank 1, 1 from tank 2 and 2 from tank 3 and replies with 0 for errors and ! for done &  pass
+	\\ \hline 
+\end{longtable}
 
 \pagebreak
 
@@ -525,11 +543,6 @@ Testing was performed based on the systems and sub systems that were defined wit
 \subsection {Code Walk-through and Code Reviews}
 Code reviews were performed with at least two of the software team that had not wrote the code in particular. When a new piece of code would be pushed. A review request would be made and the person who wrote the code would help explain the functionality of the software to the other group members. From there, group members would be advised to ask questions about the software and would suggest changes if needed.
 
-\subsection {Static Analysis}
-Will be performed within future revisions.
-
-\subsection {Formal Proofs}
-Will be performed on the Motor control/Image processing within future revisions.
 
 \section {Supporting Material}
 

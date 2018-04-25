@@ -14,7 +14,7 @@ class Order:
 		self.orders.append(order)
 
 	def getNextOrder(self):
-		return self.orders.pop()
+		return self.orders.pop(0)
 
 	def isDone(self):
 		return len(self.orders) ==0

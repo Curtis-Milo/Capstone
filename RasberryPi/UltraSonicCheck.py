@@ -13,13 +13,13 @@ class UltraSonic():#ONLY LOOKING AT FRONT SENSOR FOR NOW
 
         #CALS
 
-        self.mindist =50;
+        self.mindist = 200;
         
     def nothingBlocking(self):
         
         GPIO.output(self.TRIG, False)
-        print "waiting for SENSOR to settle"
-        time.sleep(2)
+        #print "waiting for SENSOR to settle"
+        #time.sleep(.02)
 
         # set Trigger to HIGH
         GPIO.output(self.TRIG, True)
@@ -39,10 +39,14 @@ class UltraSonic():#ONLY LOOKING AT FRONT SENSOR FOR NOW
 
         pulse_duration = pulse_end - pulse_start
         distance = pulse_duration * (17150.0)
-        print "distance: ",distance
+        # print "distance: ",distance
 
         if distance <  self.mindist:
             return False
         else:
             return True
         
+    def reset(self):
+        GPIO.setmode(GPIO.BCM)
+        GPIO.setup(self.TRIG,GPIO.OUT)
+        GPIO.setup(self.ECHO,GPIO.IN)

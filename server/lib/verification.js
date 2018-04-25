@@ -34,7 +34,7 @@ module.exports = {
 			//ensure type of drinks given and is valid or skip that part of the order
 			if (type &&  Object.keys(TYPES).indexOf(type.toUpperCase()) >= 0) {
 				temp.type = type.toUpperCase();
-				temp.tank_num = TYPES[type];
+				temp.tank_num = HELPER.caseInsensitiveKey(TYPES, type);
 			} else continue;
 
 			//ensure sizes given and is valid or default to Medium

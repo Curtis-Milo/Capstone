@@ -10,7 +10,7 @@ import sys, os
 import json
 
 class Robot():
-	def __init__(self):
+	def __init__(self, d):
 		self.drivetrain = DriveTrain();
 		self.order = None
 		self.errors = 0
@@ -27,6 +27,7 @@ class Robot():
 
 		self.state= "WaitingForRequest"
 		self.map = None
+		self.d = d
 
 	def main(self):
 		while 1:
@@ -88,9 +89,16 @@ class Robot():
 			table_ID =  self.order.getTableID()
 			timeOutErrors = self.drivetrain.driveToLocation(self.map,self.tablesList, table_ID)
 			self.errors = self.errors| timeOutErrors
+			if timeOutErrors:
+				sendErrorCode(self.d, self.errors)
+				raise Exception
+
 		elif self.statesEnum[self.state] ==4:
 			self.communicateToArduino()
 			self.donePumping = 1
+			if (self.errors):
+				sendErrorCode(self.d, self.errors)
+				raise Exception
 	
 	def determinePassable(self, lines, node1, node2):
 		
@@ -109,7 +117,7 @@ class Robot():
 	def getMap(self):
 		home_num = 0
 		table_num = 0
-		readInMap()
+		readInMap(self.d)
 		information = open("map.txt", "r").read()
 
 		self.tablesList = []
@@ -117,6 +125,7 @@ class Robot():
 		#used to determine the previous line size
 		pos = 0
 		lines = information.split('\n')
+		lines.pop(0)
 		#Used so we dont inflate memory like crazy with replicas of the same object
 		height = len(lines)
 		for i in range(len(lines)):
@@ -187,7 +196,7 @@ class Robot():
 
 		
 	def getOrder(self):
-		orderRaw =reqNextOrder() 
+		orderRaw =reqNextOrder(self.d) 
 		
 		#orderRaw ={"table_id": "2",
 		#"order_id": 1,
@@ -200,13 +209,16 @@ class Robot():
 		#"tank_num": 2,
 		#"size": "M",
 		#"quantity": 5})}
+		print "ORDER_RAW:"
+		print orderRaw
 		if (orderRaw == None):
-			self.orderRaw = None
+			self.order = None
 		else:
 			self.order = Order(int(orderRaw["table_id"])-1,orderRaw["order_id"])
 			ordersList = orderRaw["order"]
 			for x in range(len(ordersList)):
-				self.order.addOrder(ordersList[x]["tank_num"])
+				for y in range(int(ordersList[x]['quantity'])):
+					self.order.addOrder(ordersList[x]["tank_num"]-1)
 
  
 		
@@ -245,14 +257,15 @@ class Robot():
 
 try:
 	roboServer = Server()
-	roboServer.startServer()
-	robot = Robot()
+	d = roboServer.startServer()
+	robot = Robot(d)
 	robot.main()
 except Exception as e:
-	exc_type, exc_obj, exc_tb = sys.exc_info()
-	fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
-	print(exc_type, fname, exc_tb.tb_lineno)
-	print(e.message)
-	roboServer.stopServer()
-	GPIO.cleanup()
-	print "cancelled"
+ 	exc_type, exc_obj, exc_tb = sys.exc_info()
+ 	fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
+ 	print(exc_type, fname, exc_tb.tb_lineno)
+ 	print(e.message)
+ 	robot.drivetrain.destroy()
+ 	roboServer.stopServer()
+ 	GPIO.cleanup()
+ 	exit()
