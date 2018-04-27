@@ -43,7 +43,7 @@ class DriveTrain():
 		self.pwmLeft =GPIO.PWM(self.PWM_R,100) # configuring Enable pin means GPIO-04 for PWM
 		#CALS
 		self.encoderCountsMin =10
-		self.countPerRad = 2*(38.0/math.pi)
+		self.countPerRad = 2*(215.0/math.pi)
 		self.refSpeedFrwdL = 15
 		self.refSpeedFrwdR = 10
 		self.refSpeedTurn = 100*(math.pi/30.0)
@@ -63,8 +63,9 @@ class DriveTrain():
 		self.MaxOutTrnR = 70
 		self.MinOutTrnR = 55
 
-		self.WheelRad = 0.09
-		self.RobotRad = 0.15
+		#self.WheelRad = 0.09
+		#self.RobotRad = 0.2
+
 		self.TIME_OUT = 50
 		self.MIN_DELTA = 0.1
 		self.slewRateRight = Slew(2,self.MinOutStrtR)
@@ -167,29 +168,37 @@ class DriveTrain():
 		self.pwmLeft.start(self.MinOutTrnL)
 		distances =0 
 		num_rotations = 0
+
+		TargetAngle = self.countPerRad*TargetAngle/(2*math.pi)
+
+		errors = 0
+
+		back = 1
+		if TargetAngle < 0.0:
+			back = 0
+
+		TargetAngle = abs(TargetAngle)
 		start= time.time()
 		try:
 			prevT = time.time()
-			while 0.25  < abs(currentAngle - TargetAngle):
+			while  abs(self.EncoderL.getEncoderCount())< TargetAngle:
 				if  self.TIME_OUT < time.time()-start:
 					raise Exception
 				while (time.time()-prevT) <self.MIN_DELTA:
 					pass
-				
-				distances += self.WheelRad*(self.EncoderR.getEncoderCount()/self.countPerRad)
-				print "distance: "+ str(distances)
-				currentAngle = mult*(distances/self.RobotRad)
+			
+				currentAngle = self.EncoderL.getEncoderCount()
 				print "CurrAng: ", str(currentAngle),"TargetAng: ", str(TargetAngle)
 
 				print "Encoder L: " + str(self.EncoderL.getEncoderCount()) +" Encoder R: " + str(self.EncoderR.getEncoderCount()) 
 					
 
-				if(currentAngle < TargetAngle):
+				if(back):
 					sign_L = 1.0
 					sign_R = -1.0
 					GPIO.output(self.MotorL,GPIO.HIGH)
 					GPIO.output(self.MotorR,GPIO.HIGH)
-				elif(TargetAngle < currentAngle):
+				else:
 					sign_L = -1.0
 					sign_R = 1.0
 					GPIO.output(self.MotorL,GPIO.LOW)
@@ -209,11 +218,10 @@ class DriveTrain():
 				print "Duty L: " + str(duty_cycleL) + " Duty R: " + str(duty_cycleR)
 				self.pwmRight.ChangeDutyCycle(duty_cycleR)
 				self.pwmLeft.ChangeDutyCycle(duty_cycleL)
-				self.EncoderL.resetEncoderCount()
-				self.EncoderR.resetEncoderCount()
 				prevT = time.time()
 		except Exception as e:
 			print(e)
+			errors = 1
 		except KeyboardInterrupt as k:
 			self.destroy()
 			GPIO.cleanup()
@@ -223,6 +231,9 @@ class DriveTrain():
 			self.destroy()
 			self.encProcess.join()
 			self._reset()
+			self.EncoderL.resetEncoderCount()
+			self.EncoderR.resetEncoderCount()
+			return errors
 
 	def drive(self):
 		self.encProcess = Process(target = self.checkEncoder)
@@ -314,11 +325,10 @@ class DriveTrain():
 			self.checkForCirclesFlag.value = 0		
 		except Exception as e:
 			print(e)
-			errors=1
+			errors = 1
 		except KeyboardInterrupt as k:
 			self.destroy()
 			GPIO.cleanup()
-			errors =1
 		finally:
 			self.pwmRight.stop()
 			self.pwmLeft.stop()
@@ -332,7 +342,7 @@ class DriveTrain():
 	def checkForNode(self):
 		camera = picamera.PiCamera()
 		circleChecker = ImageRec(camera)
-		time.sleep(4)
+		time.sleep(6)
 		while self.isAlive.value:
 			imgName = circleChecker.captureImage()
 			circles = circleChecker.checkForCircle(imgName)
